@@ -1,0 +1,31 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# SIGO GUARDIÃO — PROXY REVERSO COM HTTPS AUTOMÁTICO (CADDY)
+# Substitua {$CHATBOTX_DOMAIN} pelo seu domínio real no .env
+# ─────────────────────────────────────────────────────────────────────────────
+
+{$CHATBOTX_DOMAIN:localhost} {
+    # Compressão moderna GZIP e Zstandard
+    encode zstd gzip
+
+    # Redirecionamento de tráfego para a interface e API do ChatbotX
+    reverse_proxy builder:3123 {
+        header_up Host {host}
+        header_up X-Real-IP {remote_host}
+        header_up X-Forwarded-For {remote_host}
+        header_up X-Forwarded-Proto {scheme}
+    }
+
+    # Cabeçalhos de Segurança
+    header {
+        Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+        X-Content-Type-Options "nosniff"
+        X-Frame-Options "SAMEORIGIN"
+        Referrer-Policy "strict-origin-when-cross-origin"
+    }
+
+    # Logs de acesso estruturados
+    log {
+        output stdout
+        format console
+    }
+}

@@ -1,0 +1,25 @@
+app = "hunter-whatsapp-gateway"
+primary_region = "gru"
+
+[build]
+  dockerfile = "Dockerfile"
+
+[env]
+  PORT = "8080"
+  WHATSAPP_SESSION_DIR = "/data/session"
+  HUNTER_WHATSAPP_TOKEN = "hunter-guardiao-whatsapp-secret-key-2026"
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = false
+  auto_start_machines = true
+  min_machines_running = 1
+
+[mounts]
+  source = "whatsapp_data"
+  destination = "/data"
+
+[[vm]]
+  size = "shared-cpu-1x"
+  memory = "256mb"

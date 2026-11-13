@@ -1,0 +1,242 @@
+@import "tailwindcss";
+@source "../src";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  color-scheme: light;
+  --background: #eaf0f8;
+  --foreground: #1e293b;
+}
+
+:root.dark,
+html.dark {
+  color-scheme: dark;
+  --background: #0c121c;
+  --foreground: #f8fafc;
+}
+
+html {
+  max-width: 100%;
+  overflow-x: clip;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  max-width: 100%;
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family:
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: clip;
+  overscroll-behavior-y: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ==============================================================================
+   BLINDAGEM VISUAL DE ALTA PERFORMANCE (ANTI-GLITCH GPU):
+   Neutraliza filtros backdrop-blur que causam re-rasterização e artefatos visuais
+   (efeito de tela fantasma/tentando ser criada no fundo) ao abrir modais,
+   ao exibir toasts do Sonner e em resoluções menores/mobile.
+   ============================================================================== */
+.backdrop-blur-none,
+.backdrop-blur-xs,
+.backdrop-blur-sm,
+.backdrop-blur-md,
+.backdrop-blur-lg,
+.backdrop-blur-xl,
+[class*="backdrop-blur"] {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* Custom scrollbars fluidas, elegantes e com zero atrito de layout */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(148, 163, 184, 0.4) transparent;
+}
+
+html.dark * {
+  scrollbar-color: rgba(51, 65, 85, 0.5) transparent;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.35);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.65);
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+  background: rgba(51, 65, 85, 0.5);
+}
+
+html.dark ::-webkit-scrollbar-thumb:hover {
+  background: rgba(51, 65, 85, 0.8);
+}
+
+/* Leaflet styles overrides */
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  background: #e2e8f0;
+}
+html.dark .leaflet-container {
+  background: #020617 !important;
+}
+
+/* Filtro Noturno Tático Militar para OpenStreetMap (100% livre de API key e sem marcas d'água) */
+.hunter-dark-tiles .leaflet-tile-pane,
+.hunter-dark-tiles .maplibregl-canvas {
+  filter: invert(100%) hue-rotate(180deg) brightness(85%) contrast(120%) saturate(30%);
+}
+
+/* Animação canônica de flutuação e levitação do Pino 3D Hunter */
+@keyframes hunterPinFloat {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes hunterPinShadow {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.55;
+  }
+  50% {
+    transform: scale(0.76);
+    opacity: 0.22;
+  }
+}
+
+.hunter-pin-floating {
+  transform: translateY(0px);
+  @media (prefers-reduced-motion: no-preference) {
+    animation: hunterPinFloat 2.6s ease-in-out infinite;
+  }
+}
+
+.hunter-pin-shadow {
+  transform: scale(1);
+  opacity: 0.55;
+  @media (prefers-reduced-motion: no-preference) {
+    animation: hunterPinShadow 2.6s ease-in-out infinite;
+  }
+}
+
+.vehicle-via-aligned,
+.hunter-generico-seta {
+  will-change: transform;
+  @media (prefers-reduced-motion: reduce) {
+    transition: none !important;
+  }
+}
+
+.custom-hunter-marker {
+  background: transparent !important;
+  border: none !important;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+ * Hunter — Ponta de Seta Piscante e Marcador de Parada Laranja no Trajeto
+ * ───────────────────────────────────────────────────────────────────────────── */
+@keyframes hunterSetaPiscar {
+  0%,
+  100% {
+    opacity: 1;
+    filter: drop-shadow(0 0 5px rgba(16, 185, 129, 0.95));
+  }
+  50% {
+    opacity: 0.35;
+    filter: drop-shadow(0 0 1px rgba(16, 185, 129, 0.25));
+  }
+}
+
+.hunter-seta-ping-container {
+  pointer-events: auto !important;
+  transform: scale(1);
+  transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hunter-seta-ping-wrapper {
+  transform: scale(1);
+  transform-origin: center center;
+  transition:
+    transform 0.15s ease,
+    opacity 0.15s ease;
+  @media (prefers-reduced-motion: no-preference) {
+    animation: hunterSetaPiscar 1.8s ease-in-out infinite;
+  }
+}
+
+.hunter-seta-ping-wrapper:hover {
+  opacity: 1 !important;
+  @media (prefers-reduced-motion: no-preference) {
+    transform: scale(1.4) !important;
+  }
+}
+
+@keyframes hunterParadaPulse {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.85;
+  }
+  70% {
+    transform: scale(1.65);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.65);
+    opacity: 0;
+  }
+}
+
+.hunter-parada-pulse-ring {
+  transform: scale(0.9);
+  opacity: 0;
+  pointer-events: none !important;
+  @media (prefers-reduced-motion: no-preference) {
+    opacity: 0.85;
+    animation: hunterParadaPulse 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+}
+
+.hunter-parada-orange-marker {
+  pointer-events: auto !important;
+  transform: scale(1);
+  transition: transform 0.15s ease;
+}
+
+.hunter-parada-orange-marker:hover {
+  z-index: 1000 !important;
+  @media (prefers-reduced-motion: no-preference) {
+    transform: scale(1.25);
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "css.lint.unknownAtRules": "ignore",
+  "docthis.includeAuthorTag": true,
+  "docthis.includeDateTag": true,
+  "docthis.includeDescriptionTag": true
+}

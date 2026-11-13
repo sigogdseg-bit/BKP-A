@@ -1,0 +1,25 @@
+{
+  "name": "SIGO Guardião — Sistema de Segurança e Rastreamento",
+  "short_name": "SIGO Guardião",
+  "description": "Sistema de Segurança e Rastreamento Veicular em Tempo Real",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#020617",
+  "theme_color": "#020617",
+  "gcm_sender_id": "103953800507",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

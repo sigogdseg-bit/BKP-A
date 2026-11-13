@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <pattern id="paper-texture" width="100" height="100" patternUnits="userSpaceOnUse">
+      <rect width="100" height="100" fill="#f8f7f4" />
+      <circle cx="20" cy="20" r="0.8" fill="#e5e2da" opacity="0.6"/>
+      <circle cx="70" cy="65" r="0.6" fill="#e0dcd2" opacity="0.5"/>
+      <circle cx="45" cy="85" r="0.7" fill="#eae7df" opacity="0.5"/>
+      <circle cx="85" cy="30" r="0.5" fill="#ded9ce" opacity="0.4"/>
+    </pattern>
+  </defs>
+
+  <!-- Fundo textura de papel de esboço -->
+  <rect width="100%" height="100%" fill="url(#paper-texture)" />
+
+  <!-- Desenho a traço do Relé Automotivo Instalado -->
+  <g stroke="#262626" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <!-- Linhas guia de proporção -->
+    <path d="M 180 180 L 580 180 M 180 430 L 580 430 M 230 140 L 230 460 M 520 140 L 520 460" stroke="#b0aba2" stroke-width="0.8" stroke-dasharray="4,4" />
+
+    <!-- Corpo do Relé -->
+    <path d="M 280 200 L 460 200 L 460 360 L 280 360 Z" stroke-width="3" />
+    <path d="M 278 198 L 462 198 L 462 362 L 278 362 Z" stroke-width="1" stroke="#555" />
+    <!-- Hachuras de grafite -->
+    <path d="M 290 350 L 320 320 M 310 350 L 340 320 M 330 350 L 360 320 M 350 350 L 380 320 M 370 350 L 400 320 M 390 350 L 420 320 M 410 350 L 440 320" stroke="#777" stroke-width="0.9" />
+
+    <!-- Face Superior e Orelha de Fixação -->
+    <path d="M 280 200 L 340 150 L 520 150 L 460 200" stroke-width="2.5" />
+    <path d="M 282 199 L 342 149 L 522 149 L 462 199" stroke-width="0.8" stroke="#666" />
+    <path d="M 400 150 L 400 115 C 400 105, 460 105, 460 115 L 460 150" stroke-width="2.2" />
+    <circle cx="430" cy="125" r="8" stroke-width="2" />
+    <circle cx="430" cy="125" r="4" stroke-width="1" stroke="#888" />
+
+    <!-- Lateral Direita -->
+    <path d="M 460 200 L 520 150 L 520 310 L 460 360" stroke-width="3" />
+    <path d="M 462 198 L 522 148 L 522 308 L 462 358" stroke-width="1" stroke="#666" />
+    <path d="M 470 340 L 515 300 M 470 320 L 515 280 M 470 300 L 515 260 M 470 280 L 515 240 M 470 260 L 515 220 M 470 240 L 515 200 M 470 220 L 515 180 M 470 200 L 515 160" stroke="#444" stroke-width="1.2" />
+
+    <!-- Base do Soquete -->
+    <path d="M 270 360 L 470 360 L 450 395 L 290 395 Z" stroke-width="2.5" fill="#f0ece4" />
+    <path d="M 270 360 L 290 395" stroke-width="2" />
+    <path d="M 470 360 L 450 395" stroke-width="2" />
+
+    <!-- Fiação e Chicote Automotivo com Acabamento Técnico -->
+    <path d="M 330 395 C 330 440, 240 450, 200 480 C 160 510, 150 540, 140 560" stroke-width="8" stroke="#333" />
+    <path d="M 330 395 C 330 440, 240 450, 200 480 C 160 510, 150 540, 140 560" stroke-width="1.5" stroke="#fcfbfa" stroke-dasharray="3,5" />
+
+    <path d="M 350 395 C 360 430, 390 460, 420 500 C 440 530, 460 550, 480 570" stroke-width="3" stroke="#222" />
+    <path d="M 370 395 C 375 425, 340 460, 310 490 C 290 515, 280 545, 275 570" stroke-width="2.5" stroke="#444" stroke-dasharray="5,2" />
+    <path d="M 410 395 C 440 420, 500 430, 560 450 C 620 470, 660 500, 690 530" stroke-width="4.5" stroke="#111" />
+    <path d="M 390 395 C 420 425, 470 440, 530 470 C 580 495, 610 520, 640 550" stroke-width="4.5" stroke="#111" />
+
+    <!-- Emenda de corte e isolamento -->
+    <rect x="540" y="440" width="35" height="20" rx="3" stroke-width="2" fill="#2d2d2d" />
+    <path d="M 545 440 L 545 460 M 555 440 L 555 460 M 565 440 L 565 460" stroke="#fcfbfa" stroke-width="1" />
+  </g>
+</svg>

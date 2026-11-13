@@ -1,0 +1,178 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# SIGO GUARDIÃO — STACK DE MICROSSERVIÇO CHATBOTX (OMNICHANNEL & AGENTES IA)
+# Alternativa Open Source ao ManyChat com WhatsApp, Telegram, Instagram e Webchat
+# ─────────────────────────────────────────────────────────────────────────────
+
+networks:
+  chatbotx-net:
+    driver: bridge
+
+volumes:
+  chatbotx-db-data:
+  chatbotx-redis-data:
+  chatbotx-storage-data:
+  caddy-data:
+  caddy-config:
+
+x-common-environment: &common-env # Chaves de Autenticação e Criptografia (Altere no arquivo .env)
+  BETTER_AUTH_SECRET: ${BETTER_AUTH_SECRET:-VLu1KcS63DTTnZU3Dh/ykI9Ld26YQXy/1IMJdZf/kHI=}
+  BETTER_AUTH_URL: ${CHATBOTX_PUBLIC_URL:-http://localhost:3123}
+  ENCRYPTION_KEY: ${ENCRYPTION_KEY:-51112f8099c4597dff033d2d94c2f4bde95802d3027ecd0944b7647a8861e53e}
+
+  # Banco de Dados TimescaleDB / PostgreSQL
+  DATABASE_URL: postgresql://${POSTGRES_USER:-chatbotx}:${POSTGRES_PASSWORD:-secretkey}@postgres:5432/${POSTGRES_DB:-chatbotx}?schema=public
+  RUN_DB_MIGRATE: "true"
+  RUN_DB_SEED: "true"
+
+  # Cache e Filas Redis
+  REDIS_URL: redis://redis:6379
+
+  # Mensageria em Tempo Real
+  REALTIME_API_KEY: ${REALTIME_API_KEY:-secretkey}
+  REALTIME_BROADCAST_SECRET: ${REALTIME_BROADCAST_SECRET:-e1aad81f3055b8270d0e2fb5692598ce47b929ab76128b158b46d3ff2de9b6d3}
+
+  # Executor de Código JavaScript / Sandbox Isolado
+  JAVASCRIPT_EXECUTOR_URL: http://javascript-executor:3210
+  JAVASCRIPT_EXECUTOR_TOKEN: ${JAVASCRIPT_EXECUTOR_TOKEN:-hunter-guardiao-executor-token-32chars}
+
+  # Storage S3 / RustFS
+  S3_ENDPOINT: ${S3_ENDPOINT:-http://filesystem:9000}
+  S3_ACCESS_KEY_ID: ${RUSTFS_ACCESS_KEY:-chatbotx}
+  S3_SECRET_ACCESS_KEY: ${RUSTFS_SECRET_KEY:-secretkey}
+  S3_BUCKET: chatbotx
+  S3_REGION: us-east-1
+  NEXT_PUBLIC_ASSET_URL: ${CHATBOTX_PUBLIC_URL:-http://localhost:3123}/storage/
+
+  # URLs Públicas do Construtor de Fluxos
+  NEXT_PUBLIC_BUILDER_URL: ${CHATBOTX_PUBLIC_URL:-http://localhost:3123}
+  NEXT_PUBLIC_EDITION: community
+  NODE_OPTIONS: "--max_old_space_size=2048"
+
+services:
+  # 1. Banco de Dados Principal com Suporte a Séries Temporais e Vetores
+  postgres:
+    image: timescale/timescaledb-ha:pg18.4-ts2.27.2-all
+    container_name: chatbotx-postgres
+    restart: unless-stopped
+    networks:
+      - chatbotx-net
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-chatbotx}
+      POSTGRES_USER: ${POSTGRES_USER:-chatbotx}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-secretkey}
+    volumes:
+      - chatbotx-db-data:/home/postgres/pgdata
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-chatbotx} -d ${POSTGRES_DB:-chatbotx}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # 2. Filas e Cache Distribuído
+  redis:
+    image: redis:7-alpine
+    container_name: chatbotx-redis
+    restart: unless-stopped
+    networks:
+      - chatbotx-net
+    volumes:
+      - chatbotx-redis-data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # 3. Storage S3 para Mídias de WhatsApp e Áudios
+  filesystem:
+    image: rustfs/rustfs:latest
+    container_name: chatbotx-storage
+    restart: unless-stopped
+    networks:
+      - chatbotx-net
+    environment:
+      RUSTFS_ACCESS_KEY: ${RUSTFS_ACCESS_KEY:-chatbotx}
+      RUSTFS_SECRET_KEY: ${RUSTFS_SECRET_KEY:-secretkey}
+    volumes:
+      - chatbotx-storage-data:/data
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:9000/minio/health/live || exit 1"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+
+  # 4. Sandbox Javascript Seguro
+  javascript-executor:
+    image: ghcr.io/chatbotxio/chatbotx-javascript-executor:latest
+    container_name: chatbotx-js-executor
+    restart: unless-stopped
+    networks:
+      - chatbotx-net
+    environment:
+      TOKEN: ${JAVASCRIPT_EXECUTOR_TOKEN:-hunter-guardiao-executor-token-32chars}
+
+  # 5. Servidor de Realtime
+  realtime:
+    image: ghcr.io/chatbotxio/chatbotx-realtime:latest
+    container_name: chatbotx-realtime
+    restart: unless-stopped
+    networks:
+      - chatbotx-net
+    depends_on:
+      redis:
+        condition: service_healthy
+    environment:
+      <<: *common-env
+
+  # 6. Worker de Processamento de IA, Webhooks e Filas
+  worker:
+    image: ghcr.io/chatbotxio/chatbotx-worker:latest
+    container_name: chatbotx-worker
+    restart: unless-stopped
+    networks:
+      - chatbotx-net
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      filesystem:
+        condition: service_healthy
+    environment:
+      <<: *common-env
+
+  # 7. Construtor Visual de Fluxo e Painel Web (Builder)
+  builder:
+    image: ghcr.io/chatbotxio/chatbotx-builder:latest
+    container_name: chatbotx-builder
+    restart: unless-stopped
+    networks:
+      - chatbotx-net
+    ports:
+      - "3123:3123"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      worker:
+        condition: service_started
+    environment:
+      <<: *common-env
+
+  # 8. Proxy Reverso Caddy com HTTPS Automático (Opcional para Produção)
+  caddy:
+    image: caddy:2-alpine
+    container_name: chatbotx-caddy
+    restart: unless-stopped
+    networks:
+      - chatbotx-net
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+      - caddy-config:/config
+    depends_on:
+      - builder

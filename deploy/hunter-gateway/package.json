@@ -1,0 +1,17 @@
+{
+  "name": "hunter-gps-gateway",
+  "version": "1.7.1.5",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "tsx src/hunter-gps-gateway.ts"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.108.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.16.5",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.3"
+  }
+}

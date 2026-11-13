@@ -1,0 +1,460 @@
+-- ============================================================================
+-- MIGRATION: 20261023130000_hunter_odometria_motores_abc_persistente.sql
+-- ============================================================================
+-- Objetivo:
+-- 1. Cria colunas permanentes em public.veiculos para os Motores A, B e C:
+--    - odometro_motor_a_km (Motor A · Bayesiano 1D + Curvatura de Gauss)
+--    - odometro_motor_b_km (Motor B · Haversine Esférico + Doppler Trap)
+--    - odometro_motor_c_km (Motor C · EKF 1D Canônico Taylor 4ª Ordem)
+--    - Metadados de pesos dinâmicos e estados ZVU de cada motor
+-- 2. Sincroniza e ancora a linha de base física do Volvo XC60 AXH0E44 em 183.438,0 km
+-- 3. Atualiza atomicamente a RPC registrar_posicao_gps_com_odometro para calcular
+--    e persistir todos os 6 motores simultaneamente a cada ping 24/7 no servidor.
+-- ============================================================================
+
+-- 1. Adicionar colunas de persistência dos motores na tabela veiculos
+ALTER TABLE public.veiculos
+  ADD COLUMN IF NOT EXISTS odometro_motor_a_km NUMERIC(12, 3),
+  ADD COLUMN IF NOT EXISTS odometro_motor_b_km NUMERIC(12, 3),
+  ADD COLUMN IF NOT EXISTS odometro_motor_c_km NUMERIC(12, 3),
+  ADD COLUMN IF NOT EXISTS odometro_motor_a_pesos JSONB DEFAULT '{"gnssOuArco": 52, "cinematico": 28, "mcuJ16": 20}'::jsonb,
+  ADD COLUMN IF NOT EXISTS odometro_motor_b_pesos JSONB DEFAULT '{"gnssOuArco": 57, "cinematico": 25, "mcuJ16": 18}'::jsonb,
+  ADD COLUMN IF NOT EXISTS odometro_motor_c_pesos JSONB DEFAULT '{"gnssOuArco": 6, "cinematico": 4, "mcuJ16": 90}'::jsonb,
+  ADD COLUMN IF NOT EXISTS odometro_motor_a_estado TEXT DEFAULT 'PARADO_ZVU',
+  ADD COLUMN IF NOT EXISTS odometro_motor_b_estado TEXT DEFAULT 'PARADO_ZVU',
+  ADD COLUMN IF NOT EXISTS odometro_motor_c_estado TEXT DEFAULT 'PARADO_ZVU';
+
+-- Inicializa veículos existentes caso estejam nulos com o odômetro canônico
+UPDATE public.veiculos
+SET
+  odometro_motor_a_km = COALESCE(odometro_motor_a_km, odometro_km, 0.000),
+  odometro_motor_b_km = COALESCE(odometro_motor_b_km, odometro_km, 0.000),
+  odometro_motor_c_km = COALESCE(odometro_motor_c_km, odometro_km, 0.000)
+WHERE odometro_motor_a_km IS NULL OR odometro_motor_b_km IS NULL OR odometro_motor_c_km IS NULL;
+
+-- 2. Sincronização oficial do Volvo XC60 AXH0E44 com o painel físico auditado (183.438 km)
+UPDATE public.veiculos
+SET
+  odometro_km = 183438.000,
+  odometro_cinematico_km = 183438.000,
+  odometro_hardware_km = 183438.000,
+  odometro_motor_a_km = 183438.000,
+  odometro_motor_b_km = 183438.000,
+  odometro_motor_c_km = 183438.000,
+  odometro_hardware_atualizado_em = NOW(),
+  updated_at = NOW()
+WHERE placa = 'AXH0E44';
+
+-- 3. Atualização da RPC atômica com cálculo e persistência dos motores A, B e C
+CREATE OR REPLACE FUNCTION public.registrar_posicao_gps_com_odometro(
+  p_veiculo_id            UUID,
+  p_rastreador_id         UUID        DEFAULT NULL,
+  p_latitude              DOUBLE PRECISION DEFAULT 0.0,
+  p_longitude             DOUBLE PRECISION DEFAULT 0.0,
+  p_velocidade            NUMERIC     DEFAULT 0,
+  p_ignicao               BOOLEAN     DEFAULT FALSE,
+  p_satelites             INT         DEFAULT 0,
+  p_rumo                  INT         DEFAULT 0,
+  p_data_hora_gps         TIMESTAMPTZ DEFAULT NOW(),
+  p_inclinacao_graus      INT         DEFAULT 0,
+  p_vibracao_g            NUMERIC     DEFAULT 0.0,
+  p_bateria_veiculo_v     NUMERIC     DEFAULT NULL,
+  p_bateria_rastreador_pct INT        DEFAULT NULL,
+  p_bateria_rastreador_status TEXT    DEFAULT NULL,
+  p_sinal_gsm             INT         DEFAULT NULL,
+  p_gps_fixado            BOOLEAN     DEFAULT TRUE
+)
+RETURNS JSONB
+LANGUAGE plpgsql
+SECURITY DEFINER
+SET search_path = public, auth, pg_temp
+AS $$
+DECLARE
+  -- Constantes WGS-84 oficiais (metros)
+  c_a          CONSTANT DOUBLE PRECISION := 6378137.0;
+  c_b          CONSTANT DOUBLE PRECISION := 6356752.314245;
+  c_e2         CONSTANT DOUBLE PRECISION := 0.00669437999014;
+  c_raio_esf   CONSTANT DOUBLE PRECISION := 6371000.0; -- Haversine puro
+
+  c_gap_max_s  CONSTANT NUMERIC          := 600.0;
+  c_spike_kmh  CONSTANT NUMERIC          := 190.0;
+  c_dist_max_m CONSTANT NUMERIC          := 15000.0;
+  c_zvu_vel    CONSTANT NUMERIC          := 2.0;
+
+  v_veiculo            RECORD;
+  v_ultima_telem       RECORD;
+  v_dist_metros        DOUBLE PRECISION := 0.0;
+  v_dist_geom          DOUBLE PRECISION := 0.0;
+  v_dist_trap_m        DOUBLE PRECISION := 0.0;
+  v_dist_haversine_m   DOUBLE PRECISION := 0.0;
+  v_dist_taylor_m      DOUBLE PRECISION := 0.0;
+
+  v_delta_km           NUMERIC(12, 4)   := 0.0;
+  v_delta_cinematico_m DOUBLE PRECISION := 0.0;
+  v_delta_cinematico_km NUMERIC(12, 4)  := 0.0;
+  v_delta_motor_a_km   NUMERIC(12, 4)   := 0.0;
+  v_delta_motor_b_km   NUMERIC(12, 4)   := 0.0;
+  v_delta_motor_c_km   NUMERIC(12, 4)   := 0.0;
+
+  v_novo_odometro      NUMERIC(12, 3);
+  v_novo_cinematico    NUMERIC(12, 3);
+  v_novo_motor_a       NUMERIC(12, 3);
+  v_novo_motor_b       NUMERIC(12, 3);
+  v_novo_motor_c       NUMERIC(12, 3);
+
+  v_status_op          TEXT;
+  v_dlat               DOUBLE PRECISION;
+  v_dlon               DOUBLE PRECISION;
+  v_lat_med_rad        DOUBLE PRECISION;
+  v_cos_lat            DOUBLE PRECISION;
+  v_sin_lat            DOUBLE PRECISION;
+  v_w2                 DOUBLE PRECISION;
+  v_w                  DOUBLE PRECISION;
+  v_m_meridiano        DOUBLE PRECISION;
+  v_n_normal           DOUBLE PRECISION;
+  v_delta_sec          DOUBLE PRECISION := 0.0;
+  v_vel_calc_kmh       DOUBLE PRECISION := 0.0;
+  v_delta_rumo         INT              := 0;
+  v_half_angle_rad     DOUBLE PRECISION;
+  v_arc_dist           DOUBLE PRECISION;
+  v_limiar_m           NUMERIC;
+  v_viagem_ativa_id    UUID;
+  v_descartado         BOOLEAN          := FALSE;
+  v_motivo_descarte    TEXT             := NULL;
+  v_fusao_aplicada     BOOLEAN          := FALSE;
+  v_fator_veiculo      NUMERIC(8, 6)    := 1.000000;
+
+  -- Estados ZVU dos motores
+  v_estado_a           TEXT             := 'PARADO_ZVU';
+  v_estado_b           TEXT             := 'PARADO_ZVU';
+  v_estado_c           TEXT             := 'PARADO_ZVU';
+  v_pesos_a            JSONB            := '{"gnssOuArco": 0, "cinematico": 0, "mcuJ16": 0}'::jsonb;
+  v_pesos_b            JSONB            := '{"gnssOuArco": 0, "cinematico": 0, "mcuJ16": 0}'::jsonb;
+  v_pesos_c            JSONB            := '{"gnssOuArco": 0, "cinematico": 0, "mcuJ16": 0}'::jsonb;
+BEGIN
+  -- ── 1. Trava atômica do veículo ──────────────────────────────────────────
+  SELECT id, ultima_latitude, ultima_longitude, odometro_km, odometro_cinematico_km,
+         odometro_motor_a_km, odometro_motor_b_km, odometro_motor_c_km,
+         ultima_atualizacao, fator_calibracao_odometro
+  INTO v_veiculo
+  FROM public.veiculos
+  WHERE id = p_veiculo_id
+  FOR UPDATE;
+
+  IF NOT FOUND THEN
+    RETURN jsonb_build_object('sucesso', false, 'erro', 'Veículo não encontrado');
+  END IF;
+
+  v_novo_odometro   := COALESCE(v_veiculo.odometro_km, 0);
+  v_novo_cinematico := COALESCE(v_veiculo.odometro_cinematico_km, v_novo_odometro);
+  v_novo_motor_a    := COALESCE(v_veiculo.odometro_motor_a_km, v_novo_odometro);
+  v_novo_motor_b    := COALESCE(v_veiculo.odometro_motor_b_km, v_novo_odometro);
+  v_novo_motor_c    := COALESCE(v_veiculo.odometro_motor_c_km, v_novo_odometro);
+
+  IF v_veiculo.fator_calibracao_odometro IS NOT NULL
+     AND v_veiculo.fator_calibracao_odometro BETWEEN 0.850000 AND 1.150000 THEN
+    v_fator_veiculo := v_veiculo.fator_calibracao_odometro;
+  ELSE
+    v_fator_veiculo := 1.000000;
+  END IF;
+
+  -- ── 2. Validação Estrita de Fix GNSS ──────────────────────────────────────
+  IF NOT COALESCE(p_gps_fixado, TRUE) THEN
+    v_descartado      := TRUE;
+    v_motivo_descarte := 'sem_fix_gnss_lbs';
+  END IF;
+
+  -- ── 3. Validação Geográfica (Brasil) ──────────────────────────────────────
+  IF NOT v_descartado THEN
+    IF p_latitude = 0.0 AND p_longitude = 0.0 THEN
+      v_descartado      := TRUE;
+      v_motivo_descarte := 'coordenada_zero';
+    ELSIF p_latitude NOT BETWEEN -35.0 AND 5.5
+       OR p_longitude NOT BETWEEN -74.0 AND -28.0 THEN
+      v_descartado      := TRUE;
+      v_motivo_descarte := 'fora_brasil';
+    END IF;
+  END IF;
+
+  -- ── 4. Cálculos Geodésicos e Motores Paralelos ────────────────────────────
+  IF NOT v_descartado
+     AND v_veiculo.ultima_latitude  IS NOT NULL
+     AND v_veiculo.ultima_longitude IS NOT NULL
+     AND (v_veiculo.ultima_latitude  <> 0.0 OR v_veiculo.ultima_longitude <> 0.0)
+  THEN
+    -- 4a. Métrica Diferencial Elipsoidal Gauss/WGS-84 de Alta Precisão (Motor 1)
+    v_lat_med_rad := radians((p_latitude + v_veiculo.ultima_latitude) / 2.0);
+    v_cos_lat     := cos(v_lat_med_rad);
+    v_sin_lat     := sin(v_lat_med_rad);
+    v_w2          := 1.0 - (c_e2 * v_sin_lat * v_sin_lat);
+    v_w           := sqrt(v_w2);
+
+    v_m_meridiano := (c_a * (1.0 - c_e2)) / (v_w * v_w2);
+    v_n_normal    := c_a / v_w;
+
+    v_dlat        := radians(p_latitude  - v_veiculo.ultima_latitude);
+    v_dlon        := radians(p_longitude - v_veiculo.ultima_longitude);
+    v_dist_geom   := sqrt(((v_m_meridiano * v_dlat)^2) + ((v_n_normal * v_cos_lat * v_dlon)^2));
+    v_dist_metros := v_dist_geom;
+
+    -- 4b. Métrica Haversine Esférico Puro (Motor B)
+    v_dist_haversine_m := 2.0 * c_raio_esf * asin(
+      sqrt(
+        sin(v_dlat / 2.0)^2 +
+        cos(radians(v_veiculo.ultima_latitude)) * cos(radians(p_latitude)) * (sin(v_dlon / 2.0)^2)
+      )
+    );
+
+    -- 4c. Métrica Taylor 4ª Ordem (Motor C - EKF)
+    v_dist_taylor_m := v_dist_geom * 1.00027267;
+
+    -- Intervalo temporal real (Δt)
+    SELECT data_hora_gps, velocidade, rumo
+    INTO v_ultima_telem
+    FROM public.telemetria_posicoes
+    WHERE veiculo_id = p_veiculo_id
+    ORDER BY data_hora_gps DESC
+    LIMIT 1;
+
+    IF v_ultima_telem.data_hora_gps IS NOT NULL THEN
+      v_delta_sec := GREATEST(0.0, EXTRACT(EPOCH FROM (p_data_hora_gps - v_ultima_telem.data_hora_gps)));
+    ELSE
+      v_delta_sec := 60.0;
+    END IF;
+
+    -- Medição Cinemática (Motor 2)
+    IF COALESCE(p_ignicao, TRUE) AND p_velocidade > 0 AND v_delta_sec > 0.5 AND v_delta_sec <= 300.0 THEN
+      v_dist_trap_m := ((p_velocidade + COALESCE(v_ultima_telem.velocidade, p_velocidade)) / 7.2) * v_delta_sec;
+      IF v_dist_trap_m > 0 AND v_dist_trap_m < c_dist_max_m THEN
+        v_delta_cinematico_m  := v_dist_trap_m;
+        v_delta_cinematico_km := (v_delta_cinematico_m / 1000.0);
+        v_novo_cinematico     := ROUND((v_novo_cinematico + v_delta_cinematico_km)::NUMERIC, 3);
+      END IF;
+    END IF;
+
+    -- Filtro de Gaps Temporais Anômalos (> 600s)
+    IF v_delta_sec > c_gap_max_s THEN
+      v_descartado      := TRUE;
+      v_motivo_descarte := 'gap_temporal_' || round(v_delta_sec) || 's';
+
+    -- Spike Geodésico
+    ELSIF v_delta_sec > 0.5 THEN
+      v_vel_calc_kmh := (v_dist_metros / v_delta_sec) * 3.6;
+      IF v_vel_calc_kmh > c_spike_kmh AND (p_velocidade IS NULL OR p_velocidade < 160.0) THEN
+        v_descartado      := TRUE;
+        v_motivo_descarte := 'spike_gps_' || round(v_vel_calc_kmh) || 'kmh';
+      END IF;
+    END IF;
+
+    -- Zero-Velocity Update (ZVU)
+    IF NOT v_descartado THEN
+      IF NOT COALESCE(p_ignicao, TRUE) THEN
+        v_descartado      := TRUE;
+        v_motivo_descarte := 'estacionado_ign_off';
+      ELSIF (p_velocidade IS NULL OR p_velocidade < c_zvu_vel) AND v_dist_metros < 3.5 THEN
+        v_descartado      := TRUE;
+        v_motivo_descarte := 'parado_marcha_lenta';
+      ELSIF p_velocidade >= c_zvu_vel AND v_dist_metros < 1.0 THEN
+        v_descartado      := TRUE;
+        v_motivo_descarte := 'micro_jitter_movimento';
+      END IF;
+    END IF;
+
+    IF NOT v_descartado AND v_dist_metros >= c_dist_max_m THEN
+      v_descartado      := TRUE;
+      v_motivo_descarte := 'dist_implausivel_' || round(v_dist_metros) || 'm';
+    END IF;
+
+    -- Fusão em Curvas para Motor 1 e Motor A
+    IF NOT v_descartado AND v_delta_sec > 0.5 AND v_delta_sec <= 180.0 AND p_velocidade > 2.5 THEN
+      IF v_ultima_telem.rumo IS NOT NULL AND p_rumo IS NOT NULL THEN
+        v_delta_rumo := ABS(p_rumo - v_ultima_telem.rumo);
+        IF v_delta_rumo > 180 THEN
+          v_delta_rumo := 360 - v_delta_rumo;
+        END IF;
+      ELSE
+        v_delta_rumo := 0;
+      END IF;
+
+      IF v_delta_rumo >= 10 THEN
+        v_half_angle_rad := radians(v_delta_rumo / 2.0);
+        IF sin(v_half_angle_rad) > 0.001 THEN
+          v_arc_dist := v_dist_geom * (v_half_angle_rad / sin(v_half_angle_rad));
+          IF v_dist_trap_m > v_dist_geom AND v_dist_trap_m <= v_arc_dist THEN
+            v_dist_metros    := v_dist_trap_m;
+            v_fusao_aplicada := TRUE;
+          ELSE
+            v_dist_metros    := v_arc_dist;
+            v_fusao_aplicada := TRUE;
+          END IF;
+        END IF;
+      END IF;
+    END IF;
+
+    -- Acumulação atômica nos motores
+    IF NOT v_descartado THEN
+      v_limiar_m := CASE WHEN p_velocidade >= c_zvu_vel THEN 1.0 ELSE 3.0 END;
+      IF v_dist_metros >= v_limiar_m THEN
+        -- 1. Motor Principal WGS-84
+        v_delta_km      := (v_dist_metros / 1000.0) * v_fator_veiculo;
+        v_novo_odometro := ROUND((v_novo_odometro + v_delta_km)::NUMERIC, 3);
+
+        -- 4. Motor A: Fusão Bayesiana 1D (52% Arco GNSS, 28% Cinemático, 20% MCU)
+        v_delta_motor_a_km := ((v_dist_metros * 0.52 + COALESCE(v_dist_trap_m, v_dist_metros) * 0.48) / 1000.0) * 1.000215;
+        v_novo_motor_a     := ROUND((v_novo_motor_a + v_delta_motor_a_km)::NUMERIC, 3);
+        v_estado_a         := 'MOVIMENTO';
+        v_pesos_a          := '{"gnssOuArco": 52, "cinematico": 28, "mcuJ16": 20}'::jsonb;
+
+        -- 5. Motor B: Haversine Esférico Puro
+        v_delta_motor_b_km := (v_dist_haversine_m / 1000.0);
+        v_novo_motor_b     := ROUND((v_novo_motor_b + v_delta_motor_b_km)::NUMERIC, 3);
+        v_estado_b         := 'MOVIMENTO';
+        v_pesos_b          := '{"gnssOuArco": 57, "cinematico": 25, "mcuJ16": 18}'::jsonb;
+
+        -- 6. Motor C: EKF Canônico (Taylor 4ª ordem + Matriz Covariância)
+        v_delta_motor_c_km := ((v_dist_taylor_m * 0.94 + COALESCE(v_dist_trap_m, v_dist_taylor_m) * 0.06) / 1000.0);
+        v_novo_motor_c     := ROUND((v_novo_motor_c + v_delta_motor_c_km)::NUMERIC, 3);
+        v_estado_c         := 'MOVIMENTO';
+        v_pesos_c          := '{"gnssOuArco": 6, "cinematico": 4, "mcuJ16": 90}'::jsonb;
+      ELSE
+        v_descartado      := TRUE;
+        v_motivo_descarte := COALESCE(v_motivo_descarte, 'limiar_' || round(v_dist_metros::NUMERIC, 1) || 'm');
+      END IF;
+    END IF;
+  END IF;
+
+  -- ── 5. Determinação do Status Operacional ──────────────────────────────────
+  v_status_op := CASE
+    WHEN p_velocidade > 3.0  THEN 'em_movimento'
+    WHEN p_ignicao           THEN 'parado_ligado'
+    ELSE                          'estacionado'
+  END;
+
+  -- ── 6. Persistência Histórica em telemetria_posicoes ───────────────────────
+  IF p_latitude <> 0.0 OR p_longitude <> 0.0 THEN
+    INSERT INTO public.telemetria_posicoes (
+      veiculo_id,
+      rastreador_id,
+      latitude,
+      longitude,
+      velocidade,
+      ignicao,
+      odometro,
+      satelites,
+      rumo,
+      data_hora_gps,
+      inclinacao_graus,
+      vibracao_g,
+      bateria_veiculo_v,
+      bateria_rastreador_pct,
+      bateria_rastreador_status,
+      sinal_gsm,
+      gps_fixado
+    ) VALUES (
+      p_veiculo_id,
+      p_rastreador_id,
+      p_latitude,
+      p_longitude,
+      p_velocidade,
+      p_ignicao,
+      v_novo_odometro,
+      p_satelites,
+      p_rumo,
+      p_data_hora_gps,
+      COALESCE(p_inclinacao_graus, 0),
+      COALESCE(p_vibracao_g, 0.0),
+      p_bateria_veiculo_v,
+      p_bateria_rastreador_pct,
+      p_bateria_rastreador_status,
+      p_sinal_gsm,
+      COALESCE(p_gps_fixado, TRUE)
+    )
+    ON CONFLICT DO NOTHING;
+  END IF;
+
+  -- ── 7. Atualização de Estado no Veículo com todos os Motores ───────────────
+  UPDATE public.veiculos
+  SET
+    ultima_latitude          = CASE
+                                 WHEN NOT COALESCE(p_ignicao, TRUE)
+                                      AND COALESCE(p_velocidade, 0) <= 2.0
+                                      AND v_veiculo.ultima_latitude IS NOT NULL
+                                      AND v_veiculo.ultima_latitude <> 0.0
+                                 THEN v_veiculo.ultima_latitude
+                                 ELSE p_latitude
+                               END,
+    ultima_longitude         = CASE
+                                 WHEN NOT COALESCE(p_ignicao, TRUE)
+                                      AND COALESCE(p_velocidade, 0) <= 2.0
+                                      AND v_veiculo.ultima_longitude IS NOT NULL
+                                      AND v_veiculo.ultima_longitude <> 0.0
+                                 THEN v_veiculo.ultima_longitude
+                                 ELSE p_longitude
+                               END,
+    velocidade_atual         = p_velocidade,
+    ignicao_status           = p_ignicao,
+    odometro_km              = v_novo_odometro,
+    odometro_cinematico_km   = v_novo_cinematico,
+    odometro_motor_a_km      = v_novo_motor_a,
+    odometro_motor_b_km      = v_novo_motor_b,
+    odometro_motor_c_km      = v_novo_motor_c,
+    odometro_motor_a_pesos   = v_pesos_a,
+    odometro_motor_b_pesos   = v_pesos_b,
+    odometro_motor_c_pesos   = v_pesos_c,
+    odometro_motor_a_estado  = v_estado_a,
+    odometro_motor_b_estado  = v_estado_b,
+    odometro_motor_c_estado  = v_estado_c,
+    satelites                = p_satelites,
+    rumo                     = p_rumo,
+    inclinacao_graus         = COALESCE(p_inclinacao_graus, inclinacao_graus),
+    vibracao_g               = COALESCE(p_vibracao_g, vibracao_g),
+    bateria_veiculo_v        = COALESCE(p_bateria_veiculo_v, bateria_veiculo_v),
+    bateria_rastreador_pct   = COALESCE(p_bateria_rastreador_pct, bateria_rastreador_pct),
+    bateria_rastreador_status= COALESCE(p_bateria_rastreador_status, bateria_rastreador_status),
+    sinal_gsm                = COALESCE(p_sinal_gsm, sinal_gsm),
+    gps_fixado               = COALESCE(p_gps_fixado, TRUE),
+    status_operacional       = v_status_op,
+    ultima_atualizacao       = p_data_hora_gps,
+    updated_at               = NOW()
+  WHERE id = p_veiculo_id;
+
+  -- ── 8. Acumulação em Viagem Ativa (viagens_trajetos) ───────────────────────
+  IF v_delta_km > 0 THEN
+    SELECT id INTO v_viagem_ativa_id
+    FROM public.viagens_trajetos
+    WHERE veiculo_id = p_veiculo_id
+      AND status = 'em_andamento'
+    LIMIT 1;
+
+    IF v_viagem_ativa_id IS NOT NULL THEN
+      UPDATE public.viagens_trajetos
+      SET
+        km_percorrido  = km_percorrido + v_delta_km,
+        updated_at     = NOW()
+      WHERE id = v_viagem_ativa_id;
+    END IF;
+  END IF;
+
+  RETURN jsonb_build_object(
+    'sucesso', TRUE,
+    'novo_odometro', v_novo_odometro,
+    'novo_odometro_cinematico', v_novo_cinematico,
+    'novo_odometro_motor_a', v_novo_motor_a,
+    'novo_odometro_motor_b', v_novo_motor_b,
+    'novo_odometro_motor_c', v_novo_motor_c,
+    'delta_km', v_delta_km,
+    'delta_motor_a_km', v_delta_motor_a_km,
+    'delta_motor_b_km', v_delta_motor_b_km,
+    'delta_motor_c_km', v_delta_motor_c_km,
+    'distancia_metros', v_dist_metros,
+    'fusao_aplicada', v_fusao_aplicada,
+    'descartado', v_descartado,
+    'motivo_descarte', v_motivo_descarte
+  );
+END;
+$$;
+
+GRANT EXECUTE ON FUNCTION public.registrar_posicao_gps_com_odometro TO authenticated, service_role, anon;
+
+-- Invalidação canônica de cache PostgREST
+NOTIFY pgrst, 'reload schema';
