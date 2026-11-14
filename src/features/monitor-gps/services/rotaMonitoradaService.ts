@@ -278,7 +278,7 @@ export async function carregarRotaMonitoradaAtiva(
 
     if (error || !data) return null;
 
-    // Regra Operacional SIGO Guardião:
+    // Regra Operacional GD Rastreamento:
     // Se a rota foi criada há mais de 24 horas e ainda está 'ativa' ou 'em_desvio', encerra automaticamente
     if (data?.iniciada_at) {
       const iniciadaEm = new Date(data.iniciada_at).getTime();

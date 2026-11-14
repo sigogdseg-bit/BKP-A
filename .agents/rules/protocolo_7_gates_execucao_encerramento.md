@@ -1,7 +1,7 @@
 # Regra: Protocolo dos 7 Gates de Execução e Encerramento Obrigatórios
 
 > [!CRITICAL]
-> Todo e qualquer modelo de IA trabalhando no repositório Hunter (SIGO Guardião) DEVE seguir rigorosamente este protocolo antes de considerar qualquer tarefa finalizada.
+> Todo e qualquer modelo de IA trabalhando no repositório Hunter (GD Rastreamento) DEVE seguir rigorosamente este protocolo antes de considerar qualquer tarefa finalizada.
 > O usuário concede **TODAS AS PERMISSÕES** ao assistente para executar com autonomia total todas as alterações necessárias em qualquer camada do sistema, **inclusive no banco de dados** (PostgreSQL/Supabase), backend, frontend e suíte de testes.
 
 ## Diretriz Pétrea de Autonomia e Mudanças no Banco de Dados

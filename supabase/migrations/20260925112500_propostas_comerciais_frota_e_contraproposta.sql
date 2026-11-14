@@ -1,6 +1,6 @@
 -- ─────────────────────────────────────────────────────────────────────────────
 -- MIGRATION: Propostas Comerciais - Modalidade Frota e Contrapropostas
--- Sistema: SIGO Guardião | Diretrizes: DJR-NEW e HUNTER-GUARDIAN
+-- Sistema: GD Rastreamento | Diretrizes: DJR-NEW e HUNTER-GUARDIAN
 -- ─────────────────────────────────────────────────────────────────────────────
 
 -- 1. Permite campos de veículo nulos quando for proposta de frota

@@ -350,7 +350,7 @@ export async function notificarSuperAdmNovaProposta(
   gatewayUrl = "https://gps.oficial.tec.br",
 ): Promise<void> {
   const msgSuperAdm =
-    `📋 *SIGO Guardião — Nova Proposta Comercial Emitida*\n\n` +
+    `📋 *GD Rastreamento — Nova Proposta Comercial Emitida*\n\n` +
     `• Emitida por: *${dados.emitidaPor}* (${dados.origemRole.toUpperCase()})\n` +
     (dados.telefoneEmissor ? `• WhatsApp do Emissor: ${dados.telefoneEmissor}\n` : "") +
     `• Cliente: *${dados.paraCliente}*\n` +
@@ -546,7 +546,7 @@ export async function notificarSuperAdmNovoUsuarioDegustacao(
     ? `• Cadastrado por (Parceiro/WhatsApp): *${dados.telefoneCriador}*\n`
     : "";
   const msgSuperAdm =
-    "🌟 *SIGO Guardião — Novo Usuário Degustação Cadastrado*\n\n" +
+    "🌟 *GD Rastreamento — Novo Usuário Degustação Cadastrado*\n\n" +
     `• Nome do Cliente: *${dados.nome}*\n` +
     `• E-mail / Login: *${dados.email}*\n` +
     `• WhatsApp do Cliente: *${dados.telefone}*\n` +
@@ -586,7 +586,7 @@ export async function notificarSuperAdmReativacaoDegustacao(
     ? `• Reativado por (Parceiro/WhatsApp): *${dados.telefoneCriador}*\n`
     : "";
   const msgSuperAdm =
-    "🔄 *SIGO Guardião — Usuário Degustação Reativado (+24h)*\n\n" +
+    "🔄 *GD Rastreamento — Usuário Degustação Reativado (+24h)*\n\n" +
     `• Nome do Cliente: *${dados.nome}*\n` +
     `• E-mail / Login: *${dados.email}*\n` +
     `• WhatsApp do Cliente: *${dados.telefone}*\n` +
@@ -626,7 +626,7 @@ export async function notificarSuperAdmRevalidacaoDegustacao(
     ? `• Revalidado por (Parceiro/WhatsApp): *${dados.telefoneResponsavel}*\n`
     : "";
   const msgSuperAdm =
-    "🔁 *SIGO Guardião — Degustação Revalidada (+24h após 1º acesso)*\n\n" +
+    "🔁 *GD Rastreamento — Degustação Revalidada (+24h após 1º acesso)*\n\n" +
     `• Nome do Cliente: *${dados.nome}*\n` +
     `• E-mail / Login: *${dados.email}*\n` +
     `• WhatsApp do Cliente: *${dados.telefone || "Não informado"}*\n` +
@@ -932,7 +932,7 @@ export async function cadastrarUsuarioDegustacaoWhatsapp(
     if (perfilExistente) {
       return {
         sucesso: false,
-        mensagem: "Este e-mail já possui cadastro no SIGO Guardião.",
+        mensagem: "Este e-mail já possui cadastro no GD Rastreamento.",
       };
     }
 
@@ -1124,7 +1124,7 @@ export async function notificarSuperAdmTransbordoHumano(
   gatewayUrl = "https://gps.oficial.tec.br",
 ): Promise<void> {
   const msgSuperAdm =
-    "🚨 *SIGO Guardião — Solicitação de Atendimento Humano (WhatsApp)*\n\n" +
+    "🚨 *GD Rastreamento — Solicitação de Atendimento Humano (WhatsApp)*\n\n" +
     `• Nome / Contato: *${dados.nome}*\n` +
     `• WhatsApp do Visitante: *${dados.telefone}*\n` +
     `• Motivo / Mensagem: *${dados.motivo}*\n` +
@@ -1148,7 +1148,7 @@ export function obterMenuPublicoDevBot(nome?: string): string {
   const saudacaoNome =
     nome && nome.trim().length >= 2 ? `Olá, *${nome.trim().split(" ")[0]}*! ` : "Olá! ";
   return (
-    `${saudacaoNome}Sou o *Guardião Virtual*, assistente do SIGO Guardião. 🛡️\n\n` +
+    `${saudacaoNome}Sou o *Guardião Virtual*, assistente do GD Rastreamento. 🛡️\n\n` +
     "Somos especialistas em *Locação de Rastreadores para Auto-Monitoramento com Disponibilização do Sistema* completo pelo aplicativo.\n\n" +
     "Como posso te ajudar hoje?\n\n" +
     "• *1* - Conhecer Planos e Benefícios\n" +
@@ -1164,7 +1164,7 @@ export function obterMenuPublicoDevBot(nome?: string): string {
  */
 export function obterRespostaPlanosDevBot(): string {
   return (
-    "🛡️ *SIGO Guardião — Locação para Auto-Monitoramento Veicular*\n\n" +
+    "🛡️ *GD Rastreamento — Locação para Auto-Monitoramento Veicular*\n\n" +
     "Disponibilizamos rastreadores 4G homologados ANATEL e acesso total ao sistema pelo celular. Não somos central de rastreamento: você tem a autonomia do auto-monitoramento em tempo real.\n\n" +
     "• *Plano Básico:* Localização em tempo real, status de ignição e bloqueio veicular seguro pelo aplicativo.\n" +
     "• *Plano Pro:* Todos os recursos do Básico + histórico de rotas de 30 dias e cercas virtuais.\n" +
@@ -1269,7 +1269,7 @@ export async function encaminharLeadParaVendedorOuSuperAdm(
   // 3. Se encontrou vendedor/parceiro da região
   if (vendedorEncontrado) {
     const msgParaVendedor =
-      "🚨 *SIGO Guardião — Novo Lead de Auto-Monitoramento Veicular*\n\n" +
+      "🚨 *GD Rastreamento — Novo Lead de Auto-Monitoramento Veicular*\n\n" +
       `Olá, *${vendedorEncontrado.nome}*! Temos um novo interessado na sua região:\n\n` +
       `• *Nome do Contato:* ${dados.nome || "Interessado WhatsApp"}\n` +
       `• *WhatsApp:* ${dados.telefone}\n` +
@@ -1297,7 +1297,7 @@ export async function encaminharLeadParaVendedorOuSuperAdm(
   // 4. Caso não haja vendedor específico daquela cidade: notifica o SuperADM solicitando a indicação
   const dataHoraAtual = new Date().toLocaleString("pt-BR", { timeZone: "America/Sao_Paulo" });
   const msgSuperAdmIndicacao =
-    "🚨 *SIGO Guardião — Solicitação de Indicação de Vendedor (WhatsApp)*\n\n" +
+    "🚨 *GD Rastreamento — Solicitação de Indicação de Vendedor (WhatsApp)*\n\n" +
     `• *Interessado(a):* ${dados.nome || "Visitante WhatsApp"}\n` +
     `• *WhatsApp:* ${dados.telefone}\n` +
     `• *Região / Localização Informada:* ${localizacaoLimpa}\n` +
@@ -1436,7 +1436,7 @@ export function isSaudacaoSimples(textoUpper: string): boolean {
 
 /**
  * Expressão regular canônica de comandos operacionais, veiculares, administrativos,
- * comerciais e de faturamento do ecossistema SIGO Guardião.
+ * comerciais e de faturamento do ecossistema GD Rastreamento.
  * Princípio Fundamental: Assim como sistemas de login seguros não revelam se uma senha
  * é inválida para prevenir enumeração e mapeamento de vetores, QUALQUER comando enviado
  * por número não cadastrado ou perfil sem tratamento de comandos deve ser sumariamente IGNORADO.
@@ -1503,7 +1503,7 @@ function formatarTelefoneWhatsapp(tel: string): string {
 function obterTextoAjudaMotorista(nome?: string): string {
   const saudacaoNome = nome && nome.trim() ? `Olá, *${nome.trim()}*!` : "Olá!";
   return (
-    "🚚 *SIGO Guardião — Perfil Motorista*\n\n" +
+    "🚚 *GD Rastreamento — Perfil Motorista*\n\n" +
     `${saudacaoNome} Seu perfil está vinculado à operação de rotas, viagens e registros atribuídos no aplicativo web.\n\n` +
     "🌐 *Acesso ao Sistema Web:*\n" +
     "• https://sigoguardiao.oficial.tec.br\n\n" +
@@ -1517,7 +1517,7 @@ function obterTextoAjudaCliente(nome?: string): string {
   const saudacaoNome = nome && nome.trim() ? `Olá, *${nome.trim()}*! 🛡️` : "Olá! 🛡️";
   return (
     `${saudacaoNome}\n\n` +
-    "Comandos e parâmetros disponíveis para você no auto-monitoramento do *SIGO Guardião*:\n\n" +
+    "Comandos e parâmetros disponíveis para você no auto-monitoramento do *GD Rastreamento*:\n\n" +
     "• *LOCALIZACAO* (ou *LOCALIZACAO <PLACA>*) — Posição do veículo com link do Google Maps\n" +
     "• *BLOQUEIO* — Protocolo de segurança e corte de combustível com confirmação por PIN\n" +
     "• *DESBLOQUEIO* — Liberação de combustível do veículo\n" +
@@ -1730,14 +1730,14 @@ export async function obterListaInstaladoresFormatada(
     const instaladores = Array.from(itensMap.values());
     if (instaladores.length === 0) {
       return (
-        "🔧 *SIGO Guardião — Instaladores Credenciados*\n\n" +
+        "🔧 *GD Rastreamento — Instaladores Credenciados*\n\n" +
         "Nenhum instalador credenciado ativo encontrado no momento.\n" +
         "Para cadastrar novos técnicos e parceiros, acesse o painel administrativo."
       );
     }
 
     let resposta =
-      "🔧 *SIGO Guardião — Instaladores Credenciados*\n\n" +
+      "🔧 *GD Rastreamento — Instaladores Credenciados*\n\n" +
       `Lista de profissionais homologados e ativos (${instaladores.length}):\n\n`;
 
     for (let i = 0; i < instaladores.length; i++) {
@@ -1748,11 +1748,11 @@ export async function obterListaInstaladoresFormatada(
         `  📍 Endereço: ${inst.endereco}\n\n`;
     }
 
-    resposta += "Apenas profissionais credenciados e homologados pela rede SIGO Guardião.";
+    resposta += "Apenas profissionais credenciados e homologados pela rede GD Rastreamento.";
     return resposta.trim();
   } catch (err: any) {
     return (
-      "🔧 *SIGO Guardião — Instaladores Credenciados*\n\n" +
+      "🔧 *GD Rastreamento — Instaladores Credenciados*\n\n" +
       "Falha temporária ao consultar a lista de técnicos credenciados. Tente novamente em instantes."
     );
   }
@@ -1967,7 +1967,7 @@ export function montarMensagemConfirmacaoAgendamentoCliente(params: {
       : "Oficina do Instalador";
 
   return (
-    "📅 *Agendamento de Instalação — SIGO Guardião*\n\n" +
+    "📅 *Agendamento de Instalação — GD Rastreamento*\n\n" +
     `Olá, *${params.clienteNome}*!\n\n` +
     `O instalador *${params.instaladorNome}* agendou a instalação física do seu rastreador.\n\n` +
     `• *Veículo:* ${params.veiculoDesc}\n` +
@@ -2047,9 +2047,9 @@ export async function notificarInstaladorNovoServicoWhatsapp(
         .select("nome_razao_social")
         .eq("id", clienteId)
         .maybeSingle();
-      clienteNome = cli?.nome_razao_social || "Cliente SIGO Guardião";
+      clienteNome = cli?.nome_razao_social || "Cliente GD Rastreamento";
     }
-    if (!clienteNome) clienteNome = "Cliente SIGO Guardião";
+    if (!clienteNome) clienteNome = "Cliente GD Rastreamento";
 
     const tipoLabel = formatarTipoVeiculoLabel(tipoVeiculo);
     const localLabel =
@@ -2058,7 +2058,7 @@ export async function notificarInstaladorNovoServicoWhatsapp(
         : "Oficina do Instalador";
 
     const msg =
-      "🔧 *Novo Serviço de Instalação — SIGO Guardião*\n\n" +
+      "🔧 *Novo Serviço de Instalação — GD Rastreamento*\n\n" +
       `Olá, *${profInst?.nome || "Instalador"}*! Há um novo serviço atribuído para você.\n\n` +
       `• *Cliente:* ${clienteNome}\n` +
       `• *Tipo de Veículo:* ${tipoLabel}\n` +
@@ -2138,7 +2138,7 @@ export async function notificarClienteAgendamentoInstalacaoWhatsapp(
 
     const telInstalador = normalizarTelefoneDigitosBR(profInst?.telefone || "");
     const clienteNome = clienteRow?.nome_razao_social || "Cliente";
-    const instaladorNome = profInst?.nome || "Instalador SIGO Guardião";
+    const instaladorNome = profInst?.nome || "Instalador GD Rastreamento";
     const localTipoFinal = params.localTipo || inst?.local_tipo || "oficina";
     const enderecoFinal =
       (params.localEndereco || "").trim() ||
@@ -2256,7 +2256,7 @@ async function obterPagamentosCarteiraFormatado(
   const clientes = await obterClientesDoParceiro(supabase, filtro);
   if (clientes.length === 0) {
     return (
-      `💳 *SIGO Guardião — Pagamentos da Carteira*\n\n` +
+      `💳 *GD Rastreamento — Pagamentos da Carteira*\n\n` +
       `Olá, ${parceiroNome}! Nenhum cliente encontrado para esta consulta.\n\n` +
       `Para cadastrar clientes e fechar novas vendas, envie *PROPOSTA*.`
     );
@@ -2307,10 +2307,10 @@ async function obterPagamentosCarteiraFormatado(
   }
 
   const tituloCabecalho = filtro.geral
-    ? "💳 *SIGO Guardião — Relatório Geral de Pagamentos da Empresa*"
+    ? "💳 *GD Rastreamento — Relatório Geral de Pagamentos da Empresa*"
     : isRevenda
-      ? "💳 *SIGO Guardião — Pagamentos dos Clientes da Carteira (Franquia e Vendas Próprias)*"
-      : "💳 *SIGO Guardião — Pagamentos dos Clientes da Carteira*";
+      ? "💳 *GD Rastreamento — Pagamentos dos Clientes da Carteira (Franquia e Vendas Próprias)*"
+      : "💳 *GD Rastreamento — Pagamentos dos Clientes da Carteira*";
 
   let msg =
     `${tituloCabecalho}\n\n` +
@@ -2349,7 +2349,7 @@ async function obterContratosCarteiraFormatado(
   const clientes = await obterClientesDoParceiro(supabase, filtro);
   if (clientes.length === 0) {
     return (
-      `📑 *SIGO Guardião — Contratos da Carteira*\n\n` +
+      `📑 *GD Rastreamento — Contratos da Carteira*\n\n` +
       `Olá, ${parceiroNome}! Sua carteira ainda não possui clientes ou contratos cadastrados.\n\n` +
       `Para iniciar uma nova contratação, envie *PROPOSTA*.`
     );
@@ -2391,10 +2391,10 @@ async function obterContratosCarteiraFormatado(
   }
 
   const tituloCabecalho = filtro.geral
-    ? "📑 *SIGO Guardião — Gestão Geral de Contratos da Base*"
+    ? "📑 *GD Rastreamento — Gestão Geral de Contratos da Base*"
     : isRevenda
-      ? "📑 *SIGO Guardião — Gestão de Contratos da Carteira (Franquia e Vendas Próprias)*"
-      : "📑 *SIGO Guardião — Gestão de Contratos da Carteira*";
+      ? "📑 *GD Rastreamento — Gestão de Contratos da Carteira (Franquia e Vendas Próprias)*"
+      : "📑 *GD Rastreamento — Gestão de Contratos da Carteira*";
 
   let msg =
     `${tituloCabecalho}\n\n` +
@@ -2485,7 +2485,7 @@ async function obterResumoPropostasCarteiraFormatado(
 
   if (lista.length === 0) {
     return (
-      `📋 *SIGO Guardião — Histórico de Propostas*\n\n` +
+      `📋 *GD Rastreamento — Histórico de Propostas*\n\n` +
       `Olá, ${parceiroNome}! Nenhuma proposta comercial encontrada para o período selecionado (*${rotuloPeriodo}*).\n\n` +
       `Para montar e emitir uma nova proposta via WhatsApp agora mesmo, envie *PROPOSTA*.`
     );
@@ -2511,12 +2511,12 @@ async function obterResumoPropostasCarteiraFormatado(
   }
 
   const tituloCabecalho = filtro.geral
-    ? "📋 *SIGO Guardião — Histórico Geral de Propostas da Empresa*"
+    ? "📋 *GD Rastreamento — Histórico Geral de Propostas da Empresa*"
     : isRevenda
       ? filtro.apenasProprias
-        ? "📋 *SIGO Guardião — Propostas de Vendas Próprias da Franquia*"
-        : "📋 *SIGO Guardião — Propostas da Franquia e Vendas Próprias*"
-      : "📋 *SIGO Guardião — Histórico de Propostas Comerciais*";
+        ? "📋 *GD Rastreamento — Propostas de Vendas Próprias da Franquia*"
+        : "📋 *GD Rastreamento — Propostas da Franquia e Vendas Próprias*"
+      : "📋 *GD Rastreamento — Histórico de Propostas Comerciais*";
 
   let msg =
     `${tituloCabecalho}\n\n` +
@@ -2606,7 +2606,7 @@ async function obterDreRevendedorFormatado(
   const lucroLiquidoFranquia = lucroProprio + margemGestaoVend;
 
   return (
-    `📊 *SIGO Guardião — DRE Financeiro da Franquia*\n\n` +
+    `📊 *GD Rastreamento — DRE Financeiro da Franquia*\n\n` +
     `Olá, ${revendedorNome}! Resumo econômico da sua franquia:\n\n` +
     `• *Veículos Ativos Totais:* ${totalVeiculos} 🚗\n` +
     `• *Faturamento Bruto Mensal:* R$ ${fatBrutoTotal.toFixed(2).replace(".", ",")}/mês\n` +
@@ -3253,7 +3253,7 @@ export async function processarMensagemWhatsappRecebida(
         acaoExecutada: "proposta_aceita_cliente",
         resposta:
           "🎉 *Proposta Confirmada com Sucesso!*\n\n" +
-          `Olá, *${propAlvo.cliente_nome}*! Ficamos muito felizes e honrados com a sua decisão de proteger seu patrimônio com o *SIGO Guardião*!\n\n` +
+          `Olá, *${propAlvo.cliente_nome}*! Ficamos muito felizes e honrados com a sua decisão de proteger seu patrimônio com o *GD Rastreamento*!\n\n` +
           `✅ O aceite da sua Proposta *#${propAlvo.numero_proposta}* foi registrado em nossa base com sucesso.\n\n` +
           "Nossa equipe técnica e comercial entrará em contato em instantes por este canal para agendar o melhor dia, horário e local para a instalação do seu equipamento telemático homologado ANATEL.\n\n" +
           "Seja muito bem-vindo(a) ao melhor sistema de automonitoramento em tempo real!",
@@ -3313,7 +3313,7 @@ export async function processarMensagemWhatsappRecebida(
       const etapaAgend = sessaoAtiva.etapa || "aguardando_confirmacao_cliente";
       const clienteNomeAg = dadosAgend.cliente_nome || cliente?.nome || "Cliente";
       const clienteTelAg = dadosAgend.cliente_telefone || remetenteLimpo;
-      const instaladorNomeAg = dadosAgend.instalador_nome || "Instalador SIGO Guardião";
+      const instaladorNomeAg = dadosAgend.instalador_nome || "Instalador GD Rastreamento";
       const instaladorTelAg = normalizarTelefoneDigitosBR(dadosAgend.instalador_telefone || "");
       const veiculoDescAg = dadosAgend.veiculo_desc || "Veículo";
       const dataIsoAg = dadosAgend.data_agendamento || "";
@@ -3394,7 +3394,7 @@ export async function processarMensagemWhatsappRecebida(
         }
 
         const msgAdmRealizado =
-          "✅ *Agendamento Realizado — SIGO Guardião*\n\n" +
+          "✅ *Agendamento Realizado — GD Rastreamento*\n\n" +
           "O agendamento de instalação foi confirmado pelo cliente via WhatsApp da Central.\n\n" +
           `• *Cliente:* ${clienteNomeAg}\n` +
           `• *WhatsApp do Cliente:* ${clienteTelAg}\n` +
@@ -3879,7 +3879,7 @@ export async function processarMensagemWhatsappRecebida(
             acaoExecutada: "pesquisa_satisfacao_concluida",
             resposta:
               `Muito obrigado pela sua avaliação com nota *${notaNum}*! 🙏\n\n` +
-              "O SIGO Guardião está sempre à sua disposição. Tenha um excelente dia!",
+              "O GD Rastreamento está sempre à sua disposição. Tenha um excelente dia!",
           };
         }
 
@@ -3890,7 +3890,7 @@ export async function processarMensagemWhatsappRecebida(
           destinatario: remetenteLimpo,
           acaoExecutada: "pesquisa_satisfacao_encerrada",
           resposta:
-            "Agradecemos o seu contato com o SIGO Guardião! Se precisar de algo mais no futuro, basta mandar uma mensagem por aqui. Tenha um ótimo dia! 🛡️",
+            "Agradecemos o seu contato com o GD Rastreamento! Se precisar de algo mais no futuro, basta mandar uma mensagem por aqui. Tenha um ótimo dia! 🛡️",
         };
       }
 
@@ -3908,7 +3908,7 @@ export async function processarMensagemWhatsappRecebida(
           acaoExecutada: "proposta_nao_autorizada",
           resposta:
             "⚠️ *Acesso Restrito — Emissão de Propostas*\n\n" +
-            "A criação interativa de propostas comerciais via WhatsApp está disponível apenas para Administradores, Operadores, Revendedores e Vendedores cadastrados na rede SIGO Guardião.\n\n" +
+            "A criação interativa de propostas comerciais via WhatsApp está disponível apenas para Administradores, Operadores, Revendedores e Vendedores cadastrados na rede GD Rastreamento.\n\n" +
             "Caso você faça parte da nossa equipe e seu número não esteja vinculado, solicite a atualização do seu cadastro ao SuperADM.",
         };
       }
@@ -4277,7 +4277,7 @@ export async function processarMensagemWhatsappRecebida(
             destinatario: remetenteLimpo,
             acaoExecutada: "relatorio_propostas_menu_escopo_revenda",
             resposta:
-              `📋 *SIGO Guardião — Escopo das Propostas*\n\n` +
+              `📋 *GD Rastreamento — Escopo das Propostas*\n\n` +
               `Período selecionado: *${rotuloPeriodoEscolhido}*\n\n` +
               `Deseja visualizar as propostas de:\n\n` +
               `• *1* - Toda a Franquia (Geral)\n` +
@@ -4298,7 +4298,7 @@ export async function processarMensagemWhatsappRecebida(
           destinatario: remetenteLimpo,
           acaoExecutada: "relatorio_propostas_menu_escopo_admin",
           resposta:
-            `📋 *SIGO Guardião — Escopo do Relatório*\n\n` +
+            `📋 *GD Rastreamento — Escopo do Relatório*\n\n` +
             `Período selecionado: *${rotuloPeriodoEscolhido}*\n\n` +
             `Deseja o relatório de:\n\n` +
             `• *1* - Toda a Empresa (Geral)\n` +
@@ -4364,7 +4364,7 @@ export async function processarMensagemWhatsappRecebida(
           }
 
           let msgRevs =
-            `📋 *SIGO Guardião — Selecionar Revendedor*\n\n` +
+            `📋 *GD Rastreamento — Selecionar Revendedor*\n\n` +
             `Período selecionado: *${dadosSessao.rotuloPeriodo}*\n\n` +
             `Escolha o revendedor/franquia desejado:\n\n`;
           for (let i = 0; i < listaRevs.length; i++) {
@@ -4421,7 +4421,7 @@ export async function processarMensagemWhatsappRecebida(
           }
 
           let msgVends =
-            `📋 *SIGO Guardião — Selecionar Vendedor*\n\n` +
+            `📋 *GD Rastreamento — Selecionar Vendedor*\n\n` +
             `Período selecionado: *${dadosSessao.rotuloPeriodo}*\n\n` +
             `Escolha o vendedor/consultor desejado:\n\n`;
           for (let i = 0; i < listaVends.length; i++) {
@@ -4525,7 +4525,7 @@ export async function processarMensagemWhatsappRecebida(
           }
 
           let msgEquipe =
-            `📋 *SIGO Guardião — Selecionar Vendedor da Equipe*\n\n` +
+            `📋 *GD Rastreamento — Selecionar Vendedor da Equipe*\n\n` +
             `Período selecionado: *${dadosSessao.rotuloPeriodo}*\n\n` +
             `Escolha o vendedor desejado:\n\n`;
           for (let i = 0; i < listaEquipe.length; i++) {
@@ -4754,7 +4754,7 @@ export async function processarMensagemWhatsappRecebida(
               destinatario: remetenteLimpo,
               acaoExecutada: "degustacao_email_ja_cadastrado",
               resposta:
-                "⚠️ Este e-mail já possui cadastro no SIGO Guardião.\n\n" +
+                "⚠️ Este e-mail já possui cadastro no GD Rastreamento.\n\n" +
                 "Por favor, informe outro *E-mail* para criar a conta de teste ou acesse diretamente https://sigoguardiao.oficial.tec.br:\n\n" +
                 "_(Envie *CANCELAR* para abortar o cadastro)_",
             };
@@ -4882,7 +4882,7 @@ export async function processarMensagemWhatsappRecebida(
         if (enviar && telCliente.length >= 10) {
           const msgCliente =
             `Olá, *${nomeCliente}*! 🚗🔄\n\n` +
-            "Seu acesso de demonstração ao *SIGO Guardião — Auto-Monitoramento Veicular* foi *reativado por mais 24 horas* (contadas a partir do seu 1º acesso)!\n\n" +
+            "Seu acesso de demonstração ao *GD Rastreamento — Auto-Monitoramento Veicular* foi *reativado por mais 24 horas* (contadas a partir do seu 1º acesso)!\n\n" +
             "Você pode continuar testando todos os recursos do Plano Master no seu celular:\n\n" +
             "🌐 *Link de Acesso:* https://sigoguardiao.oficial.tec.br\n" +
             `👤 *Login / E-mail:* ${emailCliente}\n\n` +
@@ -5080,8 +5080,8 @@ export async function processarMensagemWhatsappRecebida(
           }
 
           const msgCliente =
-            `Olá, *${nomeFinal}*! Seja muito bem-vindo(a) ao *SIGO Guardião*! 🚗📱\n\n` +
-            "Seu acesso de degustação ao *SIGO Guardião — Auto-Monitoramento Veicular* foi liberado com sucesso!\n\n" +
+            `Olá, *${nomeFinal}*! Seja muito bem-vindo(a) ao *GD Rastreamento*! 🚗📱\n\n` +
+            "Seu acesso de degustação ao *GD Rastreamento — Auto-Monitoramento Veicular* foi liberado com sucesso!\n\n" +
             "Você terá *24 horas* de acesso completo ao *Plano Master* (contadas a partir do seu *1º acesso* na plataforma) para conhecer e testar todas as funcionalidades no seu celular:\n\n" +
             `🌐 *Link de Acesso:* ${linkSistema}\n` +
             `👤 *Login / E-mail:* ${emailFinal}\n` +
@@ -5194,7 +5194,7 @@ export async function processarMensagemWhatsappRecebida(
         if (enviar && telCliente.length >= 10) {
           const msgCliente =
             `Olá, *${nomeCliente}*! 🚗🔁\n\n` +
-            "Seu acesso de degustação ao *SIGO Guardião — Auto-Monitoramento Veicular* foi *revalidado por mais 24 horas*!\n\n" +
+            "Seu acesso de degustação ao *GD Rastreamento — Auto-Monitoramento Veicular* foi *revalidado por mais 24 horas*!\n\n" +
             "As novas 24 horas no *Plano Master* começam a contar a partir do seu próximo *1º acesso* na plataforma:\n\n" +
             "🌐 *Link de Acesso:* https://sigoguardiao.oficial.tec.br\n" +
             `👤 *Login / E-mail:* ${emailCliente}\n\n` +
@@ -5642,7 +5642,7 @@ export async function processarMensagemWhatsappRecebida(
         `• *Emitida por:* ${nomeEmissorStr}\n\n` +
         "📄 *O arquivo PDF oficial foi gerado e enviado para sua conferência.*\n\n" +
         "Por favor, escolha uma das opções abaixo:\n\n" +
-        "1️⃣ *Aprovar e Enviar Agora ao Cliente* (o SIGO Guardião despacha o PDF e proposta diretamente para o WhatsApp do cliente)\n" +
+        "1️⃣ *Aprovar e Enviar Agora ao Cliente* (o GD Rastreamento despacha o PDF e proposta diretamente para o WhatsApp do cliente)\n" +
         "2️⃣ *Aprovar e Finalizar* (salva a proposta no sistema para você mesmo enviar ao cliente depois)\n" +
         "3️⃣ *Refazer Proposta* (reinicia o preenchimento desta proposta)\n\n" +
         "_(Envie *CANCELAR* para abortar e descartar a proposta)_";
@@ -5837,7 +5837,7 @@ export async function processarMensagemWhatsappRecebida(
             `• *Veículo / Frota:* ${dados.veiculo_info}\n` +
             `• *Mensalidade:* R$ ${valorNum.toFixed(2).replace(".", ",")}/mês\n` +
             `• *Emitida por:* ${nomeEmissor} (${roleEmissor.toUpperCase()})\n\n` +
-            "A proposta foi armazenada com sucesso no painel SIGO Guardião.\n" +
+            "A proposta foi armazenada com sucesso no painel GD Rastreamento.\n" +
             "O arquivo PDF está disponível para envio e conferência quando preferir.",
         };
       }
@@ -5934,7 +5934,7 @@ export async function processarMensagemWhatsappRecebida(
       destinatario: remetenteLimpo,
       acaoExecutada: "inicio_cadastro_degustacao",
       resposta:
-        "🚗 *SIGO Guardião — Cadastro de Usuário Degustação (Plano Master 24h)*\n\n" +
+        "🚗 *GD Rastreamento — Cadastro de Usuário Degustação (Plano Master 24h)*\n\n" +
         "Iniciando o cadastro de degustação para o seu cliente.\n\n" +
         "Por favor, digite o *Nome Completo do Cliente*:\n\n" +
         "_(Envie *CANCELAR* a qualquer momento para abortar)_",
@@ -6011,7 +6011,7 @@ export async function processarMensagemWhatsappRecebida(
       destinatario: remetenteLimpo,
       acaoExecutada: "inicio_revalida_degustacao",
       resposta:
-        "🔁 *SIGO Guardião — Revalidar Acesso de Degustação (+24h)*\n\n" +
+        "🔁 *GD Rastreamento — Revalidar Acesso de Degustação (+24h)*\n\n" +
         "Este comando renova por *mais 24 horas* (contadas a partir do próximo *1º acesso*) uma conta de *Cliente Degustação*.\n\n" +
         "Por favor, digite o *E-mail cadastrado do Cliente* que deseja revalidar:\n\n" +
         "_(Envie *CANCELAR* a qualquer momento para abortar)_",
@@ -6034,7 +6034,7 @@ export async function processarMensagemWhatsappRecebida(
         acaoExecutada: "proposta_nao_autorizada",
         resposta:
           "⚠️ *Acesso Restrito — Emissão de Propostas*\n\n" +
-          "A criação interativa de propostas comerciais via WhatsApp está disponível para Administradores, Operadores, Revendedores e Vendedores cadastrados na rede SIGO Guardião.\n\n" +
+          "A criação interativa de propostas comerciais via WhatsApp está disponível para Administradores, Operadores, Revendedores e Vendedores cadastrados na rede GD Rastreamento.\n\n" +
           "Para visualizar os comandos veiculares autorizados para o seu perfil, envie *AJUDA*.",
       };
     }
@@ -6047,7 +6047,7 @@ export async function processarMensagemWhatsappRecebida(
         acaoExecutada: "proposta_nao_autorizada",
         resposta:
           "⚠️ *Acesso Restrito — Emissão de Propostas*\n\n" +
-          "A criação interativa de propostas comerciais via WhatsApp está disponível apenas para Administradores, Operadores, Revendedores e Vendedores cadastrados na rede SIGO Guardião.\n\n" +
+          "A criação interativa de propostas comerciais via WhatsApp está disponível apenas para Administradores, Operadores, Revendedores e Vendedores cadastrados na rede GD Rastreamento.\n\n" +
           "Caso você faça parte da nossa equipe e seu número não esteja vinculado, solicite a atualização do seu cadastro ao SuperADM.",
       };
     }
@@ -6125,7 +6125,7 @@ export async function processarMensagemWhatsappRecebida(
       destinatario: remetenteLimpo,
       acaoExecutada: "dialogo_proposta_iniciado",
       resposta:
-        "📝 *SIGO Guardião — Nova Proposta Comercial*\n\n" +
+        "📝 *GD Rastreamento — Nova Proposta Comercial*\n\n" +
         `Olá, *${emissorNome}* (${emissorRole.toUpperCase()})! Vamos montar a proposta comercial guiada passo a passo.\n\n` +
         `• Sua base mínima de repasse: *R$ ${baseRepasse.toFixed(2).replace(".", ",")}*\n` +
         `• Sugestão comercial de mensalidade (+ R$ 15,00): *R$ ${sugestao.toFixed(2).replace(".", ",")}*\n\n` +
@@ -6160,7 +6160,7 @@ export async function processarMensagemWhatsappRecebida(
         destinatario: remetenteLimpo,
         acaoExecutada: "instaladores_restrito",
         resposta:
-          "🛡️ *Bem-vindo(a) ao SIGO Guardião!*\n\n" +
+          "🛡️ *Bem-vindo(a) ao GD Rastreamento!*\n\n" +
           "Agradecemos o seu contato com o melhor sistema de rastreamento veicular e automonitoramento em tempo real.\n\n" +
           "Um de nossos representantes comerciais entrará em contato em breve para apresentar os planos ideais para proteger e monitorar seu veículo com tecnologia de ponta e economia.\n\n" +
           "Por favor, aguarde o contato de nossa equipe!\n\n" +
@@ -6210,7 +6210,7 @@ export async function processarMensagemWhatsappRecebida(
         destinatario: remetenteLimpo,
         acaoExecutada: "planos_restrito_visitante",
         resposta:
-          "🛡️ *Bem-vindo(a) ao SIGO Guardião!*\n\n" +
+          "🛡️ *Bem-vindo(a) ao GD Rastreamento!*\n\n" +
           "Agradecemos o seu contato com o melhor sistema de rastreamento veicular e automonitoramento em tempo real.\n\n" +
           "Um de nossos representantes comerciais entrará em contato em breve para apresentar os planos ideais para proteger e monitorar seu veículo com tecnologia de ponta e economia.\n\n" +
           "Por favor, aguarde o contato de nossa equipe!\n\n" +
@@ -6246,7 +6246,7 @@ export async function processarMensagemWhatsappRecebida(
           destinatario: remetenteLimpo,
           acaoExecutada: "relatorio_disparado",
           resposta:
-            "🚀 *SIGO Guardião — Relatório Gerencial Imediato*\n\n" +
+            "🚀 *GD Rastreamento — Relatório Gerencial Imediato*\n\n" +
             "O relatório completo de métricas operacionais e DRE financeiro foi gerado e enviado para o seu WhatsApp agora mesmo!",
         };
       } catch (err: any) {
@@ -6294,7 +6294,7 @@ export async function processarMensagemWhatsappRecebida(
         destinatario: remetenteLimpo,
         acaoExecutada: "resumo_frota",
         resposta:
-          "🚗 *SIGO Guardião — Raio-X da Frota em Tempo Real*\n\n" +
+          "🚗 *GD Rastreamento — Raio-X da Frota em Tempo Real*\n\n" +
           `• Total de Veículos Ativos: ${total}\n` +
           `• 🟢 Em movimento: ${emMovimento}\n` +
           `• 🟡 Parados com motor ligado: ${paradoLigado}\n` +
@@ -6311,7 +6311,7 @@ export async function processarMensagemWhatsappRecebida(
         destinatario: remetenteLimpo,
         acaoExecutada: "infra_saude",
         resposta:
-          "☁️ *SIGO Guardião — Saúde da Infraestrutura*\n\n" +
+          "☁️ *GD Rastreamento — Saúde da Infraestrutura*\n\n" +
           "• Gateway GPS: Oracle Cloud Always Free (IP 167.234.233.82) 🟢\n" +
           "• Caddy SSL: https://gps.oficial.tec.br (Let's Encrypt HTTP/2) 🟢\n" +
           "• WhatsApp Gateway: Baileys Oracle Cloud Always Free 🟢\n" +
@@ -6550,7 +6550,7 @@ export async function processarMensagemWhatsappRecebida(
           destinatario: remetenteLimpo,
           acaoExecutada: "relatorio_propostas_menu_periodo",
           resposta:
-            `📋 *SIGO Guardião — Relatório de Propostas*\n\n` +
+            `📋 *GD Rastreamento — Relatório de Propostas*\n\n` +
             `Olá, ${perfilNome || "Administrador"}! Escolha o período desejado:\n\n` +
             `• *1* - 5 Últimos\n` +
             `• *2* - Do Mês\n` +
@@ -6624,7 +6624,7 @@ export async function processarMensagemWhatsappRecebida(
         .limit(10);
 
       const lista = ordens || [];
-      let msgInst = `🔧 *SIGO Guardião — Gestão Geral de Instalações*\n\nTotal recentes: ${lista.length}\n\n`;
+      let msgInst = `🔧 *GD Rastreamento — Gestão Geral de Instalações*\n\nTotal recentes: ${lista.length}\n\n`;
       if (lista.length === 0) {
         msgInst += "Nenhuma ordem de instalação registrada recentemente.";
       } else {
@@ -6688,7 +6688,7 @@ export async function processarMensagemWhatsappRecebida(
           const valNum = Number(mAlvo.valor) || 79.9;
           const pixPayload = gerarPayloadPix({
             chavePix: "financeiro@oficial.tec.br",
-            nomeRecebedor: "SIGO Guardiao",
+            nomeRecebedor: "GD Rastreamento",
             cidadeRecebedor: "Volta Redonda",
             valor: valNum,
             identificador: `FAT${mAlvo.id}`.slice(0, 20),
@@ -6738,7 +6738,7 @@ export async function processarMensagemWhatsappRecebida(
           destinatario: remetenteLimpo,
           acaoExecutada: "comando_hardware",
           resposta:
-            `📡 *Comando de Hardware — SIGO Guardião*\n\n` +
+            `📡 *Comando de Hardware — GD Rastreamento*\n\n` +
             `• Alvo: ${vAlvo?.placa || alvo} (${imeiFinal})\n` +
             `• Comando: ${cmd}\n` +
             `• Retorno: ${resCmd.resposta || resCmd.erro || "Comando despachado"}`,
@@ -6827,7 +6827,7 @@ export async function processarMensagemWhatsappRecebida(
       }
 
       let msgSelecao =
-        "🚗 *SIGO Guardião — Consulta de Veículo*\n\n" +
+        "🚗 *GD Rastreamento — Consulta de Veículo*\n\n" +
         "Selecione o veículo desejado para consultar a telemetria e odômetro:\n\n";
 
       for (let i = 0; i < lista.length; i++) {
@@ -6993,7 +6993,7 @@ export async function processarMensagemWhatsappRecebida(
         destinatario: remetenteLimpo,
         acaoExecutada: acaoMenu,
         resposta:
-          `🛡️ *SIGO Guardião — Central ${rotulo}*\n\n` +
+          `🛡️ *GD Rastreamento — Central ${rotulo}*\n\n` +
           `Olá, ${perfilNome || rotulo}! Como ${rotulo}, você tem acesso total às opções e consultas deste canal:\n\n` +
           "📋 *Comercial, Propostas e Degustação:*\n" +
           "• *PROPOSTA* — Montar e emitir nova proposta comercial guiada via WhatsApp\n" +
@@ -7033,7 +7033,7 @@ export async function processarMensagemWhatsappRecebida(
       destinatario: remetenteLimpo,
       acaoExecutada: acaoFallback,
       resposta:
-        `🛡️ *SIGO Guardião — Central ${rotuloFallback}*\n\n` +
+        `🛡️ *GD Rastreamento — Central ${rotuloFallback}*\n\n` +
         "Comando não reconhecido. Comandos e parâmetros disponíveis:\n\n" +
         "📋 *Comercial:* *PROPOSTA*, *PROPOSTAS [NOME]*, *PLANOS*, *INSTALADORES*, *TESTE*, *REVALIDA [EMAIL]*\n" +
         "📊 *Financeiro:* *PAGAMENTOS [NOME]*, *CONTRATOS [NOME]*, *DRE*, *RELATORIO*, *INADIMPLENTES*, *FROTA*, *INSTALACOES*, *PIX <PLACA>*, *INFRA*\n" +
@@ -7058,7 +7058,7 @@ export async function processarMensagemWhatsappRecebida(
         destinatario: remetenteLimpo,
         acaoExecutada: "dre_revendedor",
         resposta:
-          `📊 *SIGO Guardião — Central Financeira e Recebimentos da Revenda*\n\n` +
+          `📊 *GD Rastreamento — Central Financeira e Recebimentos da Revenda*\n\n` +
           `Olá, ${revendedorNome}! Sua base de custo atual com a matriz é de R$ ${baseRepasseRevenda.toFixed(2).replace(".", ",")} por veículo ativo.\n\n` +
           `Para consultar os pagamentos e mensalidades dos seus clientes, envie *PAGAMENTOS*.\n` +
           `Para consultar seus contratos ativos e pendentes de assinatura, envie *CONTRATOS*.\n` +
@@ -7134,7 +7134,7 @@ export async function processarMensagemWhatsappRecebida(
         destinatario: remetenteLimpo,
         acaoExecutada: "relatorio_propostas_menu_periodo_revenda",
         resposta:
-          `📋 *SIGO Guardião — Relatório de Propostas*\n\n` +
+          `📋 *GD Rastreamento — Relatório de Propostas*\n\n` +
           `Olá, ${revendedorNome}! Escolha o período desejado:\n\n` +
           `• *1* - 5 Últimos\n` +
           `• *2* - Do Mês\n` +
@@ -7189,7 +7189,7 @@ export async function processarMensagemWhatsappRecebida(
         destinatario: remetenteLimpo,
         acaoExecutada: "menu_revendedor",
         resposta:
-          "🤝 *SIGO Guardião — Central do Revendedor*\n\n" +
+          "🤝 *GD Rastreamento — Central do Revendedor*\n\n" +
           `Olá, ${revendedorNome}! Comandos e parâmetros disponíveis para sua revenda:\n\n` +
           "📋 *Vendas, Propostas e Degustação:*\n" +
           "• *PROPOSTA* — Montar e emitir proposta comercial com sua base de repasse\n" +
@@ -7215,7 +7215,7 @@ export async function processarMensagemWhatsappRecebida(
       destinatario: remetenteLimpo,
       acaoExecutada: "menu_revendedor_fallback",
       resposta:
-        "🤝 *SIGO Guardião — Central do Revendedor*\n\n" +
+        "🤝 *GD Rastreamento — Central do Revendedor*\n\n" +
         `Olá, ${revendedorNome}! Comando não reconhecido.\n\n` +
         "Comandos e parâmetros autorizados para a sua revenda:\n\n" +
         "• *PROPOSTA* — Montar proposta comercial guiada via WhatsApp\n" +
@@ -7247,7 +7247,7 @@ export async function processarMensagemWhatsappRecebida(
         destinatario: remetenteLimpo,
         acaoExecutada: "comissao_vendedor",
         resposta:
-          `💰 *SIGO Guardião — Central de Comissões e Recebimentos*\n\n` +
+          `💰 *GD Rastreamento — Central de Comissões e Recebimentos*\n\n` +
           `Olá, ${vendedorNome}! Sua base de custo é de R$ ${baseRepasseVendedor.toFixed(2).replace(".", ",")}.\n` +
           `Cada proposta fechada acima da sua base gera comissão direta para você.\n\n` +
           `Para consultar os pagamentos dos seus clientes, envie *PAGAMENTOS*.\n` +
@@ -7323,7 +7323,7 @@ export async function processarMensagemWhatsappRecebida(
         destinatario: remetenteLimpo,
         acaoExecutada: "relatorio_propostas_menu_periodo_vendedor",
         resposta:
-          `📋 *SIGO Guardião — Relatório de Propostas*\n\n` +
+          `📋 *GD Rastreamento — Relatório de Propostas*\n\n` +
           `Olá, ${vendedorNome}! Escolha o período desejado:\n\n` +
           `• *1* - 5 Últimos\n` +
           `• *2* - Do Mês\n` +
@@ -7378,7 +7378,7 @@ export async function processarMensagemWhatsappRecebida(
         destinatario: remetenteLimpo,
         acaoExecutada: "menu_vendedor",
         resposta:
-          "💼 *SIGO Guardião — Central do Vendedor*\n\n" +
+          "💼 *GD Rastreamento — Central do Vendedor*\n\n" +
           `Olá, ${vendedorNome}! Comandos e parâmetros disponíveis para você:\n\n` +
           "📋 *Vendas, Propostas e Degustação:*\n" +
           "• *PROPOSTA* — Montar e emitir proposta comercial guiada com sua comissão\n" +
@@ -7403,7 +7403,7 @@ export async function processarMensagemWhatsappRecebida(
       destinatario: remetenteLimpo,
       acaoExecutada: "menu_vendedor_fallback",
       resposta:
-        "💼 *SIGO Guardião — Central do Vendedor*\n\n" +
+        "💼 *GD Rastreamento — Central do Vendedor*\n\n" +
         `Olá, ${vendedorNome}! Comando não reconhecido.\n\n` +
         "Comandos autorizados para você:\n" +
         "• *PROPOSTA* — Montar e emitir proposta comercial guiada\n" +
@@ -7445,7 +7445,7 @@ export async function processarMensagemWhatsappRecebida(
       acaoExecutada: "comando_adm_bloqueado_para_nao_adm",
       resposta:
         "⚠️ *Acesso Restrito — Comando Administrativo*\n\n" +
-        "Este comando e suas informações são de uso restrito da Administração e Operação do SIGO Guardião.\n\n" +
+        "Este comando e suas informações são de uso restrito da Administração e Operação do GD Rastreamento.\n\n" +
         "Para visualizar os comandos autorizados para o seu perfil, envie *AJUDA*.",
     };
   }
@@ -7496,7 +7496,7 @@ export async function processarMensagemWhatsappRecebida(
         acaoExecutada: "veiculo_nao_pertence_ao_cliente",
         resposta:
           "🚫 *Acesso Negado — Veículo Não Pertence ao Seu Cadastro*\n\n" +
-          `A placa informada (*${placaInformada}*) não está vinculada à sua conta no SIGO Guardião.\n` +
+          `A placa informada (*${placaInformada}*) não está vinculada à sua conta no GD Rastreamento.\n` +
           "Por diretrizes rigorosas de privacidade e sigilo veicular da LGPD, você só tem permissão para consultar veículos sob sua titularidade.\n\n" +
           "Seus veículos disponíveis:\n" +
           veiculos
@@ -7563,7 +7563,7 @@ export async function processarMensagemWhatsappRecebida(
       const ordens = ordensInstalacao || [];
 
       if (ordens.length > 0) {
-        let msgInst = `🔧 *SIGO Guardião — Status da Instalação*\n\nOlá, ${cliente.nome}! Segue o andamento da instalação do seu rastreador:\n\n`;
+        let msgInst = `🔧 *GD Rastreamento — Status da Instalação*\n\nOlá, ${cliente.nome}! Segue o andamento da instalação do seu rastreador:\n\n`;
 
         for (const ord of ordens) {
           let statusTxt = "Aguardando agendamento ⏳";
@@ -7598,7 +7598,7 @@ export async function processarMensagemWhatsappRecebida(
           destinatario: remetenteLimpo,
           acaoExecutada: "instalacao_veiculos_ja_ativos",
           resposta:
-            `🔧 *SIGO Guardião — Instalação Concluída*\n\n` +
+            `🔧 *GD Rastreamento — Instalação Concluída*\n\n` +
             `Olá, ${cliente.nome}! Seus veículos já estão com rastreador instalado e operando com telemetria ativa 🟢:\n\n` +
             veiculos
               .map((v) => `• *${v.placa}* (${v.marca || ""} ${v.modelo || "Veículo"})`)
@@ -7612,7 +7612,7 @@ export async function processarMensagemWhatsappRecebida(
         destinatario: remetenteLimpo,
         acaoExecutada: "instalacao_em_preparacao",
         resposta:
-          `🔧 *SIGO Guardião — Preparação de Instalação*\n\n` +
+          `🔧 *GD Rastreamento — Preparação de Instalação*\n\n` +
           `Olá, ${cliente.nome}! Seu cadastro foi recebido com sucesso e a ordem de serviço para instalação do rastreador está sendo preparada pela nossa equipe técnica.\n\n` +
           `Em breve nosso representante entrará em contato para agendar o melhor dia e local para a instalação!`,
       };
@@ -7634,7 +7634,7 @@ export async function processarMensagemWhatsappRecebida(
         acaoExecutada: "cliente_sem_veiculos",
         resposta:
           `Olá, ${cliente.nome}! 🛡️\n\n` +
-          "Não encontramos veículos ativos vinculados ao seu cadastro no SIGO Guardião.\n" +
+          "Não encontramos veículos ativos vinculados ao seu cadastro no GD Rastreamento.\n" +
           "Envie *INSTALACAO* para verificar o andamento do seu rastreador ou *AJUDA* para listar os comandos disponíveis.\n" +
           "Caso precise de assistência técnica, entre em contato com nosso suporte.",
       };
@@ -7868,7 +7868,7 @@ export async function processarMensagemWhatsappRecebida(
           acaoExecutada: "fatura_em_dia",
           resposta:
             `🎉 *Parabéns, ${cliente.nome}!*\n\n` +
-            "Todas as suas mensalidades do SIGO Guardião estão quitadas e em dia!\n" +
+            "Todas as suas mensalidades do GD Rastreamento estão quitadas e em dia!\n" +
             "Nenhuma fatura em aberto encontrada no momento.",
         };
       }
@@ -7877,7 +7877,7 @@ export async function processarMensagemWhatsappRecebida(
       const chavePixOficial = "pix@oficial.tec.br";
       const payloadPix = gerarPayloadPix({
         chavePix: chavePixOficial,
-        nomeRecebedor: "SIGO Guardiao",
+        nomeRecebedor: "GD Rastreamento",
         cidadeRecebedor: "BRASIL",
         valor: valorNum,
         identificador: "MENSALIDADE",
@@ -7895,13 +7895,13 @@ export async function processarMensagemWhatsappRecebida(
         destinatario: remetenteLimpo,
         acaoExecutada: "fatura_pix_enviada",
         resposta:
-          `📄 *SIGO Guardião — Fatura e Chave PIX*\n\n` +
+          `📄 *GD Rastreamento — Fatura e Chave PIX*\n\n` +
           `Olá, ${cliente.nome}! Seguem os dados para quitação da sua mensalidade:\n\n` +
           `${linhaParcela}` +
           `• Vencimento: ${pendente.data_vencimento}\n` +
           `• Valor: R$ ${valorNum.toFixed(2).replace(".", ",")}\n\n` +
           `🔑 *Chave PIX Oficial:* ${chavePixOficial}\n` +
-          `👤 *Titular:* SIGO Guardião Oficial\n\n` +
+          `👤 *Titular:* GD Rastreamento Oficial\n\n` +
           `📱 *PIX COPIA E COLA (Basta copiar o código abaixo e colar no app do seu banco):*\n` +
           `${payloadPix}\n\n` +
           `Após o pagamento a baixa é realizada de forma automática!`,
@@ -7961,7 +7961,7 @@ export async function processarMensagemWhatsappRecebida(
 
       // Mais de 1 veículo -> lista numerada e entra no loop restrito
       let msgSelecao =
-        `🚗 *SIGO Guardião — Seus Veículos*\n\n` +
+        `🚗 *GD Rastreamento — Seus Veículos*\n\n` +
         `Olá, ${cliente.nome}! Você possui ${veiculos.length} veículos vinculados. Escolha o número desejado:\n\n`;
 
       for (let i = 0; i < veiculos.length; i++) {
@@ -8026,7 +8026,7 @@ export async function processarMensagemWhatsappRecebida(
       destinatario: remetenteLimpo,
       acaoExecutada: "menu_cliente_degustacao",
       resposta:
-        "🎯 *SIGO Guardião — Perfil Cliente Degustação (Plano Master 24h)*\n\n" +
+        "🎯 *GD Rastreamento — Perfil Cliente Degustação (Plano Master 24h)*\n\n" +
         `Olá, *${perfilNome || "Visitante"}*! Sua conta está configurada no ambiente de degustação do *Plano Master*, com validade de *24 horas contadas a partir do seu 1º acesso*.\n\n` +
         "🌐 *Acesso aos 11 Módulos na Plataforma Web:*\n" +
         "• https://sigoguardiao.oficial.tec.br\n\n" +
@@ -8045,7 +8045,7 @@ export async function processarMensagemWhatsappRecebida(
       destinatario: remetenteLimpo,
       acaoExecutada: "menu_superadmin_auditor",
       resposta:
-        "🔍 *SIGO Guardião — Perfil SuperADM Auditor (Somente Leitura)*\n\n" +
+        "🔍 *GD Rastreamento — Perfil SuperADM Auditor (Somente Leitura)*\n\n" +
         `Olá, *${perfilNome || "Auditor"}*! Seu acesso possui permissão global de inspeção e auditoria em modo somente leitura na plataforma web.\n\n` +
         "🌐 *Acesso Web de Auditoria:*\n" +
         "• https://sigoguardiao.oficial.tec.br\n\n" +
@@ -8063,7 +8063,7 @@ export async function processarMensagemWhatsappRecebida(
       destinatario: remetenteLimpo,
       acaoExecutada: "menu_instalador",
       resposta:
-        "🔧 *SIGO Guardião — Perfil Instalador Credenciado*\n\n" +
+        "🔧 *GD Rastreamento — Perfil Instalador Credenciado*\n\n" +
         `Olá, *${perfilNome || "Instalador"}*! Suas ordens de instalação, agendamentos técnicos e check-lists estão disponíveis no módulo *Instalação* da plataforma web.\n\n` +
         "🌐 *Acesso ao Sistema Web:*\n" +
         "• https://sigoguardiao.oficial.tec.br\n\n" +
@@ -8081,7 +8081,7 @@ export async function processarMensagemWhatsappRecebida(
       destinatario: remetenteLimpo,
       acaoExecutada: "menu_funcionario",
       resposta:
-        "👷 *SIGO Guardião — Perfil Funcionário*\n\n" +
+        "👷 *GD Rastreamento — Perfil Funcionário*\n\n" +
         `Olá, *${perfilNome || "Colaborador"}*! Seu acesso está habilitado para os módulos operacionais *Monitor GPS* e *Manutenção* na plataforma web.\n\n` +
         "🌐 *Acesso ao Sistema Web:*\n" +
         "• https://sigoguardiao.oficial.tec.br\n\n" +

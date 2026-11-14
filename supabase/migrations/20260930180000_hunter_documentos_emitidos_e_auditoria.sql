@@ -1,7 +1,7 @@
 -- ─────────────────────────────────────────────────────────────────────────────
 -- MIGRATION: Hunter - Registro Forense de Documentos Emitidos e Conferência de Integridade
 -- Versão Alvo: 1.11.0.26
--- Sistema: SIGO Guardião | Diretrizes: DJR-NEW e HUNTER-GUARDIAN
+-- Sistema: GD Rastreamento | Diretrizes: DJR-NEW e HUNTER-GUARDIAN
 -- ─────────────────────────────────────────────────────────────────────────────
 
 -- 1. Criação da tabela de documentos emitidos

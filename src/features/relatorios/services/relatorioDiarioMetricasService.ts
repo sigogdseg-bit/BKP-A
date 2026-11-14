@@ -980,7 +980,7 @@ export function formatarMensagemRelatorioDiario(
   };
 
   const blocos: string[] = [
-    `📊 *SIGO GUARDIÃO — RELATÓRIO DIÁRIO DE MÉTRICAS*`,
+    `📊 *GD RASTREAMENTO — RELATÓRIO DIÁRIO DE MÉTRICAS*`,
     `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
     `🗓️ *Data:* ${agoraSP} (Brasília)`,
     `🎯 *Destinatário:* SuperADM (Dario Novaes)`,
@@ -1243,7 +1243,7 @@ export function formatarMensagemRelatorioDiario(
   }
 
   blocos.push(
-    `\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n` + `🛡️ *SIGO Guardião — Governança e Alta Segurança*`,
+    `\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n` + `🛡️ *GD Rastreamento — Governança e Alta Segurança*`,
   );
 
   return blocos.join("\n");

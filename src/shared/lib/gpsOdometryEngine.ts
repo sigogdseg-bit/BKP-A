@@ -1,5 +1,5 @@
 /**
- * Motor de Odometria GPS e Geodésia de Alta Precisão do SIGO Guardião (Hunter)
+ * Motor de Odometria GPS e Geodésia de Alta Precisão do GD Rastreamento (Hunter)
  * ============================================================================
  * Rigor Científico, Máxima Acuidade e Eliminação de Ruídos para Protocolo J16
  *
@@ -110,7 +110,7 @@ export interface CalibrationTendencyAnalysis {
 export interface ValidationStage {
   etapaKm: 100 | 500 | 1000 | 5000 | 10000;
   quilometragemHodometro: number;
-  quilometragemSigoGuardiao: number;
+  quilometragemGDRastreamento: number;
   diferencaKm: number;
   erroPercentual: number;
   quantidadePontosRecebidos: number;
@@ -747,7 +747,7 @@ const DEFAULT_CONFIG: Required<OdometryEngineConfig> = {
 };
 
 /**
- * Motor de Odometria GPS de Alta Precisão do SIGO Guardião
+ * Motor de Odometria GPS de Alta Precisão do GD Rastreamento
  */
 export class GpsOdometryEngine {
   private config: Required<OdometryEngineConfig>;
@@ -1312,7 +1312,7 @@ export class GpsOdometryEngine {
 
   /**
    * Procedimento de Calibração Individual por Veículo e Dispositivo (ETAPA 6)
-   * Registra a leitura inicial e final do hodômetro e do SIGO Guardião,
+   * Registra a leitura inicial e final do hodômetro e do GD Rastreamento,
    * calculando diferença_km e erro_percentual com rigor formal:
    * diferença_km = distância_SIGO − distância_hodômetro
    * erro_percentual = 100 × |diferença_km| / distância_hodômetro
@@ -1332,7 +1332,7 @@ export class GpsOdometryEngine {
     }
     if (distanciaSigoKm <= 0) {
       throw new Error(
-        "A distância registrada pelo SIGO Guardião deve ser maior que zero para calibração.",
+        "A distância registrada pelo GD Rastreamento deve ser maior que zero para calibração.",
       );
     }
 
@@ -1462,7 +1462,7 @@ export class GpsOdometryEngine {
         pontosGerados: subPoints.length,
       },
       perfilOtimizado: {
-        nome: "Perfil Otimizado SIGO Guardião J16",
+        nome: "Perfil Otimizado GD Rastreamento J16",
         configuracao: "TIMER,15,3600# | ANGLE,3,15#",
         distanciaKm: optRes.distanceProcessedKm,
         erroPercentualEstimado: 0.35,

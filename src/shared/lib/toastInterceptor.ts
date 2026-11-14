@@ -2,7 +2,7 @@ import { toast } from "sonner";
 import { sanitizarMensagemErro } from "@/shared/utils/erroAmigavel";
 
 /**
- * Interceptor Global de Toasts do SIGO Guardião
+ * Interceptor Global de Toasts do GD Rastreamento
  * Garante fisicamente em tempo de execução que NENHUM erro contendo
  * jargões de backend (schema cache, PGRST, tabelas, colunas, SQL)
  * seja renderizado na tela do usuário, mesmo que algum ponto do código

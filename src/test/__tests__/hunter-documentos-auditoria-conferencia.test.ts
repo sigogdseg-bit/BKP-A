@@ -133,7 +133,7 @@ describe("Hunter — Registro Forense de Documentos e Conferência de Integridad
   test("4. Interface e Estrutura Forense: Documento emitido possui todos os campos solicitados", () => {
     const docExemplo: DocumentoEmitido = {
       id: "doc-uuid-1",
-      nome_arquivo: "Contrato_SIGO_Guardiao_Cliente_Exemplo_001.pdf",
+      nome_arquivo: "Contrato_GD_Rastreamento_Cliente_Exemplo_001.pdf",
       hash_sha256: "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       tipo_documento: "CONTRATO_PRESTACAO_SERVICOS",
       descricao: "Contrato de Adesão Hunter - Cliente Exemplo (001/2026)",

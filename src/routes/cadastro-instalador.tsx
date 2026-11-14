@@ -195,7 +195,7 @@ function CadastroInstaladorPage() {
           <div className="text-center mb-6 space-y-1.5">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-bold uppercase tracking-wider mb-2">
               <Sparkles className="h-3.5 w-3.5" />
-              <span>Credenciamento Técnico SIGO Guardião</span>
+              <span>Credenciamento Técnico GD Rastreamento</span>
             </div>
             <h1 className="text-2xl sm:text-3xl font-black tracking-tight text-white">
               Auto-Cadastro de Instalador

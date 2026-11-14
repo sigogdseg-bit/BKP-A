@@ -28,7 +28,7 @@ export function BannerAvisoVencimento({
   const clienteInadimplenteAdapter = {
     id: fatura.id,
     cliente_id: "",
-    nome_razao_social: "Minha Assinatura SIGO Guardião",
+    nome_razao_social: "Minha Assinatura GD Rastreamento",
     telefone: "",
     totalDevido: fatura.valor,
     qtdMensalidadesAtrasadas: 1,

@@ -1,12 +1,12 @@
-# Manual de Implantação do ChatbotX como Microsserviço — SIGO Guardião
+# Manual de Implantação do ChatbotX como Microsserviço — GD Rastreamento
 
-Este guia orienta a instalação e conexão do **ChatbotX** (alternativa open source ao ManyChat com 9 canais: WhatsApp, Telegram, Instagram, Messenger, TikTok, Zalo, e-mail, webchat e API) como microsserviço desacoplado do **SIGO Guardião**.
+Este guia orienta a instalação e conexão do **ChatbotX** (alternativa open source ao ManyChat com 9 canais: WhatsApp, Telegram, Instagram, Messenger, TikTok, Zalo, e-mail, webchat e API) como microsserviço desacoplado do **GD Rastreamento**.
 
 ---
 
 ## 1. Por que rodar como Microsserviço Isolado?
 
-| Característica           | SIGO Guardião                                             | ChatbotX (Microsserviço)                        |
+| Característica           | GD Rastreamento                                           | ChatbotX (Microsserviço)                        |
 | :----------------------- | :-------------------------------------------------------- | :---------------------------------------------- |
 | **Ambiente de Execução** | Cloudflare Pages / Workers (Serverless Edge)              | Docker Compose (Containers Persistentes 24/7)   |
 | **Banco de Dados**       | Supabase (PostgreSQL + RLS estrito de segurança veicular) | TimescaleDB próprio + Redis + S3 RustFS         |
@@ -67,7 +67,7 @@ Preencha no `.env`:
 - `CHATBOTX_DOMAIN=chat.hunter.oficial.tec.br`
 - `BETTER_AUTH_SECRET=sua_chave_base64_gerada`
 - `ENCRYPTION_KEY=sua_chave_hex_64_chars`
-- `HUNTER_WEBHOOK_SECRET=token_secreto_para_comunicar_com_sigo_guardiao`
+- `HUNTER_WEBHOOK_SECRET=token_secreto_para_comunicar_com_gd_rastreamento`
 
 ### Passo 3: Iniciar a Stack
 
@@ -93,21 +93,21 @@ Acesse no navegador:
 
 1. No painel do ChatbotX, vá em **Channels** -> **WhatsApp**.
 2. Escolha o provedor de conexão (Web QR Code ou WhatsApp Cloud API oficial da Meta).
-3. Aponte a câmera do WhatsApp para autenticar o número de suporte/alertas do SIGO Guardião.
+3. Aponte a câmera do WhatsApp para autenticar o número de suporte/alertas do GD Rastreamento.
 
 ### Telegram
 
 1. Abra o Telegram e procure por `@BotFather`.
-2. Digite `/newbot`, defina o nome (ex: `SIGO Guardiao Alertas`) e username.
+2. Digite `/newbot`, defina o nome (ex: `GD Rastreamento Alertas`) e username.
 3. Copie o `Bot Token` gerado e cole em **Channels** -> **Telegram** no ChatbotX.
 
 ---
 
-## 5. Fluxos de Alertas Automatizados do SIGO Guardião
+## 5. Fluxos de Alertas Automatizados do GD Rastreamento
 
-Quando um hardware J16 detecta uma violação, o SIGO Guardião dispara um webhook POST com o seguinte formato:
+Quando um hardware J16 detecta uma violação, o GD Rastreamento dispara um webhook POST com o seguinte formato:
 
-### Exemplo de Payload disparado pelo SIGO Guardião:
+### Exemplo de Payload disparado pelo GD Rastreamento:
 
 ```json
 {
@@ -129,7 +129,7 @@ No construtor de fluxos do ChatbotX:
 1. Crie um **Webhook Trigger** ouvindo o evento `ALERTA_J16`.
 2. Adicione uma ação de envio de mensagem no WhatsApp:
    ```text
-   🚨 *ALERTA SIGO GUARDIÃO* 🚨
+   🚨 *ALERTA GD RASTREAMENTO* 🚨
 
    Veículo: *{{veiculo}}* (Placa: *{{placa}}*)
    Alarme: *Corte de Bateria Externa Detectado*
@@ -145,7 +145,7 @@ No construtor de fluxos do ChatbotX:
 ## 6. Consulta via Agente de IA com MCP
 
 O ChatbotX possui suporte nativo a **Model Context Protocol (MCP)** e **Tools de IA**.  
-Configurando a ferramenta de telemetria do SIGO Guardião no ChatbotX, o cliente pode perguntar no WhatsApp:
+Configurando a ferramenta de telemetria do GD Rastreamento no ChatbotX, o cliente pode perguntar no WhatsApp:
 
 - _"Onde está o meu caminhão agora?"_
 - _"A ignição do meu Volvo está ligada?"_

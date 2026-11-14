@@ -1,7 +1,7 @@
 import { describe, it } from "node:test";
 import assert from "node:assert/strict";
 
-describe("SIGO Guardiao — Notificacoes Imediatas e Erradicacao de Mensagens WhatsApp ao Cliente", () => {
+describe("GD Rastreamento — Notificacoes Imediatas e Erradicacao de Mensagens WhatsApp ao Cliente", () => {
   it("Valida tipagens canonicas de notificacao imediata para eventos operacionais e de cobranca", () => {
     const tiposPermitidos = [
       "cobranca",
@@ -27,7 +27,7 @@ describe("SIGO Guardiao — Notificacoes Imediatas e Erradicacao de Mensagens Wh
   it("Gera payload consistente de notificacao de vencimento do plano e cobranca imediata", () => {
     const payloadCobranca = {
       destinatarioClienteId: "cli-uuid-1234",
-      titulo: "Fatura e Vencimento do Plano — SIGO Guardiao",
+      titulo: "Fatura e Vencimento do Plano — GD Rastreamento",
       mensagem:
         "Ola, Transportes Brasil. Sua fatura de R$ 350.00 referente ao seu plano esta disponivel. Acesse o painel para regularizar via PIX.",
       tipo: "cobranca",

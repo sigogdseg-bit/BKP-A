@@ -50,9 +50,9 @@ CREATE POLICY "Motorista analytics visível para adms do cliente"
     USING (
         EXISTS (
             SELECT 1 FROM public.motoristas m
-            JOIN public.user_roles ur ON ur.cliente_id = m.cliente_id
+            JOIN public.clientes c ON c.id = m.cliente_id
             WHERE m.id = motorista_analytics_diario.motorista_id
-              AND ur.user_id = auth.uid()
+              AND c.user_id = auth.uid()
         )
     );
 

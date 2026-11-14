@@ -296,7 +296,7 @@ export function NovaInstalacaoModal({
         return novos;
       });
       toast.success(
-        "Insumos de corte (relé e chicote) adicionados para baixa do estoque do SIGO Guardião.",
+        "Insumos de corte (relé e chicote) adicionados para baixa do estoque do GD Rastreamento.",
       );
     }
   };
@@ -1527,8 +1527,8 @@ export function NovaInstalacaoModal({
                       </label>
                       <span className="text-[10px] text-slate-500 dark:text-slate-400">
                         {releChicoteDoEstoque
-                          ? "Baixará 1 Relé e 1 Chicote do estoque do SIGO Guardião"
-                          : "Fornecido pelo instalador (não consome estoque do SIGO Guardião)"}
+                          ? "Baixará 1 Relé e 1 Chicote do estoque do GD Rastreamento"
+                          : "Fornecido pelo instalador (não consome estoque do GD Rastreamento)"}
                       </span>
                     </div>
 
@@ -1556,7 +1556,7 @@ export function NovaInstalacaoModal({
                         }`}
                       >
                         <Package className="h-3.5 w-3.5 text-amber-600 dark:text-amber-400" />
-                        <span>Do Estoque SIGO Guardião (Fará Baixa)</span>
+                        <span>Do Estoque GD Rastreamento (Fará Baixa)</span>
                       </button>
                     </div>
                   </div>

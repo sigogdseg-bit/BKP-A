@@ -1,4 +1,4 @@
-// spedFiscalService.ts — SIGO Guardião
+// spedFiscalService.ts — GD Rastreamento
 // Gerador do Arquivo Digital SPED Fiscal (EFD - Escrituração Fiscal Digital)
 // Formata receitas, faturamentos, prestação de serviços de rastreamento e DRE
 // em conformidade com o layout oficial da Receita Federal (Blocos 0, C, D, E e 9).
@@ -97,7 +97,7 @@ export function gerarSpedFiscalTxt(params: ParametrosGeracaoSped): ResultadoSped
 
   // Registro 0005: Dados Complementares da Entidade
   addLinha(
-    `|0005|SIGO GUARDIAO TELEMETRIA|27286210|RUA DOM ANTONIO CABRAL|225||SAO LUIZ|24992494030||novaes@oficial.tec.br|`,
+    `|0005|GD RASTREAMENTO TELEMETRIA|27286210|RUA DOM ANTONIO CABRAL|225||SAO LUIZ|24992494030||novaes@oficial.tec.br|`,
     "0",
   );
 

@@ -1,5 +1,5 @@
 -- ==============================================================================
--- SIGO Guardião — Módulo Comercial: Redefinição de Senha de Revendedor e Vendedor
+-- GD Rastreamento — Módulo Comercial: Redefinição de Senha de Revendedor e Vendedor
 -- Força primeiro_acesso = TRUE no Profile para Troca Obrigatória no Primeiro Acesso
 -- Migration: 20261028170000_sigo_guardiao_redefinir_senha_parceiro.sql
 -- ==============================================================================

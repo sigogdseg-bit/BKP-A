@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- * SIGO GUARDIÃO - MOTORES COMPARATIVOS DE ODOMETRIA FUSIONAL (A, B E C)
+ * GD RASTREAMENTO - MOTORES COMPARATIVOS DE ODOMETRIA FUSIONAL (A, B E C)
  * Hardware Alvo: WanWay J16 4G (GT06 / Pacote 0x94) | Veículo: Volvo XC60 AXH0E44
  * Baseline Real do Painel Físico: 183.421,0 km
  * ============================================================================
@@ -415,7 +415,7 @@ export class MotorOdometroPropostaB {
 }
 
 // ============================================================================
-// PROPOSTA C: SIGO Guardião EKF 1D + Taylor 4ª Ordem + ZVU 6 Regras (Resposta 3)
+// PROPOSTA C: GD Rastreamento EKF 1D + Taylor 4ª Ordem + ZVU 6 Regras (Resposta 3)
 // ============================================================================
 export class MotorOdometroPropostaC {
   private static readonly WGS84_A = 6378137.0;
@@ -587,7 +587,7 @@ export class MotorOdometroPropostaC {
     return {
       motorId: "c",
       titulo: "Mostrador C · EKF 1D Canônico",
-      subtitulo: "Expansão Taylor 4ª Ordem e ZVU 6 Regras (SIGO Guardião)",
+      subtitulo: "Expansão Taylor 4ª Ordem e ZVU 6 Regras (GD Rastreamento)",
       odometroKm: km,
       odometroMetros: Math.round(this.odometroRealMetros),
       deltaMetros: Number(deltaM.toFixed(2)),

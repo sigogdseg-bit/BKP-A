@@ -127,7 +127,7 @@ CREATE TABLE IF NOT EXISTS public.seguranca_dlp_config (
   watermark_ativo BOOLEAN NOT NULL DEFAULT TRUE,
   blur_perda_foco_ativo BOOLEAN NOT NULL DEFAULT TRUE,
   bloqueio_print_ativo BOOLEAN NOT NULL DEFAULT TRUE,
-  texto_marca_dagua TEXT NOT NULL DEFAULT 'SIGO GUARDIÃO • DOCUMENTO CONFIDENCIAL',
+  texto_marca_dagua TEXT NOT NULL DEFAULT 'GD RASTREAMENTO • DOCUMENTO CONFIDENCIAL',
   opacidade_watermark NUMERIC NOT NULL DEFAULT 0.08,
   updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
   updated_by TEXT
@@ -155,7 +155,7 @@ CREATE POLICY "Apenas administradores gerenciam config DLP"
 
 -- Registro padrão de configuração DLP singleton
 INSERT INTO public.seguranca_dlp_config (id, watermark_ativo, blur_perda_foco_ativo, bloqueio_print_ativo, texto_marca_dagua, opacidade_watermark)
-VALUES ('00000000-0000-0000-0000-000000000001'::UUID, TRUE, TRUE, TRUE, 'SIGO GUARDIÃO • DOCUMENTO CONFIDENCIAL', 0.08)
+VALUES ('00000000-0000-0000-0000-000000000001'::UUID, TRUE, TRUE, TRUE, 'GD RASTREAMENTO • DOCUMENTO CONFIDENCIAL', 0.08)
 ON CONFLICT (id) DO NOTHING;
 
 -- 5. Habilitar Realtime nas tabelas de segurança

@@ -1,4 +1,4 @@
-// alertasCatalogo.ts — SIGO Guardião
+// alertasCatalogo.ts — GD Rastreamento
 // Catálogo Canônico Auditado de Alertas Efetivamente Monitorados no Sistema
 // (Zero itens deduzidos ou irreais: cada chave corresponde a emissor real em trigger SQL, cron, gateway GPS ou serviço ativo)
 

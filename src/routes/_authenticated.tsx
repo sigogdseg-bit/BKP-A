@@ -33,7 +33,7 @@ function AuthenticatedLoadingFallback() {
       <div className="flex flex-col items-center gap-3">
         <div className="h-8 w-8 rounded-full border-2 border-emerald-500 border-t-transparent animate-spin" />
         <span className="text-xs text-slate-500 dark:text-slate-400 font-mono">
-          Verificando credenciais SIGO Guardião...
+          Verificando credenciais GD Rastreamento...
         </span>
       </div>
     </div>
@@ -206,7 +206,7 @@ function AuthenticatedLayout() {
         <div className="flex flex-col items-center gap-3">
           <div className="h-8 w-8 rounded-full border-2 border-emerald-500 border-t-transparent animate-spin" />
           <span className="text-xs text-slate-500 dark:text-slate-400 font-mono">
-            Verificando credenciais SIGO Guardião...
+            Verificando credenciais GD Rastreamento...
           </span>
           <button
             type="button"

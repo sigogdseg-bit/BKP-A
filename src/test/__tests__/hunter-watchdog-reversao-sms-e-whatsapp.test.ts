@@ -74,7 +74,7 @@ describe("Hunter — Watchdog de Defesa Ativa, Reversão Automática Anti-SMS e 
     const content = await fs.readFile(gatewayScriptPath, "utf-8");
 
     assert.ok(
-      content.includes("ALERTA DE SEGURANÇA MÁXIMA — SIGO GUARDIÃO"),
+      content.includes("ALERTA DE SEGURANÇA MÁXIMA — GD RASTREAMENTO"),
       "Deve conter cabeçalho oficial do alerta de segurança máxima",
     );
     assert.ok(

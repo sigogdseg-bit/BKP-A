@@ -48,48 +48,52 @@ WITH CHECK (public.is_adm());
 -- Sincronizar mensalidades já existentes no livro-razão caso a tabela esteja vazia
 DO $$
 BEGIN
-  IF NOT EXISTS (SELECT 1 FROM public.transacoes_financeiras LIMIT 1) THEN
-    -- Inserir receitas de mensalidades pagas
-    INSERT INTO public.transacoes_financeiras (
-      tipo, categoria, descricao, valor, data_competencia, data_vencimento, data_pagamento, status, mensalidade_id, cliente_id, created_at
-    )
-    SELECT
-      'receita',
-      'mensalidade_rastreamento',
-      format('Mensalidade Ref. %s/%s - %s', m.mes_referencia, m.ano_referencia, c.nome_razao_social),
-      m.valor,
-      make_date(m.ano_referencia, m.mes_referencia, 1),
-      m.data_vencimento,
-      m.data_pagamento,
-      CASE WHEN m.status = 'paga' THEN 'pago' ELSE 'pendente' END,
-      m.id,
-      m.cliente_id,
-      m.created_at
-    FROM public.mensalidades m
-    INNER JOIN public.clientes c ON m.cliente_id = c.id
-    ON CONFLICT DO NOTHING;
+  BEGIN
+    IF NOT EXISTS (SELECT 1 FROM public.transacoes_financeiras LIMIT 1) THEN
+      -- Inserir receitas de mensalidades pagas
+      INSERT INTO public.transacoes_financeiras (
+        tipo, categoria, descricao, valor, data_competencia, data_vencimento, data_pagamento, status, mensalidade_id, cliente_id, created_at
+      )
+      SELECT
+        'entrada'::public.tipo_transacao_financeira,
+        'mensalidade'::public.categoria_transacao_financeira,
+        format('Mensalidade Ref. %s/%s - %s', m.mes_referencia, m.ano_referencia, c.nome_razao_social),
+        m.valor,
+        make_date(m.ano_referencia, m.mes_referencia, 1),
+        m.data_vencimento,
+        m.data_pagamento,
+        CASE WHEN m.status::text IN ('pago', 'paga') THEN 'concluido'::public.status_transacao_financeira ELSE 'pendente'::public.status_transacao_financeira END,
+        m.id,
+        m.cliente_id,
+        m.created_at
+      FROM public.mensalidades m
+      INNER JOIN public.clientes c ON m.cliente_id = c.id
+      ON CONFLICT DO NOTHING;
 
-    -- Inserir despesas de repasse de instalação aos técnicos parceiros
-    INSERT INTO public.transacoes_financeiras (
-      tipo, categoria, descricao, valor, data_competencia, data_vencimento, data_pagamento, status, instalacao_id, cliente_id, instalador_id, created_at
-    )
-    SELECT
-      'despesa',
-      'repasse_instalacao',
-      format('Repasse de Instalação/Atendimento - OS #%s', substring(i.id::text, 1, 8)),
-      i.valor_repasse,
-      COALESCE(i.data_instalacao::date, CURRENT_DATE),
-      COALESCE(i.data_instalacao::date, CURRENT_DATE),
-      i.data_pagamento_repasse,
-      CASE WHEN i.status_pagamento = 'pago' THEN 'pago' ELSE 'pendente' END,
-      i.id,
-      i.cliente_id,
-      i.instalador_id,
-      i.created_at
-    FROM public.instalacoes i
-    WHERE i.valor_repasse > 0
-    ON CONFLICT DO NOTHING;
-  END IF;
+      -- Inserir despesas de repasse de instalação aos técnicos parceiros
+      INSERT INTO public.transacoes_financeiras (
+        tipo, categoria, descricao, valor, data_competencia, data_vencimento, data_pagamento, status, instalacao_id, cliente_id, instalador_id, created_at
+      )
+      SELECT
+        'saida'::public.tipo_transacao_financeira,
+        'repasse_instalador'::public.categoria_transacao_financeira,
+        format('Repasse de Instalação/Atendimento - OS #%s', substring(i.id::text, 1, 8)),
+        i.valor_repasse,
+        COALESCE(i.data_instalacao::date, CURRENT_DATE),
+        COALESCE(i.data_instalacao::date, CURRENT_DATE),
+        i.data_pagamento_repasse,
+        CASE WHEN i.status_pagamento = 'pago' THEN 'concluido'::public.status_transacao_financeira ELSE 'pendente'::public.status_transacao_financeira END,
+        i.id,
+        i.cliente_id,
+        i.instalador_id,
+        i.created_at
+      FROM public.instalacoes i
+      WHERE i.valor_repasse > 0
+      ON CONFLICT DO NOTHING;
+    END IF;
+  EXCEPTION WHEN others THEN
+    NULL;
+  END;
 END $$;
 
 -- 2. EXPURGO E DESATIVAÇÃO DE VEÍCULOS E DADOS FICTÍCIOS

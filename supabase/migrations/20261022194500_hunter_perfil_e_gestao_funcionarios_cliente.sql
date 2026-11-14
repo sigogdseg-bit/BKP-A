@@ -1,6 +1,6 @@
 -- ─────────────────────────────────────────────────────────────────────────────
 -- MIGRATION: 20261022194500_hunter_perfil_e_gestao_funcionarios_cliente.sql
--- Sistema: SIGO Guardião | Diretrizes: HUNTER-GUARDIAN e DJR-NEW
+-- Sistema: GD Rastreamento | Diretrizes: HUNTER-GUARDIAN e DJR-NEW
 -- Descrição:
 -- 1. Criação do perfil 'funcionario' no ENUM public.hunter_role.
 -- 2. Adição da coluna cliente_id em public.profiles (com FK para public.clientes).

@@ -225,7 +225,7 @@ export function WebPushConfigModal({ aberto, onFechar }: WebPushConfigModalProps
 
               <ol className="space-y-2.5 list-decimal list-inside text-[11px]">
                 <li className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800">
-                  <strong>Acesse pelo Safari:</strong> Abra o endereço do SIGO Guardião no Safari
+                  <strong>Acesse pelo Safari:</strong> Abra o endereço do GD Rastreamento no Safari
                   nativo do iOS (versão 16.4 ou superior).
                 </li>
                 <li className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800">
@@ -245,7 +245,7 @@ export function WebPushConfigModal({ aberto, onFechar }: WebPushConfigModalProps
                 </li>
                 <li className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800">
                   <strong>Abra o App pela Tela de Início:</strong> Feche o Safari e toque no novo
-                  ícone do SIGO Guardião na tela inicial do celular. Dentro dele, clique no botão{" "}
+                  ícone do GD Rastreamento na tela inicial do celular. Dentro dele, clique no botão{" "}
                   <strong>Ativar Notificações no Dispositivo</strong>.
                 </li>
               </ol>
@@ -260,8 +260,9 @@ export function WebPushConfigModal({ aberto, onFechar }: WebPushConfigModalProps
 
               <div className="space-y-2 text-[11px]">
                 <p>
-                  O SIGO Guardião já possui a infraestrutura de <strong>Digital Asset Links</strong>{" "}
-                  ativa no servidor em <code>/.well-known/assetlinks.json</code> com status 200 OK.
+                  O GD Rastreamento já possui a infraestrutura de{" "}
+                  <strong>Digital Asset Links</strong> ativa no servidor em{" "}
+                  <code>/.well-known/assetlinks.json</code> com status 200 OK.
                 </p>
 
                 <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800 space-y-1.5">
@@ -269,8 +270,8 @@ export function WebPushConfigModal({ aberto, onFechar }: WebPushConfigModalProps
                     Passos para compilar o APK via PWABuilder:
                   </span>
                   <p>
-                    1. Acesse <strong>pwabuilder.com</strong> e insira o domínio oficial do SIGO
-                    Guardião.
+                    1. Acesse <strong>pwabuilder.com</strong> e insira o domínio oficial do GD
+                    Rastreamento Guardião.
                   </p>
                   <p>
                     2. Selecione <strong>Package for Stores ➔ Android</strong>.

@@ -178,7 +178,7 @@ export function ModalConfiguracaoCanaisAlerta({
         categoriaMensagem: "alerta",
         tipoContato: "usuario",
         mensagem:
-          `📡 *SIGO GUARDIÃO — TESTE DE MENSAGEM DO RASTREADOR*\n\n` +
+          `📡 *GD RASTREAMENTO — TESTE DE MENSAGEM DO RASTREADOR*\n\n` +
           `✅ Teste de canal WhatsApp efetuado com sucesso!\n` +
           `⏰ *Horário:* ${formatarHoraBrasil(new Date(), true)}\n` +
           `🎯 As respostas dos comandos agendados serão entregues neste número.`,
@@ -418,7 +418,7 @@ export function ModalConfiguracaoCanaisAlerta({
               <span>Conteúdo Enviado no Alerta (Exemplo Factual)</span>
             </div>
             <div className="text-[11px] font-mono leading-relaxed bg-slate-950 p-2.5 rounded-xl border border-slate-800/80 text-emerald-400 space-y-1">
-              <div>📡 SIGO GUARDIÃO — RETORNO DE COMANDO J16</div>
+              <div>📡 GD RASTREAMENTO — RETORNO DE COMANDO J16</div>
               <div className="text-slate-300">🚗 Veículo: ABC-1234 (Toyota Hilux)</div>
               <div className="text-slate-400">🔑 IMEI: 869890084959182</div>
               <div className="text-amber-300">⚡ Comando Agendado: ACCALM,ON,2#</div>

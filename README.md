@@ -164,7 +164,7 @@ npm install
 Crie um arquivo `.env.local` baseado no modelo `.env.example`:
 
 ```env
-VITE_SUPABASE_URL=https://kaxtuqfmvlkfnqsdualu.supabase.co
+VITE_SUPABASE_URL=https://pflzopmxxawyqkgrlapq.supabase.co
 VITE_SUPABASE_ANON_KEY=sua_chave_anon_aqui
 SUPABASE_SERVICE_ROLE_KEY=sua_chave_service_role_aqui
 VAPID_PUBLIC_KEY=sua_chave_vapid_publica
@@ -229,5 +229,5 @@ O script automatizado:
 
 ## 8. Licença e Direitos Autorais
 
-Propriedade exclusiva do ecossistema SIGO Guardião (Hunter). Todos os direitos reservados.
+Propriedade exclusiva do ecossistema GD Rastreamento (Hunter). Todos os direitos reservados.
 Proibida a reprodução, engenharia reversa ou distribuição desautorizada deste código-fonte.

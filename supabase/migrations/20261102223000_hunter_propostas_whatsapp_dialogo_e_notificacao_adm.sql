@@ -1,5 +1,5 @@
 -- ==============================================================================
--- HUNTER / SIGO GUARDIÃO — Propostas Comerciais via WhatsApp e Diálogo Interativo
+-- HUNTER / GD RASTREAMENTO — Propostas Comerciais via WhatsApp e Diálogo Interativo
 -- Suporte a Revendedores, Vendedores, Base Mínima de Repasse e Notificação ao SuperADM
 -- Migration: 20261102223000_hunter_propostas_whatsapp_dialogo_e_notificacao_adm.sql
 -- ==============================================================================

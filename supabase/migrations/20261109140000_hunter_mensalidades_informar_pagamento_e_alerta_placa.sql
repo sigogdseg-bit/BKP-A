@@ -1,6 +1,6 @@
 -- ─────────────────────────────────────────────────────────────────────────────
 -- MIGRATION: 20261109140000_hunter_mensalidades_informar_pagamento_e_alerta_placa.sql
--- Sistema: SIGO Guardião | Diretrizes: HUNTER-GUARDIAN e DJR-NEW
+-- Sistema: GD Rastreamento | Diretrizes: HUNTER-GUARDIAN e DJR-NEW
 -- Descrição:
 -- 1. Inclusão dos campos 'tipo' e 'placa' no payload do trigger disparar_push_vapid_ao_inserir_notificacao
 --    Garante que alertas de excesso de velocidade, cerca e telemetria cheguem com placa identificada

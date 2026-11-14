@@ -1,5 +1,5 @@
 // ─────────────────────────────────────────────────────────────────────────────
-// SIGO Guardião — Listagem de Instaladores Credenciados
+// GD Rastreamento — Listagem de Instaladores Credenciados
 // Visualização tática para Revendedor, Vendedor, Operador e Administrador
 // Exibe Nome, Telefone (com 1 toque WhatsApp e chamada) e Endereço de Atendimento
 // ─────────────────────────────────────────────────────────────────────────────
@@ -112,7 +112,7 @@ export function TabelaInstaladoresCredenciados() {
     const limpo = telefone.replace(/\D/g, "");
     const foneFinal = limpo.startsWith("55") ? limpo : `55${limpo}`;
     const texto = encodeURIComponent(
-      `Olá, ${nome}! Sou parceiro credenciado do SIGO Guardião e gostaria de alinhar um agendamento de instalação veicular.`,
+      `Olá, ${nome}! Sou parceiro credenciado do GD Rastreamento e gostaria de alinhar um agendamento de instalação veicular.`,
     );
     window.open(`https://wa.me/${foneFinal}?text=${texto}`, "_blank", "noopener,noreferrer");
   };

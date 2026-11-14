@@ -621,7 +621,7 @@ export function AbaSimuladorCargaRastreadores() {
   // Exportar relatório técnico de teste de estresse
   const handleExportarRelatorio = () => {
     const relatorio = {
-      sistema: "SIGO Guardião — Bancada Virtual e Simulador de Carga",
+      sistema: "GD Rastreamento — Bancada Virtual e Simulador de Carga",
       geradoEm: new Date().toISOString(),
       parametros: {
         totalVeiculos: veiculos.length,
@@ -652,7 +652,7 @@ export function AbaSimuladorCargaRastreadores() {
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = `relatorio-teste-carga-sigo-guardiao-${Date.now()}.json`;
+    a.download = `relatorio-teste-carga-gd-rastreamento-${Date.now()}.json`;
     a.click();
     URL.revokeObjectURL(url);
     toast.success("Relatório de teste de carga exportado com sucesso.");

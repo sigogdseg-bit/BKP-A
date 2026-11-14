@@ -395,7 +395,7 @@ describe("Hunter — Motor de Odometria e Calibração Acumulada J16 4G (AT6558R
         hodometroInicialPainelKm: 85200.0,
         hodometroFinalPainelKm: 85250.0, // 50.0 km rodados no painel
         odometroInicialSigoKm: 1200.0,
-        odometroFinalSigoKm: 1249.4, // 49.4 km no SIGO Guardião
+        odometroFinalSigoKm: 1249.4, // 49.4 km no GD Rastreamento
       };
 
       const res = engine.calibrateVehicle(session);
@@ -468,7 +468,7 @@ describe("Hunter — Motor de Odometria e Calibração Acumulada J16 4G (AT6558R
         {
           etapaKm: 100,
           quilometragemHodometro: 100.0,
-          quilometragemSigoGuardiao: 99.7,
+          quilometragemGDRastreamento: 99.7,
           diferencaKm: -0.3,
           erroPercentual: 0.3,
           quantidadePontosRecebidos: 720,
@@ -480,7 +480,7 @@ describe("Hunter — Motor de Odometria e Calibração Acumulada J16 4G (AT6558R
         {
           etapaKm: 500,
           quilometragemHodometro: 500.0,
-          quilometragemSigoGuardiao: 498.8,
+          quilometragemGDRastreamento: 498.8,
           diferencaKm: -1.2,
           erroPercentual: 0.24,
           quantidadePontosRecebidos: 3600,
@@ -492,7 +492,7 @@ describe("Hunter — Motor de Odometria e Calibração Acumulada J16 4G (AT6558R
         {
           etapaKm: 1000,
           quilometragemHodometro: 1000.0,
-          quilometragemSigoGuardiao: 997.5,
+          quilometragemGDRastreamento: 997.5,
           diferencaKm: -2.5,
           erroPercentual: 0.25,
           quantidadePontosRecebidos: 7200,
@@ -504,7 +504,7 @@ describe("Hunter — Motor de Odometria e Calibração Acumulada J16 4G (AT6558R
         {
           etapaKm: 5000,
           quilometragemHodometro: 5000.0,
-          quilometragemSigoGuardiao: 4988.0,
+          quilometragemGDRastreamento: 4988.0,
           diferencaKm: -12.0,
           erroPercentual: 0.24,
           quantidadePontosRecebidos: 36000,
@@ -516,7 +516,7 @@ describe("Hunter — Motor de Odometria e Calibração Acumulada J16 4G (AT6558R
         {
           etapaKm: 10000,
           quilometragemHodometro: 10000.0,
-          quilometragemSigoGuardiao: 9978.0,
+          quilometragemGDRastreamento: 9978.0,
           diferencaKm: -22.0,
           erroPercentual: 0.22,
           quantidadePontosRecebidos: 72000,

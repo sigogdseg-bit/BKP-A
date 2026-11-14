@@ -12,7 +12,7 @@ export function UpgradePlanoModal({ aberto, onFechar, recursoSolicitado }: Upgra
 
   const contatarSuporteUpgrade = (planoDesejado: string) => {
     const mensagem = encodeURIComponent(
-      `Olá! Tenho interesse em fazer upgrade do meu plano SIGO Guardião para o plano ${planoDesejado.toUpperCase()}${
+      `Olá! Tenho interesse em fazer upgrade do meu plano GD Rastreamento para o plano ${planoDesejado.toUpperCase()}${
         recursoSolicitado ? ` para liberar o recurso de ${recursoSolicitado}` : ""
       }. Poderiam me informar as condições?`,
     );
@@ -38,7 +38,7 @@ export function UpgradePlanoModal({ aberto, onFechar, recursoSolicitado }: Upgra
 
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-xs font-bold uppercase tracking-wider mb-2">
               <Sparkles className="h-3.5 w-3.5 animate-pulse" />
-              <span>SIGO Guardião Telemetria Avançada</span>
+              <span>GD Rastreamento Telemetria Avançada</span>
             </div>
 
             <h2 className="text-xl sm:text-2xl font-black text-white">
@@ -46,7 +46,7 @@ export function UpgradePlanoModal({ aberto, onFechar, recursoSolicitado }: Upgra
             </h2>
             <p className="text-xs sm:text-sm text-slate-300 mt-1 max-w-xl">
               {recursoSolicitado
-                ? `O recurso de ${recursoSolicitado} faz parte dos planos de alta tecnologia do SIGO Guardião.`
+                ? `O recurso de ${recursoSolicitado} faz parte dos planos de alta tecnologia do GD Rastreamento.`
                 : "Desbloqueie telemetria de precisão, sensores giroscópicos, modo 3D e prevenção contra acidentes."}
             </p>
           </div>
@@ -162,7 +162,7 @@ export function UpgradePlanoModal({ aberto, onFechar, recursoSolicitado }: Upgra
             <div className="flex items-center gap-2">
               <Headphones className="h-4 w-4 text-emerald-500" />
               <span className="truncate">
-                Atendimento SIGO Guardião 24h para migração instantânea
+                Atendimento GD Rastreamento 24h para migração instantânea
               </span>
             </div>
             <button

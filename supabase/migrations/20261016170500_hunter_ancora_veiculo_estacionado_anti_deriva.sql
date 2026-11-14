@@ -1,5 +1,5 @@
 -- ============================================================================
--- HUNTER / SIGO GUARDIÃO — ÂNCORA DE VEÍCULO ESTACIONADO E BLINDAGEM ANTI-DERIVA
+-- HUNTER / GD RASTREAMENTO — ÂNCORA DE VEÍCULO ESTACIONADO E BLINDAGEM ANTI-DERIVA
 -- ============================================================================
 -- Versão Alvo: 1.11.0.179
 -- Root Cause: Quando um veículo está estacionado com a chave desligada (ACC OFF),

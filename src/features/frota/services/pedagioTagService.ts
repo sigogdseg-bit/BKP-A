@@ -1,4 +1,4 @@
-// pedagioTagService.ts — SIGO Guardião
+// pedagioTagService.ts — GD Rastreamento
 // Gestão de Tags Eletrônicas de Pedágio (Sem Parar, ConectCar, Veloe e MoveMais)
 // Conciliação de Passagens nas Praças com a Telemetria GPS e Histórico de Viagens
 

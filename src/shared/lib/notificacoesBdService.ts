@@ -1,4 +1,4 @@
-// notificacoesBdService.ts — SIGO Guardião
+// notificacoesBdService.ts — GD Rastreamento
 // Sincronização e Disparo de Notificações em Tempo Real entre Dispositivos via Banco de Dados (Supabase Realtime)
 
 import { supabase } from "@/integrations/supabase/client";
@@ -488,7 +488,7 @@ export async function enviarNotificacaoViaBd(params: {
       destinatario_user_id: destUserId,
       destinatario_cliente_id: destClienteId,
       remetente_user_id: userId || null,
-      remetente_nome: session?.user?.email?.split("@")[0] || "SIGO Guardião",
+      remetente_nome: session?.user?.email?.split("@")[0] || "GD Rastreamento",
       dispositivo_origem: dispositivoNome,
       titulo: params.titulo,
       mensagem: params.mensagem,
@@ -553,7 +553,7 @@ export async function enviarNotificacaoViaBd(params: {
             destinatario_user_id: destUserId,
             destinatario_cliente_id: destClienteId,
             remetente_user_id: userId || null,
-            remetente_nome: session?.user?.email?.split("@")[0] || "SIGO Guardião",
+            remetente_nome: session?.user?.email?.split("@")[0] || "GD Rastreamento",
             dispositivo_origem: dispositivoNome,
             titulo: params.titulo,
             mensagem: params.mensagem,

@@ -7,7 +7,7 @@ import {
   MetricasSistemaDiarias,
 } from "@/features/relatorios/services/relatorioDiarioMetricasService";
 
-describe("HUNTER / SIGO GUARDIÃO — Anti-Repetição de Alertas de Geofence e Ciclo de Vida de NFs", () => {
+describe("HUNTER / GD RASTREAMENTO — Anti-Repetição de Alertas de Geofence e Ciclo de Vida de NFs", () => {
   it("1. Máquina de Estados de Geofence: DDL deve criar veiculo_areas_estado e trigger deve respeitar transição de estado", () => {
     const migrationPath = path.resolve(
       process.cwd(),

@@ -1,5 +1,5 @@
 -- ============================================================================
--- SIGO GUARDIÃO — ODOMETRIA: 7º MEDIDOR (MÉDIA FUSIONAL 1, 4, 5 E 6) COMO PRINCIPAL
+-- GD RASTREAMENTO — ODOMETRIA: 7º MEDIDOR (MÉDIA FUSIONAL 1, 4, 5 E 6) COMO PRINCIPAL
 -- Requisitos Pétreos:
 --   - O 7º medidor é a média exata das somas dos medidores 1, 4, 5 e 6:
 --       Média = (WGS-84 + Motor A + Motor B + Motor C) / 4

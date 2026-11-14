@@ -1,6 +1,6 @@
 -- ─────────────────────────────────────────────────────────────────────────────
 -- MIGRATION: Módulo de Propostas Comerciais e Efetividade de Vendas
--- Sistema: SIGO Guardião | Diretrizes: DJR-NEW e HUNTER-GUARDIAN
+-- Sistema: GD Rastreamento | Diretrizes: DJR-NEW e HUNTER-GUARDIAN
 -- ─────────────────────────────────────────────────────────────────────────────
 
 CREATE TABLE IF NOT EXISTS public.propostas_comerciais (

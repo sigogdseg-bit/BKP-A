@@ -1,5 +1,5 @@
 -- ============================================================================
--- SIGO GUARDIÃO — SNAPSHOT CANÔNICO DE SEGURANÇA E PRESERVAÇÃO
+-- GD RASTREAMENTO — SNAPSHOT CANÔNICO DE SEGURANÇA E PRESERVAÇÃO
 -- FORMULAÇÃO ATUAL DO ODÔMETRO (MEDIDOR 7 · MÉDIA FUSIONAL 1, 4, 5 E 6)
 -- Data do Snapshot: 25/10/2026
 -- Finalidade: Preservação integral e imediata da fórmula atual do sistema para

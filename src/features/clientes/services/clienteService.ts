@@ -2973,7 +2973,7 @@ export async function provisionarChipRastreadorEInstalacao(dados: {
           horimetro_inicial: Number(dados.horimetroInicial) || 0,
           status: "nao_instalado",
           observacoes:
-            "Equipamento e chip M2M configurados pela administração do SIGO Guardião. O instalador deve conferir o IMEI físico do rastreador na instalação.",
+            "Equipamento e chip M2M configurados pela administração do GD Rastreamento. O instalador deve conferir o IMEI físico do rastreador na instalação.",
         };
 
         let { data: instData, error: errInst } = await supabase

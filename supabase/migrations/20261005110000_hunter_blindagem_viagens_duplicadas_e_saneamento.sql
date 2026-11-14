@@ -9,28 +9,33 @@
 -- 5. Notificação de reload de schema ao PostgREST.
 -- =============================================================================
 
--- 1. Saneamento de viagens duplicadas em_andamento
-DELETE FROM public.viagens_trajetos
-WHERE status = 'em_andamento'
-  AND veiculo_id = '3f2e1d2b-ca96-420e-88a5-c33fd98b689d';
+-- 1. Saneamento de viagens duplicadas em_andamento (se o veículo AXH0E44 existir)
+DO $$
+BEGIN
+  IF EXISTS (SELECT 1 FROM public.veiculos WHERE id = '3f2e1d2b-ca96-420e-88a5-c33fd98b689d') THEN
+    DELETE FROM public.viagens_trajetos
+    WHERE status = 'em_andamento'
+      AND veiculo_id = '3f2e1d2b-ca96-420e-88a5-c33fd98b689d';
 
--- Restaura as 9 viagens reais consolidadas de 04/10/2026 para o veículo AXH0E44 (Soma: 45.89 km)
-INSERT INTO public.viagens_trajetos (veiculo_id, inicio_at, fim_at, km_percorrido, velocidade_maxima, velocidade_media, status) VALUES
-  ('3f2e1d2b-ca96-420e-88a5-c33fd98b689d', '2026-10-04T02:43:20+00:00', '2026-10-04T02:45:25+00:00', 0.00, 0, 0, 'concluido'),
-  ('3f2e1d2b-ca96-420e-88a5-c33fd98b689d', '2026-10-04T02:46:55+00:00', '2026-10-04T03:17:00+00:00', 14.21, 74, 32, 'concluido'),
-  ('3f2e1d2b-ca96-420e-88a5-c33fd98b689d', '2026-10-04T06:57:23+00:00', '2026-10-04T07:04:23+00:00', 4.09, 76, 38, 'concluido'),
-  ('3f2e1d2b-ca96-420e-88a5-c33fd98b689d', '2026-10-04T10:02:57+00:00', '2026-10-04T10:03:57+00:00', 0.00, 0, 0, 'concluido'),
-  ('3f2e1d2b-ca96-420e-88a5-c33fd98b689d', '2026-10-04T14:18:37+00:00', '2026-10-04T14:33:38+00:00', 4.18, 57, 24, 'concluido'),
-  ('3f2e1d2b-ca96-420e-88a5-c33fd98b689d', '2026-10-04T15:16:38+00:00', '2026-10-04T15:37:02+00:00', 9.26, 107, 41, 'concluido'),
-  ('3f2e1d2b-ca96-420e-88a5-c33fd98b689d', '2026-10-04T15:56:32+00:00', '2026-10-04T15:59:20+00:00', 0.83, 53, 20, 'concluido'),
-  ('3f2e1d2b-ca96-420e-88a5-c33fd98b689d', '2026-10-04T18:45:54+00:00', '2026-10-04T19:04:20+00:00', 13.20, 87, 39, 'concluido'),
-  ('3f2e1d2b-ca96-420e-88a5-c33fd98b689d', '2026-10-04T19:19:50+00:00', '2026-10-04T19:20:37+00:00', 0.12, 20, 12, 'concluido');
+    -- Restaura as 9 viagens reais consolidadas de 04/10/2026 para o veículo AXH0E44 (Soma: 45.89 km)
+    INSERT INTO public.viagens_trajetos (veiculo_id, inicio_at, fim_at, km_percorrido, velocidade_maxima, velocidade_media, status) VALUES
+      ('3f2e1d2b-ca96-420e-88a5-c33fd98b689d', '2026-10-04T02:43:20+00:00', '2026-10-04T02:45:25+00:00', 0.00, 0, 0, 'concluido'),
+      ('3f2e1d2b-ca96-420e-88a5-c33fd98b689d', '2026-10-04T02:46:55+00:00', '2026-10-04T03:17:00+00:00', 14.21, 74, 32, 'concluido'),
+      ('3f2e1d2b-ca96-420e-88a5-c33fd98b689d', '2026-10-04T06:57:23+00:00', '2026-10-04T07:04:23+00:00', 4.09, 76, 38, 'concluido'),
+      ('3f2e1d2b-ca96-420e-88a5-c33fd98b689d', '2026-10-04T10:02:57+00:00', '2026-10-04T10:03:57+00:00', 0.00, 0, 0, 'concluido'),
+      ('3f2e1d2b-ca96-420e-88a5-c33fd98b689d', '2026-10-04T14:18:37+00:00', '2026-10-04T14:33:38+00:00', 4.18, 57, 24, 'concluido'),
+      ('3f2e1d2b-ca96-420e-88a5-c33fd98b689d', '2026-10-04T15:16:38+00:00', '2026-10-04T15:37:02+00:00', 9.26, 107, 41, 'concluido'),
+      ('3f2e1d2b-ca96-420e-88a5-c33fd98b689d', '2026-10-04T15:56:32+00:00', '2026-10-04T15:59:20+00:00', 0.83, 53, 20, 'concluido'),
+      ('3f2e1d2b-ca96-420e-88a5-c33fd98b689d', '2026-10-04T18:45:54+00:00', '2026-10-04T19:04:20+00:00', 13.20, 87, 39, 'concluido'),
+      ('3f2e1d2b-ca96-420e-88a5-c33fd98b689d', '2026-10-04T19:19:50+00:00', '2026-10-04T19:20:37+00:00', 0.12, 20, 12, 'concluido');
 
--- Restaura as 3 viagens reais consolidadas de 05/10/2026 para o veículo AXH0E44 (Soma: 19.72 km)
-INSERT INTO public.viagens_trajetos (veiculo_id, inicio_at, fim_at, km_percorrido, velocidade_maxima, velocidade_media, status) VALUES
-  ('3f2e1d2b-ca96-420e-88a5-c33fd98b689d', '2026-10-05T10:14:32+00:00', '2026-10-05T10:29:49+00:00', 6.20, 77, 28, 'concluido'),
-  ('3f2e1d2b-ca96-420e-88a5-c33fd98b689d', '2026-10-05T11:38:21+00:00', '2026-10-05T11:53:21+00:00', 12.71, 77, 29, 'concluido'),
-  ('3f2e1d2b-ca96-420e-88a5-c33fd98b689d', '2026-10-05T12:00:22+00:00', '2026-10-05T12:02:52+00:00', 0.81, 37, 22, 'concluido');
+    -- Restaura as 3 viagens reais consolidadas de 05/10/2026 para o veículo AXH0E44 (Soma: 19.72 km)
+    INSERT INTO public.viagens_trajetos (veiculo_id, inicio_at, fim_at, km_percorrido, velocidade_maxima, velocidade_media, status) VALUES
+      ('3f2e1d2b-ca96-420e-88a5-c33fd98b689d', '2026-10-05T10:14:32+00:00', '2026-10-05T10:29:49+00:00', 6.20, 77, 28, 'concluido'),
+      ('3f2e1d2b-ca96-420e-88a5-c33fd98b689d', '2026-10-05T11:38:21+00:00', '2026-10-05T11:53:21+00:00', 12.71, 77, 29, 'concluido'),
+      ('3f2e1d2b-ca96-420e-88a5-c33fd98b689d', '2026-10-05T12:00:22+00:00', '2026-10-05T12:02:52+00:00', 0.81, 37, 22, 'concluido');
+  END IF;
+END $$;
 
 -- Conclui qualquer outra viagem antiga que tenha ficado órfã em 'em_andamento'
 UPDATE public.viagens_trajetos

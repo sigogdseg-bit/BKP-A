@@ -135,7 +135,7 @@ describe("HUNTER-GUARDIAN — Relatório Diário de Métricas do Sistema", () =>
     assert.ok(!texto.includes("SIGOVTR"), "Proibido citar outros sistemas");
     assert.ok(!texto.includes("SIGOFROTA"), "Proibido citar outros sistemas");
     assert.ok(!texto.includes("SuperAdmin Mestre"), "Uso estrito de SuperADM");
-    assert.ok(texto.includes("SIGO Guardião"));
+    assert.ok(texto.includes("GD Rastreamento"));
   });
 
   it("deve incluir contas a pagar e a receber a partir de 3 dias de antecedência com subtotais diários e total geral", () => {

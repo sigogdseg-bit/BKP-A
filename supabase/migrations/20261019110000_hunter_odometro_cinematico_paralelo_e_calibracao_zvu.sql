@@ -1,6 +1,6 @@
 -- ─────────────────────────────────────────────────────────────────────────────
 -- MIGRATION: 20261019110000_hunter_odometro_cinematico_paralelo_e_calibracao_zvu.sql
--- Sistema: SIGO Guardião | Diretrizes: DJR-NEW e HUNTER-GUARDIAN
+-- Sistema: GD Rastreamento | Diretrizes: DJR-NEW e HUNTER-GUARDIAN
 -- Descrição: 
 --   1. Adiciona a coluna odometro_cinematico_km em public.veiculos para medição
 --      em paralelo via integração física de velocidade e tempo (v × Δt ping a ping).

@@ -893,7 +893,7 @@ export function GpsMonitorView({
       return;
     }
 
-    // Regra Operacional Canônica SIGO Guardião:
+    // Regra Operacional Canônica GD Rastreamento:
     // 1. Veículo Estacionado com ignição desligada NÃO está em desvio de rota!
     // A rota monitorada avalia deslocamento ativo. Disparar alarme com o carro parado e desligado é falso positivo.
     const veiculoEmMovimento =
@@ -1687,7 +1687,7 @@ export function GpsMonitorView({
             <button
               onClick={() => setModalCentralAlertasAberto(true)}
               className="relative flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-amber-600 dark:text-amber-400 border border-slate-200 dark:border-slate-700 font-bold transition text-xs"
-              title="Central de Alertas Operacionais SIGO Guardião"
+              title="Central de Alertas Operacionais GD Rastreamento"
             >
               <Bell className="h-3.5 w-3.5 text-amber-500" />
               <span>Alertas</span>

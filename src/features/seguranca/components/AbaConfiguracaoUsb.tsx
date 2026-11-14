@@ -202,7 +202,7 @@ export function AbaConfiguracaoUsb() {
           veiculoVinculado: null,
         }));
         toast.info(
-          `IMEI ${imei} detectado na bancada serial. Pronto para configuração e cadastro no SIGO Guardião.`,
+          `IMEI ${imei} detectado na bancada serial. Pronto para configuração e cadastro no GD Rastreamento.`,
         );
       }
     } catch (e: any) {
@@ -1727,7 +1727,7 @@ export function AbaConfiguracaoUsb() {
     setGravandoPadraoCanonico(true);
     adicionarLog(
       "SISTEMA",
-      `🚀 [PADRÃO CANÔNICO] Iniciando gravação completa do padrão SIGO Guardião via ${def.nome}...`,
+      `🚀 [PADRÃO CANÔNICO] Iniciando gravação completa do padrão GD Rastreamento via ${def.nome}...`,
     );
 
     const srv = servidorDns.trim() || "167.234.233.82";
@@ -1800,7 +1800,7 @@ export function AbaConfiguracaoUsb() {
           "✅ [SUCESSO] Todos os parâmetros do Padrão Canônico foram gravados com sucesso no rastreador!",
         );
         toast.success(
-          "Padrão Canônico gravado com sucesso! O rastreador está 100% operacional no SIGO Guardião.",
+          "Padrão Canônico gravado com sucesso! O rastreador está 100% operacional no GD Rastreamento.",
         );
       }
     } catch (err: any) {
@@ -1832,7 +1832,7 @@ export function AbaConfiguracaoUsb() {
               </h3>
               <p className="text-xs mt-0.5 opacity-90">
                 O navegador atual não permite conexão direta à porta USB. Para usar a bancada serial
-                diretamente pelo SIGO Guardião, utilize o <strong>Google Chrome</strong>,{" "}
+                diretamente pelo GD Rastreamento, utilize o <strong>Google Chrome</strong>,{" "}
                 <strong>Microsoft Edge</strong>, <strong>Opera</strong> ou <strong>Brave</strong> no
                 Mac, Windows ou Linux.
               </p>
@@ -2462,7 +2462,7 @@ export function AbaConfiguracaoUsb() {
             )}
           </div>
 
-          {/* GRUPO 1: RESGATE E APONTAMENTO PARA O SERVIDOR SIGO GUARDIÃO */}
+          {/* GRUPO 1: RESGATE E APONTAMENTO PARA O SERVIDOR GD RASTREAMENTO */}
           <div className="bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 p-4 sm:p-5 rounded-3xl shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl space-y-3">
             <div className="flex items-center gap-2">
               <span className="p-1.5 rounded-lg bg-emerald-500/10 text-emerald-500">
@@ -2470,10 +2470,10 @@ export function AbaConfiguracaoUsb() {
               </span>
               <div>
                 <h3 className="text-xs font-black uppercase tracking-wider text-slate-900 dark:text-slate-100">
-                  1. Apontar Servidor do SIGO Guardião
+                  1. Apontar Servidor do GD Rastreamento
                 </h3>
                 <p className="text-[11px] text-slate-500 dark:text-slate-400">
-                  Direciona o rastreador de outro servidor para a infraestrutura do SIGO Guardião
+                  Direciona o rastreador de outro servidor para a infraestrutura do GD Rastreamento
                 </p>
               </div>
             </div>

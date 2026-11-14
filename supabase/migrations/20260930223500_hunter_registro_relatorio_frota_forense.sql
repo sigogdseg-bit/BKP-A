@@ -34,11 +34,6 @@ ON public.documentos_emitidos
 FOR SELECT
 USING (
   EXISTS (
-    SELECT 1 FROM public.adm_users a
-    WHERE a.user_id = auth.uid() AND a.ativo = TRUE
-  )
-  OR
-  EXISTS (
     SELECT 1 FROM public.profiles p
     WHERE p.id = auth.uid() AND p.role IN ('superadmin', 'adm', 'operador')
   )

@@ -89,7 +89,7 @@ function formatarTelefone(tel?: string | null): string {
 
 /**
  * Gera e realiza o download do Contrato Oficial de Prestação de Serviços
- * de Rastreamento Veicular e Telemetria — SIGO Guardião.
+ * de Rastreamento Veicular e Telemetria — GD Rastreamento.
  *
  * Cláusulas fundamentadas em:
  *  - Código Civil Brasileiro (Lei n. 10.406/2002)
@@ -474,7 +474,7 @@ export async function emitirContratoPrestacaoServicosPdf(
     ],
     [
       "Regime Jurídico da Contratação",
-      "LOCAÇÃO DE BEM MÓVEL (arts. 565 a 578 do CC/2002 c/c Súmula Vinculante 31 do STF). Plataforma SIGO Guardião disponibilizada a título gratuito aos locatários para automonitoramento.",
+      "LOCAÇÃO DE BEM MÓVEL (arts. 565 a 578 do CC/2002 c/c Súmula Vinculante 31 do STF). Plataforma GD Rastreamento disponibilizada a título gratuito aos locatários para automonitoramento.",
     ],
     ["Taxa de Instalação e Ativação", textoTaxaInstalacao],
     ["Vigência Inicial Contratada", `${mesesContrato} meses (${dataInicioStr} a ${dataFimStr})`],
@@ -740,7 +740,7 @@ PARÁGRAFO TERCEIRO — DA ÚLTIMA LOCALIZAÇÃO CONHECIDA E ISENÇÃO DE RESPON
     doc.setFontSize(8);
     doc.setFont("helvetica", "bold");
     doc.setTextColor(5, 150, 105);
-    doc.text("CERTIDÃO DIGITAL DE AUTENTICIDADE — SISTEMA SIGO GUARDIÃO", 18, boxY + 6);
+    doc.text("CERTIDÃO DIGITAL DE AUTENTICIDADE — SISTEMA GD RASTREAMENTO", 18, boxY + 6);
 
     doc.setFontSize(7);
     doc.setFont("helvetica", "bold");
@@ -976,7 +976,7 @@ PARÁGRAFO TERCEIRO — DA ÚLTIMA LOCALIZAÇÃO CONHECIDA E ISENÇÃO DE RESPON
 
 /**
  * Emite e faz o download de uma Cópia Autêntica de um contrato existente,
- * já carimbada com a Certificação Digital e Selo de Autenticidade do SIGO Guardião.
+ * já carimbada com a Certificação Digital e Selo de Autenticidade do GD Rastreamento.
  */
 export async function emitirCopiaAutenticadaContratoPdf({
   cliente,

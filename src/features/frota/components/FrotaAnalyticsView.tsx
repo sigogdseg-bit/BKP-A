@@ -1375,7 +1375,7 @@ export function FrotaAnalyticsView() {
       doc.setFontSize(8);
       doc.setFont("helvetica", "normal");
       doc.setTextColor(148, 163, 184);
-      doc.text(`SIGO Guardião · ${APP_DOMINIO} · Emissão Oficial Autenticada`, offsetTextoX, 42);
+      doc.text(`GD Rastreamento · ${APP_DOMINIO} · Emissão Oficial Autenticada`, offsetTextoX, 42);
 
       // Caixa de Metadados e Filtros Ativos
       doc.setFillColor(248, 250, 252);
@@ -1818,7 +1818,7 @@ export function FrotaAnalyticsView() {
         doc.setFont("courier", "normal");
         doc.setTextColor(100, 116, 139);
         doc.text(
-          `SIGO Guardião · ${APP_DOMINIO} · Hash Forense SHA-256: ${sha256} · Página ${i} de ${totalPages}`,
+          `GD Rastreamento · ${APP_DOMINIO} · Hash Forense SHA-256: ${sha256} · Página ${i} de ${totalPages}`,
           margin,
           826,
         );

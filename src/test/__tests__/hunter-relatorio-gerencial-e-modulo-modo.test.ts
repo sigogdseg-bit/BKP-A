@@ -11,7 +11,7 @@ import {
   MetricasSistemaDiarias,
 } from "@/features/relatorios/services/relatorioDiarioMetricasService";
 
-describe("HUNTER / SIGO GUARDIÃO — Relatório Gerencial e Módulo MODO", () => {
+describe("HUNTER / GD RASTREAMENTO — Relatório Gerencial e Módulo MODO", () => {
   it("deve carregar configuração padrão canônica com telefone do SuperADM e seções ativas", () => {
     assert.strictEqual(CONFIG_PADRAO_RELATORIO.ativo, true);
     assert.strictEqual(CONFIG_PADRAO_RELATORIO.horario_envio, "10:00");

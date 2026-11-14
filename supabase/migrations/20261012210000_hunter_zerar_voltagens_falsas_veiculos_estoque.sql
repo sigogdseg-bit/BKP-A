@@ -1,5 +1,5 @@
 -- ==============================================================================
--- HUNTER / SIGO GUARDIÃO - MIGRATION DE AUDITORIA E LIMPEZA DE VOLTAGENS
+-- HUNTER / GD RASTREAMENTO - MIGRATION DE AUDITORIA E LIMPEZA DE VOLTAGENS
 -- Regra Pétrea: NADA NO SISTEMA PODE SER FALSO!
 -- Garante que veículos sem comunicação ativa ou em estoque não possuam
 -- voltagem residual de 12.6V gravada artificialmente.

@@ -1,6 +1,6 @@
 {
-  "name": "SIGO Guardião — Sistema de Segurança e Rastreamento",
-  "short_name": "SIGO Guardião",
+  "name": "GD Rastreamento — Sistema de Segurança e Rastreamento",
+  "short_name": "GD Rastreamento",
   "description": "Sistema de Segurança e Rastreamento Veicular em Tempo Real",
   "start_url": "/",
   "display": "standalone",

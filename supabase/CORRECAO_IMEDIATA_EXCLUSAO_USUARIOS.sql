@@ -1,5 +1,5 @@
 -- =============================================================================
--- SIGO GUARDIÃO — CORREÇÃO DO TRIGGER, IS_ADM E RPC DE EXCLUSÃO DE USUÁRIOS
+-- GD RASTREAMENTO — CORREÇÃO DO TRIGGER, IS_ADM E RPC DE EXCLUSÃO DE USUÁRIOS
 -- Execução definitiva via Management API do Supabase
 -- =============================================================================
 

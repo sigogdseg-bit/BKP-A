@@ -1,6 +1,6 @@
 -- ─────────────────────────────────────────────────────────────────────────────
 -- MIGRATION: 20261104130000_hunter_geofence_alerta_garantido_whatsapp_push.sql
--- Sistema: SIGO Guardião | Diretrizes: DJR-NEW e HUNTER-GUARDIAN
+-- Sistema: GD Rastreamento | Diretrizes: DJR-NEW e HUNTER-GUARDIAN
 -- Descrição: Blindagem de entrega garantida de alertas de geofence, Push VAPID
 --            e WhatsApp no servidor com headers compatíveis e permissões pg_net.
 -- ─────────────────────────────────────────────────────────────────────────────

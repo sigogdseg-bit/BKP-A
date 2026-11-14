@@ -74,13 +74,13 @@ describe("Hunter — Dev-Módulos SEG Suite (1, 2, 3, 4, 6, 7, 9, 12, 13, 16, 19
     assert.equal(typeof dlp.watermarkAtivo, "boolean");
     assert.equal(typeof dlp.blurPerdaFocoAtivo, "boolean");
     assert.equal(typeof dlp.bloqueioPrintAtivo, "boolean");
-    assert.ok(dlp.textoMarcaDagua.includes("SIGO"));
+    assert.ok(dlp.textoMarcaDagua.includes("GD RASTREAMENTO"));
 
     const ok = await salvarConfiguracaoDlp({
       watermarkAtivo: false,
       blurPerdaFocoAtivo: true,
       bloqueioPrintAtivo: true,
-      textoMarcaDagua: "SIGO GUARDIÃO • DOCUMENTO CONFIDENCIAL",
+      textoMarcaDagua: "GD RASTREAMENTO • DOCUMENTO CONFIDENCIAL",
       opacidadeWatermark: 0.08,
     });
     assert.equal(ok, true, "salvarConfiguracaoDlp deve retornar true com persistencia resiliente");

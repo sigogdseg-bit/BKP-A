@@ -242,7 +242,7 @@ BEGIN
       ) VALUES (
         v_cliente_user_id,
         v_cliente_id,
-        'SIGO Guardião — Central de Segurança',
+        'GD Rastreamento — Central de Segurança',
         v_titulo_evento || ' — ' || COALESCE(v_placa, 'Veículo'),
         p_detalhes,
         p_tipo,

@@ -308,7 +308,7 @@ export async function gerarLaudoPericialForensePdf(
   doc.setFontSize(8.5);
   doc.setTextColor(5, 150, 105);
   doc.text(
-    "CERTIDAO DE AUTENTICIDADE E CUSTODIA FORENSE — SISTEMA SIGO GUARDIAO",
+    "CERTIDAO DE AUTENTICIDADE E CUSTODIA FORENSE — SISTEMA GD RASTREAMENTO",
     18,
     finalTabelaY + 6,
   );
@@ -391,7 +391,7 @@ export async function gerarLaudoPericialForensePdf(
     aplicarChancelaSimulacaoPdf(doc, "Laudo Pericial");
   }
 
-  const nomeArquivo = `SIGO_Guardiao_Laudo_Pericial_${seloSgd}.pdf`;
+  const nomeArquivo = `GD_Rastreamento_Laudo_Pericial_${seloSgd}.pdf`;
 
   return {
     doc,

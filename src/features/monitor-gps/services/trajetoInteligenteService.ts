@@ -840,7 +840,7 @@ export function gerarTextoResumoTrajeto(
   const mins = duracaoMinutos % 60;
   const tempoFormatado = horas > 0 ? `${horas}h ${mins}min` : `${mins} min`;
 
-  let texto = `*SIGO GUARDIÃO TELEMETRIA — PLANEJAMENTO DE TRAJETO INTELIGENTE*\n`;
+  let texto = `*GD RASTREAMENTO TELEMETRIA — PLANEJAMENTO DE TRAJETO INTELIGENTE*\n`;
   texto += `Veículo: *${placa}*\n`;
   texto += `Distância Total Prevista: *${distanciaKm} km*\n`;
   texto += `Tempo Total Estimado: *${tempoFormatado}*\n\n`;
@@ -865,7 +865,7 @@ export function gerarTextoResumoTrajeto(
     texto += `\n`;
   });
 
-  texto += `Gerado com precisão e roteirização inteligente pela plataforma SIGO Guardião.`;
+  texto += `Gerado com precisão e roteirização inteligente pela plataforma GD Rastreamento.`;
   return texto;
 }
 

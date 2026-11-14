@@ -1,7 +1,7 @@
 -- ─────────────────────────────────────────────────────────────────────────────
 -- MIGRATION: Hunter - Garantir Colunas Promocionais em Propostas Comerciais
 -- Versão Alvo: 1.11.0.17
--- Sistema: SIGO Guardião | Diretrizes: DJR-NEW e HUNTER-GUARDIAN
+-- Sistema: GD Rastreamento | Diretrizes: DJR-NEW e HUNTER-GUARDIAN
 -- ─────────────────────────────────────────────────────────────────────────────
 
 ALTER TABLE public.propostas_comerciais

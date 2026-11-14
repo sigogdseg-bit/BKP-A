@@ -668,7 +668,7 @@ export function gerarMensagemWhatsAppManutencao(info: AlertaWhatsAppInfo): strin
       : `está próximo da revisão preventiva de *${info.itemManutencao}* (meta de ${info.proximoKmAlvo.toLocaleString("pt-BR")} km - faltam apenas ${Math.max(0, info.kmRestante).toLocaleString("pt-BR")} km)`;
 
   return (
-    `Olá, ${primeiroNome}! Aqui é da Central SIGO Guardião de Segurança e Telemetria Veicular.\n\n` +
+    `Olá, ${primeiroNome}! Aqui é da Central GD Rastreamento de Segurança e Telemetria Veicular.\n\n` +
     `Identificamos em nosso sistema que seu veículo *${info.marcaModelo}* (Placa: *${info.placa}*) atingiu o odômetro de *${info.odometroAtual.toLocaleString("pt-BR")} km* e ${situacao}.\n\n` +
     `Podemos agendar a sua revisão preventiva para garantir o perfeito funcionamento e a conservação do seu veículo?\n\n` +
     `Ficamos à disposição para reservar o melhor dia e horário!`

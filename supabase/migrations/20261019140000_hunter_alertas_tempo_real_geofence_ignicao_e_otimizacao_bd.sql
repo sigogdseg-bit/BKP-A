@@ -1,6 +1,6 @@
 -- ============================================================================
 -- MIGRATION: 20261019140000_hunter_alertas_tempo_real_geofence_ignicao_e_otimizacao_bd.sql
--- Sistema: SIGO Guardião | Diretrizes: HUNTER-GUARDIAN e DJR-NEW
+-- Sistema: GD Rastreamento | Diretrizes: HUNTER-GUARDIAN e DJR-NEW
 -- 
 -- CAUSAS-RAÍZES SANADAS INTEGRALMENTE:
 -- 1. Latência extrema e atrasos ao salvar no BD:

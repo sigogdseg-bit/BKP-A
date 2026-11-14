@@ -232,7 +232,7 @@ function criarMockSupabaseParaDegustacao(dadosIniciais?: {
   return supabaseMock;
 }
 
-describe("SIGO Guardião — Auto-Cadastro de Usuário Degustação via WhatsApp (Comando TESTE)", () => {
+describe("GD Rastreamento — Auto-Cadastro de Usuário Degustação via WhatsApp (Comando TESTE)", () => {
   it("1. Perfil autorizado (SuperADM/Operador/Parceiro) envia TESTE e inicia cadastro para o cliente", async () => {
     const supabase = criarMockSupabaseParaDegustacao({
       profiles: [
@@ -381,7 +381,7 @@ describe("SIGO Guardião — Auto-Cadastro de Usuário Degustação via WhatsApp
       supabase,
     );
     assert.equal(resDuplicado.acaoExecutada, "degustacao_email_ja_cadastrado");
-    assert.match(resDuplicado.resposta, /já possui cadastro no SIGO Guardião/);
+    assert.match(resDuplicado.resposta, /já possui cadastro no GD Rastreamento/);
 
     // E-mail válido
     const resValido = await processarMensagemWhatsappRecebida(
@@ -518,7 +518,7 @@ describe("SIGO Guardião — Auto-Cadastro de Usuário Degustação via WhatsApp
     // Garante que a mensagem de boas-vindas + credenciais foi enviada para o número DO CLIENTE
     const envioCliente = enviosCapturados.find((e) => e.telefone === "5524988776655");
     assert.ok(envioCliente, "Deve despachar credenciais para o número do cliente (5524988776655)");
-    assert.match(envioCliente.mensagem, /bem-vindo\(a\) ao \*SIGO Guardião\*/i);
+    assert.match(envioCliente.mensagem, /bem-vindo\(a\) ao \*GD Rastreamento\*/i);
     assert.match(envioCliente.mensagem, /carlos\.degustacao@teste\.com/);
     assert.match(envioCliente.mensagem, /SigoMaster2026/);
     assert.match(envioCliente.mensagem, /1º acesso/);

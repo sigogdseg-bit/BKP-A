@@ -112,7 +112,7 @@ export function MostradoresOdometroFusional({
     return {
       motorId: "c",
       titulo: "Mostrador C · EKF 1D Canônico",
-      subtitulo: "Expansão Taylor 4ª Ordem e ZVU 6 Regras (SIGO Guardião)",
+      subtitulo: "Expansão Taylor 4ª Ordem e ZVU 6 Regras (GD Rastreamento)",
       odometroKm: odometroPainelReferenciaKm,
       odometroMetros: Math.round(odometroPainelReferenciaKm * 1000),
       deltaMetros: 0,
@@ -186,7 +186,7 @@ export function MostradoresOdometroFusional({
     setLeituraC({
       motorId: "c",
       titulo: "Mostrador C · EKF 1D Canônico",
-      subtitulo: "Expansão Taylor 4ª Ordem e ZVU 6 Regras (SIGO Guardião)",
+      subtitulo: "Expansão Taylor 4ª Ordem e ZVU 6 Regras (GD Rastreamento)",
       odometroKm: odometroPainelReferenciaKm,
       odometroMetros: Math.round(odometroPainelReferenciaKm * 1000),
       deltaMetros: 0,

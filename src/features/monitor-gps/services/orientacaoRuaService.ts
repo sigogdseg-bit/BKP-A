@@ -1,4 +1,4 @@
-// orientacaoRuaService.ts — SIGO Guardião
+// orientacaoRuaService.ts — GD Rastreamento
 // Calcula e gerencia a orientação (heading/rumo) de veículos estacionados para alinhamento canônico com o eixo da via
 
 import type { VeiculoGps } from "../types";

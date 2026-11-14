@@ -1,6 +1,6 @@
 -- ─────────────────────────────────────────────────────────────────────────────
 -- MIGRATION: 20261019230000_hunter_anti_repeticao_geofence_e_ciclo_vida_nfs.sql
--- Sistema: SIGO Guardião | Diretrizes: HUNTER-GUARDIAN e DJR-NEW
+-- Sistema: GD Rastreamento | Diretrizes: HUNTER-GUARDIAN e DJR-NEW
 -- Descrição:
 -- 1. Máquina de Estados de Presença de Veículo em Áreas Seguras (veiculo_areas_estado)
 --    Garante fisicamente ZERO repetição de alertas de saída e entrada.

@@ -1958,7 +1958,7 @@ export async function exportarRelatorioPDF(
     doc.text(`Pagina ${i} de ${totalPages}`, 175, 291);
   }
 
-  const nomeArquivo = `sigoguardiao-relatorio-financeiro-${new Date().toISOString().split("T")[0]}.pdf`;
+  const nomeArquivo = `gd-rastreamento-relatorio-financeiro-${new Date().toISOString().split("T")[0]}.pdf`;
 
   try {
     const arrayBuffer = doc.output("arraybuffer");
@@ -2046,7 +2046,7 @@ export async function exportarRelatorioExcel(
   const url = window.URL.createObjectURL(blob);
   const anchor = document.createElement("a");
   anchor.href = url;
-  anchor.download = `sigoguardiao-financeiro-${new Date().toISOString().split("T")[0]}.xlsx`;
+  anchor.download = `gd-rastreamento-financeiro-${new Date().toISOString().split("T")[0]}.xlsx`;
   anchor.click();
   window.URL.revokeObjectURL(url);
 }
@@ -2101,7 +2101,7 @@ export function gerarMensagemWhatsAppInadimplente(
     ? cliente.mensalidadeMaisAntigaVencimento.split("-").reverse().join("/")
     : "";
 
-  let texto = `Ola, ${primeiroNome}! Aqui e do setor financeiro do SIGO Guardiao Tecnologia e Rastreamento.\n\n`;
+  let texto = `Ola, ${primeiroNome}! Aqui e do setor financeiro do GD Rastreamento.\n\n`;
   texto += `Identificamos que consta(m) ${cliente.qtdMensalidadesAtrasadas} mensalidade(s) em aberto referente ao servico de rastreamento veicular, totalizando R$ ${valorTotalFmt}.\n`;
 
   if (dataMaisAntigaFmt) {
@@ -2119,7 +2119,7 @@ export function gerarMensagemWhatsAppInadimplente(
     const rawId = String(cliente.cliente_id || "SIGO");
     payloadPix = gerarPayloadPix({
       chavePix: chavePixFinal,
-      nomeRecebedor: "SIGO Guardiao",
+      nomeRecebedor: "GD Rastreamento",
       cidadeRecebedor: "BRASIL",
       valor: cliente.totalDevido,
       identificador: `FAT${rawId
@@ -2143,7 +2143,7 @@ export function gerarMensagemWhatsAppInadimplente(
   texto += `Para manter o rastreamento veicular ativo e garantir a protecao continua do seu veiculo, solicitamos a regularizacao do debito.\n`;
   texto += `Caso o pagamento ja tenha sido realizado, por gentileza nos envie o comprovante para darmos a baixa imediata no sistema.\n\n`;
   texto += `Estamos a disposicao para qualquer esclarecimento!\n`;
-  texto += `Equipe SIGO Guardiao`;
+  texto += `Equipe GD Rastreamento`;
 
   return texto;
 }
@@ -2296,7 +2296,7 @@ export async function listarClientesInadimplentes(): Promise<ClienteInadimplente
       if (!mapaClientes.has(clienteId)) {
         mapaClientes.set(clienteId, {
           cliente_id: clienteId,
-          nome_razao_social: cli.nome_razao_social || "Cliente SIGO Guardião",
+          nome_razao_social: cli.nome_razao_social || "Cliente GD Rastreamento",
           documento: cli.documento || null,
           telefone: cli.telefone || null,
           email: cli.email || null,
@@ -2761,7 +2761,7 @@ export async function exportarRelatorioRessarcimentoPDF(
 
   const pdfOutput = doc.output("arraybuffer");
   const sha256 = await calcularSha256Buffer(pdfOutput);
-  const nomeArquivo = `SIGO_Guardiao_Relatorio_Ressarcimento_${dataHojeStr.replace(/\//g, "-")}.pdf`;
+  const nomeArquivo = `GD_Rastreamento_Relatorio_Ressarcimento_${dataHojeStr.replace(/\//g, "-")}.pdf`;
 
   try {
     await registrarDocumentoEmitido({
@@ -2856,7 +2856,7 @@ export async function exportarRelatorioRessarcimentoExcel(
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
   a.href = url;
-  a.download = `SIGO_Guardiao_Ressarcimento_Despesas_${dataHojeStr.replace(/\//g, "-")}.xlsx`;
+  a.download = `GD_Rastreamento_Ressarcimento_Despesas_${dataHojeStr.replace(/\//g, "-")}.xlsx`;
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);

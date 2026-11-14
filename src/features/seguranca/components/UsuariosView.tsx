@@ -857,7 +857,7 @@ export function UsuariosView() {
       <div className="space-y-3">
         {carregando ? (
           <div className="py-16 text-center text-slate-500 text-xs font-mono">
-            Carregando catálogo de usuários SIGO Guardião...
+            Carregando catálogo de usuários GD Rastreamento...
           </div>
         ) : usuariosFiltrados.length === 0 ? (
           <div className="py-16 text-center text-slate-500 text-xs">

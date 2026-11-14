@@ -9,9 +9,14 @@ import {
   Sparkles,
   MessageSquare,
   Car,
+  Phone,
+  Loader2,
 } from "lucide-react";
 import { toast } from "sonner";
 import { ModalPortal } from "@/shared/components/ModalPortal";
+import { APP_NOME } from "@/shared/lib/version";
+import { formatarTelefone } from "@/shared/utils/mascaras";
+import { enviarMensagemWhatsappOperador } from "@/shared/lib/chatbotxBridge";
 import { gerarLinkConviteCliente } from "../services/conviteClienteService";
 
 interface ModalConviteClienteProps {
@@ -24,6 +29,8 @@ export function ModalConviteCliente({ aberto, onFechar }: ModalConviteClientePro
   const [linkGerado, setLinkGerado] = useState<string | null>(null);
   const [copiado, setCopiado] = useState(false);
   const [observacoes, setObservacoes] = useState("");
+  const [telefoneDestino, setTelefoneDestino] = useState("");
+  const [transmitindoWhatsapp, setTransmitindoWhatsapp] = useState(false);
 
   const gerarNovoLink = useCallback(async () => {
     setGerando(true);
@@ -57,12 +64,34 @@ export function ModalConviteCliente({ aberto, onFechar }: ModalConviteClientePro
     setTimeout(() => setCopiado(false), 2500);
   };
 
-  const enviarWhatsApp = () => {
+  const enviarWhatsApp = async () => {
     if (!linkGerado) return;
-    const msg = encodeURIComponent(
-      `Olá! Segue o seu link exclusivo para realizar o cadastro no SIGO Guardião e informar os dados do(s) seu(s) veículo(s) para rastreamento:\n\n${linkGerado}\n\nAssim que você preencher, nossa equipe finalizará a configuração do seu plano e o agendamento da instalação.`,
-    );
-    window.open(`https://api.whatsapp.com/send?text=${msg}`, "_blank");
+    const msgTexto = `Olá! Segue o seu link exclusivo para realizar o cadastro no ${APP_NOME} e informar os dados do(s) seu(s) veículo(s) para rastreamento:\n\n${linkGerado}\n\nAssim que você preencher, nossa equipe finalizará a configuração do seu plano e o agendamento da instalação.`;
+
+    const telLimpo = telefoneDestino.replace(/\D/g, "");
+    if (telLimpo.length >= 10) {
+      setTransmitindoWhatsapp(true);
+      try {
+        const res = await enviarMensagemWhatsappOperador({
+          telefone: telLimpo,
+          mensagem: msgTexto,
+        });
+        if (res.sucesso) {
+          toast.success("Convite enviado com sucesso via WhatsApp!");
+          return;
+        }
+      } catch {
+        // Fallback para abertura direta se o gateway offline
+      } finally {
+        setTransmitindoWhatsapp(false);
+      }
+    }
+
+    const msg = encodeURIComponent(msgTexto);
+    const targetUrl = telLimpo
+      ? `https://api.whatsapp.com/send?phone=55${telLimpo}&text=${msg}`
+      : `https://api.whatsapp.com/send?text=${msg}`;
+    window.open(targetUrl, "_blank");
   };
 
   return (
@@ -117,7 +146,7 @@ export function ModalConviteCliente({ aberto, onFechar }: ModalConviteClientePro
           </div>
 
           {/* Área do Link Gerado */}
-          <div className="space-y-2">
+          <div className="space-y-3">
             <label className="text-xs font-semibold text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
               <LinkIcon className="h-3.5 w-3.5 text-emerald-500" />
               <span>Link Exclusivo de Auto-Cadastro:</span>
@@ -128,7 +157,7 @@ export function ModalConviteCliente({ aberto, onFechar }: ModalConviteClientePro
                 Gerando link exclusivo de auto-cadastro...
               </div>
             ) : linkGerado ? (
-              <div className="space-y-2">
+              <div className="space-y-3">
                 <div className="flex items-center gap-2 p-2.5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-800">
                   <input
                     type="text"
@@ -158,17 +187,43 @@ export function ModalConviteCliente({ aberto, onFechar }: ModalConviteClientePro
                   </button>
                 </div>
 
-                <div className="flex items-center gap-2">
+                {/* Telefone Destino WhatsApp */}
+                <div className="space-y-1.5">
+                  <label className="text-xs font-medium text-slate-600 dark:text-slate-400 flex items-center gap-1.5">
+                    <Phone className="h-3.5 w-3.5 text-emerald-500" />
+                    <span>WhatsApp de Destino (Opcional):</span>
+                  </label>
+                  <input
+                    type="tel"
+                    placeholder="(00) 00000-0000"
+                    value={telefoneDestino}
+                    onChange={(e) => setTelefoneDestino(formatarTelefone(e.target.value))}
+                    className="w-full px-3.5 py-2 rounded-xl bg-white dark:bg-slate-800/70 border border-slate-300 dark:border-slate-700 text-xs text-slate-900 dark:text-slate-100 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/40"
+                  />
+                </div>
+
+                <div className="flex items-center gap-2 pt-1">
                   <button
                     onClick={enviarWhatsApp}
-                    className="flex-1 flex items-center justify-center gap-2 py-2 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold transition shadow-sm"
+                    disabled={transmitindoWhatsapp}
+                    className="flex-1 flex items-center justify-center gap-2 py-2 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 disabled:opacity-60 text-white text-xs font-bold transition shadow-sm"
                   >
-                    <MessageSquare className="h-4 w-4" />
-                    <span>Enviar no WhatsApp</span>
+                    {transmitindoWhatsapp ? (
+                      <>
+                        <Loader2 className="h-4 w-4 animate-spin" />
+                        <span>Transmitindo...</span>
+                      </>
+                    ) : (
+                      <>
+                        <MessageSquare className="h-4 w-4" />
+                        <span>Enviar no WhatsApp</span>
+                      </>
+                    )}
                   </button>
 
                   <button
                     onClick={() => void gerarNovoLink()}
+                    disabled={transmitindoWhatsapp}
                     className="py-2 px-3 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 text-xs font-semibold transition"
                   >
                     Gerar Outro

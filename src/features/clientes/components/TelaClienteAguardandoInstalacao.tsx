@@ -299,7 +299,7 @@ export function TelaClienteAguardandoInstalacao({
 
   return (
     <div className="space-y-4 max-w-6xl mx-auto select-none pb-28">
-      {/* 1. Header Canônico SIGO Guardião */}
+      {/* 1. Header Canônico GD Rastreamento */}
       <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 bg-[#eaf0f8] dark:bg-slate-900/80 border border-slate-300/60 dark:border-slate-800 p-4 sm:p-5 rounded-2xl shadow-[4px_4px_10px_#c3cfe2] dark:shadow-xl">
         <div className="flex items-center gap-3">
           <div className="h-12 w-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-600 dark:text-amber-400 shadow-xs shrink-0">
@@ -514,8 +514,8 @@ export function TelaClienteAguardandoInstalacao({
               Nenhum veículo em processo de instalação física
             </h3>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-              Se você acabou de assinar o plano ou contratou novos rastreadores, a central da SIGO
-              Guardião está atribuindo os técnicos para a sua frota.
+              Se você acabou de assinar o plano ou contratou novos rastreadores, a central da GD
+              Rastreamento Guardião está atribuindo os técnicos para a sua frota.
             </p>
           </div>
 

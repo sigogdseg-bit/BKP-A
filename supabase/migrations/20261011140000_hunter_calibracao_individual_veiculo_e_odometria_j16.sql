@@ -11,7 +11,7 @@
 --
 -- 2. TABELA PÚBLICA veiculo_calibracoes_odometro:
 --    Registra cada aferição de campo (leitura inicial/final do painel físico
---    vs leitura inicial/final do SIGO Guardião), calculando diferença,
+--    vs leitura inicial/final do GD Rastreamento), calculando diferença,
 --    erro percentual e histórico de calibração por veículo e dispositivo.
 --
 -- 3. RLS ESTRITO:
@@ -181,7 +181,7 @@ BEGIN
   END IF;
 
   IF p_odometro_final_sigo < p_odometro_inicial_sigo THEN
-    RETURN jsonb_build_object('sucesso', false, 'erro', 'Odômetro final do SIGO Guardião não pode ser menor que o inicial.');
+    RETURN jsonb_build_object('sucesso', false, 'erro', 'Odômetro final do GD Rastreamento não pode ser menor que o inicial.');
   END IF;
 
   v_dist_painel := ROUND((p_hodometro_final_painel - p_hodometro_inicial_painel)::NUMERIC, 3);
@@ -192,7 +192,7 @@ BEGIN
   END IF;
 
   IF v_dist_sigo <= 0.001 THEN
-    RETURN jsonb_build_object('sucesso', false, 'erro', 'A distância registrada pelo SIGO Guardião deve ser maior que zero.');
+    RETURN jsonb_build_object('sucesso', false, 'erro', 'A distância registrada pelo GD Rastreamento deve ser maior que zero.');
   END IF;
 
   -- Cálculo da diferença e erro percentual conforme especificação formal:

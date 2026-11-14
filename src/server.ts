@@ -535,7 +535,7 @@ async function despacharNotificacaoWhatsappSuperAdm(
       opcoes?.tipoAlerta || mapeado?.tipoCanonico || tituloLog,
     );
     const tituloPushFinal =
-      opcoes?.tituloPush || mapeado?.tituloPush || "🛡️ Alerta Operacional SIGO";
+      opcoes?.tituloPush || mapeado?.tituloPush || "🛡️ Alerta Operacional GD Rastreamento";
     const urlDestino = opcoes?.url || mapeado?.url || "/configuracoes";
     const mensagemPushFinal =
       opcoes?.mensagemPush ||
@@ -964,7 +964,7 @@ async function handleApiConvites(request: Request, env: unknown): Promise<Respon
           minimumFractionDigits: 2,
         });
         const msgWhatsInstalador = [
-          "🛡️ *SIGO GUARDIÃO — NOVO CREDENCIAMENTO DE INSTALADOR*",
+          "🛡️ *GD RASTREAMENTO — NOVO CREDENCIAMENTO DE INSTALADOR*",
           "",
           `🔧 *Instalador:* ${nome}`,
           `📧 *E-mail:* ${email}`,
@@ -1487,7 +1487,7 @@ async function handleApiConvites(request: Request, env: unknown): Promise<Respon
           .join("\n");
 
         const msgWhatsCliente = [
-          "🛡️ *SIGO GUARDIÃO — NOVO AUTO-CADASTRO DE CLIENTE*",
+          "🛡️ *GD RASTREAMENTO — NOVO AUTO-CADASTRO DE CLIENTE*",
           "",
           `👤 *Cliente:* ${nome}`,
           `📧 *E-mail:* ${email}`,
@@ -1765,7 +1765,7 @@ async function handleApiConvites(request: Request, env: unknown): Promise<Respon
           ).toLocaleString("pt-BR", { minimumFractionDigits: 2 });
 
           const msgWhatsRevendedor = [
-            "🛡️ *SIGO GUARDIÃO — NOVO CADASTRO DE REVENDEDOR*",
+            "🛡️ *GD RASTREAMENTO — NOVO CADASTRO DE REVENDEDOR*",
             "",
             `🏢 *Franquia / Razão Social:* ${nome}`,
             `📧 *E-mail de Acesso:* ${email}`,
@@ -1799,7 +1799,7 @@ async function handleApiConvites(request: Request, env: unknown): Promise<Respon
           }
 
           const msgWhatsVendedor = [
-            "🛡️ *SIGO GUARDIÃO — NOVO CADASTRO DE VENDEDOR*",
+            "🛡️ *GD RASTREAMENTO — NOVO CADASTRO DE VENDEDOR*",
             "",
             `👤 *Vendedor:* ${nome}`,
             `📧 *E-mail de Acesso:* ${email}`,
@@ -2076,7 +2076,7 @@ async function handleApiCliente(request: Request, env: unknown): Promise<Respons
       }
 
       const msgWhatsNovoVeiculo = [
-        "🛡️ *SIGO GUARDIÃO — SOLICITAÇÃO DE NOVO VEÍCULO*",
+        "🛡️ *GD RASTREAMENTO — SOLICITAÇÃO DE NOVO VEÍCULO*",
         "",
         `👤 *Cliente:* ${nomeCliente}`,
         `🚗 *Veículo:* ${marcaModeloCompleto}`,
@@ -3312,7 +3312,7 @@ async function handleApiPropostas(request: Request, env: unknown): Promise<Respo
             : `${inserted.veiculo_marca || ""} ${inserted.veiculo_modelo || ""}`.trim();
 
         const msgAdm =
-          `📋 *SIGO Guardião — Nova Proposta Comercial Emitida*\n\n` +
+          `📋 *GD Rastreamento — Nova Proposta Comercial Emitida*\n\n` +
           `• Emitida por: ${emissorInfo}\n` +
           `• Para: ${inserted.cliente_nome} (${inserted.cliente_telefone})\n` +
           `• Data: ${dataFormatada}\n` +
@@ -3545,7 +3545,7 @@ async function handleApiPropostas(request: Request, env: unknown): Promise<Respo
           : `${prop.veiculo_marca || ""} ${prop.veiculo_modelo || ""}`.trim();
 
       const msgAdm =
-        `📋 *SIGO Guardião — Nova Proposta Comercial Emitida*\n\n` +
+        `📋 *GD Rastreamento — Nova Proposta Comercial Emitida*\n\n` +
         `• Emitida por: ${emissor_nome || "Operador Autorizado"}\n` +
         `• Para: ${prop.cliente_nome} (${prop.cliente_telefone})\n` +
         `• Data: ${dataFormatada}\n` +
@@ -3755,7 +3755,7 @@ async function handleApiMensalidades(request: Request, env: unknown): Promise<Re
         `💵 *Valor:* ${valorFormatado}\n` +
         `⏳ *Vencimento:* ${vencFormatado}\n` +
         `🗓️ *Data do Pagamento:* ${dataPagtoFormatada}${obsTexto}\n\n` +
-        `⚠️ *Ação Requerida:* Acesse o SIGO Guardião para conferir o comprovante e confirmar a baixa da mensalidade.`;
+        `⚠️ *Ação Requerida:* Acesse o GD Rastreamento para conferir o comprovante e confirmar a baixa da mensalidade.`;
 
       // 4 e 5. Despacha notificacao unificada (App/Push por membro, WhatsApp e Ligacao) conforme Central da Equipe
       await despacharNotificacaoWhatsappSuperAdm(
@@ -5046,7 +5046,7 @@ async function handleApiContratos(request: Request, env: unknown): Promise<Respo
           return new Response(
             JSON.stringify({
               autentico: true,
-              mensagem: "Contrato autêntico conferido e validado com sucesso pelo SIGO Guardião.",
+              mensagem: "Contrato autêntico conferido e validado com sucesso pelo GD Rastreamento.",
               contrato_id: contratoEncontrado.id,
               numero_contrato: contratoEncontrado.numero_contrato,
               selo_autenticidade: contratoEncontrado.selo_autenticidade,
@@ -5088,7 +5088,7 @@ async function handleApiContratos(request: Request, env: unknown): Promise<Respo
             JSON.stringify({
               autentico: true,
               mensagem:
-                "Documento oficial autêntico conferido e validado com sucesso pelo SIGO Guardião.",
+                "Documento oficial autêntico conferido e validado com sucesso pelo GD Rastreamento.",
               contrato_id: doc.id,
               numero_contrato: numDoc,
               selo_autenticidade: seloDoc,
@@ -5096,7 +5096,7 @@ async function handleApiContratos(request: Request, env: unknown): Promise<Respo
               status: "assinado",
               data_emissao: doc.created_at,
               data_assinatura: doc.created_at,
-              assinado_por_nome: doc.emissor_nome || "SIGO Guardião",
+              assinado_por_nome: doc.emissor_nome || "GD Rastreamento",
               assinatura_metodo: "digital",
               cliente_nome: meta.cliente_nome || doc.descricao || "Cliente",
               cliente_documento: meta.cliente_documento || "",
@@ -5539,7 +5539,7 @@ async function handleApiDocumentos(request: Request, env: unknown): Promise<Resp
             success: true,
             integro: true,
             documento: data[0],
-            mensagem: "Documento oficial íntegro localizado na base forense do SIGO Guardião.",
+            mensagem: "Documento oficial íntegro localizado na base forense do GD Rastreamento.",
           }),
           { status: 200, headers: corsHeaders },
         );
@@ -5886,7 +5886,7 @@ async function handleApiRota(request: Request, _env: unknown): Promise<Response 
       const res = await fetch(endpoint, {
         signal: controller.signal,
         headers: {
-          "User-Agent": "SigoGuardiao-Vehicle-Telemetry/1.8",
+          "User-Agent": "GDRastreamento-Vehicle-Telemetry/1.8",
           Accept: "application/json",
         },
       });
@@ -5954,7 +5954,7 @@ async function handleStaticPwaAssets(request: Request): Promise<Response | null>
 
   // 2. Service Worker para Web Push em Segundo Plano (iOS e Android)
   if (url.pathname === "/sw.js") {
-    const swCode = `// Service Worker — SIGO Guardião
+    const swCode = `// Service Worker — GD Rastreamento
 // Escuta permanente de notificações push nativas (VAPID) — app fechado, tela desligada
 const DEDUP_KEY = "sigo_sw_dedup";
 const MAX_DEDUP = 150;
@@ -6014,11 +6014,11 @@ self.addEventListener("push", (event) => {
     try {
       data = event.data.json();
     } catch {
-      data = { title: "Alerta Operacional — SIGO Guardião", body: event.data.text() };
+      data = { title: "Alerta Operacional — GD Rastreamento", body: event.data.text() };
     }
   }
 
-  const titulo = data.title || "Alerta de Segurança — SIGO Guardião";
+  const titulo = data.title || "Alerta de Segurança — GD Rastreamento";
   const tag = data.tag || ("sigo-push-" + Date.now());
 
   event.waitUntil(
@@ -6715,7 +6715,7 @@ async function despacharWhatsappAlertaServer(
       tituloFormatado = tituloFormatado.replace(regexPlacaDupla, ` — ${params.placa}`);
     }
 
-    const txtMsg = `🚨 *${tituloFormatado}*\n\n${corpoFinal}\n\n_SIGO Guardião — Locação para Auto-Monitoramento_`;
+    const txtMsg = `🚨 *${tituloFormatado}*\n\n${corpoFinal}\n\n_GD Rastreamento — Locação para Auto-Monitoramento_`;
 
     const isAlertaArea = params.tipo === "saida_area" || params.tipo === "entrada_area";
     const isAlertaRota = params.tipo === "desvio_rota" || params.tipo === "rota_monitorada";
@@ -7110,7 +7110,7 @@ async function handleApiWebPush(request: Request, _env: unknown): Promise<Respon
           canonicalTag = `sigo-notif-${Date.now()}`;
         }
 
-        const titulo = body?.titulo || "🚨 SIGO Guardião — Alerta de Segurança";
+        const titulo = body?.titulo || "🚨 GD Rastreamento — Alerta de Segurança";
         const mensagem = body?.mensagem || "Ocorrência detectada no rastreamento veicular.";
         const targetUrl = body?.url || "/monitor-gps";
         const tag = canonicalTag;
@@ -9386,7 +9386,7 @@ async function despacharDreDiariaParceirosServer(
 
           const liquidoEstimado =
             lucroLiquidoRevendedor + totalTaxasDiretas - totalRepassesInstaladores;
-          const texto = `SIGO GUARDIÃO - DEMONSTRATIVO FINANCEIRO DA FRANQUIA\nFranquia: ${rev.nome}\nFaturamento Mensal da Carteira: R$ ${faturamentoBruto.toFixed(2)}\nMinha Margem Mensal Recorrente: R$ ${lucroLiquidoRevendedor.toFixed(2)}\nTaxas de Instalacao Recebidas (Diretas): R$ ${totalTaxasDiretas.toFixed(2)}\nRepasse Obrigatorio a Matriz SIGO Guardiao: R$ ${repasseAoMatriz.toFixed(2)}\nComissoes a Repassar aos Vendedores: R$ ${comissaoVendedores.toFixed(2)}\nMao de Obra a Pagar aos Instaladores: R$ ${totalRepassesInstaladores.toFixed(2)}\n--------------------------------------------------\nLUCRO LIQUIDO ESTIMADO DA FRANQUIA: R$ ${liquidoEstimado.toFixed(2)}\nTotal de Contratos na Rede: ${(clis || []).length}`;
+          const texto = `GD RASTREAMENTO - DEMONSTRATIVO FINANCEIRO DA FRANQUIA\nFranquia: ${rev.nome}\nFaturamento Mensal da Carteira: R$ ${faturamentoBruto.toFixed(2)}\nMinha Margem Mensal Recorrente: R$ ${lucroLiquidoRevendedor.toFixed(2)}\nTaxas de Instalacao Recebidas (Diretas): R$ ${totalTaxasDiretas.toFixed(2)}\nRepasse Obrigatorio a Matriz GD Rastreamento: R$ ${repasseAoMatriz.toFixed(2)}\nComissoes a Repassar aos Vendedores: R$ ${comissaoVendedores.toFixed(2)}\nMao de Obra a Pagar aos Instaladores: R$ ${totalRepassesInstaladores.toFixed(2)}\n--------------------------------------------------\nLUCRO LIQUIDO ESTIMADO DA FRANQUIA: R$ ${liquidoEstimado.toFixed(2)}\nTotal de Contratos na Rede: ${(clis || []).length}`;
 
           await despacharWhatsappGatewayServer(rev.dre_whatsapp_telefone, texto);
         }
@@ -9458,7 +9458,7 @@ async function despacharDreDiariaParceirosServer(
           const ganhoLiquido = minhaComissao - totalRepasseInst;
           const revNome = vend.revendedores?.nome ? `Franquia: ${vend.revendedores.nome}\n` : "";
 
-          const texto = `SIGO GUARDIÃO - DEMONSTRATIVO DO VENDEDOR\nVendedor: ${vend.nome}\n${revNome}Faturamento Mensal da Minha Carteira: R$ ${faturamentoMeus.toFixed(2)}\nCusto Base Repassado a Franquia: R$ ${custoBase.toFixed(2)}\nMinha Comissao Mensal Recorrente: R$ ${minhaComissao.toFixed(2)}\nMao de Obra a Pagar aos Instaladores: R$ ${totalRepasseInst.toFixed(2)}\n--------------------------------------------------\nGANHO LIQUIDO ESTIMADO DO VENDEDOR: R$ ${ganhoLiquido.toFixed(2)}\nTotal de Clientes Ativos: ${(clis || []).length}`;
+          const texto = `GD RASTREAMENTO - DEMONSTRATIVO DO VENDEDOR\nVendedor: ${vend.nome}\n${revNome}Faturamento Mensal da Minha Carteira: R$ ${faturamentoMeus.toFixed(2)}\nCusto Base Repassado a Franquia: R$ ${custoBase.toFixed(2)}\nMinha Comissao Mensal Recorrente: R$ ${minhaComissao.toFixed(2)}\nMao de Obra a Pagar aos Instaladores: R$ ${totalRepasseInst.toFixed(2)}\n--------------------------------------------------\nGANHO LIQUIDO ESTIMADO DO VENDEDOR: R$ ${ganhoLiquido.toFixed(2)}\nTotal de Clientes Ativos: ${(clis || []).length}`;
 
           await despacharWhatsappGatewayServer(vend.dre_whatsapp_telefone, texto);
         }

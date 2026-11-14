@@ -1,5 +1,5 @@
 // ─────────────────────────────────────────────────────────────────────────────
-// Padrão Canônico Homologado do Sistema (Fábrica / Produção SIGO Guardião)
+// Padrão Canônico Homologado do Sistema (Fábrica / Produção GD Rastreamento)
 // Extraído de RastreadorJ16View para conformidade com React Fast Refresh
 // ─────────────────────────────────────────────────────────────────────────────
 

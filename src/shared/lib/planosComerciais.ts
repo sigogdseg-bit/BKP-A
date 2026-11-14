@@ -1,5 +1,5 @@
 // ─────────────────────────────────────────────────────────────────────────────
-// Hunter — Catálogo Canônico dos Planos Comerciais SIGO Guardião (DJR-NEW)
+// Hunter — Catálogo Canônico dos Planos Comerciais GD Rastreamento (DJR-NEW)
 // ─────────────────────────────────────────────────────────────────────────────
 // Fonte única da verdade (Single Source of Truth) para planos comerciais:
 // - PLANO BÁSICO (7 dias de histórico visíveis no app)
@@ -193,7 +193,7 @@ export function obterTextoPlanosComerciaisFormatado(): string {
   });
 
   return (
-    "🛡️ *SIGO Guardião — Planos Comerciais Disponíveis*\n\n" +
+    "🛡️ *GD Rastreamento — Planos Comerciais Disponíveis*\n\n" +
     "Confira o que contempla cada plano em uso no sistema:\n\n" +
     blocos.join("\n\n") +
     "\n\n💡 *Dica:* Para montar e emitir uma proposta comercial personalizada via WhatsApp, envie *PROPOSTA*."

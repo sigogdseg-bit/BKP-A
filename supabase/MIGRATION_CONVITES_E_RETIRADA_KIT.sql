@@ -1,5 +1,5 @@
 -- =========================================================================
--- SIGO GUARDIÃO / HUNTER — CONVITE DE AUTO-CADASTRO E DEVOLUÇÃO DE KIT
+-- GD RASTREAMENTO / HUNTER — CONVITE DE AUTO-CADASTRO E DEVOLUÇÃO DE KIT
 -- Execute este script no SQL Editor do Painel Supabase
 -- =========================================================================
 

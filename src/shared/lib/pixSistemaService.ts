@@ -18,7 +18,7 @@ export interface DocumentoQrCodeWhatsapp {
 
 export const CONFIG_PIX_PADRAO: ConfigPixSistema = {
   chavePix: APP_CHAVE_PIX_PADRAO || "pix@oficial.tec.br",
-  titular: "SIGO Guardiao Tecnologia",
+  titular: "GD Rastreamento Tecnologia",
   cidade: "Volta Redonda",
   tipoChave: "email",
 };
@@ -101,7 +101,7 @@ export async function salvarConfigPixSistema(
   const atual = obterConfigPixSistemaSync();
   const nova: ConfigPixSistema = {
     chavePix: (config.chavePix || atual.chavePix).trim(),
-    titular: (config.titular || atual.titular).trim() || "SIGO Guardiao Tecnologia",
+    titular: (config.titular || atual.titular).trim() || "GD Rastreamento Tecnologia",
     cidade: (config.cidade || atual.cidade).trim() || "Volta Redonda",
     tipoChave: config.tipoChave || atual.tipoChave || "email",
   };
@@ -162,7 +162,7 @@ export function gerarMensagemLembreteVencimentoLeve(params: {
   try {
     payloadPix = gerarPayloadPix({
       chavePix: chavePixFinal,
-      nomeRecebedor: cfg.titular || "SIGO Guardiao",
+      nomeRecebedor: cfg.titular || "GD Rastreamento",
       cidadeRecebedor: cfg.cidade || "BRASIL",
       valor: params.valor,
       identificador: "LEMBRETE3D",
@@ -176,7 +176,7 @@ export function gerarMensagemLembreteVencimentoLeve(params: {
     : "";
 
   let texto = `Olá, ${primeiroNome}! Tudo bem? Esperamos que esteja tendo um ótimo dia.\n\n`;
-  texto += `Lembramos que a mensalidade do serviço de aluguel de rastreador com automonitoramento SIGO Guardião${veiculoTexto} vence em ${dias} dias (dia ${params.dataVencimentoFormatada}).\n\n`;
+  texto += `Lembramos que a mensalidade do serviço de aluguel de rastreador com automonitoramento GD Rastreamento${veiculoTexto} vence em ${dias} dias (dia ${params.dataVencimentoFormatada}).\n\n`;
   texto += `💵 *Valor:* R$ ${valorFmt}\n`;
   texto += `🔑 *Chave PIX Oficial:* ${chavePixFinal}\n`;
   if (cfg.titular) {
@@ -194,7 +194,7 @@ export function gerarMensagemLembreteVencimentoLeve(params: {
 
   texto += `🔗 *Acesse o portal para ver o QR Code e emitir o comprovante:*\n${APP_PUBLIC_URL}/cliente/financeiro\n\n`;
   texto += `Se o pagamento já tiver sido efetuado, por gentileza desconsidere este lembrete. Agradecemos pela parceria e confiança!\n\n`;
-  texto += `Atenciosamente,\nEquipe SIGO Guardião`;
+  texto += `Atenciosamente,\nEquipe GD Rastreamento`;
 
   return { mensagem: texto, payloadPix };
 }

@@ -58,7 +58,7 @@ export function calcularSplitMensalidade(params: {
     };
   }
 
-  // Cenário 3: Venda direta da Matriz/Sistema (SIGO Guardião)
+  // Cenário 3: Venda direta da Matriz/Sistema (GD Rastreamento)
   return {
     parteSistema: mensalidade,
     parteRevendedor: 0,

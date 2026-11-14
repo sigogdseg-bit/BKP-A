@@ -1,5 +1,5 @@
 /**
- * Logotipo oficial do SIGO Guardiao codificado em Base64 para inclusao instantanea
+ * Logotipo oficial do GD Rastreamento codificado em Base64 para inclusao instantanea
  * em documentos PDF (jsPDF) tanto no navegador quanto no backend/Cloudflare Workers.
  */
 export const LOGO_EMBLEMA_BASE64 =

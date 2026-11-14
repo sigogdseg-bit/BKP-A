@@ -1,7 +1,7 @@
 -- ─────────────────────────────────────────────────────────────────────────────
 -- MIGRATION: Hunter - Garantir Permissões e RLS em Propostas Comerciais
 -- Versão Alvo: 1.11.0.23
--- Sistema: SIGO Guardião | Diretrizes: DJR-NEW e HUNTER-GUARDIAN
+-- Sistema: GD Rastreamento | Diretrizes: DJR-NEW e HUNTER-GUARDIAN
 -- ─────────────────────────────────────────────────────────────────────────────
 
 -- 1. Garante permissões de tabela para roles operacionais e anônimas

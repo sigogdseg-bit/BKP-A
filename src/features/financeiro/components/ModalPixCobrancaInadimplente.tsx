@@ -127,7 +127,7 @@ export function ModalPixCobrancaInadimplente({
     if (!qrCodeDataUrl) return;
     const link = document.createElement("a");
     link.href = qrCodeDataUrl;
-    link.download = `pix-sigoguardiao-${cliente.nome_razao_social.toLowerCase().replace(/\s+/g, "-")}.png`;
+    link.download = `pix-gd-rastreamento-${cliente.nome_razao_social.toLowerCase().replace(/\s+/g, "-")}.png`;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -211,7 +211,7 @@ export function ModalPixCobrancaInadimplente({
                 <div className="flex flex-col items-center gap-2">
                   <img
                     src={qrCodeDataUrl}
-                    alt="QR Code Pix SIGO Guardião"
+                    alt="QR Code Pix GD Rastreamento"
                     className="h-44 w-44 object-contain rounded-lg"
                   />
                   <span className="text-[11px] font-mono text-slate-700 font-semibold">

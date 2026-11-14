@@ -1,4 +1,4 @@
-// RelatorioGerencialModal.tsx — SIGO Guardião
+// RelatorioGerencialModal.tsx — GD Rastreamento
 // Configuração do Relatório Gerencial Diário (Métricas, Destinatários, Horário e Canais)
 // Design Canônico: Modos Claro (#eaf0f8 / Neumórfico) e Escuro (Slate-900)
 

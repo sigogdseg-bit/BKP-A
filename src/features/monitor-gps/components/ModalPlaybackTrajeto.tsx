@@ -167,7 +167,7 @@ export function ModalPlaybackTrajeto({ veiculo, onFechar }: ModalPlaybackTrajeto
         aplicarChancelaSimulacaoPdf(doc, "Laudo de Telemetria");
       }
 
-      const nomeArquivo = `SIGO_Guardiao_Laudo_Telemetria_${veiculo.placa}.pdf`;
+      const nomeArquivo = `GD_Rastreamento_Laudo_Telemetria_${veiculo.placa}.pdf`;
 
       try {
         const arrayBuffer = doc.output("arraybuffer");

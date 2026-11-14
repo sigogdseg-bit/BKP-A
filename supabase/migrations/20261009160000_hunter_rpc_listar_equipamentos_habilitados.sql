@@ -1,5 +1,5 @@
 -- ============================================================================
--- HUNTER / SIGO GUARDIÃO — RPC LISTAR_EQUIPAMENTOS_HABILITADOS_INSTALACAO
+-- HUNTER / GD RASTREAMENTO — RPC LISTAR_EQUIPAMENTOS_HABILITADOS_INSTALACAO
 -- ============================================================================
 -- Retorna estritamente os equipamentos em estoque com chip vinculado que NÃO
 -- estejam vinculados a um veículo ativo nem atribuídos a uma instalação ativa

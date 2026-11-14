@@ -861,7 +861,7 @@ export function RastreadorJ16View() {
     return () => clearInterval(interval);
   }, [comandosEmAguardo.length]);
 
-  // Parâmetros Canônicos de Produção SIGO Guardião (Iniciados a partir do Padrão do Sistema)
+  // Parâmetros Canônicos de Produção GD Rastreamento (Iniciados a partir do Padrão do Sistema)
   const configPadraoInicial = obterConfigPadraoSistemaJ16();
 
   const [servidorDns, setServidorDns] = useState(configPadraoInicial.valores.servidorDns);
@@ -2804,7 +2804,7 @@ export function RastreadorJ16View() {
         exemplo: `SERVER,${modoServidor},${servidorAlvo},${portaTcp},0#`,
         desc: usarIpDireto
           ? `Conecta via IP direto (${ipDedicado}:${portaTcp}) com máxima estabilidade.`
-          : `Conecta pelo endereço oficial (${servidorDns}:${portaTcp}) do SIGO Guardião.`,
+          : `Conecta pelo endereço oficial (${servidorDns}:${portaTcp}) do GD Rastreamento.`,
         prioridade: "Obrigatório",
         categoria: "Conectividade",
         presets: [
@@ -3294,7 +3294,7 @@ export function RastreadorJ16View() {
         categoria: "Auditoria",
         presets: [
           { label: "Consultar Sinal (HBT#)", valor: "HBT#" },
-          { label: "Padrão SIGO (3m / 15m - HBT)", valor: "HBT,180,900#" },
+          { label: "Padrão GD Rastreamento (3m / 15m - HBT)", valor: "HBT,180,900#" },
         ],
       },
       {
@@ -3957,7 +3957,7 @@ export function RastreadorJ16View() {
                 <Layers className="h-4 w-4 text-slate-400" />
               </div>
               <div className="text-2xl font-black mt-1">{estatisticasStatus.total}</div>
-              <div className="text-[10px] opacity-70 mt-0.5">Cadastrados no SIGO Guardião</div>
+              <div className="text-[10px] opacity-70 mt-0.5">Cadastrados no GD Rastreamento</div>
             </TiltCard>
           </div>
 
@@ -6666,8 +6666,8 @@ export function RastreadorJ16View() {
                       },
                       {
                         cmd: "ANGLE,2,10#",
-                        label: "PADRÃO CANÔNICO SIGO 2s/10° (ANGLE,2,10#)",
-                        desc: "Detecção canônica SIGO de curva em 2s e 10 graus de inflexão",
+                        label: "PADRÃO CANÔNICO GD RASTREAMENTO 2s/10° (ANGLE,2,10#)",
+                        desc: "Detecção canônica GD Rastreamento de curva em 2s e 10 graus de inflexão",
                       },
                       {
                         cmd: "SZCS#ANGLEVALUE=10-020",

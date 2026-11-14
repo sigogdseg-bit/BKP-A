@@ -524,7 +524,7 @@ export async function verificarAutenticidadeContrato(
         const c = ctData[0] as any;
         return {
           autentico: true,
-          mensagem: "Contrato autêntico conferido e validado com sucesso pelo SIGO Guardião.",
+          mensagem: "Contrato autêntico conferido e validado com sucesso pelo GD Rastreamento.",
           contrato_id: c.id,
           numero_contrato: c.numero_contrato,
           selo_autenticidade: c.selo_autenticidade,
@@ -555,7 +555,7 @@ export async function verificarAutenticidadeContrato(
         return {
           autentico: true,
           mensagem:
-            "Documento oficial autêntico conferido e validado com sucesso pelo SIGO Guardião.",
+            "Documento oficial autêntico conferido e validado com sucesso pelo GD Rastreamento.",
           contrato_id: d.id,
           numero_contrato: meta.numero_contrato || d.nome_arquivo || "DOC-OFICIAL",
           selo_autenticidade: meta.selo || `SGD-${d.id.slice(0, 8).toUpperCase()}`,
@@ -563,7 +563,7 @@ export async function verificarAutenticidadeContrato(
           status: "assinado",
           data_emissao: d.created_at,
           data_assinatura: d.created_at,
-          assinado_por_nome: d.emissor_nome || "SIGO Guardião",
+          assinado_por_nome: d.emissor_nome || "GD Rastreamento",
           cliente_nome: meta.cliente_nome || d.descricao || "Cliente",
           hash_pdf_original: d.hash_sha256,
           hash_pdf_assinado: d.hash_sha256,

@@ -577,7 +577,7 @@ function PaginaAssinaturaCliente() {
                     <p className="text-slate-400">
                       Plataforma Oficial:{" "}
                       <span className="text-emerald-400 font-mono">
-                        SIGO Guardião (https://sigoguardiao.oficial.tec.br)
+                        GD Rastreamento (https://sigoguardiao.oficial.tec.br)
                       </span>
                     </p>
                   </div>
@@ -824,7 +824,7 @@ function PaginaAssinaturaCliente() {
                     <strong className="text-white">
                       CLÁUSULA DÉCIMA - DA PROPRIEDADE INTELECTUAL:
                     </strong>{" "}
-                    A plataforma SIGO Guardião, marcas, logotipos e interfaces constituem
+                    A plataforma GD Rastreamento, marcas, logotipos e interfaces constituem
                     propriedade intelectual exclusiva de Dario de Novaes Gonçalves Júnior, sendo
                     concedida apenas licença de uso pessoal, temporária e intransferível.
                   </p>
@@ -1039,7 +1039,7 @@ function PaginaAssinaturaCliente() {
           {APP_EMPRESA} — CNPJ {APP_CNPJ}
         </p>
         <p className="text-[11px] text-slate-600">
-          SIGO Guardião — Sistema Integrado de Governança Operacional e Rastreamento Veicular
+          GD Rastreamento — Sistema Integrado de Governança Operacional e Rastreamento Veicular
         </p>
       </footer>
     </div>

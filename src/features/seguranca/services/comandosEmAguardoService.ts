@@ -514,7 +514,7 @@ export function marcarComandoConcluido(
 
       if (permitirWhatsapp && telefonesWhatsapp.length > 0) {
         const msgWhatsapp =
-          `📡 *SIGO GUARDIÃO — RETORNO DE COMANDO J16*\n\n` +
+          `📡 *GD RASTREAMENTO — RETORNO DE COMANDO J16*\n\n` +
           `🚗 *Veículo:* ${itemConcluido?.placa || "—"} (${itemConcluido?.modelo || "J16"})\n` +
           `🔑 *IMEI:* ${imei}\n` +
           `⚡ *Comando Agendado:* ${comandoOriginal || itemConcluido?.comando || "—"}\n` +

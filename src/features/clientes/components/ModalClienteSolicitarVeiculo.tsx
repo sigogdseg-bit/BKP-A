@@ -159,7 +159,7 @@ export function ModalClienteSolicitarVeiculo({
                 <span>Processo de Adição e Instalação:</span>
               </div>
               <p className="text-[11px] text-slate-600 dark:text-slate-300 leading-relaxed">
-                Após o envio, a administração do SIGO Guardião atribuirá o instalador técnico
+                Após o envio, a administração do GD Rastreamento atribuirá o instalador técnico
                 credenciado e ajustará o valor da sua mensalidade contratual para incluir o novo
                 veículo.
               </p>

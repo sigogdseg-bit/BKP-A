@@ -54,13 +54,13 @@ cd deploy/hunter-whatsapp-gateway
 4. A tela atualizará automaticamente para:
    **"Conectado e Operacional: +55 (seu número)"**.
 
-Pronto! O gateway agora está online 24 horas por dia para enviar mensagens do SIGO Guardião.
+Pronto! O gateway agora está online 24 horas por dia para enviar mensagens do GD Rastreamento.
 
 ---
 
-## 4. Como o SIGO Guardião Envia Mensagens
+## 4. Como o GD Rastreamento Envia Mensagens
 
-O backend ou Edge Worker do SIGO Guardião faz uma requisição HTTP POST simples:
+O backend ou Edge Worker do GD Rastreamento faz uma requisição HTTP POST simples:
 
 ```bash
 curl -X POST https://hunter-whatsapp-gateway.fly.dev/api/send \
@@ -68,7 +68,7 @@ curl -X POST https://hunter-whatsapp-gateway.fly.dev/api/send \
   -H "x-hunter-token: hunter-guardiao-whatsapp-secret-key-2026" \
   -d '{
     "numero": "11999999999",
-    "mensagem": "🚨 Alerta de Segurança SIGO Guardião: Possível toque detectado no seu veículo!"
+    "mensagem": "🚨 Alerta de Segurança GD Rastreamento: Possível toque detectado no seu veículo!"
   }'
 ```
 

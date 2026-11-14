@@ -258,7 +258,7 @@ export function ModalBloqueioLocalizacaoRastreador({
                   className="py-2.5 rounded-xl bg-white dark:bg-slate-800 hover:bg-slate-100 text-slate-700 dark:text-slate-200 font-semibold text-xs flex items-center justify-center gap-1.5 transition border border-slate-300/70 dark:border-slate-700 shadow-xs"
                 >
                   <Phone className="h-3.5 w-3.5 text-emerald-600" />
-                  <span>Contatar SIGO</span>
+                  <span>Contatar GD Rastreamento</span>
                 </button>
 
                 <button

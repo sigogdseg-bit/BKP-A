@@ -1,4 +1,4 @@
-// whatsappContatosService.ts — SIGO Guardião
+// whatsappContatosService.ts — GD Rastreamento
 // Carregamento unificado e resiliente de contatos (Clientes, Motoristas, Instaladores e Usuários)
 // para disparo ágil de mensagens via WhatsApp Gateway
 
@@ -475,7 +475,7 @@ export async function carregarContatosParaWhatsapp(
           tipo: "revendedor",
           tipoRotulo: "Franquia / Revendedor",
           email: rev.email || null,
-          detalheExtra: "Franquia Parceira SIGO Guardião",
+          detalheExtra: "Franquia Parceira GD Rastreamento",
         });
       }
     }

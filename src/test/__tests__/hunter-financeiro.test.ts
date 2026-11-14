@@ -236,7 +236,7 @@ describe("Hunter — Gestao Financeira Integrada e Fluxo de Caixa", () => {
     assert.ok(msg.includes("R$ 259,80"));
     assert.ok(msg.includes("38 dias em atraso"));
     assert.ok(msg.includes("financeiro@hunter.com.br"));
-    assert.ok(msg.includes("SIGO Guardiao Tecnologia e Rastreamento"));
+    assert.ok(msg.includes("GD Rastreamento"));
     // Proibicao absoluta do caractere comercial
     assert.ok(!msg.includes(String.fromCharCode(38)));
 

@@ -5380,7 +5380,7 @@ CREATE OR REPLACE FUNCTION public.enviar_notificacao_sistema(
   p_destinatario_user_id UUID DEFAULT NULL,
   p_destinatario_cliente_id UUID DEFAULT NULL,
   p_titulo TEXT DEFAULT '🚨 Alerta do Sistema',
-  p_mensagem TEXT DEFAULT 'Notificacao do SIGO Guardiao',
+  p_mensagem TEXT DEFAULT 'Notificacao do GD Rastreamento',
   p_tipo TEXT DEFAULT 'alerta',
   p_url TEXT DEFAULT '/monitor-gps',
   p_placa TEXT DEFAULT NULL,
@@ -5393,7 +5393,7 @@ SET search_path = public
 AS $$
 DECLARE
   v_remetente_id UUID := auth.uid();
-  v_remetente_nome TEXT := 'SIGO Guardiao';
+  v_remetente_nome TEXT := 'GD Rastreamento';
   v_dest_user UUID := p_destinatario_user_id;
   v_dest_cli UUID := p_destinatario_cliente_id;
   v_notif_id UUID;
@@ -5591,7 +5591,7 @@ EXECUTE FUNCTION public.disparar_push_vapid_ao_inserir_notificacao();
 -- ─────────────────────────────────────────────────────────────────────────────
 -- MIGRATION: Hunter - Registro Forense de Documentos Emitidos e Conferência de Integridade
 -- Versão Alvo: 1.11.0.26
--- Sistema: SIGO Guardião | Diretrizes: DJR-NEW e HUNTER-GUARDIAN
+-- Sistema: GD Rastreamento | Diretrizes: DJR-NEW e HUNTER-GUARDIAN
 -- ─────────────────────────────────────────────────────────────────────────────
 
 -- 1. Criação da tabela de documentos emitidos
@@ -7472,7 +7472,7 @@ BEGIN
       ) VALUES (
         v_cliente_user_id,
         v_cliente_id,
-        'SIGO Guardião — Central de Segurança',
+        'GD Rastreamento — Central de Segurança',
         v_titulo_evento || ' — ' || COALESCE(v_placa, 'Veículo'),
         p_detalhes,
         p_tipo,
@@ -8247,7 +8247,7 @@ CREATE INDEX IF NOT EXISTS idx_despesas_plano_manutencao ON public.motorista_des
 NOTIFY pgrst, 'reload schema';
 
 -- ==============================================================================
--- SIGO GUARDIÃO — Bloqueio Administrativo em 3 Estágios de Inadimplência
+-- GD RASTREAMENTO — Bloqueio Administrativo em 3 Estágios de Inadimplência
 -- 1. Dias 1 a 4: Avisos diários automáticos para o cliente titular.
 -- 2. Dia 5+: Bloqueio da visualização da localização dos rastreadores.
 -- 3. Dia 7+: Bloqueio total de login para o cliente e seus motoristas.
@@ -9391,7 +9391,7 @@ NOTIFY pgrst, 'reload schema';
 
 -- =============================================================================
 -- MIGRATION: 20261006151500_hunter_fix_bloqueio_admin_schema_e_rpc.sql
--- SIGO GUARDIÃO — Correção da RPC e Recarga do Cache de Schema de Bloqueio Admin
+-- GD RASTREAMENTO — Correção da RPC e Recarga do Cache de Schema de Bloqueio Admin
 -- =============================================================================
 DO $$
 BEGIN
@@ -11776,7 +11776,7 @@ WHERE placa IS NOT NULL
   AND UPPER(TRIM(placa)) NOT IN ('SEMPLACA', 'SEM PLACA', 'A DEFINIR', 'S/PLACA');
 
 -- ============================================================================
--- HUNTER / SIGO GUARDIÃO — RPC ADMIN_EXCLUIR_CLIENTE COM CASCADE E DEFESA COMPLETA
+-- HUNTER / GD RASTREAMENTO — RPC ADMIN_EXCLUIR_CLIENTE COM CASCADE E DEFESA COMPLETA
 -- ============================================================================
 CREATE OR REPLACE FUNCTION public.admin_excluir_cliente(
   p_cliente_id UUID
@@ -11945,7 +11945,7 @@ GRANT EXECUTE ON FUNCTION public.admin_excluir_veiculo(UUID) TO authenticated, s
 GRANT EXECUTE ON FUNCTION public.admin_excluir_cliente(UUID) TO authenticated, service_role;
 
 -- ============================================================================
--- HUNTER / SIGO GUARDIÃO — RPC LISTAR_EQUIPAMENTOS_HABILITADOS_INSTALACAO
+-- HUNTER / GD RASTREAMENTO — RPC LISTAR_EQUIPAMENTOS_HABILITADOS_INSTALACAO
 -- ============================================================================
 CREATE OR REPLACE FUNCTION public.listar_equipamentos_habilitados_instalacao(
   p_veiculo_id UUID DEFAULT NULL
@@ -12394,7 +12394,7 @@ GRANT EXECUTE ON FUNCTION public.instalador_obter_minhas_demandas(UUID) TO authe
 NOTIFY pgrst, 'reload schema';
 
 -- ==============================================================================
--- HUNTER / SIGO GUARDIÃO - MIGRATION 20261009214000
+-- HUNTER / GD RASTREAMENTO - MIGRATION 20261009214000
 -- Agendamento Individual por Veículo / Ordem de Instalação
 -- ==============================================================================
 
@@ -12467,7 +12467,7 @@ $$;
 GRANT EXECUTE ON FUNCTION public.instalador_definir_agendamento_instalacao TO authenticated;
 
 -- ==============================================================================
--- HUNTER / SIGO GUARDIÃO - MIGRATION 20261009215000
+-- HUNTER / GD RASTREAMENTO - MIGRATION 20261009215000
 -- Detalhes Técnicos de Bloqueador/Relé: Posição de Fixação e Circuito Cortado
 -- ==============================================================================
 
@@ -13244,7 +13244,7 @@ BEGIN
       created_at
     ) VALUES (
       NEW.instalador_id,
-      'SIGO Guardião — Central Operacional',
+      'GD Rastreamento — Central Operacional',
       '🔧 Nova Instalação Atribuída: ' || COALESCE(NEW.placa, 'Veículo'),
       'Você foi designado para realizar a instalação do veículo ' || COALESCE(NEW.placa, '') || ' (' || COALESCE(NEW.marca, '') || ' ' || COALESCE(NEW.modelo, '') || '). ' || 
         CASE 
@@ -13274,7 +13274,7 @@ BEGIN
       ) VALUES (
         v_cliente_user_id,
         NEW.cliente_id,
-        'SIGO Guardião — Central Operacional',
+        'GD Rastreamento — Central Operacional',
         '🔧 Técnico Designado para seu Veículo: ' || COALESCE(NEW.placa, 'Veículo'),
         'O técnico credenciado ' || COALESCE(v_instalador_nome, 'especializado') || ' foi designado para o atendimento do seu veículo ' || COALESCE(NEW.placa, '') || ' (' || COALESCE(NEW.marca, '') || ' ' || COALESCE(NEW.modelo, '') || '). ' ||
           CASE 
@@ -13306,7 +13306,7 @@ BEGIN
         created_at
       ) VALUES (
         NEW.instalador_id,
-        'SIGO Guardião — Central Operacional',
+        'GD Rastreamento — Central Operacional',
         '📦 Kit Rastreador Vinculado: ' || COALESCE(NEW.placa, 'Veículo'),
         'O operador vinculou o rastreador (IMEI ' || NEW.rastreador_imei || ') ao veículo ' || COALESCE(NEW.placa, '') || '. Equipamento disponível para conferência física e agendamento.',
         'instalacao',
@@ -13333,7 +13333,7 @@ BEGIN
       ) VALUES (
         v_cliente_user_id,
         NEW.cliente_id,
-        'SIGO Guardião — Central Operacional',
+        'GD Rastreamento — Central Operacional',
         '📦 Rastreador Preparado: ' || COALESCE(NEW.placa, 'Veículo'),
         'O rastreador foi vinculado ao seu veículo ' || COALESCE(NEW.placa, '') || '. O equipamento já está liberado para o técnico realizar a conferência e o agendamento.',
         'instalacao',
@@ -13363,7 +13363,7 @@ BEGIN
       ) VALUES (
         v_cliente_user_id,
         NEW.cliente_id,
-        'SIGO Guardião — Central Operacional',
+        'GD Rastreamento — Central Operacional',
         '🎉 Instalação Concluída: ' || COALESCE(NEW.placa, 'Veículo'),
         'A instalação do rastreador no veículo ' || COALESCE(NEW.placa, '') || ' foi finalizada com sucesso! Seu veículo já está protegido e pronto para acompanhamento em tempo real.',
         'instalacao',
@@ -13388,7 +13388,7 @@ BEGIN
     )
     SELECT 
       p.id,
-      'SIGO Guardião — Central Operacional',
+      'GD Rastreamento — Central Operacional',
       '✅ Instalação Concluída: ' || COALESCE(NEW.placa, 'Veículo'),
       'O técnico ' || COALESCE(v_instalador_nome, 'instalador') || ' concluiu a instalação do veículo ' || COALESCE(NEW.placa, '') || ' (Cliente: ' || COALESCE(v_cliente_nome, 'Cliente') || ').',
       'instalacao',
@@ -15093,7 +15093,7 @@ BEGIN
         created_at
       ) VALUES (
         NEW.instalador_id,
-        'SIGO Guardião — Central Operacional',
+        'GD Rastreamento — Central Operacional',
         '🔧 Nova Instalação Atribuída: ' || COALESCE(NEW.placa, 'Veículo'),
         'Você foi designado para realizar a instalação do veículo ' || COALESCE(NEW.placa, '') || ' (' || COALESCE(NEW.marca, '') || ' ' || COALESCE(NEW.modelo, '') || '). ' || 
           CASE 
@@ -15131,7 +15131,7 @@ BEGIN
         ) VALUES (
           v_cliente_user_id,
           NEW.cliente_id,
-          'SIGO Guardião — Central Operacional',
+          'GD Rastreamento — Central Operacional',
           '🔧 Técnico Designado para seu Veículo: ' || COALESCE(NEW.placa, 'Veículo'),
           'O técnico credenciado ' || COALESCE(v_instalador_nome, 'especializado') || ' foi designado para o atendimento do seu veículo ' || COALESCE(NEW.placa, '') || ' (' || COALESCE(NEW.marca, '') || ' ' || COALESCE(NEW.modelo, '') || '). ' ||
             CASE 
@@ -15170,7 +15170,7 @@ BEGIN
           created_at
         ) VALUES (
           NEW.instalador_id,
-          'SIGO Guardião — Central Operacional',
+          'GD Rastreamento — Central Operacional',
           '📦 Kit Rastreador Vinculado: ' || COALESCE(NEW.placa, 'Veículo'),
           'O operador vinculou o rastreador (IMEI ' || NEW.rastreador_imei || ') ao veículo ' || COALESCE(NEW.placa, '') || '. Equipamento disponível para conferência física e agendamento.',
           'instalacao',
@@ -15205,7 +15205,7 @@ BEGIN
         ) VALUES (
           v_cliente_user_id,
           NEW.cliente_id,
-          'SIGO Guardião — Central Operacional',
+          'GD Rastreamento — Central Operacional',
           '📦 Rastreador Preparado: ' || COALESCE(NEW.placa, 'Veículo'),
           'O rastreador foi vinculado ao seu veículo ' || COALESCE(NEW.placa, '') || '. O equipamento já está liberado para o técnico realizar a conferência e o agendamento.',
           'instalacao',
@@ -15242,7 +15242,7 @@ BEGIN
         ) VALUES (
           v_cliente_user_id,
           NEW.cliente_id,
-          'SIGO Guardião — Central Operacional',
+          'GD Rastreamento — Central Operacional',
           '🎉 Instalação Concluída: ' || COALESCE(NEW.placa, 'Veículo'),
           'A instalação do rastreador no veículo ' || COALESCE(NEW.placa, '') || ' foi finalizada com sucesso! Seu veículo já está protegido e pronto para acompanhamento em tempo real.',
           'instalacao',
@@ -15268,7 +15268,7 @@ BEGIN
     )
     SELECT 
       p.id,
-      'SIGO Guardião — Central Operacional',
+      'GD Rastreamento — Central Operacional',
       '✅ Instalação Concluída: ' || COALESCE(NEW.placa, 'Veículo'),
       'O técnico ' || COALESCE(v_instalador_nome, 'instalador') || ' concluiu a instalação do veículo ' || COALESCE(NEW.placa, '') || ' (Cliente: ' || COALESCE(v_cliente_nome, 'Cliente') || ').',
       'instalacao',
@@ -16162,7 +16162,7 @@ NOTIFY pgrst, 'reload schema';
 --
 -- 2. TABELA PÚBLICA veiculo_calibracoes_odometro:
 --    Registra cada aferição de campo (leitura inicial/final do painel físico
---    vs leitura inicial/final do SIGO Guardião), calculando diferença,
+--    vs leitura inicial/final do GD Rastreamento), calculando diferença,
 --    erro percentual e histórico de calibração por veículo e dispositivo.
 --
 -- 3. RLS ESTRITO:
@@ -16332,7 +16332,7 @@ BEGIN
   END IF;
 
   IF p_odometro_final_sigo < p_odometro_inicial_sigo THEN
-    RETURN jsonb_build_object('sucesso', false, 'erro', 'Odômetro final do SIGO Guardião não pode ser menor que o inicial.');
+    RETURN jsonb_build_object('sucesso', false, 'erro', 'Odômetro final do GD Rastreamento não pode ser menor que o inicial.');
   END IF;
 
   v_dist_painel := ROUND((p_hodometro_final_painel - p_hodometro_inicial_painel)::NUMERIC, 3);
@@ -16343,7 +16343,7 @@ BEGIN
   END IF;
 
   IF v_dist_sigo <= 0.001 THEN
-    RETURN jsonb_build_object('sucesso', false, 'erro', 'A distância registrada pelo SIGO Guardião deve ser maior que zero.');
+    RETURN jsonb_build_object('sucesso', false, 'erro', 'A distância registrada pelo GD Rastreamento deve ser maior que zero.');
   END IF;
 
   -- Cálculo da diferença e erro percentual conforme especificação formal:
@@ -17138,7 +17138,7 @@ BEGIN
       ) VALUES (
         v_cliente_user_id,
         v_cliente_id,
-        'SIGO Guardião — Central de Segurança',
+        'GD Rastreamento — Central de Segurança',
         v_titulo_evento || ' — ' || COALESCE(v_placa, 'Veículo'),
         p_detalhes,
         p_tipo,
@@ -19163,7 +19163,7 @@ CREATE TABLE IF NOT EXISTS public.seguranca_dlp_config (
   watermark_ativo BOOLEAN NOT NULL DEFAULT TRUE,
   blur_perda_foco_ativo BOOLEAN NOT NULL DEFAULT TRUE,
   bloqueio_print_ativo BOOLEAN NOT NULL DEFAULT TRUE,
-  texto_marca_dagua TEXT NOT NULL DEFAULT 'SIGO GUARDIÃO • DOCUMENTO CONFIDENCIAL',
+  texto_marca_dagua TEXT NOT NULL DEFAULT 'GD RASTREAMENTO • DOCUMENTO CONFIDENCIAL',
   opacidade_watermark NUMERIC NOT NULL DEFAULT 0.08,
   updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
   updated_by TEXT
@@ -19190,7 +19190,7 @@ CREATE POLICY "Apenas administradores gerenciam config DLP"
   );
 
 INSERT INTO public.seguranca_dlp_config (id, watermark_ativo, blur_perda_foco_ativo, bloqueio_print_ativo, texto_marca_dagua, opacidade_watermark)
-VALUES ('00000000-0000-0000-0000-000000000001'::UUID, TRUE, TRUE, TRUE, 'SIGO GUARDIÃO • DOCUMENTO CONFIDENCIAL', 0.08)
+VALUES ('00000000-0000-0000-0000-000000000001'::UUID, TRUE, TRUE, TRUE, 'GD RASTREAMENTO • DOCUMENTO CONFIDENCIAL', 0.08)
 ON CONFLICT (id) DO NOTHING;
 
 DO $$
@@ -19326,7 +19326,7 @@ GRANT EXECUTE ON FUNCTION public.auditoria_seguranca() TO authenticated;
 GRANT EXECUTE ON FUNCTION public.auditoria_seguranca() TO service_role;
 
 -- ==============================================================================
--- HUNTER / SIGO GUARDIÃO — MÓDULO RELATÓRIO GERENCIAL CONFIGURÁVEL
+-- HUNTER / GD RASTREAMENTO — MÓDULO RELATÓRIO GERENCIAL CONFIGURÁVEL
 -- ==============================================================================
 CREATE TABLE IF NOT EXISTS public.relatorio_gerencial_config (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -19417,7 +19417,7 @@ NOTIFY pgrst, 'reload schema';
 -- ============================================================================
 -- ============================================================================
 -- MIGRATION: 20261019140000_hunter_alertas_tempo_real_geofence_ignicao_e_otimizacao_bd.sql
--- Sistema: SIGO Guardião | Diretrizes: HUNTER-GUARDIAN e DJR-NEW
+-- Sistema: GD Rastreamento | Diretrizes: HUNTER-GUARDIAN e DJR-NEW
 -- 
 -- CAUSAS-RAÍZES SANADAS INTEGRALMENTE:
 -- 1. Latência extrema e atrasos ao salvar no BD:
@@ -20796,7 +20796,7 @@ NOTIFY pgrst, 'reload schema';
 -- ─────────────────────────────────────────────────────────────────────────────
 -- ─────────────────────────────────────────────────────────────────────────────
 -- MIGRATION: 20261019230000_hunter_anti_repeticao_geofence_e_ciclo_vida_nfs.sql
--- Sistema: SIGO Guardião | Diretrizes: HUNTER-GUARDIAN e DJR-NEW
+-- Sistema: GD Rastreamento | Diretrizes: HUNTER-GUARDIAN e DJR-NEW
 -- Descrição:
 -- 1. Máquina de Estados de Presença de Veículo em Áreas Seguras (veiculo_areas_estado)
 --    Garante fisicamente ZERO repetição de alertas de saída e entrada.
@@ -22450,7 +22450,7 @@ END;
 $$;
 
 -- ==============================================================================
--- HUNTER / SIGO GUARDIÃO — BLINDAGEM ANTI-REPETIÇÃO DE NOTIFICAÇÕES E RELATÓRIO
+-- HUNTER / GD RASTREAMENTO — BLINDAGEM ANTI-REPETIÇÃO DE NOTIFICAÇÕES E RELATÓRIO
 -- Protocolo Canônico: 1 Único Relatório Gerencial por Dia (Horário Agendado)
 -- Resolução Definitiva de Deduplicação Global e Janela de Horário
 -- ==============================================================================
@@ -22930,7 +22930,7 @@ BEGIN
 
   RETURN jsonb_build_object(
     'autentico', true,
-    'mensagem', 'Contrato autêntico localizado no sistema SIGO Guardião.',
+    'mensagem', 'Contrato autêntico localizado no sistema GD Rastreamento.',
     'contrato_id', v_contrato.id,
     'numero_contrato', v_contrato.numero_contrato,
     'selo_autenticidade', v_contrato.selo_autenticidade,
@@ -23011,7 +23011,7 @@ NOTIFY pgrst, 'reload schema';
 
 -- ─────────────────────────────────────────────────────────────────────────────
 -- MIGRATION: 20261021015000_hunter_garantir_login_motorista_e_auto_cura_identities.sql
--- Sistema: SIGO Guardião | Diretrizes: HUNTER-GUARDIAN e DJR-NEW
+-- Sistema: GD Rastreamento | Diretrizes: HUNTER-GUARDIAN e DJR-NEW
 -- Descrição:
 -- 1. Auto-cura atômica de motoristas órfãos (user_id IS NULL) e sincronização de auth.identities
 -- 2. Criação da RPC canônica public.garantir_login_motorista() para SuperADM e Clientes
@@ -24227,7 +24227,7 @@ BEGIN
 
       RETURN jsonb_build_object(
         'autentico', true,
-        'mensagem', 'Contrato autêntico localizado no sistema SIGO Guardião.',
+        'mensagem', 'Contrato autêntico localizado no sistema GD Rastreamento.',
         'contrato_id', v_contrato.id,
         'numero_contrato', v_contrato.numero_contrato,
         'selo_autenticidade', v_contrato.selo_autenticidade,
@@ -24260,7 +24260,7 @@ BEGIN
     IF FOUND THEN
       RETURN jsonb_build_object(
         'autentico', true,
-        'mensagem', 'Documento oficial autêntico localizado no sistema SIGO Guardião.',
+        'mensagem', 'Documento oficial autêntico localizado no sistema GD Rastreamento.',
         'contrato_id', v_doc.id,
         'numero_contrato', COALESCE(v_doc.metadata->>'numero_contrato', v_doc.nome_arquivo, 'DOC-OFICIAL'),
         'selo_autenticidade', COALESCE(v_doc.metadata->>'selo', 'SGD-' || UPPER(SUBSTRING(v_doc.id::text FROM 1 FOR 8))),
@@ -24473,7 +24473,7 @@ NOTIFY pgrst, 'reload schema';
 -- ============================================================================
 -- ─────────────────────────────────────────────────────────────────────────────
 -- MIGRATION: 20261022194500_hunter_perfil_e_gestao_funcionarios_cliente.sql
--- Sistema: SIGO Guardião | Diretrizes: HUNTER-GUARDIAN e DJR-NEW
+-- Sistema: GD Rastreamento | Diretrizes: HUNTER-GUARDIAN e DJR-NEW
 -- Descrição:
 -- 1. Criação do perfil 'funcionario' no ENUM public.hunter_role.
 -- 2. Adição da coluna cliente_id em public.profiles (com FK para public.clientes).
@@ -25896,7 +25896,7 @@ GRANT EXECUTE ON FUNCTION public.registrar_posicao_gps_com_odometro TO authentic
 NOTIFY pgrst, 'reload schema';
 
 -- ============================================================================
--- SIGO GUARDIÃO — ODOMETRIA DE ALTA PRECISÃO COM COMPENSAÇÃO ADAPTATIVA
+-- GD RASTREAMENTO — ODOMETRIA DE ALTA PRECISÃO COM COMPENSAÇÃO ADAPTATIVA
 -- Migração: 20261025143500_hunter_odometro_compensacao_adaptativa_painel_real.sql
 -- ============================================================================
 -- 1. Sincronização do Volvo XC60 (AXH0E44) com o painel físico auditado (183.515 km)
@@ -26854,7 +26854,7 @@ NOTIFY pgrst, 'reload schema';
 
 
 -- ============================================================================
--- SIGO GUARDIÃO — FIX PRIMEIRO ACESSO NO AUTOCADASTRO E PARCEIROS (REVENDEDOR/VENDEDOR)
+-- GD RASTREAMENTO — FIX PRIMEIRO ACESSO NO AUTOCADASTRO E PARCEIROS (REVENDEDOR/VENDEDOR)
 -- ============================================================================
 
 -- 1. Alterar DEFAULT de primeiro_acesso para FALSE
@@ -27123,7 +27123,7 @@ GRANT SELECT ON ALL TABLES IN SCHEMA public TO anon;
 
 NOTIFY pgrst, 'reload schema';
 -- ==============================================================================
--- SIGO Guardião — Módulo Comercial: Redefinição de Senha de Revendedor e Vendedor
+-- GD Rastreamento — Módulo Comercial: Redefinição de Senha de Revendedor e Vendedor
 -- Força primeiro_acesso = TRUE no Profile para Troca Obrigatória no Primeiro Acesso
 -- Migration: 20261028170000_sigo_guardiao_redefinir_senha_parceiro.sql
 -- ==============================================================================
@@ -27407,7 +27407,7 @@ NOTIFY pgrst, 'reload schema';
 
 
 -- ==============================================================================
--- SIGO GUARDIÃO — DRE Diária WhatsApp para Parceiros e Cópia SuperADM
+-- GD RASTREAMENTO — DRE Diária WhatsApp para Parceiros e Cópia SuperADM
 -- Migration: 20261028195500_sigo_guardiao_dre_whatsapp_e_copia_superadm.sql
 -- ==============================================================================
 
@@ -27583,7 +27583,7 @@ CREATE TRIGGER trg_anti_duplicacao_notificacoes_sistema
 NOTIFY pgrst, 'reload schema';
 
 -- =============================================================================
--- SIGO GUARDIÃO — DESCARTE DE FALSOS CICLOS DE IGNIÇÃO E SANEAMENTO DE VIAGENS
+-- GD RASTREAMENTO — DESCARTE DE FALSOS CICLOS DE IGNIÇÃO E SANEAMENTO DE VIAGENS
 -- Migração: 20261029100000_hunter_descarte_ciclos_falsos_ignicao_e_saneamento.sql
 -- =============================================================================
 
@@ -27714,7 +27714,7 @@ NOTIFY pgrst, 'reload schema';
 
 -- ─────────────────────────────────────────────────────────────────────────────
 -- MIGRATION: 20261104130000_hunter_geofence_alerta_garantido_whatsapp_push.sql
--- Sistema: SIGO Guardião | Diretrizes: DJR-NEW e HUNTER-GUARDIAN
+-- Sistema: GD Rastreamento | Diretrizes: DJR-NEW e HUNTER-GUARDIAN
 -- Descrição: Blindagem de entrega garantida de alertas de geofence, Push VAPID
 --            e WhatsApp no servidor com headers compatíveis e permissões pg_net.
 -- ─────────────────────────────────────────────────────────────────────────────
@@ -27791,7 +27791,7 @@ EXECUTE FUNCTION public.disparar_push_vapid_ao_inserir_notificacao();
 NOTIFY pgrst, 'reload schema';
 
 -- ==============================================================================
--- HUNTER / SIGO Guardião — Adicionar coluna cpf_cnpj na tabela public.profiles
+-- HUNTER / GD Rastreamento — Adicionar coluna cpf_cnpj na tabela public.profiles
 -- Corrige o erro "column cpf_cnpj of relation profiles does not exist"
 -- ao redefinir ou cadastrar senha de parceiro (revendedor e vendedor)
 -- Migration: 20261104170500_hunter_profiles_add_cpf_cnpj.sql
@@ -27807,7 +27807,7 @@ CREATE INDEX IF NOT EXISTS idx_profiles_cpf_cnpj ON public.profiles(cpf_cnpj);
 NOTIFY pgrst, 'reload schema';
 
 -- ==============================================================================
--- SIGO Guardião / HUNTER — Perfil S.adm Auditor da Plataforma (100% READ-ONLY)
+-- GD Rastreamento / HUNTER — Perfil S.adm Auditor da Plataforma (100% READ-ONLY)
 -- Regra Imperiosa:
 -- 1. O S.adm auditor pode visualizar tudo que um administrador visualiza.
 -- 2. Proibição absoluta de cadastrar, alterar ou excluir dados (INSERT, UPDATE, DELETE).
@@ -28134,7 +28134,7 @@ NOTIFY pgrst, 'reload schema';
 
 -- ============================================================================
 -- MIGRATION: 20261107213000_hunter_ajuste_odometria_motores_183774_axh0e44.sql
--- SIGO GUARDIÃO — AJUSTE CANÔNICO DE ODOMETRIA NOS MOTORES (AXH0E44)
+-- GD RASTREAMENTO — AJUSTE CANÔNICO DE ODOMETRIA NOS MOTORES (AXH0E44)
 -- ============================================================================
 -- 1. Sincronização oficial do Volvo XC60 AXH0E44 com o painel físico auditado:
 --    Valor do painel: 183.774,2 km (183774.200 km)
@@ -28253,7 +28253,7 @@ GRANT EXECUTE ON FUNCTION public.hunter_obter_consumo_chips_ciclo TO authenticat
 
 -- ─────────────────────────────────────────────────────────────────────────────
 -- MIGRATION: 20261109140000_hunter_mensalidades_informar_pagamento_e_alerta_placa.sql
--- Sistema: SIGO Guardião | Diretrizes: HUNTER-GUARDIAN e DJR-NEW
+-- Sistema: GD Rastreamento | Diretrizes: HUNTER-GUARDIAN e DJR-NEW
 -- ─────────────────────────────────────────────────────────────────────────────
 
 ALTER TABLE public.mensalidades 
@@ -28319,7 +28319,7 @@ WITH CHECK (
   AND status != 'pago'
 );
 
--- SIGO Guardião — Adicionar valor 'cliente_degustacao' ao enum hunter_role
+-- GD Rastreamento — Adicionar valor 'cliente_degustacao' ao enum hunter_role
 -- Migration: 20261109150000_hunter_role_cliente_degustacao.sql
 ALTER TYPE public.hunter_role ADD VALUE IF NOT EXISTS 'cliente_degustacao';
 
@@ -28327,7 +28327,7 @@ NOTIFY pgrst, 'reload schema';
 
 
 -- ============================================================================
--- HUNTER / SIGO GUARDIÃO — CENTRAL COMPLETA DE CONFIGURAÇÃO DE ALERTAS
+-- HUNTER / GD RASTREAMENTO — CENTRAL COMPLETA DE CONFIGURAÇÃO DE ALERTAS
 -- ============================================================================
 -- Migration: 20261110120000_hunter_central_configuracao_alertas_canais_numeros.sql
 -- Objetivo:
@@ -29804,7 +29804,7 @@ GRANT EXECUTE ON FUNCTION public.hunter_processar_ciclo_vida_nfs() TO authentica
 NOTIFY pgrst, 'reload schema';
 
 -- ============================================================================
--- HUNTER / SIGO GUARDIÃO — SIGILO OPERACIONAL DE DEFESA ATIVA ANTI-SMS
+-- HUNTER / GD RASTREAMENTO — SIGILO OPERACIONAL DE DEFESA ATIVA ANTI-SMS
 -- ============================================================================
 -- Migration: 20261110150000_hunter_sigilo_alerta_sms_equipe_tecnica.sql
 -- Objetivo:
@@ -30218,7 +30218,7 @@ NOTIFY pgrst, 'reload schema';
 
 
 -- ============================================================================
--- HUNTER / SIGO GUARDIÃO — UNIFICAÇÃO TOTAL DE ALERTAS, RPC DE PREFERÊNCIAS E LIGAÇÃO
+-- HUNTER / GD RASTREAMENTO — UNIFICAÇÃO TOTAL DE ALERTAS, RPC DE PREFERÊNCIAS E LIGAÇÃO
 -- ============================================================================
 -- Migration: 20261110180000_hunter_unificacao_total_central_alertas_ligacao.sql
 -- ============================================================================
@@ -30793,7 +30793,7 @@ GRANT EXECUTE ON FUNCTION public.registrar_alerta_seguranca(UUID, TEXT, TEXT, TE
 GRANT EXECUTE ON FUNCTION public.registrar_alerta_seguranca(UUID, TEXT, TEXT, TEXT, DOUBLE PRECISION, DOUBLE PRECISION, INTEGER, NUMERIC, INTEGER, UUID) TO service_role;
 
 -- ============================================================================
--- HUNTER / SIGO GUARDIAO — RELOGIO SERVER-SIDE DE 24H DA DEGUSTACAO APOS 1O ACESSO E REVALIDACAO
+-- HUNTER / GD RASTREAMENTO — RELOGIO SERVER-SIDE DE 24H DA DEGUSTACAO APOS 1O ACESSO E REVALIDACAO
 -- ============================================================================
 ALTER TABLE public.profiles
   ADD COLUMN IF NOT EXISTS degustacao_primeiro_acesso_em TIMESTAMPTZ DEFAULT NULL,

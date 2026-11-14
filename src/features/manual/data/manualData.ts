@@ -49,7 +49,7 @@ export interface ModuloManual {
   secoes: SecaoManual[];
 }
 
-// Catálogo Canônico dos Manuais Modulares do SIGO Guardião
+// Catálogo Canônico dos Manuais Modulares do GD Rastreamento
 // Regra Pétrea: Zero ocorrências do caractere comercial proibido (uso estrito da conjunção "e")
 export const MANUAIS_MODULOS: ModuloManual[] = [
   {
@@ -700,13 +700,13 @@ export const MANUAIS_MODULOS: ModuloManual[] = [
       {
         id: "comandos-sms-j16",
         titulo: "Comandos SMS de Inicialização",
-        subtitulo: "Protocolo canônico para configurar o rastreador J16 no gateway SIGO Guardião",
+        subtitulo: "Protocolo canônico para configurar o rastreador J16 no gateway GD Rastreamento",
         passos: [
           {
             ordem: 1,
             acao: "Configurar Servidor e Porta",
             detalhe:
-              "Envie o comando SERVER com o IP e Porta oficial do gateway SIGO Guardião para que o rastreador envie pacotes de telemetria.",
+              "Envie o comando SERVER com o IP e Porta oficial do gateway GD Rastreamento para que o rastreador envie pacotes de telemetria.",
           },
           {
             ordem: 2,
@@ -775,7 +775,7 @@ export const MANUAIS_MODULOS: ModuloManual[] = [
       {
         id: "auditoria-seguranca",
         titulo: "Pilares de Segurança Ativos",
-        subtitulo: "Monitoramento dos 5 eixos de segurança do SIGO Guardião",
+        subtitulo: "Monitoramento dos 5 eixos de segurança do GD Rastreamento",
         passos: [
           {
             ordem: 1,
@@ -1161,7 +1161,7 @@ export const MANUAIS_MODULOS: ModuloManual[] = [
             ordem: 2,
             acao: "Selo de Autenticidade SGD e Código Curto",
             detalhe:
-              "O documento final recebe no rodapé o Selo de Autenticidade do SIGO Guardião e um código curto de validação instantânea.",
+              "O documento final recebe no rodapé o Selo de Autenticidade do GD Rastreamento e um código curto de validação instantânea.",
           },
           {
             ordem: 3,

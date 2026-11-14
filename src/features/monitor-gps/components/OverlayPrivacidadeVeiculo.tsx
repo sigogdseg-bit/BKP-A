@@ -65,7 +65,7 @@ export function OverlayPrivacidadeVeiculo({
           {bloqueioAdministrativo
             ? isMotorista
               ? "A visualização da localização dos veículos está temporariamente suspensa para a sua frota. Contate o administrador da sua empresa."
-              : "A visualização da localização dos rastreadores entrou em modo privado restrito. Regularize sua mensalidade ou contate o SIGO Guardião."
+              : "A visualização da localização dos rastreadores entrou em modo privado restrito. Regularize sua mensalidade ou contate o GD Rastreamento."
             : contexto === "mapa"
               ? "A localização geográfica no mapa e a movimentação deste veículo estão sob sigilo de privacidade."
               : "O cockpit operacional, as métricas e a telemetria deste veículo estão sob sigilo de privacidade."}
@@ -80,7 +80,7 @@ export function OverlayPrivacidadeVeiculo({
                 className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-2xl bg-rose-600 hover:bg-rose-700 text-white font-semibold text-xs shadow-md transition"
               >
                 <Lock className="w-4 h-4" />
-                {isMotorista ? "Informações de Acesso" : "Regularizar / Contatar SIGO"}
+                {isMotorista ? "Informações de Acesso" : "Regularizar / Contatar GD Rastreamento"}
               </button>
             )}
           </div>

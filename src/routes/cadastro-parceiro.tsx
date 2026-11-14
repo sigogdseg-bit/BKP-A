@@ -61,7 +61,7 @@ function CadastroParceiroPage() {
       setValidando(false);
       setConviteValido(false);
       setMensagemErro(
-        "Link de credenciamento incompleto ou sem código de autorização. Solicite um novo link à administração da Matriz SIGO Guardião.",
+        "Link de credenciamento incompleto ou sem código de autorização. Solicite um novo link à administração da Matriz GD Rastreamento.",
       );
       return;
     }
@@ -141,7 +141,7 @@ function CadastroParceiroPage() {
       <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-sky-500/10 dark:bg-sky-500/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="relative z-10 w-full max-w-xl bg-[#f0f4f9] dark:bg-slate-900 border border-slate-300/80 dark:border-slate-800 rounded-3xl p-6 sm:p-8 shadow-[12px_12px_28px_#c3cfe2,-12px_-12px_28px_#ffffff] dark:shadow-2xl backdrop-blur-xl transition-all duration-200">
-        {/* Header Oficial SIGO Guardião com Emblema Real */}
+        {/* Header Oficial GD Rastreamento com Emblema Real */}
         <div className="text-center space-y-2 mb-6">
           <div className="mx-auto flex items-center justify-center">
             <div className="h-24 w-24 sm:h-28 sm:w-28 flex items-center justify-center rounded-3xl overflow-hidden p-0 bg-transparent hover:scale-105 transition-transform duration-200">
@@ -240,8 +240,8 @@ function CadastroParceiroPage() {
                   )}
                   <span>
                     {tipoParceiro === "revendedor"
-                      ? "Franquia Autorizada SIGO Guardião"
-                      : `Equipe Comercial • ${revendedorNome || "Matriz SIGO Guardião"}`}
+                      ? "Franquia Autorizada GD Rastreamento"
+                      : `Equipe Comercial • ${revendedorNome || "Matriz GD Rastreamento"}`}
                   </span>
                 </span>
                 {valorBase !== undefined && (

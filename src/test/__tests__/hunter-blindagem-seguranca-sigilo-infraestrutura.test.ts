@@ -17,7 +17,8 @@ describe("Hunter — Blindagem de Segurança, Sigilo de Infraestrutura e Interfa
     );
     // Proíbe URL do projeto hardcoded como fallback
     assert.ok(
-      !content.includes("kaxtuqfmvlkfnqsdualu.supabase.co"),
+      !content.includes("kaxtuqfmvlkfnqsdualu.supabase.co") &&
+        !content.includes("pflzopmxxawyqkgrlapq.supabase.co"),
       "client.ts não pode expor URL de projeto Supabase hardcoded.",
     );
   });

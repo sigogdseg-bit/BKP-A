@@ -1,6 +1,6 @@
 -- ==============================================================================
 -- MIGRATION: 20261003133000_hunter_bloqueio_administrativo_rastreador_e_acesso.sql
--- SIGO GUARDIÃO — Bloqueio Administrativo em 3 Estágios de Inadimplência
+-- GD RASTREAMENTO — Bloqueio Administrativo em 3 Estágios de Inadimplência
 -- 1. Dias 1 a 4: Avisos diários automáticos para o cliente titular.
 -- 2. Dia 5+: Bloqueio da visualização da localização dos rastreadores.
 -- 3. Dia 7+: Bloqueio total de login para o cliente e seus motoristas.

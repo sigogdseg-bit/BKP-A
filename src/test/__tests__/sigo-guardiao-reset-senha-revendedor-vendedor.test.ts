@@ -5,7 +5,7 @@ import path from "node:path";
 import { redefinirSenhaParceiro } from "../../features/revendedores/services/revendedoresService";
 import { supabase } from "../../integrations/supabase/client";
 
-describe("SIGO Guardião — Redefinição de Senha de Revendedor e Vendedor", () => {
+describe("GD Rastreamento — Redefinição de Senha de Revendedor e Vendedor", () => {
   it("Deve validar que a nova senha deve conter no mínimo 6 caracteres antes de chamar a RPC", async () => {
     const res = await redefinirSenhaParceiro("vendedor", "vend-123", "123");
     assert.equal(res.sucesso, false);

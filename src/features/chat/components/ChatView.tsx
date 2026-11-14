@@ -101,7 +101,7 @@ export function ChatView() {
           try {
             const reg = await navigator.serviceWorker.ready;
             if (reg && "showNotification" in reg) {
-              await (reg as any).showNotification("🔔 SIGO Guardião — Notificações Ativadas", {
+              await (reg as any).showNotification("🔔 GD Rastreamento — Notificações Ativadas", {
                 body: "Seu aparelho agora receberá alertas e mensagens mesmo com a tela bloqueada.",
                 icon: "/logo.png",
                 badge: "/favicon.png",
@@ -818,7 +818,7 @@ export function ChatView() {
                     3
                   </span>
                   <p className="text-slate-700 dark:text-slate-200 pt-0.5">
-                    Abra o <strong>SIGO Guardião</strong> pelo novo ícone na tela de início do seu
+                    Abra o <strong>GD Rastreamento</strong> pelo novo ícone na tela de início do seu
                     aparelho e toque em <strong>"Ativar Notificações"</strong>.
                   </p>
                 </div>

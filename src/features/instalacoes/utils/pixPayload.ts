@@ -50,12 +50,12 @@ export function gerarPayloadPix({
   nomeRecebedor,
   cidadeRecebedor = "BRASIL",
   valor,
-  identificador = "SIGOGUARDIAO",
+  identificador = "GDRASTREAMENTO",
 }: DadosPix): string {
   const chaveLimpa = chavePix.trim();
   const nomeLimpo = sanitizarTexto(nomeRecebedor || "Instalador Credenciado", 25);
   const cidadeLimpa = sanitizarTexto(cidadeRecebedor || "BRASIL", 15);
-  const txidLimpo = sanitizarTexto(identificador || "SIGOGUARDIAO", 25) || "***";
+  const txidLimpo = sanitizarTexto(identificador || "GDRASTREAMENTO", 25) || "***";
   const valorFormatado = valor.toFixed(2);
 
   // 00 - Payload Format Indicator

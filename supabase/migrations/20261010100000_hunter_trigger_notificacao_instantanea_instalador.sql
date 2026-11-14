@@ -105,7 +105,7 @@ BEGIN
       created_at
     ) VALUES (
       NEW.instalador_id,
-      'SIGO Guardião — Central Operacional',
+      'GD Rastreamento — Central Operacional',
       '🔧 Nova Instalação Atribuída: ' || COALESCE(NEW.placa, 'Veículo'),
       'Você foi designado para realizar a instalação do veículo ' || COALESCE(NEW.placa, '') || ' (' || COALESCE(NEW.marca, '') || ' ' || COALESCE(NEW.modelo, '') || '). ' || 
         CASE 
@@ -135,7 +135,7 @@ BEGIN
       ) VALUES (
         v_cliente_user_id,
         NEW.cliente_id,
-        'SIGO Guardião — Central Operacional',
+        'GD Rastreamento — Central Operacional',
         '🔧 Técnico Designado para seu Veículo: ' || COALESCE(NEW.placa, 'Veículo'),
         'O técnico credenciado ' || COALESCE(v_instalador_nome, 'especializado') || ' foi designado para o atendimento do seu veículo ' || COALESCE(NEW.placa, '') || ' (' || COALESCE(NEW.marca, '') || ' ' || COALESCE(NEW.modelo, '') || '). ' ||
           CASE 
@@ -167,7 +167,7 @@ BEGIN
         created_at
       ) VALUES (
         NEW.instalador_id,
-        'SIGO Guardião — Central Operacional',
+        'GD Rastreamento — Central Operacional',
         '📦 Kit Rastreador Vinculado: ' || COALESCE(NEW.placa, 'Veículo'),
         'O operador vinculou o rastreador (IMEI ' || NEW.rastreador_imei || ') ao veículo ' || COALESCE(NEW.placa, '') || '. Equipamento disponível para conferência física e agendamento.',
         'instalacao',
@@ -194,7 +194,7 @@ BEGIN
       ) VALUES (
         v_cliente_user_id,
         NEW.cliente_id,
-        'SIGO Guardião — Central Operacional',
+        'GD Rastreamento — Central Operacional',
         '📦 Rastreador Preparado: ' || COALESCE(NEW.placa, 'Veículo'),
         'O rastreador foi vinculado ao seu veículo ' || COALESCE(NEW.placa, '') || '. O equipamento já está liberado para o técnico realizar a conferência e o agendamento.',
         'instalacao',
@@ -224,7 +224,7 @@ BEGIN
       ) VALUES (
         v_cliente_user_id,
         NEW.cliente_id,
-        'SIGO Guardião — Central Operacional',
+        'GD Rastreamento — Central Operacional',
         '🎉 Instalação Concluída: ' || COALESCE(NEW.placa, 'Veículo'),
         'A instalação do rastreador no veículo ' || COALESCE(NEW.placa, '') || ' foi finalizada com sucesso! Seu veículo já está protegido e pronto para acompanhamento em tempo real.',
         'instalacao',
@@ -249,7 +249,7 @@ BEGIN
     )
     SELECT 
       p.id,
-      'SIGO Guardião — Central Operacional',
+      'GD Rastreamento — Central Operacional',
       '✅ Instalação Concluída: ' || COALESCE(NEW.placa, 'Veículo'),
       'O técnico ' || COALESCE(v_instalador_nome, 'instalador') || ' concluiu a instalação do veículo ' || COALESCE(NEW.placa, '') || ' (Cliente: ' || COALESCE(v_cliente_nome, 'Cliente') || ').',
       'instalacao',

@@ -1,5 +1,5 @@
 -- ============================================================================
--- HUNTER / SIGO GUARDIAO — RELOGIO SERVER-SIDE DE 24H DA DEGUSTACAO APOS 1O ACESSO E REVALIDACAO
+-- HUNTER / GD RASTREAMENTO — RELOGIO SERVER-SIDE DE 24H DA DEGUSTACAO APOS 1O ACESSO E REVALIDACAO
 -- ============================================================================
 -- Migration: 20261111120000_hunter_degustacao_primeiro_acesso_e_revalidacao.sql
 -- Objetivo:

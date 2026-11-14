@@ -1,5 +1,5 @@
 -- =============================================================================
--- SIGO GUARDIÃO — MIGRATION: COMPARTILHAMENTO SEM EXPIRAÇÃO (ENCERRAMENTO MANUAL)
+-- GD RASTREAMENTO — MIGRATION: COMPARTILHAMENTO SEM EXPIRAÇÃO (ENCERRAMENTO MANUAL)
 -- =============================================================================
 
 -- 1. Permite expira_em como NULL (Sem limite de tempo / Encerramento manual)

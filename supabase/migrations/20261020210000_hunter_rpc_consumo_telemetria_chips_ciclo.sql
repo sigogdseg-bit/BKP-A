@@ -1,6 +1,6 @@
 -- ─────────────────────────────────────────────────────────────────────────────
 -- MIGRATION: 20261020210000_hunter_rpc_consumo_telemetria_chips_ciclo.sql
--- Sistema: SIGO Guardião | Diretrizes: HUNTER-GUARDIAN e DJR-NEW
+-- Sistema: GD Rastreamento | Diretrizes: HUNTER-GUARDIAN e DJR-NEW
 -- Descrição:
 -- RPC canônica para cálculo real e dinâmico de tráfego/consumo de chips M2M
 -- no ciclo de faturamento (desde o dia 23 até hoje), agregando contagem

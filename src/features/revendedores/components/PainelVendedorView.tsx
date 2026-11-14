@@ -1,6 +1,6 @@
 // ─────────────────────────────────────────────────────────────────────────────
 // Hunter — Painel do Vendedor: Minhas Vendas e Clientes
-// Padrão Visual Soberano SIGO Guardião (TiltCard, Relevo Tático e Ergonomia)
+// Padrão Visual Soberano GD Rastreamento (TiltCard, Relevo Tático e Ergonomia)
 // ─────────────────────────────────────────────────────────────────────────────
 
 import React, { useState, useEffect, useMemo, useCallback } from "react";
@@ -264,14 +264,14 @@ export function PainelVendedorView() {
     setEnviandoWhatsappLink(true);
     try {
       const textoMsg =
-        `Olá! Segue o seu link exclusivo para realizar o cadastro e ativar o rastreamento do seu veículo no SIGO Guardião:\n\n` +
+        `Olá! Segue o seu link exclusivo para realizar o cadastro e ativar o rastreamento do seu veículo no GD Rastreamento:\n\n` +
         `${linkGerado}\n\n` +
         `Acesse o link acima para preencher os seus dados e os dados do(s) seu(s) veículo(s).`;
 
       const res = await enviarMensagemWhatsappOperador({
         telefone: foneLimpo,
         mensagem: textoMsg,
-        operadorNome: meuVendedor?.nome || "Vendedor SIGO",
+        operadorNome: meuVendedor?.nome || "Vendedor GD Rastreamento",
         clienteNome: "Convidado Comercial",
       });
 
@@ -310,7 +310,7 @@ export function PainelVendedorView() {
       resumoFinanceiro.totalTaxasInstalacaoRecebidas -
       resumoFinanceiro.totalRepassesInstaladoresPendentes;
 
-    const texto = `SIGO GUARDIÃO - DEMONSTRATIVO FINANCEIRO DO VENDEDOR
+    const texto = `GD RASTREAMENTO - DEMONSTRATIVO FINANCEIRO DO VENDEDOR
 Faturamento Mensal da Carteira: R$ ${resumoFinanceiro.faturamentoBruto.toFixed(2)}
 Minha Comissao Mensal Recorrente: R$ ${resumoFinanceiro.minhaComissaoTotal.toFixed(2)}
 Taxas de Instalacao Recebidas: R$ ${resumoFinanceiro.totalTaxasInstalacaoRecebidas.toFixed(2)}
@@ -381,7 +381,7 @@ Total de Clientes Ativos: ${meusClientes.length}`;
 
   return (
     <div className="space-y-4 max-w-7xl mx-auto select-none pb-28">
-      {/* 1. Header Canônico SIGO Guardião */}
+      {/* 1. Header Canônico GD Rastreamento */}
       <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 bg-[#eaf0f8] dark:bg-slate-900/80 border border-slate-300/60 dark:border-slate-800 p-4 sm:p-5 rounded-2xl shadow-[4px_4px_10px_#c3cfe2] dark:shadow-xl">
         <div className="flex items-center gap-3">
           <div className="h-12 w-12 rounded-2xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-600 dark:text-blue-400 shadow-xs shrink-0">

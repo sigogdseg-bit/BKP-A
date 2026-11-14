@@ -1,12 +1,12 @@
-# SIGO Guardião — Documento de Arquitetura e Engenharia de Software
+# GD Rastreamento — Documento de Arquitetura e Engenharia de Software
 
-Este documento descreve formalmente a arquitetura técnica, modelo de camadas, fluxo de dados de telemetria, protocolos de comunicação veicular e diretrizes de defesa cibernética do **SIGO Guardião**.
+Este documento descreve formalmente a arquitetura técnica, modelo de camadas, fluxo de dados de telemetria, protocolos de comunicação veicular e diretrizes de defesa cibernética do **GD Rastreamento**.
 
 ---
 
 ## 1. Visão Arquitetural
 
-O SIGO Guardião foi concebido sobre uma arquitetura moderna e distribuída, otimizada para tempo real e latência mínima:
+O GD Rastreamento foi concebido sobre uma arquitetura moderna e distribuída, otimizada para tempo real e latência mínima:
 
 1. **Camada de Borda e Apresentação (Frontend / PWA):**
    - Single Page Application (SPA) e Progressive Web App (PWA) construída com React 18, Vite e TypeScript.

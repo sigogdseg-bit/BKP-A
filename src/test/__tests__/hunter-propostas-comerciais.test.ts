@@ -9,7 +9,7 @@ import {
 } from "../../features/financeiro/services/propostaService";
 import type { PropostaComercial } from "../../features/financeiro/types/proposta";
 
-describe("SIGO Guardião — Módulo de Propostas Comerciais e Efetividade de Vendas", () => {
+describe("GD Rastreamento — Módulo de Propostas Comerciais e Efetividade de Vendas", () => {
   const propostaExemplo: PropostaComercial = {
     id: "prop-uuid-1234",
     numero_proposta: "PROP-2026-0001",

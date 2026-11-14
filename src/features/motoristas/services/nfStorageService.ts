@@ -832,7 +832,7 @@ export async function notificarUploadNF(
 
       const textoWhats = `📄 *Novo Comprovante de ${tipoRotulo} Anexado*\n\n${linhasDetalhes.join(
         "\n",
-      )}\n\nO documento segue em anexo para conferência imediata e download.\n\n_SIGO Guardião — Gestão Inteligente de Frotas_`;
+      )}\n\nO documento segue em anexo para conferência imediata e download.\n\n_GD Rastreamento — Gestão Inteligente de Frotas_`;
 
       for (const fone of regraNf.telefonesWhatsapp) {
         enviarMensagemWhatsappOperador({

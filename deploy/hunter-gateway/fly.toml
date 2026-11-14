@@ -7,7 +7,7 @@ primary_region = "gru"
 [env]
   PORTA_TCP = "7002"
   PORTA_HTTP = "8080"
-  SUPABASE_URL = "https://kaxtuqfmvlkfnqsdualu.supabase.co"
+  SUPABASE_URL = "https://pflzopmxxawyqkgrlapq.supabase.co"
 
 [[services]]
   internal_port = 7002

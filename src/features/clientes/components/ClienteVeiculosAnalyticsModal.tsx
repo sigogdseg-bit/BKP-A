@@ -283,7 +283,7 @@ export function ClienteVeiculosAnalyticsModal({
       doc.setFontSize(8.5);
       doc.setFont("helvetica", "normal");
       doc.setTextColor(148, 163, 184);
-      doc.text(`SIGO Guardião · ${APP_DOMINIO} · Emissão Oficial Autenticada`, offsetTextoX, 42);
+      doc.text(`GD Rastreamento · ${APP_DOMINIO} · Emissão Oficial Autenticada`, offsetTextoX, 42);
 
       doc.setTextColor(30, 41, 59);
       doc.setFontSize(10);

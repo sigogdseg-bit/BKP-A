@@ -1,4 +1,4 @@
-// ModalEnviarWhatsappCliente.tsx — SIGO Guardião
+// ModalEnviarWhatsappCliente.tsx — GD Rastreamento
 // Modal ergonômico para envio de mensagens via WhatsApp (ChatbotX / WhatsApp Web) pelo Operador ou Administrador
 
 import { useState, useEffect } from "react";
@@ -40,7 +40,7 @@ export function ModalEnviarWhatsappCliente({
   aberto,
   onClose,
   cliente,
-  operadorNome = "Operador SIGO Guardião",
+  operadorNome = "Operador GD Rastreamento",
 }: ModalEnviarWhatsappClienteProps) {
   const { session } = useAuth();
   const [telefoneDestino, setTelefoneDestino] = useState("");
@@ -58,25 +58,25 @@ export function ModalEnviarWhatsappCliente({
       id: "suporte",
       titulo: "Suporte e Atendimento",
       icone: "💬",
-      texto: `Olá, ${primeiroNome}! Aqui é da equipe do SIGO Guardião. Entramos em contato a respeito do auto-monitoramento do seu veículo. Como podemos ajudar hoje?`,
+      texto: `Olá, ${primeiroNome}! Aqui é da equipe do GD Rastreamento. Entramos em contato a respeito do auto-monitoramento do seu veículo. Como podemos ajudar hoje?`,
     },
     {
       id: "agendamento",
       titulo: "Confirmação de Instalação",
       icone: "🔧",
-      texto: `Olá, ${primeiroNome}! Aqui é da equipe técnica do SIGO Guardião. Gostaríamos de confirmar os detalhes do agendamento da instalação do seu rastreador veicular.`,
+      texto: `Olá, ${primeiroNome}! Aqui é da equipe técnica do GD Rastreamento. Gostaríamos de confirmar os detalhes do agendamento da instalação do seu rastreador veicular.`,
     },
     {
       id: "alerta",
       titulo: "Aviso de Segurança / Alerta",
       icone: "🚨",
-      texto: `Olá, ${primeiroNome}! Identificamos um evento de alerta de segurança em seu veículo monitorado pelo SIGO Guardião. Por favor, verifique o seu aplicativo ou nos responda aqui para averiguação.`,
+      texto: `Olá, ${primeiroNome}! Identificamos um evento de alerta de segurança em seu veículo monitorado pelo GD Rastreamento. Por favor, verifique o seu aplicativo ou nos responda aqui para averiguação.`,
     },
     {
       id: "cobranca",
       titulo: "Lembrete de Mensalidade",
       icone: "💳",
-      texto: `Olá, ${primeiroNome}! Lembramos que a mensalidade do seu plano de rastreamento veicular SIGO Guardião está disponível. Qualquer dúvida ou para solicitar a 2ª via com PIX, estamos à disposição!`,
+      texto: `Olá, ${primeiroNome}! Lembramos que a mensalidade do seu plano de rastreamento veicular GD Rastreamento está disponível. Qualquer dúvida ou para solicitar a 2ª via com PIX, estamos à disposição!`,
     },
   ];
 
@@ -86,7 +86,7 @@ export function ModalEnviarWhatsappCliente({
       setTelefoneDestino(cliente.telefone || "");
       const nome = cliente.nome_razao_social?.split(" ")[0] || "Cliente";
       setMensagem(
-        `Olá, ${nome}! Aqui é da equipe do SIGO Guardião. Entramos em contato a respeito do auto-monitoramento do seu veículo. Como podemos ajudar hoje?`,
+        `Olá, ${nome}! Aqui é da equipe do GD Rastreamento. Entramos em contato a respeito do auto-monitoramento do seu veículo. Como podemos ajudar hoje?`,
       );
       setDocumento(null);
       setEnviando(false);

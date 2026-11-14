@@ -1,7 +1,7 @@
 -- ============================================================================
 -- MIGRATION: 20261011150000_hunter_atualizar_configuracao_padrao_j16.sql
 -- DESCRIÇÃO: Atualiza os parâmetros canônicos padrão do rastreador J16 4G
---            para o perfil recomendado SIGO Guardião (TIMER 15s/3600s, HBT 120s/300s e Ângulo 5s/15°):
+--            para o perfil recomendado GD Rastreamento (TIMER 15s/3600s, HBT 120s/300s e Ângulo 5s/15°):
 --            'TIMER,15,3600# | SZCS#ANGLEVALUE=3-015'
 -- ============================================================================
 

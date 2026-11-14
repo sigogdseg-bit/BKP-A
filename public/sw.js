@@ -1,8 +1,8 @@
-// Service Worker — SIGO Guardião
+// Service Worker — GD Rastreamento
 // Escuta permanente de notificações push nativas (VAPID) — app fechado, tela desligada, outro app em uso
 // Versão: 1.10.0.4
 
-const CACHE_NAME = "sigo-guardiao-sw-v3";
+const CACHE_NAME = "gd-rastreamento-sw-v3";
 const DEDUP_KEY = "sigo_sw_dedup";
 const MAX_DEDUP = 150;
 
@@ -89,13 +89,13 @@ self.addEventListener("push", (event) => {
       data = event.data.json();
     } catch {
       data = {
-        title: "Alerta Operacional — SIGO Guardião",
+        title: "Alerta Operacional — GD Rastreamento",
         body: event.data.text(),
       };
     }
   }
 
-  const titulo = data.title || "Alerta de Segurança — SIGO Guardião";
+  const titulo = data.title || "Alerta de Segurança — GD Rastreamento";
   const corpo = (data.body || "").trim();
 
   // Normalização de Tag: garante prefixo único canônico 'sigo-notif-'

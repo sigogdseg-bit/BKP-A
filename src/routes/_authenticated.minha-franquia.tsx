@@ -14,7 +14,7 @@ function MinhaFranquiaRoute() {
     return (
       <AcessoModuloRestrito
         moduloNome="Minha Franquia e Equipe"
-        mensagem="Este painel é de acesso exclusivo a revendedores autorizados da rede SIGO Guardião."
+        mensagem="Este painel é de acesso exclusivo a revendedores autorizados da rede GD Rastreamento."
       />
     );
   }

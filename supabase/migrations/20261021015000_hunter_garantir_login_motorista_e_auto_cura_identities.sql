@@ -1,6 +1,6 @@
 -- ─────────────────────────────────────────────────────────────────────────────
 -- MIGRATION: 20261021015000_hunter_garantir_login_motorista_e_auto_cura_identities.sql
--- Sistema: SIGO Guardião | Diretrizes: HUNTER-GUARDIAN e DJR-NEW
+-- Sistema: GD Rastreamento | Diretrizes: HUNTER-GUARDIAN e DJR-NEW
 -- Descrição:
 -- 1. Auto-cura atômica de motoristas órfãos (user_id IS NULL) e sincronização de auth.identities
 -- 2. Criação da RPC canônica public.garantir_login_motorista() para SuperADM e Clientes

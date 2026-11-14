@@ -1,5 +1,5 @@
 -- ============================================================================
--- HUNTER / SIGO GUARDIÃO — FIX: ANTI-FALSO-POSITIVO ALERTA DE GUINCHO / REBOQUE
+-- HUNTER / GD RASTREAMENTO — FIX: ANTI-FALSO-POSITIVO ALERTA DE GUINCHO / REBOQUE
 -- ============================================================================
 -- Versão Alvo: 1.11.0.16
 -- Root Cause: O Alerta D (Guincho) disparava com ignicao = false e velocidade > 5.

@@ -1,6 +1,6 @@
 -- ============================================================================
 -- MIGRATION: 20261019130000_hunter_fix_trigger_alertas_telemetria_e_whatsapp.sql
--- Sistema: SIGO Guardião | Diretrizes: DJR-NEW e HUNTER-GUARDIAN
+-- Sistema: GD Rastreamento | Diretrizes: DJR-NEW e HUNTER-GUARDIAN
 -- 
 -- CAUSA-RAIZ CORRIGIDA:
 -- 1. O trigger trg_hunter_alertas_telemetria NUNCA foi vinculado à tabela

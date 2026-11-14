@@ -367,7 +367,7 @@ describe("Hunter — Contratos Assinados, Hashes Forenses SHA-256 e Selo de Aute
 
     const textoMensagem =
       `Olá, *${mockCliente.nome_razao_social}*!\n\n` +
-      `Segue o seu *Contrato de Prestação de Serviços e Automonitoramento Veicular — SIGO Guardião*:\n\n` +
+      `Segue o seu *Contrato de Prestação de Serviços e Automonitoramento Veicular — GD Rastreamento*:\n\n` +
       `📄 *Contrato nº:* ${numeroContrato}\n` +
       `🔐 *Selo de Autenticidade:* SGD-TEST8888\n` +
       `🔑 *Código de Verificação:* ${codigoVerificacao}\n\n` +

@@ -182,7 +182,7 @@ function criarMockSupabaseParaPropostas(initialData: {
   return supabaseMock;
 }
 
-describe("SIGO Guardião — Emissão de Propostas Interativas via WhatsApp e Regras de Repasse", () => {
+describe("GD Rastreamento — Emissão de Propostas Interativas via WhatsApp e Regras de Repasse", () => {
   it("Deve bloquear início de proposta para remetente não autorizado (número desconhecido)", async () => {
     const supabase = criarMockSupabaseParaPropostas({
       profiles: [],
@@ -226,7 +226,7 @@ describe("SIGO Guardião — Emissão de Propostas Interativas via WhatsApp e Re
 
     assert.equal(res.sucesso, true);
     assert.equal(res.acaoExecutada, "dialogo_proposta_iniciado");
-    assert.ok(res.resposta.includes("SIGO Guardião — Nova Proposta Comercial"));
+    assert.ok(res.resposta.includes("GD Rastreamento — Nova Proposta Comercial"));
     assert.ok(res.resposta.includes("R$ 40,00"), "Base mínima padrão 40,00");
     assert.ok(res.resposta.includes("R$ 55,00"), "Sugestão 40 + 15 = 55,00");
     assert.ok(res.resposta.includes("1️⃣ Digite o *Nome Completo do Cliente*"));
@@ -1135,7 +1135,7 @@ describe("SIGO Guardião — Emissão de Propostas Interativas via WhatsApp e Re
     assert.equal(resComando.acaoExecutada, "menu_revendedor");
     assert.ok(resComando.resposta.includes("paulo darci Alves Gonçalves"));
     assert.ok(resComando.resposta.includes("Central do Revendedor"));
-    assert.ok(!resComando.resposta.includes("Bem-vindo(a) ao SIGO Guardião"));
+    assert.ok(!resComando.resposta.includes("Bem-vindo(a) ao GD Rastreamento"));
   });
 
   it("Revendedor NÃO tem permissão de rastrear veículo e recebe aviso de restrição de telemetria ao enviar LOCALIZACAO", async () => {
@@ -1259,7 +1259,7 @@ describe("SIGO Guardião — Emissão de Propostas Interativas via WhatsApp e Re
     assert.ok(res.resposta.includes("paulo darci Alves Gonçalves"));
     assert.ok(res.resposta.includes("Central do Revendedor"));
     assert.ok(res.resposta.includes("Comando não reconhecido"));
-    assert.ok(!res.resposta.includes("Bem-vindo(a) ao SIGO Guardião"));
+    assert.ok(!res.resposta.includes("Bem-vindo(a) ao GD Rastreamento"));
   });
 
   it("Permissão Web App: Revendedor e Vendedor devem possuir acesso ao módulo de propostas comerciais e à rota /propostas", () => {

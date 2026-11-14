@@ -1,4 +1,4 @@
-// server.ts — Micro-Gateway WhatsApp Baileys para SIGO Guardião
+// server.ts — Micro-Gateway WhatsApp Baileys para GD Rastreamento
 // Otimizado para Fly.io Free Tier (256 MB RAM)
 
 import express, { Request, Response, NextFunction } from "express";
@@ -779,7 +779,7 @@ async function initWhatsApp() {
         } catch (errPk) {
           console.warn("Aviso ao verificar pre-keys:", errPk);
         }
-        // Dispara sincronização nativa de LIDs com os contatos cadastrados no SIGO Guardião
+        // Dispara sincronização nativa de LIDs com os contatos cadastrados no GD Rastreamento
         setTimeout(() => {
           sincronizarLidsComWhatsApp();
         }, 3000);
@@ -812,7 +812,7 @@ app.get(["/", "/qrcode"], async (_req: Request, res: Response) => {
       <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>WhatsApp Gateway — SIGO Guardião</title>
+        <title>WhatsApp Gateway — GD Rastreamento</title>
         <style>
           body { font-family: system-ui, -apple-system, sans-serif; background: #0f172a; color: #f8fafc; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; padding: 20px; }
           .card { background: #1e293b; border: 1px solid #334155; border-radius: 20px; padding: 32px; max-width: 440px; width: 100%; text-align: center; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); }
@@ -828,7 +828,7 @@ app.get(["/", "/qrcode"], async (_req: Request, res: Response) => {
       <body>
         <div class="card">
           <div class="badge"><div class="pulse"></div> Conectado e Operacional</div>
-          <h1>SIGO Guardião — WhatsApp Gateway</h1>
+          <h1>GD Rastreamento — WhatsApp Gateway</h1>
           <p>O gateway está online e pronto para despachar alertas de segurança e mensagens em segundo plano.</p>
           <div class="info">Linha: +${connectedNumber}</div>
           <form method="POST" action="/api/disconnect" onsubmit="return confirm('Deseja realmente desconectar este WhatsApp?')">
@@ -849,7 +849,7 @@ app.get(["/", "/qrcode"], async (_req: Request, res: Response) => {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="refresh" content="20">
-        <title>Conectar WhatsApp — SIGO Guardião</title>
+        <title>Conectar WhatsApp — GD Rastreamento</title>
         <style>
           body { font-family: system-ui, -apple-system, sans-serif; background: #0f172a; color: #f8fafc; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; padding: 20px; }
           .card { background: #1e293b; border: 1px solid #334155; border-radius: 20px; padding: 32px; max-width: 440px; width: 100%; text-align: center; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); }
@@ -865,7 +865,7 @@ app.get(["/", "/qrcode"], async (_req: Request, res: Response) => {
       <body>
         <div class="card">
           <div class="badge">Aguardando Conexão</div>
-          <h1>SIGO Guardião — WhatsApp</h1>
+          <h1>GD Rastreamento — WhatsApp</h1>
           <p>Aponte a câmera do WhatsApp para escanear o QR Code e vincular o número de disparo automático.</p>
           <div class="qr-box">
             <img src="${qrDataUrl}" alt="QR Code WhatsApp" width="280" height="280" />
@@ -891,7 +891,7 @@ app.get(["/", "/qrcode"], async (_req: Request, res: Response) => {
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta http-equiv="refresh" content="3">
-      <title>Inicializando — SIGO Guardião</title>
+      <title>Inicializando — GD Rastreamento</title>
       <style>
         body { font-family: system-ui; background: #0f172a; color: #94a3b8; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; }
         .box { text-align: center; }
@@ -927,7 +927,7 @@ app.get("/status", (_req: Request, res: Response) => {
   });
 });
 
-// 3. API de Disparo de Mensagem (Chamada pelo SIGO Guardião)
+// 3. API de Disparo de Mensagem (Chamada pelo GD Rastreamento)
 app.post(
   ["/api/send", "/api/v1/messages/send", "/api/whatsapp/send"],
   async (req: Request, res: Response): Promise<any> => {

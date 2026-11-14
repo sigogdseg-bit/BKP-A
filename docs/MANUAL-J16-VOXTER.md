@@ -135,7 +135,7 @@ O J16 possui 3 LEDs SMD visíveis na placa através da carcaça frontal:
    - O intervalo X deve ser no mínimo 10 segundos (ex: `SZCS#ANGLEVALUE=10-015`). Intervalos curtos como `3-015` são rejeitados pelo firmware com `ERROR: ANGLEVALUE=...`.
 
 4. **Capacidade de Receber Comandos em Modo Sleep:**
-   - Com `SZCS#SLPDISCONNECT=0` (padrão para automóveis), **o modem 4G e a conexão TCP com o SIGO Guardião nunca são desconectados**.
+   - Com `SZCS#SLPDISCONNECT=0` (padrão para automóveis), **o modem 4G e a conexão TCP com o GD Rastreamento nunca são desconectados**.
    - Todos os comandos da plataforma (bloqueio, desbloqueio, consultas) chegam instantaneamente mesmo com o carro desligado e dormindo na garagem.
 
 5. **Por que o J16 continuava transmitindo a cada 15s com o carro desligado na garagem há horas? (`SENDS,A#`):**
@@ -168,7 +168,7 @@ O J16 possui 3 LEDs SMD visíveis na placa através da carcaça frontal:
 
 Comandos seguros de somente-leitura (`Read-Only`), que não alteram parâmetros e extraem o estado de diagnóstico do J16:
 
-| Comando    | Resposta Esperada                                  | Utilidade no SIGO Guardião                                                      |
+| Comando    | Resposta Esperada                                  | Utilidade no GD Rastreamento                                                    |
 | :--------- | :------------------------------------------------- | :------------------------------------------------------------------------------ |
 | `PARAM#`   | `IMEI:XXXXX; TIMER:15,3600; HBT:120,300; ...`      | Conferência de APN, servidor, timers e heartbeat ativos na flash.               |
 | `STATUS#`  | `Battery:4.2V; GPRS:Online; ACC:OFF; Relay:OFF...` | Nível da bateria interna, status do GPRS, satélites, pino ACC e relé.           |

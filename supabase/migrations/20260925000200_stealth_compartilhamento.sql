@@ -1,5 +1,5 @@
 -- =============================================================================
--- SIGO GUARDIÃO — MIGRATION: MODO STEALTH NO COMPARTILHAMENTO TEMPORÁRIO
+-- GD RASTREAMENTO — MIGRATION: MODO STEALTH NO COMPARTILHAMENTO TEMPORÁRIO
 -- =============================================================================
 
 -- 1. Adiciona colunas do Modo Stealth em public.compartilhamentos_temporarios

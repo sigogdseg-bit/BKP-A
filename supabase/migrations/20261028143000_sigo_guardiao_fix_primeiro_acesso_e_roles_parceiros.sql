@@ -1,4 +1,4 @@
--- SIGO Guardião — Fix Primeiro Acesso no Autocadastro e Correção de Roles Parceiros (Revendedor/Vendedor)
+-- GD Rastreamento — Fix Primeiro Acesso no Autocadastro e Correção de Roles Parceiros (Revendedor/Vendedor)
 -- Migration: 20261028143000_sigo_guardiao_fix_primeiro_acesso_e_roles_parceiros.sql
 
 -- 1. ALTERAR DEFAULT DE PRIMEIRO_ACESSO PARA FALSE

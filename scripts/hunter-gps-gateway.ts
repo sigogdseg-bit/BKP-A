@@ -26,7 +26,7 @@ if (fs.existsSync(".env.local")) {
 }
 
 const SUPABASE_URL =
-  process.env.SUPABASE_URL || env.VITE_SUPABASE_URL || "https://kaxtuqfmvlkfnqsdualu.supabase.co";
+  process.env.SUPABASE_URL || env.VITE_SUPABASE_URL || "https://pflzopmxxawyqkgrlapq.supabase.co";
 
 const SERVICE_KEY =
   process.env.SUPABASE_SERVICE_ROLE_KEY ||
@@ -1446,7 +1446,7 @@ async function processarPacote(socket: net.Socket, buf: Buffer) {
             : "Localização GPS não disponível";
 
         const msgSos = [
-          `🚨 *ALERTA DE PÂNICO / SOS — SIGO GUARDIÃO* 🚨`,
+          `🚨 *ALERTA DE PÂNICO / SOS — GD RASTREAMENTO* 🚨`,
           ``,
           `*Incidente:* Botão de Pânico / SOS acionado pelo condutor!`,
           `*Veículo:* ${conn.placa || "Placa não informada"} (${conn.modeloVeiculo || "Modelo —"})`,
@@ -2476,7 +2476,7 @@ export async function auditarIntegridadeEstadoEReverter(params: {
           });
 
           const msgWhatsapp = [
-            `🚨 *ALERTA DE SEGURANÇA MÁXIMA — SIGO GUARDIÃO* 🚨`,
+            `🚨 *ALERTA DE SEGURANÇA MÁXIMA — GD RASTREAMENTO* 🚨`,
             ``,
             `*Incidente:* Manipulação externa não autorizada via SMS detectada!`,
             `*Veículo:* ${conn.placa || "Placa não informada"} (${conn.modeloVeiculo || "Modelo —"})`,
@@ -2488,7 +2488,7 @@ export async function auditarIntegridadeEstadoEReverter(params: {
             `*Localização:* ${mapsLink}`,
             `*Data/Hora:* ${dataHoraFormatada}`,
             ``,
-            `_O SIGO Guardião manteve o estado canônico do veículo inviolável._`,
+            `_O GD Rastreamento manteve o estado canônico do veículo inviolável._`,
           ].join("\n");
 
           despacharNotificacaoWhatsappSuperAdmGateway(
@@ -2529,7 +2529,7 @@ export async function auditarIntegridadeEstadoEReverter(params: {
       });
 
       const msgBateria = [
-        `⚠️ *ALERTA DE VIOLAÇÃO DE ENERGIA — SIGO GUARDIÃO* ⚠️`,
+        `⚠️ *ALERTA DE VIOLAÇÃO DE ENERGIA — GD RASTREAMENTO* ⚠️`,
         ``,
         `*Incidente:* Alimentação externa (+12V/+24V) cortada ou desconectada!`,
         `*Veículo:* ${conn.placa || "Placa não informada"} (${conn.modeloVeiculo || "Modelo —"})`,
@@ -2565,7 +2565,7 @@ const PORTA_HTTP = Number(process.env.PORTA_HTTP || 8080);
 const httpServer = http.createServer((req, res) => {
   // Mascara identificador do servidor para evitar fingerprinting
   res.removeHeader("X-Powered-By");
-  res.setHeader("Server", "SIGO-Guardiao");
+  res.setHeader("Server", "GD-Rastreamento");
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");

@@ -109,8 +109,8 @@ describe("Hunter - Sincronização e Reconciliação de Estoque em Instalações
       "Deve exibir opção padrão informando que instalador fornece",
     );
     assert.ok(
-      content.includes("Do Estoque SIGO Guardião (Fará Baixa)"),
-      "Deve exibir opção informando baixa do estoque SIGO Guardião",
+      content.includes("Do Estoque GD Rastreamento (Fará Baixa)"),
+      "Deve exibir opção informando baixa do estoque GD Rastreamento",
     );
   });
 

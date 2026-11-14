@@ -89,7 +89,7 @@ export function PresenceProvider({ children }: { children: ReactNode }) {
                   lista.push({
                     userId: p.userId || chave,
                     email: p.email || "",
-                    nome: p.nome || "Usuário SIGO Guardião",
+                    nome: p.nome || "Usuário GD Rastreamento",
                     role: p.role || "usuario",
                     onlineAt: p.onlineAt || new Date().toISOString(),
                     visivelNoChat: Boolean(p.visivelNoChat ?? p.visivel_no_chat),
@@ -133,7 +133,7 @@ export function PresenceProvider({ children }: { children: ReactNode }) {
             await canal.track({
               userId: session.userId,
               email: session.email || "",
-              nome: session.nome || "Usuário SIGO Guardião",
+              nome: session.nome || "Usuário GD Rastreamento",
               role: session.role || "usuario",
               onlineAt: new Date().toISOString(),
               visivelNoChat: minhaVisibilidadeChat,
@@ -184,7 +184,7 @@ export function PresenceProvider({ children }: { children: ReactNode }) {
           await canalRef.current.track({
             userId: session.userId,
             email: session.email || "",
-            nome: session.nome || "Usuário SIGO Guardião",
+            nome: session.nome || "Usuário GD Rastreamento",
             role: session.role || "usuario",
             onlineAt: new Date().toISOString(),
             visivelNoChat: visivel,

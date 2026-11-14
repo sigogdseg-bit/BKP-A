@@ -227,7 +227,7 @@ export function useCardTheme(explicitUserId?: string | null): CardThemeConfig {
 
 /**
  * Classes canônicas de estilo unificado para o Product UI Styleguide (Neumorphism Suave)
- * Utilizadas em 100% das telas e modais do sistema SIGO Guardião.
+ * Utilizadas em 100% das telas e modais do sistema GD Rastreamento.
  */
 export const NEUMORPHIC_STYLES = {
   pageContainer:

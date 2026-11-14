@@ -20,7 +20,7 @@ Este guia ensina como obter um servidor na nuvem com **até 24 GB de RAM e 4 CPU
    **Compute (Computação)** ➔ **Instances (Instâncias)**.
 2. Clique no botão azul **"Create Instance" (Criar Instância)**.
 3. Configure os seguintes campos:
-   - **Nome:** `chatbotx-sigo-guardiao`
+   - **Nome:** `chatbotx-gd-rastreamento`
    - **Imagem e Forma (Image and Shape):**
      - Clique em _Edit (Editar)_.
      - Imagem: Selecione **Canonical Ubuntu** (versão 24.04 ou 22.04).

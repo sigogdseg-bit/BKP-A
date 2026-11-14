@@ -4,7 +4,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { isCicloViagemReal } from "../../features/monitor-gps/services/gpsService";
 
-describe("SIGO Guardião — Validação de Ciclos Reais e Descarte de Falsas Viagens", () => {
+describe("GD Rastreamento — Validação de Ciclos Reais e Descarte de Falsas Viagens", () => {
   it("1. isCicloViagemReal deve classificar perfeitamente ciclos reais vs ruído de ignição", () => {
     // Casos exatos do dia 28/10 do veículo LTK1A94 reportados pelo usuário:
     const ciclo1 = { km_percorrido: 0.05, velocidade_maxima: 11 }; // 17:23 -> 17:25 (50m)

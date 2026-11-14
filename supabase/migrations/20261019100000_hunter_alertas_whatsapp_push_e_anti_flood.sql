@@ -1,6 +1,6 @@
 -- ─────────────────────────────────────────────────────────────────────────────
 -- MIGRATION: 20261019100000_hunter_alertas_whatsapp_push_e_anti_flood.sql
--- Sistema: SIGO Guardião | Diretrizes: DJR-NEW e HUNTER-GUARDIAN
+-- Sistema: GD Rastreamento | Diretrizes: DJR-NEW e HUNTER-GUARDIAN
 -- Descrição: Atualiza a trigger function disparar_push_vapid_ao_inserir_notificacao
 --            para repassar tipo e placa no payload HTTP do trigger pg_net, permitindo
 --            despacho imediato de WhatsApp para números cadastrados no veículo / cliente.

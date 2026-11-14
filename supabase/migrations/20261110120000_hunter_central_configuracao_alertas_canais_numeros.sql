@@ -1,5 +1,5 @@
 -- ============================================================================
--- HUNTER / SIGO GUARDIÃO — CENTRAL COMPLETA DE CONFIGURAÇÃO DE ALERTAS
+-- HUNTER / GD RASTREAMENTO — CENTRAL COMPLETA DE CONFIGURAÇÃO DE ALERTAS
 -- ============================================================================
 -- Migration: 20261110120000_hunter_central_configuracao_alertas_canais_numeros.sql
 -- Objetivo:

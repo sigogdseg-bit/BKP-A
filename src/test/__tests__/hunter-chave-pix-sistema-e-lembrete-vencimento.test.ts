@@ -22,7 +22,7 @@ describe("Hunter — Chave PIX Oficial do Sistema e Lembrete Leve de Vencimento 
 
   test("2. Deve salvar e recuperar a Chave PIX do Sistema de forma síncrona", async () => {
     const novaChave = "financeiro@sigoguardiao.oficial.tec.br";
-    const novoTitular = "SIGO Guardiao Tecnologia Ltda";
+    const novoTitular = "GD Rastreamento Tecnologia Ltda";
     const novaCidade = "Volta Redonda";
 
     await salvarConfigPixSistema({
@@ -88,7 +88,10 @@ describe("Hunter — Chave PIX Oficial do Sistema e Lembrete Leve de Vencimento 
     // Acentuação escorreita
     assert.ok(mensagem.includes("veículo"), "Palavra 'veículo' deve estar acentuada");
     assert.ok(mensagem.includes("já"), "Palavra 'já' deve estar acentuada");
-    assert.ok(mensagem.includes("Guardião"), "Palavra 'Guardião' deve estar acentuada");
+    assert.ok(
+      mensagem.includes("GD Rastreamento") || mensagem.includes("Rastreamento"),
+      "Identidade 'GD Rastreamento' deve estar presente",
+    );
 
     // Regra Pétrea Hunter-Guardian: Ausência do caractere comercial proibido
     assert.ok(

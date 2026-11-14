@@ -642,7 +642,7 @@ export function LogsView() {
                       </p>
                     )}
                     <p className="text-slate-500 dark:text-slate-400 text-[11px]">
-                      Aviso Forense: Documentos emitidos pelo SIGO Guardião possuem assinatura
+                      Aviso Forense: Documentos emitidos pelo GD Rastreamento possuem assinatura
                       digital inalterável. Qualquer modificação de caractere, número, data ou valor
                       invalida completamente o hash criptográfico.
                     </p>

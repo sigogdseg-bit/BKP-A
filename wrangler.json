@@ -15,15 +15,14 @@
   },
   "vars": {
     "APP_INSTANCE_ID": "GD_SEGURANCA",
-    "EXPECTED_SUPABASE_PROJECT_REF": "kaxtuqfmvlkfnqsdualu",
-    "SUPABASE_PROJECT_REF": "kaxtuqfmvlkfnqsdualu",
-    "SUPABASE_URL": "https://kaxtuqfmvlkfnqsdualu.supabase.co",
-    "SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtheHR1cWZtdmxrZm5xc2R1YWx1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODk3NTY4NTEsImV4cCI6MjEwNTMzMjg1MX0.c0Gp_DHcoUqBelYrDxWGywsvSUycVrV7ASrVtNpcW7A",
-    "VITE_SUPABASE_URL": "https://kaxtuqfmvlkfnqsdualu.supabase.co",
-    "VITE_SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtheHR1cWZtdmxrZm5xc2R1YWx1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODk3NTY4NTEsImV4cCI6MjEwNTMzMjg1MX0.c0Gp_DHcoUqBelYrDxWGywsvSUycVrV7ASrVtNpcW7A",
+    "EXPECTED_SUPABASE_PROJECT_REF": "pflzopmxxawyqkgrlapq",
+    "SUPABASE_PROJECT_REF": "pflzopmxxawyqkgrlapq",
+    "SUPABASE_URL": "https://pflzopmxxawyqkgrlapq.supabase.co",
+    "SUPABASE_ANON_KEY": "sb_publishable_MZA6N9ys7HHpIBHQlk3s8Q_Olx-47zC",
+    "VITE_SUPABASE_URL": "https://pflzopmxxawyqkgrlapq.supabase.co",
+    "VITE_SUPABASE_ANON_KEY": "sb_publishable_MZA6N9ys7HHpIBHQlk3s8Q_Olx-47zC",
     "APP_ENV": "production",
     "APP_PUBLIC_URL": "https://sigoguardiao.oficial.tec.br",
-    "SUPABASE_SERVICE_ROLE_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtheHR1cWZtdmxrZm5xc2R1YWx1Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc4OTc1Njg1MSwiZXhwIjoyMTA1MzMyODUxfQ.fBxJchEmMfEv0uigLspY0bK5wYdvKX1u6FUQjq2hjDk",
     "WHATSAPP_GATEWAY_URL": "https://gps.oficial.tec.br",
     "CRON_SECRET": "hunter-cron-jammer-2026"
   }

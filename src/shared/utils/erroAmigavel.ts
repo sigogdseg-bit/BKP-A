@@ -1,5 +1,5 @@
 /**
- * Sanitizador Canônico de Mensagens de Erro do SIGO Guardião
+ * Sanitizador Canônico de Mensagens de Erro do GD Rastreamento
  * Blindagem total contra vazamento de termos técnicos, jargões PostgREST,
  * erros de schema cache ou detalhes de infraestrutura para a interface do usuário.
  */

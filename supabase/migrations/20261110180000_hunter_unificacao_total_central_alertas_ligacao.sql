@@ -1,5 +1,5 @@
 -- ============================================================================
--- HUNTER / SIGO GUARDIÃO — UNIFICAÇÃO TOTAL DE ALERTAS, RPC DE PREFERÊNCIAS E LIGAÇÃO
+-- HUNTER / GD RASTREAMENTO — UNIFICAÇÃO TOTAL DE ALERTAS, RPC DE PREFERÊNCIAS E LIGAÇÃO
 -- ============================================================================
 -- Migration: 20261110180000_hunter_unificacao_total_central_alertas_ligacao.sql
 -- Objetivo:

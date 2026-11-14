@@ -1,6 +1,6 @@
 -- ==============================================================================
 -- MIGRATION: 20261006151500_hunter_fix_bloqueio_admin_schema_e_rpc.sql
--- SIGO GUARDIÃO — Correção da RPC e Recarga do Cache de Schema de Bloqueio Admin
+-- GD RASTREAMENTO — Correção da RPC e Recarga do Cache de Schema de Bloqueio Admin
 -- 1. Garante existência das colunas de bloqueio na tabela public.clientes
 -- 2. Corrige a RPC atualizar_bloqueio_administrativo_cliente (public.profiles)
 -- 3. Notifica o PostgREST para recarregar o schema cache imediatamente

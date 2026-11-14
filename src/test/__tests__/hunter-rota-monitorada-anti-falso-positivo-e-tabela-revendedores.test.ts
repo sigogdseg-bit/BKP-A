@@ -7,7 +7,7 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 import path from "node:path";
 
-describe("SIGO Guardião — Correção Rota Monitorada, Anti-Duplicação e Padrão Tabela Revendedores", () => {
+describe("GD Rastreamento — Correção Rota Monitorada, Anti-Duplicação e Padrão Tabela Revendedores", () => {
   it("1. Rede de Revendedores: modo padrão de exibição deve ser tabela ('lista') e não cards ao entrar", () => {
     const revendedoresViewPath = path.resolve(
       process.cwd(),

@@ -83,7 +83,7 @@ describe("Hunter — Bancada de Configuração USB Nativa (WebUSB e Web Serial)"
     assert.match(conteudo, /Auto-Detectar Protocolo/);
   });
 
-  test("7. Deve implementar Gravação em 1-Clique do Padrão Canônico do SIGO Guardião", () => {
+  test("7. Deve implementar Gravação em 1-Clique do Padrão Canônico do GD Rastreamento", () => {
     const conteudo = fs.readFileSync(caminhoComponente, "utf-8");
 
     assert.match(conteudo, /obterConfigPadraoSistemaJ16/);

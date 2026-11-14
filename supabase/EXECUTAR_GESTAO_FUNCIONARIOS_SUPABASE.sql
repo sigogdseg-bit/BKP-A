@@ -1,6 +1,6 @@
 -- ============================================================================
 -- HUNTER — SCRIPT DE MIGRAÇÃO: GESTÃO DE FUNCIONÁRIOS DO CLIENTE
--- Sistema: SIGO Guardião | Diretrizes: HUNTER-GUARDIAN / DJR-NEW
+-- Sistema: GD Rastreamento | Diretrizes: HUNTER-GUARDIAN / DJR-NEW
 -- Execute este bloco no SQL Editor do Supabase (hunter@oficial.tec.br)
 -- ============================================================================
 

@@ -1,6 +1,6 @@
 // ─────────────────────────────────────────────────────────────────────────────
 // Hunter — Painel do Revendedor: Minha Franquia e Equipe
-// Padrão Visual Soberano SIGO Guardião (TiltCard, Relevo Tático e Ergonomia)
+// Padrão Visual Soberano GD Rastreamento (TiltCard, Relevo Tático e Ergonomia)
 // ─────────────────────────────────────────────────────────────────────────────
 
 import React, { useState, useEffect, useMemo, useCallback } from "react";
@@ -364,12 +364,12 @@ export function PainelRevendedorView() {
       let textoMsg = "";
       if (tipoConvite === "vendedor") {
         textoMsg =
-          `Olá! Segue o seu link exclusivo de cadastro como Vendedor na nossa equipe no SIGO Guardião:\n\n` +
+          `Olá! Segue o seu link exclusivo de cadastro como Vendedor na nossa equipe no GD Rastreamento:\n\n` +
           `${linkGerado}\n\n` +
           `Acesse o link acima para concluir o seu cadastro comercial e iniciar suas vendas.`;
       } else {
         textoMsg =
-          `Olá! Segue o seu link exclusivo para realizar o cadastro e ativar o rastreamento do seu veículo no SIGO Guardião:\n\n` +
+          `Olá! Segue o seu link exclusivo para realizar o cadastro e ativar o rastreamento do seu veículo no GD Rastreamento:\n\n` +
           `${linkGerado}\n\n` +
           `Acesse o link acima para preencher os seus dados e os dados do(s) seu(s) veículo(s).`;
       }
@@ -377,7 +377,7 @@ export function PainelRevendedorView() {
       const res = await enviarMensagemWhatsappOperador({
         telefone: foneLimpo,
         mensagem: textoMsg,
-        operadorNome: meuRevendedor?.nome || "Franquia Parceira SIGO",
+        operadorNome: meuRevendedor?.nome || "Franquia Parceira GD Rastreamento",
         clienteNome: "Convidado Comercial",
       });
 
@@ -416,11 +416,11 @@ export function PainelRevendedorView() {
       resumoFinanceiro.totalTaxasInstalacaoRecebidas -
       resumoFinanceiro.totalRepassesInstaladoresPendentes;
 
-    const texto = `SIGO GUARDIÃO - DEMONSTRATIVO FINANCEIRO DA FRANQUIA
+    const texto = `GD RASTREAMENTO - DEMONSTRATIVO FINANCEIRO DA FRANQUIA
 Faturamento Mensal da Carteira: R$ ${resumoFinanceiro.faturamentoBruto.toFixed(2)}
 Minha Margem Mensal Recorrente: R$ ${resumoFinanceiro.lucroLiquidoRevendedor.toFixed(2)}
 Taxas de Instalacao Recebidas (Diretas): R$ ${resumoFinanceiro.totalTaxasInstalacaoRecebidas.toFixed(2)}
-Repasse Obrigatorio a Matriz SIGO Guardiao: R$ ${resumoFinanceiro.repasseAoMatriz.toFixed(2)}
+Repasse Obrigatorio a Matriz GD Rastreamento: R$ ${resumoFinanceiro.repasseAoMatriz.toFixed(2)}
 Comissoes a Repassar aos Vendedores: R$ ${resumoFinanceiro.comissaoVendedores.toFixed(2)}
 Mao de Obra a Pagar aos Instaladores: R$ ${resumoFinanceiro.totalRepassesInstaladoresPendentes.toFixed(2)}
 --------------------------------------------------
@@ -489,7 +489,7 @@ Total de Contratos na Rede: ${meusClientes.length}`;
 
   return (
     <div className="space-y-4 max-w-7xl mx-auto select-none pb-28">
-      {/* 1. Header Canônico SIGO Guardião */}
+      {/* 1. Header Canônico GD Rastreamento */}
       <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 bg-[#eaf0f8] dark:bg-slate-900/80 border border-slate-300/60 dark:border-slate-800 p-4 sm:p-5 rounded-2xl shadow-[4px_4px_10px_#c3cfe2] dark:shadow-xl">
         <div className="flex items-center gap-3">
           <div className="h-12 w-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-600 dark:text-amber-400 shadow-xs shrink-0">

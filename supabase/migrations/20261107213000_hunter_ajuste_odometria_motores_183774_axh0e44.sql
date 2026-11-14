@@ -1,5 +1,5 @@
 -- ============================================================================
--- SIGO GUARDIÃO — AJUSTE CANÔNICO DE ODOMETRIA NOS MOTORES (AXH0E44)
+-- GD RASTREAMENTO — AJUSTE CANÔNICO DE ODOMETRIA NOS MOTORES (AXH0E44)
 -- Migração: 20261107213000_hunter_ajuste_odometria_motores_183774_axh0e44.sql
 -- ============================================================================
 -- 1. Sincronização oficial do Volvo XC60 AXH0E44 com o painel físico auditado:

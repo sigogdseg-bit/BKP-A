@@ -1,5 +1,5 @@
 -- ==============================================================================
--- SIGO GUARDIÃO — DRE Diária WhatsApp para Parceiros e Cópia SuperADM
+-- GD RASTREAMENTO — DRE Diária WhatsApp para Parceiros e Cópia SuperADM
 -- Migration: 20261028195500_sigo_guardiao_dre_whatsapp_e_copia_superadm.sql
 -- ==============================================================================
 

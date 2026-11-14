@@ -1,5 +1,5 @@
 -- ============================================================================
--- SIGO GUARDIÃO — MÓDULO MOTORISTAS: VEÍCULOS DO CLIENTE E RLS COMPLETO
+-- GD RASTREAMENTO — MÓDULO MOTORISTAS: VEÍCULOS DO CLIENTE E RLS COMPLETO
 -- ============================================================================
 
 -- 1. Função auxiliar VOLATILE para obter o cliente_id do motorista autenticado

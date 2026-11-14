@@ -99,7 +99,7 @@ export function gerarContratoPdfBufferServer(dados: DadosContratoPdfServer): Uin
   doc.setTextColor(255, 255, 255);
   doc.setFont("helvetica", "bold");
   doc.setFontSize(13);
-  doc.text("SIGO GUARDIÃO — CONTRATO OFICIAL DE LOCAÇÃO", 18, y + 8);
+  doc.text("GD RASTREAMENTO — CONTRATO OFICIAL DE LOCAÇÃO", 18, y + 8);
 
   doc.setFontSize(8.5);
   doc.setFont("helvetica", "normal");
@@ -137,7 +137,7 @@ export function gerarContratoPdfBufferServer(dados: DadosContratoPdfServer): Uin
   doc.setFont("helvetica", "normal");
   doc.setTextColor(51, 65, 85);
 
-  const locadoraTexto = `LOCADORA: DARIO DE NOVAES GONÇALVES JÚNIOR - MEI, CNPJ nº 26.581.175/0001-23, com sede na Rua Dom Antônio Cabral, nº 225, Bairro São Luiz, Volta Redonda/RJ, CEP 27286-210, detentora da plataforma digital SIGO Guardião (https://sigoguardiao.oficial.tec.br).`;
+  const locadoraTexto = `LOCADORA: DARIO DE NOVAES GONÇALVES JÚNIOR - MEI, CNPJ nº 26.581.175/0001-23, com sede na Rua Dom Antônio Cabral, nº 225, Bairro São Luiz, Volta Redonda/RJ, CEP 27286-210, detentora da plataforma digital GD Rastreamento (https://sigoguardiao.oficial.tec.br).`;
   const splitLocadora = doc.splitTextToSize(locadoraTexto, 182);
   doc.text(splitLocadora, 14, y);
   y += splitLocadora.length * 3.6 + 3;
@@ -162,7 +162,7 @@ export function gerarContratoPdfBufferServer(dados: DadosContratoPdfServer): Uin
   doc.setFontSize(8);
   doc.setFont("helvetica", "normal");
   doc.setTextColor(51, 65, 85);
-  const objetoTexto = `Constitui objeto deste instrumento a locação onerosa de equipamento eletrônico de rastreamento veicular telemático GPS/GNSS devidamente HOMOLOGADO PELA ANATEL, acompanhado de chip SIM Card M2M/LTE dedicado para transmissão de dados (bens móveis infungíveis de propriedade da LOCADORA). A plataforma web e mobile SIGO Guardião é disponibilizada A TÍTULO GRATUITO E CORTESIA ao LOCATÁRIO para que este realize diretamente seu automonitoramento veicular no ${defPlano.rotulo} (${defPlano.nome}), sem taxa adicional de software (SaaS). Funcionalidades contempladas: ${obterDescritivoFuncionalidadesContrato(cliente?.plano)} Histórico de trajetos: ${diasVisiveisFinal} dias visíveis no aplicativo.`;
+  const objetoTexto = `Constitui objeto deste instrumento a locação onerosa de equipamento eletrônico de rastreamento veicular telemático GPS/GNSS devidamente HOMOLOGADO PELA ANATEL, acompanhado de chip SIM Card M2M/LTE dedicado para transmissão de dados (bens móveis infungíveis de propriedade da LOCADORA). A plataforma web e mobile GD Rastreamento é disponibilizada A TÍTULO GRATUITO E CORTESIA ao LOCATÁRIO para que este realize diretamente seu automonitoramento veicular no ${defPlano.rotulo} (${defPlano.nome}), sem taxa adicional de software (SaaS). Funcionalidades contempladas: ${obterDescritivoFuncionalidadesContrato(cliente?.plano)} Histórico de trajetos: ${diasVisiveisFinal} dias visíveis no aplicativo.`;
   const splitObjeto = doc.splitTextToSize(objetoTexto, 182);
   doc.text(splitObjeto, 14, y);
   y += splitObjeto.length * 3.6 + 5;
@@ -299,7 +299,7 @@ export function gerarContratoPdfBufferServer(dados: DadosContratoPdfServer): Uin
   doc.setTextColor(15, 23, 42);
   doc.text("DARIO DE NOVAES GONÇALVES JÚNIOR - MEI", col1X + lineW / 2, y + 4, { align: "center" });
   doc.setFont("helvetica", "normal");
-  doc.text("CONTRATADA (SIGO GUARDIÃO)", col1X + lineW / 2, y + 8, { align: "center" });
+  doc.text("CONTRATADA (GD RASTREAMENTO)", col1X + lineW / 2, y + 8, { align: "center" });
 
   doc.setFont("helvetica", "bold");
   doc.text((cliente?.nome_razao_social || "CONTRATANTE").toUpperCase(), col2X + lineW / 2, y + 4, {
@@ -330,7 +330,7 @@ export function gerarContratoPdfBufferServer(dados: DadosContratoPdfServer): Uin
     doc.setFontSize(8);
     doc.setFont("helvetica", "bold");
     doc.setTextColor(5, 150, 105);
-    doc.text("CERTIDÃO DIGITAL DE AUTENTICIDADE FORENSE — SISTEMA SIGO GUARDIÃO", 18, boxY + 6);
+    doc.text("CERTIDÃO DIGITAL DE AUTENTICIDADE FORENSE — SISTEMA GD RASTREAMENTO", 18, boxY + 6);
 
     doc.setFontSize(6.8);
     doc.setFont("helvetica", "bold");
@@ -391,7 +391,7 @@ export function gerarContratoPdfBufferServer(dados: DadosContratoPdfServer): Uin
     doc.setFont("helvetica", "normal");
     doc.setTextColor(148, 163, 184);
     doc.text(
-      `SIGO Guardião • Contrato nº ${numeroContrato} • Selo: ${selo} • Cód: ${codigo}`,
+      `GD Rastreamento • Contrato nº ${numeroContrato} • Selo: ${selo} • Cód: ${codigo}`,
       14,
       290,
     );

@@ -1,6 +1,6 @@
 -- ─────────────────────────────────────────────────────────────────────────────
 -- MIGRATION: 20261025160500_hunter_rpc_consumo_chips_correcao_hbt_basal.sql
--- Sistema: SIGO Guardião | Diretrizes: HUNTER-GUARDIAN e DJR-NEW
+-- Sistema: GD Rastreamento | Diretrizes: HUNTER-GUARDIAN e DJR-NEW
 -- Descrição:
 -- CORREÇÃO CRÍTICA da RPC hunter_obter_consumo_chips_ciclo.
 -- 

@@ -255,7 +255,7 @@ export function AlertasAcidenteBanner({
       : "Indisponível (aguardando sinal GPS)";
 
     const texto = [
-      `*OCORRÊNCIA DE EMERGÊNCIA — SIGO GUARDIÃO*`,
+      `*OCORRÊNCIA DE EMERGÊNCIA — GD RASTREAMENTO*`,
       `*Tipo:* ${formatarTituloTipo(alerta.tipo, alerta.detalhes)} (${alerta.gravidade.toUpperCase()})`,
       `*Veículo:* ${alerta.placa || "Placa N/I"} — ${alerta.marca_modelo || "Modelo N/I"}`,
       `*Cliente/Proprietário:* ${alerta.cliente_nome || "Não informado"}`,

@@ -297,7 +297,7 @@ export function ManualDrawer({ aberto, onFechar }: ManualDrawerProps) {
           <div className="shrink-0 p-3.5 px-5 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between text-[11px] text-slate-500 dark:text-slate-400">
             <div className="flex items-center gap-1.5">
               <Sparkles className="h-3.5 w-3.5 text-emerald-500" />
-              <span>SIGO Guardião · Sistema de Rastreamento</span>
+              <span>GD Rastreamento · Sistema de Rastreamento</span>
             </div>
             <button
               type="button"

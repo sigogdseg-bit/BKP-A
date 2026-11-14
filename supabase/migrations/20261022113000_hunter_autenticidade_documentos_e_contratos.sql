@@ -57,7 +57,7 @@ BEGIN
 
       RETURN jsonb_build_object(
         'autentico', true,
-        'mensagem', 'Contrato autêntico localizado no sistema SIGO Guardião.',
+        'mensagem', 'Contrato autêntico localizado no sistema GD Rastreamento.',
         'contrato_id', v_contrato.id,
         'numero_contrato', v_contrato.numero_contrato,
         'selo_autenticidade', v_contrato.selo_autenticidade,
@@ -90,7 +90,7 @@ BEGIN
     IF FOUND THEN
       RETURN jsonb_build_object(
         'autentico', true,
-        'mensagem', 'Documento oficial autêntico localizado no sistema SIGO Guardião.',
+        'mensagem', 'Documento oficial autêntico localizado no sistema GD Rastreamento.',
         'contrato_id', v_doc.id,
         'numero_contrato', COALESCE(v_doc.metadata->>'numero_contrato', v_doc.nome_arquivo, 'DOC-OFICIAL'),
         'selo_autenticidade', COALESCE(v_doc.metadata->>'selo', 'SGD-' || UPPER(SUBSTRING(v_doc.id::text FROM 1 FOR 8))),

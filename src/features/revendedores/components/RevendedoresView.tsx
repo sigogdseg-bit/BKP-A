@@ -1,6 +1,6 @@
 // ─────────────────────────────────────────────────────────────────────────────
 // Hunter — Painel Consolidado de Revendedores e Vendedores (SuperADM / Adm)
-// Padrão Visual Soberano SIGO Guardião (TiltCard, Relevo Tático e Ergonomia)
+// Padrão Visual Soberano GD Rastreamento (TiltCard, Relevo Tático e Ergonomia)
 // ─────────────────────────────────────────────────────────────────────────────
 
 import React, { useState, useEffect, useMemo, useCallback } from "react";
@@ -474,17 +474,17 @@ export function RevendedoresView() {
       let textoMsg = "";
       if (tipoConviteLink === "revendedor") {
         textoMsg =
-          `Olá! Segue o seu link exclusivo de credenciamento como Revendedor Parceiro no SIGO Guardião:\n\n` +
+          `Olá! Segue o seu link exclusivo de credenciamento como Revendedor Parceiro no GD Rastreamento:\n\n` +
           `${linkGerado}\n\n` +
           `Acesse o link acima para concluir o seu cadastro comercial e ter acesso à sua franquia.`;
       } else if (tipoConviteLink === "vendedor") {
         textoMsg =
-          `Olá! Segue o seu link exclusivo de cadastro como Vendedor Parceiro no SIGO Guardião:\n\n` +
+          `Olá! Segue o seu link exclusivo de cadastro como Vendedor Parceiro no GD Rastreamento:\n\n` +
           `${linkGerado}\n\n` +
           `Acesse o link acima para concluir o seu cadastro comercial e iniciar suas vendas.`;
       } else {
         textoMsg =
-          `Olá! Segue o seu link exclusivo para realizar o cadastro e ativar o rastreamento do seu veículo no SIGO Guardião:\n\n` +
+          `Olá! Segue o seu link exclusivo para realizar o cadastro e ativar o rastreamento do seu veículo no GD Rastreamento:\n\n` +
           `${linkGerado}\n\n` +
           `Acesse o link acima para preencher os seus dados e os dados do(s) seu(s) veículo(s).`;
       }
@@ -492,7 +492,7 @@ export function RevendedoresView() {
       const res = await enviarMensagemWhatsappOperador({
         telefone: foneLimpo,
         mensagem: textoMsg,
-        operadorNome: "SIGO Guardião",
+        operadorNome: "GD Rastreamento",
         clienteNome: "Convidado Comercial",
       });
 
@@ -516,7 +516,7 @@ export function RevendedoresView() {
 
   return (
     <div className="space-y-4 max-w-7xl mx-auto select-none pb-28">
-      {/* 1. Header Canônico SIGO Guardião */}
+      {/* 1. Header Canônico GD Rastreamento */}
       <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 bg-[#eaf0f8] dark:bg-slate-900/80 border border-slate-300/60 dark:border-slate-800 p-4 sm:p-5 rounded-2xl shadow-[4px_4px_10px_#c3cfe2] dark:shadow-xl">
         <div className="flex items-center gap-3">
           <div className="h-12 w-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-600 dark:text-amber-400 shadow-xs shrink-0">

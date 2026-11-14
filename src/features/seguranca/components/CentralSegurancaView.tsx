@@ -135,7 +135,7 @@ export function CentralSegurancaView() {
     watermarkAtivo: true,
     blurPerdaFocoAtivo: true,
     bloqueioPrintAtivo: true,
-    textoMarcaDagua: "SIGO GUARDIÃO • DOCUMENTO CONFIDENCIAL",
+    textoMarcaDagua: "GD RASTREAMENTO • DOCUMENTO CONFIDENCIAL",
     opacidadeWatermark: 0.08,
   });
   const [componentesFim, setComponentesFim] = useState<ComponenteFim[]>([]);

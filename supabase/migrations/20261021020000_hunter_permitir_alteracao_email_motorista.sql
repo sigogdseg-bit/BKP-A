@@ -1,6 +1,6 @@
 -- ─────────────────────────────────────────────────────────────────────────────
 -- MIGRATION: 20261021020000_hunter_permitir_alteracao_email_motorista.sql
--- Sistema: SIGO Guardião | Diretrizes: HUNTER-GUARDIAN e DJR-NEW
+-- Sistema: GD Rastreamento | Diretrizes: HUNTER-GUARDIAN e DJR-NEW
 -- Descrição:
 -- 1. Permite alteração atômica do e-mail do motorista com sincronização
 --    completa entre public.motoristas, auth.users, auth.identities e public.profiles.

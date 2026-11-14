@@ -2,7 +2,7 @@
   "name": "hunter-whatsapp-gateway",
   "version": "1.0.0",
   "private": true,
-  "description": "Micro-gateway ultra-leve de WhatsApp Baileys para o SIGO Guardião (Fly.io Free Tier 256MB)",
+  "description": "Micro-gateway ultra-leve de WhatsApp Baileys para o GD Rastreamento (Fly.io Free Tier 256MB)",
   "type": "module",
   "main": "dist/server.js",
   "scripts": {

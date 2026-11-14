@@ -45,7 +45,7 @@ export const CATALOGO_MODULOS: ModuloSistema[] = [
   },
   {
     id: "modo_3d",
-    nome: "Modo 3D SIGO Guardião (WebGL)",
+    nome: "Modo 3D GD Rastreamento (WebGL)",
     descricao: "Perspectiva isométrica a 60 graus com rotação livre e visualização 3D",
     categoria: "Operacional",
     pacoteMinimo: "pro",

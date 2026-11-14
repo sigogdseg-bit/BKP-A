@@ -1,5 +1,5 @@
 -- ==============================================================================
--- SIGO Guardião / HUNTER — Perfil S.adm Auditor da Plataforma (100% READ-ONLY)
+-- GD Rastreamento / HUNTER — Perfil S.adm Auditor da Plataforma (100% READ-ONLY)
 -- Regra Imperiosa:
 -- 1. O S.adm auditor pode visualizar tudo que um administrador visualiza.
 -- 2. Proibição absoluta de cadastrar, alterar ou excluir dados (INSERT, UPDATE, DELETE).

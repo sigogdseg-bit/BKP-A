@@ -221,7 +221,7 @@ export async function carregarHistoricoCliente(
       const motivo = (h.motivo || "").toLowerCase();
       const descricaoTexto = h.observacoes || h.descricao || "";
       const responsavel =
-        h.instalador?.nome || h.autor_nome || inst?.instalador?.nome || "Equipe SIGO Guardião";
+        h.instalador?.nome || h.autor_nome || inst?.instalador?.nome || "Equipe GD Rastreamento";
 
       if (
         statusAtend === "agendada" ||
@@ -433,7 +433,7 @@ export async function carregarHistoricoCliente(
         id: `bloq-cliente-${cliente.id}`,
         data: cliente.updated_at || new Date().toISOString(),
         categoria: "bloqueio_seguranca",
-        titulo: "Bloqueio de Acesso SIGO Guardião Ativo",
+        titulo: "Bloqueio de Acesso GD Rastreamento Ativo",
         descricao:
           "O acesso do cliente ao aplicativo e painel encontra-se bloqueado por determinação administrativa ou inadimplência.",
         detalhes: {
@@ -467,7 +467,7 @@ export async function carregarHistoricoCliente(
       id: `cad-${cliente.id}`,
       data: cliente.created_at,
       categoria: "instalacao",
-      titulo: "Início do Contrato SIGO Guardião",
+      titulo: "Início do Contrato GD Rastreamento",
       descricao: `Cadastro do cliente efetuado no plano comercial ${String(cliente.plano || "basico").toUpperCase()} com dia de vencimento ${cliente.dia_vencimento}.`,
       detalhes: {
         status: cliente.status,

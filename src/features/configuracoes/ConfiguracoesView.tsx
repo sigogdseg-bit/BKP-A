@@ -114,7 +114,7 @@ export function ConfiguracoesView() {
       try {
         const payload = gerarPayloadPix({
           chavePix: configPix.chavePix,
-          nomeRecebedor: configPix.titular || "SIGO Guardiao",
+          nomeRecebedor: configPix.titular || "GD Rastreamento",
           cidadeRecebedor: configPix.cidade || "BRASIL",
           valor: 1.0,
           identificador: "TESTEPIX",
@@ -1501,7 +1501,7 @@ export function ConfiguracoesView() {
                             titular: e.target.value,
                           }))
                         }
-                        placeholder="Ex: SIGO Guardião Tecnologia Ltda"
+                        placeholder="Ex: GD Rastreamento Tecnologia Ltda"
                         className={inputInsetClass}
                       />
                     </div>

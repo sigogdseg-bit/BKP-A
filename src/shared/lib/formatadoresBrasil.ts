@@ -1,7 +1,7 @@
 /**
- * SIGO Guardião — Módulo Canônico de Formatação Brasileira e Fuso Horário
+ * GD Rastreamento — Módulo Canônico de Formatação Brasileira e Fuso Horário
  *
- * Diretrizes Inegociáveis (DJR-NEW / SIGO Guardião):
+ * Diretrizes Inegociáveis (DJR-NEW / GD Rastreamento):
  * - Fuso Horário Oficial: Brasil / São Paulo ("America/Sao_Paulo", UTC-3).
  * - Formato de Data: dd/mm/aaaa.
  * - Formato de Hora: hh:mm (padrão) e hh:mm:ss (quando alta precisão/segundos forem necessários).

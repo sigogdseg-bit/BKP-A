@@ -358,7 +358,7 @@ export function ModalContratosCliente({
 
       const textoMensagem =
         `Olá, *${cliente.nome_razao_social}*!\n\n` +
-        `Segue o seu *Contrato de Prestação de Serviços e Automonitoramento Veicular — SIGO Guardião*:\n\n` +
+        `Segue o seu *Contrato de Prestação de Serviços e Automonitoramento Veicular — GD Rastreamento*:\n\n` +
         `📄 *Contrato nº:* ${contrato.numero_contrato}\n` +
         `🔐 *Selo de Autenticidade:* ${contrato.selo_autenticidade}\n` +
         `🔑 *Código de Verificação:* ${contrato.codigo_verificacao}\n\n` +

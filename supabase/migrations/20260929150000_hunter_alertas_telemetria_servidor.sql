@@ -490,7 +490,7 @@ BEGIN
   ) VALUES (
     v_user_id,
     v_cliente_id,
-    '🔔 Teste de Notificação — SIGO Guardião',
+    '🔔 Teste de Notificação — GD Rastreamento',
     format(
       'Canal de alertas operacional. Notificações de velocidade, ignição e movimento estão ativas e funcionando.%s',
       CASE WHEN v_placa IS NOT NULL THEN format(' Veículo: %s.', v_placa) ELSE '' END

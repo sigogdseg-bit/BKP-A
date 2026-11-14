@@ -1,5 +1,5 @@
 -- ============================================================================
--- SIGO GUARDIÃO — ODOMETRIA DE ALTA PRECISÃO COM COMPENSAÇÃO ADAPTATIVA
+-- GD RASTREAMENTO — ODOMETRIA DE ALTA PRECISÃO COM COMPENSAÇÃO ADAPTATIVA
 -- Migração: 20261025143500_hunter_odometro_compensacao_adaptativa_painel_real.sql
 -- ============================================================================
 -- 1. Sincronização do Volvo XC60 (AXH0E44) com o painel físico auditado (183.515 km)

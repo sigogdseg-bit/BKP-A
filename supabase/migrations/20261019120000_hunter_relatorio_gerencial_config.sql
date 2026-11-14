@@ -1,5 +1,5 @@
 -- ==============================================================================
--- HUNTER / SIGO GUARDIÃO — MÓDULO RELATÓRIO GERENCIAL CONFIGURÁVEL
+-- HUNTER / GD RASTREAMENTO — MÓDULO RELATÓRIO GERENCIAL CONFIGURÁVEL
 -- ==============================================================================
 
 CREATE TABLE IF NOT EXISTS public.relatorio_gerencial_config (

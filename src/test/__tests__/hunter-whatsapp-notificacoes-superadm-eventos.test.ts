@@ -28,8 +28,8 @@ describe("Hunter — Notificações Imediatas via WhatsApp para o SuperADM", () 
       "Endpoint de cadastro de instalador deve registrar a notificação",
     );
     assert.ok(
-      serverContent.includes("SIGO GUARDIÃO — NOVO CREDENCIAMENTO DE INSTALADOR"),
-      "Deve conter o título padronizado com identidade do SIGO Guardião",
+      serverContent.includes("GD RASTREAMENTO — NOVO CREDENCIAMENTO DE INSTALADOR"),
+      "Deve conter o título padronizado com identidade do GD Rastreamento",
     );
     assert.ok(
       serverContent.includes("Mão de Obra (Sem Bloqueador)"),
@@ -43,7 +43,7 @@ describe("Hunter — Notificações Imediatas via WhatsApp para o SuperADM", () 
       "Endpoint de cadastro de cliente deve registrar a notificação",
     );
     assert.ok(
-      serverContent.includes("SIGO GUARDIÃO — NOVO AUTO-CADASTRO DE CLIENTE"),
+      serverContent.includes("GD RASTREAMENTO — NOVO AUTO-CADASTRO DE CLIENTE"),
       "Deve conter o título padronizado de novo cliente",
     );
     assert.ok(
@@ -58,7 +58,7 @@ describe("Hunter — Notificações Imediatas via WhatsApp para o SuperADM", () 
       "Endpoint de solicitação de veículo deve registrar a notificação",
     );
     assert.ok(
-      serverContent.includes("SIGO GUARDIÃO — SOLICITAÇÃO DE NOVO VEÍCULO"),
+      serverContent.includes("GD RASTREAMENTO — SOLICITAÇÃO DE NOVO VEÍCULO"),
       "Deve conter o título padronizado de solicitação de novo veículo",
     );
     assert.ok(
@@ -161,8 +161,8 @@ describe("Hunter — Notificações Imediatas via WhatsApp para o SuperADM", () 
       "Endpoint de cadastro de parceiro deve registrar a notificação para revendedor",
     );
     assert.ok(
-      serverContent.includes("SIGO GUARDIÃO — NOVO CADASTRO DE REVENDEDOR"),
-      "Deve conter o título oficial padronizado com identidade do SIGO Guardião",
+      serverContent.includes("GD RASTREAMENTO — NOVO CADASTRO DE REVENDEDOR"),
+      "Deve conter o título oficial padronizado com identidade do GD Rastreamento",
     );
     assert.ok(
       serverContent.includes("Cota Base da Matriz"),
@@ -176,7 +176,7 @@ describe("Hunter — Notificações Imediatas via WhatsApp para o SuperADM", () 
       "Endpoint de cadastro de parceiro deve registrar a notificação para vendedor",
     );
     assert.ok(
-      serverContent.includes("SIGO GUARDIÃO — NOVO CADASTRO DE VENDEDOR"),
+      serverContent.includes("GD RASTREAMENTO — NOVO CADASTRO DE VENDEDOR"),
       "Deve conter o título oficial padronizado para novo vendedor",
     );
     assert.ok(

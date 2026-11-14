@@ -1,6 +1,6 @@
 -- ─────────────────────────────────────────────────────────────────────────────
 -- MIGRATION: Hunter - Notificações Push VAPID em Tempo Real e Persistente do BD
--- Sistema: SIGO Guardião | Diretrizes: DJR-NEW e HUNTER-GUARDIAN
+-- Sistema: GD Rastreamento | Diretrizes: DJR-NEW e HUNTER-GUARDIAN
 -- ─────────────────────────────────────────────────────────────────────────────
 
 -- 1. Garante que a extensão pg_net esteja ativa
@@ -290,7 +290,7 @@ BEGIN
       ) VALUES (
         v_cliente_user_id,
         v_cliente_id,
-        'SIGO Guardião — Central de Segurança',
+        'GD Rastreamento — Central de Segurança',
         v_titulo_evento || ' — ' || COALESCE(v_placa, 'Veículo'),
         p_detalhes,
         p_tipo,

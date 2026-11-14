@@ -1,4 +1,4 @@
-# Contas e Serviços da Aplicação SIGO Guardião
+# Contas e Serviços da Aplicação GD Rastreamento
 
 Sempre que o usuário solicitar as contas utilizadas na aplicação ou dados de acesso aos serviços de infraestrutura, informar prontamente:
 

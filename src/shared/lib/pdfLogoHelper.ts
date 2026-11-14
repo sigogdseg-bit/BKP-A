@@ -1,7 +1,7 @@
 import { LOGO_EMBLEMA_BASE64 } from "./logoBase64Const";
 
 /**
- * Helper compartilhado para carregar o logotipo oficial do SIGO Guardiao
+ * Helper compartilhado para carregar o logotipo oficial do GD Rastreamento
  * em formato Base64 para inclusao instantanea em documentos PDF (jsPDF).
  * Funciona de forma universal e imediata tanto no navegador quanto no backend/Cloudflare.
  */

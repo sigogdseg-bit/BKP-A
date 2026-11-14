@@ -1,13 +1,13 @@
 #!/bin/bash
 # ─────────────────────────────────────────────────────────────────────────────
-# SIGO GUARDIÃO — INSTALADOR AUTOMATIZADO CHATBOTX (ORACLE CLOUD ALWAYS FREE)
+# GD RASTREAMENTO — INSTALADOR AUTOMATIZADO CHATBOTX (ORACLE CLOUD ALWAYS FREE)
 # Executa a instalação completa do Docker, Firewall e Stack ChatbotX em 1 comando
 # ─────────────────────────────────────────────────────────────────────────────
 
 set -e
 
 echo "=========================================================="
-echo "  SIGO GUARDIÃO — INSTALAÇÃO CHATBOTX NA ORACLE CLOUD     "
+echo "  GD RASTREAMENTO — INSTALAÇÃO CHATBOTX NA ORACLE CLOUD     "
 echo "=========================================================="
 
 # 1. Checagem de privilégios de Root

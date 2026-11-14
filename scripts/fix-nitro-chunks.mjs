@@ -463,15 +463,13 @@ try {
 // 5. INJEÇÃO DETERMINÍSTICA DE CONFIGURAÇÃO EM .output/server/wrangler.json
 // ─────────────────────────────────────────────────────────────────────────────
 const requiredVars = {
-  APP_INSTANCE_ID: "HUNTER",
-  EXPECTED_SUPABASE_PROJECT_REF: "kaxtuqfmvlkfnqsdualu",
-  SUPABASE_PROJECT_REF: "kaxtuqfmvlkfnqsdualu",
-  SUPABASE_URL: "https://kaxtuqfmvlkfnqsdualu.supabase.co",
-  SUPABASE_ANON_KEY:
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtheHR1cWZtdmxrZm5xc2R1YWx1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODk3NTY4NTEsImV4cCI6MjEwNTMzMjg1MX0.c0Gp_DHcoUqBelYrDxWGywsvSUycVrV7ASrVtNpcW7A",
-  VITE_SUPABASE_URL: "https://kaxtuqfmvlkfnqsdualu.supabase.co",
-  VITE_SUPABASE_ANON_KEY:
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtheHR1cWZtdmxrZm5xc2R1YWx1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODk3NTY4NTEsImV4cCI6MjEwNTMzMjg1MX0.c0Gp_DHcoUqBelYrDxWGywsvSUycVrV7ASrVtNpcW7A",
+  APP_INSTANCE_ID: "GD_SEGURANCA",
+  EXPECTED_SUPABASE_PROJECT_REF: "pflzopmxxawyqkgrlapq",
+  SUPABASE_PROJECT_REF: "pflzopmxxawyqkgrlapq",
+  SUPABASE_URL: "https://pflzopmxxawyqkgrlapq.supabase.co",
+  SUPABASE_ANON_KEY: "sb_publishable_MZA6N9ys7HHpIBHQlk3s8Q_Olx-47zC",
+  VITE_SUPABASE_URL: "https://pflzopmxxawyqkgrlapq.supabase.co",
+  VITE_SUPABASE_ANON_KEY: "sb_publishable_MZA6N9ys7HHpIBHQlk3s8Q_Olx-47zC",
   APP_ENV: "production",
   APP_PUBLIC_URL: "https://sigoguardiao.oficial.tec.br",
 };

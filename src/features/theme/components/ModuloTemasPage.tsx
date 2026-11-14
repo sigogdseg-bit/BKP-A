@@ -122,7 +122,7 @@ export function ModuloTemasPage() {
             </div>
             <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
               Personalize o esquema de cores e iluminação tátil dos cards operacionais da plataforma
-              SIGO Guardião.
+              GD Rastreamento.
             </p>
           </div>
         </div>

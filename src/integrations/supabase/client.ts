@@ -123,7 +123,7 @@ export const supabase = new Proxy({} as ReturnType<typeof createSupabaseClient>,
                   // Se for estritamente Read-Only, aplica o bloqueio com erro 403
                   if (info.isReadOnly) {
                     console.warn(
-                      `[SIGO Guardião] Bloqueio físico ativado: Tentativa de ${String(methodProp)} na tabela ${tableName} recusada para o perfil S.adm Auditor.`,
+                      `[GD Rastreamento] Bloqueio físico ativado: Tentativa de ${String(methodProp)} na tabela ${tableName} recusada para o perfil S.adm Auditor.`,
                     );
                     return () =>
                       Promise.resolve({
@@ -178,7 +178,7 @@ export const supabase = new Proxy({} as ReturnType<typeof createSupabaseClient>,
             if (isMutacao) {
               if (info.isReadOnly) {
                 console.warn(
-                  `[SIGO Guardião] Bloqueio físico RPC: ${fnName} recusada para perfil S.adm Auditor.`,
+                  `[GD Rastreamento] Bloqueio físico RPC: ${fnName} recusada para perfil S.adm Auditor.`,
                 );
                 return Promise.resolve({
                   data: null,

@@ -1,6 +1,6 @@
 /**
  * Converte um arquivo de imagem (JPEG, PNG, WebP) em um documento PDF (A4)
- * padronizado com cabeçalho de comprovação fiscal do SIGO Guardião.
+ * padronizado com cabeçalho de comprovação fiscal do GD Rastreamento.
  * Se o arquivo já for PDF, retorna o próprio arquivo intacto.
  */
 export async function converterImagemParaPdf(
@@ -61,7 +61,7 @@ export async function converterImagemParaPdf(
           doc.setFont("helvetica", "bold");
           doc.setFontSize(11);
           doc.setTextColor(255, 255, 255);
-          doc.text("SIGO GUARDIÃO — COMPROVANTE FISCAL DIGITALIZADO", margem, 11);
+          doc.text("GD RASTREAMENTO — COMPROVANTE FISCAL DIGITALIZADO", margem, 11);
 
           doc.setFont("helvetica", "normal");
           doc.setFontSize(8);

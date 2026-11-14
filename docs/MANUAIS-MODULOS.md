@@ -1,7 +1,7 @@
-# SIGO Guardião — Guia Canônico dos Módulos Operacionais
+# GD Rastreamento — Guia Canônico dos Módulos Operacionais
 
 > **Diretriz Fundamental do Negócio:**  
-> O **SIGO Guardião** é uma plataforma de alta tecnologia voltada para a **LOCAÇÃO DE RASTREADORES 4G HOMOLOGADOS ANATEL PARA AUTO-MONITORAMENTO VEICULAR COM DISPONIBILIZAÇÃO DO SISTEMA**.  
+> O **GD Rastreamento** é uma plataforma de alta tecnologia voltada para a **LOCAÇÃO DE RASTREADORES 4G HOMOLOGADOS ANATEL PARA AUTO-MONITORAMENTO VEICULAR COM DISPONIBILIZAÇÃO DO SISTEMA**.  
 > Não se trata de uma central de rastreamento terceirizada: o cliente titular possui soberania, autonomia e controle integral sobre seus veículos, telemetria, rotas, âncoras virtuais e bloqueio seguro diretamente pelo smartphone ou computador, com máxima privacidade e custo zero de intermediários.
 
 ---
@@ -268,7 +268,7 @@
 - **Seções Principais:**
   1. _Emissão do Contrato de Locação:_ Geração automática da minuta contratual vinculando o cliente titular, veículos, equipamentos alugados e valor mensal da assinatura.
   2. _Assinatura Mobile na Tela:_ O cliente assina desenhando no canvas touchscreen do próprio smartphone e captura foto de documento oficial com selfie para verificação de identidade.
-  3. _Selo de Autenticidade SGD e Código de Verificação:_ O PDF final recebe carimbo oficial do SIGO Guardião com código de validação curto no rodapé de cada página.
+  3. _Selo de Autenticidade SGD e Código de Verificação:_ O PDF final recebe carimbo oficial do GD Rastreamento com código de validação curto no rodapé de cada página.
   4. _Hash Criptográfico SHA-256 e Verificação Pública:_ O documento possui integridade atestada por hash SHA-256 e QR Code público para conferência de autenticidade em tempo real.
 
 ---

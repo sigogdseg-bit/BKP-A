@@ -1,4 +1,4 @@
-// interpolacaoMapaSuave.ts — SIGO Guardião
+// interpolacaoMapaSuave.ts — GD Rastreamento
 // Motor cinemático de continuidade visual a 60 FPS para marcadores de mapa 2D/3D.
 // Preserva 100% a veracidade da telemetria: nunca altera o estado dos dados reais,
 // nunca desloca veículos parados, sem ignição, bloqueados ou sem comunicação ativa,

@@ -1,5 +1,5 @@
 -- ============================================================================
--- HUNTER / SIGO GUARDIÃO — RPC ADMIN_EXCLUIR_CLIENTE COM CASCADE COMPLETO
+-- HUNTER / GD RASTREAMENTO — RPC ADMIN_EXCLUIR_CLIENTE COM CASCADE COMPLETO
 -- ============================================================================
 -- Versão Alvo: 1.11.0.17
 -- Permite que SuperADM e Administradores excluam clientes de forma segura e atômica,

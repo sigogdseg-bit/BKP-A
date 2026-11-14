@@ -1,4 +1,4 @@
-// ModalDreParceiro.tsx — SIGO Guardião
+// ModalDreParceiro.tsx — GD Rastreamento
 // Modal canônico de visualização da DRE e agendamento de recebimento via WhatsApp
 
 import React, { useState } from "react";
@@ -95,12 +95,12 @@ export function ModalDreParceiro({
       const liquidoEstimado = margemRev + taxasDiretas - repasseInst;
       const contratos = dados.totalContratos || 0;
 
-      return `SIGO GUARDIÃO - DEMONSTRATIVO FINANCEIRO DA FRANQUIA
+      return `GD RASTREAMENTO - DEMONSTRATIVO FINANCEIRO DA FRANQUIA
 Franquia: ${nomeParceiro}
 Faturamento Mensal da Carteira: R$ ${faturamento.toFixed(2)}
 Minha Margem Mensal Recorrente: R$ ${margemRev.toFixed(2)}
 Taxas de Instalacao Recebidas (Diretas): R$ ${taxasDiretas.toFixed(2)}
-Repasse Obrigatorio a Matriz SIGO Guardiao: R$ ${repasseMatriz.toFixed(2)}
+Repasse Obrigatorio a Matriz GD Rastreamento: R$ ${repasseMatriz.toFixed(2)}
 Comissoes a Repassar aos Vendedores: R$ ${comissaoVend.toFixed(2)}
 Mao de Obra a Pagar aos Instaladores: R$ ${repasseInst.toFixed(2)}
 --------------------------------------------------
@@ -115,7 +115,7 @@ Total de Contratos na Rede: ${contratos}`;
     const ganhoLiquido = dados.ganhoLiquidoEstimado || 0;
     const clientesQtd = dados.totalClientes || 0;
 
-    return `SIGO GUARDIÃO - DEMONSTRATIVO DO VENDEDOR
+    return `GD RASTREAMENTO - DEMONSTRATIVO DO VENDEDOR
 Vendedor: ${nomeParceiro}
 ${subtitulo ? `Franquia: ${subtitulo}\n` : ""}Faturamento Mensal da Minha Carteira: R$ ${faturamentoMeus.toFixed(2)}
 Custo Base Repassado a Franquia: R$ ${custoBase.toFixed(2)}
@@ -174,7 +174,7 @@ Total de Clientes Ativos: ${clientesQtd}`;
         clienteNome: nomeParceiro,
         telefone: foneLimpo,
         mensagem: texto,
-        operadorNome: "SIGO Guardião DRE",
+        operadorNome: "GD Rastreamento DRE",
         tipoContato: "operador",
       });
 

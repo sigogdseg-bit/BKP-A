@@ -1,6 +1,6 @@
 -- ============================================================================
 -- MIGRATION: 20261006093000_hunter_motor_odometria_gps_precisao_estrita.sql
--- DESCRIÇÃO: Motor de Odometria GPS de Alta Precisão Física (SIGO Guardião)
+-- DESCRIÇÃO: Motor de Odometria GPS de Alta Precisão Física (GD Rastreamento)
 -- REGRAS:
 -- 1. Erradicação definitiva de fatores arbitrários (zero hardcode de 1.05 ou 1.06383).
 -- 2. Geodésia elipsoidal WGS-84 com raio geocêntrico local (6.374.900m).

@@ -1,5 +1,5 @@
 -- ==============================================================================
--- HUNTER / SIGO GUARDIÃO - EXCLUSÃO SEGURA DE RASTREADOR EM ESTOQUE
+-- HUNTER / GD RASTREAMENTO - EXCLUSÃO SEGURA DE RASTREADOR EM ESTOQUE
 -- Data: 2026-10-13
 -- Permite que operadores e administradores excluam dispositivos / rastreadores
 -- que estejam em estoque ou cadastrados erroneamente (ex: testes), preservando

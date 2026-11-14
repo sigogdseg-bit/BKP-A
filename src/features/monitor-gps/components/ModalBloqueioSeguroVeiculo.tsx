@@ -539,7 +539,7 @@ export function ModalBloqueioSeguroVeiculo({
                     </div>
                     <div className="flex items-center gap-1 text-[11px] text-emerald-600 dark:text-emerald-400 font-bold">
                       <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
-                      <span>Telemetria Realtime SIGO Guardião</span>
+                      <span>Telemetria Realtime GD Rastreamento</span>
                     </div>
                   </div>
                 </div>
@@ -646,7 +646,7 @@ export function ModalBloqueioSeguroVeiculo({
                   </div>
                   <p className="leading-relaxed">
                     {mensagemDiagnostico ||
-                      "O rastreador não respondeu com sinal recente suficiente ou há dúvida na aferição da velocidade real. Para proteger a vida dos ocupantes da via, o SIGO Guardião não emite corte elétrico sob dúvida."}
+                      "O rastreador não respondeu com sinal recente suficiente ou há dúvida na aferição da velocidade real. Para proteger a vida dos ocupantes da via, o GD Rastreamento não emite corte elétrico sob dúvida."}
                   </p>
                   {resultadoTeste && (
                     <div className="text-[11px] font-mono bg-white/70 dark:bg-slate-900/80 p-2 rounded-lg border border-rose-300/40">

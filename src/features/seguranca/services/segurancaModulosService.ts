@@ -687,7 +687,7 @@ export async function obterConfiguracaoDlp(): Promise<ConfiguracaoDlp> {
           watermarkAtivo: Boolean(data.watermark_ativo),
           blurPerdaFocoAtivo: Boolean(data.blur_perda_foco_ativo),
           bloqueioPrintAtivo: Boolean(data.bloqueio_print_ativo),
-          textoMarcaDagua: data.texto_marca_dagua || "SIGO GUARDIÃO • DOCUMENTO CONFIDENCIAL",
+          textoMarcaDagua: data.texto_marca_dagua || "GD RASTREAMENTO • DOCUMENTO CONFIDENCIAL",
           opacidadeWatermark: Number(data.opacidade_watermark) || 0.08,
         };
         try {
@@ -710,7 +710,7 @@ export async function obterConfiguracaoDlp(): Promise<ConfiguracaoDlp> {
     watermarkAtivo: true,
     blurPerdaFocoAtivo: true,
     bloqueioPrintAtivo: true,
-    textoMarcaDagua: "SIGO GUARDIÃO • DOCUMENTO CONFIDENCIAL",
+    textoMarcaDagua: "GD RASTREAMENTO • DOCUMENTO CONFIDENCIAL",
     opacidadeWatermark: 0.08,
   };
 }

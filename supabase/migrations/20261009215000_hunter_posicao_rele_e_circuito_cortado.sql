@@ -1,5 +1,5 @@
 -- ==============================================================================
--- HUNTER / SIGO GUARDIÃO - MIGRATION 20261009215000
+-- HUNTER / GD RASTREAMENTO - MIGRATION 20261009215000
 -- Detalhes Técnicos de Bloqueador/Relé: Posição de Fixação e Circuito Cortado
 -- ==============================================================================
 

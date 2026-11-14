@@ -1,6 +1,6 @@
 -- ============================================================================
 -- MIGRATION: 20261019150000_hunter_alertas_hora_exata_do_evento.sql
--- Sistema: SIGO Guardião | Diretrizes: HUNTER-GUARDIAN e DJR-NEW
+-- Sistema: GD Rastreamento | Diretrizes: HUNTER-GUARDIAN e DJR-NEW
 -- 
 -- REQUISITO ATENDIDO:
 -- Todas as mensagens de alerta em tempo real (Push VAPID e WhatsApp)

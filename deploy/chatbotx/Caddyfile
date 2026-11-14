@@ -1,5 +1,5 @@
 # ─────────────────────────────────────────────────────────────────────────────
-# SIGO GUARDIÃO — PROXY REVERSO COM HTTPS AUTOMÁTICO (CADDY)
+# GD RASTREAMENTO — PROXY REVERSO COM HTTPS AUTOMÁTICO (CADDY)
 # Substitua {$CHATBOTX_DOMAIN} pelo seu domínio real no .env
 # ─────────────────────────────────────────────────────────────────────────────
 

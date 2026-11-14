@@ -1,4 +1,4 @@
-// ModalEnvioRapidoWhatsapp.tsx — SIGO Guardião
+// ModalEnvioRapidoWhatsapp.tsx — GD Rastreamento
 // Painel direto de disparo de mensagens WhatsApp para Clientes, Motoristas e Usuários
 // Integrado ao Micro-Gateway Baileys (Fly.io) com lista inteligente de contatos
 
@@ -204,7 +204,7 @@ export function ModalEnvioRapidoWhatsapp({
     setModoNumeroManual(false);
     const pNome = contato.nome.split(" ")[0] || "Cliente";
     setMensagem(
-      `Olá, ${pNome}! Aqui é da equipe do SIGO Guardião. Entramos em contato a respeito do seu atendimento. Como podemos ajudar?`,
+      `Olá, ${pNome}! Aqui é da equipe do GD Rastreamento. Entramos em contato a respeito do seu atendimento. Como podemos ajudar?`,
     );
   };
 
@@ -214,7 +214,7 @@ export function ModalEnvioRapidoWhatsapp({
       id: "lembrete_3dias",
       titulo: "Lembrete Leve (3 Dias)",
       icone: "📅",
-      texto: `Olá, ${primeiroNome}! Lembramos que a sua mensalidade do serviço de aluguel de rastreador com automonitoramento SIGO Guardião vence em 3 dias com QR Code e Chave PIX oficial.`,
+      texto: `Olá, ${primeiroNome}! Lembramos que a sua mensalidade do serviço de aluguel de rastreador com automonitoramento GD Rastreamento vence em 3 dias com QR Code e Chave PIX oficial.`,
     },
     {
       id: "pix_link",
@@ -226,31 +226,31 @@ export function ModalEnvioRapidoWhatsapp({
       id: "suporte",
       titulo: "Suporte e Atendimento",
       icone: "💬",
-      texto: `Olá, ${primeiroNome}! Aqui é da equipe do SIGO Guardião. Entramos em contato a respeito do auto-monitoramento do seu veículo. Como podemos ajudar hoje?`,
+      texto: `Olá, ${primeiroNome}! Aqui é da equipe do GD Rastreamento. Entramos em contato a respeito do auto-monitoramento do seu veículo. Como podemos ajudar hoje?`,
     },
     {
       id: "alerta",
       titulo: "Aviso de Segurança",
       icone: "🚨",
-      texto: `Olá, ${primeiroNome}! Identificamos um evento de alerta de segurança em seu veículo monitorado pelo SIGO Guardião. Por favor, verifique o seu aplicativo ou nos responda aqui para averiguação.`,
+      texto: `Olá, ${primeiroNome}! Identificamos um evento de alerta de segurança em seu veículo monitorado pelo GD Rastreamento. Por favor, verifique o seu aplicativo ou nos responda aqui para averiguação.`,
     },
     {
       id: "agendamento",
       titulo: "Instalação e Suporte",
       icone: "🔧",
-      texto: `Olá, ${primeiroNome}! Aqui é da equipe técnica do SIGO Guardião. Gostaríamos de confirmar os detalhes do agendamento da instalação do seu rastreador veicular.`,
+      texto: `Olá, ${primeiroNome}! Aqui é da equipe técnica do GD Rastreamento. Gostaríamos de confirmar os detalhes do agendamento da instalação do seu rastreador veicular.`,
     },
     {
       id: "financeiro",
       titulo: "Mensalidade Geral",
       icone: "📄",
-      texto: `Olá, ${primeiroNome}! Lembramos que a mensalidade do seu plano de rastreamento veicular SIGO Guardião está disponível. Qualquer dúvida ou para solicitar a 2ª via com chave PIX, estamos à disposição!`,
+      texto: `Olá, ${primeiroNome}! Lembramos que a mensalidade do seu plano de rastreamento veicular GD Rastreamento está disponível. Qualquer dúvida ou para solicitar a 2ª via com chave PIX, estamos à disposição!`,
     },
     {
       id: "rastreamento",
       titulo: "Rastreamento Ativo",
       icone: "📍",
-      texto: `Olá, ${primeiroNome}! Informamos que a telemetria do seu veículo está ativa e transmitindo normalmente no sistema SIGO Guardião. Tenha um excelente dia!`,
+      texto: `Olá, ${primeiroNome}! Informamos que a telemetria do seu veículo está ativa e transmitindo normalmente no sistema GD Rastreamento. Tenha um excelente dia!`,
     },
   ];
 
@@ -329,7 +329,7 @@ export function ModalEnvioRapidoWhatsapp({
         clienteNome: nomeDestino,
         telefone: telefoneDestino,
         mensagem: mensagem.trim(),
-        operadorNome: session?.nome || "Operador SIGO Guardião",
+        operadorNome: session?.nome || "Operador GD Rastreamento",
         clienteId: contatoSelecionado?.id,
         tipoContato: tipoDestino,
         documento: documento || undefined,
@@ -819,7 +819,7 @@ export function ModalEnvioRapidoWhatsapp({
                             try {
                               payload = gerarPayloadPix({
                                 chavePix: cfgPix.chavePix,
-                                nomeRecebedor: cfgPix.titular || "SIGO Guardiao",
+                                nomeRecebedor: cfgPix.titular || "GD Rastreamento",
                                 cidadeRecebedor: cfgPix.cidade || "BRASIL",
                                 valor,
                                 identificador: "PAGAMENTO",
@@ -828,7 +828,7 @@ export function ModalEnvioRapidoWhatsapp({
                               /* fallback */
                             }
                             let texto = `Olá, ${primeiroNome}! Tudo bem? Esperamos que esteja tendo um excelente dia.\n\n`;
-                            texto += `Segue o link e os dados oficiais para pagamento via PIX da mensalidade do serviço de aluguel de rastreador com automonitoramento SIGO Guardião:\n\n`;
+                            texto += `Segue o link e os dados oficiais para pagamento via PIX da mensalidade do serviço de aluguel de rastreador com automonitoramento GD Rastreamento:\n\n`;
                             texto += `💵 *Valor:* R$ ${valorFmt}\n`;
                             texto += `🔑 *Chave PIX Oficial:* ${cfgPix.chavePix}\n`;
                             if (cfgPix.titular) {
@@ -840,7 +840,7 @@ export function ModalEnvioRapidoWhatsapp({
                               texto += `🖼️ *A imagem do QR Code para pagamento instantâneo segue em anexo nesta mensagem.*\n\n`;
                             }
                             texto += `🔗 *Acesse o portal para pagar ou emitir comprovante:*\n${APP_PUBLIC_URL}/cliente/financeiro\n\n`;
-                            texto += `Após o pagamento, o comprovante pode ser enviado diretamente por aqui.\nAgradecemos pela parceria e confiança!\n\nEquipe SIGO Guardião`;
+                            texto += `Após o pagamento, o comprovante pode ser enviado diretamente por aqui.\nAgradecemos pela parceria e confiança!\n\nEquipe GD Rastreamento`;
                             setMensagem(texto);
 
                             if (payload) {

@@ -1006,7 +1006,7 @@ export function enriquecerNumeracaoParcelasMensalidades<
 
 /**
  * Dispara lembrete preventivo oficial de mensalidade a vencer via WhatsApp
- * no formato padrão canônico da Central de Segurança SIGO Guardião.
+ * no formato padrão canônico da Central de Segurança GD Rastreamento.
  */
 export async function dispararLembretePreventivoMensalidadeWhatsApp(
   cliente: {

@@ -233,7 +233,7 @@ export function AjusteOdometroModal({
     }
     if (isNaN(sIni) || isNaN(sFim) || sFim <= sIni) {
       toast.error(
-        "Informe as leituras inicial e final do SIGO Guardião (final deve ser maior que inicial).",
+        "Informe as leituras inicial e final do GD Rastreamento (final deve ser maior que inicial).",
       );
       return;
     }
@@ -387,7 +387,7 @@ export function AjusteOdometroModal({
                 <div className="grid grid-cols-2 gap-3 p-3 rounded-2xl bg-slate-100 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-800">
                   <div>
                     <span className="text-[11px] text-slate-500 dark:text-slate-400 block font-medium">
-                      Odômetro no SIGO Guardião
+                      Odômetro no GD Rastreamento
                     </span>
                     <span className="font-mono font-black text-base sm:text-lg text-slate-800 dark:text-slate-100">
                       {odometroAtual.toLocaleString("pt-BR", {
@@ -493,10 +493,10 @@ export function AjusteOdometroModal({
                     </div>
                   </div>
 
-                  {/* SIGO Guardião */}
+                  {/* GD Rastreamento */}
                   <div className="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-3">
                     <span className="text-xs font-bold text-slate-800 dark:text-slate-200 block border-b border-slate-200 dark:border-slate-800 pb-1.5">
-                      Odômetro SIGO Guardião
+                      Odômetro GD Rastreamento
                     </span>
                     <div className="space-y-1">
                       <label className="text-[11px] font-semibold text-slate-600 dark:text-slate-400">

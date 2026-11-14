@@ -1,5 +1,5 @@
 -- ============================================================================
--- HUNTER / SIGO GUARDIÃO — SIGILO OPERACIONAL DE DEFESA ATIVA ANTI-SMS
+-- HUNTER / GD RASTREAMENTO — SIGILO OPERACIONAL DE DEFESA ATIVA ANTI-SMS
 -- ============================================================================
 -- Migration: 20261110150000_hunter_sigilo_alerta_sms_equipe_tecnica.sql
 -- Objetivo:

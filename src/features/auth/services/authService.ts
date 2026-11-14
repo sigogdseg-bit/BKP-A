@@ -227,7 +227,7 @@ export async function carregarSessaoUsuario(): Promise<UserSession | null> {
       profile?.nome ||
       user.user_metadata?.nome ||
       user.email?.split("@")[0] ||
-      "Usuário SIGO Guardião";
+      "Usuário GD Rastreamento";
     if (role === "superadmin" && /superadmin/i.test(nome)) {
       nome = nome.replace(/superadmin/gi, "Administrador");
     }

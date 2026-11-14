@@ -1,4 +1,4 @@
-# SIGO Guardião — Estimativa de Custos, Capacidade e Dimensionamento de Infraestrutura
+# GD Rastreamento — Estimativa de Custos, Capacidade e Dimensionamento de Infraestrutura
 
 > **Documento Oficial de Engenharia e Governança Operacional**  
 > **Data de Atualização:** 23/10/2026  
@@ -51,7 +51,7 @@ A plataforma opera integralmente no modelo **Free Tier** com altíssima eficiên
   - Uptime contínuo de mais de 26 horas sem vazamentos de memória.
 
 - **Mapas (MapTiler vs Provedores Diretos):**
-  - O motor de mapas do SIGO Guardião opera sobre **OpenStreetMap** (Ruas e Noturno Tático) e **Esri ArcGIS World Imagery** (Satélite Real de alta resolução com overzoom até nível 21). Ambos são provedores públicos gratuitos e ilimitados.
+  - O motor de mapas do GD Rastreamento opera sobre **OpenStreetMap** (Ruas e Noturno Tático) e **Esri ArcGIS World Imagery** (Satélite Real de alta resolução com overzoom até nível 21). Ambos são provedores públicos gratuitos e ilimitados.
   - A chave do **MapTiler** cadastrada (`dev@oficial.tec.br`) permanece como reserva técnica de redundância (consumo atual: 0 requisições).
 
 ---

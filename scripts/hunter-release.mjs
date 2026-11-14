@@ -164,10 +164,10 @@ async function main() {
     console.warn(`⚠️  Tag ${tagName} já existia ou foi atualizada.`);
   }
 
-  // 7. Push Sincronizado da Branch e da Tag
+  // 7. Push Sincronizado da Branch e da Tag (Sem --tags genérico)
   executarComando(
-    `git push origin main && git push origin ${tagName}`,
-    `Gate 6 — Push da Branch main e da Tag ${tagName}`,
+    `git push origin main && git push origin ${tagName} && git push bkp-a main && git push bkp-b main`,
+    `Gate 6 — Push da Branch main e da Tag ${tagName} (com espelhamento seguro em bkp-a e bkp-b)`,
   );
 
   // 8. Gate 7 — Declaração Formal de Encerramento

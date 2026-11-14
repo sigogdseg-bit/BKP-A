@@ -1,5 +1,5 @@
 -- Migration: 20260926185000_notificacoes_push_realtime_bd.sql
--- Hunter / SIGO Guardião — Notificações Nativas e Push Sincronizadas via Banco de Dados (Supabase Realtime)
+-- Hunter / GD Rastreamento — Notificações Nativas e Push Sincronizadas via Banco de Dados (Supabase Realtime)
 
 -- 1. Tabela de Inscrições Web Push (VAPID Push Subscriptions)
 CREATE TABLE IF NOT EXISTS public.user_push_subscriptions (
@@ -108,7 +108,7 @@ CREATE OR REPLACE FUNCTION public.enviar_notificacao_sistema(
   p_destinatario_user_id UUID DEFAULT NULL,
   p_destinatario_cliente_id UUID DEFAULT NULL,
   p_titulo TEXT DEFAULT '🚨 Alerta do Sistema',
-  p_mensagem TEXT DEFAULT 'Notificação do SIGO Guardião',
+  p_mensagem TEXT DEFAULT 'Notificação do GD Rastreamento',
   p_tipo TEXT DEFAULT 'alerta',
   p_url TEXT DEFAULT '/monitor-gps',
   p_placa TEXT DEFAULT NULL,
@@ -121,7 +121,7 @@ SET search_path = public
 AS $$
 DECLARE
   v_remetente_id UUID := auth.uid();
-  v_remetente_nome TEXT := 'SIGO Guardião';
+  v_remetente_nome TEXT := 'GD Rastreamento';
   v_dest_user UUID := p_destinatario_user_id;
   v_dest_cli UUID := p_destinatario_cliente_id;
   v_notif_id UUID;

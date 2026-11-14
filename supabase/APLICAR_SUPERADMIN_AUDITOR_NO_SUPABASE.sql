@@ -1,5 +1,5 @@
 -- ==============================================================================
--- SIGO Guardião / HUNTER — Ativação do Perfil S.adm Auditor no Supabase
+-- GD Rastreamento / HUNTER — Ativação do Perfil S.adm Auditor no Supabase
 -- ==============================================================================
 -- Execute este script no SQL Editor do painel Supabase (https://supabase.com/dashboard)
 -- para habilitar o novo perfil 'superadmin_auditor' (100% Read-Only) e suas blindagens físicas.

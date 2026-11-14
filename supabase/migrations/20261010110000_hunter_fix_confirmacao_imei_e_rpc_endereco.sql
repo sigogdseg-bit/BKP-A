@@ -1,5 +1,5 @@
 -- ==============================================================================
--- HUNTER / SIGO GUARDIÃO - CORREÇÃO DEFINITIVA DE CONFERÊNCIA DE IMEI E RPCs DE ENDEREÇO
+-- HUNTER / GD RASTREAMENTO - CORREÇÃO DEFINITIVA DE CONFERÊNCIA DE IMEI E RPCs DE ENDEREÇO
 -- 1. Permite validar qualquer IMEI conferido se bater com o kit esperado (sem bloqueio de tamanho mínimo)
 -- 2. Assegura a existência e permissões de RPCs para solicitação e envio de endereço
 -- 3. Invalida o cache do PostgREST (Zero Schema Cache Error)

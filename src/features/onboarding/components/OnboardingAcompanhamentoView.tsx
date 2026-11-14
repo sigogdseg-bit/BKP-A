@@ -508,7 +508,7 @@ export function OnboardingAcompanhamentoView() {
           <ShieldCheck className="h-6 w-6 text-amber-500 shrink-0" />
           <div className="text-xs text-slate-700 dark:text-slate-300">
             <strong className="text-slate-900 dark:text-white block font-bold">
-              Segurança e Conformidade SIGO Guardião
+              Segurança e Conformidade GD Rastreamento
             </strong>
             O mapa em tempo real, telemetria de ignição e relatórios veiculares são liberados
             automaticamente no seu painel assim que a Etapa 6 for homologada pelo operador da

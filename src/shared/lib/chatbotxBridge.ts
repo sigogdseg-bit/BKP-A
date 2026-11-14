@@ -1,4 +1,4 @@
-// chatbotxBridge.ts — SIGO Guardião
+// chatbotxBridge.ts — GD Rastreamento
 // Bridge de Comunicação com o Microsserviço ChatbotX (Omnichannel & Alertas em Tempo Real)
 
 import { formatarHoraBrasil } from "@/shared/lib/formatadoresBrasil";
@@ -271,7 +271,7 @@ export async function enviarMensagemWhatsappOperador(
     message: textoMensagem,
     metadata: {
       origem: "sigo_guardiao_painel_operador",
-      operador: parametros.operadorNome ?? "Operador SIGO",
+      operador: parametros.operadorNome ?? "Operador GD Rastreamento",
       cliente_nome: parametros.clienteNome,
       cliente_id: parametros.clienteId,
       timestamp: new Date().toISOString(),

@@ -35,11 +35,7 @@ CREATE POLICY "Acesso aos analytics do veiculo do próprio cliente"
       WHERE c.id = veiculo_analytics_diario.cliente_id
       AND c.user_id = auth.uid()
     )
-    OR
-    EXISTS (
-      SELECT 1 FROM public.adm_users a
-      WHERE a.user_id = auth.uid() AND a.ativo = TRUE
-    )
+    OR public.is_adm()
   );
 
 -- Function RPC para gerar/recuperar dados D-1 do CLIENTE (todos os veículos dele)

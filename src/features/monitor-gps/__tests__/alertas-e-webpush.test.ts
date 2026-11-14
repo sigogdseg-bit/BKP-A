@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 import path from "node:path";
 
-describe("SIGO Guardião — Alertas Flutuantes, Deduplicação e Web Push em Segundo Plano", () => {
+describe("GD Rastreamento — Alertas Flutuantes, Deduplicação e Web Push em Segundo Plano", () => {
   it("1. O banner de alerta deve possuir posicionamento flutuante desvinculado do canvas do mapa", () => {
     const bannerPath = path.resolve(
       process.cwd(),

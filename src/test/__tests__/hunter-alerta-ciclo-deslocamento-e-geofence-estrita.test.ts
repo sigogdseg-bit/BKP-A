@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 import path from "node:path";
 
-describe("HUNTER / SIGO GUARDIÃO — Fix Login Motoristas (GoTrue NULLs) & Lógica Canônica de Alertas", () => {
+describe("HUNTER / GD RASTREAMENTO — Fix Login Motoristas (GoTrue NULLs) & Lógica Canônica de Alertas", () => {
   const migrationPath = path.resolve(
     process.cwd(),
     "supabase/migrations/20261020183000_hunter_fix_login_motoristas_auth_users_e_alertas_ciclo_geofence.sql",

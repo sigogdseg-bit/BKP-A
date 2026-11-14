@@ -162,4 +162,38 @@ describe("Hunter - Auto-Cadastro de Cliente Multi-Veículo e Pendências do Oper
     assert.equal(veiculosNormalizados[1].placa, "BRA2E19");
     assert.equal(veiculosNormalizados[1].isMaquina, false);
   });
+
+  it("deve garantir que ModalConviteCliente envia mensagem via WhatsApp da plataforma (micro-gateway) e nao abre exclusivamente o WhatsApp Web", async () => {
+    const fs = await import("node:fs");
+    const path = await import("node:path");
+    const modalPath = path.join(
+      process.cwd(),
+      "src/features/clientes/components/ModalConviteCliente.tsx",
+    );
+    const modalContent = fs.readFileSync(modalPath, "utf-8");
+
+    // Deve integrar o despachador oficial de WhatsApp da plataforma
+    assert.ok(
+      modalContent.includes("enviarMensagemWhatsappOperador"),
+      "ModalConviteCliente deve invocar enviarMensagemWhatsappOperador para envio oficial",
+    );
+
+    // Deve possuir campo de telefone de destino com máscara
+    assert.ok(
+      modalContent.includes("telefoneDestino") && modalContent.includes("formatarTelefone"),
+      "ModalConviteCliente deve possuir campo de telefoneDestino com formatarTelefone",
+    );
+
+    // Deve usar APP_NOME da versão para suporte dinâmico (GD Rastreamento / GD Segurança)
+    assert.ok(
+      modalContent.includes("APP_NOME"),
+      "ModalConviteCliente deve utilizar APP_NOME dinamicamente",
+    );
+
+    // Deve conter botão de Enviar no WhatsApp com loading de transmissão
+    assert.ok(
+      modalContent.includes("Transmitindo...") && modalContent.includes("Enviar no WhatsApp"),
+      "ModalConviteCliente deve conter botão Enviar no WhatsApp e feedback de Transmitindo...",
+    );
+  });
 });

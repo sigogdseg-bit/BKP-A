@@ -103,7 +103,7 @@ async function gerarPdfCompleto() {
   doc.setTextColor(80, 90, 105);
   doc.setFont("helvetica", "normal");
   const subTextoCapa = [
-    `Demonstração interativa e inventário completo dos ${modulosOrdenados.length} módulos oficiais do SIGO Guardião.`,
+    `Demonstração interativa e inventário completo dos ${modulosOrdenados.length} módulos oficiais do GD Rastreamento.`,
     "Contempla fluxos de uso passo a passo, indicadores em tempo real, filtros de consulta,",
     `${totalCapturas} capturas de telas e detalhamento individual de cada campo registrado pelo sistema.`,
   ];
@@ -405,7 +405,7 @@ async function gerarPdfCompleto() {
           doc.setFont("helvetica", "italic");
           doc.setTextColor(110, 120, 135);
           doc.text(
-            `Figura: Captura de tela de ${aba.capturaTitulo} (SIGO Guardião)`,
+            `Figura: Captura de tela de ${aba.capturaTitulo} (GD Rastreamento)`,
             pageWidth / 2,
             imgY + imgHeight + 4,
             { align: "center" },
@@ -494,7 +494,7 @@ async function gerarPdfCompleto() {
   doc.setFont("helvetica", "bold");
   doc.setFontSize(10);
   doc.text(
-    `ÍNDICE GERAL UNIFICADO DE CAMPOS DO SIGO GUARDIÃO (${totalCampos} CAMPOS)`,
+    `ÍNDICE GERAL UNIFICADO DE CAMPOS DO GD RASTREAMENTO (${totalCampos} CAMPOS)`,
     margin + 3,
     margin + 6,
   );
@@ -579,7 +579,7 @@ async function gerarPdfCompleto() {
     doc.setTextColor(100, 110, 125);
 
     doc.text(
-      `SIGO Guardião v${APP_VERSION} • Apresentação Oficial dos Módulos`,
+      `GD Rastreamento v${APP_VERSION} • Apresentação Oficial dos Módulos`,
       margin,
       pageHeight - margin + 6,
     );
@@ -595,13 +595,13 @@ async function gerarPdfCompleto() {
 
   const outputPathDocs = path.join(
     __dirname,
-    `../docs/SIGO_Guardiao_Apresentacao_Oficial_18_Modulos_v${APP_VERSION}.pdf`,
+    `../docs/GD_Rastreamento_Apresentacao_Oficial_18_Modulos_v${APP_VERSION}.pdf`,
   );
   const outputPathPublic = path.join(
     __dirname,
-    `../public/SIGO_Guardiao_Apresentacao_Oficial_18_Modulos.pdf`,
+    `../public/GD_Rastreamento_Apresentacao_Oficial_18_Modulos.pdf`,
   );
-  const artifactPath = `/Users/djrnovaes/.gemini/antigravity-ide/brain/9e30e4b8-9899-4d8f-bb1a-0cb7f839cf7d/SIGO_Guardiao_Apresentacao_Oficial_18_Modulos_v${APP_VERSION}.pdf`;
+  const artifactPath = `/Users/djrnovaes/.gemini/antigravity-ide/brain/9e30e4b8-9899-4d8f-bb1a-0cb7f839cf7d/GD_Rastreamento_Apresentacao_Oficial_18_Modulos_v${APP_VERSION}.pdf`;
 
   fs.writeFileSync(outputPathDocs, outputBuffer);
   fs.writeFileSync(outputPathPublic, outputBuffer);

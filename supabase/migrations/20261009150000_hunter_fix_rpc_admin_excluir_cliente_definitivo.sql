@@ -1,5 +1,5 @@
 -- ============================================================================
--- HUNTER / SIGO GUARDIÃO — CORREÇÃO DEFINITIVA DAS RPCS DE EXCLUSÃO
+-- HUNTER / GD RASTREAMENTO — CORREÇÃO DEFINITIVA DAS RPCS DE EXCLUSÃO
 -- ============================================================================
 -- Elimina qualquer referência a tabelas inexistentes (ex: agendamentos_instalacao,
 -- areas_seguras_geofence, parcelas_contrato_cliente), ajusta a ordem estrita de

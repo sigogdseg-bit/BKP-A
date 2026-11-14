@@ -843,8 +843,8 @@ function CadastroClientePage() {
                     <span>Sobre o Atendimento e Instalação:</span>
                   </div>
                   <p className="text-[11px] leading-relaxed">
-                    Ao enviar o cadastro, a administração do SIGO Guardião definirá as condições do
-                    contrato e despachará ordens de serviço individuais para que os técnicos
+                    Ao enviar o cadastro, a administração do GD Rastreamento definirá as condições
+                    do contrato e despachará ordens de serviço individuais para que os técnicos
                     instaladores credenciados realizem a instalação de cada rastreador com
                     segurança.
                   </p>

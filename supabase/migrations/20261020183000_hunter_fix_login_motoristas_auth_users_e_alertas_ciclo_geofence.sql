@@ -1,6 +1,6 @@
 -- ─────────────────────────────────────────────────────────────────────────────
 -- MIGRATION: 20261020183000_hunter_fix_login_motoristas_auth_users_e_alertas_ciclo_geofence.sql
--- Sistema: SIGO Guardião | Diretrizes: HUNTER-GUARDIAN e DJR-NEW
+-- Sistema: GD Rastreamento | Diretrizes: HUNTER-GUARDIAN e DJR-NEW
 -- Descrição:
 -- 1. FIX LOGIN MOTORISTAS & OUTRAS TABELAS (Erro "Database error querying schema"):
 --    - Saneamento atômico de todas as contas em auth.users com colunas de token NULL

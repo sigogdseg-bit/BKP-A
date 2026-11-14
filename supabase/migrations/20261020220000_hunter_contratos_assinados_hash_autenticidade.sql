@@ -1,6 +1,6 @@
 -- ─────────────────────────────────────────────────────────────────────────────
 -- MIGRATION: Hunter - Contratos Assinados, Hash de Integridade e Selo de Autenticidade
--- Sistema: SIGO Guardião | Diretrizes: DJR-NEW e HUNTER-GUARDIAN
+-- Sistema: GD Rastreamento | Diretrizes: DJR-NEW e HUNTER-GUARDIAN
 -- ─────────────────────────────────────────────────────────────────────────────
 -- Fluxo:
 --   1. Contrato gerado em PDF → enviado ao cliente para assinatura
@@ -277,7 +277,7 @@ BEGIN
 
   RETURN jsonb_build_object(
     'autentico', true,
-    'mensagem', 'Contrato autêntico localizado no sistema SIGO Guardião.',
+    'mensagem', 'Contrato autêntico localizado no sistema GD Rastreamento.',
     'contrato_id', v_contrato.id,
     'numero_contrato', v_contrato.numero_contrato,
     'selo_autenticidade', v_contrato.selo_autenticidade,

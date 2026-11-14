@@ -447,7 +447,7 @@ export function ModalCentralAlertasConta({
         categoriaMensagem: "alerta",
         tipoContato: modoEquipe ? "usuario" : "cliente",
         mensagem:
-          `📡 *SIGO GUARDIÃO — TESTE DA CENTRAL DE ALERTAS*\n\n` +
+          `📡 *GD RASTREAMENTO — TESTE DA CENTRAL DE ALERTAS*\n\n` +
           `✅ Canal WhatsApp verificado para *${contato.nome}*.\n` +
           `⏰ *Horário:* ${formatarHoraBrasil(new Date(), true)}`,
       });

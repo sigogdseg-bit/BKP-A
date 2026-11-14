@@ -1007,7 +1007,7 @@ export function TrajetoInteligenteModal({
         toleranciaMetros: toleranciaCorredorMetros,
       });
       toast.success(
-        "Rota Monitorada ativada! O SIGO Guardião alertará em tempo real se houver desvio de rota.",
+        "Rota Monitorada ativada! O GD Rastreamento alertará em tempo real se houver desvio de rota.",
       );
       if (onRotaAtivada) {
         onRotaAtivada(rotaSalva);
@@ -2123,7 +2123,7 @@ export function TrajetoInteligenteModal({
               </div>
 
               <p className="text-xs text-slate-500 dark:text-slate-400">
-                O SIGO Guardião criará uma cerca viva de corredor inteligente ao longo de toda a
+                O GD Rastreamento criará uma cerca viva de corredor inteligente ao longo de toda a
                 rota viária gerada ({resultadoRota?.distanciaKm} km). Se o veículo{" "}
                 <b className="text-slate-700 dark:text-slate-200">{veiculo?.placa}</b> sair desse
                 corredor viário, um alerta de alta prioridade será gerado imediatamente.

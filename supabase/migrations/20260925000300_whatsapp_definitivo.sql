@@ -1,5 +1,5 @@
 -- =============================================================================
--- SIGO GUARDIÃO — MIGRATION: WHATSAPP CLOUD DEFINITIVO & FILA ASSÍNCRONA
+-- GD RASTREAMENTO — MIGRATION: WHATSAPP CLOUD DEFINITIVO & FILA ASSÍNCRONA
 -- =============================================================================
 
 -- 1. Tabela de Configurações do WhatsApp na Nuvem

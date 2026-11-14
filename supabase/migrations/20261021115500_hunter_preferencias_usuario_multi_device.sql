@@ -131,7 +131,6 @@ $$;
 GRANT EXECUTE ON FUNCTION public.salvar_preferencias_usuario(JSONB, UUID) TO authenticated, service_role;
 GRANT EXECUTE ON FUNCTION public.salvar_preferencias_usuario(JSONB) TO authenticated, service_role;
 GRANT EXECUTE ON FUNCTION public.obter_preferencias_usuario(UUID) TO authenticated, service_role;
-GRANT EXECUTE ON FUNCTION public.obter_preferencias_usuario() TO authenticated, service_role;
 GRANT EXECUTE ON FUNCTION public.salvar_preferencia_card_theme(JSONB) TO authenticated, service_role;
 
 -- 6. Notificar recarga de schema PostgREST

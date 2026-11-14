@@ -759,7 +759,7 @@ export async function getMeuPerfilMotorista(): Promise<PerfilMotorista> {
       cnh_foto_url: mot.cnh_foto_url,
       acesso_mapa: Boolean(mot.acesso_mapa),
       cliente_id: mot.cliente_id,
-      cliente_nome: (mot as any).clientes?.nome_razao_social || "Cliente SIGO Guardião",
+      cliente_nome: (mot as any).clientes?.nome_razao_social || "Cliente GD Rastreamento",
     };
   }
 

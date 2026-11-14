@@ -1,15 +1,15 @@
 ---
 name: hunter
-description: Regras fundamentais e inegociáveis de governança, segurança, arquitetura e integridade operacional do sistema SIGO Guardião (HUNTER-GUARDIAN / DJR-NEW). Vincula compulsoriamente a execução a todas as 28 seções do AGENTS.md, com zero invenção de dados, causa raiz na origem, 7 Gates e blindagem total.
+description: Regras fundamentais e inegociáveis de governança, segurança, arquitetura e integridade operacional do sistema GD Rastreamento (HUNTER-GUARDIAN / DJR-NEW). Vincula compulsoriamente a execução a todas as 28 seções do AGENTS.md, com zero invenção de dados, causa raiz na origem, 7 Gates e blindagem total.
 ---
 
-# SIGO Guardião — Protocolo Operacional e Diretrizes Inegociáveis (`/hunter`)
+# GD Rastreamento — Protocolo Operacional e Diretrizes Inegociáveis (`/hunter`)
 
 > [!CRITICAL]
 >
 > ## VINCULAÇÃO COMPULSÓRIA AO AGENTS.MD (FONTE SUPREMA DE VERDADE)
 >
-> Toda e qualquer atividade no repositório do **SIGO Guardião** está subordinada de forma estrita, incondicional e inegociável ao arquivo [AGENTS.md](file:///Users/djrnovaes/.gemini/antigravity-ide/scratch/hunter/AGENTS.md) presente na raiz do projeto.
+> Toda e qualquer atividade no repositório do **GD Rastreamento** está subordinada de forma estrita, incondicional e inegociável ao arquivo [AGENTS.md](file:///Users/djrnovaes/.gemini/antigravity-ide/scratch/hunter/AGENTS.md) presente na raiz do projeto.
 >
 > **STOP & READ:** Antes de invocar qualquer ferramenta de edição (`write_file`, `edit_file`) ou comando de escrita (`run_command`), o assistente DEVE OBRIGATORIAMENTE certificar-se de que identificou a causa raiz sem mascaramento, que os dados são factuais e auditados (zero mock/zero inventar dados), que as alterações preexistentes estão preservadas e que nenhuma publicação, tag ou push será realizado sem a confirmação e autorização prévia expressa do usuário (Gate 6). Imediatamente após qualquer publicação (Gate 7), é compulsório reler na íntegra as normas deste manual.
 

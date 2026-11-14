@@ -1,5 +1,5 @@
 -- ==============================================================================
--- HUNTER / SIGO GUARDIÃO — BLINDAGEM ANTI-REPETIÇÃO DE NOTIFICAÇÕES E RELATÓRIO
+-- HUNTER / GD RASTREAMENTO — BLINDAGEM ANTI-REPETIÇÃO DE NOTIFICAÇÕES E RELATÓRIO
 -- Protocolo Canônico: 1 Único Relatório Gerencial por Dia (Horário Agendado)
 -- Resolução Definitiva de Deduplicação Global e Janela de Horário
 -- ==============================================================================

@@ -12,7 +12,7 @@
 
 ### 1.1. Preservação da integridade do sistema
 
-Toda atividade deve preservar a integridade, a segurança, a rastreabilidade e a continuidade operacional do SIGO Guardião.
+Toda atividade deve preservar a integridade, a segurança, a rastreabilidade e a continuidade operacional do GD Rastreamento.
 
 Nenhuma tarefa deve provocar alterações fora do escopo solicitado, comprometer dados existentes, enfraquecer controles de acesso ou remover proteções sem autorização expressa.
 
@@ -329,7 +329,7 @@ Uma auditoria de segurança deve avaliar, conforme o escopo, os controles releva
 - Riscos de acesso indevido e alteração não autorizada.
 - Controles de auditoria e rastreabilidade.
 
-A lista é uma referência de avaliação, não uma declaração de que todos esses mecanismos existem ou estão habilitados no SIGO Guardião.
+A lista é uma referência de avaliação, não uma declaração de que todos esses mecanismos existem ou estão habilitados no GD Rastreamento.
 
 Registrar separadamente:
 
@@ -606,7 +606,7 @@ Se duas instruções aplicáveis forem incompatíveis e não houver resolução 
 
 ## 27. REGRA FINAL DE INTEGRIDADE OPERACIONAL
 
-A prioridade é preservar a segurança, a integridade, a rastreabilidade e a continuidade do SIGO Guardião.
+A prioridade é preservar a segurança, a integridade, a rastreabilidade e a continuidade do GD Rastreamento.
 
 O agente deve executar o trabalho autorizado com rigor técnico, investigar a causa raiz, validar os resultados e comunicar as limitações com transparência.
 
@@ -614,9 +614,9 @@ O agente deve executar o trabalho autorizado com rigor técnico, investigar a ca
 
 ---
 
-## 28. PROTOCOLO OPERACIONAL ESPECÍFICO DO SIGO GUARDIÃO
+## 28. PROTOCOLO OPERACIONAL ESPECÍFICO DO GD RASTREAMENTO
 
-Esta seção consolida as regras técnicas executáveis, ferramentas canônicas, barreiras físicas e comandos mandatórios do projeto SIGO Guardião. Nenhuma tarefa técnica é considerada válida ou concluída sem a aplicação integral deste protocolo:
+Esta seção consolida as regras técnicas executáveis, ferramentas canônicas, barreiras físicas e comandos mandatórios do projeto GD Rastreamento. Nenhuma tarefa técnica é considerada válida ou concluída sem a aplicação integral deste protocolo:
 
 ### 28.1. Autonomia Plena com Permissões Totais para Sistema e Banco de Dados (Anti-Preguiça)
 
@@ -677,7 +677,7 @@ Nenhum ciclo é encerrado sem validação formal dos 7 gates:
 ### 28.7. Interdição do Caractere Comercial e Isolamento Total de Marca
 
 - Ausência total do caractere comercial `&` em interfaces, cards, menus, PDFs, comprovantes e mensagens ao usuário, utilizando sempre a conjunção vernácula **"e"** (validado pela suíte de testes).
-- Proibição absoluta de utilizar referências cruzadas a outros sistemas (como SIGOVTR, SIGOFROTA, PCSv) em qualquer elemento do SIGO Guardião.
+- Proibição absoluta de utilizar referências cruzadas a outros sistemas (como SIGOVTR, SIGOFROTA, PCSv) em qualquer elemento do GD Rastreamento.
 
 ### 28.8. Balões e Cards Interativos com Filtro Bidirecional (em 100% das Telas)
 
@@ -698,7 +698,7 @@ Nenhum ciclo é encerrado sem validação formal dos 7 gates:
 
 ### 28.11. Contas Oficiais de Serviços e Infraestrutura
 
-Sempre que solicitado, fornecer as contas vinculadas à infraestrutura do SIGO Guardião:
+Sempre que solicitado, fornecer as contas vinculadas à infraestrutura do GD Rastreamento:
 
 - **Fly.io:** `dev@oficial.tec.br`
 - **Cloudflare:** `djrnovaes@yahoo.com.br`

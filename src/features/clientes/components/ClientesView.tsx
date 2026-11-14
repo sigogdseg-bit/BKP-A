@@ -1430,7 +1430,7 @@ export function ClientesView() {
         aberto={Boolean(clienteWhatsapp)}
         onClose={() => setClienteWhatsapp(null)}
         cliente={clienteWhatsapp}
-        operadorNome={session?.nome || session?.email || "Operador SIGO Guardião"}
+        operadorNome={session?.nome || session?.email || "Operador GD Rastreamento"}
       />
     </div>
   );

@@ -1,7 +1,7 @@
 import { salvarInscricaoPushNoBd, enviarNotificacaoViaBd } from "./notificacoesBdService";
 import { supabase } from "@/integrations/supabase/client";
 
-// webPushService.ts — SIGO Guardião
+// webPushService.ts — GD Rastreamento
 // Gerenciamento de Web Push API nativa (APNs / FCM) e Service Worker em Segundo Plano
 
 export const VAPID_PUBLIC_KEY =
@@ -62,7 +62,7 @@ export function verificarSuporteWebPush(): WebPushStatus {
 }
 
 /**
- * Registra o Service Worker oficial do SIGO Guardião
+ * Registra o Service Worker oficial do GD Rastreamento
  */
 export async function registrarServiceWorker(): Promise<ServiceWorkerRegistration | null> {
   if (typeof window === "undefined" || !("serviceWorker" in navigator)) {
@@ -75,7 +75,7 @@ export async function registrarServiceWorker(): Promise<ServiceWorkerRegistratio
     });
     return reg;
   } catch (err) {
-    console.warn("Falha ao registrar Service Worker do SIGO Guardião:", err);
+    console.warn("Falha ao registrar Service Worker do GD Rastreamento:", err);
     return null;
   }
 }
@@ -331,7 +331,7 @@ export async function dispararNotificacaoTeste(): Promise<boolean> {
     await inscreverDispositivoWebPush(reg);
 
     // 5. Exibe a notificação diretamente pelo ServiceWorkerRegistration (Compatível com Android e iOS PWA)
-    await (reg as any).showNotification("🚨 SIGO Guardião — Teste de Notificação Nativa", {
+    await (reg as any).showNotification("🚨 GD Rastreamento — Teste de Notificação Nativa", {
       body: "Notificação em segundo plano ativada com sucesso no seu dispositivo móvel!",
       icon: "/logo.png",
       badge: "/favicon.png",
@@ -374,7 +374,7 @@ export async function dispararNotificacaoTeste(): Promise<boolean> {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           destinatarioUserId: userId,
-          titulo: "🚨 SIGO Guardião — Alerta de Teste Tático",
+          titulo: "🚨 GD Rastreamento — Alerta de Teste Tático",
           mensagem: "Seu aparelho está pronto para receber alertas mesmo com o app fechado!",
           url: "/monitor-gps",
         }),

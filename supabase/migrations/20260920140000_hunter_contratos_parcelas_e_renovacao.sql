@@ -582,5 +582,11 @@ $$;
 -- Permissoes
 GRANT EXECUTE ON FUNCTION public.admin_gerar_parcelas_contrato(UUID) TO authenticated;
 GRANT EXECUTE ON FUNCTION public.admin_renovar_contrato_cliente(UUID, TEXT, INT) TO authenticated;
-GRANT EXECUTE ON FUNCTION public.admin_cadastrar_cliente_completo TO authenticated;
-GRANT EXECUTE ON FUNCTION public.admin_atualizar_cliente_completo TO authenticated;
+DO $$
+DECLARE
+  r RECORD;
+BEGIN
+  FOR r IN SELECT oid::regprocedure AS func_signature FROM pg_proc WHERE proname IN ('admin_cadastrar_cliente_completo', 'admin_atualizar_cliente_completo') AND pronamespace = 'public'::regnamespace LOOP
+    EXECUTE 'GRANT EXECUTE ON FUNCTION ' || r.func_signature || ' TO authenticated';
+  END LOOP;
+END $$;

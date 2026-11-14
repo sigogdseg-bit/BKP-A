@@ -1,5 +1,5 @@
 -- =============================================================================
--- SIGO GUARDIÃO — DESCARTE DE FALSOS CICLOS DE IGNIÇÃO E SANEAMENTO DE VIAGENS
+-- GD RASTREAMENTO — DESCARTE DE FALSOS CICLOS DE IGNIÇÃO E SANEAMENTO DE VIAGENS
 -- Migração: 20261029100000_hunter_descarte_ciclos_falsos_ignicao_e_saneamento.sql
 -- =============================================================================
 

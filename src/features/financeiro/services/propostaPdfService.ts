@@ -34,7 +34,7 @@ async function carregarImagemBase64(url: string): Promise<string | null> {
 }
 
 /**
- * Emite e faz o download do documento PDF da Proposta Comercial Oficial SIGO Guardião
+ * Emite e faz o download do documento PDF da Proposta Comercial Oficial GD Rastreamento
  * Estrutura:
  * - Página 1: Dados do Cliente, Veículo, Condições Comerciais (com Locação de Equipamentos e Automonitoramento) e Aceite
  * - Página 2: Catálogo de Módulos e Funcionalidades Explicadas em Detalhes com Transparência Jurídica
@@ -509,7 +509,7 @@ export async function emitirPropostaComercialPdf(
 
   let p2Y = 36;
 
-  // Renderiza os 3 Planos Comerciais Oficiais do SIGO Guardião
+  // Renderiza os 3 Planos Comerciais Oficiais do GD Rastreamento
   PLANOS_COMERCIAIS_CATALOGO.forEach((plano) => {
     const isMaster = plano.id === "master";
     const cardHeight = isMaster ? 58 : 54;
@@ -597,13 +597,17 @@ export async function emitirPropostaComercialPdf(
   doc.setTextColor(15, 23, 42);
   doc.setFontSize(7.8);
   doc.setFont("helvetica", "bold");
-  doc.text("TRANSPARÊNCIA JURÍDICA E ENQUADRAMENTO LEGAL (CONTRATO SIGO GUARDIÃO)", 20, p2Y + 5.5);
+  doc.text(
+    "TRANSPARÊNCIA JURÍDICA E ENQUADRAMENTO LEGAL (CONTRATO GD RASTREAMENTO)",
+    20,
+    p2Y + 5.5,
+  );
 
   doc.setTextColor(71, 85, 105);
   doc.setFontSize(6.7);
   doc.setFont("helvetica", "normal");
   const textoTransparencia =
-    "A presente proposta restringe-se a locação onerosa de equipamento telemático homologado ANATEL e chip SIM M2M (arts. 565 a 578 do Código Civil c/c Súmula Vinculante 31 do STF). A plataforma SIGO Guardião é disponibilizada gratuitamente aos locatários para automonitoramento direto pelo próprio usuário. A contratação não presta serviços de segurança privada (Lei nº 14.967/2024), não possui central humana de vigilância 24h, não despacha viaturas e não constitui seguro patrimonial.";
+    "A presente proposta restringe-se a locação onerosa de equipamento telemático homologado ANATEL e chip SIM M2M (arts. 565 a 578 do Código Civil c/c Súmula Vinculante 31 do STF). A plataforma GD Rastreamento é disponibilizada gratuitamente aos locatários para automonitoramento direto pelo próprio usuário. A contratação não presta serviços de segurança privada (Lei nº 14.967/2024), não possui central humana de vigilância 24h, não despacha viaturas e não constitui seguro patrimonial.";
   const linhasTransparencia = doc.splitTextToSize(textoTransparencia, 172);
   doc.text(linhasTransparencia, 20, p2Y + 10);
 

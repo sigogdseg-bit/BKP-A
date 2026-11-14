@@ -1,5 +1,5 @@
 -- ==============================================================================
--- SIGO GUARDIÃO — BLINDAGEM ANTI-REPETIÇÃO E DEDUPLICAÇÃO DE DESVIO DE ROTA
+-- GD RASTREAMENTO — BLINDAGEM ANTI-REPETIÇÃO E DEDUPLICAÇÃO DE DESVIO DE ROTA
 -- Diretrizes: HUNTER-GUARDIAN / DJR-NEW
 -- ==============================================================================
 

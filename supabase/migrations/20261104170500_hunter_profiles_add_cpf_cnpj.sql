@@ -1,5 +1,5 @@
 -- ==============================================================================
--- HUNTER / SIGO Guardião — Adicionar coluna cpf_cnpj na tabela public.profiles
+-- HUNTER / GD Rastreamento — Adicionar coluna cpf_cnpj na tabela public.profiles
 -- Corrige o erro "column cpf_cnpj of relation profiles does not exist"
 -- ao redefinir ou cadastrar senha de parceiro (revendedor e vendedor)
 -- Migration: 20261104170500_hunter_profiles_add_cpf_cnpj.sql
