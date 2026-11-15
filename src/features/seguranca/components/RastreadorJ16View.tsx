@@ -3625,7 +3625,7 @@ export function RastreadorJ16View() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 p-5 rounded-3xl shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl">
         <div className="flex items-center gap-3.5">
-          <div className="h-12 w-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shrink-0">
+          <div className="h-12 w-12 rounded-2xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-orange-600 dark:text-orange-400 shrink-0">
             <Radio className="h-6 w-6" />
           </div>
           <div>
@@ -3633,7 +3633,7 @@ export function RastreadorJ16View() {
               <h1 className="text-lg sm:text-xl font-black text-slate-900 dark:text-slate-100">
                 Rastreadores J16 (4G)
               </h1>
-              <span className="px-2 py-0.5 rounded-md text-[10px] font-mono font-bold bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30">
+              <span className="px-2 py-0.5 rounded-md text-[10px] font-mono font-bold bg-orange-500/15 text-orange-600 dark:text-orange-400 border border-orange-500/30">
                 PRODUÇÃO ATIVA
               </span>
               <span className="px-2 py-0.5 rounded-md text-[10px] font-mono font-bold bg-sky-500/15 text-sky-600 dark:text-sky-400 border border-sky-500/30">
@@ -3695,7 +3695,7 @@ export function RastreadorJ16View() {
               }}
               className={`px-2.5 py-1.5 rounded-xl text-[11px] font-bold flex items-center gap-1 transition cursor-pointer border ${
                 canaisAlertaComando.app
-                  ? "bg-emerald-500 text-slate-950 border-emerald-400 font-black shadow-xs"
+                  ? "bg-orange-500 text-slate-950 border-orange-400 font-black shadow-xs"
                   : "bg-white/60 dark:bg-slate-800/60 text-slate-400 dark:text-slate-500 border-slate-200 dark:border-slate-800 hover:text-slate-700 dark:hover:text-slate-300"
               }`}
               title="Notificação no App e Web Push ao responder comando"
@@ -3758,7 +3758,7 @@ export function RastreadorJ16View() {
             title="Atualizar dados dos dispositivos"
           >
             <RefreshCw
-              className={`h-3.5 w-3.5 ${carregandoDispositivos ? "animate-spin text-emerald-500" : ""}`}
+              className={`h-3.5 w-3.5 ${carregandoDispositivos ? "animate-spin text-orange-500" : ""}`}
             />
             <span>Atualizar</span>
           </button>
@@ -3789,7 +3789,7 @@ export function RastreadorJ16View() {
           onClick={() => setAbaPrincipal("remoto")}
           className={`px-4 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider transition flex items-center gap-2 cursor-pointer ${
             abaPrincipal === "remoto"
-              ? "bg-slate-900 text-white dark:bg-emerald-500 dark:text-slate-950 shadow-md"
+              ? "bg-slate-900 text-white dark:bg-orange-500 dark:text-slate-950 shadow-md"
               : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-200/50 dark:hover:bg-slate-800"
           }`}
         >
@@ -3805,13 +3805,13 @@ export function RastreadorJ16View() {
           onClick={() => setAbaPrincipal("usb")}
           className={`px-4 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider transition flex items-center gap-2 cursor-pointer ${
             abaPrincipal === "usb"
-              ? "bg-emerald-500 text-slate-950 shadow-md"
+              ? "bg-orange-500 text-slate-950 shadow-md"
               : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-200/50 dark:hover:bg-slate-800"
           }`}
         >
           <Usb className="h-4 w-4" />
           <span>Configuração USB (Bancada Técnica)</span>
-          <span className="px-1.5 py-0.2 rounded-full text-[9px] font-mono font-bold bg-emerald-500/20 text-emerald-700 dark:text-slate-950 border border-emerald-500/30">
+          <span className="px-1.5 py-0.2 rounded-full text-[9px] font-mono font-bold bg-orange-500/20 text-orange-700 dark:text-slate-950 border border-orange-500/30">
             SERIAL
           </span>
         </button>
@@ -3926,15 +3926,15 @@ export function RastreadorJ16View() {
               spotlightColor="rgba(16, 185, 129, 0.22)"
               className={`p-4 rounded-2xl border text-left transition cursor-pointer shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none ${
                 filtroStatus === "online"
-                  ? "bg-emerald-600 text-white border-emerald-600 shadow-md ring-2 ring-emerald-500"
-                  : "bg-[#eaf0f8] dark:bg-slate-900/80 border-slate-300/60 dark:border-slate-800 hover:border-emerald-500/40 hover:shadow-[4px_4px_10px_#b8c6da]"
+                  ? "bg-orange-600 text-white border-orange-600 shadow-md ring-2 ring-orange-500"
+                  : "bg-[#eaf0f8] dark:bg-slate-900/80 border-slate-300/60 dark:border-slate-800 hover:border-orange-500/40 hover:shadow-[4px_4px_10px_#b8c6da]"
               }`}
             >
               <div className="flex items-center justify-between">
                 <span className="text-[11px] font-bold uppercase tracking-wider opacity-75">
                   Ativo
                 </span>
-                <Wifi className="h-4 w-4 text-emerald-400" />
+                <Wifi className="h-4 w-4 text-orange-400" />
               </div>
               <div className="text-2xl font-black mt-1">{estatisticasStatus.online}</div>
               <div className="text-[10px] opacity-70 mt-0.5">Ping recente / Conectado</div>
@@ -3967,7 +3967,7 @@ export function RastreadorJ16View() {
           <div className="bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 rounded-3xl p-4 sm:p-5 space-y-4 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl overflow-hidden">
             <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4 border-b border-slate-100 dark:border-slate-800 pb-4">
               <div className="flex items-center gap-2.5">
-                <div className="h-9 w-9 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shrink-0">
+                <div className="h-9 w-9 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-orange-600 dark:text-orange-400 shrink-0">
                   <SlidersHorizontal className="h-4 w-4" />
                 </div>
                 <div className="min-w-0">
@@ -3975,7 +3975,7 @@ export function RastreadorJ16View() {
                     <h2 className="text-sm font-black uppercase tracking-wider text-slate-800 dark:text-slate-200 truncate">
                       Parâmetros Canônicos do Sistema
                     </h2>
-                    <span className="px-2 py-0.5 rounded-md text-[10px] font-mono font-bold bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 whitespace-nowrap">
+                    <span className="px-2 py-0.5 rounded-md text-[10px] font-mono font-bold bg-orange-500/15 text-orange-600 dark:text-orange-400 border border-orange-500/30 whitespace-nowrap">
                       {totalComandosAtivos} COMANDOS NO BATCH
                     </span>
                   </div>
@@ -4016,7 +4016,7 @@ export function RastreadorJ16View() {
                   <button
                     type="button"
                     onClick={salvarNovoPadraoSistema}
-                    className="flex-1 sm:flex-none px-2.5 py-1.5 rounded-lg text-[10px] font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-300 bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 hover:shadow-xs transition cursor-pointer text-center flex items-center justify-center gap-1"
+                    className="flex-1 sm:flex-none px-2.5 py-1.5 rounded-lg text-[10px] font-bold uppercase tracking-wider text-orange-700 dark:text-orange-300 bg-orange-500/10 hover:bg-orange-500/20 border border-orange-500/30 hover:shadow-xs transition cursor-pointer text-center flex items-center justify-center gap-1"
                     title="Salvar a configuração atual (valores e opções marcadas) como o novo padrão do sistema"
                   >
                     <Save className="h-3 w-3 shrink-0" />
@@ -4040,7 +4040,7 @@ export function RastreadorJ16View() {
                   disabled={
                     enviandoComando || selectedImeis.size === 0 || totalComandosAtivos === 0
                   }
-                  className="w-full sm:w-auto justify-center px-4 sm:px-5 py-3 rounded-2xl text-xs font-black uppercase tracking-wider bg-gradient-to-r from-emerald-500 via-teal-500 to-emerald-600 hover:from-emerald-400 hover:to-teal-500 text-slate-950 transition flex items-center gap-2 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-emerald-500/20 active:scale-95 text-center"
+                  className="w-full sm:w-auto justify-center px-4 sm:px-5 py-3 rounded-2xl text-xs font-black uppercase tracking-wider bg-gradient-to-r from-emerald-500 via-teal-500 to-emerald-600 hover:from-emerald-400 hover:to-teal-500 text-slate-950 transition flex items-center gap-2 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-orange-500/20 active:scale-95 text-center"
                   title={
                     totalComandosAtivos === 0
                       ? "Selecione ao menos um comando para habilitar o envio"
@@ -4091,16 +4091,16 @@ export function RastreadorJ16View() {
 
             {/* Barra de progresso se houver batch ativo */}
             {progressoBatch?.ativo && (
-              <div className="p-3.5 rounded-2xl bg-slate-950 text-white border border-emerald-500/30 space-y-2">
+              <div className="p-3.5 rounded-2xl bg-slate-950 text-white border border-orange-500/30 space-y-2">
                 <div className="flex items-center justify-between text-xs font-mono">
-                  <span className="text-emerald-400 font-bold">{progressoBatch.comandoAtual}</span>
+                  <span className="text-orange-400 font-bold">{progressoBatch.comandoAtual}</span>
                   <span className="text-slate-400">
                     {progressoBatch.atual} de {progressoBatch.total} comandos
                   </span>
                 </div>
                 <div className="w-full bg-slate-800 rounded-full h-2 overflow-hidden">
                   <div
-                    className="bg-emerald-500 h-2 rounded-full transition-all duration-300"
+                    className="bg-orange-500 h-2 rounded-full transition-all duration-300"
                     style={{
                       width: `${(progressoBatch.atual / progressoBatch.total) * 100}%`,
                     }}
@@ -4169,7 +4169,7 @@ export function RastreadorJ16View() {
                   <button
                     type="button"
                     onClick={() => handleSalvarSenhaDispositivoPadrao(senhaDispositivoPadrao)}
-                    className="px-3 py-1.5 rounded-xl text-xs font-black uppercase tracking-wider bg-emerald-500 hover:bg-emerald-400 text-slate-950 transition flex items-center gap-1.5 shadow-sm active:scale-95 cursor-pointer"
+                    className="px-3 py-1.5 rounded-xl text-xs font-black uppercase tracking-wider bg-orange-500 hover:bg-orange-400 text-slate-950 transition flex items-center gap-1.5 shadow-sm active:scale-95 cursor-pointer"
                     title="Salvar esta senha no sistema (localStorage e parâmetros)"
                   >
                     <Save className="h-3.5 w-3.5" />
@@ -4658,7 +4658,7 @@ export function RastreadorJ16View() {
                                 [campo.id]: checked,
                               }));
                             }}
-                            className="h-3.5 w-3.5 rounded border-slate-300 dark:border-slate-700 text-emerald-600 focus:ring-emerald-500 cursor-pointer"
+                            className="h-3.5 w-3.5 rounded border-slate-300 dark:border-slate-700 text-orange-600 focus:ring-orange-500 cursor-pointer"
                           />
                           <span className="truncate">{campo.label}</span>
                         </label>
@@ -4670,7 +4670,7 @@ export function RastreadorJ16View() {
                                 ? "bg-amber-500/20 text-amber-600 dark:text-amber-400 border border-amber-500/30"
                                 : isDinamicamenteCliente
                                   ? "bg-blue-500/20 text-blue-600 dark:text-blue-400 border border-blue-500/30"
-                                  : "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400"
+                                  : "bg-orange-500/15 text-orange-600 dark:text-orange-400"
                           }`}
                         >
                           {!isHabilitado
@@ -4689,7 +4689,7 @@ export function RastreadorJ16View() {
                           placeholder={campo.placeholder}
                           disabled={!isHabilitado}
                           onChange={(e) => campo.setValor(e.target.value)}
-                          className="w-full pl-3 pr-8 py-2 bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl text-xs font-mono text-slate-800 dark:text-slate-200 focus:outline-hidden focus:border-emerald-500 disabled:opacity-50 disabled:cursor-not-allowed placeholder:text-slate-400 placeholder:italic"
+                          className="w-full pl-3 pr-8 py-2 bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl text-xs font-mono text-slate-800 dark:text-slate-200 focus:outline-hidden focus:border-orange-500 disabled:opacity-50 disabled:cursor-not-allowed placeholder:text-slate-400 placeholder:italic"
                         />
                         <button
                           type="button"
@@ -4698,7 +4698,7 @@ export function RastreadorJ16View() {
                           title={`Copiar ${campo.label}`}
                         >
                           {isFieldCopied ? (
-                            <Check className="h-3.5 w-3.5 text-emerald-500" />
+                            <Check className="h-3.5 w-3.5 text-orange-500" />
                           ) : (
                             <Copy className="h-3.5 w-3.5" />
                           )}
@@ -4714,7 +4714,7 @@ export function RastreadorJ16View() {
                               onClick={() => campo.setValor(preset.valor)}
                               className={`text-[9px] font-semibold px-2 py-0.5 rounded-md transition cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed ${
                                 campo.valor === preset.valor
-                                  ? "bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30"
+                                  ? "bg-orange-500/20 text-orange-600 dark:text-orange-400 border border-orange-500/30"
                                   : "bg-slate-200/80 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-300 dark:hover:bg-slate-700"
                               }`}
                             >
@@ -4732,7 +4732,7 @@ export function RastreadorJ16View() {
             {/* SUB-BARRA: ATALHOS RÁPIDOS E ORIENTAÇÃO */}
             <div className="mt-4 pt-3.5 border-t border-slate-100 dark:border-slate-800/80 flex flex-wrap items-center justify-between gap-3 text-xs">
               <div className="text-[11px] font-medium text-slate-500 dark:text-slate-400 flex items-center gap-2">
-                <span className="h-2 w-2 rounded-full bg-emerald-500 shrink-0" />
+                <span className="h-2 w-2 rounded-full bg-orange-500 shrink-0" />
                 <span>
                   Todos os {totalComandosAtivos} parâmetros selecionados acima possuem inputs de
                   texto 100% editáveis e atalhos rápidos do manual Voxter v1.1.
@@ -4749,7 +4749,7 @@ export function RastreadorJ16View() {
                       relayDiagnostico: true,
                     }));
                   }}
-                  className="px-2.5 py-1 rounded-lg text-[10px] font-bold uppercase tracking-wider bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-emerald-500 hover:text-white dark:hover:bg-emerald-600 transition cursor-pointer"
+                  className="px-2.5 py-1 rounded-lg text-[10px] font-bold uppercase tracking-wider bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-orange-500 hover:text-white dark:hover:bg-orange-600 transition cursor-pointer"
                 >
                   Habilitar Todas Consultas
                 </button>
@@ -4785,7 +4785,7 @@ export function RastreadorJ16View() {
                       setItensPorPagina(Number(e.target.value));
                       setPaginaAtual(1);
                     }}
-                    className="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl px-2.5 py-1.5 text-xs font-medium text-slate-700 dark:text-slate-300 focus:outline-hidden focus:border-emerald-500 cursor-pointer"
+                    className="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl px-2.5 py-1.5 text-xs font-medium text-slate-700 dark:text-slate-300 focus:outline-hidden focus:border-orange-500 cursor-pointer"
                   >
                     <option value={10}>10</option>
                     <option value={25}>25</option>
@@ -4805,7 +4805,7 @@ export function RastreadorJ16View() {
                     onClick={() => setModoVisualizacao("tabela")}
                     className={`px-2.5 py-1 rounded-lg text-xs font-bold transition cursor-pointer ${
                       modoVisualizacao === "tabela"
-                        ? "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30"
+                        ? "bg-orange-500/15 text-orange-600 dark:text-orange-400 border border-orange-500/30"
                         : "text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800"
                     }`}
                   >
@@ -4816,7 +4816,7 @@ export function RastreadorJ16View() {
                     onClick={() => setModoVisualizacao("cards")}
                     className={`px-2.5 py-1 rounded-lg text-xs font-bold transition cursor-pointer ${
                       modoVisualizacao === "cards"
-                        ? "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30"
+                        ? "bg-orange-500/15 text-orange-600 dark:text-orange-400 border border-orange-500/30"
                         : "text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800"
                     }`}
                   >
@@ -4836,7 +4836,7 @@ export function RastreadorJ16View() {
                       setBuscaDispositivo(e.target.value);
                       setPaginaAtual(1);
                     }}
-                    className="w-full pl-8 pr-3 py-1.5 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-200 focus:outline-hidden focus:border-emerald-500"
+                    className="w-full pl-8 pr-3 py-1.5 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-200 focus:outline-hidden focus:border-orange-500"
                   />
                 </div>
 
@@ -4857,7 +4857,7 @@ export function RastreadorJ16View() {
                     </>
                   ) : (
                     <>
-                      <CheckSquare className="h-3.5 w-3.5 text-emerald-500" />
+                      <CheckSquare className="h-3.5 w-3.5 text-orange-500" />
                       <span>SELECIONAR TODOS</span>
                     </>
                   )}
@@ -4868,7 +4868,7 @@ export function RastreadorJ16View() {
             {/* Barra de Status de Selecionados e Legenda */}
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 bg-slate-50 dark:bg-slate-950/60 p-3 rounded-2xl border border-slate-100 dark:border-slate-800 text-xs">
               <div className="flex items-center gap-2">
-                <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+                <span className="h-2 w-2 rounded-full bg-orange-500 animate-pulse" />
                 <span className="font-bold text-slate-700 dark:text-slate-300">
                   {selectedImeis.size} de {dispositivos.length} dispositivo(s) selecionado(s) para
                   disparo de comando
@@ -4890,7 +4890,7 @@ export function RastreadorJ16View() {
             {/* TABELA DETALHADA NO ESTILO EXATO DA IMAGEM 2 */}
             {carregandoDispositivos ? (
               <div className="py-12 text-center space-y-2">
-                <RefreshCw className="h-6 w-6 text-emerald-500 animate-spin mx-auto" />
+                <RefreshCw className="h-6 w-6 text-orange-500 animate-spin mx-auto" />
                 <p className="text-xs text-slate-500">
                   Sincronizando estado dos rastreadores J16...
                 </p>
@@ -4911,10 +4911,10 @@ export function RastreadorJ16View() {
                         <button
                           type="button"
                           onClick={toggleSelectAll}
-                          className="cursor-pointer text-slate-400 hover:text-emerald-500"
+                          className="cursor-pointer text-slate-400 hover:text-orange-500"
                         >
                           {todosVisiveisSelecionados ? (
-                            <CheckSquare className="h-4 w-4 text-emerald-500" />
+                            <CheckSquare className="h-4 w-4 text-orange-500" />
                           ) : (
                             <Square className="h-4 w-4" />
                           )}
@@ -4928,9 +4928,9 @@ export function RastreadorJ16View() {
                           <span>Cliente</span>
                           {campoOrdenacao === "cliente" ? (
                             direcaoOrdenacao === "asc" ? (
-                              <ArrowUp className="h-3 w-3 text-emerald-500" />
+                              <ArrowUp className="h-3 w-3 text-orange-500" />
                             ) : (
-                              <ArrowDown className="h-3 w-3 text-emerald-500" />
+                              <ArrowDown className="h-3 w-3 text-orange-500" />
                             )
                           ) : (
                             <ArrowUpDown className="h-3 w-3 text-slate-300 dark:text-slate-600" />
@@ -4945,9 +4945,9 @@ export function RastreadorJ16View() {
                           <span>Modelo</span>
                           {campoOrdenacao === "modelo" ? (
                             direcaoOrdenacao === "asc" ? (
-                              <ArrowUp className="h-3 w-3 text-emerald-500" />
+                              <ArrowUp className="h-3 w-3 text-orange-500" />
                             ) : (
-                              <ArrowDown className="h-3 w-3 text-emerald-500" />
+                              <ArrowDown className="h-3 w-3 text-orange-500" />
                             )
                           ) : (
                             <ArrowUpDown className="h-3 w-3 text-slate-300 dark:text-slate-600" />
@@ -4962,9 +4962,9 @@ export function RastreadorJ16View() {
                           <span>IMEI</span>
                           {campoOrdenacao === "imei" ? (
                             direcaoOrdenacao === "asc" ? (
-                              <ArrowUp className="h-3 w-3 text-emerald-500" />
+                              <ArrowUp className="h-3 w-3 text-orange-500" />
                             ) : (
-                              <ArrowDown className="h-3 w-3 text-emerald-500" />
+                              <ArrowDown className="h-3 w-3 text-orange-500" />
                             )
                           ) : (
                             <ArrowUpDown className="h-3 w-3 text-slate-300 dark:text-slate-600" />
@@ -4979,9 +4979,9 @@ export function RastreadorJ16View() {
                           <span>Últ. Comunic.</span>
                           {campoOrdenacao === "ultimaComunicacao" ? (
                             direcaoOrdenacao === "asc" ? (
-                              <ArrowUp className="h-3 w-3 text-emerald-500" />
+                              <ArrowUp className="h-3 w-3 text-orange-500" />
                             ) : (
-                              <ArrowDown className="h-3 w-3 text-emerald-500" />
+                              <ArrowDown className="h-3 w-3 text-orange-500" />
                             )
                           ) : (
                             <ArrowUpDown className="h-3 w-3 text-slate-300 dark:text-slate-600" />
@@ -4996,9 +4996,9 @@ export function RastreadorJ16View() {
                           <span>APN</span>
                           {campoOrdenacao === "apn" ? (
                             direcaoOrdenacao === "asc" ? (
-                              <ArrowUp className="h-3 w-3 text-emerald-500" />
+                              <ArrowUp className="h-3 w-3 text-orange-500" />
                             ) : (
-                              <ArrowDown className="h-3 w-3 text-emerald-500" />
+                              <ArrowDown className="h-3 w-3 text-orange-500" />
                             )
                           ) : (
                             <ArrowUpDown className="h-3 w-3 text-slate-300 dark:text-slate-600" />
@@ -5013,9 +5013,9 @@ export function RastreadorJ16View() {
                           <span>DNS</span>
                           {campoOrdenacao === "dns" ? (
                             direcaoOrdenacao === "asc" ? (
-                              <ArrowUp className="h-3 w-3 text-emerald-500" />
+                              <ArrowUp className="h-3 w-3 text-orange-500" />
                             ) : (
-                              <ArrowDown className="h-3 w-3 text-emerald-500" />
+                              <ArrowDown className="h-3 w-3 text-orange-500" />
                             )
                           ) : (
                             <ArrowUpDown className="h-3 w-3 text-slate-300 dark:text-slate-600" />
@@ -5030,9 +5030,9 @@ export function RastreadorJ16View() {
                           <span>Porta</span>
                           {campoOrdenacao === "porta" ? (
                             direcaoOrdenacao === "asc" ? (
-                              <ArrowUp className="h-3 w-3 text-emerald-500" />
+                              <ArrowUp className="h-3 w-3 text-orange-500" />
                             ) : (
-                              <ArrowDown className="h-3 w-3 text-emerald-500" />
+                              <ArrowDown className="h-3 w-3 text-orange-500" />
                             )
                           ) : (
                             <ArrowUpDown className="h-3 w-3 text-slate-300 dark:text-slate-600" />
@@ -5047,9 +5047,9 @@ export function RastreadorJ16View() {
                           <span>Usuário</span>
                           {campoOrdenacao === "usuario" ? (
                             direcaoOrdenacao === "asc" ? (
-                              <ArrowUp className="h-3 w-3 text-emerald-500" />
+                              <ArrowUp className="h-3 w-3 text-orange-500" />
                             ) : (
-                              <ArrowDown className="h-3 w-3 text-emerald-500" />
+                              <ArrowDown className="h-3 w-3 text-orange-500" />
                             )
                           ) : (
                             <ArrowUpDown className="h-3 w-3 text-slate-300 dark:text-slate-600" />
@@ -5064,9 +5064,9 @@ export function RastreadorJ16View() {
                           <span>Senha</span>
                           {campoOrdenacao === "senha" ? (
                             direcaoOrdenacao === "asc" ? (
-                              <ArrowUp className="h-3 w-3 text-emerald-500" />
+                              <ArrowUp className="h-3 w-3 text-orange-500" />
                             ) : (
-                              <ArrowDown className="h-3 w-3 text-emerald-500" />
+                              <ArrowDown className="h-3 w-3 text-orange-500" />
                             )
                           ) : (
                             <ArrowUpDown className="h-3 w-3 text-slate-300 dark:text-slate-600" />
@@ -5081,9 +5081,9 @@ export function RastreadorJ16View() {
                           <span>FREQ</span>
                           {campoOrdenacao === "freq" ? (
                             direcaoOrdenacao === "asc" ? (
-                              <ArrowUp className="h-3 w-3 text-emerald-500" />
+                              <ArrowUp className="h-3 w-3 text-orange-500" />
                             ) : (
-                              <ArrowDown className="h-3 w-3 text-emerald-500" />
+                              <ArrowDown className="h-3 w-3 text-orange-500" />
                             )
                           ) : (
                             <ArrowUpDown className="h-3 w-3 text-slate-300 dark:text-slate-600" />
@@ -5098,9 +5098,9 @@ export function RastreadorJ16View() {
                           <span>HBT</span>
                           {campoOrdenacao === "hbt" ? (
                             direcaoOrdenacao === "asc" ? (
-                              <ArrowUp className="h-3 w-3 text-emerald-500" />
+                              <ArrowUp className="h-3 w-3 text-orange-500" />
                             ) : (
-                              <ArrowDown className="h-3 w-3 text-emerald-500" />
+                              <ArrowDown className="h-3 w-3 text-orange-500" />
                             )
                           ) : (
                             <ArrowUpDown className="h-3 w-3 text-slate-300 dark:text-slate-600" />
@@ -5119,7 +5119,7 @@ export function RastreadorJ16View() {
                             direcaoOrdenacao === "asc" ? (
                               <ArrowUp className="h-3 w-3 text-emerald-500" />
                             ) : (
-                              <ArrowDown className="h-3 w-3 text-emerald-500" />
+                              <ArrowDown className="h-3 w-3 text-orange-500" />
                             )
                           ) : (
                             <ArrowUpDown className="h-3 w-3 text-slate-300 dark:text-slate-600" />
@@ -5134,9 +5134,9 @@ export function RastreadorJ16View() {
                           <span>SLEEP</span>
                           {campoOrdenacao === "sleep" ? (
                             direcaoOrdenacao === "asc" ? (
-                              <ArrowUp className="h-3 w-3 text-emerald-500" />
+                              <ArrowUp className="h-3 w-3 text-orange-500" />
                             ) : (
-                              <ArrowDown className="h-3 w-3 text-emerald-500" />
+                              <ArrowDown className="h-3 w-3 text-orange-500" />
                             )
                           ) : (
                             <ArrowUpDown className="h-3 w-3 text-slate-300 dark:text-slate-600" />
@@ -5152,9 +5152,9 @@ export function RastreadorJ16View() {
                           <span>ODÔMETRO (KM)</span>
                           {campoOrdenacao === "odometro" ? (
                             direcaoOrdenacao === "asc" ? (
-                              <ArrowUp className="h-3 w-3 text-emerald-500" />
+                              <ArrowUp className="h-3 w-3 text-orange-500" />
                             ) : (
-                              <ArrowDown className="h-3 w-3 text-emerald-500" />
+                              <ArrowDown className="h-3 w-3 text-orange-500" />
                             )
                           ) : (
                             <ArrowUpDown className="h-3 w-3 text-slate-300 dark:text-slate-600" />
@@ -5170,9 +5170,9 @@ export function RastreadorJ16View() {
                           <span>RELÉ (STATUS)</span>
                           {campoOrdenacao === "rele" ? (
                             direcaoOrdenacao === "asc" ? (
-                              <ArrowUp className="h-3 w-3 text-emerald-500" />
+                              <ArrowUp className="h-3 w-3 text-orange-500" />
                             ) : (
-                              <ArrowDown className="h-3 w-3 text-emerald-500" />
+                              <ArrowDown className="h-3 w-3 text-orange-500" />
                             )
                           ) : (
                             <ArrowUpDown className="h-3 w-3 text-slate-300 dark:text-slate-600" />
@@ -5199,7 +5199,7 @@ export function RastreadorJ16View() {
                           onClick={() => toggleSelectImei(disp.imei)}
                           className={`transition cursor-pointer ${
                             isChecked
-                              ? "bg-emerald-50/50 dark:bg-emerald-950/20 font-medium"
+                              ? "bg-orange-50/50 dark:bg-orange-950/20 font-medium"
                               : "hover:bg-slate-50 dark:hover:bg-slate-950/40"
                           }`}
                         >
@@ -5211,7 +5211,7 @@ export function RastreadorJ16View() {
                             }}
                           >
                             {isChecked ? (
-                              <CheckSquare className="h-4 w-4 text-emerald-500 mx-auto" />
+                              <CheckSquare className="h-4 w-4 text-orange-500 mx-auto" />
                             ) : (
                               <Square className="h-4 w-4 text-slate-300 dark:text-slate-600 mx-auto" />
                             )}
@@ -5233,7 +5233,7 @@ export function RastreadorJ16View() {
                                   <div className="text-[10px] text-slate-500 dark:text-slate-400 font-medium pl-0.5 flex items-center gap-1">
                                     <span>👤 {disp.clienteNome}</span>
                                     {disp.clienteTelefone && (
-                                      <span className="text-emerald-600 dark:text-emerald-400 font-mono text-[9px]">
+                                      <span className="text-orange-600 dark:text-orange-400 font-mono text-[9px]">
                                         ({disp.clienteTelefone})
                                       </span>
                                     )}
@@ -5294,7 +5294,7 @@ export function RastreadorJ16View() {
                                 title="Copiar IMEI"
                               >
                                 {copiadoId === `tbl-imei-${disp.imei}` ? (
-                                  <Check className="h-3 w-3 text-emerald-500" />
+                                  <Check className="h-3 w-3 text-orange-500" />
                                 ) : (
                                   <Copy className="h-3 w-3" />
                                 )}
@@ -5307,7 +5307,7 @@ export function RastreadorJ16View() {
                             <div className="flex items-center gap-1.5">
                               <span
                                 className={`h-2 w-2 rounded-full shrink-0 ${
-                                  disp.isTcpOnline ? "bg-emerald-500 animate-pulse" : "bg-slate-400"
+                                  disp.isTcpOnline ? "bg-orange-500 animate-pulse" : "bg-slate-400"
                                 }`}
                               />
                               <span>{ultDataFmt}</span>
@@ -5328,7 +5328,7 @@ export function RastreadorJ16View() {
                           </td>
 
                           {/* DNS (Real Auditado no Hardware) */}
-                          <td className="p-3 font-mono text-[11px] text-emerald-600 dark:text-emerald-400 font-medium truncate max-w-[140px]">
+                          <td className="p-3 font-mono text-[11px] text-orange-600 dark:text-orange-400 font-medium truncate max-w-[140px]">
                             {disp.parametrosAuditados?.dns ? (
                               <span title={disp.parametrosAuditados.dns}>
                                 {disp.parametrosAuditados.dns}
@@ -5465,7 +5465,7 @@ export function RastreadorJ16View() {
                                   <span
                                     className={
                                       disp.parametrosAuditados?.meter === "1"
-                                        ? "text-emerald-500 font-semibold"
+                                        ? "text-orange-500 font-semibold"
                                         : "text-amber-500"
                                     }
                                   >
@@ -5490,7 +5490,7 @@ export function RastreadorJ16View() {
                             ) : (
                               <span
                                 title="Relé Desarmado / Veículo Liberado e Pronto para Partida"
-                                className="px-2 py-0.5 rounded-md text-[10px] font-bold bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 inline-flex items-center gap-1"
+                                className="px-2 py-0.5 rounded-md text-[10px] font-bold bg-orange-500/15 text-orange-600 dark:text-orange-400 border border-orange-500/30 inline-flex items-center gap-1"
                               >
                                 <Unlock className="h-2.5 w-2.5" /> NORMAL
                               </span>
@@ -5582,7 +5582,7 @@ export function RastreadorJ16View() {
                                     )
                                   }
                                   title="RELAY,0: Desbloquear veículo / Restaurar combustível"
-                                  className="px-2 py-1 rounded-md text-[10px] font-mono font-bold bg-emerald-500 hover:bg-emerald-600 text-slate-950 transition cursor-pointer active:scale-95 flex items-center gap-1 shadow-xs"
+                                  className="px-2 py-1 rounded-md text-[10px] font-mono font-bold bg-orange-500 hover:bg-orange-600 text-slate-950 transition cursor-pointer active:scale-95 flex items-center gap-1 shadow-xs"
                                 >
                                   <Unlock className="h-2.5 w-2.5" /> LIBERAR
                                 </button>
@@ -5621,7 +5621,7 @@ export function RastreadorJ16View() {
                                 type="button"
                                 onClick={() => setDispositivoModalComandos(disp)}
                                 title="Abrir catálogo com todas as 28 funções deste rastreador"
-                                className="px-2 py-1 rounded-md text-[10px] font-mono font-bold bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 transition cursor-pointer active:scale-95 flex items-center gap-1"
+                                className="px-2 py-1 rounded-md text-[10px] font-mono font-bold bg-orange-500/10 hover:bg-orange-500/20 text-orange-600 dark:text-orange-400 border border-orange-500/30 transition cursor-pointer active:scale-95 flex items-center gap-1"
                               >
                                 <SlidersHorizontal className="h-2.5 w-2.5" />
                                 <span>MAIS</span>
@@ -5652,7 +5652,7 @@ export function RastreadorJ16View() {
                       spotlightColor={spotlight}
                       className={`p-4 rounded-2xl border transition cursor-pointer relative space-y-3 ${
                         isChecked
-                          ? "bg-emerald-50/50 dark:bg-emerald-950/20 border-emerald-500 ring-2 ring-emerald-500/20"
+                          ? "bg-orange-50/50 dark:bg-orange-950/20 border-orange-500 ring-2 ring-orange-500/20"
                           : "bg-white dark:bg-slate-950/60 border-slate-200 dark:border-slate-800"
                       }`}
                     >
@@ -5685,7 +5685,7 @@ export function RastreadorJ16View() {
                         </div>
                         <div>
                           {isChecked ? (
-                            <CheckSquare className="h-5 w-5 text-emerald-500" />
+                            <CheckSquare className="h-5 w-5 text-orange-500" />
                           ) : (
                             <Square className="h-5 w-5 text-slate-300 dark:text-slate-600" />
                           )}
@@ -5696,7 +5696,7 @@ export function RastreadorJ16View() {
                         <div className="p-2 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-100 dark:border-slate-800">
                           <span className="text-slate-400 block font-bold">SOCKET TCP</span>
                           <span
-                            className={`font-bold ${disp.isTcpOnline ? "text-emerald-500" : "text-slate-400"}`}
+                            className={`font-bold ${disp.isTcpOnline ? "text-orange-500" : "text-slate-400"}`}
                           >
                             {disp.isTcpOnline ? "ONLINE" : "STANDBY"}
                           </span>
@@ -5704,7 +5704,7 @@ export function RastreadorJ16View() {
                         <div className="p-2 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-100 dark:border-slate-800">
                           <span className="text-slate-400 block font-bold">IGNIÇÃO</span>
                           <span
-                            className={`font-bold ${disp.ignicaoStatus ? "text-emerald-500" : "text-slate-400"}`}
+                            className={`font-bold ${disp.ignicaoStatus ? "text-orange-500" : "text-slate-400"}`}
                           >
                             {disp.ignicaoStatus ? "LIGADA" : "DESLIGADA"}
                           </span>
@@ -5731,7 +5731,7 @@ export function RastreadorJ16View() {
                                     (disp.voltagem !== null &&
                                       disp.voltagem !== undefined &&
                                       disp.voltagem > 5)
-                                  ? "text-emerald-500"
+                                  ? "text-orange-500"
                                   : "text-rose-500"
                             }`}
                           >
@@ -5775,7 +5775,7 @@ export function RastreadorJ16View() {
                               disp.bloqueado ||
                               disp.parametrosAuditados?.relay === "1"
                                 ? "text-rose-500"
-                                : "text-emerald-500"
+                                : "text-orange-500"
                             }`}
                           >
                             {disp.releStatus ||
@@ -5852,7 +5852,7 @@ export function RastreadorJ16View() {
                                 disp.veiculoId,
                               )
                             }
-                            className="px-2 py-1 rounded-md text-[10px] font-mono font-bold bg-emerald-500 hover:bg-emerald-600 text-slate-950 transition cursor-pointer active:scale-95 flex items-center gap-1"
+                            className="px-2 py-1 rounded-md text-[10px] font-mono font-bold bg-orange-500 hover:bg-orange-600 text-slate-950 transition cursor-pointer active:scale-95 flex items-center gap-1"
                           >
                             <Unlock className="h-2.5 w-2.5" /> LIBERAR
                           </button>
@@ -5886,7 +5886,7 @@ export function RastreadorJ16View() {
                           type="button"
                           onClick={() => setDispositivoModalComandos(disp)}
                           title="Abrir catálogo com todas as 28 funções deste rastreador"
-                          className="px-2 py-1 rounded-md text-[10px] font-mono font-bold bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 transition cursor-pointer active:scale-95 ml-auto flex items-center gap-1"
+                          className="px-2 py-1 rounded-md text-[10px] font-mono font-bold bg-orange-500/10 hover:bg-orange-500/20 text-orange-600 dark:text-orange-400 border border-orange-500/30 transition cursor-pointer active:scale-95 ml-auto flex items-center gap-1"
                         >
                           <SlidersHorizontal className="h-2.5 w-2.5" />
                           <span>MAIS</span>
@@ -5931,14 +5931,14 @@ export function RastreadorJ16View() {
             <div className="bg-slate-950 text-slate-100 rounded-2xl border border-slate-800 p-3.5 space-y-2 shadow-inner mt-4">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <span className="p-1.5 rounded-lg bg-emerald-500/10 text-emerald-400">
+                  <span className="p-1.5 rounded-lg bg-orange-500/10 text-orange-400">
                     <Terminal className="h-4 w-4" />
                   </span>
                   <div>
                     <h3 className="text-xs font-mono font-bold text-white flex items-center gap-2">
                       <span>Console e Monitor TCP em Tempo Real</span>
-                      <span className="text-[10px] font-normal text-emerald-400 bg-emerald-500/10 px-1.5 py-0.2 rounded border border-emerald-500/20 flex items-center gap-1">
-                        <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                      <span className="text-[10px] font-normal text-orange-400 bg-orange-500/10 px-1.5 py-0.2 rounded border border-orange-500/20 flex items-center gap-1">
+                        <span className="h-1.5 w-1.5 rounded-full bg-orange-400 animate-pulse" />
                         Gateway de Telemetria • Ativo
                       </span>
                     </h3>
@@ -5952,12 +5952,12 @@ export function RastreadorJ16View() {
                   <button
                     type="button"
                     onClick={copiarTextoConsole}
-                    className="px-2.5 py-1 rounded-lg text-[10px] font-mono font-bold text-emerald-400 hover:text-emerald-300 bg-slate-900 hover:bg-slate-800 transition cursor-pointer active:scale-95 border border-slate-800 flex items-center gap-1.5"
+                    className="px-2.5 py-1 rounded-lg text-[10px] font-mono font-bold text-orange-400 hover:text-orange-300 bg-slate-900 hover:bg-slate-800 transition cursor-pointer active:scale-95 border border-slate-800 flex items-center gap-1.5"
                     title="Copiar todo o histórico do console para a área de transferência"
                   >
                     {consoleCopiado ? (
                       <>
-                        <Check className="h-3 w-3 text-emerald-400" />
+                        <Check className="h-3 w-3 text-orange-400" />
                         <span>Copiado!</span>
                       </>
                     ) : (
@@ -5995,7 +5995,7 @@ export function RastreadorJ16View() {
                 {logsTerminal.map((log) => {
                   let cor = "text-slate-300";
                   if (log.tipo === "envio") cor = "text-sky-400 font-bold";
-                  if (log.tipo === "status") cor = "text-emerald-400";
+                  if (log.tipo === "status") cor = "text-orange-400";
                   if (log.tipo === "resposta") cor = "text-amber-300 font-black";
                   if (log.tipo === "erro") cor = "text-rose-400 font-bold";
                   if (log.tipo === "info") cor = "text-slate-400";
@@ -6024,14 +6024,14 @@ export function RastreadorJ16View() {
                   <h2 className="text-sm font-bold text-slate-900 dark:text-slate-100">
                     Catálogo de Comandos do Hardware J16
                   </h2>
-                  <span className="px-2 py-0.5 rounded-full text-[11px] font-mono font-bold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+                  <span className="px-2 py-0.5 rounded-full text-[11px] font-mono font-bold bg-orange-500/10 text-orange-600 dark:text-orange-400 border border-orange-500/20">
                     {comandosFiltrados.length} de {catalogoComandos.length}
                   </span>
                 </div>
               </div>
               <span className="text-xs text-slate-500 dark:text-slate-400">
                 Disparará para:{" "}
-                <strong className="text-emerald-600 dark:text-emerald-400 font-mono font-bold">
+                <strong className="text-orange-600 dark:text-orange-400 font-mono font-bold">
                   {selectedImeis.size} aparelho(s) selecionado(s)
                 </strong>
               </span>
@@ -6055,7 +6055,7 @@ export function RastreadorJ16View() {
                       }
                     }}
                     placeholder="Pesquisar ou digitar comando direto (ex: PARAM#, CXZT#)..."
-                    className="w-full pl-9 pr-9 py-2 text-xs rounded-xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 focus:outline-none focus:border-emerald-500 text-slate-800 dark:text-slate-200 placeholder-slate-400 font-mono shadow-2xs"
+                    className="w-full pl-9 pr-9 py-2 text-xs rounded-xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 focus:outline-none focus:border-orange-500 text-slate-800 dark:text-slate-200 placeholder-slate-400 font-mono shadow-2xs"
                     title="Digite um comando e pressione Enter ou clique no botão Disparar"
                   />
                   {buscaComandoCatalogo && (
@@ -6101,7 +6101,7 @@ export function RastreadorJ16View() {
                   <select
                     value={comandoSelecionadoDropdown}
                     onChange={(e) => setComandoSelecionadoDropdown(e.target.value)}
-                    className="w-full py-2 px-3 text-xs rounded-xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 focus:outline-none focus:border-emerald-500 text-slate-800 dark:text-slate-200 font-medium shadow-2xs cursor-pointer truncate"
+                    className="w-full py-2 px-3 text-xs rounded-xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 focus:outline-none focus:border-orange-500 text-slate-800 dark:text-slate-200 font-medium shadow-2xs cursor-pointer truncate"
                   >
                     <option value="">
                       ⚡ Selecionar comando da lista ({catalogoComandos.length})...
@@ -6159,13 +6159,13 @@ export function RastreadorJ16View() {
                       }}
                       className={`px-2.5 py-1.2 rounded-xl text-xs font-bold transition flex items-center gap-1.5 shrink-0 cursor-pointer border ${
                         isAtivo
-                          ? "bg-emerald-500 text-slate-950 border-emerald-400 shadow-xs"
-                          : "bg-white dark:bg-slate-950/70 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-800 hover:border-emerald-500/40 hover:bg-slate-100 dark:hover:bg-slate-900"
+                          ? "bg-orange-500 text-slate-950 border-orange-400 shadow-xs"
+                          : "bg-white dark:bg-slate-950/70 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-800 hover:border-orange-500/40 hover:bg-slate-100 dark:hover:bg-slate-900"
                       }`}
                       title={`Filtrar grupo: ${grp.label} (${totalGrupo} comandos)`}
                     >
                       <Icone
-                        className={`h-3.5 w-3.5 ${isAtivo ? "text-slate-950" : "text-emerald-500"}`}
+                        className={`h-3.5 w-3.5 ${isAtivo ? "text-slate-950" : "text-orange-500"}`}
                       />
                       <span>{grp.label}</span>
                       <span
@@ -6202,7 +6202,7 @@ export function RastreadorJ16View() {
                     setComandoSelecionadoDropdown("");
                     setGrupoComandoFiltro("todos");
                   }}
-                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold bg-emerald-500 text-slate-950 hover:bg-emerald-400 transition cursor-pointer"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold bg-orange-500 text-slate-950 hover:bg-orange-400 transition cursor-pointer"
                 >
                   <RotateCcw className="h-3.5 w-3.5" />
                   <span>Exibir todos os 38 comandos</span>
@@ -6218,11 +6218,11 @@ export function RastreadorJ16View() {
                   return (
                     <div
                       key={c.num}
-                      className="bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 hover:border-emerald-500/40 rounded-2xl p-3 flex flex-col justify-between space-y-2 transition shadow-2xs group"
+                      className="bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 hover:border-orange-500/40 rounded-2xl p-3 flex flex-col justify-between space-y-2 transition shadow-2xs group"
                     >
                       <div className="flex items-start justify-between gap-1.5">
                         <div className="flex items-center gap-1.5 min-w-0">
-                          <span className="h-5 w-5 rounded-md bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-[10px] font-mono font-bold text-emerald-600 dark:text-emerald-400 shrink-0">
+                          <span className="h-5 w-5 rounded-md bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-[10px] font-mono font-bold text-orange-600 dark:text-orange-400 shrink-0">
                             {c.num}
                           </span>
                           <h3
@@ -6241,7 +6241,7 @@ export function RastreadorJ16View() {
 
                       {/* Linha do Comando Ativo */}
                       <div
-                        className="bg-slate-50 dark:bg-slate-950 px-2 py-1 rounded-xl border border-slate-200/80 dark:border-slate-800/80 font-mono text-[11px] font-bold text-emerald-600 dark:text-emerald-400 truncate tracking-wide"
+                        className="bg-slate-50 dark:bg-slate-950 px-2 py-1 rounded-xl border border-slate-200/80 dark:border-slate-800/80 font-mono text-[11px] font-bold text-orange-600 dark:text-orange-400 truncate tracking-wide"
                         title={comandoAtivo}
                       >
                         {comandoAtivo}
@@ -6259,7 +6259,7 @@ export function RastreadorJ16View() {
                           type="button"
                           onClick={() => dispararComandoParaSelecionados(comandoAtivo, c.titulo)}
                           disabled={enviandoComando || selectedImeis.size === 0}
-                          className={`py-1.5 px-2 rounded-xl text-[11px] font-bold bg-emerald-500 hover:bg-emerald-400 text-slate-950 transition flex items-center justify-center gap-1 cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed shadow-2xs active:scale-95 ${
+                          className={`py-1.5 px-2 rounded-xl text-[11px] font-bold bg-orange-500 hover:bg-orange-400 text-slate-950 transition flex items-center justify-center gap-1 cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed shadow-2xs active:scale-95 ${
                             c.presets && c.presets.length > 0 ? "" : "w-full"
                           }`}
                           title={`Disparar "${comandoAtivo}" para ${selectedImeis.size} aparelho(s)`}
@@ -6309,14 +6309,14 @@ export function RastreadorJ16View() {
               {/* Cabeçalho */}
               <div className="p-4 sm:p-5 border-b border-slate-300/60 dark:border-slate-800 flex items-center justify-between bg-[#eaf0f8]/90 dark:bg-slate-950/50">
                 <div className="flex items-center gap-3">
-                  <span className="h-8 w-8 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-sm font-mono font-bold text-emerald-600 dark:text-emerald-400">
+                  <span className="h-8 w-8 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-sm font-mono font-bold text-orange-600 dark:text-orange-400">
                     {comandoModalConfig.num}
                   </span>
                   <div>
                     <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100">
                       {comandoModalConfig.titulo}
                     </h3>
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-500">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-orange-500">
                       {comandoModalConfig.categoria} • {comandoModalConfig.prioridade}
                     </span>
                   </div>
@@ -6342,12 +6342,12 @@ export function RastreadorJ16View() {
                   <label className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
                     Comando Ativo:
                   </label>
-                  <div className="bg-slate-50 dark:bg-slate-950 p-2.5 rounded-2xl border border-slate-200 dark:border-slate-800 flex items-center justify-between gap-2 focus-within:ring-2 focus-within:ring-emerald-500/30 focus-within:border-emerald-500">
+                  <div className="bg-slate-50 dark:bg-slate-950 p-2.5 rounded-2xl border border-slate-200 dark:border-slate-800 flex items-center justify-between gap-2 focus-within:ring-2 focus-within:ring-orange-500/30 focus-within:border-orange-500">
                     <input
                       type="text"
                       value={comandosEditados[comandoModalConfig.num] ?? comandoModalConfig.exemplo}
                       onChange={(e) => handleAlterarComando(comandoModalConfig.num, e.target.value)}
-                      className="w-full bg-transparent font-mono text-sm text-emerald-600 dark:text-emerald-400 font-bold outline-none px-1"
+                      className="w-full bg-transparent font-mono text-sm text-orange-600 dark:text-orange-400 font-bold outline-none px-1"
                     />
                     {comandosEditados[comandoModalConfig.num] !== undefined &&
                       comandosEditados[comandoModalConfig.num] !== comandoModalConfig.exemplo && (
@@ -6397,7 +6397,7 @@ export function RastreadorJ16View() {
                             }
                             className={`text-xs font-semibold px-3 py-1.5 rounded-xl transition cursor-pointer active:scale-95 ${
                               ativo
-                                ? "bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border border-emerald-500/40 font-bold shadow-xs"
+                                ? "bg-orange-500/20 text-orange-600 dark:text-orange-400 border border-orange-500/40 font-bold shadow-xs"
                                 : "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-200/60 dark:border-slate-700/60"
                             }`}
                           >
@@ -6443,7 +6443,7 @@ export function RastreadorJ16View() {
                       setComandoModalConfig(null);
                     }}
                     disabled={enviandoComando || selectedImeis.size === 0}
-                    className="px-5 py-2.5 rounded-xl text-xs font-bold bg-emerald-500 hover:bg-emerald-400 text-slate-950 transition cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-1.5 shadow-sm active:scale-95"
+                    className="px-5 py-2.5 rounded-xl text-xs font-bold bg-orange-500 hover:bg-orange-400 text-slate-950 transition cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-1.5 shadow-sm active:scale-95"
                   >
                     <Send className="h-4 w-4" />
                     <span>Disparar ({selectedImeis.size})</span>
@@ -6463,7 +6463,7 @@ export function RastreadorJ16View() {
               {/* Cabeçalho */}
               <div className="p-4 sm:p-5 border-b border-slate-300/60 dark:border-slate-800 flex items-center justify-between bg-[#eaf0f8]/90 dark:bg-slate-950/50">
                 <div className="flex items-center gap-3">
-                  <div className="h-10 w-10 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-500">
+                  <div className="h-10 w-10 rounded-2xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-orange-500">
                     <SlidersHorizontal className="h-5 w-5" />
                   </div>
                   <div>
@@ -6896,7 +6896,7 @@ export function RastreadorJ16View() {
                       {secao.comandos.map((item) => (
                         <div
                           key={item.cmd}
-                          className="p-2.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50/60 dark:bg-slate-950/60 flex items-center justify-between gap-2 hover:border-emerald-500/40 transition"
+                          className="p-2.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50/60 dark:bg-slate-950/60 flex items-center justify-between gap-2 hover:border-orange-500/40 transition"
                         >
                           <div className="min-w-0">
                             <div className="text-[11px] font-mono font-bold text-slate-800 dark:text-slate-200 truncate">
@@ -6920,7 +6920,7 @@ export function RastreadorJ16View() {
                               item.cor === "rose"
                                 ? "bg-rose-500 hover:bg-rose-600 text-white"
                                 : item.cor === "emerald"
-                                  ? "bg-emerald-500 hover:bg-emerald-600 text-slate-950"
+                                  ? "bg-orange-500 hover:bg-orange-600 text-slate-950"
                                   : "bg-slate-200 hover:bg-slate-300 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200"
                             }`}
                           >
@@ -7084,9 +7084,9 @@ export function RastreadorJ16View() {
                 </div>
 
                 {/* Explicação de Injeção Automática */}
-                <div className="p-3 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-800 dark:text-emerald-300 text-xs space-y-1">
+                <div className="p-3 rounded-2xl bg-orange-500/10 border border-orange-500/20 text-orange-800 dark:text-orange-300 text-xs space-y-1">
                   <strong className="block font-bold">Injeção Dinâmica em Todo o Sistema:</strong>
-                  <p className="text-[11px] leading-relaxed text-emerald-700 dark:text-emerald-400">
+                  <p className="text-[11px] leading-relaxed text-orange-700 dark:text-orange-400">
                     Ao salvar, a nova senha passa a ser utilizada imediatamente no comando de
                     administrador (
                     <code>

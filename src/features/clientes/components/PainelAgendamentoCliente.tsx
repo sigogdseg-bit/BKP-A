@@ -182,7 +182,7 @@ export function PainelAgendamentoCliente() {
               <span
                 className={`px-2 py-0.5 rounded-full text-[9px] font-black uppercase tracking-wider border ${
                   isAgendado
-                    ? "bg-emerald-500/15 text-emerald-700 dark:text-emerald-400 border border-emerald-500/30"
+                    ? "bg-orange-500/15 text-orange-700 dark:text-orange-400 border border-orange-500/30"
                     : "bg-amber-500/15 text-amber-700 dark:text-amber-400 border border-amber-500/30 animate-pulse"
                 }`}
               >
@@ -229,7 +229,7 @@ export function PainelAgendamentoCliente() {
             {agendamento.instalador_nome || "Técnico em Atribuição"}
           </div>
           {agendamento.instalador_telefone ? (
-            <div className="text-[11px] text-emerald-600 dark:text-emerald-400 font-mono">
+            <div className="text-[11px] text-orange-600 dark:text-orange-400 font-mono">
               Tel: {agendamento.instalador_telefone}
             </div>
           ) : null}
@@ -242,7 +242,7 @@ export function PainelAgendamentoCliente() {
             <span>Data e Horário</span>
           </span>
           {isAgendado ? (
-            <div className="text-xs font-mono font-bold text-emerald-600 dark:text-emerald-400">
+            <div className="text-xs font-mono font-bold text-orange-600 dark:text-orange-400">
               {dataFormatada} às {agendamento.hora_agendamento || "--:--"}
             </div>
           ) : (
@@ -282,7 +282,7 @@ export function PainelAgendamentoCliente() {
           <button
             type="button"
             onClick={ligarInstalador}
-            className="px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold transition flex items-center gap-1.5 shadow-md shadow-emerald-950/40"
+            className="px-3 py-1.5 rounded-xl bg-orange-600 hover:bg-orange-500 text-white text-xs font-bold transition flex items-center gap-1.5 shadow-md shadow-orange-950/40"
           >
             <Phone className="h-3.5 w-3.5" />
             <span>Ligar para o Instalador</span>

@@ -404,7 +404,7 @@ export function ModalBloqueioSeguroVeiculo({
                     <span className="text-[11px] text-slate-500 dark:text-slate-400 block font-medium">
                       Condição Inicial de Corte
                     </span>
-                    <span className="font-mono font-bold text-xs sm:text-sm text-emerald-600 dark:text-emerald-400 flex items-center gap-1.5 mt-1">
+                    <span className="font-mono font-bold text-xs sm:text-sm text-orange-600 dark:text-orange-400 flex items-center gap-1.5 mt-1">
                       <Lock className="w-3.5 h-3.5" />
                       Parada Total (0 km/h)
                     </span>
@@ -537,8 +537,8 @@ export function ModalBloqueioSeguroVeiculo({
                         km/h
                       </span>
                     </div>
-                    <div className="flex items-center gap-1 text-[11px] text-emerald-600 dark:text-emerald-400 font-bold">
-                      <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
+                    <div className="flex items-center gap-1 text-[11px] text-orange-600 dark:text-orange-400 font-bold">
+                      <span className="w-2 h-2 rounded-full bg-orange-500 animate-ping" />
                       <span>Telemetria Realtime GD Rastreamento</span>
                     </div>
                   </div>
@@ -610,7 +610,7 @@ export function ModalBloqueioSeguroVeiculo({
             {/* ========================================================================= */}
             {fase === "bloqueio_concluido" && (
               <div className="py-6 text-center space-y-4">
-                <div className="w-16 h-16 rounded-full bg-emerald-500/15 border-2 border-emerald-500 flex items-center justify-center text-emerald-500 mx-auto">
+                <div className="w-16 h-16 rounded-full bg-orange-500/15 border-2 border-orange-500 flex items-center justify-center text-orange-500 mx-auto">
                   <CheckCircle2 className="w-9 h-9" />
                 </div>
 
@@ -627,7 +627,7 @@ export function ModalBloqueioSeguroVeiculo({
                 <button
                   type="button"
                   onClick={onFechar}
-                  className="px-6 py-2 rounded-xl text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-500 transition shadow-md"
+                  className="px-6 py-2 rounded-xl text-xs font-bold text-white bg-orange-600 hover:bg-orange-500 transition shadow-md"
                 >
                   Concluir
                 </button>

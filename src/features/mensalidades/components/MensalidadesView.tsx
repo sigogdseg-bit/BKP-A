@@ -352,7 +352,7 @@ export function MensalidadesView() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 bg-[#eaf0f8] dark:bg-slate-900/80 border border-slate-300/60 dark:border-slate-800 p-4 sm:p-5 rounded-2xl shadow-[4px_4px_10px_#c3cfe2] dark:shadow-xl">
         <div className="flex items-center gap-3">
-          <div className="h-12 w-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shadow-xs">
+          <div className="h-12 w-12 rounded-2xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-orange-600 dark:text-orange-400 shadow-xs">
             <CreditCard className="h-6 w-6" />
           </div>
           <div>
@@ -379,7 +379,7 @@ export function MensalidadesView() {
 
             <button
               onClick={() => setModalNova(true)}
-              className="flex items-center justify-center gap-2 px-3.5 py-2 rounded-xl text-xs font-bold bg-emerald-500 hover:bg-emerald-400 text-slate-950 transition shadow-lg shadow-emerald-500/20 w-full sm:w-auto"
+              className="flex items-center justify-center gap-2 px-3.5 py-2 rounded-xl text-xs font-bold bg-orange-500 hover:bg-orange-400 text-slate-950 transition shadow-lg shadow-orange-500/20 w-full sm:w-auto"
             >
               <Plus className="h-4 w-4" />
               <span>Nova Mensalidade</span>
@@ -427,19 +427,19 @@ export function MensalidadesView() {
               spotlightColor="rgba(16, 185, 129, 0.18)"
               className={`p-4 rounded-2xl border shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none flex flex-col justify-between cursor-pointer transition ${
                 filtroStatus === "pago"
-                  ? "border-emerald-500/60 ring-2 ring-emerald-500/20 bg-emerald-500/5 dark:bg-emerald-900/20"
-                  : "bg-[#eaf0f8] dark:bg-slate-900/60 border-slate-300/60 dark:border-slate-800/80 hover:border-emerald-400/50"
+                  ? "border-orange-500/60 ring-2 ring-orange-500/20 bg-orange-500/5 dark:bg-emerald-900/20"
+                  : "bg-[#eaf0f8] dark:bg-slate-900/60 border-slate-300/60 dark:border-slate-800/80 hover:border-orange-400/50"
               }`}
             >
-              <div className="flex items-center justify-between text-emerald-600 dark:text-emerald-400 text-xs mb-1">
+              <div className="flex items-center justify-between text-orange-600 dark:text-orange-400 text-xs mb-1">
                 <span className="font-semibold">Recebido (Pago)</span>
-                <CheckCircle2 className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
+                <CheckCircle2 className="h-4 w-4 text-orange-600 dark:text-orange-400" />
               </div>
               <div>
-                <div className="text-lg sm:text-xl font-black font-mono text-emerald-600 dark:text-emerald-400">
+                <div className="text-lg sm:text-xl font-black font-mono text-orange-600 dark:text-orange-400">
                   R$ {resumo.totalRecebido.toFixed(2)}
                 </div>
-                <div className="text-[11px] text-emerald-700 dark:text-emerald-400/80 mt-0.5 font-medium">
+                <div className="text-[11px] text-orange-700 dark:text-orange-400/80 mt-0.5 font-medium">
                   {resumo.qtdRecebido} pagas
                 </div>
               </div>
@@ -493,7 +493,7 @@ export function MensalidadesView() {
                       ? "border-rose-500/60 ring-2 ring-rose-500/20 bg-rose-500/5 dark:bg-rose-900/20"
                       : isAtrasado
                         ? "border-amber-500/60 ring-2 ring-amber-500/20 bg-amber-500/5 dark:bg-amber-900/20"
-                        : "border-emerald-500/60 ring-2 ring-emerald-500/20 bg-emerald-500/5 dark:bg-emerald-900/20"
+                        : "border-orange-500/60 ring-2 ring-orange-500/20 bg-orange-500/5 dark:bg-emerald-900/20"
                     : "bg-[#eaf0f8] dark:bg-slate-900/60 border-slate-300/60 dark:border-slate-800/80 hover:border-slate-400/60"
                 }`}
               >
@@ -503,7 +503,7 @@ export function MensalidadesView() {
                       ? "text-rose-600 dark:text-rose-400"
                       : isAtrasado
                         ? "text-amber-600 dark:text-amber-400"
-                        : "text-emerald-600 dark:text-emerald-400"
+                        : "text-orange-600 dark:text-orange-400"
                   }`}
                 >
                   <span className="font-semibold">Status Financeiro</span>
@@ -512,7 +512,7 @@ export function MensalidadesView() {
                   ) : isAtrasado ? (
                     <AlertTriangle className="h-4 w-4 text-amber-600 dark:text-amber-400" />
                   ) : (
-                    <ShieldCheck className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
+                    <ShieldCheck className="h-4 w-4 text-orange-600 dark:text-orange-400" />
                   )}
                 </div>
                 <div>
@@ -522,7 +522,7 @@ export function MensalidadesView() {
                         ? "text-rose-600 dark:text-rose-400"
                         : isAtrasado
                           ? "text-amber-600 dark:text-amber-400"
-                          : "text-emerald-600 dark:text-emerald-400"
+                          : "text-orange-600 dark:text-orange-400"
                     }`}
                   >
                     {statusCardCliente.label}
@@ -533,7 +533,7 @@ export function MensalidadesView() {
                         ? "text-rose-700 dark:text-rose-400/80"
                         : isAtrasado
                           ? "text-amber-700 dark:text-amber-400/80"
-                          : "text-emerald-700 dark:text-emerald-400/80"
+                          : "text-orange-700 dark:text-orange-400/80"
                     }`}
                   >
                     {statusCardCliente.descricao}
@@ -582,7 +582,7 @@ export function MensalidadesView() {
               }
               value={busca}
               onChange={(e) => setBusca(e.target.value)}
-              className="w-full pl-9 pr-3 py-1.5 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-200 placeholder:text-slate-400 shadow-[inset_1px_1px_3px_#c8d4e4] dark:shadow-none focus:outline-none focus:border-emerald-500"
+              className="w-full pl-9 pr-3 py-1.5 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-200 placeholder:text-slate-400 shadow-[inset_1px_1px_3px_#c8d4e4] dark:shadow-none focus:outline-none focus:border-orange-500"
             />
           </div>
 
@@ -643,7 +643,7 @@ export function MensalidadesView() {
               onClick={() => setFiltroStatus(st.id)}
               className={`px-3 py-1.5 rounded-xl font-medium transition ${
                 filtroStatus === st.id
-                  ? "bg-emerald-500/20 text-emerald-700 dark:text-emerald-400 border border-emerald-500/30 font-bold shadow-xs"
+                  ? "bg-orange-500/20 text-orange-700 dark:text-orange-400 border border-orange-500/30 font-bold shadow-xs"
                   : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
               }`}
             >
@@ -705,7 +705,7 @@ export function MensalidadesView() {
                         <span
                           className={`px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider ${
                             isPago
-                              ? "bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30"
+                              ? "bg-orange-500/20 text-orange-700 dark:text-orange-300 border border-orange-500/30"
                               : isVencido
                                 ? "bg-rose-500/20 text-rose-700 dark:text-rose-300 border border-rose-500/30"
                                 : "bg-amber-500/20 text-amber-700 dark:text-amber-300 border border-amber-500/30"
@@ -745,7 +745,7 @@ export function MensalidadesView() {
                     {isPago && m.data_pagamento && (
                       <>
                         <span>·</span>
-                        <span className="text-emerald-600 dark:text-emerald-400 text-[11px] font-semibold">
+                        <span className="text-orange-600 dark:text-orange-400 text-[11px] font-semibold">
                           Pago em: {new Date(m.data_pagamento).toLocaleDateString("pt-BR")}
                         </span>
                       </>
@@ -773,7 +773,7 @@ export function MensalidadesView() {
                     <span
                       className={`text-sm font-black font-mono ${
                         isPago
-                          ? "text-emerald-600 dark:text-emerald-400"
+                          ? "text-orange-600 dark:text-orange-400"
                           : isVencido
                             ? "text-rose-600 dark:text-rose-400"
                             : isAdesao
@@ -814,7 +814,7 @@ export function MensalidadesView() {
                         ) : (
                           <button
                             onClick={() => setModalInformarItem(m)}
-                            className="px-2.5 py-1.5 rounded-xl text-xs font-bold bg-emerald-500 hover:bg-emerald-400 text-slate-950 transition shadow-sm flex items-center gap-1"
+                            className="px-2.5 py-1.5 rounded-xl text-xs font-bold bg-orange-500 hover:bg-orange-400 text-slate-950 transition shadow-sm flex items-center gap-1"
                             title="Informar que o pagamento desta fatura já foi realizado"
                           >
                             <CheckCircle2 className="h-3.5 w-3.5" />
@@ -856,7 +856,7 @@ export function MensalidadesView() {
                         {!isPago ? (
                           <button
                             onClick={() => handleBaixa(m.id)}
-                            className="px-3 py-1.5 rounded-xl text-xs font-bold bg-emerald-500 hover:bg-emerald-400 text-slate-950 transition shadow"
+                            className="px-3 py-1.5 rounded-xl text-xs font-bold bg-orange-500 hover:bg-orange-400 text-slate-950 transition shadow"
                           >
                             Baixar
                           </button>
@@ -952,7 +952,7 @@ export function MensalidadesView() {
                 />
               </div>
 
-              <div className="text-xs font-mono font-black text-emerald-600 dark:text-emerald-400">
+              <div className="text-xs font-mono font-black text-orange-600 dark:text-orange-400">
                 R$ {modalPixItem.valorFinal.toFixed(2)}
               </div>
 
@@ -992,7 +992,7 @@ export function MensalidadesView() {
                     setModalPixItem(null);
                     handleBaixa(id);
                   }}
-                  className="w-full py-2 px-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs transition"
+                  className="w-full py-2 px-3 rounded-xl bg-orange-500 hover:bg-orange-400 text-slate-950 font-bold text-xs transition"
                 >
                   Confirmar Baixa Imediata
                 </button>

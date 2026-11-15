@@ -44,7 +44,7 @@ export function ThemeToggle({ compacto = false }: ThemeToggleProps) {
             : "bg-white hover:bg-slate-100 text-slate-700 border-slate-200 hover:border-slate-300 shadow-sm"
         }`}
       >
-        <IconeAtual className="h-4 w-4 text-emerald-500 transition-transform duration-200" />
+        <IconeAtual className="h-4 w-4 text-orange-500 transition-transform duration-200" />
         {!compacto && (
           <>
             <span className="hidden sm:inline">
@@ -79,7 +79,7 @@ export function ThemeToggle({ compacto = false }: ThemeToggleProps) {
                 }}
                 className={`w-full flex items-center justify-between px-2.5 py-1.5 rounded-xl text-xs font-medium transition-colors ${
                   selecionado
-                    ? "bg-emerald-500/15 text-emerald-500 font-bold"
+                    ? "bg-orange-500/15 text-orange-500 font-bold"
                     : resolvedTheme === "dark"
                       ? "hover:bg-slate-800 text-slate-300 hover:text-slate-100"
                       : "hover:bg-slate-100 text-slate-600 hover:text-slate-900"
@@ -89,7 +89,7 @@ export function ThemeToggle({ compacto = false }: ThemeToggleProps) {
                   <Icone className="h-3.5 w-3.5" />
                   <span>{op.label}</span>
                 </div>
-                {selecionado && <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />}
+                {selecionado && <span className="h-1.5 w-1.5 rounded-full bg-orange-500" />}
               </button>
             );
           })}

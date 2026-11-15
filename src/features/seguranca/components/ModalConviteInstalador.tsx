@@ -137,7 +137,7 @@ export function ModalConviteInstalador({ aberto, onFechar }: ModalConviteInstala
               >
                 {copiado ? (
                   <>
-                    <Check className="h-3.5 w-3.5 text-emerald-500" />
+                    <Check className="h-3.5 w-3.5 text-orange-500" />
                     <span>Copiado</span>
                   </>
                 ) : (
@@ -156,7 +156,7 @@ export function ModalConviteInstalador({ aberto, onFechar }: ModalConviteInstala
               type="button"
               onClick={copiarLink}
               disabled={!linkGerado || gerando}
-              className="w-full sm:flex-1 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs shadow-md shadow-emerald-600/20 transition flex items-center justify-center gap-1.5 cursor-pointer"
+              className="w-full sm:flex-1 py-2.5 rounded-xl bg-orange-600 hover:bg-orange-500 text-white font-bold text-xs shadow-md shadow-orange-600/20 transition flex items-center justify-center gap-1.5 cursor-pointer"
             >
               {copiado ? (
                 <>

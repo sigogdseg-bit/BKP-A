@@ -31,7 +31,7 @@ function AuthenticatedLoadingFallback() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#eaf0f8] dark:bg-slate-950 text-slate-900 dark:text-slate-100 p-4">
       <div className="flex flex-col items-center gap-3">
-        <div className="h-8 w-8 rounded-full border-2 border-emerald-500 border-t-transparent animate-spin" />
+        <div className="h-8 w-8 rounded-full border-2 border-orange-500 border-t-transparent animate-spin" />
         <span className="text-xs text-slate-500 dark:text-slate-400 font-mono">
           Verificando credenciais GD Rastreamento...
         </span>
@@ -204,7 +204,7 @@ function AuthenticatedLayout() {
     return (
       <div className="min-h-screen flex items-center justify-center bg-[#eaf0f8] dark:bg-slate-950 text-slate-900 dark:text-slate-100 p-4">
         <div className="flex flex-col items-center gap-3">
-          <div className="h-8 w-8 rounded-full border-2 border-emerald-500 border-t-transparent animate-spin" />
+          <div className="h-8 w-8 rounded-full border-2 border-orange-500 border-t-transparent animate-spin" />
           <span className="text-xs text-slate-500 dark:text-slate-400 font-mono">
             Verificando credenciais GD Rastreamento...
           </span>
@@ -233,13 +233,13 @@ function AuthenticatedLayout() {
     return (
       <div className="min-h-screen flex items-center justify-center bg-[#eaf0f8] dark:bg-slate-950 text-slate-900 dark:text-slate-100 p-4 select-none">
         <div className="flex flex-col items-center gap-3">
-          <div className="h-8 w-8 rounded-full border-2 border-emerald-500 border-t-transparent animate-spin" />
+          <div className="h-8 w-8 rounded-full border-2 border-orange-500 border-t-transparent animate-spin" />
           <span className="text-xs text-slate-500 dark:text-slate-400 font-mono">
             Redirecionando para login...
           </span>
           <a
             href="/login"
-            className="mt-2 text-xs text-emerald-600 dark:text-emerald-400 font-semibold underline"
+            className="mt-2 text-xs text-orange-600 dark:text-orange-400 font-semibold underline"
           >
             Acessar tela de login
           </a>

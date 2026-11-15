@@ -493,7 +493,7 @@ export function ModalContratosCliente({
         {/* Cabeçalho do Modal */}
         <div className="flex items-center justify-between px-5 py-4 border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50">
           <div className="flex items-center gap-3">
-            <div className="p-2.5 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+            <div className="p-2.5 rounded-xl bg-orange-500/10 text-orange-600 dark:text-orange-400 border border-orange-500/20">
               <FileCheck className="h-5 w-5" />
             </div>
             <div>
@@ -542,8 +542,8 @@ export function ModalContratosCliente({
               onClick={() => alternarFiltro("assinado")}
               className={`p-3 rounded-xl border text-left transition cursor-pointer ${
                 filtroStatus === "assinado"
-                  ? "bg-emerald-600 text-white border-emerald-600"
-                  : "bg-emerald-50/60 dark:bg-emerald-950/20 border-emerald-200/60 dark:border-emerald-800/40 text-emerald-700 dark:text-emerald-300 hover:border-emerald-400"
+                  ? "bg-orange-600 text-white border-orange-600"
+                  : "bg-orange-50/60 dark:bg-orange-950/20 border-emerald-200/60 dark:border-emerald-800/40 text-orange-700 dark:text-orange-300 hover:border-orange-400"
               }`}
             >
               <div className="flex items-center justify-between">
@@ -636,7 +636,7 @@ export function ModalContratosCliente({
                 type="button"
                 onClick={handleClicarEmitirContrato}
                 disabled={emitindoNovo}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-700 transition shadow-xs active:scale-95 cursor-pointer disabled:opacity-50"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold text-white bg-orange-600 hover:bg-emerald-700 transition shadow-xs active:scale-95 cursor-pointer disabled:opacity-50"
               >
                 <Plus className="h-3.5 w-3.5" />
                 <span>{emitindoNovo ? "Emitindo..." : "Emitir Novo Contrato"}</span>
@@ -647,7 +647,7 @@ export function ModalContratosCliente({
           {/* Lista de Contratos */}
           {carregando ? (
             <div className="py-12 text-center text-slate-400 space-y-2">
-              <RefreshCw className="h-6 w-6 animate-spin mx-auto text-emerald-500" />
+              <RefreshCw className="h-6 w-6 animate-spin mx-auto text-orange-500" />
               <p className="text-xs">Carregando cadeia de custódia dos contratos...</p>
             </div>
           ) : contratosFiltrados.length === 0 ? (
@@ -676,7 +676,7 @@ export function ModalContratosCliente({
                   type="button"
                   onClick={handleClicarEmitirContrato}
                   disabled={emitindoNovo}
-                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-700 transition shadow-xs active:scale-95 cursor-pointer disabled:opacity-50"
+                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold text-white bg-orange-600 hover:bg-emerald-700 transition shadow-xs active:scale-95 cursor-pointer disabled:opacity-50"
                 >
                   <Plus className="h-4 w-4" />
                   <span>{emitindoNovo ? "Emitindo..." : "Emitir Novo Contrato"}</span>
@@ -709,7 +709,7 @@ export function ModalContratosCliente({
                         <span
                           className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold ${
                             isAssinado
-                              ? "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20"
+                              ? "bg-orange-500/10 text-orange-600 dark:text-orange-400 border border-orange-500/20"
                               : isAtualizado
                                 ? "bg-amber-500/15 text-amber-700 dark:text-amber-400 border border-amber-500/30"
                                 : isEnviado
@@ -753,7 +753,7 @@ export function ModalContratosCliente({
                           Emitido em: {new Date(contrato.data_emissao).toLocaleDateString("pt-BR")}
                         </span>
                         {contrato.data_assinatura && (
-                          <span className="text-emerald-600 dark:text-emerald-400 font-medium">
+                          <span className="text-orange-600 dark:text-orange-400 font-medium">
                             • Assinado em:{" "}
                             {new Date(contrato.data_assinatura).toLocaleDateString("pt-BR")}
                           </span>
@@ -779,7 +779,7 @@ export function ModalContratosCliente({
                           <button
                             type="button"
                             onClick={() => copiarTexto(contrato.selo_autenticidade, "Selo")}
-                            className="inline-flex items-center gap-1 font-mono font-bold text-emerald-600 dark:text-emerald-400 hover:underline cursor-pointer"
+                            className="inline-flex items-center gap-1 font-mono font-bold text-orange-600 dark:text-orange-400 hover:underline cursor-pointer"
                             title="Copiar Selo de Autenticidade"
                           >
                             <span>{contrato.selo_autenticidade}</span>
@@ -813,7 +813,7 @@ export function ModalContratosCliente({
                               onClick={() =>
                                 copiarTexto(contrato.hash_pdf_assinado || "", "Hash Assinado")
                               }
-                              className="inline-flex items-center gap-1 font-mono text-[10px] text-slate-700 dark:text-slate-300 hover:text-emerald-500 cursor-pointer"
+                              className="inline-flex items-center gap-1 font-mono text-[10px] text-slate-700 dark:text-slate-300 hover:text-orange-500 cursor-pointer"
                               title={contrato.hash_pdf_assinado}
                             >
                               <span>{contrato.hash_pdf_assinado.substring(0, 16)}...</span>
@@ -963,7 +963,7 @@ export function ModalContratosCliente({
             <div
               className={`p-4 rounded-xl border space-y-2 ${
                 resultadoIntegridade.integro
-                  ? "bg-emerald-50/80 dark:bg-emerald-950/30 border-emerald-500/30 text-emerald-900 dark:text-emerald-100"
+                  ? "bg-orange-50/80 dark:bg-orange-950/30 border-orange-500/30 text-emerald-900 dark:text-orange-100"
                   : "bg-red-50/80 dark:bg-red-950/30 border-red-500/30 text-red-900 dark:text-red-100"
               }`}
             >
@@ -971,7 +971,7 @@ export function ModalContratosCliente({
                 <div className="flex items-center gap-2 font-bold text-sm">
                   {resultadoIntegridade.integro ? (
                     <>
-                      <CheckCircle2 className="h-5 w-5 text-emerald-600" />
+                      <CheckCircle2 className="h-5 w-5 text-orange-600" />
                       <span>Conferência Positiva: Documento Íntegro</span>
                     </>
                   ) : (
@@ -1048,7 +1048,7 @@ export function ModalContratosCliente({
                   value={nomeSignatario}
                   onChange={(e) => setNomeSignatario(e.target.value)}
                   placeholder="Nome completo do signatário"
-                  className="w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white focus:outline-hidden focus:ring-2 focus:ring-emerald-500"
+                  className="w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white focus:outline-hidden focus:ring-2 focus:ring-orange-500"
                 />
               </div>
 
@@ -1059,7 +1059,7 @@ export function ModalContratosCliente({
                 <select
                   value={metodoAssinatura}
                   onChange={(e) => setMetodoAssinatura(e.target.value as any)}
-                  className="w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white focus:outline-hidden focus:ring-2 focus:ring-emerald-500"
+                  className="w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white focus:outline-hidden focus:ring-2 focus:ring-orange-500"
                 >
                   <option value="digital">
                     Assinatura Digital (Certificado / Token / ICP-Brasil)
@@ -1080,10 +1080,10 @@ export function ModalContratosCliente({
                     const f = e.target.files?.[0];
                     if (f) setArquivoPdfAssinado(f);
                   }}
-                  className="w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white text-xs file:mr-3 file:py-1 file:px-2.5 file:rounded-md file:border-0 file:text-xs file:font-semibold file:bg-emerald-500 file:text-white hover:file:bg-emerald-600 cursor-pointer"
+                  className="w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white text-xs file:mr-3 file:py-1 file:px-2.5 file:rounded-md file:border-0 file:text-xs file:font-semibold file:bg-orange-500 file:text-white hover:file:bg-orange-600 cursor-pointer"
                 />
                 {arquivoPdfAssinado && (
-                  <p className="mt-1 text-[11px] text-emerald-600 dark:text-emerald-400 font-medium">
+                  <p className="mt-1 text-[11px] text-orange-600 dark:text-orange-400 font-medium">
                     Arquivo selecionado: {arquivoPdfAssinado.name} (
                     {(arquivoPdfAssinado.size / 1024).toFixed(1)} KB)
                   </p>
@@ -1114,7 +1114,7 @@ export function ModalContratosCliente({
                 type="button"
                 onClick={handleConfirmarAssinatura}
                 disabled={!arquivoPdfAssinado || processandoAssinaturaId === contratoParaAssinar.id}
-                className="px-4 py-2 rounded-xl text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-700 transition shadow-xs active:scale-95 cursor-pointer disabled:opacity-50"
+                className="px-4 py-2 rounded-xl text-xs font-bold text-white bg-orange-600 hover:bg-emerald-700 transition shadow-xs active:scale-95 cursor-pointer disabled:opacity-50"
               >
                 {processandoAssinaturaId === contratoParaAssinar.id
                   ? "Calculando Hash e Salvando..."
@@ -1264,7 +1264,7 @@ export function ModalContratosCliente({
           <div className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-2xl p-5 sm:p-6 space-y-4 animate-in fade-in zoom-in-95 duration-150">
             <div className="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-3">
               <div className="flex items-center gap-2">
-                <FileText className="h-5 w-5 text-emerald-500" />
+                <FileText className="h-5 w-5 text-orange-500" />
                 <h3 className="font-bold text-sm sm:text-base text-slate-900 dark:text-white">
                   Emissão de Contrato — Definição do Tipo
                 </h3>
@@ -1288,7 +1288,7 @@ export function ModalContratosCliente({
                 </span>
                 <span className="text-[11px] text-slate-500 dark:text-slate-400 block">
                   Contrato anterior registrado:{" "}
-                  <strong className="text-emerald-600 dark:text-emerald-400 font-mono">
+                  <strong className="text-orange-600 dark:text-orange-400 font-mono">
                     {contratoParaAtualizar.numero_contrato}
                   </strong>{" "}
                   (Selo: {contratoParaAtualizar.selo_autenticidade})
@@ -1335,18 +1335,18 @@ export function ModalContratosCliente({
                     isAtualizacao: false,
                   })
                 }
-                className="w-full text-left p-3.5 rounded-xl border-2 border-emerald-500/40 hover:border-emerald-500 bg-emerald-50/50 dark:bg-emerald-950/20 cursor-pointer transition space-y-1 group active:scale-98"
+                className="w-full text-left p-3.5 rounded-xl border-2 border-orange-500/40 hover:border-orange-500 bg-orange-50/50 dark:bg-orange-950/20 cursor-pointer transition space-y-1 group active:scale-98"
               >
                 <div className="flex items-center justify-between">
-                  <span className="font-bold text-emerald-900 dark:text-emerald-200 text-xs flex items-center gap-1.5">
-                    <Plus className="h-4 w-4 text-emerald-600 group-hover:scale-110 transition-transform" />
+                  <span className="font-bold text-emerald-900 dark:text-orange-200 text-xs flex items-center gap-1.5">
+                    <Plus className="h-4 w-4 text-orange-600 group-hover:scale-110 transition-transform" />
                     <span>É um Novo Contrato Adicional (Mantém Todos Válidos)</span>
                   </span>
-                  <span className="text-[10px] uppercase font-bold text-emerald-700 dark:text-emerald-400 px-2 py-0.5 rounded-md bg-emerald-200/50 dark:bg-emerald-900/50">
+                  <span className="text-[10px] uppercase font-bold text-orange-700 dark:text-orange-400 px-2 py-0.5 rounded-md bg-emerald-200/50 dark:bg-emerald-900/50">
                     Contrato Paralelo
                   </span>
                 </div>
-                <p className="text-[11px] text-emerald-800/90 dark:text-emerald-300/80 leading-normal">
+                <p className="text-[11px] text-orange-800/90 dark:text-orange-300/80 leading-normal">
                   Mantém todos os contratos existentes deste cliente 100% válidos e vigentes,
                   criando este documento como um contrato adicional independente.
                 </p>

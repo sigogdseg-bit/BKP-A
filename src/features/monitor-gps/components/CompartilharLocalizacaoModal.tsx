@@ -259,7 +259,7 @@ export function CompartilharLocalizacaoModal({
                     onClick={() => setDuracaoHoras(item.valor)}
                     className={`py-2 px-1 rounded-xl text-xs font-bold transition text-center ${
                       duracaoHoras === item.valor
-                        ? "bg-emerald-500 text-slate-950 font-black shadow-xs"
+                        ? "bg-orange-500 text-slate-950 font-black shadow-xs"
                         : "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
                     }`}
                   >
@@ -271,7 +271,7 @@ export function CompartilharLocalizacaoModal({
               <button
                 onClick={handleGerarLink}
                 disabled={gerando}
-                className="w-full py-2.5 rounded-xl text-xs font-bold bg-emerald-500 hover:bg-emerald-400 text-slate-950 shadow-md shadow-emerald-500/20 transition flex items-center justify-center gap-2 disabled:opacity-50"
+                className="w-full py-2.5 rounded-xl text-xs font-bold bg-orange-500 hover:bg-orange-400 text-slate-950 shadow-md shadow-orange-500/20 transition flex items-center justify-center gap-2 disabled:opacity-50"
               >
                 {gerando ? (
                   <Loader2 className="h-4 w-4 animate-spin" />
@@ -304,10 +304,10 @@ export function CompartilharLocalizacaoModal({
                   />
                   <button
                     onClick={handleCopiar}
-                    className="px-3 py-2 rounded-xl text-xs font-bold bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-slate-200 hover:bg-emerald-500 hover:text-slate-950 transition flex items-center gap-1.5 shrink-0"
+                    className="px-3 py-2 rounded-xl text-xs font-bold bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-slate-200 hover:bg-orange-500 hover:text-slate-950 transition flex items-center gap-1.5 shrink-0"
                   >
                     {copiado ? (
-                      <Check className="h-3.5 w-3.5 text-emerald-500" />
+                      <Check className="h-3.5 w-3.5 text-orange-500" />
                     ) : (
                       <Copy className="h-3.5 w-3.5" />
                     )}
@@ -429,7 +429,7 @@ export function CompartilharLocalizacaoModal({
                                   Expira em: {new Date(c.expira_em).toLocaleString("pt-BR")}
                                 </span>
                               ) : (
-                                <span className="font-bold text-emerald-600 dark:text-emerald-400">
+                                <span className="font-bold text-orange-600 dark:text-orange-400">
                                   Sem expiração (Encerramento manual)
                                 </span>
                               )}
@@ -508,8 +508,8 @@ export function CompartilharLocalizacaoModal({
                                 Acessos ao Link ({acessos.length})
                               </span>
                               {temAlguemOnline && (
-                                <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-md bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 flex items-center gap-1">
-                                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                                <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-md bg-orange-500/20 text-orange-600 dark:text-orange-400 border border-orange-500/30 flex items-center gap-1">
+                                  <span className="h-1.5 w-1.5 rounded-full bg-orange-500 animate-pulse" />
                                   Visualizando agora
                                 </span>
                               )}
@@ -558,8 +558,8 @@ export function CompartilharLocalizacaoModal({
 
                                         <div className="flex items-center gap-1.5 text-[10px]">
                                           {isAtivoAgora ? (
-                                            <span className="font-bold px-1.5 py-0.5 rounded-md bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 flex items-center gap-1">
-                                              <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                                            <span className="font-bold px-1.5 py-0.5 rounded-md bg-orange-500/20 text-orange-600 dark:text-orange-400 border border-orange-500/30 flex items-center gap-1">
+                                              <span className="h-1.5 w-1.5 rounded-full bg-orange-500 animate-pulse" />
                                               Ao vivo ({formatarDuracao(acesso.duracao_segundos)})
                                             </span>
                                           ) : (
@@ -580,7 +580,7 @@ export function CompartilharLocalizacaoModal({
                                       {/* Local de Início e Término */}
                                       <div className="space-y-1 text-[11px] pt-1 border-t border-slate-100 dark:border-slate-800/60">
                                         <div className="flex items-start gap-1.5">
-                                          <span className="h-3.5 w-3.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-[9px] font-black shrink-0 mt-0.5">
+                                          <span className="h-3.5 w-3.5 rounded-full bg-orange-500/10 text-orange-600 dark:text-orange-400 flex items-center justify-center text-[9px] font-black shrink-0 mt-0.5">
                                             A
                                           </span>
                                           <div className="min-w-0">

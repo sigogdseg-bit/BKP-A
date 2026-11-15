@@ -1083,7 +1083,7 @@ export function TrajetoInteligenteModal({
           {/* Topo do Modal */}
           <div className="p-3.5 sm:p-4 border-b border-slate-300/60 dark:border-slate-800 flex items-center justify-between bg-[#eaf0f8]/90 dark:bg-slate-950/60 shrink-0">
             <div className="flex items-center gap-3">
-              <div className="h-10 w-10 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
+              <div className="h-10 w-10 rounded-2xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-orange-600 dark:text-orange-400">
                 <Navigation className="h-5 w-5" />
               </div>
               <div>
@@ -1092,7 +1092,7 @@ export function TrajetoInteligenteModal({
                     Planejamento de Trajeto Inteligente
                   </h2>
                   {veiculo && (
-                    <span className="font-mono text-xs px-2 py-0.5 rounded-md bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 font-bold">
+                    <span className="font-mono text-xs px-2 py-0.5 rounded-md bg-orange-500/10 text-orange-600 dark:text-orange-400 border border-orange-500/20 font-bold">
                       {veiculo.placa}
                     </span>
                   )}
@@ -1165,7 +1165,7 @@ export function TrajetoInteligenteModal({
                   : "text-slate-500 hover:text-slate-800 dark:hover:text-slate-200"
               }`}
             >
-              <Navigation className="h-3.5 w-3.5 text-emerald-500" />
+              <Navigation className="h-3.5 w-3.5 text-orange-500" />
               <span>Itinerário e Paradas ({paradas.length})</span>
             </button>
             <button
@@ -1196,8 +1196,8 @@ export function TrajetoInteligenteModal({
               {/* 1. Ponto de Saida */}
               <div className="p-3 rounded-2xl bg-slate-50 dark:bg-slate-950/50 border border-slate-200 dark:border-slate-800/80 space-y-2">
                 <div className="flex items-center justify-between">
-                  <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400 flex items-center gap-1.5">
-                    <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+                  <span className="text-xs font-bold text-orange-600 dark:text-orange-400 flex items-center gap-1.5">
+                    <span className="h-2 w-2 rounded-full bg-orange-500 animate-pulse" />
                     1. Saída (Origem)
                   </span>
 
@@ -1212,7 +1212,7 @@ export function TrajetoInteligenteModal({
                         });
                         toast.success("Posição GPS atual do carro definida como saída!");
                       }}
-                      className="text-[10px] font-bold text-slate-600 dark:text-slate-300 hover:text-emerald-500 flex items-center gap-1 bg-white dark:bg-slate-800 px-2 py-1 rounded-lg border border-slate-200 dark:border-slate-700 shadow-sm cursor-pointer"
+                      className="text-[10px] font-bold text-slate-600 dark:text-slate-300 hover:text-orange-500 flex items-center gap-1 bg-white dark:bg-slate-800 px-2 py-1 rounded-lg border border-slate-200 dark:border-slate-700 shadow-sm cursor-pointer"
                     >
                       <LocateFixed className="h-3 w-3" />
                       <span>Posição do Carro</span>
@@ -1230,7 +1230,7 @@ export function TrajetoInteligenteModal({
                         placeholder="Digite rua, número, bairro ou cidade..."
                         value={termoBusca}
                         onChange={(e) => setTermoBusca(e.target.value)}
-                        className="w-full pl-8 pr-8 py-1.5 bg-white dark:bg-slate-900 border border-emerald-500/50 rounded-xl text-xs text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none"
+                        className="w-full pl-8 pr-8 py-1.5 bg-white dark:bg-slate-900 border border-orange-500/50 rounded-xl text-xs text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none"
                       />
                       <button
                         onClick={() => setCampoBuscaAtivo(null)}
@@ -1252,12 +1252,12 @@ export function TrajetoInteligenteModal({
                           <div
                             key={i}
                             onClick={() => handleSelecionarEndereco(sug)}
-                            className="p-2 text-xs hover:bg-emerald-500/10 cursor-pointer transition text-slate-700 dark:text-slate-200"
+                            className="p-2 text-xs hover:bg-orange-500/10 cursor-pointer transition text-slate-700 dark:text-slate-200"
                           >
                             <div className="font-bold text-[11px] flex items-center justify-between gap-1">
                               <span>{sug.nome}</span>
                               {sug.numero && (
-                                <span className="px-1.5 py-0.2 rounded bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 font-mono text-[9px] font-bold shrink-0">
+                                <span className="px-1.5 py-0.2 rounded bg-orange-500/20 text-orange-600 dark:text-orange-400 font-mono text-[9px] font-bold shrink-0">
                                   Nº {sug.numero}
                                 </span>
                               )}
@@ -1276,7 +1276,7 @@ export function TrajetoInteligenteModal({
                       setCampoBuscaAtivo("saida");
                       setTermoBusca("");
                     }}
-                    className="p-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-xs text-slate-800 dark:text-slate-200 cursor-pointer hover:border-emerald-500/40 transition flex items-center justify-between"
+                    className="p-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-xs text-slate-800 dark:text-slate-200 cursor-pointer hover:border-orange-500/40 transition flex items-center justify-between"
                   >
                     <span className="truncate">
                       {saida.endereco || "Clique para definir o endereço de saída..."}
@@ -1304,7 +1304,7 @@ export function TrajetoInteligenteModal({
                         Ordem Manual
                       </span>
                     ) : (
-                      <span className="text-[10px] text-emerald-600 dark:text-emerald-400 font-bold bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">
+                      <span className="text-[10px] text-orange-600 dark:text-orange-400 font-bold bg-orange-500/10 px-1.5 py-0.5 rounded border border-orange-500/20">
                         Otimizada 2-Opt
                       </span>
                     )}
@@ -1325,7 +1325,7 @@ export function TrajetoInteligenteModal({
 
                     <button
                       onClick={handleAdicionarParada}
-                      className="px-2 py-1 rounded-lg text-[10px] font-bold bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 hover:bg-emerald-500/25 transition flex items-center gap-1 cursor-pointer"
+                      className="px-2 py-1 rounded-lg text-[10px] font-bold bg-orange-500/15 text-orange-600 dark:text-orange-400 border border-orange-500/30 hover:bg-orange-500/25 transition flex items-center gap-1 cursor-pointer"
                     >
                       <Plus className="h-3 w-3" />
                       <span>Adicionar</span>
@@ -1355,7 +1355,7 @@ export function TrajetoInteligenteModal({
                               </span>
 
                               {trechoAtual && (
-                                <span className="text-[10px] font-mono px-2 py-0.5 rounded-md bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 font-bold">
+                                <span className="text-[10px] font-mono px-2 py-0.5 rounded-md bg-orange-500/10 text-orange-600 dark:text-orange-400 border border-orange-500/20 font-bold">
                                   {trechoAtual.distanciaKm} km · ~{trechoAtual.duracaoMinutos} min
                                 </span>
                               )}
@@ -1485,7 +1485,7 @@ export function TrajetoInteligenteModal({
                         setRetornarAoPontoSaida(marcado);
                         setResultadoRota(null);
                       }}
-                      className="h-3.5 w-3.5 rounded text-emerald-500 focus:ring-emerald-500 border-slate-300 cursor-pointer"
+                      className="h-3.5 w-3.5 rounded text-orange-500 focus:ring-orange-500 border-slate-300 cursor-pointer"
                     />
                     <span className="text-[10px] font-bold text-slate-700 dark:text-slate-300">
                       Retornar à saída
@@ -1494,7 +1494,7 @@ export function TrajetoInteligenteModal({
                 </div>
 
                 {retornarAoPontoSaida ? (
-                  <div className="p-2 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-xs text-emerald-700 dark:text-emerald-300 flex items-center gap-2">
+                  <div className="p-2 rounded-xl bg-orange-500/10 border border-orange-500/30 text-xs text-orange-700 dark:text-orange-300 flex items-center gap-2">
                     <RotateCcw className="h-3.5 w-3.5 shrink-0" />
                     <span className="truncate">
                       Rota circular: O veículo retornará ao mesmo endereço de saída.
@@ -1592,7 +1592,7 @@ export function TrajetoInteligenteModal({
                   type="button"
                   onClick={handleCalcularRota}
                   disabled={calculandoRota}
-                  className="sm:col-span-7 py-2.5 px-3 rounded-2xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-xs transition shadow-md flex items-center justify-center gap-2 cursor-pointer active:scale-[0.99]"
+                  className="sm:col-span-7 py-2.5 px-3 rounded-2xl bg-orange-500 hover:bg-orange-400 text-slate-950 font-black text-xs transition shadow-md flex items-center justify-center gap-2 cursor-pointer active:scale-[0.99]"
                   title="Calcular e traçar a rota viária no mapa com cálculo de distância e tempo"
                 >
                   {calculandoRota ? (
@@ -1644,7 +1644,7 @@ export function TrajetoInteligenteModal({
                                     : `Em ${distanciaParaProximoPasso} m`
                                   : "Siga a rota"}
                               </span>
-                              <span className="px-1.5 py-0.5 rounded text-[9px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">
+                              <span className="px-1.5 py-0.5 rounded text-[9px] font-bold bg-orange-500/20 text-orange-300 border border-orange-500/40">
                                 Passo {passoAtualIdx + 1} de{" "}
                                 {resultadoRota.instrucoesManobras.length}
                               </span>
@@ -1712,7 +1712,7 @@ export function TrajetoInteligenteModal({
                         </div>
 
                         <span className="text-[10px] text-slate-400 flex items-center gap-1">
-                          <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                          <span className="h-1.5 w-1.5 rounded-full bg-orange-400 animate-pulse" />
                           Deslocamento GPS
                         </span>
                       </div>
@@ -1726,7 +1726,7 @@ export function TrajetoInteligenteModal({
                   {/* Metricas Consolidadas */}
                   <div className="grid grid-cols-2 gap-2">
                     <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800 flex items-center gap-2.5">
-                      <Gauge className="h-5 w-5 text-emerald-500 shrink-0" />
+                      <Gauge className="h-5 w-5 text-orange-500 shrink-0" />
                       <div>
                         <div className="text-[10px] text-slate-400 font-bold uppercase">
                           Distância Total
@@ -1759,7 +1759,7 @@ export function TrajetoInteligenteModal({
                       className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-950/40 text-left text-xs font-bold text-slate-700 dark:text-slate-300 flex items-center justify-between hover:bg-slate-100 dark:hover:bg-slate-900 transition cursor-pointer"
                     >
                       <span className="flex items-center gap-1.5">
-                        <ListOrdered className="h-3.5 w-3.5 text-emerald-500" />
+                        <ListOrdered className="h-3.5 w-3.5 text-orange-500" />
                         <span>Itinerário Detalhado ({resultadoRota.trechos.length} trechos)</span>
                       </span>
                       <ChevronDown
@@ -1784,7 +1784,7 @@ export function TrajetoInteligenteModal({
                                 {t.destinoEndereco}
                               </span>
                             </div>
-                            <span className="shrink-0 font-mono font-bold text-[11px] text-emerald-600 dark:text-emerald-400">
+                            <span className="shrink-0 font-mono font-bold text-[11px] text-orange-600 dark:text-orange-400">
                               {t.distanciaKm} km (~{t.duracaoMinutos}m)
                             </span>
                           </div>
@@ -1967,7 +1967,7 @@ export function TrajetoInteligenteModal({
                     {trajetoEmEdicao ? (
                       <button
                         onClick={() => setModalSalvarAberto(true)}
-                        className="px-3 py-2 rounded-xl text-xs font-bold bg-emerald-500 hover:bg-emerald-400 text-slate-950 transition flex items-center gap-1.5 shadow cursor-pointer"
+                        className="px-3 py-2 rounded-xl text-xs font-bold bg-orange-500 hover:bg-orange-400 text-slate-950 transition flex items-center gap-1.5 shadow cursor-pointer"
                         title="Salvar alterações no trajeto já existente no Banco de Dados"
                       >
                         <Save className="h-3.5 w-3.5" />
@@ -2231,7 +2231,7 @@ export function TrajetoInteligenteModal({
                         <div className="text-[10px] text-slate-400 flex flex-wrap items-center gap-2">
                           <span>{new Date(tr.created_at).toLocaleDateString("pt-BR")}</span>
                           <span>•</span>
-                          <span className="text-emerald-500 font-bold">{tr.distancia_km} km</span>
+                          <span className="text-orange-500 font-bold">{tr.distancia_km} km</span>
                           <span>•</span>
                           <span>~{tr.duracao_minutos} min</span>
                           <span>•</span>
@@ -2245,7 +2245,7 @@ export function TrajetoInteligenteModal({
                       <div className="flex items-center gap-1.5 shrink-0">
                         <button
                           onClick={() => handleCarregarTrajetoSalvo(tr, false)}
-                          className="px-2.5 py-1.5 rounded-xl text-xs font-bold bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-500/25 transition cursor-pointer"
+                          className="px-2.5 py-1.5 rounded-xl text-xs font-bold bg-orange-500/15 text-orange-600 dark:text-orange-400 hover:bg-orange-500/25 transition cursor-pointer"
                           title="Carregar este trajeto na tela"
                         >
                           Carregar

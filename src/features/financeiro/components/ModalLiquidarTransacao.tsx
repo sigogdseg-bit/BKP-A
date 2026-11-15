@@ -154,7 +154,7 @@ export function ModalLiquidarTransacao({
           {/* Cabeçalho do Modal */}
           <div className="p-4 sm:p-5 border-b border-slate-300/70 dark:border-slate-800/80 flex items-center justify-between bg-white/70 dark:bg-slate-950/40">
             <div className="flex items-center gap-3">
-              <div className="p-2.5 rounded-2xl bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 shadow-xs">
+              <div className="p-2.5 rounded-2xl bg-orange-500/15 text-orange-600 dark:text-orange-400 border border-orange-500/20 shadow-xs">
                 <Receipt className="h-5 w-5" />
               </div>
               <div>
@@ -190,7 +190,7 @@ export function ModalLiquidarTransacao({
                   className={`inline-flex items-center gap-1 text-[10px] font-bold uppercase px-2 py-0.5 rounded-full ${
                     isSaida
                       ? "bg-rose-500/15 text-rose-600 dark:text-rose-400 border border-rose-500/20"
-                      : "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20"
+                      : "bg-orange-500/15 text-orange-600 dark:text-orange-400 border border-orange-500/20"
                   }`}
                 >
                   {isSaida ? (
@@ -214,7 +214,7 @@ export function ModalLiquidarTransacao({
                   className={`font-black font-mono text-sm sm:text-base ${
                     isSaida
                       ? "text-rose-600 dark:text-rose-400"
-                      : "text-emerald-600 dark:text-emerald-400"
+                      : "text-orange-600 dark:text-orange-400"
                   }`}
                 >
                   {isSaida ? "- " : "+ "}R$ {valorFormatado}
@@ -239,16 +239,16 @@ export function ModalLiquidarTransacao({
               {/* Opção 1: Caixa da Empresa (Liquidar pela Empresa) */}
               <div
                 onClick={() => !salvando && handleLiquidarEmpresa()}
-                className={`group p-3.5 sm:p-4 rounded-2xl bg-white/90 dark:bg-slate-950/70 border border-slate-300/80 dark:border-slate-800/80 hover:border-emerald-500/60 dark:hover:border-emerald-500/50 hover:shadow-md transition cursor-pointer flex items-start gap-3.5 ${
+                className={`group p-3.5 sm:p-4 rounded-2xl bg-white/90 dark:bg-slate-950/70 border border-slate-300/80 dark:border-slate-800/80 hover:border-orange-500/60 dark:hover:border-orange-500/50 hover:shadow-md transition cursor-pointer flex items-start gap-3.5 ${
                   salvando ? "opacity-60 pointer-events-none" : ""
                 }`}
               >
-                <div className="p-2.5 rounded-2xl bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 shrink-0 group-hover:bg-emerald-500 group-hover:text-slate-950 transition">
+                <div className="p-2.5 rounded-2xl bg-orange-500/15 text-orange-600 dark:text-orange-400 border border-orange-500/20 shrink-0 group-hover:bg-orange-500 group-hover:text-slate-950 transition">
                   <Building2 className="h-5 w-5" />
                 </div>
                 <div className="flex-1 space-y-1">
                   <div className="flex items-center justify-between gap-2">
-                    <span className="font-bold text-xs sm:text-sm text-slate-900 dark:text-slate-100 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition">
+                    <span className="font-bold text-xs sm:text-sm text-slate-900 dark:text-slate-100 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition">
                       {isSaida
                         ? "Liquidar pela Empresa (Caixa da Empresa)"
                         : "Confirmar Recebimento (Caixa da Empresa)"}
@@ -257,7 +257,7 @@ export function ModalLiquidarTransacao({
                       className={`font-bold font-mono text-xs ${
                         isSaida
                           ? "text-rose-600 dark:text-rose-400"
-                          : "text-emerald-600 dark:text-emerald-400"
+                          : "text-orange-600 dark:text-orange-400"
                       }`}
                     >
                       {isSaida ? "- " : "+ "}R$ {valorFormatado}
@@ -360,7 +360,7 @@ export function ModalLiquidarTransacao({
                             onClick={() => setStatusRessarcimento("ressarcido")}
                             className={`px-3 py-2 rounded-xl text-xs font-bold transition border text-left ${
                               statusRessarcimento === "ressarcido"
-                                ? "bg-emerald-500/20 text-emerald-800 dark:text-emerald-300 border-emerald-500/50 shadow-xs"
+                                ? "bg-orange-500/20 text-orange-800 dark:text-orange-300 border-orange-500/50 shadow-xs"
                                 : "bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 border-slate-300/70 dark:border-slate-800"
                             }`}
                           >
@@ -437,7 +437,7 @@ export function ModalLiquidarTransacao({
             </button>
             {salvando && (
               <div className="flex items-center gap-2 text-xs font-medium text-slate-500">
-                <Loader2 className="h-4 w-4 animate-spin text-emerald-500" />
+                <Loader2 className="h-4 w-4 animate-spin text-orange-500" />
                 <span>Processando liquidação...</span>
               </div>
             )}

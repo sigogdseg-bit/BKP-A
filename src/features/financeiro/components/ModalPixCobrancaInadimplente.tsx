@@ -141,7 +141,7 @@ export function ModalPixCobrancaInadimplente({
           {/* Header do Modal */}
           <div className="flex items-center justify-between p-4 sm:p-5 border-b border-slate-300/60 dark:border-slate-800 bg-[#eaf0f8]/80 dark:bg-slate-950/60">
             <div className="flex items-center gap-2.5">
-              <div className="p-2 rounded-2xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+              <div className="p-2 rounded-2xl bg-orange-500/10 text-orange-600 dark:text-orange-400 border border-orange-500/20">
                 <QrCode className="h-5 w-5" />
               </div>
               <div>
@@ -186,7 +186,7 @@ export function ModalPixCobrancaInadimplente({
                 <span className="text-[11px] font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider block">
                   Valor Total Devido
                 </span>
-                <span className="text-2xl font-black font-mono text-emerald-600 dark:text-emerald-400">
+                <span className="text-2xl font-black font-mono text-orange-600 dark:text-orange-400">
                   R$ {cliente.totalDevido.toFixed(2).replace(".", ",")}
                 </span>
               </div>
@@ -204,7 +204,7 @@ export function ModalPixCobrancaInadimplente({
             <div className="flex flex-col items-center justify-center p-4 rounded-2xl bg-white text-slate-950 border border-slate-300/60 dark:border-transparent shadow-inner">
               {gerandoQr ? (
                 <div className="h-44 flex flex-col items-center justify-center gap-2">
-                  <div className="h-8 w-8 rounded-full border-2 border-emerald-500 border-t-transparent animate-spin" />
+                  <div className="h-8 w-8 rounded-full border-2 border-orange-500 border-t-transparent animate-spin" />
                   <span className="text-xs text-slate-600 font-mono">Gerando BR Code...</span>
                 </div>
               ) : qrCodeDataUrl ? (
@@ -233,7 +233,7 @@ export function ModalPixCobrancaInadimplente({
                 </label>
                 <button
                   onClick={handleCopiarPix}
-                  className="text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 font-bold flex items-center gap-1 text-[11px] transition"
+                  className="text-orange-600 dark:text-orange-400 hover:text-orange-700 dark:hover:text-orange-300 font-bold flex items-center gap-1 text-[11px] transition"
                 >
                   {copiadoPix ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
                   <span>{copiadoPix ? "Copiado!" : "Copiar Código"}</span>
@@ -265,7 +265,7 @@ export function ModalPixCobrancaInadimplente({
                 className="px-3 py-2 rounded-xl bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-bold text-xs flex items-center justify-center gap-1.5 transition border border-slate-300/70 dark:border-slate-700 shadow-xs"
               >
                 {copiadoMensagem ? (
-                  <Check className="h-3.5 w-3.5 text-emerald-500 dark:text-emerald-400" />
+                  <Check className="h-3.5 w-3.5 text-orange-500 dark:text-orange-400" />
                 ) : (
                   <Copy className="h-3.5 w-3.5 text-slate-500 dark:text-slate-400" />
                 )}

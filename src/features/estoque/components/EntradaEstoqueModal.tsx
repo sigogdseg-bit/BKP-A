@@ -121,13 +121,13 @@ export function EntradaEstoqueModal({
     ? "w-full px-4 py-2.5 rounded-xl bg-white dark:bg-slate-950 text-slate-800 dark:text-slate-100 text-sm shadow-xs border border-slate-300/70 dark:border-slate-800 outline-none focus:ring-2 focus:ring-[#00CFCC]/30 focus:border-[#00CFCC] transition"
     : isStyleguide
       ? "w-full px-4 py-2.5 rounded-xl bg-[#F1F5F9] dark:bg-slate-950 text-slate-900 dark:text-slate-100 text-sm border border-[#CBD5E1] dark:border-slate-800 focus:border-[#00CFCC] focus:ring-2 focus:ring-[#00CFCC]/20 outline-none transition shadow-xs"
-      : "w-full px-4 py-2.5 rounded-xl bg-white dark:bg-slate-950 text-slate-800 dark:text-slate-100 text-sm border border-slate-300/70 dark:border-slate-800 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 shadow-xs outline-none transition";
+      : "w-full px-4 py-2.5 rounded-xl bg-white dark:bg-slate-950 text-slate-800 dark:text-slate-100 text-sm border border-slate-300/70 dark:border-slate-800 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 shadow-xs outline-none transition";
 
   const btnSubmitClass = isNeumorph
     ? "px-6 py-2.5 rounded-xl font-bold text-sm text-slate-900 bg-[#9EBCEE] hover:bg-[#00CFCC] hover:text-slate-950 shadow-xs transition-all flex items-center justify-center gap-2"
     : isStyleguide
       ? "px-6 py-2.5 rounded-xl font-black text-sm text-[#064E3B] bg-[#9EE5D4] hover:bg-[#86ddc7] shadow-[0_4px_12px_rgba(158,229,212,0.4)] border border-[#7ed7c0] active:scale-95 transition flex items-center justify-center gap-2"
-      : "px-6 py-2.5 rounded-xl font-bold text-sm text-white bg-emerald-600 hover:bg-emerald-500 transition flex items-center justify-center gap-2 shadow-md shadow-emerald-500/20";
+      : "px-6 py-2.5 rounded-xl font-bold text-sm text-white bg-orange-600 hover:bg-orange-500 transition flex items-center justify-center gap-2 shadow-md shadow-orange-500/20";
 
   return (
     <ModalPortal>
@@ -145,7 +145,7 @@ export function EntradaEstoqueModal({
                     ? "bg-[#eaf0f8] shadow-[2px_2px_5px_#c3cfe2] border border-slate-300/40 text-blue-600"
                     : isStyleguide
                       ? "bg-[#9EE5D4]/40 text-[#064E3B] border border-[#9EE5D4]"
-                      : "bg-emerald-500/20 text-emerald-400 border border-emerald-500/30"
+                      : "bg-orange-500/20 text-orange-400 border border-orange-500/30"
                 }`}
               >
                 <ShoppingCart className="w-5 h-5" />
@@ -256,7 +256,7 @@ export function EntradaEstoqueModal({
                 </span>
               </div>
               <div className="text-right">
-                <span className="text-2xl font-black font-mono text-emerald-600 dark:text-emerald-400">
+                <span className="text-2xl font-black font-mono text-orange-600 dark:text-orange-400">
                   R${" "}
                   {valorTotal.toLocaleString("pt-BR", {
                     minimumFractionDigits: 2,
@@ -327,8 +327,8 @@ export function EntradaEstoqueModal({
             </div>
 
             {/* Banner de Aviso da Integração Financeira */}
-            <div className="p-3.5 rounded-2xl flex items-start gap-2.5 text-xs bg-emerald-500/10 text-emerald-800 dark:text-emerald-300 border border-emerald-500/25 shadow-xs">
-              <AlertCircle className="w-4 h-4 shrink-0 mt-0.5 text-emerald-600 dark:text-emerald-400" />
+            <div className="p-3.5 rounded-2xl flex items-start gap-2.5 text-xs bg-orange-500/10 text-orange-800 dark:text-orange-300 border border-orange-500/25 shadow-xs">
+              <AlertCircle className="w-4 h-4 shrink-0 mt-0.5 text-orange-600 dark:text-orange-400" />
               <div>
                 <span className="font-bold block text-slate-800 dark:text-slate-100">
                   Integração Financeira Automática Ativa

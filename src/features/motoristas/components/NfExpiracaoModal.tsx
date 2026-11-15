@@ -214,7 +214,7 @@ export function NfExpiracaoModal({ clienteId }: Props) {
                         onClick={() => handleDownload(nf)}
                         disabled={baixando === nf.id}
                         className="flex items-center gap-1.5 text-xs px-3 py-2 rounded-lg
-                        bg-emerald-600 hover:bg-emerald-500 disabled:opacity-60
+                        bg-orange-600 hover:bg-orange-500 disabled:opacity-60
                         text-white font-medium transition-colors"
                       >
                         <Download className="h-3.5 w-3.5" />

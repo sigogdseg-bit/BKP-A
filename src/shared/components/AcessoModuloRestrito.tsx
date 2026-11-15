@@ -28,7 +28,7 @@ export function AcessoModuloRestrito({
         <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-2">
           <Link
             to="/inicio"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold text-xs transition shadow-sm"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-orange-500 hover:bg-orange-600 text-slate-950 font-bold text-xs transition shadow-sm"
           >
             <Home className="w-4 h-4" />
             Ir para Início

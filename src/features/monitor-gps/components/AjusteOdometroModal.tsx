@@ -287,7 +287,7 @@ export function AjusteOdometroModal({
           {/* Cabeçalho */}
           <div className="flex items-start justify-between gap-3 p-4 sm:p-5 border-b border-slate-300/60 dark:border-slate-800 shrink-0">
             <div className="flex items-center gap-3">
-              <div className="p-2.5 rounded-2xl bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 shrink-0">
+              <div className="p-2.5 rounded-2xl bg-orange-500/15 text-orange-600 dark:text-orange-400 border border-orange-500/30 shrink-0">
                 <Gauge className="w-5 h-5" />
               </div>
               <div className="min-w-0">
@@ -318,7 +318,7 @@ export function AjusteOdometroModal({
                 onClick={() => setAbaAtiva("sincronizacao")}
                 className={`flex items-center gap-1.5 px-3 py-2.5 text-xs font-bold border-b-2 transition cursor-pointer shrink-0 whitespace-nowrap ${
                   abaAtiva === "sincronizacao"
-                    ? "border-emerald-500 text-emerald-600 dark:text-emerald-400"
+                    ? "border-orange-500 text-orange-600 dark:text-orange-400"
                     : "border-transparent text-slate-500 hover:text-slate-700 dark:hover:text-slate-300"
                 }`}
               >
@@ -331,7 +331,7 @@ export function AjusteOdometroModal({
                 onClick={() => setAbaAtiva("calibracao")}
                 className={`flex items-center gap-1.5 px-3 py-2.5 text-xs font-bold border-b-2 transition cursor-pointer shrink-0 whitespace-nowrap ${
                   abaAtiva === "calibracao"
-                    ? "border-emerald-500 text-emerald-600 dark:text-emerald-400"
+                    ? "border-orange-500 text-orange-600 dark:text-orange-400"
                     : "border-transparent text-slate-500 hover:text-slate-700 dark:hover:text-slate-300"
                 }`}
               >
@@ -344,7 +344,7 @@ export function AjusteOdometroModal({
                 onClick={() => setAbaAtiva("historico")}
                 className={`flex items-center gap-1.5 px-3 py-2.5 text-xs font-bold border-b-2 transition cursor-pointer shrink-0 whitespace-nowrap ${
                   abaAtiva === "historico"
-                    ? "border-emerald-500 text-emerald-600 dark:text-emerald-400"
+                    ? "border-orange-500 text-orange-600 dark:text-orange-400"
                     : "border-transparent text-slate-500 hover:text-slate-700 dark:hover:text-slate-300"
                 }`}
               >
@@ -357,7 +357,7 @@ export function AjusteOdometroModal({
                 onClick={() => setAbaAtiva("comparativo")}
                 className={`flex items-center gap-1.5 px-3 py-2.5 text-xs font-bold border-b-2 transition cursor-pointer shrink-0 whitespace-nowrap ${
                   abaAtiva === "comparativo"
-                    ? "border-emerald-500 text-emerald-600 dark:text-emerald-400"
+                    ? "border-orange-500 text-orange-600 dark:text-orange-400"
                     : "border-transparent text-slate-500 hover:text-slate-700 dark:hover:text-slate-300"
                 }`}
               >
@@ -405,7 +405,7 @@ export function AjusteOdometroModal({
                     <button
                       type="button"
                       onClick={() => setNovoKm(proximoInteiro.toString())}
-                      className="mt-0.5 inline-flex items-center gap-1 px-2 py-1 rounded-lg bg-emerald-500/15 hover:bg-emerald-500/25 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30 text-xs font-mono font-bold transition cursor-pointer"
+                      className="mt-0.5 inline-flex items-center gap-1 px-2 py-1 rounded-lg bg-orange-500/15 hover:bg-orange-500/25 text-orange-700 dark:text-orange-300 border border-orange-500/30 text-xs font-mono font-bold transition cursor-pointer"
                       title="Clique para preencher com o próximo quilômetro exato"
                     >
                       <RotateCcw className="w-3 h-3" />
@@ -426,7 +426,7 @@ export function AjusteOdometroModal({
                       value={novoKm}
                       onChange={(e) => setNovoKm(e.target.value)}
                       placeholder="Ex: 50231"
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-mono font-bold text-sm focus:outline-hidden focus:ring-2 focus:ring-emerald-500"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-mono font-bold text-sm focus:outline-hidden focus:ring-2 focus:ring-orange-500"
                     />
                     <span className="absolute right-3 top-2.5 text-xs text-slate-400 font-mono">
                       KM
@@ -539,7 +539,7 @@ export function AjusteOdometroModal({
                     <div className="flex items-center justify-between text-xs font-bold">
                       <span className="text-slate-700 dark:text-slate-300">Diferença Medida:</span>
                       <span
-                        className={`font-mono ${Math.abs(diferencaKmCalculada) < 0.2 ? "text-emerald-600 dark:text-emerald-400" : "text-amber-600 dark:text-amber-400"}`}
+                        className={`font-mono ${Math.abs(diferencaKmCalculada) < 0.2 ? "text-orange-600 dark:text-orange-400" : "text-amber-600 dark:text-amber-400"}`}
                       >
                         {diferencaKmCalculada > 0 ? "+" : ""}
                         {diferencaKmCalculada.toFixed(3)} km ({erroPercentualCalculado.toFixed(2)}%
@@ -560,7 +560,7 @@ export function AjusteOdometroModal({
                         id="aplicarFatorCheck"
                         checked={aplicarFator}
                         onChange={(e) => setAplicarFator(e.target.checked)}
-                        className="rounded text-emerald-600 focus:ring-emerald-500"
+                        className="rounded text-orange-600 focus:ring-orange-500"
                       />
                       <label
                         htmlFor="aplicarFatorCheck"
@@ -618,7 +618,7 @@ export function AjusteOdometroModal({
                           <span
                             className={`px-2 py-0.5 rounded-full text-[10px] font-bold ${
                               item.tendencia === "EXATO"
-                                ? "bg-emerald-100 text-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-300"
+                                ? "bg-emerald-100 text-orange-700 dark:bg-orange-950/40 dark:text-orange-300"
                                 : "bg-amber-100 text-amber-700 dark:bg-amber-950/40 dark:text-amber-300"
                             }`}
                           >
@@ -675,7 +675,7 @@ export function AjusteOdometroModal({
                   type="button"
                   onClick={handleSalvarSincronizacao}
                   disabled={salvando}
-                  className="px-4 py-2 rounded-xl text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-500 transition shadow-md shadow-emerald-600/25 flex items-center gap-1.5 cursor-pointer disabled:opacity-50"
+                  className="px-4 py-2 rounded-xl text-xs font-bold text-white bg-orange-600 hover:bg-orange-500 transition shadow-md shadow-orange-600/25 flex items-center gap-1.5 cursor-pointer disabled:opacity-50"
                 >
                   <Check className="w-4 h-4" />
                   <span>{salvando ? "Sincronizando..." : "Sincronizar Odômetro"}</span>
@@ -687,7 +687,7 @@ export function AjusteOdometroModal({
                   type="button"
                   onClick={handleSalvarCalibracao}
                   disabled={salvando}
-                  className="px-4 py-2 rounded-xl text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-500 transition shadow-md shadow-emerald-600/25 flex items-center gap-1.5 cursor-pointer disabled:opacity-50"
+                  className="px-4 py-2 rounded-xl text-xs font-bold text-white bg-orange-600 hover:bg-orange-500 transition shadow-md shadow-orange-600/25 flex items-center gap-1.5 cursor-pointer disabled:opacity-50"
                 >
                   <Check className="w-4 h-4" />
                   <span>{salvando ? "Registrando..." : "Registrar Calibração"}</span>

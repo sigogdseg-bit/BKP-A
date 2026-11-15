@@ -92,7 +92,7 @@ export function RedefinirSenhaModal({ usuario, onConcluido, onFechar }: Redefini
                 <button
                   type="button"
                   onClick={gerarSenha}
-                  className="text-[11px] font-bold text-emerald-600 dark:text-emerald-400 hover:underline flex items-center gap-1"
+                  className="text-[11px] font-bold text-orange-600 dark:text-orange-400 hover:underline flex items-center gap-1"
                 >
                   <RefreshCw className="h-3 w-3" />
                   Gerar Senha
@@ -107,7 +107,7 @@ export function RedefinirSenhaModal({ usuario, onConcluido, onFechar }: Redefini
                     value={novaSenha}
                     onChange={(e) => setNovaSenha(e.target.value)}
                     placeholder="Mínimo 6 caracteres"
-                    className="w-full pl-9 pr-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-slate-100 font-mono text-xs focus:border-emerald-500 focus:outline-none"
+                    className="w-full pl-9 pr-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-slate-100 font-mono text-xs focus:border-orange-500 focus:outline-none"
                   />
                 </div>
                 {novaSenha && (
@@ -118,7 +118,7 @@ export function RedefinirSenhaModal({ usuario, onConcluido, onFechar }: Redefini
                     title="Copiar"
                   >
                     {copiado ? (
-                      <Check className="h-4 w-4 text-emerald-500" />
+                      <Check className="h-4 w-4 text-orange-500" />
                     ) : (
                       <Copy className="h-4 w-4" />
                     )}

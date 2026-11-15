@@ -547,7 +547,7 @@ export function FinanceiroView() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 bg-[#eaf0f8] dark:bg-slate-900/80 border border-slate-300/60 dark:border-slate-800 p-4 sm:p-5 rounded-2xl shadow-[4px_4px_10px_#c3cfe2] dark:shadow-xl">
         <div className="flex items-center gap-3">
-          <div className="h-12 w-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shadow-xs">
+          <div className="h-12 w-12 rounded-2xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-orange-600 dark:text-orange-400 shadow-xs">
             <Wallet className="h-6 w-6" />
           </div>
           <div>
@@ -571,7 +571,7 @@ export function FinanceiroView() {
               disabled={exportando || filtradas.length === 0}
               className="flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:text-slate-950 dark:hover:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-800 transition disabled:opacity-50 shadow-xs"
             >
-              <FileText className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
+              <FileText className="h-4 w-4 text-orange-600 dark:text-orange-400" />
               <span>PDF Oficial</span>
             </button>
 
@@ -580,7 +580,7 @@ export function FinanceiroView() {
               disabled={exportando || filtradas.length === 0}
               className="flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:text-slate-950 dark:hover:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-800 transition disabled:opacity-50 shadow-xs"
             >
-              <FileSpreadsheet className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
+              <FileSpreadsheet className="h-4 w-4 text-orange-600 dark:text-orange-400" />
               <span>Excel</span>
             </button>
 
@@ -601,7 +601,7 @@ export function FinanceiroView() {
                 setTransacaoParaEditar(null);
                 setModalNovo(true);
               }}
-              className="flex items-center justify-center gap-2 px-3.5 py-2 rounded-xl text-xs font-bold bg-emerald-500 hover:bg-emerald-400 text-slate-950 transition shadow-lg shadow-emerald-500/20 w-full sm:w-auto"
+              className="flex items-center justify-center gap-2 px-3.5 py-2 rounded-xl text-xs font-bold bg-orange-500 hover:bg-orange-400 text-slate-950 transition shadow-lg shadow-orange-500/20 w-full sm:w-auto"
             >
               <Plus className="h-4 w-4" />
               <span>Novo Lançamento</span>
@@ -621,7 +621,7 @@ export function FinanceiroView() {
             onClick={() => setAbaAtiva("fluxo")}
             className={`flex items-center justify-center gap-2 px-3 py-2.5 rounded-xl text-xs font-bold transition min-h-[44px] text-center ${
               abaAtiva === "fluxo"
-                ? "bg-emerald-500 text-slate-950 shadow-md shadow-emerald-500/20"
+                ? "bg-orange-500 text-slate-950 shadow-md shadow-orange-500/20"
                 : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-200/60 dark:hover:bg-slate-800/50"
             }`}
           >
@@ -671,7 +671,7 @@ export function FinanceiroView() {
           onClick={() => setAbaAtiva("propostas")}
           className={`flex items-center justify-center gap-2 px-3 py-2.5 rounded-xl text-xs font-bold transition min-h-[44px] text-center ${
             abaAtiva === "propostas"
-              ? "bg-emerald-500 text-slate-950 shadow-md shadow-emerald-500/20"
+              ? "bg-orange-500 text-slate-950 shadow-md shadow-orange-500/20"
               : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-200/60 dark:hover:bg-slate-800/50"
           }`}
         >
@@ -726,7 +726,7 @@ export function FinanceiroView() {
               }
               className={`p-4 rounded-2xl border flex flex-col justify-between cursor-pointer transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg ${
                 filtros.tipo === "todos" && filtros.status === "todos"
-                  ? "bg-emerald-500/10 border-emerald-500/80 ring-2 ring-emerald-500/30 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none"
+                  ? "bg-orange-500/10 border-orange-500/80 ring-2 ring-orange-500/30 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none"
                   : "bg-[#eaf0f8] dark:bg-slate-900/60 border-slate-300/60 dark:border-slate-800/80 hover:border-slate-400 dark:hover:border-slate-700 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none"
               }`}
             >
@@ -736,18 +736,18 @@ export function FinanceiroView() {
                     {podeVerCustosEFornecedores ? "Saldo em Caixa" : "Receitas Realizadas"}
                   </span>
                   {filtros.tipo === "todos" && filtros.status === "todos" && (
-                    <span className="text-[9px] text-emerald-600 dark:text-emerald-400 font-bold uppercase">
+                    <span className="text-[9px] text-orange-600 dark:text-orange-400 font-bold uppercase">
                       (Ativo)
                     </span>
                   )}
                 </span>
-                <Wallet className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
+                <Wallet className="h-4 w-4 text-orange-600 dark:text-orange-400" />
               </div>
               <div>
                 <div
                   className={`text-xl sm:text-2xl font-black font-mono ${
                     resumo.saldoAtual >= 0
-                      ? "text-emerald-600 dark:text-emerald-400"
+                      ? "text-orange-600 dark:text-orange-400"
                       : "text-rose-600 dark:text-rose-400"
                   }`}
                 >
@@ -776,7 +776,7 @@ export function FinanceiroView() {
                     </div>
                   )}
                   {resumo.saldoProjetadoFinal !== undefined && (
-                    <div className="flex items-center justify-between text-[10px] text-emerald-600 dark:text-emerald-400/90 font-semibold">
+                    <div className="flex items-center justify-between text-[10px] text-orange-600 dark:text-orange-400/90 font-semibold">
                       <span>
                         {podeVerCustosEFornecedores ? "Projetado Fim Mês:" : "Previsão a Receber:"}
                       </span>
@@ -808,26 +808,26 @@ export function FinanceiroView() {
               }
               className={`p-4 rounded-2xl border flex flex-col justify-between cursor-pointer transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg ${
                 filtros.tipo === "entrada"
-                  ? "bg-emerald-500/15 border-emerald-500/80 ring-2 ring-emerald-500/30 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none"
-                  : "bg-[#eaf0f8] dark:bg-slate-900/60 border-slate-300/60 dark:border-slate-800/80 hover:border-emerald-500/40 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none"
+                  ? "bg-orange-500/15 border-orange-500/80 ring-2 ring-orange-500/30 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none"
+                  : "bg-[#eaf0f8] dark:bg-slate-900/60 border-slate-300/60 dark:border-slate-800/80 hover:border-orange-500/40 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none"
               }`}
             >
-              <div className="flex items-center justify-between text-emerald-600 dark:text-emerald-400 text-xs mb-1">
+              <div className="flex items-center justify-between text-orange-600 dark:text-orange-400 text-xs mb-1">
                 <span className="font-semibold flex items-center gap-1">
                   <span>Entradas (Receitas)</span>
                   {filtros.tipo === "entrada" && (
-                    <span className="text-[9px] text-emerald-600 dark:text-emerald-300 font-bold uppercase">
+                    <span className="text-[9px] text-orange-600 dark:text-orange-300 font-bold uppercase">
                       (Ativo)
                     </span>
                   )}
                 </span>
-                <TrendingUp className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
+                <TrendingUp className="h-4 w-4 text-orange-600 dark:text-orange-400" />
               </div>
               <div>
-                <div className="text-xl sm:text-2xl font-black font-mono text-emerald-600 dark:text-emerald-400">
+                <div className="text-xl sm:text-2xl font-black font-mono text-orange-600 dark:text-orange-400">
                   R$ {resumo.entradasRealizadas.toFixed(2)}
                 </div>
-                <div className="text-[11px] text-emerald-600/80 dark:text-emerald-400/80 mt-0.5 flex items-center gap-1">
+                <div className="text-[11px] text-orange-600/80 dark:text-orange-400/80 mt-0.5 flex items-center gap-1">
                   <span>+ R$ {resumo.entradasPrevistas.toFixed(2)} a receber</span>
                 </div>
               </div>
@@ -1008,7 +1008,7 @@ export function FinanceiroView() {
             <div className="p-4 rounded-2xl bg-[#eaf0f8] dark:bg-slate-900/40 border border-slate-300/60 dark:border-slate-800/80 space-y-3 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2 text-xs font-bold text-slate-800 dark:text-slate-200">
-                  <PieChart className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
+                  <PieChart className="h-4 w-4 text-orange-600 dark:text-orange-400" />
                   <span>Demonstrativo do Resultado do Exercício (DRE Operacional)</span>
                 </div>
                 <span className="text-[11px] text-slate-500 dark:text-slate-400">
@@ -1021,7 +1021,7 @@ export function FinanceiroView() {
                   <span className="text-[10px] text-slate-500 dark:text-slate-400 block uppercase">
                     1. Receita Bruta
                   </span>
-                  <span className="font-bold text-emerald-600 dark:text-emerald-400">
+                  <span className="font-bold text-orange-600 dark:text-orange-400">
                     R$ {dre.receitaBruta.toFixed(2)}
                   </span>
                 </div>
@@ -1062,7 +1062,7 @@ export function FinanceiroView() {
                 placeholder="Buscar transação, cliente ou técnico..."
                 value={filtros.busca}
                 onChange={(e) => setFiltros((prev) => ({ ...prev, busca: e.target.value }))}
-                className="w-full pl-9 pr-3 py-1.5 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-200 placeholder-slate-400 focus:outline-none focus:border-emerald-500 shadow-xs"
+                className="w-full pl-9 pr-3 py-1.5 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-200 placeholder-slate-400 focus:outline-none focus:border-orange-500 shadow-xs"
               />
             </div>
 
@@ -1072,7 +1072,7 @@ export function FinanceiroView() {
                 value={filtros.periodo}
                 onChange={(e) => handleMudarPeriodo(e.target.value)}
                 title="Atalho de Período"
-                className="px-3 py-1.5 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-200 focus:outline-none focus:border-emerald-500 shadow-xs"
+                className="px-3 py-1.5 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-200 focus:outline-none focus:border-orange-500 shadow-xs"
               >
                 <option value="mes_atual">Mês Atual</option>
                 <option value="mes_proximo">Planejamento Próximo Mês</option>
@@ -1134,7 +1134,7 @@ export function FinanceiroView() {
               <select
                 value={filtros.tipo}
                 onChange={(e) => setFiltros((prev) => ({ ...prev, tipo: e.target.value as any }))}
-                className="px-3 py-1.5 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-200 focus:outline-none focus:border-emerald-500 shadow-xs"
+                className="px-3 py-1.5 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-200 focus:outline-none focus:border-orange-500 shadow-xs"
               >
                 <option value="todos">Todos os Tipos</option>
                 <option value="entrada">Apenas Entradas</option>
@@ -1145,7 +1145,7 @@ export function FinanceiroView() {
               <select
                 value={filtros.status}
                 onChange={(e) => setFiltros((prev) => ({ ...prev, status: e.target.value }))}
-                className="px-3 py-1.5 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-200 focus:outline-none focus:border-emerald-500 shadow-xs"
+                className="px-3 py-1.5 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-200 focus:outline-none focus:border-orange-500 shadow-xs"
               >
                 <option value="todos">Todas as Situações</option>
                 <option value="concluido">Liquidado / Pago</option>
@@ -1158,7 +1158,7 @@ export function FinanceiroView() {
                 onChange={(e) =>
                   setFiltros((prev) => ({ ...prev, categoria: e.target.value as any }))
                 }
-                className="px-3 py-1.5 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-200 focus:outline-none focus:border-emerald-500 shadow-xs font-medium"
+                className="px-3 py-1.5 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-200 focus:outline-none focus:border-orange-500 shadow-xs font-medium"
               >
                 <option value="todas">Todas as Categorias</option>
                 <option value="mensalidade">Mensalidades</option>
@@ -1185,7 +1185,7 @@ export function FinanceiroView() {
                     }))
                   }
                   title="Origem da Verba"
-                  className="px-3 py-1.5 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-200 focus:outline-none focus:border-emerald-500 shadow-xs font-medium"
+                  className="px-3 py-1.5 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-200 focus:outline-none focus:border-orange-500 shadow-xs font-medium"
                 >
                   <option value="todas">Origem: Todas</option>
                   <option value="caixa_empresa">🏢 Caixa da Empresa</option>
@@ -1264,7 +1264,7 @@ export function FinanceiroView() {
                       <div
                         className={`h-9 w-9 rounded-xl flex items-center justify-center shrink-0 mt-0.5 ${
                           isEntrada
-                            ? "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20"
+                            ? "bg-orange-500/10 text-orange-600 dark:text-orange-400 border border-orange-500/20"
                             : "bg-rose-500/10 text-rose-600 dark:text-rose-400 border border-rose-500/20"
                         }`}
                       >
@@ -1283,7 +1283,7 @@ export function FinanceiroView() {
                           <span
                             className={`px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider ${
                               isLiquidado
-                                ? "bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30"
+                                ? "bg-orange-500/15 text-orange-700 dark:text-orange-300 border border-orange-500/30"
                                 : "bg-amber-500/15 text-amber-700 dark:text-amber-300 border border-amber-500/30"
                             }`}
                           >
@@ -1295,7 +1295,7 @@ export function FinanceiroView() {
 
                           {/* Badge Moeda USD */}
                           {t.moeda === "USD" && (
-                            <span className="px-2 py-0.5 rounded-full text-[10px] font-black tracking-wider bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30">
+                            <span className="px-2 py-0.5 rounded-full text-[10px] font-black tracking-wider bg-orange-500/15 text-orange-700 dark:text-orange-300 border border-orange-500/30">
                               USD
                             </span>
                           )}
@@ -1336,7 +1336,7 @@ export function FinanceiroView() {
                                   ⏳ A Ressarcir
                                 </span>
                               ) : t.status_ressarcimento === "ressarcido" ? (
-                                <span className="px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30">
+                                <span className="px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-orange-500/15 text-orange-700 dark:text-orange-300 border border-orange-500/30">
                                   ✓ Ressarcido
                                 </span>
                               ) : null}
@@ -1389,7 +1389,7 @@ export function FinanceiroView() {
                           {t.data_pagamento && (
                             <>
                               <span>·</span>
-                              <span className="text-emerald-600 dark:text-emerald-400 text-[11px]">
+                              <span className="text-orange-600 dark:text-orange-400 text-[11px]">
                                 Efetivado em:{" "}
                                 {new Date(t.data_pagamento).toLocaleDateString("pt-BR")}
                               </span>
@@ -1410,7 +1410,7 @@ export function FinanceiroView() {
                     <div className="flex items-center gap-3 w-full sm:w-auto justify-between sm:justify-end pt-2 sm:pt-0 border-t sm:border-t-0 border-slate-300/60 dark:border-slate-800/80">
                       <div className="text-right">
                         {t.moeda === "USD" && t.valor_moeda_original && (
-                          <div className="text-[11px] font-bold font-mono text-emerald-600 dark:text-emerald-400">
+                          <div className="text-[11px] font-bold font-mono text-orange-600 dark:text-orange-400">
                             US$ {Number(t.valor_moeda_original).toFixed(2)}
                             {t.cotacao_moeda && (
                               <span className="text-[10px] text-slate-500 dark:text-slate-400 font-normal ml-1">
@@ -1427,7 +1427,7 @@ export function FinanceiroView() {
                             t.liquidado_pelo_cliente || (isLiquidado && Number(t.valor) === 0)
                               ? "text-slate-500 dark:text-slate-400"
                               : isEntrada
-                                ? "text-emerald-600 dark:text-emerald-400"
+                                ? "text-orange-600 dark:text-orange-400"
                                 : "text-rose-600 dark:text-rose-400"
                           }`}
                         >
@@ -1442,7 +1442,7 @@ export function FinanceiroView() {
                           <button
                             onClick={() => handleLiquidar(t)}
                             title="Confirmar Liquidação"
-                            className="px-3 py-1.5 rounded-xl text-xs font-bold bg-emerald-500 hover:bg-emerald-400 text-slate-950 transition shadow"
+                            className="px-3 py-1.5 rounded-xl text-xs font-bold bg-orange-500 hover:bg-orange-400 text-slate-950 transition shadow"
                           >
                             Liquidar
                           </button>

@@ -167,7 +167,7 @@ export function ModalPagamentoPixInstalacao({
           {/* Header Fixo */}
           <div className="flex items-center justify-between p-4 sm:p-5 border-b border-slate-200 dark:border-slate-800 shrink-0 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md">
             <div className="flex items-center gap-2.5">
-              <div className="p-2 rounded-2xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 shrink-0">
+              <div className="p-2 rounded-2xl bg-orange-500/10 text-orange-600 dark:text-orange-400 border border-orange-500/30 shrink-0">
                 <QrCode className="h-5 w-5" />
               </div>
               <div>
@@ -197,7 +197,7 @@ export function ModalPagamentoPixInstalacao({
                 onClick={() => setModo("individual")}
                 className={`flex flex-col items-center justify-center py-2.5 px-3 rounded-xl transition ${
                   modo === "individual"
-                    ? "bg-white dark:bg-slate-950 text-emerald-600 dark:text-emerald-400 font-bold shadow-md border border-emerald-500/30"
+                    ? "bg-white dark:bg-slate-950 text-orange-600 dark:text-orange-400 font-bold shadow-md border border-orange-500/30"
                     : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
                 }`}
               >
@@ -249,17 +249,17 @@ export function ModalPagamentoPixInstalacao({
                 <span className="text-slate-500 dark:text-slate-400">Chave PIX:</span>
                 {chavePix ? (
                   <div className="flex items-center gap-2">
-                    <span className="font-mono font-bold text-emerald-600 dark:text-emerald-400">
+                    <span className="font-mono font-bold text-orange-600 dark:text-orange-400">
                       {chavePix}
                     </span>
                     <button
                       type="button"
                       onClick={copiarChave}
-                      className="p-1 rounded-md text-slate-400 hover:text-emerald-500 transition"
+                      className="p-1 rounded-md text-slate-400 hover:text-orange-500 transition"
                       title="Copiar Chave PIX"
                     >
                       {copiadoChave ? (
-                        <Check className="h-3.5 w-3.5 text-emerald-500" />
+                        <Check className="h-3.5 w-3.5 text-orange-500" />
                       ) : (
                         <Copy className="h-3.5 w-3.5" />
                       )}
@@ -296,7 +296,7 @@ export function ModalPagamentoPixInstalacao({
                       ? "QR Code Desta Instalação"
                       : `QR Code Total em Lote (${qtdOrdensAtivas} ordens)`}
                   </div>
-                  <div className="text-xl sm:text-2xl font-black font-mono text-emerald-600 dark:text-emerald-400 mt-0.5">
+                  <div className="text-xl sm:text-2xl font-black font-mono text-orange-600 dark:text-orange-400 mt-0.5">
                     R$ {valorAtivo.toFixed(2)}
                   </div>
                 </div>
@@ -328,7 +328,7 @@ export function ModalPagamentoPixInstalacao({
                       <button
                         type="button"
                         onClick={copiarPixCopiaECola}
-                        className="flex items-center gap-1 text-emerald-500 hover:text-emerald-400 font-bold transition"
+                        className="flex items-center gap-1 text-orange-500 hover:text-orange-400 font-bold transition"
                       >
                         {copiadoPix ? (
                           <>
@@ -345,7 +345,7 @@ export function ModalPagamentoPixInstalacao({
                     </div>
                     <div
                       onClick={copiarPixCopiaECola}
-                      className="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-[10px] font-mono text-slate-600 dark:text-slate-300 break-all line-clamp-2 cursor-pointer hover:border-emerald-500/50 transition"
+                      className="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-[10px] font-mono text-slate-600 dark:text-slate-300 break-all line-clamp-2 cursor-pointer hover:border-orange-500/50 transition"
                       title="Clique para copiar o código Pix completo"
                     >
                       {payloadPix}
@@ -374,7 +374,7 @@ export function ModalPagamentoPixInstalacao({
                 value={comprovante}
                 onChange={(e) => setComprovante(e.target.value)}
                 placeholder="Ex: E18236120202609191630..."
-                className="w-full px-3 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-xs font-mono text-slate-900 dark:text-slate-100 focus:border-emerald-500 focus:outline-none min-h-[44px]"
+                className="w-full px-3 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-xs font-mono text-slate-900 dark:text-slate-100 focus:border-orange-500 focus:outline-none min-h-[44px]"
               />
             </div>
           </div>
@@ -408,7 +408,7 @@ export function ModalPagamentoPixInstalacao({
               onClick={handleConfirmarPagamento}
               className={`w-full sm:w-auto min-h-[44px] flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold text-white transition shadow-lg ${
                 modo === "individual"
-                  ? "bg-emerald-600 hover:bg-emerald-500 shadow-emerald-600/20"
+                  ? "bg-orange-600 hover:bg-orange-500 shadow-orange-600/20"
                   : "bg-indigo-600 hover:bg-indigo-500 shadow-indigo-600/20"
               }`}
             >

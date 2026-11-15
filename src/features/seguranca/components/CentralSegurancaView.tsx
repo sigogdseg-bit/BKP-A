@@ -384,7 +384,7 @@ export function CentralSegurancaView() {
       {/* Cabeçalho Executivo */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 p-4 sm:p-6 rounded-3xl shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl overflow-hidden mt-1 sm:mt-0">
         <div className="flex items-center gap-3.5">
-          <div className="h-12 w-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shadow-xs shrink-0">
+          <div className="h-12 w-12 rounded-2xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-orange-600 dark:text-orange-400 shadow-xs shrink-0">
             <ShieldCheck className="h-6 w-6 stroke-[2.2]" />
           </div>
           <div className="min-w-0">
@@ -392,7 +392,7 @@ export function CentralSegurancaView() {
               <h1 className="text-base sm:text-xl font-black text-slate-900 dark:text-slate-100">
                 Central de Segurança Cibernética
               </h1>
-              <span className="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 whitespace-nowrap">
+              <span className="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-orange-500/15 text-orange-600 dark:text-orange-400 border border-orange-500/30 whitespace-nowrap">
                 v{APP_VERSION_NUMERO}
               </span>
               <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-blue-500/15 text-blue-600 dark:text-blue-400 border border-blue-500/30 whitespace-nowrap">
@@ -409,7 +409,7 @@ export function CentralSegurancaView() {
         <div className="flex items-center gap-2 w-full sm:w-auto">
           <button
             onClick={gerarLaudoForensePdf}
-            className="flex-1 sm:flex-none flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-2xl text-xs font-bold text-slate-950 bg-emerald-500 hover:bg-emerald-400 shadow-[2px_2px_8px_rgba(5,150,105,0.4)] transition min-h-[44px] cursor-pointer"
+            className="flex-1 sm:flex-none flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-2xl text-xs font-bold text-slate-950 bg-orange-500 hover:bg-orange-400 shadow-[2px_2px_8px_rgba(5,150,105,0.4)] transition min-h-[44px] cursor-pointer"
           >
             <Download className="h-3.5 w-3.5 shrink-0" />
             <span>Emitir Laudo Pericial</span>
@@ -420,7 +420,7 @@ export function CentralSegurancaView() {
             className="flex-1 sm:flex-none flex items-center justify-center gap-1.5 px-3.5 py-2.5 rounded-2xl text-xs font-bold bg-[#eaf0f8] dark:bg-slate-800 hover:bg-[#dfe8f5] dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 border border-slate-300/50 dark:border-slate-700 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none transition min-h-[44px] cursor-pointer"
           >
             <RefreshCw
-              className={`h-3.5 w-3.5 shrink-0 ${carregando ? "animate-spin text-emerald-600" : ""}`}
+              className={`h-3.5 w-3.5 shrink-0 ${carregando ? "animate-spin text-orange-600" : ""}`}
             />
             <span>Auditar</span>
           </button>
@@ -438,7 +438,7 @@ export function CentralSegurancaView() {
               onClick={() => setAbaAtiva(a.id as AbaSeguranca)}
               className={`flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-2xl text-xs font-bold transition flex-1 min-w-[140px] sm:min-w-fit text-center min-h-[44px] ${
                 ativa
-                  ? "bg-emerald-600 text-white shadow-[2px_2px_8px_rgba(5,150,105,0.35)]"
+                  ? "bg-orange-600 text-white shadow-[2px_2px_8px_rgba(5,150,105,0.35)]"
                   : "bg-[#eaf0f8] dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 border border-slate-300/50 dark:border-slate-700 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none hover:shadow-[3px_3px_8px_#b8c6da]"
               }`}
             >
@@ -458,8 +458,8 @@ export function CentralSegurancaView() {
           <div className="flex items-center justify-between p-4 sm:p-5 rounded-3xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl">
             <div className="flex items-center gap-3">
               <span className="flex h-3.5 w-3.5 relative">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-emerald-500"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-orange-500"></span>
               </span>
               <div>
                 <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100">
@@ -470,7 +470,7 @@ export function CentralSegurancaView() {
                 </p>
               </div>
             </div>
-            <span className="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30">
+            <span className="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-orange-500/15 text-orange-600 dark:text-orange-400 border border-orange-500/30">
               {statusDefesa?.statusRotuloGeral || "Operacional e Blindado"}
             </span>
           </div>
@@ -491,8 +491,8 @@ export function CentralSegurancaView() {
                   {
                     id: "otimo",
                     label: "Ótimo",
-                    cor: "text-emerald-500",
-                    bg: "bg-emerald-500/10 border-emerald-500/30",
+                    cor: "text-orange-500",
+                    bg: "bg-orange-500/10 border-orange-500/30",
                   },
                   {
                     id: "bom",
@@ -536,7 +536,7 @@ export function CentralSegurancaView() {
                     onClick={() => setFiltroNivelSemaforo(ativo ? null : n.id)}
                     spotlightColor={spotlight}
                     className={`rounded-2xl border p-4 text-left transition cursor-pointer shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none ${n.bg} ${
-                      ativo ? "ring-2 ring-emerald-500 shadow-md" : "hover:brightness-105"
+                      ativo ? "ring-2 ring-orange-500 shadow-md" : "hover:brightness-105"
                     }`}
                   >
                     <div className={`text-xs font-bold ${n.cor}`}>{n.label}</div>
@@ -557,7 +557,7 @@ export function CentralSegurancaView() {
             {indicadoresFiltrados.map((ind, idx) => (
               <div
                 key={idx}
-                className="bg-[#eaf0f8] dark:bg-slate-900/80 border border-slate-300/60 dark:border-slate-800 rounded-3xl p-4 space-y-2 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none hover:border-emerald-500/40 transition-colors"
+                className="bg-[#eaf0f8] dark:bg-slate-900/80 border border-slate-300/60 dark:border-slate-800 rounded-3xl p-4 space-y-2 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none hover:border-orange-500/40 transition-colors"
               >
                 <div className="flex items-center justify-between">
                   <span className="text-[10px] font-mono uppercase tracking-wide text-slate-400">
@@ -566,7 +566,7 @@ export function CentralSegurancaView() {
                   <span
                     className={`px-2 py-0.5 rounded-full text-[10px] font-bold ${
                       ind.nivel === "otimo"
-                        ? "bg-emerald-500/10 text-emerald-500 border border-emerald-500/20"
+                        ? "bg-orange-500/10 text-orange-500 border border-orange-500/20"
                         : ind.nivel === "bom"
                           ? "bg-sky-500/10 text-sky-500 border border-sky-500/20"
                           : ind.nivel === "atencao"
@@ -580,7 +580,7 @@ export function CentralSegurancaView() {
                 <div className="font-bold text-xs text-slate-900 dark:text-slate-100">
                   {ind.titulo}
                 </div>
-                <div className="text-xs font-mono font-semibold text-emerald-600 dark:text-emerald-400">
+                <div className="text-xs font-mono font-semibold text-orange-600 dark:text-orange-400">
                   {ind.valor}
                 </div>
                 <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
@@ -644,14 +644,14 @@ export function CentralSegurancaView() {
               <div className="flex items-baseline gap-2">
                 <span
                   className={`text-3xl font-black font-mono ${
-                    statusDefesa?.matrizRisco?.notaCor || "text-emerald-500"
+                    statusDefesa?.matrizRisco?.notaCor || "text-orange-500"
                   }`}
                 >
                   {statusDefesa?.matrizRisco?.media?.toFixed(2) || "4.35"}
                 </span>
                 <span className="text-xs text-slate-500">
                   de 5,00 ·{" "}
-                  <strong className={statusDefesa?.matrizRisco?.notaCor || "text-emerald-500"}>
+                  <strong className={statusDefesa?.matrizRisco?.notaCor || "text-orange-500"}>
                     {statusDefesa?.matrizRisco?.notaGeral || "Excelente"}
                   </strong>
                 </span>
@@ -731,7 +731,7 @@ export function CentralSegurancaView() {
                 const ativo = filtroNivelAtaque === n;
                 const bgCor =
                   n === "bloquear"
-                    ? "bg-emerald-500/10 border-emerald-500/30"
+                    ? "bg-orange-500/10 border-orange-500/30"
                     : n === "detectar"
                       ? "bg-sky-500/10 border-sky-500/30"
                       : "bg-amber-500/10 border-amber-500/30";
@@ -747,7 +747,7 @@ export function CentralSegurancaView() {
                     onClick={() => setFiltroNivelAtaque(ativo ? null : n)}
                     spotlightColor={spotlight}
                     className={`rounded-2xl border p-3 transition cursor-pointer shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none ${bgCor} ${
-                      ativo ? "ring-2 ring-emerald-500 shadow-md" : "hover:brightness-105"
+                      ativo ? "ring-2 ring-orange-500 shadow-md" : "hover:brightness-105"
                     }`}
                   >
                     <div className={`text-xl font-black font-mono ${NIVEL_COR[n]}`}>
@@ -818,7 +818,7 @@ export function CentralSegurancaView() {
             <TiltCard
               onClick={() => setAbaAtiva("logs")}
               spotlightColor="rgba(59, 130, 246, 0.18)"
-              className="p-4 rounded-3xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none text-left hover:shadow-[5px_5px_14px_#b8c6da] hover:border-emerald-500/40 transition-all cursor-pointer"
+              className="p-4 rounded-3xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none text-left hover:shadow-[5px_5px_14px_#b8c6da] hover:border-orange-500/40 transition-all cursor-pointer"
             >
               <span className="text-xs font-semibold text-slate-500 dark:text-slate-400">
                 Total de Logins
@@ -826,7 +826,7 @@ export function CentralSegurancaView() {
               <div className="text-2xl font-black font-mono text-slate-900 dark:text-slate-100 mt-1">
                 {metricasExec.totalLogins}
               </div>
-              <span className="text-[10px] text-emerald-500 font-medium">Auditoria contínua</span>
+              <span className="text-[10px] text-orange-500 font-medium">Auditoria contínua</span>
             </TiltCard>
 
             <TiltCard
@@ -862,15 +862,15 @@ export function CentralSegurancaView() {
             <TiltCard
               onClick={() => setAbaAtiva("auditoria")}
               spotlightColor="rgba(16, 185, 129, 0.18)"
-              className="p-4 rounded-3xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none text-left hover:shadow-[5px_5px_14px_#b8c6da] hover:border-emerald-500/40 transition-all cursor-pointer"
+              className="p-4 rounded-3xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none text-left hover:shadow-[5px_5px_14px_#b8c6da] hover:border-orange-500/40 transition-all cursor-pointer"
             >
               <span className="text-xs font-semibold text-slate-500 dark:text-slate-400">
                 Tabelas com RLS
               </span>
-              <div className="text-2xl font-black font-mono text-emerald-500 mt-1">
+              <div className="text-2xl font-black font-mono text-orange-500 mt-1">
                 {metricasExec.conformidadeRlsPercentual}%
               </div>
-              <span className="text-[10px] text-emerald-500 font-medium">
+              <span className="text-[10px] text-orange-500 font-medium">
                 Isolamento rigoroso por tenant
               </span>
             </TiltCard>
@@ -962,7 +962,7 @@ export function CentralSegurancaView() {
                 count: uebaContagens.medio,
                 cor: "text-sky-500",
               },
-              { id: "baixo", label: "Baixo", count: uebaContagens.baixo, cor: "text-emerald-500" },
+              { id: "baixo", label: "Baixo", count: uebaContagens.baixo, cor: "text-orange-500" },
             ].map((f) => {
               const ativo = filtroScoreUeba === f.id;
               const spotlight =
@@ -982,7 +982,7 @@ export function CentralSegurancaView() {
                   spotlightColor={spotlight}
                   className={`p-3 rounded-2xl border text-left transition cursor-pointer shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none ${
                     ativo
-                      ? "bg-emerald-500/10 border-emerald-500/40 ring-2 ring-emerald-500 shadow-md"
+                      ? "bg-orange-500/10 border-orange-500/40 ring-2 ring-orange-500 shadow-md"
                       : "bg-[#eaf0f8] dark:bg-slate-900/80 border-slate-300/60 dark:border-slate-800 hover:shadow-[3px_3px_8px_#b8c6da]"
                   }`}
                 >
@@ -1029,7 +1029,7 @@ export function CentralSegurancaView() {
                               : ev.role === "Administrador"
                                 ? "bg-sky-500/15 text-sky-600 dark:text-sky-400 border border-sky-500/30"
                                 : ev.role === "Operador"
-                                  ? "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30"
+                                  ? "bg-orange-500/15 text-orange-600 dark:text-orange-400 border border-orange-500/30"
                                   : "bg-amber-500/15 text-amber-600 dark:text-amber-400 border border-amber-500/30"
                         }`}
                       >
@@ -1051,7 +1051,7 @@ export function CentralSegurancaView() {
                                   : ev.role === "Administrador"
                                     ? "bg-sky-500/15 text-sky-600 dark:text-sky-400 border border-sky-500/30"
                                     : ev.role === "Operador"
-                                      ? "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30"
+                                      ? "bg-orange-500/15 text-orange-600 dark:text-orange-400 border border-orange-500/30"
                                       : "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700"
                             }`}
                           >
@@ -1064,7 +1064,7 @@ export function CentralSegurancaView() {
                                 ? "bg-rose-500/15 text-rose-500 border border-rose-500/30"
                                 : ev.scoreRisco === "alto"
                                   ? "bg-amber-500/15 text-amber-500 border border-amber-500/30"
-                                  : "bg-emerald-500/15 text-emerald-500 border border-emerald-500/30"
+                                  : "bg-orange-500/15 text-orange-500 border border-orange-500/30"
                             }`}
                           >
                             Risco {ev.scoreRisco}
@@ -1195,7 +1195,7 @@ export function CentralSegurancaView() {
                 <button
                   type="button"
                   onClick={() => setFiltroCategoriaAnomalia(null)}
-                  className="text-xs text-emerald-600 dark:text-emerald-400 font-bold hover:underline"
+                  className="text-xs text-orange-600 dark:text-orange-400 font-bold hover:underline"
                 >
                   Ver todos os incidentes
                 </button>
@@ -1248,7 +1248,7 @@ export function CentralSegurancaView() {
                 100% das tabelas do schema public com Row Level Security compulsório
               </p>
             </div>
-            <span className="px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/15 text-emerald-600 border border-emerald-500/30">
+            <span className="px-3 py-1 rounded-full text-xs font-bold bg-orange-500/15 text-orange-600 border border-orange-500/30">
               {auditoriaBanco.tabelasProtegidas} / {auditoriaBanco.totalTabelas} Tabelas Conformes
             </span>
           </div>
@@ -1263,7 +1263,7 @@ export function CentralSegurancaView() {
                   <div className="font-bold text-slate-900 dark:text-slate-100">{tab.nome}</div>
                   <div className="text-[11px] text-slate-400">{tab.descricao}</div>
                 </div>
-                <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">
+                <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-orange-500/10 text-orange-500 border border-orange-500/20">
                   {tab.status}
                 </span>
               </div>
@@ -1300,7 +1300,7 @@ export function CentralSegurancaView() {
                 onClick={() => setFiltroStatusBloqueio(f.id as any)}
                 className={`px-3 py-1.5 rounded-xl text-xs font-bold transition shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none ${
                   filtroStatusBloqueio === f.id
-                    ? "bg-emerald-600 text-white shadow-sm"
+                    ? "bg-orange-600 text-white shadow-sm"
                     : "bg-[#eaf0f8] dark:bg-slate-900/80 text-slate-700 dark:text-slate-300 border border-slate-300/60 dark:border-slate-800 hover:shadow-[3px_3px_8px_#b8c6da]"
                 }`}
               >
@@ -1345,7 +1345,7 @@ export function CentralSegurancaView() {
                   {b.ativo && (
                     <button
                       onClick={() => handleDesbloquear(b.id, b.chave)}
-                      className="px-3 py-1.5 rounded-xl text-xs font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none flex items-center gap-1.5 transition"
+                      className="px-3 py-1.5 rounded-xl text-xs font-bold text-orange-600 dark:text-orange-400 bg-orange-500/10 hover:bg-orange-500/20 border border-orange-500/30 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none flex items-center gap-1.5 transition"
                     >
                       <Unlock className="h-3.5 w-3.5" />
                       <span>Desbloquear</span>
@@ -1437,7 +1437,7 @@ export function CentralSegurancaView() {
                   onClick={() => setFiltroStatusDisp(f.id as any)}
                   className={`px-3 py-1 rounded-xl text-xs font-bold transition shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none ${
                     filtroStatusDisp === f.id
-                      ? "bg-emerald-600 text-white shadow-sm"
+                      ? "bg-orange-600 text-white shadow-sm"
                       : "bg-[#eaf0f8] dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-300/60 dark:border-slate-700 hover:shadow-[3px_3px_8px_#b8c6da]"
                   }`}
                 >
@@ -1462,7 +1462,7 @@ export function CentralSegurancaView() {
                     <span className="font-bold text-xs text-slate-900 dark:text-slate-100">
                       {d.nomeDispositivo}
                     </span>
-                    <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">
+                    <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-orange-500/10 text-orange-500 border border-orange-500/20">
                       {d.status}
                     </span>
                   </div>
@@ -1515,7 +1515,7 @@ export function CentralSegurancaView() {
                   type="checkbox"
                   checked={dlpConfig.watermarkAtivo}
                   onChange={(e) => setDlpConfig({ ...dlpConfig, watermarkAtivo: e.target.checked })}
-                  className="rounded text-emerald-600 focus:ring-emerald-500 h-4 w-4"
+                  className="rounded text-orange-600 focus:ring-orange-500 h-4 w-4"
                 />
                 <span className="text-xs font-bold text-slate-800 dark:text-slate-200">
                   Estamparia de Marca D'Água Forense Persistente (Email, IP e Carimbo de Data e
@@ -1530,7 +1530,7 @@ export function CentralSegurancaView() {
                   onChange={(e) =>
                     setDlpConfig({ ...dlpConfig, blurPerdaFocoAtivo: e.target.checked })
                   }
-                  className="rounded text-emerald-600 focus:ring-emerald-500 h-4 w-4"
+                  className="rounded text-orange-600 focus:ring-orange-500 h-4 w-4"
                 />
                 <span className="text-xs font-bold text-slate-800 dark:text-slate-200">
                   Ofuscamento Automático (Blur) ao trocar de aba ou minimizar janela
@@ -1544,7 +1544,7 @@ export function CentralSegurancaView() {
                   onChange={(e) =>
                     setDlpConfig({ ...dlpConfig, bloqueioPrintAtivo: e.target.checked })
                   }
-                  className="rounded text-emerald-600 focus:ring-emerald-500 h-4 w-4"
+                  className="rounded text-orange-600 focus:ring-orange-500 h-4 w-4"
                 />
                 <span className="text-xs font-bold text-slate-800 dark:text-slate-200">
                   Bloqueio de Seleção de Texto e Prevenção Anti-PrintScreen
@@ -1555,7 +1555,7 @@ export function CentralSegurancaView() {
             <div className="pt-3 border-t border-slate-300/50 dark:border-slate-800 flex justify-end">
               <button
                 onClick={handleSalvarDlp}
-                className="px-4 py-2 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs shadow-[2px_2px_8px_rgba(5,150,105,0.35)] transition"
+                className="px-4 py-2 rounded-2xl bg-orange-600 hover:bg-orange-500 text-white font-bold text-xs shadow-[2px_2px_8px_rgba(5,150,105,0.35)] transition"
               >
                 Salvar Diretrizes DLP
               </button>
@@ -1595,7 +1595,7 @@ export function CentralSegurancaView() {
                     Path: {m.path} · {m.checksum}
                   </div>
                 </div>
-                <span className="px-2.5 py-1 rounded-full text-[10px] font-bold bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">
+                <span className="px-2.5 py-1 rounded-full text-[10px] font-bold bg-orange-500/10 text-orange-500 border border-orange-500/20">
                   {m.status}
                 </span>
               </div>
@@ -1642,7 +1642,7 @@ export function CentralSegurancaView() {
                   onClick={() => setFiltroStatusLgpd(f.id as any)}
                   className={`px-3 py-1 rounded-xl text-xs font-bold transition shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none ${
                     filtroStatusLgpd === f.id
-                      ? "bg-emerald-600 text-white shadow-sm"
+                      ? "bg-orange-600 text-white shadow-sm"
                       : "bg-[#eaf0f8] dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-300/60 dark:border-slate-700 hover:shadow-[3px_3px_8px_#b8c6da]"
                   }`}
                 >
@@ -1677,7 +1677,7 @@ export function CentralSegurancaView() {
                         item.status === "pendente"
                           ? "bg-amber-500/10 text-amber-500"
                           : item.status === "atendido"
-                            ? "bg-emerald-500/10 text-emerald-500"
+                            ? "bg-orange-500/10 text-orange-500"
                             : "bg-rose-500/10 text-rose-500"
                       }`}
                     >
@@ -1697,7 +1697,7 @@ export function CentralSegurancaView() {
                     <div className="flex items-center gap-2 pt-2 border-t border-slate-300/40 dark:border-slate-800">
                       <button
                         onClick={() => handleTramitarLgpd(item.id, "atendido")}
-                        className="px-3 py-1 rounded-xl text-[11px] font-bold bg-emerald-600 text-white hover:bg-emerald-500 shadow-[2px_2px_5px_rgba(5,150,105,0.3)] transition"
+                        className="px-3 py-1 rounded-xl text-[11px] font-bold bg-orange-600 text-white hover:bg-orange-500 shadow-[2px_2px_5px_rgba(5,150,105,0.3)] transition"
                       >
                         Atender Solicitação
                       </button>
@@ -1727,7 +1727,7 @@ export function CentralSegurancaView() {
                 onClick={() => setTipoLog("login")}
                 className={`px-3 py-1.5 rounded-xl text-xs font-bold transition shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none ${
                   tipoLog === "login"
-                    ? "bg-emerald-500 text-slate-950 font-black shadow-sm"
+                    ? "bg-orange-500 text-slate-950 font-black shadow-sm"
                     : "bg-[#eaf0f8] dark:bg-slate-800 text-slate-700 dark:text-slate-400 border border-slate-300/60 dark:border-slate-700"
                 }`}
               >
@@ -1737,7 +1737,7 @@ export function CentralSegurancaView() {
                 onClick={() => setTipoLog("atividade")}
                 className={`px-3 py-1.5 rounded-xl text-xs font-bold transition shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none ${
                   tipoLog === "atividade"
-                    ? "bg-emerald-500 text-slate-950 font-black shadow-sm"
+                    ? "bg-orange-500 text-slate-950 font-black shadow-sm"
                     : "bg-[#eaf0f8] dark:bg-slate-800 text-slate-700 dark:text-slate-400 border border-slate-300/60 dark:border-slate-700"
                 }`}
               >
@@ -1779,7 +1779,7 @@ export function CentralSegurancaView() {
                           <span
                             className={`px-2 py-0.2 rounded-full text-[9px] font-bold uppercase ${
                               l.status === "sucesso"
-                                ? "bg-emerald-500/10 text-emerald-500"
+                                ? "bg-orange-500/10 text-orange-500"
                                 : "bg-rose-500/10 text-rose-500"
                             }`}
                           >
@@ -1806,7 +1806,7 @@ export function CentralSegurancaView() {
                       className="p-3 rounded-2xl bg-[#eaf0f8] dark:bg-slate-900/80 border border-slate-300/50 dark:border-slate-800/80 shadow-[2px_2px_6px_#c3cfe2] dark:shadow-none text-xs space-y-1"
                     >
                       <div className="flex items-center justify-between">
-                        <span className="font-bold font-mono text-emerald-600 dark:text-emerald-400">
+                        <span className="font-bold font-mono text-orange-600 dark:text-orange-400">
                           {a.acao}
                         </span>
                         <span className="text-[11px] text-slate-500 font-mono">

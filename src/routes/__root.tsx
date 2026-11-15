@@ -115,7 +115,7 @@ function NotFoundComponent() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center p-4 bg-[#eaf0f8] dark:bg-slate-950 text-slate-800 dark:text-slate-100 select-none transition-colors">
       <div className="text-center max-w-md space-y-4 p-8 bg-white/80 dark:bg-slate-900/80 rounded-3xl border border-slate-300/60 dark:border-slate-800 shadow-[6px_6px_20px_#c3cfe2] dark:shadow-2xl">
-        <div className="text-6xl font-black font-mono text-emerald-600 dark:text-emerald-400">
+        <div className="text-6xl font-black font-mono text-orange-600 dark:text-orange-400">
           404
         </div>
         <h1 className="text-xl font-bold text-slate-900 dark:text-slate-100">
@@ -126,7 +126,7 @@ function NotFoundComponent() {
         </p>
         <Link
           to="/"
-          className="inline-flex items-center justify-center px-5 py-2.5 rounded-xl text-xs font-bold bg-emerald-600 hover:bg-emerald-500 text-white shadow-md transition"
+          className="inline-flex items-center justify-center px-5 py-2.5 rounded-xl text-xs font-bold bg-orange-600 hover:bg-orange-500 text-white shadow-md transition"
         >
           Voltar para Início
         </Link>
@@ -184,7 +184,7 @@ function RootErrorComponent({ error, reset }: { error: any; reset: () => void })
                 reset();
               }
             }}
-            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs shadow-md transition cursor-pointer"
+            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-orange-600 hover:bg-orange-500 text-white font-bold text-xs shadow-md transition cursor-pointer"
           >
             <RefreshCw className="w-4 h-4" />
             <span>Recarregar Sistema</span>

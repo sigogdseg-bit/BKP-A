@@ -430,9 +430,9 @@ export function obterInfoPingReal(
       statusRotulo: "EM TRÂNSITO",
       modoDescricao: "Transmissão ativa (15s)",
       statusBadge: "ativo_rota",
-      corBadge: "text-emerald-600 dark:text-emerald-400",
-      bgBadge: "bg-emerald-500/15",
-      bordaBadge: "border-emerald-500/30",
+      corBadge: "text-orange-600 dark:text-orange-400",
+      bgBadge: "bg-orange-500/15",
+      bordaBadge: "border-orange-500/30",
     };
   }
 

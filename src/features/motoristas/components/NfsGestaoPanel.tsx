@@ -269,9 +269,9 @@ export function NfsGestaoPanel({ clienteId, onAtualizacao }: Props) {
         <div className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-md p-4 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-2xs">
           <div className="flex items-center justify-between text-slate-500 mb-1">
             <span className="text-xs font-bold">Baixados / Salvos</span>
-            <CheckCircle className="h-4 w-4 text-emerald-500" />
+            <CheckCircle className="h-4 w-4 text-orange-500" />
           </div>
-          <div className="text-2xl font-black text-emerald-600 dark:text-emerald-400">
+          <div className="text-2xl font-black text-orange-600 dark:text-orange-400">
             {totalBaixadas}
           </div>
           <p className="text-[11px] text-slate-500 font-medium mt-0.5">Arquivos já descarregados</p>
@@ -503,7 +503,7 @@ export function NfsGestaoPanel({ clienteId, onAtualizacao }: Props) {
                             Excluído / Expirado
                           </span>
                         ) : item.nf_baixado ? (
-                          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+                          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold bg-orange-500/10 text-orange-600 dark:text-orange-400 border border-orange-500/20">
                             <CheckCircle className="h-3 w-3" /> Baixado
                           </span>
                         ) : (
@@ -551,7 +551,7 @@ export function NfsGestaoPanel({ clienteId, onAtualizacao }: Props) {
                             <button
                               onClick={() => handleCiencia(item)}
                               disabled={emProcessamento}
-                              className="p-1.5 rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 transition cursor-pointer"
+                              className="p-1.5 rounded-lg bg-orange-500/10 hover:bg-orange-500/20 text-orange-600 dark:text-orange-400 border border-orange-500/20 transition cursor-pointer"
                               title="Confirmar ciência (inicia contagem de 24h para expiração)"
                             >
                               <CheckCircle className="h-3.5 w-3.5" />

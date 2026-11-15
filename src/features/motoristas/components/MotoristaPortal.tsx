@@ -267,7 +267,7 @@ export function MotoristaPortal() {
             <Link
               to="/inicio"
               id="btn-voltar-ao-sistema"
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold text-emerald-400 bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 transition-colors"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold text-orange-400 bg-orange-500/10 hover:bg-orange-500/20 border border-orange-500/30 transition-colors"
               title="Voltar ao Painel Geral"
             >
               <LayoutDashboard className="h-3.5 w-3.5" />
@@ -504,7 +504,7 @@ function InicioMotorista({
       label: "Registrar Abastecimento",
       desc: "Foto da NF ou preenchimento manual",
       icon: <Fuel className="h-6 w-6" />,
-      cor: "text-emerald-400 bg-emerald-500/10",
+      cor: "text-orange-400 bg-orange-500/10",
       onClick: () => onNavegar("abastecimento"),
       visivel: true,
     },
@@ -605,7 +605,7 @@ function InicioMotorista({
             )}
           </p>
         ) : (
-          <p className="text-xs text-emerald-400 font-medium pt-0.5">
+          <p className="text-xs text-orange-400 font-medium pt-0.5">
             Acesso com permissão total para abastecimento, despesas e manutenções.
           </p>
         )}

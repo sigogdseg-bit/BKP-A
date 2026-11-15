@@ -114,7 +114,7 @@ export function BannerComandosAguardoGlobal() {
             onClick={() => alternarMinimizado(false)}
             className={`flex items-center gap-2 p-2 pr-3 rounded-2xl border-2 shadow-2xl backdrop-blur-md cursor-pointer transition-all hover:scale-105 active:scale-95 group select-none ${
               todosConcluidos
-                ? "border-emerald-500/90 bg-slate-950/95 text-white shadow-emerald-500/20 ring-2 ring-emerald-500/30"
+                ? "border-orange-500/90 bg-slate-950/95 text-white shadow-orange-500/20 ring-2 ring-orange-500/30"
                 : emDespertar
                   ? "border-cyan-500/90 bg-slate-950/95 text-white shadow-cyan-500/20 ring-2 ring-cyan-500/30"
                   : "border-amber-500/90 bg-slate-950/95 text-white shadow-amber-500/20 ring-2 ring-amber-500/30"
@@ -124,7 +124,7 @@ export function BannerComandosAguardoGlobal() {
             <div
               className={`p-1.5 rounded-xl ${
                 todosConcluidos
-                  ? "bg-emerald-500/20 text-emerald-400"
+                  ? "bg-orange-500/20 text-orange-400"
                   : emDespertar
                     ? "bg-cyan-500/20 text-cyan-400 animate-pulse"
                     : "bg-amber-500/20 text-amber-400 animate-pulse"
@@ -155,7 +155,7 @@ export function BannerComandosAguardoGlobal() {
                 <span
                   className={`px-1.5 py-0.2 rounded text-[9px] font-mono font-black uppercase ${
                     todosConcluidos
-                      ? "bg-emerald-500 text-slate-950"
+                      ? "bg-orange-500 text-slate-950"
                       : emDespertar
                         ? "bg-cyan-500 text-slate-950 font-black animate-pulse"
                         : "bg-amber-500 text-slate-950"
@@ -213,7 +213,7 @@ export function BannerComandosAguardoGlobal() {
           <div
             className={`rounded-2xl sm:rounded-3xl border-2 shadow-2xl backdrop-blur-md overflow-hidden transition-all duration-300 ${
               todosConcluidos
-                ? "border-emerald-500/90 bg-slate-950/95 text-white shadow-emerald-500/20 ring-2 ring-emerald-500/30"
+                ? "border-orange-500/90 bg-slate-950/95 text-white shadow-orange-500/20 ring-2 ring-orange-500/30"
                 : emDespertar
                   ? "border-cyan-500/90 bg-slate-950/95 text-white shadow-cyan-500/20 ring-2 ring-cyan-500/30"
                   : "border-amber-500/90 bg-slate-950/95 text-white shadow-amber-500/20 ring-2 ring-amber-500/30"
@@ -233,7 +233,7 @@ export function BannerComandosAguardoGlobal() {
                 <div
                   className={`p-2 rounded-xl shrink-0 ${
                     todosConcluidos
-                      ? "bg-emerald-500/20 text-emerald-400 border border-emerald-500/30"
+                      ? "bg-orange-500/20 text-orange-400 border border-orange-500/30"
                       : emDespertar
                         ? "bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 animate-pulse"
                         : "bg-amber-500/20 text-amber-400 border border-amber-500/30 animate-pulse"
@@ -265,7 +265,7 @@ export function BannerComandosAguardoGlobal() {
                     <span
                       className={`px-1.5 py-0.2 rounded text-[9px] font-mono font-black uppercase ${
                         todosConcluidos
-                          ? "bg-emerald-500 text-slate-950"
+                          ? "bg-orange-500 text-slate-950"
                           : emDespertar
                             ? "bg-cyan-500 text-slate-950 font-black animate-pulse"
                             : "bg-amber-500 text-slate-950"
@@ -300,7 +300,7 @@ export function BannerComandosAguardoGlobal() {
                   {somMudo ? (
                     <VolumeX className="h-3.5 w-3.5 text-rose-400" />
                   ) : (
-                    <Volume2 className="h-3.5 w-3.5 text-emerald-400" />
+                    <Volume2 className="h-3.5 w-3.5 text-orange-400" />
                   )}
                 </button>
                 <button
@@ -317,7 +317,7 @@ export function BannerComandosAguardoGlobal() {
                   className="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition cursor-pointer"
                   title="Minimizar para botão flutuante discreto em todas as telas"
                 >
-                  <Minimize2 className="h-3.5 w-3.5 text-emerald-400" />
+                  <Minimize2 className="h-3.5 w-3.5 text-orange-400" />
                 </button>
                 <button
                   type="button"
@@ -367,7 +367,7 @@ export function BannerComandosAguardoGlobal() {
                         className={`px-2.5 py-1 rounded-lg text-[10px] font-mono font-bold transition shrink-0 cursor-pointer flex items-center gap-1 border ${
                           abaFocoVeiculo === v.id
                             ? v.status === "concluido"
-                              ? "bg-emerald-500 text-slate-950 border-emerald-400 font-black shadow-xs"
+                              ? "bg-orange-500 text-slate-950 border-orange-400 font-black shadow-xs"
                               : "bg-amber-500 text-slate-950 border-amber-400 font-black shadow-xs"
                             : "bg-slate-900 text-slate-400 hover:text-white border-slate-800"
                         }`}
@@ -375,7 +375,7 @@ export function BannerComandosAguardoGlobal() {
                         <span
                           className={`h-1.5 w-1.5 rounded-full ${
                             v.status === "concluido"
-                              ? "bg-emerald-400"
+                              ? "bg-orange-400"
                               : "bg-amber-400 animate-pulse"
                           }`}
                         />
@@ -397,7 +397,7 @@ export function BannerComandosAguardoGlobal() {
                       key={item.id}
                       className={`p-3 rounded-xl border transition-all ${
                         item.status === "concluido"
-                          ? "bg-slate-900/95 border-emerald-500/50 shadow-xs"
+                          ? "bg-slate-900/95 border-orange-500/50 shadow-xs"
                           : "bg-slate-900/90 border-slate-800"
                       } space-y-2.5`}
                     >
@@ -406,7 +406,7 @@ export function BannerComandosAguardoGlobal() {
                         <div className="flex items-center gap-2 min-w-0">
                           <span
                             className={`font-mono font-black text-sm tracking-wider ${
-                              item.status === "concluido" ? "text-emerald-400" : "text-amber-400"
+                              item.status === "concluido" ? "text-orange-400" : "text-amber-400"
                             }`}
                           >
                             {item.placa || "Sem Placa"}
@@ -417,7 +417,7 @@ export function BannerComandosAguardoGlobal() {
                           <span
                             className={`px-1.5 py-0.2 rounded text-[9px] font-mono font-black uppercase ${
                               item.status === "concluido"
-                                ? "bg-emerald-500 text-slate-950"
+                                ? "bg-orange-500 text-slate-950"
                                 : "bg-amber-500/20 text-amber-300 border border-amber-500/30"
                             }`}
                           >
@@ -460,11 +460,11 @@ export function BannerComandosAguardoGlobal() {
 
                       {/* Progresso ou Retorno da MCU */}
                       {item.status === "concluido" ? (
-                        <div className="pt-2 border-t border-emerald-800/80 flex items-start gap-1.5 text-emerald-300 font-mono text-[11px]">
-                          <CheckCircle2 className="h-4 w-4 shrink-0 mt-0.5 text-emerald-400" />
+                        <div className="pt-2 border-t border-emerald-800/80 flex items-start gap-1.5 text-orange-300 font-mono text-[11px]">
+                          <CheckCircle2 className="h-4 w-4 shrink-0 mt-0.5 text-orange-400" />
                           <div className="min-w-0">
                             <div className="font-bold text-white">Retorno do Hardware:</div>
-                            <div className="bg-slate-950 p-1.5 rounded border border-emerald-700/60 mt-0.5 break-all text-emerald-300">
+                            <div className="bg-slate-950 p-1.5 rounded border border-emerald-700/60 mt-0.5 break-all text-orange-300">
                               "{item.respostaHardware || "OK"}"
                             </div>
                           </div>
@@ -546,7 +546,7 @@ export function BannerComandosAguardoGlobal() {
                     }}
                     className="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold transition shadow-xs text-xs flex items-center gap-1.5 active:scale-95 cursor-pointer border border-slate-700"
                   >
-                    <Terminal className="h-3.5 w-3.5 text-emerald-400" />
+                    <Terminal className="h-3.5 w-3.5 text-orange-400" />
                     <span>Ver no Console</span>
                   </button>
 
@@ -555,7 +555,7 @@ export function BannerComandosAguardoGlobal() {
                       <button
                         type="button"
                         onClick={limparComandosConcluidos}
-                        className="px-3 py-1.5 rounded-xl bg-emerald-600/30 hover:bg-emerald-600/50 text-emerald-300 border border-emerald-500/40 font-bold transition shadow-xs text-xs flex items-center gap-1 active:scale-95 cursor-pointer"
+                        className="px-3 py-1.5 rounded-xl bg-orange-600/30 hover:bg-orange-600/50 text-orange-300 border border-orange-500/40 font-bold transition shadow-xs text-xs flex items-center gap-1 active:scale-95 cursor-pointer"
                         title="Dispensar comandos já concluídos"
                       >
                         <CheckCircle2 className="h-3.5 w-3.5" />
@@ -582,7 +582,7 @@ export function BannerComandosAguardoGlobal() {
                       <button
                         type="button"
                         onClick={limparTodosComandosEmAguardo}
-                        className="px-4 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-black transition shadow-xs text-xs flex items-center gap-1.5 active:scale-95 cursor-pointer"
+                        className="px-4 py-1.5 rounded-xl bg-orange-600 hover:bg-orange-500 text-white font-black transition shadow-xs text-xs flex items-center gap-1.5 active:scale-95 cursor-pointer"
                       >
                         <CheckCircle2 className="h-3.5 w-3.5" />
                         <span>Dispensar Todos</span>

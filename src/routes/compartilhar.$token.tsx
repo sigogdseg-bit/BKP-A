@@ -346,7 +346,7 @@ function CompartilharVeiculoPage() {
   if (carregando) {
     return (
       <div className="min-h-screen bg-[#eaf0f8] dark:bg-slate-950 flex flex-col items-center justify-center p-4 text-slate-800 dark:text-slate-100 font-sans transition-colors">
-        <div className="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 font-bold text-sm">
+        <div className="flex items-center gap-2 text-orange-600 dark:text-orange-400 font-bold text-sm">
           <Radio className="h-5 w-5 animate-pulse" />
           <span>Localizando veículo...</span>
         </div>
@@ -398,10 +398,10 @@ function CompartilharVeiculoPage() {
                   <span>OFFLINE</span>
                 </span>
               ) : (
-                <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-500/40 text-emerald-600 dark:text-emerald-400 font-extrabold text-[10px] sm:text-[11px] tracking-wider shadow-xs select-none">
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-orange-500/15 border border-orange-500/40 text-orange-600 dark:text-orange-400 font-extrabold text-[10px] sm:text-[11px] tracking-wider shadow-xs select-none">
                   <span className="relative flex h-2.5 w-2.5">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500 shadow-sm"></span>
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-orange-500 shadow-sm"></span>
                   </span>
                   <span>ON LINE</span>
                 </span>
@@ -425,8 +425,8 @@ function CompartilharVeiculoPage() {
               <span className="font-bold">{tempoRestante}</span>
             </div>
           ) : (
-            <div className="p-1.5 sm:px-2.5 sm:py-1 rounded-xl bg-white dark:bg-slate-800/80 border border-emerald-500/30 dark:border-emerald-500/30 flex items-center gap-1.5 text-[11px] text-emerald-600 dark:text-emerald-400 shadow-xs">
-              <Clock className="h-3.5 w-3.5 shrink-0 text-emerald-500" />
+            <div className="p-1.5 sm:px-2.5 sm:py-1 rounded-xl bg-white dark:bg-slate-800/80 border border-orange-500/30 dark:border-orange-500/30 flex items-center gap-1.5 text-[11px] text-orange-600 dark:text-orange-400 shadow-xs">
+              <Clock className="h-3.5 w-3.5 shrink-0 text-orange-500" />
               <span className="hidden sm:inline">Link ativo há:</span>
               <span className="font-bold">{tempoAtivo || "0h 0m 0s"}</span>
             </div>
@@ -453,7 +453,7 @@ function CompartilharVeiculoPage() {
                 <span className="text-[9px] text-slate-500 dark:text-slate-400 block font-sans">
                   Velocidade
                 </span>
-                <span className="font-bold text-emerald-600 dark:text-emerald-400 text-sm">
+                <span className="font-bold text-orange-600 dark:text-orange-400 text-sm">
                   {veiculo.velocidade} km/h
                 </span>
               </div>
@@ -472,7 +472,7 @@ function CompartilharVeiculoPage() {
                 href={`https://www.google.com/maps?q=${veiculo.latitude},${veiculo.longitude}`}
                 target="_blank"
                 rel="noreferrer"
-                className="px-3.5 py-1.5 rounded-xl text-xs font-bold bg-emerald-600 hover:bg-emerald-500 text-white transition flex items-center gap-1.5 shadow-sm"
+                className="px-3.5 py-1.5 rounded-xl text-xs font-bold bg-orange-600 hover:bg-orange-500 text-white transition flex items-center gap-1.5 shadow-sm"
               >
                 <span>Google Maps</span>
                 <ExternalLink className="h-3 w-3" />

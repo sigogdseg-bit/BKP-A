@@ -108,7 +108,7 @@ export function NovoAtendimentoModal({ onFechar, onSucesso }: NovoAtendimentoMod
           {/* Cabeçalho Fixo */}
           <div className="p-4 sm:p-5 border-b border-slate-300/60 dark:border-slate-800 bg-[#eaf0f8]/90 dark:bg-slate-950/80 backdrop-blur-md flex items-center justify-between shrink-0">
             <div className="flex items-center gap-2.5">
-              <div className="h-9 w-9 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shadow-xs shrink-0">
+              <div className="h-9 w-9 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-orange-600 dark:text-orange-400 shadow-xs shrink-0">
                 <Headphones className="h-5 w-5" />
               </div>
               <div>
@@ -143,7 +143,7 @@ export function NovoAtendimentoModal({ onFechar, onSucesso }: NovoAtendimentoMod
                       setVeiculoId("");
                     }}
                     required
-                    className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-200 focus:outline-none focus:border-emerald-500 shadow-xs"
+                    className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-200 focus:outline-none focus:border-orange-500 shadow-xs"
                   >
                     <option value="">Selecione o cliente...</option>
                     {clientes.map((c) => (
@@ -164,7 +164,7 @@ export function NovoAtendimentoModal({ onFechar, onSucesso }: NovoAtendimentoMod
                     value={veiculoId}
                     onChange={(e) => setVeiculoId(e.target.value)}
                     disabled={!clienteId || carregandoVeiculos}
-                    className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-200 focus:outline-none focus:border-emerald-500 disabled:opacity-50 shadow-xs"
+                    className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-200 focus:outline-none focus:border-orange-500 disabled:opacity-50 shadow-xs"
                   >
                     {!clienteId ? (
                       <option value="">Selecione primeiro um cliente...</option>
@@ -192,7 +192,7 @@ export function NovoAtendimentoModal({ onFechar, onSucesso }: NovoAtendimentoMod
                   <select
                     value={prioridade}
                     onChange={(e) => setPrioridade(e.target.value as any)}
-                    className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-200 focus:outline-none focus:border-emerald-500 shadow-xs"
+                    className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-200 focus:outline-none focus:border-orange-500 shadow-xs"
                   >
                     <option value="baixa">Baixa</option>
                     <option value="media">Média</option>
@@ -209,7 +209,7 @@ export function NovoAtendimentoModal({ onFechar, onSucesso }: NovoAtendimentoMod
                 <select
                   value={tipo}
                   onChange={(e) => setTipo(e.target.value)}
-                  className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-200 focus:outline-none focus:border-emerald-500 shadow-xs"
+                  className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-200 focus:outline-none focus:border-orange-500 shadow-xs"
                 >
                   <option value="Dúvida de Operação">Dúvida de Operação</option>
                   <option value="Veículo Sem Sinal / Offline">Veículo Sem Sinal / Offline</option>
@@ -230,7 +230,7 @@ export function NovoAtendimentoModal({ onFechar, onSucesso }: NovoAtendimentoMod
                   onChange={(e) => setTitulo(e.target.value)}
                   placeholder="Ex: Veículo ABC-1234 sem atualizar posição"
                   required
-                  className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-200 focus:outline-none focus:border-emerald-500 shadow-xs"
+                  className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-200 focus:outline-none focus:border-orange-500 shadow-xs"
                 />
               </div>
 
@@ -244,7 +244,7 @@ export function NovoAtendimentoModal({ onFechar, onSucesso }: NovoAtendimentoMod
                   onChange={(e) => setDescricao(e.target.value)}
                   placeholder="Relate detalhadamente o ocorrido..."
                   required
-                  className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-200 focus:outline-none focus:border-emerald-500 shadow-xs"
+                  className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-200 focus:outline-none focus:border-orange-500 shadow-xs"
                 />
               </div>
             </div>
@@ -261,7 +261,7 @@ export function NovoAtendimentoModal({ onFechar, onSucesso }: NovoAtendimentoMod
               <button
                 type="submit"
                 disabled={salvando}
-                className="w-full sm:w-auto min-h-[44px] px-5 py-2.5 rounded-xl text-xs font-bold bg-emerald-600 hover:bg-emerald-500 text-white transition shadow-sm disabled:opacity-50 flex items-center justify-center"
+                className="w-full sm:w-auto min-h-[44px] px-5 py-2.5 rounded-xl text-xs font-bold bg-orange-600 hover:bg-orange-500 text-white transition shadow-sm disabled:opacity-50 flex items-center justify-center"
               >
                 {salvando ? "Registrando..." : "Registrar Atendimento"}
               </button>

@@ -177,13 +177,13 @@ export function ModalParcelasContratoCliente({
           {/* Header */}
           <div className="p-4 sm:p-5 border-b border-slate-300/60 dark:border-slate-800 flex items-center justify-between bg-[#eaf0f8]/80 dark:bg-slate-950/40">
             <div className="flex items-center gap-3">
-              <div className="h-10 w-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
+              <div className="h-10 w-10 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-orange-600 dark:text-orange-400">
                 <CreditCard className="h-5 w-5" />
               </div>
               <div>
                 <h3 className="font-bold text-sm sm:text-base text-slate-900 dark:text-slate-100 flex items-center gap-2">
                   <span>Parcelas Contratadas</span>
-                  <span className="text-xs font-mono px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-700 dark:text-emerald-400 border border-emerald-500/30">
+                  <span className="text-xs font-mono px-2 py-0.5 rounded-full bg-orange-500/15 text-orange-700 dark:text-orange-400 border border-orange-500/30">
                     {clienteAtual.meses_contrato || 12} meses
                   </span>
                 </h3>
@@ -201,7 +201,7 @@ export function ModalParcelasContratoCliente({
               <button
                 onClick={handleForcarSincronizacao}
                 disabled={sincronizando}
-                className="h-8 px-2.5 rounded-xl bg-white dark:bg-slate-800/80 hover:bg-slate-100 dark:hover:bg-slate-800 text-emerald-600 dark:text-emerald-400 border border-slate-300/70 dark:border-slate-700/60 flex items-center gap-1.5 text-xs font-bold transition disabled:opacity-50 shadow-xs"
+                className="h-8 px-2.5 rounded-xl bg-white dark:bg-slate-800/80 hover:bg-slate-100 dark:hover:bg-slate-800 text-orange-600 dark:text-orange-400 border border-slate-300/70 dark:border-slate-700/60 flex items-center gap-1.5 text-xs font-bold transition disabled:opacity-50 shadow-xs"
                 title="Forçar sincronização de parcelas contratuais"
               >
                 <RefreshCw className={`h-3.5 w-3.5 ${sincronizando ? "animate-spin" : ""}`} />
@@ -228,11 +228,11 @@ export function ModalParcelasContratoCliente({
                 </strong>
               </div>
 
-              <div className="p-2.5 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-center shadow-xs">
-                <span className="text-[10px] text-emerald-700 dark:text-emerald-400/80 block font-sans">
+              <div className="p-2.5 rounded-xl bg-orange-500/10 border border-orange-500/20 text-center shadow-xs">
+                <span className="text-[10px] text-orange-700 dark:text-orange-400/80 block font-sans">
                   Quitadas ({quadro.quitadas.length})
                 </span>
-                <strong className="text-emerald-600 dark:text-emerald-400 text-sm">
+                <strong className="text-orange-600 dark:text-orange-400 text-sm">
                   R$ {quadro.totalQuitado.toFixed(2)}
                 </strong>
               </div>
@@ -275,7 +275,7 @@ export function ModalParcelasContratoCliente({
                   onClick={() => setAbaAtiva(tab.id as any)}
                   className={`px-3 py-1.5 rounded-xl font-bold transition shadow-xs ${
                     abaAtiva === tab.id
-                      ? "bg-emerald-500/20 text-emerald-700 dark:text-emerald-400 border border-emerald-500/30"
+                      ? "bg-orange-500/20 text-orange-700 dark:text-orange-400 border border-orange-500/30"
                       : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
                   }`}
                 >
@@ -304,7 +304,7 @@ export function ModalParcelasContratoCliente({
                   type="button"
                   onClick={handleForcarSincronizacao}
                   disabled={sincronizando}
-                  className="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs transition inline-flex items-center gap-2 shadow disabled:opacity-50"
+                  className="px-4 py-2 rounded-xl bg-orange-600 hover:bg-orange-500 text-white font-bold text-xs transition inline-flex items-center gap-2 shadow disabled:opacity-50"
                 >
                   <Sparkles className="h-4 w-4" />
                   <span>{sincronizando ? "Gerando..." : "Gerar Parcelas do Contrato Agora"}</span>
@@ -327,7 +327,7 @@ export function ModalParcelasContratoCliente({
                       p.tipo === "atrasada"
                         ? "bg-rose-500/10 dark:bg-rose-500/5 border-rose-500/30"
                         : p.tipo === "quitada"
-                          ? "bg-emerald-500/10 dark:bg-emerald-500/5 border-emerald-500/20"
+                          ? "bg-orange-500/10 dark:bg-orange-500/5 border-orange-500/20"
                           : p.tipo === "atrasada_paga"
                             ? "bg-sky-500/10 dark:bg-sky-500/5 border-sky-500/20"
                             : "bg-white dark:bg-slate-950/40 border-slate-300/60 dark:border-slate-800/80"
@@ -345,7 +345,7 @@ export function ModalParcelasContratoCliente({
                         </span>
 
                         {p.tipo === "quitada" && (
-                          <span className="px-2 py-0.5 rounded-full text-[10px] font-bold uppercase bg-emerald-500/15 text-emerald-700 dark:text-emerald-400 border border-emerald-500/30 flex items-center gap-1">
+                          <span className="px-2 py-0.5 rounded-full text-[10px] font-bold uppercase bg-orange-500/15 text-orange-700 dark:text-orange-400 border border-orange-500/30 flex items-center gap-1">
                             <CheckCircle2 className="h-3 w-3" />
                             <span>Quitada</span>
                           </span>
@@ -384,7 +384,7 @@ export function ModalParcelasContratoCliente({
                         {p.dataPagamento && (
                           <>
                             <span>·</span>
-                            <span className="text-emerald-600 dark:text-emerald-400">
+                            <span className="text-orange-600 dark:text-orange-400">
                               Quitou em: {p.dataPagamento.split("-").reverse().join("/")}
                             </span>
                           </>
@@ -403,7 +403,7 @@ export function ModalParcelasContratoCliente({
                       {p.tipo === "futura" &&
                         !isAdesao &&
                         p.valorOriginal > (clienteAtual.valor_mensalidade || 0) && (
-                          <div className="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 pt-0.5">
+                          <div className="text-[10px] font-mono text-orange-600 dark:text-orange-400 pt-0.5">
                             Inclui pró-rata do mês de adesão (+R${" "}
                             {(p.valorOriginal - (clienteAtual.valor_mensalidade || 0)).toFixed(2)})
                           </div>
@@ -418,7 +418,7 @@ export function ModalParcelasContratoCliente({
                         <strong
                           className={`text-xs sm:text-sm font-black ${
                             p.tipo === "quitada" || p.tipo === "atrasada_paga"
-                              ? "text-emerald-600 dark:text-emerald-400"
+                              ? "text-orange-600 dark:text-orange-400"
                               : p.tipo === "atrasada"
                                 ? "text-rose-600 dark:text-rose-400"
                                 : "text-slate-800 dark:text-slate-200"
@@ -473,7 +473,7 @@ export function ModalParcelasContratoCliente({
           {/* Rodapé Informativo */}
           <div className="p-3 bg-[#eaf0f8]/80 dark:bg-slate-950/60 border-t border-slate-300/60 dark:border-slate-800 text-[11px] text-slate-500 dark:text-slate-400 flex items-center justify-between">
             <div className="flex items-center gap-1.5">
-              <Sparkles className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400 shrink-0" />
+              <Sparkles className="h-3.5 w-3.5 text-orange-600 dark:text-orange-400 shrink-0" />
               <span>
                 Encargos legais calculados com base na data do acesso (Multa 2% e Juros 1% a.m.).
               </span>
@@ -513,7 +513,7 @@ export function ModalParcelasContratoCliente({
                 />
               </div>
 
-              <div className="text-xs font-mono font-black text-emerald-600 dark:text-emerald-400">
+              <div className="text-xs font-mono font-black text-orange-600 dark:text-orange-400">
                 R$ {modalPix.parcela.valorAtualizadoHoje.toFixed(2)}
               </div>
 

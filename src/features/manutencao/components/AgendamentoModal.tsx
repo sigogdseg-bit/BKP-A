@@ -96,7 +96,7 @@ export function AgendamentoModal({
           {/* Header Fixo */}
           <div className="p-4 sm:p-5 border-b border-slate-300/60 dark:border-slate-800 flex items-center justify-between bg-[#eaf0f8]/80 dark:bg-slate-950/50 shrink-0">
             <div className="flex items-center gap-3">
-              <div className="h-10 w-10 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shadow-xs shrink-0">
+              <div className="h-10 w-10 rounded-2xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-orange-600 dark:text-orange-400 shadow-xs shrink-0">
                 <Wrench className="h-5 w-5" />
               </div>
               <div>
@@ -130,7 +130,7 @@ export function AgendamentoModal({
                 <select
                   value={servico}
                   onChange={(e) => setServico(e.target.value)}
-                  className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-100 focus:outline-none focus:border-emerald-500 shadow-xs"
+                  className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-100 focus:outline-none focus:border-orange-500 shadow-xs"
                 >
                   <option value="Troca de Óleo e Filtro">Troca de Óleo e Filtro</option>
                   <option value="Pneus, Alinhamento e Balanceamento">
@@ -152,7 +152,7 @@ export function AgendamentoModal({
                     value={dataSugerida}
                     onChange={(e) => setDataSugerida(e.target.value)}
                     min={new Date().toISOString().split("T")[0]}
-                    className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-100 focus:outline-none focus:border-emerald-500 font-mono shadow-xs"
+                    className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-100 focus:outline-none focus:border-orange-500 font-mono shadow-xs"
                     required
                   />
                 </div>
@@ -167,7 +167,7 @@ export function AgendamentoModal({
                       onClick={() => setTurno("manha")}
                       className={`py-2 rounded-xl text-xs font-semibold border transition shadow-xs ${
                         turno === "manha"
-                          ? "bg-emerald-500/15 border-emerald-500 text-emerald-700 dark:text-emerald-400"
+                          ? "bg-orange-500/15 border-orange-500 text-orange-700 dark:text-orange-400"
                           : "bg-white dark:bg-slate-950 border-slate-300/70 dark:border-slate-800 text-slate-600 dark:text-slate-400"
                       }`}
                     >
@@ -178,7 +178,7 @@ export function AgendamentoModal({
                       onClick={() => setTurno("tarde")}
                       className={`py-2 rounded-xl text-xs font-semibold border transition shadow-xs ${
                         turno === "tarde"
-                          ? "bg-emerald-500/15 border-emerald-500 text-emerald-700 dark:text-emerald-400"
+                          ? "bg-orange-500/15 border-orange-500 text-orange-700 dark:text-orange-400"
                           : "bg-white dark:bg-slate-950 border-slate-300/70 dark:border-slate-800 text-slate-600 dark:text-slate-400"
                       }`}
                     >
@@ -197,7 +197,7 @@ export function AgendamentoModal({
                   placeholder="Ex: Centro Automotivo Central, Oficina Parceira Credenciada..."
                   value={oficina}
                   onChange={(e) => setOficina(e.target.value)}
-                  className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-100 focus:outline-none focus:border-emerald-500 shadow-xs"
+                  className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-100 focus:outline-none focus:border-orange-500 shadow-xs"
                 />
               </div>
 
@@ -210,7 +210,7 @@ export function AgendamentoModal({
                   placeholder="Descreva se percebeu algum ruído, vibração ou necessidade específica..."
                   value={observacoes}
                   onChange={(e) => setObservacoes(e.target.value)}
-                  className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-100 focus:outline-none focus:border-emerald-500 resize-none shadow-xs"
+                  className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-100 focus:outline-none focus:border-orange-500 resize-none shadow-xs"
                 />
               </div>
             </div>
@@ -227,7 +227,7 @@ export function AgendamentoModal({
               <button
                 type="submit"
                 disabled={salvando}
-                className="w-full sm:w-auto min-h-[44px] flex items-center justify-center gap-1.5 px-5 py-2.5 rounded-xl text-xs font-bold bg-emerald-600 hover:bg-emerald-500 text-white shadow-md transition disabled:opacity-50"
+                className="w-full sm:w-auto min-h-[44px] flex items-center justify-center gap-1.5 px-5 py-2.5 rounded-xl text-xs font-bold bg-orange-600 hover:bg-orange-500 text-white shadow-md transition disabled:opacity-50"
               >
                 <CheckCircle2 className="h-4 w-4" />
                 <span>{salvando ? "Enviando..." : "Confirmar Agendamento"}</span>

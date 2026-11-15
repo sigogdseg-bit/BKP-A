@@ -144,7 +144,7 @@ export function TimelineVeiculoDrawer({
   const getIconeEvento = (tipo: EventoTimeline["tipo"]) => {
     switch (tipo) {
       case "ignicao_ligada":
-        return <Key className="h-4 w-4 text-emerald-500" />;
+        return <Key className="h-4 w-4 text-orange-500" />;
       case "ignicao_desligada":
         return <Key className="h-4 w-4 text-slate-400" />;
       case "deslocamento_iniciado":
@@ -152,7 +152,7 @@ export function TimelineVeiculoDrawer({
       case "parada_estacionado":
         return <MapPin className="h-4 w-4 text-amber-500" />;
       case "entrada_area":
-        return <ShieldCheck className="h-4 w-4 text-emerald-500" />;
+        return <ShieldCheck className="h-4 w-4 text-orange-500" />;
       case "saida_area":
         return <ShieldAlert className="h-4 w-4 text-rose-500" />;
       case "excesso_velocidade":
@@ -179,7 +179,7 @@ export function TimelineVeiculoDrawer({
           {/* Header */}
           <div className="p-4 sm:p-5 border-b border-slate-300/60 dark:border-slate-800 flex items-center justify-between shrink-0">
             <div className="flex items-center gap-3">
-              <div className="h-10 w-10 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-500">
+              <div className="h-10 w-10 rounded-2xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-orange-500">
                 <Route className="h-5 w-5" />
               </div>
               <div>
@@ -205,12 +205,12 @@ export function TimelineVeiculoDrawer({
           {/* Subheader: Filtro de Data e Alternador de Abas */}
           <div className="px-4 py-3 bg-[#eaf0f8]/80 dark:bg-slate-950/40 border-b border-slate-300/60 dark:border-slate-800 flex items-center justify-between gap-2 flex-wrap shrink-0">
             <div className="flex items-center gap-2 text-xs font-semibold text-slate-600 dark:text-slate-300">
-              <Calendar className="h-4 w-4 text-emerald-500" />
+              <Calendar className="h-4 w-4 text-orange-500" />
               <input
                 type="date"
                 value={dataSelecionada}
                 onChange={(e) => setDataSelecionada(e.target.value)}
-                className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-2.5 py-1 text-xs font-mono text-slate-800 dark:text-slate-200 focus:outline-hidden focus:ring-1 focus:ring-emerald-500"
+                className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg px-2.5 py-1 text-xs font-mono text-slate-800 dark:text-slate-200 focus:outline-hidden focus:ring-1 focus:ring-orange-500"
               />
               <button
                 onClick={() => carregar(dataSelecionada)}
@@ -227,7 +227,7 @@ export function TimelineVeiculoDrawer({
                 onClick={() => setModoVisualizacao("ciclos")}
                 className={`px-3 py-1 rounded-lg transition cursor-pointer flex items-center gap-1.5 ${
                   modoVisualizacao === "ciclos"
-                    ? "bg-white dark:bg-slate-900 text-emerald-600 dark:text-emerald-400 shadow-xs"
+                    ? "bg-white dark:bg-slate-900 text-orange-600 dark:text-orange-400 shadow-xs"
                     : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
                 }`}
               >
@@ -238,7 +238,7 @@ export function TimelineVeiculoDrawer({
                 onClick={() => setModoVisualizacao("logs")}
                 className={`px-3 py-1 rounded-lg transition cursor-pointer flex items-center gap-1.5 ${
                   modoVisualizacao === "logs"
-                    ? "bg-white dark:bg-slate-900 text-emerald-600 dark:text-emerald-400 shadow-xs"
+                    ? "bg-white dark:bg-slate-900 text-orange-600 dark:text-orange-400 shadow-xs"
                     : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
                 }`}
               >
@@ -261,7 +261,7 @@ export function TimelineVeiculoDrawer({
 
                 <div className="p-2 rounded-xl bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 shadow-2xs">
                   <div className="text-[10px] text-slate-500 font-sans uppercase">Distância</div>
-                  <div className="text-sm font-black text-emerald-600 dark:text-emerald-400">
+                  <div className="text-sm font-black text-orange-600 dark:text-orange-400">
                     {formatarDistanciaViagem(resumo.kmTotalPercorrido)}
                   </div>
                 </div>
@@ -294,7 +294,7 @@ export function TimelineVeiculoDrawer({
           <div className="p-4 sm:p-5 overflow-y-auto flex-1 space-y-4">
             {carregando ? (
               <div className="text-center py-16 text-slate-400 text-xs flex flex-col items-center gap-2">
-                <RefreshCw className="h-5 w-5 animate-spin text-emerald-500" />
+                <RefreshCw className="h-5 w-5 animate-spin text-orange-500" />
                 <span>Carregando telemetria e ciclos de viagem...</span>
               </div>
             ) : modoVisualizacao === "ciclos" ? (
@@ -339,7 +339,7 @@ export function TimelineVeiculoDrawer({
                         <div
                           className={`rounded-2xl border transition-all shadow-sm overflow-hidden ${
                             ciclo.emAndamento
-                              ? "bg-emerald-500/5 dark:bg-emerald-950/20 border-emerald-500/40"
+                              ? "bg-orange-500/5 dark:bg-orange-950/20 border-orange-500/40"
                               : "bg-slate-50 dark:bg-slate-950/60 border-slate-200 dark:border-slate-800"
                           }`}
                         >
@@ -349,8 +349,8 @@ export function TimelineVeiculoDrawer({
                               <div
                                 className={`h-8 w-8 rounded-xl flex items-center justify-center ${
                                   ciclo.emAndamento
-                                    ? "bg-emerald-500 text-white animate-pulse"
-                                    : "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20"
+                                    ? "bg-orange-500 text-white animate-pulse"
+                                    : "bg-orange-500/10 text-orange-600 dark:text-orange-400 border border-orange-500/20"
                                 }`}
                               >
                                 <Navigation className="h-4 w-4" />
@@ -361,7 +361,7 @@ export function TimelineVeiculoDrawer({
                                     Ciclo #{ciclo.numeroCiclo}
                                   </span>
                                   {ciclo.emAndamento ? (
-                                    <span className="px-2 py-0.5 rounded-full text-[9px] font-black uppercase tracking-wider bg-emerald-500 text-white animate-pulse">
+                                    <span className="px-2 py-0.5 rounded-full text-[9px] font-black uppercase tracking-wider bg-orange-500 text-white animate-pulse">
                                       Em Andamento
                                     </span>
                                   ) : (
@@ -379,7 +379,7 @@ export function TimelineVeiculoDrawer({
                             {/* Botão de Reproduzir Trajeto no Mapa */}
                             <button
                               onClick={() => handleReproduzir(ciclo.id)}
-                              className="px-3 py-1.5 rounded-xl text-xs font-bold bg-emerald-500 text-white hover:bg-emerald-600 active:scale-95 transition shadow-sm flex items-center gap-1.5 cursor-pointer ml-auto"
+                              className="px-3 py-1.5 rounded-xl text-xs font-bold bg-orange-500 text-white hover:bg-orange-600 active:scale-95 transition shadow-sm flex items-center gap-1.5 cursor-pointer ml-auto"
                               title="Reproduzir este ciclo completo no mapa com player interativo"
                             >
                               <Play className="h-3.5 w-3.5 fill-current" />
@@ -394,7 +394,7 @@ export function TimelineVeiculoDrawer({
                               <div className="text-[10px] text-slate-500 font-sans uppercase">
                                 Distância Real
                               </div>
-                              <div className="text-base font-black text-emerald-600 dark:text-emerald-400 mt-0.5">
+                              <div className="text-base font-black text-orange-600 dark:text-orange-400 mt-0.5">
                                 {formatarDistanciaViagem(ciclo.kmPercorrido)}
                               </div>
                             </div>
@@ -462,7 +462,7 @@ export function TimelineVeiculoDrawer({
                                       className="text-xs flex items-center justify-between p-1.5 rounded-lg bg-white/80 dark:bg-slate-900/80 border border-slate-200/60 dark:border-slate-800/60"
                                     >
                                       <div className="flex items-center gap-2">
-                                        <span className="font-mono text-[11px] font-bold text-emerald-600 dark:text-emerald-400">
+                                        <span className="font-mono text-[11px] font-bold text-orange-600 dark:text-orange-400">
                                           {new Date(ev.data_hora).toLocaleTimeString("pt-BR", {
                                             hour: "2-digit",
                                             minute: "2-digit",
@@ -507,15 +507,15 @@ export function TimelineVeiculoDrawer({
                   return (
                     <div key={ev.id} className="relative group">
                       {/* Marcador na Linha */}
-                      <div className="absolute -left-6 mt-1 flex items-center justify-center w-5 h-5 rounded-full bg-white dark:bg-slate-900 border-2 border-slate-300 dark:border-slate-700 group-hover:border-emerald-500 transition shadow-xs">
-                        <span className="w-1.5 h-1.5 rounded-full bg-slate-400 group-hover:bg-emerald-500 transition" />
+                      <div className="absolute -left-6 mt-1 flex items-center justify-center w-5 h-5 rounded-full bg-white dark:bg-slate-900 border-2 border-slate-300 dark:border-slate-700 group-hover:border-orange-500 transition shadow-xs">
+                        <span className="w-1.5 h-1.5 rounded-full bg-slate-400 group-hover:bg-orange-500 transition" />
                       </div>
 
                       {/* Card do Evento */}
                       <div className="bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800/80 rounded-2xl p-3 hover:border-slate-300 dark:hover:border-slate-700 transition">
                         <div className="flex items-center justify-between gap-2">
                           <div className="flex items-center gap-2">
-                            <span className="font-mono text-xs font-black text-emerald-600 dark:text-emerald-400">
+                            <span className="font-mono text-xs font-black text-orange-600 dark:text-orange-400">
                               {horaFormatada}
                             </span>
                             <span className="text-slate-300 dark:text-slate-700">·</span>

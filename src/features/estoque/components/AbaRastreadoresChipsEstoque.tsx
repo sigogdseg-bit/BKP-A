@@ -160,18 +160,18 @@ export function AbaRastreadoresChipsEstoque() {
           onClick={() => setFiltroStatus(filtroStatus === "liberados" ? "todos" : "liberados")}
           className={`p-4 rounded-3xl border transition cursor-pointer flex flex-col justify-between ${
             filtroStatus === "liberados"
-              ? "bg-emerald-500/15 border-emerald-500/40 ring-2 ring-emerald-500/20"
-              : "bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 hover:border-emerald-500/30"
+              ? "bg-orange-500/15 border-orange-500/40 ring-2 ring-orange-500/20"
+              : "bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 hover:border-orange-500/30"
           }`}
         >
           <div className="flex items-center justify-between">
             <span className="text-xs font-bold text-slate-500 dark:text-slate-400">
               Liberados para Instalação
             </span>
-            <CheckCircle2 className="h-4 w-4 text-emerald-500" />
+            <CheckCircle2 className="h-4 w-4 text-orange-500" />
           </div>
           <div className="mt-2 flex items-baseline gap-2">
-            <span className="text-2xl font-black text-emerald-600 dark:text-emerald-400 font-mono">
+            <span className="text-2xl font-black text-orange-600 dark:text-orange-400 font-mono">
               {totais.liberados_para_instalacao}
             </span>
             <span className="text-[10px] font-bold text-slate-400">IMEI + ICCID prontos</span>
@@ -518,7 +518,7 @@ export function AbaRastreadoresChipsEstoque() {
                               <span>Kit Agendado</span>
                             </span>
                           ) : liberado ? (
-                            <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 flex items-center justify-center gap-1 w-fit mx-auto">
+                            <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase bg-orange-500/15 text-orange-600 dark:text-orange-400 border border-orange-500/30 flex items-center justify-center gap-1 w-fit mx-auto">
                               <Check className="h-3 w-3" />
                               <span>Liberado para Instalação</span>
                             </span>

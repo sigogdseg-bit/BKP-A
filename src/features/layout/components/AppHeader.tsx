@@ -116,7 +116,7 @@ export function AppHeader() {
                         window.location.reload();
                       }
                     }}
-                    className="inline-block px-1.5 py-0.5 rounded text-[9px] min-[360px]:text-[10px] font-mono font-bold bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 hover:bg-emerald-500/30 cursor-pointer transition-colors shrink-0"
+                    className="inline-block px-1.5 py-0.5 rounded text-[9px] min-[360px]:text-[10px] font-mono font-bold bg-orange-500/20 text-orange-600 dark:text-orange-400 border border-orange-500/30 hover:bg-orange-500/30 cursor-pointer transition-colors shrink-0"
                     title="Toque para recarregar o sistema"
                   >
                     v{APP_VERSION_NUMERO}
@@ -132,8 +132,8 @@ export function AppHeader() {
           {/* Centro: Status do WebSocket Realtime (visível em telas amplas lg:) */}
           <div className="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/60 dark:bg-slate-950/80 border border-slate-300/60 dark:border-slate-800 text-xs text-slate-700 dark:text-slate-300 shadow-inner shrink-0">
             <span className="relative flex h-2.5 w-2.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75" />
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-orange-500" />
             </span>
             <span className="font-medium">Telemetria Realtime</span>
           </div>
@@ -153,8 +153,8 @@ export function AppHeader() {
                   </span>
                 </span>
               ) : session.isAdmin ? (
-                <span className="flex items-center gap-1.5 px-2.5 py-1 text-xs rounded-xl font-bold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 uppercase tracking-wider shadow-xs">
-                  <ShieldCheck className="h-3.5 w-3.5 text-emerald-500" />
+                <span className="flex items-center gap-1.5 px-2.5 py-1 text-xs rounded-xl font-bold bg-orange-500/10 text-orange-600 dark:text-orange-400 border border-orange-500/30 uppercase tracking-wider shadow-xs">
+                  <ShieldCheck className="h-3.5 w-3.5 text-orange-500" />
                   <span>Administrador</span>
                 </span>
               ) : session.isInstalador ? (
@@ -186,7 +186,7 @@ export function AppHeader() {
                     <button
                       type="button"
                       onClick={() => setModalVeiculoAberto(true)}
-                      className="flex items-center gap-1.5 px-2.5 py-1 text-xs rounded-xl font-bold bg-emerald-500/15 text-emerald-700 dark:text-emerald-400 border border-emerald-500/30 hover:bg-emerald-500/25 transition shadow-xs"
+                      className="flex items-center gap-1.5 px-2.5 py-1 text-xs rounded-xl font-bold bg-orange-500/15 text-orange-700 dark:text-orange-400 border border-orange-500/30 hover:bg-orange-500/25 transition shadow-xs"
                       title="Adicionar novo veículo para rastreamento"
                     >
                       <Car className="h-3.5 w-3.5" />
@@ -218,7 +218,7 @@ export function AppHeader() {
             {!session.isCliente && !session.isInstalador && !session.isMotorista && (
               <Link
                 to="/configuracao/temas"
-                className="hidden sm:flex p-2 min-h-[40px] min-w-[40px] items-center justify-center rounded-xl text-slate-500 hover:text-emerald-500 hover:bg-emerald-500/10 border border-slate-200 dark:border-slate-800 transition shadow-2xs active:scale-95"
+                className="hidden sm:flex p-2 min-h-[40px] min-w-[40px] items-center justify-center rounded-xl text-slate-500 hover:text-orange-500 hover:bg-orange-500/10 border border-slate-200 dark:border-slate-800 transition shadow-2xs active:scale-95"
                 title="Personalizar Temas dos Cards e Módulos"
                 aria-label="Temas dos Cards e Módulos"
               >
@@ -230,11 +230,11 @@ export function AppHeader() {
             <button
               type="button"
               onClick={() => setModalManualAberto(true)}
-              className="hidden sm:flex items-center gap-1.5 px-2.5 py-1.5 min-h-[40px] rounded-xl text-slate-700 dark:text-slate-200 hover:text-emerald-600 dark:hover:text-emerald-400 bg-slate-200/60 dark:bg-slate-800/80 hover:bg-emerald-500/10 border border-slate-300/80 dark:border-slate-700 transition cursor-pointer shadow-2xs active:scale-95"
+              className="hidden sm:flex items-center gap-1.5 px-2.5 py-1.5 min-h-[40px] rounded-xl text-slate-700 dark:text-slate-200 hover:text-orange-600 dark:hover:text-orange-400 bg-slate-200/60 dark:bg-slate-800/80 hover:bg-orange-500/10 border border-slate-300/80 dark:border-slate-700 transition cursor-pointer shadow-2xs active:scale-95"
               title="Abrir Manual do Usuário Modular"
               aria-label="Manual do Usuário"
             >
-              <BookOpen className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
+              <BookOpen className="h-4 w-4 text-orange-600 dark:text-orange-400" />
               <span className="text-xs font-bold hidden xl:inline">Manual</span>
             </button>
 

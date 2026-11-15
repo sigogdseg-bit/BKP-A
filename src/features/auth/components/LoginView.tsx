@@ -173,8 +173,8 @@ export function LoginView() {
 
         {/* Rodapé de Segurança e Governança */}
         <div className="mt-7 pt-4 border-t border-slate-200 dark:border-slate-800 text-center space-y-1.5">
-          <div className="inline-flex items-center justify-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 text-[11px] text-emerald-800 dark:text-emerald-300 font-semibold shadow-xs">
-            <ShieldCheck className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400" />
+          <div className="inline-flex items-center justify-center gap-1.5 px-3 py-1 rounded-full bg-orange-50 dark:bg-orange-950/40 border border-orange-200 dark:border-orange-800 text-[11px] text-orange-800 dark:text-orange-300 font-semibold shadow-xs">
+            <ShieldCheck className="h-3.5 w-3.5 text-orange-600 dark:text-orange-400" />
             <span>Ambiente Protegido por RLS e Defesa Cibernética</span>
           </div>
           <div className="text-[10px] text-slate-400 dark:text-slate-500 font-mono">

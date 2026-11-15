@@ -59,7 +59,7 @@ export function DlpWatermark() {
         >
           <div className="rounded-3xl border border-slate-300/80 dark:border-slate-800 bg-[#f0f4f9] dark:bg-slate-900 p-6 text-center shadow-[10px_10px_28px_#c3cfe2] dark:shadow-2xl max-w-sm mx-4">
             <div className="text-base font-bold text-slate-900 dark:text-slate-100 flex items-center justify-center gap-2">
-              <span className="h-3 w-3 rounded-full bg-emerald-500 animate-pulse" />
+              <span className="h-3 w-3 rounded-full bg-orange-500 animate-pulse" />
               {APP_NOME} — Proteção de Tela Ativa
             </div>
             <p className="mt-2 text-xs text-slate-600 dark:text-slate-400">

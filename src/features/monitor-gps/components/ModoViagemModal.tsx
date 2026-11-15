@@ -148,8 +148,8 @@ export function ModoViagemModal({ veiculo, onFechar }: ModoViagemModalProps) {
                     {formatarTempo(segundosDecorridos)}
                   </div>
 
-                  <div className="flex items-center gap-1.5 mt-2 text-xs font-mono text-emerald-600 dark:text-emerald-400">
-                    <span className="h-2 w-2 rounded-full bg-emerald-500 animate-ping" />
+                  <div className="flex items-center gap-1.5 mt-2 text-xs font-mono text-orange-600 dark:text-orange-400">
+                    <span className="h-2 w-2 rounded-full bg-orange-500 animate-ping" />
                     <span>Velocidade Atual: {veiculo.velocidade || 0} km/h</span>
                   </div>
                 </div>
@@ -160,7 +160,7 @@ export function ModoViagemModal({ veiculo, onFechar }: ModoViagemModalProps) {
                     <span className="text-[10px] text-slate-400 block font-sans uppercase">
                       Distância Parcial
                     </span>
-                    <span className="text-lg font-black text-emerald-600 dark:text-emerald-400">
+                    <span className="text-lg font-black text-orange-600 dark:text-orange-400">
                       {Math.round(kmParcial).toLocaleString("pt-BR")}{" "}
                       <span className="text-xs font-normal">km</span>
                     </span>
@@ -180,7 +180,7 @@ export function ModoViagemModal({ veiculo, onFechar }: ModoViagemModalProps) {
                 {!viagemAtiva ? (
                   <button
                     onClick={iniciarViagem}
-                    className="w-full py-3 rounded-2xl text-xs font-black uppercase tracking-wider bg-emerald-500 hover:bg-emerald-400 text-slate-950 shadow-lg shadow-emerald-500/20 transition flex items-center justify-center gap-2 active:scale-98"
+                    className="w-full py-3 rounded-2xl text-xs font-black uppercase tracking-wider bg-orange-500 hover:bg-orange-400 text-slate-950 shadow-lg shadow-orange-500/20 transition flex items-center justify-center gap-2 active:scale-98"
                   >
                     <Play className="h-4 w-4 fill-current" />
                     <span>Iniciar Modo Viagem</span>
@@ -198,7 +198,7 @@ export function ModoViagemModal({ veiculo, onFechar }: ModoViagemModalProps) {
             ) : (
               /* Resumo Final da Viagem Concluída */
               <div className="space-y-4 animate-in fade-in zoom-in-95">
-                <div className="p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-700 dark:text-emerald-300 flex items-center gap-3">
+                <div className="p-4 rounded-2xl bg-orange-500/10 border border-orange-500/20 text-orange-700 dark:text-orange-300 flex items-center gap-3">
                   <Award className="h-7 w-7 shrink-0" />
                   <div>
                     <div className="font-bold text-sm">Resumo da Viagem Concluída</div>
@@ -222,7 +222,7 @@ export function ModoViagemModal({ veiculo, onFechar }: ModoViagemModalProps) {
                     <span className="text-[10px] text-slate-400 block font-sans uppercase">
                       Distância
                     </span>
-                    <span className="text-base font-bold text-emerald-600 dark:text-emerald-400">
+                    <span className="text-base font-bold text-orange-600 dark:text-orange-400">
                       {Math.round(resumoFinal.kmPercorrido).toLocaleString("pt-BR")} km
                     </span>
                   </div>

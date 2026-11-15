@@ -604,7 +604,7 @@ export function ModalCentralAlertasConta({
                       onClick={() => atualizarDestinatariosItem(escopo, item, campo, undefined)}
                       className={`px-2 py-1 rounded-lg text-[10px] font-bold transition cursor-pointer ${
                         !modoEspecifico
-                          ? "bg-slate-900 text-white dark:bg-emerald-500 dark:text-slate-950"
+                          ? "bg-slate-900 text-white dark:bg-orange-500 dark:text-slate-950"
                           : "bg-white/80 dark:bg-slate-900 text-slate-600 dark:text-slate-400 border border-slate-300/70 dark:border-slate-700"
                       }`}
                     >
@@ -619,7 +619,7 @@ export function ModalCentralAlertasConta({
                       }}
                       className={`px-2 py-1 rounded-lg text-[10px] font-bold transition cursor-pointer ${
                         modoEspecifico
-                          ? "bg-slate-900 text-white dark:bg-emerald-500 dark:text-slate-950"
+                          ? "bg-slate-900 text-white dark:bg-orange-500 dark:text-slate-950"
                           : "bg-white/80 dark:bg-slate-900 text-slate-600 dark:text-slate-400 border border-slate-300/70 dark:border-slate-700"
                       }`}
                     >
@@ -643,7 +643,7 @@ export function ModalCentralAlertasConta({
                             key={`${chaveExpansao}-${campo}-${c.id}`}
                             className={`flex items-center justify-between gap-2 px-2.5 py-1.5 rounded-xl border text-[11px] cursor-pointer transition ${
                               marcado
-                                ? "bg-emerald-500/10 border-emerald-500/40 text-slate-900 dark:text-slate-100"
+                                ? "bg-orange-500/10 border-orange-500/40 text-slate-900 dark:text-slate-100"
                                 : "bg-white/70 dark:bg-slate-900/60 border-slate-200 dark:border-slate-800 text-slate-500 dark:text-slate-400"
                             }`}
                           >
@@ -665,7 +665,7 @@ export function ModalCentralAlertasConta({
                                 }
                                 atualizarDestinatariosItem(escopo, item, campo, Array.from(prox));
                               }}
-                              className="w-4 h-4 rounded text-emerald-500 focus:ring-emerald-500 shrink-0"
+                              className="w-4 h-4 rounded text-orange-500 focus:ring-orange-500 shrink-0"
                             />
                           </label>
                         );
@@ -693,7 +693,7 @@ export function ModalCentralAlertasConta({
                     <span
                       className={`text-[9px] px-1.5 py-0.5 rounded font-bold ${
                         ativoItem
-                          ? "bg-emerald-500/15 text-emerald-700 dark:text-emerald-400"
+                          ? "bg-orange-500/15 text-orange-700 dark:text-orange-400"
                           : "bg-slate-200 dark:bg-slate-800 text-slate-500 font-normal"
                       }`}
                     >
@@ -732,8 +732,8 @@ export function ModalCentralAlertasConta({
                   aria-checked={ativoItem}
                   aria-label={`Ativar ou desativar alerta ${tituloVisivel}`}
                   onClick={() => alternarAtivoItem(escopo, item)}
-                  className={`relative inline-flex h-6 w-11 shrink-0 items-center rounded-full transition-colors duration-150 motion-reduce:transition-none cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 ${
-                    ativoItem ? "bg-emerald-500" : "bg-slate-300 dark:bg-slate-700"
+                  className={`relative inline-flex h-6 w-11 shrink-0 items-center rounded-full transition-colors duration-150 motion-reduce:transition-none cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 ${
+                    ativoItem ? "bg-orange-500" : "bg-slate-300 dark:bg-slate-700"
                   }`}
                 >
                   <span
@@ -751,9 +751,9 @@ export function ModalCentralAlertasConta({
                     aria-pressed={Boolean(regra.app)}
                     aria-label={`Canal App para ${tituloVisivel}`}
                     onClick={() => alternarCanalItem(escopo, item, "app")}
-                    className={`min-h-[36px] px-2.5 py-1.5 rounded-xl text-[11px] font-bold flex items-center gap-1 transition cursor-pointer border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 ${
+                    className={`min-h-[36px] px-2.5 py-1.5 rounded-xl text-[11px] font-bold flex items-center gap-1 transition cursor-pointer border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 ${
                       regra.app
-                        ? "bg-emerald-500 text-slate-950 border-emerald-400 font-black shadow-xs"
+                        ? "bg-orange-500 text-slate-950 border-orange-400 font-black shadow-xs"
                         : "bg-white/60 dark:bg-slate-900/60 text-slate-500 dark:text-slate-400 border-slate-200 dark:border-slate-800 hover:text-slate-800 dark:hover:text-slate-200"
                     }`}
                   >
@@ -783,7 +783,7 @@ export function ModalCentralAlertasConta({
                     aria-pressed={Boolean(regra.ligacao)}
                     aria-label={`Canal Ligação para ${tituloVisivel}`}
                     onClick={() => alternarCanalItem(escopo, item, "ligacao")}
-                    className={`min-h-[36px] px-2.5 py-1.5 rounded-xl text-[11px] font-bold flex items-center gap-1 transition cursor-pointer border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 ${
+                    className={`min-h-[36px] px-2.5 py-1.5 rounded-xl text-[11px] font-bold flex items-center gap-1 transition cursor-pointer border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 ${
                       regra.ligacao
                         ? "bg-amber-500 text-slate-950 border-amber-400 font-black shadow-xs"
                         : "bg-white/60 dark:bg-slate-900/60 text-slate-500 dark:text-slate-400 border-slate-200 dark:border-slate-800 hover:text-slate-800 dark:hover:text-slate-200"
@@ -804,8 +804,8 @@ export function ModalCentralAlertasConta({
                       avisoVazio
                         ? "bg-amber-500/15 text-amber-800 dark:text-amber-300 border-amber-500/40"
                         : expandido
-                          ? "bg-slate-900 text-white dark:bg-emerald-500 dark:text-slate-950 border-transparent"
-                          : "bg-white/70 dark:bg-slate-900/70 text-slate-700 dark:text-slate-200 border-slate-300/70 dark:border-slate-700 hover:border-emerald-500/50"
+                          ? "bg-slate-900 text-white dark:bg-orange-500 dark:text-slate-950 border-transparent"
+                          : "bg-white/70 dark:bg-slate-900/70 text-slate-700 dark:text-slate-200 border-slate-300/70 dark:border-slate-700 hover:border-orange-500/50"
                     }`}
                   >
                     <Users className="h-3.5 w-3.5 shrink-0" />
@@ -875,7 +875,7 @@ export function ModalCentralAlertasConta({
           {/* Header */}
           <div className="p-4 sm:p-5 border-b border-slate-300/60 dark:border-slate-800 flex items-center justify-between shrink-0">
             <div className="flex items-center gap-3">
-              <div className="h-10 w-10 rounded-2xl bg-emerald-500/10 border border-emerald-500/25 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shrink-0">
+              <div className="h-10 w-10 rounded-2xl bg-orange-500/10 border border-orange-500/25 flex items-center justify-center text-orange-600 dark:text-orange-400 shrink-0">
                 <Bell className="h-5 w-5" />
               </div>
               <div>
@@ -890,7 +890,7 @@ export function ModalCentralAlertasConta({
                     className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
                       modoEquipe
                         ? "bg-indigo-500/15 text-indigo-700 dark:text-indigo-300 border border-indigo-500/25"
-                        : "bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border border-emerald-500/25"
+                        : "bg-orange-500/15 text-orange-700 dark:text-orange-300 border border-orange-500/25"
                     }`}
                   >
                     {modoEquipe ? "Equipe Técnica" : nomeAlvo || "Minha Conta"}
@@ -908,7 +908,7 @@ export function ModalCentralAlertasConta({
               type="button"
               onClick={onClose}
               aria-label="Fechar Central de Alertas e Canais"
-              className="min-h-[44px] min-w-[44px] flex items-center justify-center rounded-xl text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-200/60 dark:hover:bg-slate-800 transition cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+              className="min-h-[44px] min-w-[44px] flex items-center justify-center rounded-xl text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-200/60 dark:hover:bg-slate-800 transition cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500"
             >
               <X className="h-5 w-5" />
             </button>
@@ -930,7 +930,7 @@ export function ModalCentralAlertasConta({
                 onClick={() => setAbaAtiva("operacao")}
                 className={`px-3 py-2 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 cursor-pointer min-h-[38px] ${
                   abaAtiva === "operacao"
-                    ? "bg-slate-900 text-white dark:bg-emerald-500 dark:text-slate-950 shadow-md"
+                    ? "bg-slate-900 text-white dark:bg-orange-500 dark:text-slate-950 shadow-md"
                     : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
                 }`}
               >
@@ -946,7 +946,7 @@ export function ModalCentralAlertasConta({
                   onClick={() => setAbaAtiva("frota")}
                   className={`px-3 py-2 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 cursor-pointer min-h-[38px] ${
                     abaAtiva === "frota"
-                      ? "bg-slate-900 text-white dark:bg-emerald-500 dark:text-slate-950 shadow-md"
+                      ? "bg-slate-900 text-white dark:bg-orange-500 dark:text-slate-950 shadow-md"
                       : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
                   }`}
                 >
@@ -962,7 +962,7 @@ export function ModalCentralAlertasConta({
                 onClick={() => setAbaAtiva("contatos")}
                 className={`px-3 py-2 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 cursor-pointer min-h-[38px] ${
                   abaAtiva === "contatos"
-                    ? "bg-slate-900 text-white dark:bg-emerald-500 dark:text-slate-950 shadow-md"
+                    ? "bg-slate-900 text-white dark:bg-orange-500 dark:text-slate-950 shadow-md"
                     : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
                 }`}
               >
@@ -996,9 +996,9 @@ export function ModalCentralAlertasConta({
 
                 {abaAtiva === "contatos" && (
                   <div className="space-y-4">
-                    <div className="p-3.5 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-xs text-emerald-800 dark:text-emerald-200 space-y-1">
+                    <div className="p-3.5 rounded-2xl bg-orange-500/10 border border-orange-500/20 text-xs text-orange-800 dark:text-orange-200 space-y-1">
                       <div className="font-bold flex items-center gap-1.5">
-                        <MessageSquare className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
+                        <MessageSquare className="h-4 w-4 text-orange-600 dark:text-orange-400" />
                         <span>Números Autorizados e Testes em Tempo Real</span>
                       </div>
                       <p className="text-[11px] leading-relaxed opacity-90">
@@ -1076,7 +1076,7 @@ export function ModalCentralAlertasConta({
                                     type="checkbox"
                                     checked={contato.ativo}
                                     onChange={() => alternarContatoAtivo(contato.id)}
-                                    className="w-4 h-4 rounded text-emerald-500 focus:ring-emerald-500"
+                                    className="w-4 h-4 rounded text-orange-500 focus:ring-orange-500"
                                   />
                                 </label>
 
@@ -1133,7 +1133,7 @@ export function ModalCentralAlertasConta({
                       <button
                         type="button"
                         onClick={handleAdicionarContato}
-                        className="w-full min-h-[40px] py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center justify-center gap-1.5 transition cursor-pointer shadow-xs"
+                        className="w-full min-h-[40px] py-2 rounded-xl bg-orange-600 hover:bg-orange-500 text-white font-bold text-xs flex items-center justify-center gap-1.5 transition cursor-pointer shadow-xs"
                       >
                         <Plus className="h-3.5 w-3.5" />
                         <span>Adicionar Número aos Alertas</span>
@@ -1158,7 +1158,7 @@ export function ModalCentralAlertasConta({
               type="button"
               onClick={handleSalvar}
               disabled={salvando || carregando}
-              className="w-full sm:w-auto px-5 py-2.5 rounded-xl text-xs font-bold bg-emerald-500 hover:bg-emerald-400 text-slate-950 shadow-md shadow-emerald-500/20 active:scale-95 transition flex items-center justify-center gap-1.5 disabled:opacity-50 cursor-pointer min-h-[44px]"
+              className="w-full sm:w-auto px-5 py-2.5 rounded-xl text-xs font-bold bg-orange-500 hover:bg-orange-400 text-slate-950 shadow-md shadow-orange-500/20 active:scale-95 transition flex items-center justify-center gap-1.5 disabled:opacity-50 cursor-pointer min-h-[44px]"
             >
               {salvando ? (
                 <Loader2 className="h-4 w-4 animate-spin shrink-0" />

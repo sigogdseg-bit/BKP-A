@@ -175,7 +175,7 @@ export function RelatorioGerencialModal({ aberto, onClose }: RelatorioGerencialM
 
   const inputClass = isNeumorph
     ? "py-2 px-3 rounded-xl bg-[#eaf0f8] dark:bg-slate-900 text-slate-800 dark:text-slate-100 text-xs shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.5)] border border-slate-300/50 dark:border-slate-800 outline-none focus:ring-2 focus:ring-[#00CFCC] transition"
-    : "py-2 px-3 rounded-xl bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 text-xs border border-slate-200 dark:border-slate-800 outline-none focus:ring-2 focus:ring-emerald-500/50 transition";
+    : "py-2 px-3 rounded-xl bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 text-xs border border-slate-200 dark:border-slate-800 outline-none focus:ring-2 focus:ring-orange-500/50 transition";
 
   const btnSecondaryClass = isNeumorph
     ? "px-3 py-2 rounded-xl text-xs font-bold bg-[#eaf0f8] dark:bg-slate-800 text-slate-700 dark:text-slate-200 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none border border-slate-300/60 dark:border-slate-700 hover:shadow-[3px_3px_6px_#c3cfe2] active:shadow-[inset_2px_2px_4px_#c8d4e4] transition flex items-center justify-center gap-1.5 cursor-pointer"
@@ -239,7 +239,7 @@ export function RelatorioGerencialModal({ aberto, onClose }: RelatorioGerencialM
                       <div className="flex items-center gap-2">
                         <CheckCircle2
                           className={`h-4 w-4 ${
-                            config.ativo ? "text-emerald-500" : "text-slate-400"
+                            config.ativo ? "text-orange-500" : "text-slate-400"
                           }`}
                         />
                         <span className="font-bold text-xs">Envio Automático Diário</span>
@@ -253,7 +253,7 @@ export function RelatorioGerencialModal({ aberto, onClose }: RelatorioGerencialM
                           }
                           className="sr-only peer"
                         />
-                        <div className="w-10 h-5 bg-slate-300 peer-focus:outline-none rounded-full peer dark:bg-slate-800 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-emerald-500"></div>
+                        <div className="w-10 h-5 bg-slate-300 peer-focus:outline-none rounded-full peer dark:bg-slate-800 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-orange-500"></div>
                       </label>
                     </div>
                     <p className="text-[11px] opacity-70 mt-1">
@@ -480,7 +480,7 @@ export function RelatorioGerencialModal({ aberto, onClose }: RelatorioGerencialM
                       onClick={handleAdicionarTelefone}
                       className={`w-full sm:w-auto ${btnSecondaryClass}`}
                     >
-                      <Plus className="h-3.5 w-3.5 text-emerald-500" />
+                      <Plus className="h-3.5 w-3.5 text-orange-500" />
                       <span>Adicionar</span>
                     </button>
                   </div>
@@ -550,7 +550,7 @@ export function RelatorioGerencialModal({ aberto, onClose }: RelatorioGerencialM
                       }`}
                     >
                       <div className="flex items-center gap-2.5">
-                        <Truck className="h-4 w-4 text-emerald-500" />
+                        <Truck className="h-4 w-4 text-orange-500" />
                         <div>
                           <span className="font-bold text-xs block">Frota e Rastreadores</span>
                           <span className="text-[10px] opacity-70">
@@ -760,7 +760,7 @@ export function RelatorioGerencialModal({ aberto, onClose }: RelatorioGerencialM
                       }`}
                     >
                       <div className="flex items-center gap-2.5">
-                        <TrendingUp className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
+                        <TrendingUp className="h-4 w-4 text-orange-600 dark:text-orange-400" />
                         <div>
                           <span className="font-bold text-xs block">Demonstrativo DRE da Rede</span>
                           <span className="text-[10px] opacity-70">

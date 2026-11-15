@@ -1139,9 +1139,9 @@ export function ConfiguracaoProtecaoModal({
               <button
                 type="button"
                 onClick={() => atualizarDestinatariosPorAlerta(categoria, chave, campo, undefined)}
-                className={`px-2 py-1 rounded-lg text-[10px] font-bold transition cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 ${
+                className={`px-2 py-1 rounded-lg text-[10px] font-bold transition cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 ${
                   !modoEspecifico
-                    ? "bg-slate-900 text-white dark:bg-emerald-500 dark:text-slate-950"
+                    ? "bg-slate-900 text-white dark:bg-orange-500 dark:text-slate-950"
                     : "bg-white/80 dark:bg-slate-900 text-slate-600 dark:text-slate-400 border border-slate-300/70 dark:border-slate-700"
                 }`}
               >
@@ -1154,9 +1154,9 @@ export function ConfiguracaoProtecaoModal({
                     atualizarDestinatariosPorAlerta(categoria, chave, campo, [...ativosPermitidos]);
                   }
                 }}
-                className={`px-2 py-1 rounded-lg text-[10px] font-bold transition cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 ${
+                className={`px-2 py-1 rounded-lg text-[10px] font-bold transition cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 ${
                   modoEspecifico
-                    ? "bg-slate-900 text-white dark:bg-emerald-500 dark:text-slate-950"
+                    ? "bg-slate-900 text-white dark:bg-orange-500 dark:text-slate-950"
                     : "bg-white/80 dark:bg-slate-900 text-slate-600 dark:text-slate-400 border border-slate-300/70 dark:border-slate-700"
                 }`}
               >
@@ -1181,7 +1181,7 @@ export function ConfiguracaoProtecaoModal({
                         key={`${campo}-${c.id}`}
                         className={`flex items-center justify-between gap-2 px-2.5 py-1.5 rounded-xl border text-[11px] cursor-pointer transition ${
                           marcado
-                            ? "bg-emerald-500/10 border-emerald-500/40 text-slate-900 dark:text-slate-100"
+                            ? "bg-orange-500/10 border-orange-500/40 text-slate-900 dark:text-slate-100"
                             : "bg-white/70 dark:bg-slate-900/60 border-slate-200 dark:border-slate-800 text-slate-500 dark:text-slate-400"
                         }`}
                       >
@@ -1215,7 +1215,7 @@ export function ConfiguracaoProtecaoModal({
                               Array.from(prox),
                             );
                           }}
-                          className="w-4 h-4 rounded text-emerald-500 focus:ring-emerald-500 shrink-0"
+                          className="w-4 h-4 rounded text-orange-500 focus:ring-orange-500 shrink-0"
                         />
                       </label>
                     );
@@ -1297,12 +1297,12 @@ export function ConfiguracaoProtecaoModal({
         onClick={() => setAlertaDestinatariosAberto(expandido ? null : chave)}
         aria-expanded={expandido}
         aria-label={`Escolher números destinatários para ${chave}`}
-        className={`min-h-[36px] px-2.5 py-1.5 rounded-xl text-[11px] font-bold flex items-center gap-1.5 border transition cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 ${
+        className={`min-h-[36px] px-2.5 py-1.5 rounded-xl text-[11px] font-bold flex items-center gap-1.5 border transition cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 ${
           avisoVazio
             ? "bg-amber-500/15 text-amber-800 dark:text-amber-300 border-amber-500/40"
             : expandido
-              ? "bg-slate-900 text-white dark:bg-emerald-500 dark:text-slate-950 border-transparent shadow-xs"
-              : "bg-white/70 dark:bg-slate-900/70 text-slate-700 dark:text-slate-200 border-slate-300/70 dark:border-slate-700 hover:border-emerald-500/50"
+              ? "bg-slate-900 text-white dark:bg-orange-500 dark:text-slate-950 border-transparent shadow-xs"
+              : "bg-white/70 dark:bg-slate-900/70 text-slate-700 dark:text-slate-200 border-slate-300/70 dark:border-slate-700 hover:border-orange-500/50"
         }`}
       >
         <Users className="h-3.5 w-3.5 shrink-0" />
@@ -1332,7 +1332,7 @@ export function ConfiguracaoProtecaoModal({
           {/* Header */}
           <div className="p-3.5 sm:p-5 border-b border-slate-300/60 dark:border-slate-800 flex items-center justify-between shrink-0">
             <div className="flex items-center gap-3">
-              <div className="h-10 w-10 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-500 shrink-0">
+              <div className="h-10 w-10 rounded-2xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-orange-500 shrink-0">
                 <ShieldAlert className="h-5 w-5" />
               </div>
               <div>
@@ -1354,7 +1354,7 @@ export function ConfiguracaoProtecaoModal({
               type="button"
               onClick={onFechar}
               aria-label="Fechar configurações de proteção e alertas"
-              className="min-h-[44px] min-w-[44px] flex items-center justify-center rounded-xl text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-200/60 dark:hover:bg-slate-800 transition cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+              className="min-h-[44px] min-w-[44px] flex items-center justify-center rounded-xl text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-200/60 dark:hover:bg-slate-800 transition cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500"
             >
               <X className="h-5 w-5" />
             </button>
@@ -1374,9 +1374,9 @@ export function ConfiguracaoProtecaoModal({
                 role="tab"
                 aria-selected={abaAtiva === "horarios"}
                 onClick={() => setAbaAtiva("horarios")}
-                className={`px-3 py-2 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 cursor-pointer whitespace-nowrap min-h-[38px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 ${
+                className={`px-3 py-2 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 cursor-pointer whitespace-nowrap min-h-[38px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 ${
                   abaAtiva === "horarios"
-                    ? "bg-slate-900 text-white dark:bg-emerald-500 dark:text-slate-950 shadow-md"
+                    ? "bg-slate-900 text-white dark:bg-orange-500 dark:text-slate-950 shadow-md"
                     : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-200/50 dark:hover:bg-slate-800"
                 }`}
               >
@@ -1389,9 +1389,9 @@ export function ConfiguracaoProtecaoModal({
                 role="tab"
                 aria-selected={abaAtiva === "regras"}
                 onClick={() => setAbaAtiva("regras")}
-                className={`px-3 py-2 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 cursor-pointer whitespace-nowrap min-h-[38px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 ${
+                className={`px-3 py-2 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 cursor-pointer whitespace-nowrap min-h-[38px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 ${
                   abaAtiva === "regras"
-                    ? "bg-slate-900 text-white dark:bg-emerald-500 dark:text-slate-950 shadow-md"
+                    ? "bg-slate-900 text-white dark:bg-orange-500 dark:text-slate-950 shadow-md"
                     : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-200/50 dark:hover:bg-slate-800"
                 }`}
               >
@@ -1404,9 +1404,9 @@ export function ConfiguracaoProtecaoModal({
                 role="tab"
                 aria-selected={abaAtiva === "notificacoes"}
                 onClick={() => setAbaAtiva("notificacoes")}
-                className={`px-3 py-2 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 cursor-pointer whitespace-nowrap min-h-[38px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 ${
+                className={`px-3 py-2 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 cursor-pointer whitespace-nowrap min-h-[38px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 ${
                   abaAtiva === "notificacoes"
-                    ? "bg-slate-900 text-white dark:bg-emerald-500 dark:text-slate-950 shadow-md"
+                    ? "bg-slate-900 text-white dark:bg-orange-500 dark:text-slate-950 shadow-md"
                     : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-200/50 dark:hover:bg-slate-800"
                 }`}
               >
@@ -1453,7 +1453,7 @@ export function ConfiguracaoProtecaoModal({
                 {/* ABA 1: HORÁRIOS DE USO */}
                 {abaAtiva === "horarios" && (
                   <div className="space-y-4">
-                    <div className="p-3 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-xs text-emerald-700 dark:text-emerald-300">
+                    <div className="p-3 rounded-2xl bg-orange-500/10 border border-orange-500/20 text-xs text-orange-700 dark:text-orange-300">
                       Defina o período esperado de circulação. Caso ocorra ignição ou deslocamento
                       fora destas condições, o sistema emitirá alerta de uso incomum.
                     </div>
@@ -1504,7 +1504,7 @@ export function ConfiguracaoProtecaoModal({
                               onClick={() => alternarDiaSemana(idx)}
                               className={`flex-1 py-2 rounded-xl text-xs font-bold transition ${
                                 ativo
-                                  ? "bg-emerald-500 text-slate-950 font-black shadow-xs"
+                                  ? "bg-orange-500 text-slate-950 font-black shadow-xs"
                                   : "bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400"
                               }`}
                             >
@@ -1529,7 +1529,7 @@ export function ConfiguracaoProtecaoModal({
                         type="checkbox"
                         checked={permitirFimDeSemana}
                         onChange={(e) => setPermitirFimDeSemana(e.target.checked)}
-                        className="w-4 h-4 rounded text-emerald-500 focus:ring-emerald-500"
+                        className="w-4 h-4 rounded text-orange-500 focus:ring-orange-500"
                       />
                     </div>
                   </div>
@@ -1553,7 +1553,7 @@ export function ConfiguracaoProtecaoModal({
                           onChange={(e) => setLimiteVelocidade(parseInt(e.target.value))}
                           className="flex-1 accent-emerald-500"
                         />
-                        <span className="font-mono font-black text-sm px-2.5 py-1 rounded-xl bg-slate-100 dark:bg-slate-800 text-emerald-600 dark:text-emerald-400">
+                        <span className="font-mono font-black text-sm px-2.5 py-1 rounded-xl bg-slate-100 dark:bg-slate-800 text-orange-600 dark:text-orange-400">
                           {limiteVelocidade} km/h
                         </span>
                       </div>
@@ -1633,7 +1633,7 @@ export function ConfiguracaoProtecaoModal({
                           onClick={() => setFiltroCategoriaAlertas("todos")}
                           className={`px-2.5 py-1 rounded-lg text-[11px] font-bold transition cursor-pointer ${
                             filtroCategoriaAlertas === "todos"
-                              ? "bg-slate-900 text-white dark:bg-emerald-500 dark:text-slate-950"
+                              ? "bg-slate-900 text-white dark:bg-orange-500 dark:text-slate-950"
                               : "bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 border border-slate-300/70 dark:border-slate-800"
                           }`}
                         >
@@ -1644,7 +1644,7 @@ export function ConfiguracaoProtecaoModal({
                           onClick={() => setFiltroCategoriaAlertas("veiculo")}
                           className={`px-2.5 py-1 rounded-lg text-[11px] font-bold transition cursor-pointer ${
                             filtroCategoriaAlertas === "veiculo"
-                              ? "bg-slate-900 text-white dark:bg-emerald-500 dark:text-slate-950"
+                              ? "bg-slate-900 text-white dark:bg-orange-500 dark:text-slate-950"
                               : "bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 border border-slate-300/70 dark:border-slate-800"
                           }`}
                         >
@@ -1655,7 +1655,7 @@ export function ConfiguracaoProtecaoModal({
                           onClick={() => setFiltroCategoriaAlertas("conta")}
                           className={`px-2.5 py-1 rounded-lg text-[11px] font-bold transition cursor-pointer ${
                             filtroCategoriaAlertas === "conta"
-                              ? "bg-slate-900 text-white dark:bg-emerald-500 dark:text-slate-950"
+                              ? "bg-slate-900 text-white dark:bg-orange-500 dark:text-slate-950"
                               : "bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 border border-slate-300/70 dark:border-slate-800"
                           }`}
                         >
@@ -1702,7 +1702,7 @@ export function ConfiguracaoProtecaoModal({
                                       type="button"
                                       onClick={handleAplicarTodaFrota}
                                       disabled={aplicandoFrota}
-                                      className="px-2 py-0.5 rounded-lg bg-emerald-500 text-slate-950 font-bold text-[10px] cursor-pointer"
+                                      className="px-2 py-0.5 rounded-lg bg-orange-500 text-slate-950 font-bold text-[10px] cursor-pointer"
                                     >
                                       {aplicandoFrota ? "Aplicando..." : "Sim"}
                                     </button>
@@ -1762,7 +1762,7 @@ export function ConfiguracaoProtecaoModal({
                                         <span
                                           className={`text-[9px] px-1.5 py-0.5 rounded font-bold ${
                                             algumAtivo
-                                              ? "bg-emerald-500/15 text-emerald-700 dark:text-emerald-400"
+                                              ? "bg-orange-500/15 text-orange-700 dark:text-orange-400"
                                               : "bg-slate-200 dark:bg-slate-800 text-slate-500 font-normal"
                                           }`}
                                         >
@@ -1790,9 +1790,9 @@ export function ConfiguracaoProtecaoModal({
                                       aria-checked={algumAtivo}
                                       aria-label={`Ativar ou desativar alerta ${tituloVisivel}`}
                                       onClick={() => alternarAlertaVeiculoAtivo(item.chave)}
-                                      className={`relative inline-flex h-6 w-11 shrink-0 items-center rounded-full transition-colors duration-150 motion-reduce:transition-none cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 ${
+                                      className={`relative inline-flex h-6 w-11 shrink-0 items-center rounded-full transition-colors duration-150 motion-reduce:transition-none cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 ${
                                         algumAtivo
-                                          ? "bg-emerald-500"
+                                          ? "bg-orange-500"
                                           : "bg-slate-300 dark:bg-slate-700"
                                       }`}
                                     >
@@ -1812,9 +1812,9 @@ export function ConfiguracaoProtecaoModal({
                                         aria-pressed={canalItem.app}
                                         aria-label={`Canal App para ${tituloVisivel}`}
                                         onClick={() => alternarCanalItem(item.chave, "app")}
-                                        className={`min-h-[36px] px-2.5 py-1.5 rounded-xl text-[11px] font-bold flex items-center gap-1 transition cursor-pointer border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 ${
+                                        className={`min-h-[36px] px-2.5 py-1.5 rounded-xl text-[11px] font-bold flex items-center gap-1 transition cursor-pointer border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 ${
                                           canalItem.app
-                                            ? "bg-emerald-500 text-slate-950 border-emerald-400 font-black shadow-xs"
+                                            ? "bg-orange-500 text-slate-950 border-orange-400 font-black shadow-xs"
                                             : "bg-white/60 dark:bg-slate-900/60 text-slate-500 dark:text-slate-400 border-slate-200 dark:border-slate-800 hover:text-slate-800 dark:hover:text-slate-200"
                                         }`}
                                         title="Notificação no App e Web Push"
@@ -1850,7 +1850,7 @@ export function ConfiguracaoProtecaoModal({
                                         aria-pressed={Boolean(canalItem.ligacao)}
                                         aria-label={`Canal Ligação para ${tituloVisivel}`}
                                         onClick={() => alternarCanalItem(item.chave, "ligacao")}
-                                        className={`min-h-[36px] px-2.5 py-1.5 rounded-xl text-[11px] font-bold flex items-center gap-1 transition cursor-pointer border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 ${
+                                        className={`min-h-[36px] px-2.5 py-1.5 rounded-xl text-[11px] font-bold flex items-center gap-1 transition cursor-pointer border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 ${
                                           canalItem.ligacao
                                             ? "bg-amber-500 text-slate-950 border-amber-400 font-black shadow-xs"
                                             : "bg-white/60 dark:bg-slate-900/60 text-slate-500 dark:text-slate-400 border-slate-200 dark:border-slate-800 hover:text-slate-800 dark:hover:text-slate-200"
@@ -1936,7 +1936,7 @@ export function ConfiguracaoProtecaoModal({
                                       <span
                                         className={`text-[9px] px-1.5 py-0.5 rounded font-bold ${
                                           ativoConta
-                                            ? "bg-emerald-500/15 text-emerald-700 dark:text-emerald-400"
+                                            ? "bg-orange-500/15 text-orange-700 dark:text-orange-400"
                                             : "bg-slate-200 dark:bg-slate-800 text-slate-500 font-normal"
                                         }`}
                                       >
@@ -1969,9 +1969,9 @@ export function ConfiguracaoProtecaoModal({
                                     aria-checked={ativoConta}
                                     aria-label={`Ativar ou desativar alerta ${tituloContaVisivel}`}
                                     onClick={() => alternarAlertaContaAtivo(item)}
-                                    className={`relative inline-flex h-6 w-11 shrink-0 items-center rounded-full transition-colors duration-150 motion-reduce:transition-none cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 ${
+                                    className={`relative inline-flex h-6 w-11 shrink-0 items-center rounded-full transition-colors duration-150 motion-reduce:transition-none cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 ${
                                       ativoConta
-                                        ? "bg-emerald-500"
+                                        ? "bg-orange-500"
                                         : "bg-slate-300 dark:bg-slate-700"
                                     }`}
                                   >
@@ -1990,9 +1990,9 @@ export function ConfiguracaoProtecaoModal({
                                       aria-pressed={regraConta.app}
                                       aria-label={`Canal App para ${tituloContaVisivel}`}
                                       onClick={() => alternarCanalContaItem(item, "app")}
-                                      className={`min-h-[36px] px-2.5 py-1.5 rounded-xl text-[11px] font-bold flex items-center gap-1 transition cursor-pointer border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 ${
+                                      className={`min-h-[36px] px-2.5 py-1.5 rounded-xl text-[11px] font-bold flex items-center gap-1 transition cursor-pointer border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 ${
                                         regraConta.app
-                                          ? "bg-emerald-500 text-slate-950 border-emerald-400 font-black shadow-xs"
+                                          ? "bg-orange-500 text-slate-950 border-orange-400 font-black shadow-xs"
                                           : "bg-white/60 dark:bg-slate-900/60 text-slate-500 dark:text-slate-400 border-slate-200 dark:border-slate-800 hover:text-slate-800 dark:hover:text-slate-200"
                                       }`}
                                       title="Notificação no App e Web Push"
@@ -2028,7 +2028,7 @@ export function ConfiguracaoProtecaoModal({
                                       aria-pressed={Boolean(regraConta.ligacao)}
                                       aria-label={`Canal Ligação para ${tituloContaVisivel}`}
                                       onClick={() => alternarCanalContaItem(item, "ligacao")}
-                                      className={`min-h-[36px] px-2.5 py-1.5 rounded-xl text-[11px] font-bold flex items-center gap-1 transition cursor-pointer border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 ${
+                                      className={`min-h-[36px] px-2.5 py-1.5 rounded-xl text-[11px] font-bold flex items-center gap-1 transition cursor-pointer border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 ${
                                         regraConta.ligacao
                                           ? "bg-amber-500 text-slate-950 border-amber-400 font-black shadow-xs"
                                           : "bg-white/60 dark:bg-slate-900/60 text-slate-500 dark:text-slate-400 border-slate-200 dark:border-slate-800 hover:text-slate-800 dark:hover:text-slate-200"
@@ -2117,7 +2117,7 @@ export function ConfiguracaoProtecaoModal({
                                     contato.tipo === "cliente"
                                       ? "bg-sky-500/15 text-sky-700 dark:text-sky-300 border border-sky-500/20"
                                       : contato.tipo === "motorista"
-                                        ? "bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border border-emerald-500/20"
+                                        ? "bg-orange-500/15 text-orange-700 dark:text-orange-300 border border-orange-500/20"
                                         : "bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-300 dark:border-slate-700"
                                   }`}
                                 >
@@ -2199,7 +2199,7 @@ export function ConfiguracaoProtecaoModal({
                       <button
                         type="button"
                         onClick={handleAdicionarContatoAdicional}
-                        className="w-full min-h-[40px] py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center justify-center gap-1.5 transition cursor-pointer shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+                        className="w-full min-h-[40px] py-2 rounded-xl bg-orange-600 hover:bg-orange-500 text-white font-bold text-xs flex items-center justify-center gap-1.5 transition cursor-pointer shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500"
                       >
                         <Plus className="h-3.5 w-3.5" />
                         <span>Adicionar Número aos Alertas</span>
@@ -2216,7 +2216,7 @@ export function ConfiguracaoProtecaoModal({
             <button
               type="button"
               onClick={onFechar}
-              className="w-full sm:w-auto px-4 py-2.5 rounded-xl text-xs font-bold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-200/60 dark:hover:bg-slate-800 transition cursor-pointer min-h-[44px] flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+              className="w-full sm:w-auto px-4 py-2.5 rounded-xl text-xs font-bold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-200/60 dark:hover:bg-slate-800 transition cursor-pointer min-h-[44px] flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500"
             >
               Cancelar
             </button>
@@ -2224,7 +2224,7 @@ export function ConfiguracaoProtecaoModal({
               type="button"
               onClick={handleSalvar}
               disabled={salvando || carregando}
-              className="w-full sm:w-auto px-5 py-2.5 rounded-xl text-xs font-bold bg-emerald-500 hover:bg-emerald-400 text-slate-950 shadow-md shadow-emerald-500/20 active:scale-95 transition flex items-center justify-center gap-1.5 disabled:opacity-50 cursor-pointer min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+              className="w-full sm:w-auto px-5 py-2.5 rounded-xl text-xs font-bold bg-orange-500 hover:bg-orange-400 text-slate-950 shadow-md shadow-orange-500/20 active:scale-95 transition flex items-center justify-center gap-1.5 disabled:opacity-50 cursor-pointer min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500"
             >
               {salvando ? (
                 <Loader2 className="h-4 w-4 animate-spin shrink-0" />

@@ -282,13 +282,13 @@ export function ModalSerialRastreadorChip({
             <div
               className={`p-3 rounded-2xl border flex items-center gap-2.5 text-xs transition ${
                 estaLiberado
-                  ? "bg-emerald-500/10 border-emerald-500/20 text-emerald-700 dark:text-emerald-300"
+                  ? "bg-orange-500/10 border-orange-500/20 text-orange-700 dark:text-orange-300"
                   : "bg-amber-500/10 border-amber-500/20 text-amber-700 dark:text-amber-300"
               }`}
             >
               {estaLiberado ? (
                 <>
-                  <Check className="h-4 w-4 text-emerald-500 shrink-0" />
+                  <Check className="h-4 w-4 text-orange-500 shrink-0" />
                   <div>
                     <strong className="font-black">Pronto para Instalação:</strong> IMEI e ICCID
                     preenchidos. O equipamento estará disponível para o operador compor o kit.
@@ -484,7 +484,7 @@ export function ModalSerialRastreadorChip({
                               <span className="px-2 py-0.5 rounded-lg text-[10px] font-bold bg-sky-100 dark:bg-sky-900/60 text-sky-700 dark:text-sky-300">
                                 {c.operadora}
                               </span>
-                              <span className="px-1.5 py-0.5 rounded text-[9px] font-medium bg-emerald-50 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800">
+                              <span className="px-1.5 py-0.5 rounded text-[9px] font-medium bg-orange-50 dark:bg-orange-950 text-orange-600 dark:text-orange-400 border border-emerald-200 dark:border-emerald-800">
                                 Livre
                               </span>
                             </div>

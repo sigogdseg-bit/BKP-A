@@ -149,7 +149,7 @@ export function ModalGerenciarBloqueioAdmin({
               onClick={() => setStatusLocalizacao("liberado")}
               className={`p-2.5 rounded-xl text-left border text-xs font-semibold transition ${
                 statusLocalizacao === "liberado"
-                  ? "bg-emerald-500/15 border-emerald-500 text-emerald-700 dark:text-emerald-300 ring-1 ring-emerald-500"
+                  ? "bg-orange-500/15 border-orange-500 text-orange-700 dark:text-orange-300 ring-1 ring-orange-500"
                   : "bg-slate-50 dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-100"
               }`}
             >
@@ -218,7 +218,7 @@ export function ModalGerenciarBloqueioAdmin({
               onClick={() => setStatusAcesso("liberado")}
               className={`p-2.5 rounded-xl text-left border text-xs font-semibold transition ${
                 statusAcesso === "liberado"
-                  ? "bg-emerald-500/15 border-emerald-500 text-emerald-700 dark:text-emerald-300 ring-1 ring-emerald-500"
+                  ? "bg-orange-500/15 border-orange-500 text-orange-700 dark:text-orange-300 ring-1 ring-orange-500"
                   : "bg-slate-50 dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-100"
               }`}
             >

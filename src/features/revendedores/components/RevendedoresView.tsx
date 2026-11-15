@@ -634,7 +634,7 @@ export function RevendedoresView() {
           }
           className={`bg-[#eaf0f8] dark:bg-slate-900/70 border rounded-2xl p-3.5 flex flex-col justify-between transition cursor-pointer active:scale-95 ${
             filtroRede === "com_clientes"
-              ? "border-emerald-500/60 ring-2 ring-emerald-500/40 shadow-[4px_4px_12px_#c3cfe2] dark:shadow-none"
+              ? "border-orange-500/60 ring-2 ring-orange-500/40 shadow-[4px_4px_12px_#c3cfe2] dark:shadow-none"
               : "border-slate-300/60 dark:border-slate-800 shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_12px_#b8c6da]"
           }`}
         >
@@ -642,7 +642,7 @@ export function RevendedoresView() {
             <span className="text-[10.5px] font-bold uppercase tracking-wider">
               Clientes da Rede
             </span>
-            <div className="h-7 w-7 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
+            <div className="h-7 w-7 rounded-lg bg-orange-500/10 flex items-center justify-center text-orange-600 dark:text-orange-400">
               <Users className="h-4 w-4" />
             </div>
           </div>
@@ -650,7 +650,7 @@ export function RevendedoresView() {
             <p className="text-xl font-black font-mono text-slate-900 dark:text-white">
               {metricas.totalClientes}
             </p>
-            <span className="text-[10px] text-emerald-600 dark:text-emerald-400 font-semibold block mt-0.5 truncate">
+            <span className="text-[10px] text-orange-600 dark:text-orange-400 font-semibold block mt-0.5 truncate">
               {filtroRede === "com_clientes" ? "Filtro: Com clientes" : "Filtrar com clientes"}
             </span>
           </div>
@@ -692,21 +692,21 @@ export function RevendedoresView() {
           onClick={() => setFiltroRede((prev) => (prev === "com_cota" ? "todos" : "com_cota"))}
           className={`bg-[#eaf0f8] dark:bg-slate-900/70 border rounded-2xl p-3.5 flex flex-col justify-between transition cursor-pointer active:scale-95 ${
             filtroRede === "com_cota"
-              ? "border-emerald-500/60 ring-2 ring-emerald-500/40 shadow-[4px_4px_12px_#c3cfe2] dark:shadow-none"
-              : "border-emerald-500/30 shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_12px_#b8c6da]"
+              ? "border-orange-500/60 ring-2 ring-orange-500/40 shadow-[4px_4px_12px_#c3cfe2] dark:shadow-none"
+              : "border-orange-500/30 shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_12px_#b8c6da]"
           }`}
         >
-          <div className="flex items-center justify-between text-emerald-600 dark:text-emerald-400">
+          <div className="flex items-center justify-between text-orange-600 dark:text-orange-400">
             <span className="text-[10.5px] font-bold uppercase tracking-wider">Cota Matriz</span>
-            <div className="h-7 w-7 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
+            <div className="h-7 w-7 rounded-lg bg-orange-500/10 flex items-center justify-center text-orange-600 dark:text-orange-400">
               <ShieldCheck className="h-4 w-4" />
             </div>
           </div>
           <div className="mt-2">
-            <p className="text-lg font-black font-mono text-emerald-700 dark:text-emerald-300 truncate">
+            <p className="text-lg font-black font-mono text-orange-700 dark:text-orange-300 truncate">
               R$ {metricas.cotaSistema.toFixed(2)}
             </p>
-            <span className="text-[10px] text-emerald-600 dark:text-emerald-400 font-bold block mt-0.5 truncate">
+            <span className="text-[10px] text-orange-600 dark:text-orange-400 font-bold block mt-0.5 truncate">
               {filtroRede === "com_cota" ? "Filtro: Com cota matriz" : "Filtrar cota matriz"}
             </span>
           </div>
@@ -884,7 +884,7 @@ export function RevendedoresView() {
                     <span
                       className={`text-[9px] px-2 py-0.5 rounded-md font-bold uppercase tracking-wider shrink-0 ${
                         rev.ativo
-                          ? "bg-emerald-500/15 text-emerald-700 dark:text-emerald-400 border border-emerald-500/25"
+                          ? "bg-orange-500/15 text-orange-700 dark:text-orange-400 border border-orange-500/25"
                           : "bg-rose-500/15 text-rose-700 dark:text-rose-400 border border-rose-500/25"
                       }`}
                     >
@@ -931,7 +931,7 @@ export function RevendedoresView() {
                       <span className="text-[10px] text-slate-500 dark:text-slate-400 block font-medium">
                         Cota Matriz Mensal
                       </span>
-                      <span className="text-emerald-600 dark:text-emerald-400 font-bold font-mono">
+                      <span className="text-orange-600 dark:text-orange-400 font-bold font-mono">
                         R$ {(rev.cota_sistema_mensal || 0).toFixed(2)}
                       </span>
                     </div>
@@ -984,7 +984,7 @@ export function RevendedoresView() {
                                 <span
                                   className={`text-[9px] px-1.5 py-0.5 rounded font-bold uppercase ${
                                     vend.ativo
-                                      ? "bg-emerald-500/15 text-emerald-600"
+                                      ? "bg-orange-500/15 text-orange-600"
                                       : "bg-rose-500/15 text-rose-600"
                                   }`}
                                 >
@@ -1078,7 +1078,7 @@ export function RevendedoresView() {
                       className={`px-2.5 py-1.5 rounded-xl text-[11px] font-bold transition shadow-xs cursor-pointer active:scale-95 ${
                         rev.ativo
                           ? "text-rose-700 dark:text-rose-400 bg-rose-500/10 hover:bg-rose-500/20 border border-rose-500/30"
-                          : "text-emerald-700 dark:text-emerald-400 bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30"
+                          : "text-orange-700 dark:text-orange-400 bg-orange-500/10 hover:bg-orange-500/20 border border-orange-500/30"
                       }`}
                     >
                       {rev.ativo ? "Desativar" : "Ativar"}
@@ -1116,7 +1116,7 @@ export function RevendedoresView() {
                   <th className="py-3 px-4">Base Sistema</th>
                   <th className="py-3 px-4">Equipe / Clientes</th>
                   <th className="py-3 px-4">Faturamento Bruto</th>
-                  <th className="py-3 px-4 text-emerald-600 dark:text-emerald-400">Cota Matriz</th>
+                  <th className="py-3 px-4 text-orange-600 dark:text-orange-400">Cota Matriz</th>
                   <th className="py-3 px-4 text-amber-600 dark:text-amber-400">Margem Franquia</th>
                   <th className="py-3 px-4">Status</th>
                   <th className="py-3 px-4 text-right">Ações</th>
@@ -1172,7 +1172,7 @@ export function RevendedoresView() {
                         <td className="py-3 px-4 font-bold text-slate-800 dark:text-slate-200">
                           R$ {(rev.faturamento_total_mensal || 0).toFixed(2)}
                         </td>
-                        <td className="py-3 px-4 font-bold text-emerald-600 dark:text-emerald-400">
+                        <td className="py-3 px-4 font-bold text-orange-600 dark:text-orange-400">
                           R$ {(rev.cota_sistema_mensal || 0).toFixed(2)}
                         </td>
                         <td className="py-3 px-4 font-bold text-amber-600 dark:text-amber-400">
@@ -1182,7 +1182,7 @@ export function RevendedoresView() {
                           <span
                             className={`px-2 py-0.5 rounded-md text-[9px] font-bold uppercase tracking-wider ${
                               rev.ativo
-                                ? "bg-emerald-500/15 text-emerald-700 dark:text-emerald-400 border border-emerald-500/25"
+                                ? "bg-orange-500/15 text-orange-700 dark:text-orange-400 border border-orange-500/25"
                                 : "bg-rose-500/15 text-rose-700 dark:text-rose-400 border border-rose-500/25"
                             }`}
                           >
@@ -1271,7 +1271,7 @@ export function RevendedoresView() {
                                         <span
                                           className={`px-1.5 py-0.5 rounded text-[9px] font-bold uppercase ${
                                             vend.ativo
-                                              ? "bg-emerald-500/20 text-emerald-600"
+                                              ? "bg-orange-500/20 text-orange-600"
                                               : "bg-rose-500/20 text-rose-600"
                                           }`}
                                         >
@@ -1684,7 +1684,7 @@ export function RevendedoresView() {
                       }}
                       className={`p-2.5 rounded-xl font-bold border transition text-center cursor-pointer active:scale-95 ${
                         tipoConviteLink === "cliente"
-                          ? "bg-emerald-600 text-white border-emerald-600 shadow-md"
+                          ? "bg-orange-600 text-white border-orange-600 shadow-md"
                           : "bg-white dark:bg-slate-950 border-slate-300/70 dark:border-slate-800 text-slate-700 dark:text-slate-300 shadow-xs"
                       }`}
                     >
@@ -1871,19 +1871,19 @@ export function RevendedoresView() {
                 </button>
 
                 {linkGerado && (
-                  <div className="p-3.5 bg-emerald-500/10 dark:bg-emerald-950/20 border border-emerald-500/30 rounded-2xl space-y-2 animate-in fade-in">
-                    <div className="flex items-center gap-2 text-emerald-700 dark:text-emerald-400 font-bold text-xs">
+                  <div className="p-3.5 bg-orange-500/10 dark:bg-orange-950/20 border border-orange-500/30 rounded-2xl space-y-2 animate-in fade-in">
+                    <div className="flex items-center gap-2 text-orange-700 dark:text-orange-400 font-bold text-xs">
                       <CheckCircle2 className="h-4 w-4" />
                       <span>Link Pronto para Compartilhamento:</span>
                     </div>
-                    <div className="p-2 rounded-xl bg-white dark:bg-slate-950 border border-emerald-500/20 font-mono text-[11px] break-all select-all text-slate-800 dark:text-slate-200">
+                    <div className="p-2 rounded-xl bg-white dark:bg-slate-950 border border-orange-500/20 font-mono text-[11px] break-all select-all text-slate-800 dark:text-slate-200">
                       {linkGerado}
                     </div>
                     <div className="flex items-center gap-2">
                       <button
                         type="button"
                         onClick={() => copiarLink(linkGerado)}
-                        className="flex-1 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center justify-center gap-1.5 transition shadow-xs cursor-pointer active:scale-95"
+                        className="flex-1 py-1.5 rounded-xl bg-orange-600 hover:bg-orange-500 text-white font-bold text-xs flex items-center justify-center gap-1.5 transition shadow-xs cursor-pointer active:scale-95"
                       >
                         <Copy className="h-3.5 w-3.5" />
                         <span>Copiar Link</span>

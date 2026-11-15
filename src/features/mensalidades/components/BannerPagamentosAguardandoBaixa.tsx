@@ -110,7 +110,7 @@ export function BannerPagamentosAguardandoBaixa() {
 
   return (
     <>
-      <div className="bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-700 text-white px-3 sm:px-4 py-2 text-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 shadow-md animate-fadeIn select-none border-b border-emerald-500/40">
+      <div className="bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-700 text-white px-3 sm:px-4 py-2 text-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 shadow-md animate-fadeIn select-none border-b border-orange-500/40">
         <div className="flex items-center gap-2 overflow-hidden w-full sm:w-auto">
           <div className="h-6 w-6 rounded-lg bg-white/20 flex items-center justify-center shrink-0 animate-pulse">
             <DollarSign className="h-4 w-4 text-white" />
@@ -140,9 +140,9 @@ export function BannerPagamentosAguardandoBaixa() {
           <button
             onClick={() => handleConfirmarBaixa(primeira)}
             disabled={processandoId === primeira.id}
-            className="px-3 py-1 rounded-lg bg-white text-emerald-800 hover:bg-emerald-50 font-black text-[11px] flex items-center gap-1 transition shadow-md disabled:opacity-50"
+            className="px-3 py-1 rounded-lg bg-white text-orange-800 hover:bg-orange-50 font-black text-[11px] flex items-center gap-1 transition shadow-md disabled:opacity-50"
           >
-            <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600" />
+            <CheckCircle2 className="h-3.5 w-3.5 text-orange-600" />
             <span>{processandoId === primeira.id ? "Gravando..." : "Confirmar Baixa"}</span>
           </button>
         </div>
@@ -155,7 +155,7 @@ export function BannerPagamentosAguardandoBaixa() {
             <div className="bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 rounded-3xl p-5 sm:p-6 max-w-lg w-full space-y-4 shadow-2xl animate-fadeIn max-h-[90vh] overflow-y-auto">
               <div className="flex items-center justify-between border-b border-slate-300/60 dark:border-slate-800 pb-3">
                 <div className="flex items-center gap-2">
-                  <div className="h-8 w-8 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
+                  <div className="h-8 w-8 rounded-xl bg-orange-500/15 border border-orange-500/30 flex items-center justify-center text-orange-600 dark:text-orange-400">
                     <DollarSign className="h-4 w-4" />
                   </div>
                   <div>
@@ -215,7 +215,7 @@ export function BannerPagamentosAguardandoBaixa() {
                   <span className="text-slate-600 dark:text-slate-400 font-semibold">
                     Valor Original da Cobrança:
                   </span>
-                  <span className="text-base font-black font-mono text-emerald-600 dark:text-emerald-400">
+                  <span className="text-base font-black font-mono text-orange-600 dark:text-orange-400">
                     R${" "}
                     {Number(faturaVisualizar.valor || 0)
                       .toFixed(2)
@@ -252,7 +252,7 @@ export function BannerPagamentosAguardandoBaixa() {
                     </div>
                   ) : (
                     <div className="p-3 rounded-2xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-xs text-slate-700 dark:text-slate-300 flex items-center gap-2">
-                      <FileText className="h-5 w-5 text-emerald-500 shrink-0" />
+                      <FileText className="h-5 w-5 text-orange-500 shrink-0" />
                       <span className="truncate">
                         Comprovante anexado pelo cliente (
                         {faturaVisualizar.comprovante_url.slice(0, 40)}...)
@@ -283,7 +283,7 @@ export function BannerPagamentosAguardandoBaixa() {
                   type="button"
                   onClick={() => handleConfirmarBaixa(faturaVisualizar)}
                   disabled={processandoId === faturaVisualizar.id}
-                  className="px-4 py-2 rounded-xl text-xs font-bold bg-emerald-500 hover:bg-emerald-400 text-slate-950 transition shadow-md shadow-emerald-500/20 flex items-center gap-1.5 disabled:opacity-50"
+                  className="px-4 py-2 rounded-xl text-xs font-bold bg-orange-500 hover:bg-orange-400 text-slate-950 transition shadow-md shadow-orange-500/20 flex items-center gap-1.5 disabled:opacity-50"
                 >
                   <CheckCircle2 className="h-4 w-4" />
                   <span>Confirmar Baixa Definitiva</span>

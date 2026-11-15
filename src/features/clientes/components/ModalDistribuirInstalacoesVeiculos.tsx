@@ -467,7 +467,7 @@ export function ModalDistribuirInstalacoesVeiculos({
           {/* Cabeçalho Fixo Cockpit */}
           <div className="p-4 sm:p-5 border-b border-slate-200/80 dark:border-slate-800/80 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md flex items-center justify-between shrink-0">
             <div className="flex items-center gap-3 min-w-0">
-              <div className="h-11 w-11 rounded-2xl bg-linear-to-br from-emerald-500 to-teal-700 flex items-center justify-center text-white shadow-lg shadow-emerald-500/20 shrink-0">
+              <div className="h-11 w-11 rounded-2xl bg-linear-to-br from-emerald-500 to-teal-700 flex items-center justify-center text-white shadow-lg shadow-orange-500/20 shrink-0">
                 <Layers className="h-5 w-5" />
               </div>
               <div className="truncate">
@@ -475,7 +475,7 @@ export function ModalDistribuirInstalacoesVeiculos({
                   <h2 className="text-base sm:text-lg font-black tracking-tight text-slate-900 dark:text-slate-100 truncate">
                     Distribuição e Ordens de Serviço da Frota
                   </h2>
-                  <span className="hidden sm:inline-block px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/20 uppercase tracking-wider">
+                  <span className="hidden sm:inline-block px-2 py-0.5 rounded-full text-[10px] font-bold bg-orange-500/10 text-orange-700 dark:text-orange-400 border border-orange-500/20 uppercase tracking-wider">
                     Gestão Integrada
                   </span>
                 </div>
@@ -515,15 +515,15 @@ export function ModalDistribuirInstalacoesVeiculos({
                 </div>
               </div>
 
-              <div className="p-3 rounded-2xl bg-white dark:bg-slate-900/70 border border-emerald-500/20 dark:border-emerald-500/30 flex items-center gap-3 shadow-xs">
-                <div className="h-9 w-9 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
+              <div className="p-3 rounded-2xl bg-white dark:bg-slate-900/70 border border-orange-500/20 dark:border-orange-500/30 flex items-center gap-3 shadow-xs">
+                <div className="h-9 w-9 rounded-xl bg-orange-500/10 text-orange-600 dark:text-orange-400 flex items-center justify-center shrink-0">
                   <CheckCircle2 className="h-4 w-4" />
                 </div>
                 <div>
-                  <span className="text-[10px] text-emerald-600 dark:text-emerald-400 font-semibold uppercase tracking-wider block">
+                  <span className="text-[10px] text-orange-600 dark:text-orange-400 font-semibold uppercase tracking-wider block">
                     OSs Prontas (Com Kit)
                   </span>
-                  <span className="text-lg font-black font-mono text-emerald-700 dark:text-emerald-400">
+                  <span className="text-lg font-black font-mono text-orange-700 dark:text-orange-400">
                     {resumo.comKit}
                   </span>
                 </div>
@@ -550,14 +550,14 @@ export function ModalDistribuirInstalacoesVeiculos({
                 {/* Atribuição Rápida de Instalador a Todos */}
                 <div className="flex flex-col sm:flex-row sm:items-center gap-2 flex-1 min-w-0">
                   <span className="text-xs font-bold text-slate-700 dark:text-slate-300 shrink-0 flex items-center gap-1.5">
-                    <Wrench className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400" />
+                    <Wrench className="h-3.5 w-3.5 text-orange-600 dark:text-orange-400" />
                     <span>Aplicar instalador para todos:</span>
                   </span>
                   <div className="flex items-center gap-2 flex-1 min-w-0">
                     <select
                       value={instaladorEmMassa}
                       onChange={(e) => setInstaladorEmMassa(e.target.value)}
-                      className="flex-1 min-w-0 max-w-md h-10 px-3 bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-xl text-xs font-semibold text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 truncate"
+                      className="flex-1 min-w-0 max-w-md h-10 px-3 bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-xl text-xs font-semibold text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 truncate"
                     >
                       <option value="">Selecione o Instalador...</option>
                       <option value="nenhum">[ Sem instalador / Desvincular de todos ]</option>
@@ -571,7 +571,7 @@ export function ModalDistribuirInstalacoesVeiculos({
                     <button
                       type="button"
                       onClick={handleAplicarInstaladorTodos}
-                      className="h-10 px-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs transition shadow-md shadow-emerald-600/20 shrink-0 flex items-center gap-1.5 cursor-pointer whitespace-nowrap active:scale-98"
+                      className="h-10 px-3.5 rounded-xl bg-orange-600 hover:bg-orange-500 text-white font-bold text-xs transition shadow-md shadow-orange-600/20 shrink-0 flex items-center gap-1.5 cursor-pointer whitespace-nowrap active:scale-98"
                     >
                       <Sparkles className="h-3.5 w-3.5" />
                       <span>Aplicar a Todos</span>
@@ -584,16 +584,16 @@ export function ModalDistribuirInstalacoesVeiculos({
                   <button
                     type="button"
                     onClick={() => setNovoVeiculoAberto((prev) => !prev)}
-                    className="w-full sm:w-auto h-10 px-3.5 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-700 dark:text-emerald-400 border border-emerald-500/30 text-xs font-bold flex items-center justify-center gap-2 transition shadow-xs cursor-pointer whitespace-nowrap active:scale-98"
+                    className="w-full sm:w-auto h-10 px-3.5 rounded-xl bg-orange-500/10 hover:bg-orange-500/20 text-orange-700 dark:text-orange-400 border border-orange-500/30 text-xs font-bold flex items-center justify-center gap-2 transition shadow-xs cursor-pointer whitespace-nowrap active:scale-98"
                   >
-                    <Plus className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
+                    <Plus className="h-4 w-4 text-orange-600 dark:text-orange-400" />
                     <span>
                       {novoVeiculoAberto ? "Fechar Formulário" : "Adicionar Veículo à Frota"}
                     </span>
                     {novoVeiculoAberto ? (
-                      <ChevronUp className="h-3.5 w-3.5 text-emerald-600" />
+                      <ChevronUp className="h-3.5 w-3.5 text-orange-600" />
                     ) : (
-                      <ChevronDown className="h-3.5 w-3.5 text-emerald-600" />
+                      <ChevronDown className="h-3.5 w-3.5 text-orange-600" />
                     )}
                   </button>
                 </div>
@@ -603,19 +603,19 @@ export function ModalDistribuirInstalacoesVeiculos({
               {novoVeiculoAberto && (
                 <form
                   onSubmit={handleCadastrarNovoVeiculo}
-                  className="p-4 rounded-xl bg-slate-50 dark:bg-slate-950 border border-emerald-500/30 space-y-3 animate-fadeIn"
+                  className="p-4 rounded-xl bg-slate-50 dark:bg-slate-950 border border-orange-500/30 space-y-3 animate-fadeIn"
                 >
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                    <div className="flex items-center gap-1.5 text-xs font-bold text-emerald-700 dark:text-emerald-400">
+                    <div className="flex items-center gap-1.5 text-xs font-bold text-orange-700 dark:text-orange-400">
                       <Car className="h-4 w-4" />
                       <span>Cadastrar Novo Veículo para o Cliente</span>
                     </div>
-                    <label className="flex items-center gap-2 text-[11px] font-semibold text-slate-700 dark:text-slate-300 cursor-pointer bg-emerald-500/10 border border-emerald-500/25 px-2.5 py-1 rounded-lg">
+                    <label className="flex items-center gap-2 text-[11px] font-semibold text-slate-700 dark:text-slate-300 cursor-pointer bg-orange-500/10 border border-orange-500/25 px-2.5 py-1 rounded-lg">
                       <input
                         type="checkbox"
                         checked={instaladorPreencheVeiculo}
                         onChange={(e) => setInstaladorPreencheVeiculo(e.target.checked)}
-                        className="rounded border-emerald-400 text-emerald-600 focus:ring-emerald-500"
+                        className="rounded border-orange-400 text-orange-600 focus:ring-orange-500"
                       />
                       <span>Instalador preencherá placa, marca e modelo no atendimento</span>
                     </label>
@@ -629,7 +629,7 @@ export function ModalDistribuirInstalacoesVeiculos({
                       <select
                         value={novoTipo}
                         onChange={(e) => setNovoTipo(e.target.value)}
-                        className="w-full h-9 px-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-lg text-xs font-semibold text-slate-800 dark:text-slate-100 focus:outline-none focus:border-emerald-500"
+                        className="w-full h-9 px-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-lg text-xs font-semibold text-slate-800 dark:text-slate-100 focus:outline-none focus:border-orange-500"
                       >
                         <option value="carro">Carro de Passeio</option>
                         <option value="moto">Moto</option>
@@ -652,7 +652,7 @@ export function ModalDistribuirInstalacoesVeiculos({
                         <button
                           type="submit"
                           disabled={salvandoNovoVeiculo}
-                          className="h-9 px-4 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs transition shadow-xs flex items-center justify-center gap-1.5 cursor-pointer disabled:opacity-50 shrink-0"
+                          className="h-9 px-4 rounded-lg bg-orange-600 hover:bg-orange-500 text-white font-bold text-xs transition shadow-xs flex items-center justify-center gap-1.5 cursor-pointer disabled:opacity-50 shrink-0"
                         >
                           <Plus className="h-3.5 w-3.5" />
                           <span>{salvandoNovoVeiculo ? "Incluindo..." : "Incluir na Frota"}</span>
@@ -670,7 +670,7 @@ export function ModalDistribuirInstalacoesVeiculos({
                                 type="checkbox"
                                 checked={novoSemPlaca}
                                 onChange={(e) => setNovoSemPlaca(e.target.checked)}
-                                className="rounded border-slate-300 text-emerald-600"
+                                className="rounded border-slate-300 text-orange-600"
                               />
                               <span>Sem Placa</span>
                             </label>
@@ -681,7 +681,7 @@ export function ModalDistribuirInstalacoesVeiculos({
                             placeholder={novoSemPlaca ? "SEMPLACA" : "A DEFINIR (ou ABC-1234)"}
                             value={novoSemPlaca ? "" : novaPlaca}
                             onChange={(e) => setNovaPlaca(e.target.value)}
-                            className="w-full h-9 px-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-lg text-xs font-mono uppercase text-slate-800 dark:text-slate-100 disabled:opacity-50 focus:outline-none focus:border-emerald-500"
+                            className="w-full h-9 px-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-lg text-xs font-mono uppercase text-slate-800 dark:text-slate-100 disabled:opacity-50 focus:outline-none focus:border-orange-500"
                           />
                         </div>
 
@@ -697,7 +697,7 @@ export function ModalDistribuirInstalacoesVeiculos({
                             placeholder="6 últimos dígitos p/ mapa"
                             value={novoChassi}
                             onChange={(e) => setNovoChassi(e.target.value.toUpperCase())}
-                            className="w-full h-9 px-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-lg text-xs font-mono uppercase text-slate-800 dark:text-slate-100 focus:outline-none focus:border-emerald-500"
+                            className="w-full h-9 px-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-lg text-xs font-mono uppercase text-slate-800 dark:text-slate-100 focus:outline-none focus:border-orange-500"
                           />
                         </div>
 
@@ -710,7 +710,7 @@ export function ModalDistribuirInstalacoesVeiculos({
                             placeholder="Opcional — Instalador preenche se vazio"
                             value={novoMarcaModelo}
                             onChange={(e) => setNovoMarcaModelo(e.target.value)}
-                            className="w-full h-9 px-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-lg text-xs font-semibold text-slate-800 dark:text-slate-100 focus:outline-none focus:border-emerald-500"
+                            className="w-full h-9 px-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-lg text-xs font-semibold text-slate-800 dark:text-slate-100 focus:outline-none focus:border-orange-500"
                           />
                         </div>
 
@@ -723,7 +723,7 @@ export function ModalDistribuirInstalacoesVeiculos({
                             placeholder="Ex: 2024"
                             value={novoAno}
                             onChange={(e) => setNovoAno(e.target.value)}
-                            className="w-full h-9 px-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-lg text-xs text-slate-800 dark:text-slate-100 focus:outline-none focus:border-emerald-500"
+                            className="w-full h-9 px-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-lg text-xs text-slate-800 dark:text-slate-100 focus:outline-none focus:border-orange-500"
                           />
                         </div>
 
@@ -736,7 +736,7 @@ export function ModalDistribuirInstalacoesVeiculos({
                             placeholder="Ex: Prata"
                             value={novoCor}
                             onChange={(e) => setNovoCor(e.target.value)}
-                            className="w-full h-9 px-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-lg text-xs text-slate-800 dark:text-slate-100 focus:outline-none focus:border-emerald-500"
+                            className="w-full h-9 px-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-lg text-xs text-slate-800 dark:text-slate-100 focus:outline-none focus:border-orange-500"
                           />
                         </div>
 
@@ -744,7 +744,7 @@ export function ModalDistribuirInstalacoesVeiculos({
                           <button
                             type="submit"
                             disabled={salvandoNovoVeiculo}
-                            className="w-full sm:w-auto h-9 px-4 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs transition shadow-xs flex items-center justify-center gap-1.5 cursor-pointer disabled:opacity-50"
+                            className="w-full sm:w-auto h-9 px-4 rounded-lg bg-orange-600 hover:bg-orange-500 text-white font-bold text-xs transition shadow-xs flex items-center justify-center gap-1.5 cursor-pointer disabled:opacity-50"
                           >
                             <Plus className="h-3.5 w-3.5" />
                             <span>
@@ -793,8 +793,8 @@ export function ModalDistribuirInstalacoesVeiculos({
                       key={v.id}
                       className={`p-4 rounded-2xl border space-y-3 shadow-xs transition ${
                         jaConcluido
-                          ? "bg-slate-50/90 dark:bg-slate-900/50 border-emerald-500/25 opacity-90"
-                          : "bg-white dark:bg-slate-900/90 border-slate-200/90 dark:border-slate-800 hover:border-emerald-500/50 hover:shadow-md"
+                          ? "bg-slate-50/90 dark:bg-slate-900/50 border-orange-500/25 opacity-90"
+                          : "bg-white dark:bg-slate-900/90 border-slate-200/90 dark:border-slate-800 hover:border-orange-500/50 hover:shadow-md"
                       }`}
                     >
                       {/* Topo do Veículo (Cockpit) */}
@@ -820,15 +820,15 @@ export function ModalDistribuirInstalacoesVeiculos({
                         {/* Status da Ordem de Serviço / Agendamento */}
                         <div className="flex items-center gap-1.5 shrink-0">
                           {jaConcluido ? (
-                            <span className="px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-emerald-500/15 text-emerald-700 dark:text-emerald-400 border border-emerald-500/30 flex items-center gap-1.5 shadow-xs">
+                            <span className="px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-orange-500/15 text-orange-700 dark:text-orange-400 border border-orange-500/30 flex items-center gap-1.5 shadow-xs">
                               <ShieldCheck className="h-3.5 w-3.5" />
                               <span>Instalação Concluída • Preservada</span>
                             </span>
                           ) : temKitAtribuido ? (
-                            <span className="px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-emerald-500/15 text-emerald-700 dark:text-emerald-400 border border-emerald-500/30 flex items-center gap-1.5 shadow-xs">
+                            <span className="px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-orange-500/15 text-orange-700 dark:text-orange-400 border border-orange-500/30 flex items-center gap-1.5 shadow-xs">
                               <span className="relative flex h-2 w-2">
-                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
+                                <span className="relative inline-flex rounded-full h-2 w-2 bg-orange-500"></span>
                               </span>
                               <CheckCircle2 className="h-3 w-3" />
                               <span>OS Pronta • Kit Atribuído</span>
@@ -843,12 +843,12 @@ export function ModalDistribuirInstalacoesVeiculos({
                       </div>
 
                       {jaConcluido ? (
-                        <div className="p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-xs text-emerald-800 dark:text-emerald-300 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                        <div className="p-3 rounded-xl bg-orange-500/10 border border-orange-500/20 text-xs text-orange-800 dark:text-orange-300 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                           <span>
                             Veículo ativo em operação com instalação já concluída. Este registro
                             fica preservado e não receberá nova OS ao distribuir novos veículos.
                           </span>
-                          <div className="flex items-center gap-2 font-mono text-[11px] shrink-0 text-emerald-700 dark:text-emerald-300 font-bold">
+                          <div className="flex items-center gap-2 font-mono text-[11px] shrink-0 text-orange-700 dark:text-orange-300 font-bold">
                             {v.kit_imei || v.rastreador_imei ? (
                               <span>IMEI: {v.kit_imei || v.rastreador_imei}</span>
                             ) : null}
@@ -862,7 +862,7 @@ export function ModalDistribuirInstalacoesVeiculos({
                             {/* Seletor do Instalador Técnico Credenciado */}
                             <div className="space-y-1">
                               <label className="block text-[11px] font-bold text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
-                                <Wrench className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400" />
+                                <Wrench className="h-3.5 w-3.5 text-orange-600 dark:text-orange-400" />
                                 <span>Instalador Técnico Designado</span>
                               </label>
                               <select
@@ -870,7 +870,7 @@ export function ModalDistribuirInstalacoesVeiculos({
                                 onChange={(e) =>
                                   handleAlterarInstaladorVeiculo(v.id, e.target.value)
                                 }
-                                className="w-full h-10 px-3 bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-xl text-xs font-semibold text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 shadow-xs cursor-pointer"
+                                className="w-full h-10 px-3 bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-xl text-xs font-semibold text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 shadow-xs cursor-pointer"
                               >
                                 <option value="">[ Sem instalador / Não definir agora ]</option>
                                 {instaladores.map((inst) => (
@@ -888,11 +888,11 @@ export function ModalDistribuirInstalacoesVeiculos({
                             <div className="space-y-1">
                               <label className="block text-[11px] font-bold text-slate-700 dark:text-slate-300 flex items-center justify-between">
                                 <span className="flex items-center gap-1.5">
-                                  <Radio className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400" />
+                                  <Radio className="h-3.5 w-3.5 text-orange-600 dark:text-orange-400" />
                                   <span>Kit de Comodato em Estoque (Rastreador e Chip)</span>
                                 </span>
                                 {kitsParaEsteVeiculo.length > 0 && (
-                                  <span className="text-[10px] font-semibold text-emerald-600 dark:text-emerald-400">
+                                  <span className="text-[10px] font-semibold text-orange-600 dark:text-orange-400">
                                     {kitsParaEsteVeiculo.length}{" "}
                                     {kitsParaEsteVeiculo.length === 1
                                       ? "disponível"
@@ -903,9 +903,9 @@ export function ModalDistribuirInstalacoesVeiculos({
                               <select
                                 value={item.kitId || ""}
                                 onChange={(e) => handleAlterarKitVeiculo(v.id, e.target.value)}
-                                className={`w-full h-10 px-3 bg-slate-50 dark:bg-slate-950 border rounded-xl text-xs font-semibold text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 shadow-xs cursor-pointer ${
+                                className={`w-full h-10 px-3 bg-slate-50 dark:bg-slate-950 border rounded-xl text-xs font-semibold text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 shadow-xs cursor-pointer ${
                                   temKitAtribuido
-                                    ? "border-emerald-500/40 bg-emerald-500/5"
+                                    ? "border-orange-500/40 bg-orange-500/5"
                                     : "border-slate-300 dark:border-slate-700"
                                 }`}
                               >
@@ -975,7 +975,7 @@ export function ModalDistribuirInstalacoesVeiculos({
                           <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-950/80 border border-slate-200 dark:border-slate-800 space-y-2">
                             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5">
                               <label className="text-[11px] font-bold text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
-                                <MapPin className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400" />
+                                <MapPin className="h-3.5 w-3.5 text-orange-600 dark:text-orange-400" />
                                 <span>Local de Realização da Instalação *</span>
                               </label>
                               <span className="text-[10px] text-slate-500 dark:text-slate-400">
@@ -991,11 +991,11 @@ export function ModalDistribuirInstalacoesVeiculos({
                                 onClick={() => handleAlterarLocalTipoVeiculo(v.id, "oficina")}
                                 className={`h-9 px-3 rounded-lg border text-xs font-semibold flex items-center justify-center gap-2 transition cursor-pointer ${
                                   item.localTipo !== "local_veiculo"
-                                    ? "bg-emerald-500/15 border-emerald-500 text-emerald-700 dark:text-emerald-400 font-bold shadow-xs"
+                                    ? "bg-orange-500/15 border-orange-500 text-orange-700 dark:text-orange-400 font-bold shadow-xs"
                                     : "bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800"
                                 }`}
                               >
-                                <Building className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400" />
+                                <Building className="h-3.5 w-3.5 text-orange-600 dark:text-orange-400" />
                                 <span>Oficina do Instalador (Padrão)</span>
                               </button>
 
@@ -1031,7 +1031,7 @@ export function ModalDistribuirInstalacoesVeiculos({
                                     e.target.value,
                                   )
                                 }
-                                className="w-full h-9 px-2.5 bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-lg text-xs font-mono text-slate-800 dark:text-slate-100 focus:outline-none focus:border-emerald-500"
+                                className="w-full h-9 px-2.5 bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-lg text-xs font-mono text-slate-800 dark:text-slate-100 focus:outline-none focus:border-orange-500"
                               />
                             </div>
 
@@ -1050,7 +1050,7 @@ export function ModalDistribuirInstalacoesVeiculos({
                                     e.target.value,
                                   )
                                 }
-                                className="w-full h-9 px-2.5 bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-lg text-xs font-mono text-slate-800 dark:text-slate-100 focus:outline-none focus:border-emerald-500"
+                                className="w-full h-9 px-2.5 bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-lg text-xs font-mono text-slate-800 dark:text-slate-100 focus:outline-none focus:border-orange-500"
                               />
                             </div>
 
@@ -1065,7 +1065,7 @@ export function ModalDistribuirInstalacoesVeiculos({
                                 onChange={(e) =>
                                   handleAlterarDataHoraVeiculo(v.id, "observacoes", e.target.value)
                                 }
-                                className="w-full h-9 px-2.5 bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-lg text-xs text-slate-800 dark:text-slate-100 focus:outline-none focus:border-emerald-500"
+                                className="w-full h-9 px-2.5 bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-lg text-xs text-slate-800 dark:text-slate-100 focus:outline-none focus:border-orange-500"
                               />
                             </div>
                           </div>
@@ -1093,7 +1093,7 @@ export function ModalDistribuirInstalacoesVeiculos({
                   {resumo.concluidos} Já Instalado(s)
                 </span>
               )}
-              <span className="px-2.5 py-1 rounded-md font-bold text-[11px] bg-emerald-500/15 text-emerald-700 dark:text-emerald-400 border border-emerald-500/30">
+              <span className="px-2.5 py-1 rounded-md font-bold text-[11px] bg-orange-500/15 text-orange-700 dark:text-orange-400 border border-orange-500/30">
                 {resumo.comKit} com Kit (OS Pronta)
               </span>
               {resumo.semKit > 0 && (
@@ -1117,7 +1117,7 @@ export function ModalDistribuirInstalacoesVeiculos({
                 type="button"
                 disabled={salvando || veiculosPendentes.length === 0}
                 onClick={handleSalvarDistribuicao}
-                className="h-10 px-5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs transition shadow-lg shadow-emerald-600/25 flex items-center gap-2 cursor-pointer disabled:opacity-50 active:scale-98"
+                className="h-10 px-5 rounded-xl bg-orange-600 hover:bg-orange-500 text-white font-bold text-xs transition shadow-lg shadow-orange-600/25 flex items-center gap-2 cursor-pointer disabled:opacity-50 active:scale-98"
               >
                 <CheckCircle2 className="h-4 w-4" />
                 <span>

@@ -121,7 +121,7 @@ export function ModalInformarPagamento({
           {/* Cabeçalho */}
           <div className="flex items-center justify-between border-b border-slate-300/60 dark:border-slate-800 pb-3">
             <div className="flex items-center gap-2">
-              <div className="h-8 w-8 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
+              <div className="h-8 w-8 rounded-xl bg-orange-500/15 border border-orange-500/30 flex items-center justify-center text-orange-600 dark:text-orange-400">
                 <CheckCircle2 className="h-4 w-4" />
               </div>
               <div>
@@ -167,7 +167,7 @@ export function ModalInformarPagamento({
               <span className="text-slate-600 dark:text-slate-400 font-semibold">
                 {enc ? "Valor Atualizado com Encargos:" : "Valor da Mensalidade:"}
               </span>
-              <span className="text-base font-black font-mono text-emerald-600 dark:text-emerald-400">
+              <span className="text-base font-black font-mono text-orange-600 dark:text-orange-400">
                 R$ {valorEfetivo.toFixed(2).replace(".", ",")}
               </span>
             </div>
@@ -206,7 +206,7 @@ export function ModalInformarPagamento({
                 required
                 value={dataPagamento}
                 onChange={(e) => setDataPagamento(e.target.value)}
-                className="w-full px-3 py-2 rounded-xl bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 text-xs text-slate-900 dark:text-slate-100 font-mono focus:outline-none focus:border-emerald-500"
+                className="w-full px-3 py-2 rounded-xl bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 text-xs text-slate-900 dark:text-slate-100 font-mono focus:outline-none focus:border-orange-500"
               />
             </div>
 
@@ -221,11 +221,11 @@ export function ModalInformarPagamento({
                   type="file"
                   accept="image/*,application/pdf"
                   onChange={handleArquivoSelecionado}
-                  className="w-full text-xs text-slate-500 file:mr-2 file:py-1.5 file:px-3 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-emerald-500/15 file:text-emerald-700 dark:file:text-emerald-300 hover:file:bg-emerald-500/25 cursor-pointer border border-dashed border-slate-300 dark:border-slate-800 rounded-xl p-2 bg-white/50 dark:bg-slate-950/50"
+                  className="w-full text-xs text-slate-500 file:mr-2 file:py-1.5 file:px-3 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-orange-500/15 file:text-orange-700 dark:file:text-orange-300 hover:file:bg-orange-500/25 cursor-pointer border border-dashed border-slate-300 dark:border-slate-800 rounded-xl p-2 bg-white/50 dark:bg-slate-950/50"
                 />
               </div>
               {nomeArquivo && (
-                <div className="text-[11px] text-emerald-600 dark:text-emerald-400 flex items-center gap-1">
+                <div className="text-[11px] text-orange-600 dark:text-orange-400 flex items-center gap-1">
                   <Check className="h-3 w-3" />
                   <span className="truncate">Comprovante selecionado: {nomeArquivo}</span>
                 </div>
@@ -243,7 +243,7 @@ export function ModalInformarPagamento({
                 placeholder="Ex: Código E2E do PIX ou banco emissor"
                 value={observacoes}
                 onChange={(e) => setObservacoes(e.target.value)}
-                className="w-full px-3 py-2 rounded-xl bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 text-xs text-slate-900 dark:text-slate-100 placeholder:text-slate-400 focus:outline-none focus:border-emerald-500"
+                className="w-full px-3 py-2 rounded-xl bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 text-xs text-slate-900 dark:text-slate-100 placeholder:text-slate-400 focus:outline-none focus:border-orange-500"
               />
             </div>
 
@@ -269,7 +269,7 @@ export function ModalInformarPagamento({
               <button
                 type="submit"
                 disabled={enviando}
-                className="px-4 py-2 rounded-xl text-xs font-bold bg-emerald-500 hover:bg-emerald-400 text-slate-950 transition shadow-md shadow-emerald-500/20 flex items-center gap-1.5 disabled:opacity-50"
+                className="px-4 py-2 rounded-xl text-xs font-bold bg-orange-500 hover:bg-orange-400 text-slate-950 transition shadow-md shadow-orange-500/20 flex items-center gap-1.5 disabled:opacity-50"
               >
                 {enviando ? (
                   <>

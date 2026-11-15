@@ -61,7 +61,7 @@ export function ModalGerarMensalidades({
           {/* Header Fixo */}
           <div className="p-4 sm:p-5 border-b border-slate-300/60 dark:border-slate-800 flex items-center justify-between shrink-0 bg-white/70 dark:bg-slate-900/80 backdrop-blur-md">
             <div className="flex items-center gap-3">
-              <div className="h-10 w-10 rounded-2xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shadow-xs shrink-0">
+              <div className="h-10 w-10 rounded-2xl bg-orange-500/15 border border-orange-500/30 flex items-center justify-center text-orange-600 dark:text-orange-400 shadow-xs shrink-0">
                 <Sparkles className="h-5 w-5" />
               </div>
               <div>
@@ -92,7 +92,7 @@ export function ModalGerarMensalidades({
                   <select
                     value={mes}
                     onChange={(e) => setMes(Number(e.target.value))}
-                    className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-100 shadow-[inset_1px_1px_3px_#c8d4e4] dark:shadow-none focus:outline-none focus:border-emerald-500"
+                    className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-100 shadow-[inset_1px_1px_3px_#c8d4e4] dark:shadow-none focus:outline-none focus:border-orange-500"
                   >
                     {MESES.map((m) => (
                       <option key={m.valor} value={m.valor}>
@@ -112,14 +112,14 @@ export function ModalGerarMensalidades({
                     max={2035}
                     value={ano}
                     onChange={(e) => setAno(Number(e.target.value))}
-                    className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-100 shadow-[inset_1px_1px_3px_#c8d4e4] dark:shadow-none focus:outline-none focus:border-emerald-500 font-mono"
+                    className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-100 shadow-[inset_1px_1px_3px_#c8d4e4] dark:shadow-none focus:outline-none focus:border-orange-500 font-mono"
                     required
                   />
                 </div>
               </div>
 
-              <div className="p-3.5 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-xs space-y-1.5">
-                <div className="flex items-center gap-2 font-bold text-emerald-600 dark:text-emerald-400">
+              <div className="p-3.5 rounded-2xl bg-orange-500/10 border border-orange-500/20 text-xs space-y-1.5">
+                <div className="flex items-center gap-2 font-bold text-orange-600 dark:text-orange-400">
                   <Calendar className="h-4 w-4 shrink-0" />
                   <span>
                     Competência: {String(mes).padStart(2, "0")}/{ano}
@@ -131,7 +131,7 @@ export function ModalGerarMensalidades({
                   existentes.
                 </p>
                 {totalClientesAptos > 0 && (
-                  <p className="text-[11px] text-emerald-700 dark:text-emerald-300 font-semibold pt-1">
+                  <p className="text-[11px] text-orange-700 dark:text-orange-300 font-semibold pt-1">
                     Clientes cadastrados na base: {totalClientesAptos}
                   </p>
                 )}
@@ -151,7 +151,7 @@ export function ModalGerarMensalidades({
               <button
                 type="submit"
                 disabled={salvando}
-                className="w-full sm:w-auto min-h-[44px] flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold bg-emerald-500 hover:bg-emerald-400 text-slate-950 transition shadow-lg shadow-emerald-500/20 disabled:opacity-50"
+                className="w-full sm:w-auto min-h-[44px] flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold bg-orange-500 hover:bg-orange-400 text-slate-950 transition shadow-lg shadow-orange-500/20 disabled:opacity-50"
               >
                 {salvando ? (
                   <>

@@ -1392,7 +1392,7 @@ export function GpsMonitorView({
 
             <button
               onClick={() => setSidebarAberta(!sidebarAberta)}
-              className="p-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:text-emerald-500 transition shrink-0 active:scale-95"
+              className="p-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:text-orange-500 transition shrink-0 active:scale-95"
               title={sidebarAberta ? "Recolher frota" : "Abrir frota"}
             >
               <SlidersHorizontal className="h-4 w-4" />
@@ -1402,13 +1402,13 @@ export function GpsMonitorView({
               <div className="flex items-center gap-1.5 min-w-0">
                 <span
                   className={`h-2 w-2 rounded-full shrink-0 ${
-                    veiculoSelecionado.ignicao ? "bg-emerald-500 animate-pulse" : "bg-slate-400"
+                    veiculoSelecionado.ignicao ? "bg-orange-500 animate-pulse" : "bg-slate-400"
                   }`}
                 />
                 <span className="font-mono font-black text-xs text-slate-900 dark:text-slate-100 truncate">
                   {veiculoSelecionado.placa}
                 </span>
-                <span className="text-[10px] text-emerald-600 dark:text-emerald-400 font-bold shrink-0">
+                <span className="text-[10px] text-orange-600 dark:text-orange-400 font-bold shrink-0">
                   {temAcessoLocalizacaoVeiculoSelecionado
                     ? `${veiculoSelecionado.velocidade} km/h`
                     : "[Sigilo]"}
@@ -1451,7 +1451,7 @@ export function GpsMonitorView({
             ) : (
               <div className="flex items-center gap-1.5 font-mono text-xs">
                 <span className="font-bold text-slate-700 dark:text-slate-300">Frota</span>
-                <span className="px-1.5 py-0.2 rounded-md bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-bold text-[10px]">
+                <span className="px-1.5 py-0.2 rounded-md bg-orange-500/15 text-orange-600 dark:text-orange-400 font-bold text-[10px]">
                   {totais.total}
                 </span>
               </div>
@@ -1475,7 +1475,7 @@ export function GpsMonitorView({
                 onClick={() => alternarModoVisualizacao("3D")}
                 className={`px-2 py-0.5 rounded-lg transition ${
                   modoVisualizacao === "3D"
-                    ? "bg-emerald-500 text-white shadow-sm"
+                    ? "bg-orange-500 text-white shadow-sm"
                     : "text-slate-500"
                 }`}
               >
@@ -1490,7 +1490,7 @@ export function GpsMonitorView({
                 className="p-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700"
                 title="Camadas de satélite e tema"
               >
-                <Layers className="h-4 w-4 text-emerald-500" />
+                <Layers className="h-4 w-4 text-orange-500" />
               </button>
               {menuCamadasAberto && (
                 <div className="absolute right-0 mt-1.5 w-44 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-1.5 shadow-2xl z-50 text-slate-800 dark:text-slate-200">
@@ -1509,7 +1509,7 @@ export function GpsMonitorView({
                         }}
                         className={`w-full flex items-center justify-between px-2.5 py-1.5 rounded-xl text-xs font-medium transition ${
                           selecionada
-                            ? "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-bold"
+                            ? "bg-orange-500/15 text-orange-600 dark:text-orange-400 font-bold"
                             : "hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300"
                         }`}
                       >
@@ -1517,9 +1517,7 @@ export function GpsMonitorView({
                           <Icone className="h-3.5 w-3.5" />
                           <span>{c.label}</span>
                         </div>
-                        {selecionada && (
-                          <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-                        )}
+                        {selecionada && <span className="h-1.5 w-1.5 rounded-full bg-orange-500" />}
                       </button>
                     );
                   })}
@@ -1588,7 +1586,7 @@ export function GpsMonitorView({
               className="p-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700"
               title="Enquadrar veículos"
             >
-              <Crosshair className="h-4 w-4 text-emerald-500" />
+              <Crosshair className="h-4 w-4 text-orange-500" />
             </button>
           </div>
         </div>
@@ -1611,7 +1609,7 @@ export function GpsMonitorView({
 
             <button
               onClick={() => setSidebarAberta(!sidebarAberta)}
-              className="p-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:text-emerald-500 transition"
+              className="p-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:text-orange-500 transition"
               title={sidebarAberta ? "Recolher lista" : "Expandir lista"}
             >
               <SlidersHorizontal className="h-4 w-4" />
@@ -1623,11 +1621,11 @@ export function GpsMonitorView({
                 onClick={() => alternarVisaoAtiva("mapa")}
                 className={`flex items-center gap-1.5 px-3 py-1 rounded-lg transition ${
                   visaoAtiva === "mapa"
-                    ? "bg-white dark:bg-slate-900 text-emerald-600 dark:text-emerald-400 shadow-xs"
+                    ? "bg-white dark:bg-slate-900 text-orange-600 dark:text-orange-400 shadow-xs"
                     : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
                 }`}
               >
-                <MapIcon className="h-3.5 w-3.5 text-emerald-500" />
+                <MapIcon className="h-3.5 w-3.5 text-orange-500" />
                 <span>Mapa ao Vivo</span>
               </button>
               <button
@@ -1639,7 +1637,7 @@ export function GpsMonitorView({
                 }}
                 className={`flex items-center gap-1.5 px-3 py-1 rounded-lg transition ${
                   visaoAtiva === "cockpit"
-                    ? "bg-emerald-500 text-white shadow-xs"
+                    ? "bg-orange-500 text-white shadow-xs"
                     : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
                 }`}
               >
@@ -1661,7 +1659,7 @@ export function GpsMonitorView({
                 className={`relative flex items-center gap-1.5 px-2.5 py-1 rounded-xl border font-bold transition text-xs shadow-xs ${
                   veiculoSelecionado.privacidade_localizacao !== false
                     ? "bg-amber-500/15 hover:bg-amber-500/25 border-amber-500/30 text-amber-600 dark:text-amber-400"
-                    : "bg-emerald-500/10 hover:bg-emerald-500/20 border-emerald-500/30 text-emerald-600 dark:text-emerald-400"
+                    : "bg-orange-500/10 hover:bg-orange-500/20 border-orange-500/30 text-orange-600 dark:text-orange-400"
                 }`}
                 title={
                   veiculoSelecionado.privacidade_localizacao !== false
@@ -1676,7 +1674,7 @@ export function GpsMonitorView({
                   </>
                 ) : (
                   <>
-                    <ShieldCheck className="h-3.5 w-3.5 text-emerald-500" />
+                    <ShieldCheck className="h-3.5 w-3.5 text-orange-500" />
                     <span>Privacidade OFF</span>
                   </>
                 )}
@@ -1697,13 +1695,13 @@ export function GpsMonitorView({
             </button>
 
             <span className="px-2.5 py-1 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700/80 font-mono font-bold text-xs">
-              Total: <span className="text-emerald-600 dark:text-emerald-400">{totais.total}</span>
+              Total: <span className="text-orange-600 dark:text-orange-400">{totais.total}</span>
             </span>
 
             {/* Exibe situação operacional apenas para veículos sem restrição de privacidade */}
             {totais.possuiStatusVisivel && (
               <>
-                <span className="inline-flex px-2.5 py-1 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 font-mono font-bold text-xs">
+                <span className="inline-flex px-2.5 py-1 rounded-xl bg-orange-500/15 border border-orange-500/30 text-orange-600 dark:text-orange-400 font-mono font-bold text-xs">
                   Em Rota: {totais.emRota}
                 </span>
 
@@ -1779,7 +1777,7 @@ export function GpsMonitorView({
                 onClick={() => alternarModoVisualizacao("3D")}
                 className={`px-2.5 py-1 rounded-lg transition flex items-center gap-1 ${
                   modoVisualizacao === "3D"
-                    ? "bg-emerald-500 text-white shadow-sm"
+                    ? "bg-orange-500 text-white shadow-sm"
                     : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
                 }`}
                 title="Modo 3D com perspectiva e inclinação de 60 graus"
@@ -1796,7 +1794,7 @@ export function GpsMonitorView({
                 className="flex items-center gap-1 px-2.5 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 font-semibold transition"
                 title="Alternar camadas do mapa"
               >
-                <Layers className="h-4 w-4 text-emerald-500" />
+                <Layers className="h-4 w-4 text-orange-500" />
                 <span>Camadas</span>
               </button>
 
@@ -1817,7 +1815,7 @@ export function GpsMonitorView({
                         }}
                         className={`w-full flex items-center justify-between px-2.5 py-1.5 rounded-xl text-xs font-medium transition ${
                           selecionada
-                            ? "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-bold"
+                            ? "bg-orange-500/15 text-orange-600 dark:text-orange-400 font-bold"
                             : "hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300"
                         }`}
                       >
@@ -1825,9 +1823,7 @@ export function GpsMonitorView({
                           <Icone className="h-3.5 w-3.5" />
                           <span>{c.label}</span>
                         </div>
-                        {selecionada && (
-                          <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-                        )}
+                        {selecionada && <span className="h-1.5 w-1.5 rounded-full bg-orange-500" />}
                       </button>
                     );
                   })}
@@ -1894,7 +1890,7 @@ export function GpsMonitorView({
               className="p-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 transition"
               title="Enquadrar toda a frota no mapa"
             >
-              <Crosshair className="h-4 w-4 text-emerald-500" />
+              <Crosshair className="h-4 w-4 text-orange-500" />
             </button>
 
             {/* Botão Tela Cheia */}
@@ -1980,7 +1976,7 @@ export function GpsMonitorView({
                     placeholder="Buscar placa, modelo, cliente..."
                     value={busca}
                     onChange={(e) => setBusca(e.target.value)}
-                    className="w-full pl-9 pr-3 py-1.5 bg-[#eaf0f8] dark:bg-slate-950 border border-slate-300/60 dark:border-slate-800 rounded-xl text-xs text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-emerald-500 shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6)] transition"
+                    className="w-full pl-9 pr-3 py-1.5 bg-[#eaf0f8] dark:bg-slate-950 border border-slate-300/60 dark:border-slate-800 rounded-xl text-xs text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-orange-500 shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6)] transition"
                   />
                 </div>
                 <button
@@ -2073,7 +2069,7 @@ export function GpsMonitorView({
                       onClick={() => setFiltroStatus(s.id)}
                       className={`px-2 py-0.5 rounded-lg font-semibold transition ${
                         filtroStatus === s.id
-                          ? "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30"
+                          ? "bg-orange-500/15 text-orange-600 dark:text-orange-400 border border-orange-500/30"
                           : "text-slate-500 hover:text-slate-900 dark:hover:text-slate-200"
                       }`}
                     >
@@ -2119,7 +2115,7 @@ export function GpsMonitorView({
                   <button
                     type="button"
                     onClick={alternarTodosClientes}
-                    className="text-[10px] text-emerald-600 dark:text-emerald-400 hover:underline font-semibold"
+                    className="text-[10px] text-orange-600 dark:text-orange-400 hover:underline font-semibold"
                   >
                     {clientesAgrupados.some((c) => clientesExpandidos[c.id] === false)
                       ? "Expandir todos"
@@ -2147,7 +2143,7 @@ export function GpsMonitorView({
                       key={c.id}
                       className={`rounded-2xl border transition-all duration-200 overflow-hidden ${
                         temVeiculoSelecionado
-                          ? "border-emerald-500/40 bg-emerald-500/5 dark:bg-emerald-950/20 shadow-sm"
+                          ? "border-orange-500/40 bg-orange-500/5 dark:bg-orange-950/20 shadow-sm"
                           : "border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/60"
                       }`}
                     >
@@ -2159,7 +2155,7 @@ export function GpsMonitorView({
                         title={isExpandido ? "Recolher veículos" : "Expandir veículos"}
                       >
                         <div className="flex items-center gap-2.5 min-w-0">
-                          <div className="p-1.5 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 shrink-0">
+                          <div className="p-1.5 rounded-xl bg-orange-500/10 text-orange-600 dark:text-orange-400 shrink-0">
                             <Users className="h-4 w-4" />
                           </div>
                           <div className="min-w-0">
@@ -2174,12 +2170,12 @@ export function GpsMonitorView({
                               )}
                             </div>
                             <div className="text-[10px] text-slate-500 dark:text-slate-400 flex items-center gap-1.5 mt-0.5">
-                              <span className="font-semibold text-emerald-600 dark:text-emerald-400">
+                              <span className="font-semibold text-orange-600 dark:text-orange-400">
                                 {c.veiculos.length}{" "}
                                 {c.veiculos.length === 1 ? "veículo" : "veículos"}
                               </span>
                               {c.totalEmRota > 0 && (
-                                <span className="text-emerald-500 font-medium">
+                                <span className="text-orange-500 font-medium">
                                   · {c.totalEmRota} em rota
                                 </span>
                               )}
@@ -2217,7 +2213,7 @@ export function GpsMonitorView({
                                 onClick={() => selecionarETestarVeiculo(v)}
                                 className={`w-full text-left p-2 rounded-xl border transition-all duration-200 flex items-center justify-between ${
                                   isSelected
-                                    ? "bg-emerald-500/15 border-emerald-500/60 shadow-sm ring-1 ring-emerald-500/30"
+                                    ? "bg-orange-500/15 border-orange-500/60 shadow-sm ring-1 ring-orange-500/30"
                                     : "bg-white dark:bg-slate-900/80 border-slate-200/80 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700"
                                 }`}
                               >
@@ -2231,7 +2227,7 @@ export function GpsMonitorView({
                                           : isBloqueado
                                             ? "bg-rose-500"
                                             : isLigado
-                                              ? "bg-emerald-500 animate-pulse"
+                                              ? "bg-orange-500 animate-pulse"
                                               : "bg-slate-400 dark:bg-slate-600"
                                     }`}
                                   />
@@ -2256,14 +2252,14 @@ export function GpsMonitorView({
                                       <span
                                         className={`inline-flex items-center gap-1 text-[9px] font-bold ${
                                           statusCom.ativo
-                                            ? "text-emerald-600 dark:text-emerald-400"
+                                            ? "text-orange-600 dark:text-orange-400"
                                             : "text-rose-600 dark:text-rose-400"
                                         }`}
                                       >
                                         <span
                                           className={`h-1.5 w-1.5 rounded-full ${
                                             statusCom.ativo
-                                              ? "bg-emerald-500 animate-pulse"
+                                              ? "bg-orange-500 animate-pulse"
                                               : "bg-rose-500"
                                           }`}
                                         />
@@ -2281,7 +2277,7 @@ export function GpsMonitorView({
 
                                 <div className="text-right font-mono text-xs shrink-0 pl-1">
                                   {podeAcessarLocalizacaoVeiculo(session, v) ? (
-                                    <span className="text-emerald-600 dark:text-emerald-400 font-black block text-[11px]">
+                                    <span className="text-orange-600 dark:text-orange-400 font-black block text-[11px]">
                                       {v.velocidade} km/h
                                     </span>
                                   ) : (
@@ -2315,7 +2311,7 @@ export function GpsMonitorView({
                       onClick={() => selecionarETestarVeiculo(v)}
                       className={`w-full text-left p-2.5 rounded-2xl border transition-all duration-200 flex items-center justify-between ${
                         isSelected
-                          ? "bg-emerald-500/10 border-emerald-500/50 shadow-sm"
+                          ? "bg-orange-500/10 border-orange-500/50 shadow-sm"
                           : "bg-slate-50 dark:bg-slate-950/40 border-slate-200 dark:border-slate-800/80 hover:border-slate-300 dark:hover:border-slate-700"
                       }`}
                     >
@@ -2329,7 +2325,7 @@ export function GpsMonitorView({
                                 : isBloqueado
                                   ? "bg-rose-500"
                                   : isLigado
-                                    ? "bg-emerald-500 animate-pulse"
+                                    ? "bg-orange-500 animate-pulse"
                                     : "bg-slate-400 dark:bg-slate-600"
                           }`}
                         />
@@ -2359,13 +2355,13 @@ export function GpsMonitorView({
                             <span
                               className={`inline-flex items-center gap-1 text-[10px] font-bold ${
                                 statusCom.ativo
-                                  ? "text-emerald-600 dark:text-emerald-400"
+                                  ? "text-orange-600 dark:text-orange-400"
                                   : "text-rose-600 dark:text-rose-400"
                               }`}
                             >
                               <span
                                 className={`h-1.5 w-1.5 rounded-full ${
-                                  statusCom.ativo ? "bg-emerald-500 animate-pulse" : "bg-rose-500"
+                                  statusCom.ativo ? "bg-orange-500 animate-pulse" : "bg-rose-500"
                                 }`}
                               />
                               {statusCom.rotulo}
@@ -2380,7 +2376,7 @@ export function GpsMonitorView({
 
                       <div className="text-right font-mono text-xs">
                         {podeVer ? (
-                          <span className="text-emerald-600 dark:text-emerald-400 font-black block">
+                          <span className="text-orange-600 dark:text-orange-400 font-black block">
                             {v.velocidade} km/h
                           </span>
                         ) : (
@@ -2404,7 +2400,7 @@ export function GpsMonitorView({
           {!veiculoSelecionado && veiculosFiltrados.length > 1 && !modoVisaoFrota && (
             <div className="absolute top-4 left-1/2 -translate-x-1/2 z-20 pointer-events-auto">
               <div className="px-4 py-2 rounded-2xl bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border border-slate-200 dark:border-slate-700/80 text-slate-800 dark:text-white shadow-xl shadow-slate-300/40 dark:shadow-2xl flex items-center gap-3 text-xs font-semibold">
-                <Navigation className="h-4 w-4 text-emerald-600 dark:text-emerald-400 animate-pulse shrink-0" />
+                <Navigation className="h-4 w-4 text-orange-600 dark:text-orange-400 animate-pulse shrink-0" />
                 <span>Selecione um veículo na lista para visualizar no mapa</span>
                 <button
                   type="button"
@@ -2598,7 +2594,7 @@ export function GpsMonitorView({
           onClick={() => alternarVisaoAtiva("mapa")}
           className={`flex flex-col items-center gap-0.5 py-1 px-3 rounded-xl text-[10px] font-bold transition active:scale-95 ${
             visaoAtiva === "mapa"
-              ? "text-emerald-600 dark:text-emerald-400 bg-emerald-500/10"
+              ? "text-orange-600 dark:text-orange-400 bg-orange-500/10"
               : "hover:text-slate-900 dark:hover:text-slate-100"
           }`}
         >
@@ -2616,7 +2612,7 @@ export function GpsMonitorView({
           }}
           className={`flex flex-col items-center gap-0.5 py-1 px-3 rounded-xl text-[10px] font-bold transition active:scale-95 ${
             visaoAtiva === "cockpit"
-              ? "text-emerald-600 dark:text-emerald-400 bg-emerald-500/10"
+              ? "text-orange-600 dark:text-orange-400 bg-orange-500/10"
               : "hover:text-slate-900 dark:hover:text-slate-100"
           }`}
         >
@@ -2627,9 +2623,9 @@ export function GpsMonitorView({
         {/* Aba 3: Rotas Monitoradas */}
         <button
           onClick={() => abrirRotasMonitoradas()}
-          className="flex flex-col items-center gap-0.5 py-1 px-3 rounded-xl text-[10px] font-bold text-slate-600 dark:text-slate-400 hover:text-emerald-500 active:scale-95 transition"
+          className="flex flex-col items-center gap-0.5 py-1 px-3 rounded-xl text-[10px] font-bold text-slate-600 dark:text-slate-400 hover:text-orange-500 active:scale-95 transition"
         >
-          <Route className="h-4 w-4 text-emerald-500" />
+          <Route className="h-4 w-4 text-orange-500" />
           <span>Rotas</span>
         </button>
 
@@ -2650,7 +2646,7 @@ export function GpsMonitorView({
           onClick={() => setSidebarAberta(!sidebarAberta)}
           className={`flex flex-col items-center gap-0.5 py-1 px-3 rounded-xl text-[10px] font-bold transition active:scale-95 ${
             sidebarAberta
-              ? "text-emerald-600 dark:text-emerald-400 bg-emerald-500/10"
+              ? "text-orange-600 dark:text-orange-400 bg-orange-500/10"
               : "hover:text-slate-900 dark:hover:text-slate-100"
           }`}
         >

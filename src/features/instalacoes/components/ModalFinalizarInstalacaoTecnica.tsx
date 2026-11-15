@@ -670,7 +670,7 @@ export function ModalFinalizarInstalacaoTecnica({
         {/* 1. Header do Modal */}
         <div className="flex items-center justify-between p-4 sm:p-5 border-b border-slate-100 dark:border-slate-800 shrink-0">
           <div className="flex items-center gap-3">
-            <div className="p-2.5 rounded-2xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+            <div className="p-2.5 rounded-2xl bg-orange-500/10 text-orange-600 dark:text-orange-400 border border-orange-500/20">
               <Wrench className="h-5 w-5" />
             </div>
             <div>
@@ -708,7 +708,7 @@ export function ModalFinalizarInstalacaoTecnica({
                 <Cpu className="h-4 w-4 text-sky-500" />
                 Equipamento Pré-Atribuído pelo Operador
               </span>
-              <span className="text-[10px] text-emerald-600 dark:text-emerald-400 font-mono font-bold bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">
+              <span className="text-[10px] text-orange-600 dark:text-orange-400 font-mono font-bold bg-orange-500/10 px-2 py-0.5 rounded-full border border-orange-500/20">
                 Fixado
               </span>
             </div>
@@ -740,7 +740,7 @@ export function ModalFinalizarInstalacaoTecnica({
           <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-950/70 border border-slate-200 dark:border-slate-800 space-y-3">
             <div className="flex items-center justify-between text-xs font-bold text-slate-700 dark:text-slate-300">
               <span className="flex items-center gap-1.5 uppercase tracking-wider">
-                <Car className="h-4 w-4 text-emerald-500" />
+                <Car className="h-4 w-4 text-orange-500" />
                 Dados do Veículo (Preenchimento pelo Instalador)
               </span>
               <span className="text-[10px] text-amber-600 dark:text-amber-400 font-bold bg-amber-500/10 px-2 py-0.5 rounded-full border border-amber-500/20">
@@ -756,7 +756,7 @@ export function ModalFinalizarInstalacaoTecnica({
                 <select
                   value={tipoVeiculo}
                   onChange={(e) => setTipoVeiculo(e.target.value)}
-                  className="w-full px-3 py-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-xs font-semibold text-slate-900 dark:text-slate-100 focus:border-emerald-500 focus:outline-none min-h-[40px]"
+                  className="w-full px-3 py-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-xs font-semibold text-slate-900 dark:text-slate-100 focus:border-orange-500 focus:outline-none min-h-[40px]"
                 >
                   <option value="carro">Automóvel / Passeio</option>
                   <option value="moto">Motocicleta</option>
@@ -788,7 +788,7 @@ export function ModalFinalizarInstalacaoTecnica({
                       type="checkbox"
                       checked={semPlaca}
                       onChange={(e) => setSemPlaca(e.target.checked)}
-                      className="rounded border-slate-300 text-emerald-600"
+                      className="rounded border-slate-300 text-orange-600"
                     />
                     <span>Sem Placa</span>
                   </label>
@@ -799,7 +799,7 @@ export function ModalFinalizarInstalacaoTecnica({
                   value={semPlaca ? "" : placa}
                   onChange={(e) => setPlaca(e.target.value.toUpperCase())}
                   placeholder={semPlaca ? "SEMPLACA" : "ABC1D23"}
-                  className="w-full px-3 py-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 font-mono font-black text-xs uppercase text-slate-900 dark:text-slate-100 disabled:opacity-50 focus:border-emerald-500 focus:outline-none min-h-[40px]"
+                  className="w-full px-3 py-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 font-mono font-black text-xs uppercase text-slate-900 dark:text-slate-100 disabled:opacity-50 focus:border-orange-500 focus:outline-none min-h-[40px]"
                 />
               </div>
 
@@ -813,7 +813,7 @@ export function ModalFinalizarInstalacaoTecnica({
                   value={chassi}
                   onChange={(e) => setChassi(e.target.value.toUpperCase())}
                   placeholder="6 últimos dígitos p/ mapa"
-                  className="w-full px-3 py-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 font-mono font-bold text-xs uppercase text-slate-900 dark:text-slate-100 focus:border-emerald-500 focus:outline-none min-h-[40px]"
+                  className="w-full px-3 py-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 font-mono font-bold text-xs uppercase text-slate-900 dark:text-slate-100 focus:border-orange-500 focus:outline-none min-h-[40px]"
                 />
               </div>
 
@@ -826,7 +826,7 @@ export function ModalFinalizarInstalacaoTecnica({
                   value={marca}
                   onChange={(e) => setMarca(e.target.value)}
                   placeholder="Ex: Fiat, Chevrolet, Honda"
-                  className="w-full px-3 py-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-xs font-semibold text-slate-900 dark:text-slate-100 focus:border-emerald-500 focus:outline-none min-h-[40px]"
+                  className="w-full px-3 py-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-xs font-semibold text-slate-900 dark:text-slate-100 focus:border-orange-500 focus:outline-none min-h-[40px]"
                 />
               </div>
 
@@ -839,7 +839,7 @@ export function ModalFinalizarInstalacaoTecnica({
                   value={modelo}
                   onChange={(e) => setModelo(e.target.value)}
                   placeholder="Ex: Onix 1.0, CG 160"
-                  className="w-full px-3 py-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-xs font-semibold text-slate-900 dark:text-slate-100 focus:border-emerald-500 focus:outline-none min-h-[40px]"
+                  className="w-full px-3 py-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-xs font-semibold text-slate-900 dark:text-slate-100 focus:border-orange-500 focus:outline-none min-h-[40px]"
                 />
               </div>
 
@@ -853,7 +853,7 @@ export function ModalFinalizarInstalacaoTecnica({
                     value={ano}
                     onChange={(e) => setAno(e.target.value)}
                     placeholder="2024"
-                    className="w-full px-2.5 py-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-xs font-mono text-slate-900 dark:text-slate-100 focus:border-emerald-500 focus:outline-none min-h-[40px]"
+                    className="w-full px-2.5 py-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-xs font-mono text-slate-900 dark:text-slate-100 focus:border-orange-500 focus:outline-none min-h-[40px]"
                   />
                 </div>
                 <div>
@@ -865,7 +865,7 @@ export function ModalFinalizarInstalacaoTecnica({
                     value={cor}
                     onChange={(e) => setCor(e.target.value)}
                     placeholder="Branco"
-                    className="w-full px-2.5 py-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-xs text-slate-900 dark:text-slate-100 focus:border-emerald-500 focus:outline-none min-h-[40px]"
+                    className="w-full px-2.5 py-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-xs text-slate-900 dark:text-slate-100 focus:border-orange-500 focus:outline-none min-h-[40px]"
                   />
                 </div>
               </div>
@@ -890,7 +890,7 @@ export function ModalFinalizarInstalacaoTecnica({
                   onClick={() => alternarBloqueador(true)}
                   className={`py-2 px-3 rounded-xl text-xs font-bold transition flex items-center justify-center gap-2 border ${
                     comBloqueador
-                      ? "bg-emerald-500/15 border-emerald-500 text-emerald-600 dark:text-emerald-400 ring-2 ring-emerald-500/20"
+                      ? "bg-orange-500/15 border-orange-500 text-orange-600 dark:text-orange-400 ring-2 ring-orange-500/20"
                       : "bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400"
                   }`}
                 >
@@ -976,7 +976,7 @@ export function ModalFinalizarInstalacaoTecnica({
                   value={kmInstalacao}
                   onChange={(e) => setKmInstalacao(Number(e.target.value))}
                   placeholder="Ex: 85200"
-                  className="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-xs font-mono font-bold text-slate-900 dark:text-slate-100 focus:border-emerald-500 focus:outline-none min-h-[44px]"
+                  className="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-xs font-mono font-bold text-slate-900 dark:text-slate-100 focus:border-orange-500 focus:outline-none min-h-[44px]"
                 />
               </div>
 
@@ -990,7 +990,7 @@ export function ModalFinalizarInstalacaoTecnica({
                   value={posicaoInstalacao}
                   onChange={(e) => setPosicaoInstalacao(e.target.value)}
                   placeholder="Informe o ponto onde o rastreador foi instalado"
-                  className="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-xs font-semibold text-slate-900 dark:text-slate-100 focus:border-emerald-500 focus:outline-none min-h-[44px]"
+                  className="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-xs font-semibold text-slate-900 dark:text-slate-100 focus:border-orange-500 focus:outline-none min-h-[44px]"
                 />
               </div>
             </div>
@@ -1005,7 +1005,7 @@ export function ModalFinalizarInstalacaoTecnica({
                 value={observacoes}
                 onChange={(e) => setObservacoes(e.target.value)}
                 placeholder="Observações sobre fiação do veículo, estado da bateria, etc."
-                className="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-xs text-slate-900 dark:text-slate-100 focus:border-emerald-500 focus:outline-none resize-none"
+                className="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-xs text-slate-900 dark:text-slate-100 focus:border-orange-500 focus:outline-none resize-none"
               />
             </div>
           </div>
@@ -1015,7 +1015,7 @@ export function ModalFinalizarInstalacaoTecnica({
             <div className="flex items-center justify-between">
               <div>
                 <h3 className="text-xs font-black uppercase tracking-wider text-slate-900 dark:text-slate-100 flex items-center gap-1.5">
-                  <Camera className="h-4 w-4 text-emerald-500" />
+                  <Camera className="h-4 w-4 text-orange-500" />
                   Guia Fotográfico Obrigatório (
                   {passosFiltrados.filter((p) => Boolean(fotos[p.id])).length}/
                   {passosFiltrados.length})
@@ -1026,7 +1026,7 @@ export function ModalFinalizarInstalacaoTecnica({
               </div>
 
               {todasFotosTiradas && (
-                <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-bold bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30">
+                <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-bold bg-orange-500/15 text-orange-600 dark:text-orange-400 border border-orange-500/30">
                   <CheckCircle2 className="h-3 w-3" />
                   100% Concluído
                 </span>
@@ -1048,7 +1048,7 @@ export function ModalFinalizarInstalacaoTecnica({
                       isAtivo
                         ? "bg-amber-500/15 border-amber-500 ring-2 ring-amber-500/30 text-amber-900 dark:text-amber-200"
                         : jaTirou
-                          ? "bg-emerald-500/10 border-emerald-500/30 text-emerald-800 dark:text-emerald-300"
+                          ? "bg-orange-500/10 border-orange-500/30 text-orange-800 dark:text-orange-300"
                           : "bg-slate-50 dark:bg-slate-950 border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400"
                     }`}
                   >
@@ -1056,7 +1056,7 @@ export function ModalFinalizarInstalacaoTecnica({
                       <span
                         className={`w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-black shrink-0 ${
                           jaTirou
-                            ? "bg-emerald-500 text-slate-950"
+                            ? "bg-orange-500 text-slate-950"
                             : isAtivo
                               ? "bg-amber-500 text-slate-950"
                               : "bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300"
@@ -1069,7 +1069,7 @@ export function ModalFinalizarInstalacaoTecnica({
                       </span>
                     </div>
 
-                    {jaTirou && <CheckCircle2 className="h-3.5 w-3.5 text-emerald-500 shrink-0" />}
+                    {jaTirou && <CheckCircle2 className="h-3.5 w-3.5 text-orange-500 shrink-0" />}
                   </button>
                 );
               })}
@@ -1129,7 +1129,7 @@ export function ModalFinalizarInstalacaoTecnica({
                           >
                             <Eye className="h-3.5 w-3.5" />
                           </button>
-                          <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500 text-slate-950 flex items-center gap-1 shadow-xs">
+                          <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-orange-500 text-slate-950 flex items-center gap-1 shadow-xs">
                             <CheckCircle2 className="h-3 w-3" />
                             OK
                           </span>
@@ -1159,7 +1159,7 @@ export function ModalFinalizarInstalacaoTecnica({
                       className={`w-full py-2.5 px-4 rounded-xl text-xs font-black transition flex items-center justify-center gap-2 shadow-md min-h-[44px] ${
                         fotos[passoAtual.id]
                           ? "bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200"
-                          : "bg-emerald-600 hover:bg-emerald-500 text-white shadow-emerald-500/20"
+                          : "bg-orange-600 hover:bg-orange-500 text-white shadow-orange-500/20"
                       }`}
                     >
                       <Camera className="h-4 w-4" />
@@ -1207,7 +1207,7 @@ export function ModalFinalizarInstalacaoTecnica({
         <div className="p-4 sm:p-5 border-t border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-950/50 flex flex-col sm:flex-row items-center justify-between gap-3 shrink-0">
           <div className="text-xs text-slate-500 dark:text-slate-400">
             Repasse do Técnico:{" "}
-            <strong className="text-emerald-600 dark:text-emerald-400 font-mono text-sm">
+            <strong className="text-orange-600 dark:text-orange-400 font-mono text-sm">
               R${" "}
               {Number(valorRepasse || 0).toLocaleString("pt-BR", {
                 minimumFractionDigits: 2,
@@ -1232,7 +1232,7 @@ export function ModalFinalizarInstalacaoTecnica({
               onClick={handleFinalizarInstalacao}
               className={`w-1/2 sm:w-auto px-5 py-2.5 rounded-xl text-xs font-black transition flex items-center justify-center gap-2 shadow-lg ${
                 todasFotosTiradas
-                  ? "bg-emerald-600 hover:bg-emerald-500 text-white shadow-emerald-500/25"
+                  ? "bg-orange-600 hover:bg-orange-500 text-white shadow-orange-500/25"
                   : "bg-slate-300 dark:bg-slate-800 text-slate-500 cursor-not-allowed shadow-none"
               }`}
             >

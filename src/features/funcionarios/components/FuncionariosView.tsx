@@ -294,8 +294,8 @@ export function FuncionariosView() {
           spotlightColor="rgba(16, 185, 129, 0.20)"
           className={`cursor-pointer p-4 rounded-2xl border transition-all duration-200 select-none ${
             filtroStatus === "ativos"
-              ? "bg-emerald-600 text-white border-emerald-700 shadow-[3px_3px_10px_rgba(16,185,129,0.35)] scale-[1.02]"
-              : "bg-[#eaf0f8] dark:bg-slate-900 border-slate-300/60 dark:border-slate-800 text-slate-800 dark:text-slate-200 hover:border-emerald-400 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-md"
+              ? "bg-orange-600 text-white border-emerald-700 shadow-[3px_3px_10px_rgba(16,185,129,0.35)] scale-[1.02]"
+              : "bg-[#eaf0f8] dark:bg-slate-900 border-slate-300/60 dark:border-slate-800 text-slate-800 dark:text-slate-200 hover:border-orange-400 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-md"
           }`}
         >
           <div className="flex items-center justify-between">
@@ -303,12 +303,12 @@ export function FuncionariosView() {
               Ativos
             </span>
             <CheckCircle2
-              className={`h-4 w-4 ${filtroStatus === "ativos" ? "text-white" : "text-emerald-500 opacity-80"}`}
+              className={`h-4 w-4 ${filtroStatus === "ativos" ? "text-white" : "text-orange-500 opacity-80"}`}
             />
           </div>
           <p
             className={`text-2xl sm:text-3xl font-black mt-2 ${
-              filtroStatus === "ativos" ? "text-white" : "text-emerald-600 dark:text-emerald-400"
+              filtroStatus === "ativos" ? "text-white" : "text-orange-600 dark:text-orange-400"
             }`}
           >
             {totais.ativos}
@@ -465,7 +465,7 @@ export function FuncionariosView() {
                     <span
                       className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-bold shrink-0 ${
                         f.ativo
-                          ? "bg-emerald-500/15 text-emerald-700 dark:text-emerald-400 border border-emerald-500/30"
+                          ? "bg-orange-500/15 text-orange-700 dark:text-orange-400 border border-orange-500/30"
                           : "bg-rose-500/15 text-rose-700 dark:text-rose-400 border border-rose-500/30"
                       }`}
                     >

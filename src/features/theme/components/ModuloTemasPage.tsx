@@ -115,7 +115,7 @@ export function ModuloTemasPage() {
           </Link>
           <div>
             <div className="flex items-center gap-2">
-              <Palette className="h-5 w-5 text-emerald-500" />
+              <Palette className="h-5 w-5 text-orange-500" />
               <h1 className="text-xl sm:text-2xl font-black tracking-tight uppercase text-slate-900 dark:text-slate-100">
                 Temas dos Cards e Módulos
               </h1>
@@ -129,7 +129,7 @@ export function ModuloTemasPage() {
 
         {/* Informações do usuário e Reset */}
         <div className="flex items-center gap-2.5 self-start sm:self-auto">
-          <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-xs text-emerald-500 font-medium">
+          <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-orange-500/10 border border-orange-500/20 text-xs text-orange-500 font-medium">
             <User className="h-3.5 w-3.5" />
             <span className="truncate max-w-[150px] font-semibold">
               {session?.nome || "Operador"}
@@ -162,7 +162,7 @@ export function ModuloTemasPage() {
       {/* Seção 1: As 5 Opções Principais de Distribuição de Cores */}
       <div className="space-y-3">
         <h2 className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 flex items-center gap-2">
-          <Layers className="h-4 w-4 text-emerald-500" /> 1. Escolha a Distribuição de Cores dos
+          <Layers className="h-4 w-4 text-orange-500" /> 1. Escolha a Distribuição de Cores dos
           Cards
         </h2>
 
@@ -172,8 +172,8 @@ export function ModuloTemasPage() {
             onClick={() => handleSelectMode("color")}
             className={`p-4 rounded-2xl border-2 transition-all cursor-pointer flex flex-col justify-between gap-3 ${
               config.mode === "color"
-                ? "bg-white dark:bg-slate-900 border-emerald-500 text-slate-900 dark:text-slate-100 shadow-[0_0_20px_rgba(16,185,129,0.25)]"
-                : "bg-white/80 dark:bg-slate-900/60 border-slate-200 dark:border-slate-800 hover:border-emerald-500/40 text-slate-700 dark:text-slate-300"
+                ? "bg-white dark:bg-slate-900 border-orange-500 text-slate-900 dark:text-slate-100 shadow-[0_0_20px_rgba(16,185,129,0.25)]"
+                : "bg-white/80 dark:bg-slate-900/60 border-slate-200 dark:border-slate-800 hover:border-orange-500/40 text-slate-700 dark:text-slate-300"
             }`}
           >
             <div className="flex items-center justify-between">
@@ -183,7 +183,7 @@ export function ModuloTemasPage() {
               <div
                 className={`h-5 w-5 rounded-full border flex items-center justify-center ${
                   config.mode === "color"
-                    ? "bg-emerald-500 border-emerald-500 text-white"
+                    ? "bg-orange-500 border-orange-500 text-white"
                     : "border-slate-300 dark:border-slate-700"
                 }`}
               >
@@ -203,8 +203,8 @@ export function ModuloTemasPage() {
             onClick={() => handleSelectMode("mono")}
             className={`p-4 rounded-2xl border-2 transition-all cursor-pointer flex flex-col justify-between gap-3 ${
               config.mode === "mono"
-                ? "bg-white dark:bg-slate-900 border-emerald-500 text-slate-900 dark:text-slate-100 shadow-[0_0_20px_rgba(16,185,129,0.25)]"
-                : "bg-white/80 dark:bg-slate-900/60 border-slate-200 dark:border-slate-800 hover:border-emerald-500/40 text-slate-700 dark:text-slate-300"
+                ? "bg-white dark:bg-slate-900 border-orange-500 text-slate-900 dark:text-slate-100 shadow-[0_0_20px_rgba(16,185,129,0.25)]"
+                : "bg-white/80 dark:bg-slate-900/60 border-slate-200 dark:border-slate-800 hover:border-orange-500/40 text-slate-700 dark:text-slate-300"
             }`}
           >
             <div className="flex items-center justify-between">
@@ -214,7 +214,7 @@ export function ModuloTemasPage() {
               <div
                 className={`h-5 w-5 rounded-full border flex items-center justify-center ${
                   config.mode === "mono"
-                    ? "bg-emerald-500 border-emerald-500 text-white"
+                    ? "bg-orange-500 border-orange-500 text-white"
                     : "border-slate-300 dark:border-slate-700"
                 }`}
               >
@@ -234,8 +234,8 @@ export function ModuloTemasPage() {
             onClick={() => handleSelectMode("duo")}
             className={`p-4 rounded-2xl border-2 transition-all cursor-pointer flex flex-col justify-between gap-3 ${
               config.mode === "duo"
-                ? "bg-white dark:bg-slate-900 border-emerald-500 text-slate-900 dark:text-slate-100 shadow-[0_0_20px_rgba(16,185,129,0.25)]"
-                : "bg-white/80 dark:bg-slate-900/60 border-slate-200 dark:border-slate-800 hover:border-emerald-500/40 text-slate-700 dark:text-slate-300"
+                ? "bg-white dark:bg-slate-900 border-orange-500 text-slate-900 dark:text-slate-100 shadow-[0_0_20px_rgba(16,185,129,0.25)]"
+                : "bg-white/80 dark:bg-slate-900/60 border-slate-200 dark:border-slate-800 hover:border-orange-500/40 text-slate-700 dark:text-slate-300"
             }`}
           >
             <div className="flex items-center justify-between">
@@ -245,7 +245,7 @@ export function ModuloTemasPage() {
               <div
                 className={`h-5 w-5 rounded-full border flex items-center justify-center ${
                   config.mode === "duo"
-                    ? "bg-emerald-500 border-emerald-500 text-white"
+                    ? "bg-orange-500 border-orange-500 text-white"
                     : "border-slate-300 dark:border-slate-700"
                 }`}
               >
@@ -265,8 +265,8 @@ export function ModuloTemasPage() {
             onClick={() => handleSelectMode("trio")}
             className={`p-4 rounded-2xl border-2 transition-all cursor-pointer flex flex-col justify-between gap-3 ${
               config.mode === "trio"
-                ? "bg-white dark:bg-slate-900 border-emerald-500 text-slate-900 dark:text-slate-100 shadow-[0_0_20px_rgba(16,185,129,0.25)]"
-                : "bg-white/80 dark:bg-slate-900/60 border-slate-200 dark:border-slate-800 hover:border-emerald-500/40 text-slate-700 dark:text-slate-300"
+                ? "bg-white dark:bg-slate-900 border-orange-500 text-slate-900 dark:text-slate-100 shadow-[0_0_20px_rgba(16,185,129,0.25)]"
+                : "bg-white/80 dark:bg-slate-900/60 border-slate-200 dark:border-slate-800 hover:border-orange-500/40 text-slate-700 dark:text-slate-300"
             }`}
           >
             <div className="flex items-center justify-between">
@@ -276,7 +276,7 @@ export function ModuloTemasPage() {
               <div
                 className={`h-5 w-5 rounded-full border flex items-center justify-center ${
                   config.mode === "trio"
-                    ? "bg-emerald-500 border-emerald-500 text-white"
+                    ? "bg-orange-500 border-orange-500 text-white"
                     : "border-slate-300 dark:border-slate-700"
                 }`}
               >
@@ -296,18 +296,18 @@ export function ModuloTemasPage() {
             onClick={() => handleSelectMode("quad")}
             className={`p-4 rounded-2xl border-2 transition-all cursor-pointer flex flex-col justify-between gap-3 ${
               config.mode === "quad"
-                ? "bg-white dark:bg-slate-900 border-emerald-500 text-slate-900 dark:text-slate-100 shadow-[0_0_20px_rgba(16,185,129,0.25)]"
-                : "bg-white/80 dark:bg-slate-900/60 border-slate-200 dark:border-slate-800 hover:border-emerald-500/40 text-slate-700 dark:text-slate-300"
+                ? "bg-white dark:bg-slate-900 border-orange-500 text-slate-900 dark:text-slate-100 shadow-[0_0_20px_rgba(16,185,129,0.25)]"
+                : "bg-white/80 dark:bg-slate-900/60 border-slate-200 dark:border-slate-800 hover:border-orange-500/40 text-slate-700 dark:text-slate-300"
             }`}
           >
             <div className="flex items-center justify-between">
-              <span className="text-[10px] font-bold uppercase px-2 py-0.5 rounded-md bg-emerald-500/20 text-emerald-500 dark:text-emerald-400 border border-emerald-500/40">
+              <span className="text-[10px] font-bold uppercase px-2 py-0.5 rounded-md bg-orange-500/20 text-orange-500 dark:text-orange-400 border border-orange-500/40">
                 4 Cores
               </span>
               <div
                 className={`h-5 w-5 rounded-full border flex items-center justify-center ${
                   config.mode === "quad"
-                    ? "bg-emerald-500 border-emerald-500 text-white"
+                    ? "bg-orange-500 border-orange-500 text-white"
                     : "border-slate-300 dark:border-slate-700"
                 }`}
               >
@@ -329,7 +329,7 @@ export function ModuloTemasPage() {
         <div className="p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 space-y-4 shadow-sm">
           <div className="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-slate-800">
             <div className="flex items-center gap-2">
-              <Sliders className="h-4 w-4 text-emerald-500" />
+              <Sliders className="h-4 w-4 text-orange-500" />
               <h3 className="text-sm font-bold uppercase tracking-wider text-slate-900 dark:text-slate-100">
                 Personalização das Cores Escolhidas
               </h3>
@@ -355,7 +355,7 @@ export function ModuloTemasPage() {
                       onClick={() => handleSetMonoColor(opt.key)}
                       className={`flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-bold transition cursor-pointer border ${
                         isSelected
-                          ? "bg-slate-100 dark:bg-slate-800 border-emerald-500 text-slate-900 dark:text-slate-100 ring-2 ring-emerald-500/30"
+                          ? "bg-slate-100 dark:bg-slate-800 border-orange-500 text-slate-900 dark:text-slate-100 ring-2 ring-orange-500/30"
                           : "bg-slate-50 dark:bg-slate-800/40 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100"
                       }`}
                     >
@@ -364,7 +364,7 @@ export function ModuloTemasPage() {
                         style={{ backgroundColor: opt.bgHex }}
                       />
                       <span>{opt.label}</span>
-                      {isSelected && <Check className="h-3.5 w-3.5 ml-1 text-emerald-500" />}
+                      {isSelected && <Check className="h-3.5 w-3.5 ml-1 text-orange-500" />}
                     </button>
                   );
                 })}
@@ -389,7 +389,7 @@ export function ModuloTemasPage() {
                         onClick={() => handleSetDuoColor(0, opt.key)}
                         className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-semibold transition cursor-pointer border ${
                           isSelected
-                            ? "bg-slate-100 dark:bg-slate-800 border-emerald-500 text-slate-900 dark:text-slate-100 ring-2 ring-emerald-500/30"
+                            ? "bg-slate-100 dark:bg-slate-800 border-orange-500 text-slate-900 dark:text-slate-100 ring-2 ring-orange-500/30"
                             : "bg-slate-50 dark:bg-slate-800/40 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400"
                         }`}
                       >
@@ -418,7 +418,7 @@ export function ModuloTemasPage() {
                         onClick={() => handleSetDuoColor(1, opt.key)}
                         className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-semibold transition cursor-pointer border ${
                           isSelected
-                            ? "bg-slate-100 dark:bg-slate-800 border-emerald-500 text-slate-900 dark:text-slate-100 ring-2 ring-emerald-500/30"
+                            ? "bg-slate-100 dark:bg-slate-800 border-orange-500 text-slate-900 dark:text-slate-100 ring-2 ring-orange-500/30"
                             : "bg-slate-50 dark:bg-slate-800/40 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400"
                         }`}
                       >
@@ -455,7 +455,7 @@ export function ModuloTemasPage() {
                             onClick={() => handleSetTrioColor(slot as 0 | 1 | 2, opt.key)}
                             className={`flex items-center gap-1 px-2 py-1 rounded-lg text-[11px] font-semibold transition cursor-pointer border ${
                               isSelected
-                                ? "bg-slate-100 dark:bg-slate-800 border-emerald-500 text-slate-900 dark:text-slate-100 ring-2 ring-emerald-500/30"
+                                ? "bg-slate-100 dark:bg-slate-800 border-orange-500 text-slate-900 dark:text-slate-100 ring-2 ring-orange-500/30"
                                 : "bg-slate-50 dark:bg-slate-800/40 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400"
                             }`}
                           >
@@ -494,7 +494,7 @@ export function ModuloTemasPage() {
                             onClick={() => handleSetQuadColor(slot as 0 | 1 | 2 | 3, opt.key)}
                             className={`flex items-center gap-1 px-2 py-1 rounded-lg text-[11px] font-semibold transition cursor-pointer border ${
                               isSelected
-                                ? "bg-slate-100 dark:bg-slate-800 border-emerald-500 text-slate-900 dark:text-slate-100 ring-2 ring-emerald-500/30"
+                                ? "bg-slate-100 dark:bg-slate-800 border-orange-500 text-slate-900 dark:text-slate-100 ring-2 ring-orange-500/30"
                                 : "bg-slate-50 dark:bg-slate-800/40 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400"
                             }`}
                           >
@@ -519,7 +519,7 @@ export function ModuloTemasPage() {
       <div className="space-y-3 pt-2">
         <div className="flex items-center justify-between">
           <h2 className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 flex items-center gap-2">
-            <Square className="h-4 w-4 text-emerald-500" /> 2. Demonstração ao Vivo dos Cards
+            <Square className="h-4 w-4 text-orange-500" /> 2. Demonstração ao Vivo dos Cards
             Interativos (Live Preview)
           </h2>
           <span className="text-xs text-slate-500 dark:text-slate-400">

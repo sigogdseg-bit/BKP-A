@@ -90,7 +90,7 @@ export function OverlayPrivacidadeVeiculo({
               type="button"
               onClick={onAlternarPrivacidade}
               disabled={carregandoAlteracao}
-              className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs shadow-md transition disabled:opacity-50"
+              className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-2xl bg-orange-600 hover:bg-emerald-700 text-white font-semibold text-xs shadow-md transition disabled:opacity-50"
             >
               {carregandoAlteracao ? (
                 <>

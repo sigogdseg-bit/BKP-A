@@ -1381,13 +1381,13 @@ export function AbaComparativoPadroesRastreador({
             </div>
           </div>
 
-          <div className="p-2.5 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-800 dark:text-emerald-300">
+          <div className="p-2.5 rounded-xl bg-orange-500/10 border border-orange-500/30 text-orange-800 dark:text-orange-300">
             <div className="flex items-center justify-between">
               <span className="font-black text-[11px]">Passo 5</span>
-              <Trophy className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400" />
+              <Trophy className="h-3.5 w-3.5 text-orange-600 dark:text-orange-400" />
             </div>
             <div className="font-bold text-[11px] mt-0.5">Modo Canônico</div>
-            <div className="text-[9px] text-emerald-600/80 dark:text-emerald-400/80 mt-0.5 leading-tight">
+            <div className="text-[9px] text-orange-600/80 dark:text-orange-400/80 mt-0.5 leading-tight">
               Inserir no sistema e copiar comandos
             </div>
           </div>
@@ -1550,12 +1550,12 @@ export function AbaComparativoPadroesRastreador({
                   {autoOtimizadorDescartadas.toLocaleString()}
                 </span>
               </div>
-              <div className="p-2 rounded-xl bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800/40 flex items-center justify-between">
-                <span className="text-emerald-700 dark:text-emerald-300 text-[11px] flex items-center gap-1">
+              <div className="p-2 rounded-xl bg-orange-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800/40 flex items-center justify-between">
+                <span className="text-orange-700 dark:text-orange-300 text-[11px] flex items-center gap-1">
                   <CheckCircle2 className="h-3.5 w-3.5" />
                   Aprovadas e Analisadas:
                 </span>
-                <span className="font-black text-emerald-700 dark:text-emerald-300">
+                <span className="font-black text-orange-700 dark:text-orange-300">
                   {autoOtimizadorValidas.toLocaleString()}
                 </span>
               </div>
@@ -1565,11 +1565,11 @@ export function AbaComparativoPadroesRastreador({
 
         {/* Resultado Campeão */}
         {autoOtimizadorMelhor && !autoOtimizadorAtivo && (
-          <div className="p-4 rounded-xl bg-emerald-500/10 border-2 border-emerald-500/30 space-y-3">
+          <div className="p-4 rounded-xl bg-orange-500/10 border-2 border-orange-500/30 space-y-3">
             <div className="flex items-center justify-between flex-wrap gap-2">
               <div className="flex items-center gap-2">
                 <Medal className="h-5 w-5 text-amber-500" />
-                <span className="text-sm font-black font-mono text-emerald-700 dark:text-emerald-300 uppercase">
+                <span className="text-sm font-black font-mono text-orange-700 dark:text-orange-300 uppercase">
                   🏆 Melhor Combinação Encontrada
                 </span>
               </div>
@@ -1577,7 +1577,7 @@ export function AbaComparativoPadroesRastreador({
                 <button
                   type="button"
                   onClick={handleAplicarMelhorCombinacao}
-                  className="px-3 py-1.5 rounded-xl text-xs font-black uppercase bg-emerald-600 hover:bg-emerald-700 text-white transition cursor-pointer flex items-center gap-1.5 shadow-sm"
+                  className="px-3 py-1.5 rounded-xl text-xs font-black uppercase bg-orange-600 hover:bg-emerald-700 text-white transition cursor-pointer flex items-center gap-1.5 shadow-sm"
                   title="Aplica esta combinação vencedora no Padrão B para simulação"
                 >
                   <ArrowRight className="h-3.5 w-3.5" />
@@ -1652,7 +1652,7 @@ export function AbaComparativoPadroesRastreador({
                     };
                     handleAbrirModalComandos(paramsMelhor);
                   }}
-                  className="p-1.5 rounded-xl border border-emerald-500/40 hover:bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 transition cursor-pointer"
+                  className="p-1.5 rounded-xl border border-orange-500/40 hover:bg-orange-500/20 text-orange-700 dark:text-orange-300 transition cursor-pointer"
                   title="Ver script detalhado de comandos"
                 >
                   <Terminal className="h-4 w-4" />
@@ -1661,49 +1661,49 @@ export function AbaComparativoPadroesRastreador({
             </div>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-8 gap-2">
-              <div className="p-2.5 rounded-lg bg-white dark:bg-slate-800/80 border border-emerald-500/20 text-center">
+              <div className="p-2.5 rounded-lg bg-white dark:bg-slate-800/80 border border-orange-500/20 text-center">
                 <span className="text-[9px] font-mono text-slate-500 uppercase">Timer Mov</span>
                 <div className="text-base font-black font-mono text-slate-900 dark:text-slate-100">
                   {autoOtimizadorMelhor.timerMovimento}s
                 </div>
               </div>
-              <div className="p-2.5 rounded-lg bg-white dark:bg-slate-800/80 border border-emerald-500/20 text-center">
+              <div className="p-2.5 rounded-lg bg-white dark:bg-slate-800/80 border border-orange-500/20 text-center">
                 <span className="text-[9px] font-mono text-slate-500 uppercase">Ângulo Curva</span>
                 <div className="text-base font-black font-mono text-slate-900 dark:text-slate-100">
                   {autoOtimizadorMelhor.anguloGrau}°
                 </div>
               </div>
-              <div className="p-2.5 rounded-lg bg-white dark:bg-slate-800/80 border border-emerald-500/20 text-center">
+              <div className="p-2.5 rounded-lg bg-white dark:bg-slate-800/80 border border-orange-500/20 text-center">
                 <span className="text-[9px] font-mono text-slate-500 uppercase">Filtro Curva</span>
                 <div className="text-base font-black font-mono text-slate-900 dark:text-slate-100">
                   {autoOtimizadorMelhor.anguloIntervalo}s
                 </div>
               </div>
-              <div className="p-2.5 rounded-lg bg-white dark:bg-slate-800/80 border border-emerald-500/20 text-center">
+              <div className="p-2.5 rounded-lg bg-white dark:bg-slate-800/80 border border-orange-500/20 text-center">
                 <span className="text-[9px] font-mono text-slate-500 uppercase">HBT Ligado</span>
                 <div className="text-base font-black font-mono text-slate-900 dark:text-slate-100">
                   {autoOtimizadorMelhor.hbtLigado}s
                 </div>
               </div>
-              <div className="p-2.5 rounded-lg bg-white dark:bg-slate-800/80 border border-emerald-500/20 text-center">
+              <div className="p-2.5 rounded-lg bg-white dark:bg-slate-800/80 border border-orange-500/20 text-center">
                 <span className="text-[9px] font-mono text-slate-500 uppercase">HBT Repouso</span>
                 <div className="text-base font-black font-mono text-slate-900 dark:text-slate-100">
                   {autoOtimizadorMelhor.hbtDesligado}s
                 </div>
               </div>
-              <div className="p-2.5 rounded-lg bg-white dark:bg-slate-800/80 border border-emerald-500/20 text-center">
+              <div className="p-2.5 rounded-lg bg-white dark:bg-slate-800/80 border border-orange-500/20 text-center">
                 <span className="text-[9px] font-mono text-slate-500 uppercase">Timer Garagem</span>
                 <div className="text-base font-black font-mono text-slate-900 dark:text-slate-100">
                   {autoOtimizadorMelhor.timerParado}s
                 </div>
               </div>
-              <div className="p-2.5 rounded-lg bg-white dark:bg-slate-800/80 border border-emerald-500/20 text-center">
+              <div className="p-2.5 rounded-lg bg-white dark:bg-slate-800/80 border border-orange-500/20 text-center">
                 <span className="text-[9px] font-mono text-slate-500 uppercase">Modo SENDS</span>
-                <div className="text-base font-black font-mono text-emerald-600 dark:text-emerald-400">
+                <div className="text-base font-black font-mono text-orange-600 dark:text-orange-400">
                   {autoOtimizadorMelhor.modoEconomiaParada ? "SENDS=1" : "SENDS=0"}
                 </div>
               </div>
-              <div className="p-2.5 rounded-lg bg-white dark:bg-slate-800/80 border border-emerald-500/20 text-center">
+              <div className="p-2.5 rounded-lg bg-white dark:bg-slate-800/80 border border-orange-500/20 text-center">
                 <span className="text-[9px] font-mono text-slate-500 uppercase">G-Sensor</span>
                 <div className="text-base font-black font-mono text-slate-900 dark:text-slate-100">
                   L{autoOtimizadorMelhor.sensibilidadeGSensor}
@@ -1712,11 +1712,11 @@ export function AbaComparativoPadroesRastreador({
             </div>
 
             <div className="grid grid-cols-3 gap-2">
-              <div className="p-2 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-center">
+              <div className="p-2 rounded-lg bg-orange-500/10 border border-orange-500/20 text-center">
                 <span className="text-[9px] font-mono text-slate-500 uppercase">
                   Score Composto
                 </span>
-                <div className="text-xl font-black font-mono text-emerald-600 dark:text-emerald-400">
+                <div className="text-xl font-black font-mono text-orange-600 dark:text-orange-400">
                   {autoOtimizadorMelhor.scoreComposto}
                 </div>
               </div>
@@ -1769,7 +1769,7 @@ export function AbaComparativoPadroesRastreador({
                       key={`${r.timerMovimento}-${r.anguloGrau}-${r.anguloIntervalo}-${r.hbtLigado}-${r.hbtDesligado}-${r.timerParado}-${r.sensibilidadeGSensor}`}
                       className={`border-t border-slate-100 dark:border-slate-800 transition ${
                         idx === 0
-                          ? "bg-emerald-50 dark:bg-emerald-900/20"
+                          ? "bg-orange-50 dark:bg-emerald-900/20"
                           : "bg-white dark:bg-slate-900/50 hover:bg-slate-50 dark:hover:bg-slate-800/50"
                       }`}
                     >
@@ -1791,7 +1791,7 @@ export function AbaComparativoPadroesRastreador({
                       <td className="px-2 py-1.5 text-center font-bold">{r.hbtDesligado}s</td>
                       <td className="px-2 py-1.5 text-center font-bold">{r.timerParado}s</td>
                       <td className="px-2 py-1.5 text-center">
-                        <span className="px-1.5 py-0.5 rounded text-[9px] font-bold bg-emerald-500/10 text-emerald-700 dark:text-emerald-300">
+                        <span className="px-1.5 py-0.5 rounded text-[9px] font-bold bg-orange-500/10 text-orange-700 dark:text-orange-300">
                           {r.modoEconomiaParada ? "SENDS=1" : "SENDS=0"}
                         </span>
                       </td>
@@ -1802,7 +1802,7 @@ export function AbaComparativoPadroesRastreador({
                         <span
                           className={`font-bold ${
                             r.mbTotaisMes <= 12
-                              ? "text-emerald-600 dark:text-emerald-400"
+                              ? "text-orange-600 dark:text-orange-400"
                               : r.mbTotaisMes <= 16
                                 ? "text-blue-600 dark:text-blue-400"
                                 : "text-amber-600 dark:text-amber-400"
@@ -1815,7 +1815,7 @@ export function AbaComparativoPadroesRastreador({
                         <span
                           className={`font-bold ${
                             r.scoreQualidadeTotal >= 80
-                              ? "text-emerald-600 dark:text-emerald-400"
+                              ? "text-orange-600 dark:text-orange-400"
                               : r.scoreQualidadeTotal >= 60
                                 ? "text-blue-600 dark:text-blue-400"
                                 : "text-amber-600 dark:text-amber-400"
@@ -2170,7 +2170,7 @@ export function AbaComparativoPadroesRastreador({
                   className={`text-[10px] font-mono font-bold ${
                     metricasA.violouMargemSeguranca
                       ? "text-red-500"
-                      : "text-emerald-600 dark:text-emerald-400"
+                      : "text-orange-600 dark:text-orange-400"
                   }`}
                 >
                   {metricasA.percentualFranquia}% de 20MB
@@ -2197,7 +2197,7 @@ export function AbaComparativoPadroesRastreador({
                 className={`text-[9px] font-mono mt-0.5 ${
                   metricasA.pingsEspuriosRetaDia > 0
                     ? "text-amber-600 dark:text-amber-400 font-bold"
-                    : "text-emerald-600 dark:text-emerald-400"
+                    : "text-orange-600 dark:text-orange-400"
                 }`}
               >
                 {metricasA.pingsEspuriosRetaDia > 0
@@ -2461,7 +2461,7 @@ export function AbaComparativoPadroesRastreador({
                   className={`text-[10px] font-mono font-bold ${
                     metricasB.violouMargemSeguranca
                       ? "text-red-500 font-black animate-pulse"
-                      : "text-emerald-600 dark:text-emerald-400"
+                      : "text-orange-600 dark:text-orange-400"
                   }`}
                 >
                   {metricasB.percentualFranquia}% de 20MB
@@ -2488,7 +2488,7 @@ export function AbaComparativoPadroesRastreador({
                 className={`text-[9px] font-mono mt-0.5 ${
                   metricasB.pingsEspuriosRetaDia > 0
                     ? "text-amber-600 dark:text-amber-400 font-bold"
-                    : "text-emerald-600 dark:text-emerald-400"
+                    : "text-orange-600 dark:text-orange-400"
                 }`}
               >
                 {metricasB.pingsEspuriosRetaDia > 0
@@ -2737,7 +2737,7 @@ export function AbaComparativoPadroesRastreador({
             <div>
               <h4 className="text-xs font-mono font-black text-slate-900 dark:text-slate-100 uppercase tracking-wide flex items-center gap-2">
                 PREMISSA DE TELECOMUNICAÇÃO M2M (REPOUSO CELULAR NA GARAGEM)
-                <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-orange-500/10 text-orange-600 dark:text-orange-400 border border-orange-500/20">
                   Comprovado no Lara
                 </span>
               </h4>
@@ -2789,7 +2789,7 @@ export function AbaComparativoPadroesRastreador({
                   Projeção Mês Garagem
                 </span>
                 <span
-                  className={`text-sm font-black font-mono ${diagTelecomA.riscoEstouroRepouso ? "text-red-500" : "text-emerald-500"}`}
+                  className={`text-sm font-black font-mono ${diagTelecomA.riscoEstouroRepouso ? "text-red-500" : "text-orange-500"}`}
                 >
                   {diagTelecomA.mbRepousoPorMes} MB
                 </span>
@@ -2797,7 +2797,7 @@ export function AbaComparativoPadroesRastreador({
             </div>
 
             <p
-              className={`text-[10px] font-mono leading-relaxed p-2 rounded-lg ${diagTelecomA.riscoEstouroRepouso ? "bg-red-500/10 text-red-600 dark:text-red-400 border border-red-500/20" : "bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border border-emerald-500/20"}`}
+              className={`text-[10px] font-mono leading-relaxed p-2 rounded-lg ${diagTelecomA.riscoEstouroRepouso ? "bg-red-500/10 text-red-600 dark:text-red-400 border border-red-500/20" : "bg-orange-500/10 text-orange-700 dark:text-orange-300 border border-orange-500/20"}`}
             >
               {diagTelecomA.alertaMensagem}
             </p>
@@ -2835,7 +2835,7 @@ export function AbaComparativoPadroesRastreador({
                   Projeção Mês Garagem
                 </span>
                 <span
-                  className={`text-sm font-black font-mono ${diagTelecomB.riscoEstouroRepouso ? "text-red-500" : "text-emerald-500"}`}
+                  className={`text-sm font-black font-mono ${diagTelecomB.riscoEstouroRepouso ? "text-red-500" : "text-orange-500"}`}
                 >
                   {diagTelecomB.mbRepousoPorMes} MB
                 </span>
@@ -2843,7 +2843,7 @@ export function AbaComparativoPadroesRastreador({
             </div>
 
             <p
-              className={`text-[10px] font-mono leading-relaxed p-2 rounded-lg ${diagTelecomB.riscoEstouroRepouso ? "bg-red-500/10 text-red-600 dark:text-red-400 border border-red-500/20" : "bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border border-emerald-500/20"}`}
+              className={`text-[10px] font-mono leading-relaxed p-2 rounded-lg ${diagTelecomB.riscoEstouroRepouso ? "bg-red-500/10 text-red-600 dark:text-red-400 border border-red-500/20" : "bg-orange-500/10 text-orange-700 dark:text-orange-300 border border-orange-500/20"}`}
             >
               {diagTelecomB.alertaMensagem}
             </p>
@@ -2899,7 +2899,7 @@ export function AbaComparativoPadroesRastreador({
               className={`px-3 py-1.5 rounded-xl text-xs font-black uppercase tracking-wider transition cursor-pointer flex items-center gap-1.5 shadow-sm ${
                 simulacaoAoVivo
                   ? "bg-amber-500 hover:bg-amber-600 text-slate-950"
-                  : "bg-emerald-600 hover:bg-emerald-700 text-white"
+                  : "bg-orange-600 hover:bg-emerald-700 text-white"
               }`}
             >
               {simulacaoAoVivo ? (
@@ -2926,7 +2926,7 @@ export function AbaComparativoPadroesRastreador({
           <div className="flex flex-wrap items-center gap-3">
             {/* Horas em Movimento */}
             <div className="flex items-center gap-2">
-              <Clock className="h-4 w-4 text-emerald-500 shrink-0" />
+              <Clock className="h-4 w-4 text-orange-500 shrink-0" />
               <span className="text-xs font-mono font-bold text-slate-700 dark:text-slate-300">
                 TRÂNSITO:
               </span>
@@ -2938,7 +2938,7 @@ export function AbaComparativoPadroesRastreador({
                     onClick={() => setPerfilUso((prev) => ({ ...prev, horasMovimentoPorDia: h }))}
                     className={`px-2 py-1 rounded-lg text-xs font-mono font-black transition cursor-pointer ${
                       perfilUso.horasMovimentoPorDia === h
-                        ? "bg-emerald-600 text-white shadow-xs"
+                        ? "bg-orange-600 text-white shadow-xs"
                         : "bg-slate-200/70 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-300"
                     }`}
                   >
@@ -3036,7 +3036,7 @@ export function AbaComparativoPadroesRastreador({
               <span
                 className={
                   veiculoASim.pingsEspuriosReta === 0
-                    ? "text-emerald-600 dark:text-emerald-400"
+                    ? "text-orange-600 dark:text-orange-400"
                     : "text-red-500 font-bold"
                 }
               >
@@ -3089,7 +3089,7 @@ export function AbaComparativoPadroesRastreador({
               <span
                 className={
                   veiculoBSim.pingsEspuriosReta === 0
-                    ? "text-emerald-600 dark:text-emerald-400"
+                    ? "text-orange-600 dark:text-orange-400"
                     : "text-red-500 font-bold"
                 }
               >
@@ -3229,7 +3229,7 @@ export function AbaComparativoPadroesRastreador({
         <div className="p-3 rounded-xl bg-white/80 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/80 font-mono text-xs flex flex-col sm:flex-row sm:items-center justify-between gap-2 shadow-xs">
           <div className="flex items-center gap-2">
             {tempoSimuladoSegundos >= 60 ? (
-              <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0" />
+              <CheckCircle2 className="h-4 w-4 text-orange-500 shrink-0" />
             ) : (
               <Loader2 className="h-4 w-4 text-amber-500 animate-spin shrink-0" />
             )}
@@ -3246,7 +3246,7 @@ export function AbaComparativoPadroesRastreador({
           </div>
           <div className="text-[11px] font-bold shrink-0">
             {tempoSimuladoSegundos >= 60 ? (
-              <span className="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30">
+              <span className="px-2 py-0.5 rounded-full bg-orange-500/20 text-orange-700 dark:text-orange-300 border border-orange-500/30">
                 Invariante no Tempo
               </span>
             ) : (
@@ -3392,7 +3392,7 @@ export function AbaComparativoPadroesRastreador({
                     ? "bg-red-500/10 border-red-500/30 text-red-700 dark:text-red-300"
                     : item.tipo === "alerta"
                       ? "bg-amber-500/10 border-amber-500/30 text-amber-700 dark:text-amber-300"
-                      : "bg-emerald-500/10 border-emerald-500/30 text-emerald-700 dark:text-emerald-300"
+                      : "bg-orange-500/10 border-orange-500/30 text-orange-700 dark:text-orange-300"
                 }`}
               >
                 {item.tipo === "falha" ? (
@@ -3400,7 +3400,7 @@ export function AbaComparativoPadroesRastreador({
                 ) : item.tipo === "alerta" ? (
                   <AlertTriangle className="h-3 w-3 mt-0.5 shrink-0 text-amber-500" />
                 ) : (
-                  <CheckCircle2 className="h-3 w-3 mt-0.5 shrink-0 text-emerald-500" />
+                  <CheckCircle2 className="h-3 w-3 mt-0.5 shrink-0 text-orange-500" />
                 )}
                 <span>{item.diagnostico}</span>
               </div>
@@ -3435,8 +3435,8 @@ export function AbaComparativoPadroesRastreador({
                 </div>
               ))
             ) : (
-              <div className="p-2.5 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-700 dark:text-emerald-300 font-mono text-[11px] flex items-center gap-2">
-                <CheckCircle2 className="h-4 w-4 text-emerald-500" />
+              <div className="p-2.5 rounded-xl bg-orange-500/10 border border-orange-500/20 text-orange-700 dark:text-orange-300 font-mono text-[11px] flex items-center gap-2">
+                <CheckCircle2 className="h-4 w-4 text-orange-500" />
                 <span>Nenhum risco detectado no Padrão B (dentro da margem de segurança).</span>
               </div>
             )}
@@ -3457,8 +3457,8 @@ export function AbaComparativoPadroesRastreador({
         </div>
 
         {/* BLOCO 2: VANTAGENS IDENTIFICADAS */}
-        <div className="p-4 sm:p-5 rounded-2xl bg-[#eaf0f8] dark:bg-slate-900 border border-emerald-500/30 dark:border-emerald-500/20 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-xl space-y-3">
-          <div className="flex items-center gap-2 text-xs font-mono font-black text-emerald-600 dark:text-emerald-400">
+        <div className="p-4 sm:p-5 rounded-2xl bg-[#eaf0f8] dark:bg-slate-900 border border-orange-500/30 dark:border-orange-500/20 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-xl space-y-3">
+          <div className="flex items-center gap-2 text-xs font-mono font-black text-orange-600 dark:text-orange-400">
             <CheckCircle2 className="h-4 w-4" />
             <span>VANTAGENS E PONTOS POSITIVOS</span>
           </div>
@@ -3479,9 +3479,9 @@ export function AbaComparativoPadroesRastreador({
             {diagnostico.vantagensB.map((vant, i) => (
               <div
                 key={i}
-                className="p-2.5 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-700 dark:text-emerald-300 font-mono text-[11px] flex items-start gap-2"
+                className="p-2.5 rounded-xl bg-orange-500/10 border border-orange-500/20 text-orange-700 dark:text-orange-300 font-mono text-[11px] flex items-start gap-2"
               >
-                <Check className="h-3.5 w-3.5 mt-0.5 shrink-0 text-emerald-500" />
+                <Check className="h-3.5 w-3.5 mt-0.5 shrink-0 text-orange-500" />
                 <span>
                   <b>Padrão B:</b> {vant}
                 </span>
@@ -3501,7 +3501,7 @@ export function AbaComparativoPadroesRastreador({
             <div className="mt-3 p-3 rounded-xl bg-white dark:bg-slate-800 border border-amber-500/20 text-xs space-y-2">
               <div className="flex justify-between font-mono">
                 <span className="text-slate-500 dark:text-slate-400">Mais Econômico:</span>
-                <b className="text-emerald-600 dark:text-emerald-400">
+                <b className="text-orange-600 dark:text-orange-400">
                   {diagnostico.campeaoEconomia}
                 </b>
               </div>
@@ -3520,7 +3520,7 @@ export function AbaComparativoPadroesRastreador({
                     diagnostico.vereditoEquilibrio.includes("REJEITADO")
                       ? "text-red-600 dark:text-red-400"
                       : diagnostico.vereditoEquilibrio.includes("APROVADO")
-                        ? "text-emerald-600 dark:text-emerald-400"
+                        ? "text-orange-600 dark:text-orange-400"
                         : "text-blue-600 dark:text-blue-400"
                   }`}
                 >

@@ -90,7 +90,7 @@ export function LeitorPdfModal({
     ? "w-full px-3.5 py-2 rounded-xl bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 text-xs shadow-xs border border-slate-300/70 dark:border-slate-800 outline-none focus:ring-2 focus:ring-[#00CFCC]/30 focus:border-[#00CFCC] transition"
     : isStyleguide
       ? "w-full px-3.5 py-2 rounded-xl bg-[#F1F5F9] dark:bg-slate-900 text-slate-900 dark:text-slate-100 text-xs border border-[#CBD5E1] dark:border-slate-800 focus:border-[#00CFCC] focus:ring-2 focus:ring-[#00CFCC]/20 outline-none transition shadow-xs"
-      : "w-full px-3.5 py-2 rounded-xl bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 text-xs border border-slate-300/70 dark:border-slate-800 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 shadow-xs outline-none transition";
+      : "w-full px-3.5 py-2 rounded-xl bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 text-xs border border-slate-300/70 dark:border-slate-800 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 shadow-xs outline-none transition";
 
   const handleProcessarArquivo = async (file: File) => {
     if (!file || !file.name.toLowerCase().endsWith(".pdf")) {
@@ -339,7 +339,7 @@ export function LeitorPdfModal({
                     ? "bg-[#eaf0f8] shadow-[2px_2px_5px_#c3cfe2] border border-slate-300/40 text-teal-600"
                     : isStyleguide
                       ? "bg-[#9EE5D4]/40 text-[#064E3B] border border-[#9EE5D4]"
-                      : "bg-emerald-500/20 text-emerald-400 border border-emerald-500/30"
+                      : "bg-orange-500/20 text-orange-400 border border-orange-500/30"
                 }`}
               >
                 <FileUp className="w-5 h-5" />
@@ -349,7 +349,7 @@ export function LeitorPdfModal({
                   <h2 className="text-base sm:text-lg font-black tracking-wide">
                     Leitor de PDF de Compras e NF-e
                   </h2>
-                  <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30">
+                  <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-orange-500/20 text-orange-600 dark:text-orange-400 border border-orange-500/30">
                     OCR / TEXTO
                   </span>
                 </div>
@@ -545,7 +545,7 @@ export function LeitorPdfModal({
                         className="w-4 h-4 rounded text-teal-600 focus:ring-teal-500"
                       />
                       <div className="flex items-center gap-1.5 font-bold text-xs uppercase tracking-wide">
-                        <ShoppingCart className="w-4 h-4 text-emerald-500" />
+                        <ShoppingCart className="w-4 h-4 text-orange-500" />
                         <span>2. Lançar Compra / Entrada com Frete e NF</span>
                       </div>
                     </label>

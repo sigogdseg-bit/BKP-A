@@ -614,7 +614,7 @@ export function ConfiguracoesView() {
 
   const inputInsetClass = isNeumorph
     ? "w-full py-2.5 px-4 rounded-xl bg-[#eaf0f8] dark:bg-slate-950 text-slate-800 dark:text-slate-100 text-sm shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6)] border border-slate-300/50 dark:border-slate-800 outline-none focus:ring-2 focus:ring-[#00CFCC] transition"
-    : "w-full py-2.5 px-4 rounded-xl bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 text-sm border border-slate-200 dark:border-slate-800 outline-none focus:ring-2 focus:ring-emerald-500/50 transition";
+    : "w-full py-2.5 px-4 rounded-xl bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 text-sm border border-slate-200 dark:border-slate-800 outline-none focus:ring-2 focus:ring-orange-500/50 transition";
 
   return (
     <div className="flex-1 flex flex-col">
@@ -628,7 +628,7 @@ export function ConfiguracoesView() {
                   ? "bg-[#eaf0f8] dark:bg-slate-900 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none border border-slate-300/40 dark:border-slate-800 text-teal-600 dark:text-teal-400"
                   : isInstalador
                     ? "bg-indigo-500/20 text-indigo-500 dark:text-indigo-400 border border-indigo-500/30"
-                    : "bg-emerald-500/20 text-emerald-500 dark:text-emerald-400 border border-emerald-500/30"
+                    : "bg-orange-500/20 text-orange-500 dark:text-orange-400 border border-orange-500/30"
               }`}
             >
               {isInstalador ? (
@@ -648,7 +648,7 @@ export function ConfiguracoesView() {
                       ? "bg-[#9EBCEE] dark:bg-teal-500/20 text-slate-800 dark:text-teal-300 shadow-[2px_2px_4px_#c3cfe2] dark:shadow-none border border-transparent dark:border-teal-500/30"
                       : isInstalador
                         ? "bg-indigo-500/20 text-indigo-600 dark:text-indigo-400 border border-indigo-500/30"
-                        : "bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30"
+                        : "bg-orange-500/20 text-orange-600 dark:text-orange-400 border border-orange-500/30"
                   }`}
                 >
                   {isInstalador ? "ACESSO TÉCNICO" : "PREFERÊNCIAS"}
@@ -669,7 +669,7 @@ export function ConfiguracoesView() {
         {!isMotorista && !isInstalador && (
           <section className="space-y-4">
             <div className="flex items-center gap-2">
-              <Filter className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
+              <Filter className="h-4 w-4 text-orange-600 dark:text-orange-400" />
               <h2 className="text-xs sm:text-sm font-bold uppercase tracking-wider opacity-90">
                 Preferências do Mapa e Filtros
               </h2>
@@ -693,10 +693,10 @@ export function ConfiguracoesView() {
                       !iconeGenerico
                         ? isNeumorph
                           ? "bg-[#9EBCEE]/30 dark:bg-teal-500/20 border-teal-500/70 dark:border-teal-400/50 shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-none text-slate-900 dark:text-slate-100"
-                          : "border-emerald-500 bg-emerald-500/10 shadow-xs"
+                          : "border-orange-500 bg-orange-500/10 shadow-xs"
                         : isNeumorph
                           ? "bg-[#eaf0f8] dark:bg-slate-900/80 border-slate-300/50 dark:border-slate-800 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none hover:border-teal-400/50 text-slate-700 dark:text-slate-300"
-                          : "border-slate-200 dark:border-slate-700 hover:border-emerald-400/50"
+                          : "border-slate-200 dark:border-slate-700 hover:border-orange-400/50"
                     }`}
                   >
                     <Vehicle3DGraphic
@@ -717,10 +717,10 @@ export function ConfiguracoesView() {
                       iconeGenerico
                         ? isNeumorph
                           ? "bg-[#9EBCEE]/30 dark:bg-teal-500/20 border-teal-500/70 dark:border-teal-400/50 shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-none text-slate-900 dark:text-slate-100"
-                          : "border-emerald-500 bg-emerald-500/10 shadow-xs"
+                          : "border-orange-500 bg-orange-500/10 shadow-xs"
                         : isNeumorph
                           ? "bg-[#eaf0f8] dark:bg-slate-900/80 border-slate-300/50 dark:border-slate-800 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none hover:border-teal-400/50 text-slate-700 dark:text-slate-300"
-                          : "border-slate-200 dark:border-slate-700 hover:border-emerald-400/50"
+                          : "border-slate-200 dark:border-slate-700 hover:border-orange-400/50"
                     }`}
                   >
                     <Vehicle3DGraphic
@@ -762,7 +762,7 @@ export function ConfiguracoesView() {
                             isAtivo
                               ? isNeumorph
                                 ? "bg-[#9EBCEE] dark:bg-teal-600 text-slate-900 dark:text-white shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none font-black border border-slate-300/40 dark:border-teal-500"
-                                : "bg-emerald-500 text-slate-950 font-black shadow"
+                                : "bg-orange-500 text-slate-950 font-black shadow"
                               : isNeumorph
                                 ? "bg-[#eaf0f8] dark:bg-slate-800 text-slate-700 dark:text-slate-300 shadow-[2px_2px_4px_#c3cfe2] dark:shadow-none border border-slate-300/40 dark:border-slate-700 hover:text-slate-950 dark:hover:text-white"
                                 : "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700"
@@ -802,7 +802,7 @@ export function ConfiguracoesView() {
                       iconeGenerico={iconeGenerico}
                       tipo="carro"
                     />
-                    <span className="text-emerald-600 dark:text-emerald-400">Ligado</span>
+                    <span className="text-orange-600 dark:text-orange-400">Ligado</span>
                   </div>
                 </div>
               </div>
@@ -817,7 +817,7 @@ export function ConfiguracoesView() {
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                     <div>
                       <div className="flex items-center gap-2">
-                        <ShieldCheck className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+                        <ShieldCheck className="w-4 h-4 text-orange-600 dark:text-orange-400" />
                         <h3 className="font-extrabold text-sm sm:text-base">
                           Modo de Operação do Sistema
                         </h3>
@@ -826,7 +826,7 @@ export function ConfiguracoesView() {
                             Modo Cliente Ativo
                           </span>
                         ) : (
-                          <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border border-emerald-500/25">
+                          <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-orange-500/10 text-orange-700 dark:text-orange-300 border border-orange-500/25">
                             SuperADM (Global)
                           </span>
                         )}
@@ -868,8 +868,8 @@ export function ConfiguracoesView() {
                       className={`flex items-start gap-3 p-3 rounded-2xl border text-left transition cursor-pointer ${
                         !clienteEmulado && modoOperacao === "superadm"
                           ? isNeumorph
-                            ? "bg-[#9EBCEE]/25 dark:bg-emerald-950/40 border-emerald-500/70 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none"
-                            : "border-emerald-500 bg-emerald-500/10 shadow-xs"
+                            ? "bg-[#9EBCEE]/25 dark:bg-orange-950/40 border-orange-500/70 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none"
+                            : "border-orange-500 bg-orange-500/10 shadow-xs"
                           : isNeumorph
                             ? "bg-[#eaf0f8] dark:bg-slate-900/60 border-slate-300/40 dark:border-slate-800 shadow-[inset_1px_1px_3px_#c8d4e4] opacity-70 hover:opacity-100"
                             : "border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 opacity-70 hover:opacity-100"
@@ -878,7 +878,7 @@ export function ConfiguracoesView() {
                       <div
                         className={`p-2 rounded-xl shrink-0 ${
                           !clienteEmulado && modoOperacao === "superadm"
-                            ? "bg-emerald-500 text-white"
+                            ? "bg-orange-500 text-white"
                             : "bg-slate-200/80 dark:bg-slate-800 text-slate-600 dark:text-slate-400"
                         }`}
                       >
@@ -888,7 +888,7 @@ export function ConfiguracoesView() {
                         <div className="flex items-center justify-between gap-1">
                           <span className="text-xs font-black">Modo SuperADM</span>
                           {!clienteEmulado && modoOperacao === "superadm" && (
-                            <span className="text-[10px] font-bold text-emerald-600 dark:text-emerald-400">
+                            <span className="text-[10px] font-bold text-orange-600 dark:text-orange-400">
                               Ativo
                             </span>
                           )}
@@ -1038,9 +1038,9 @@ export function ConfiguracoesView() {
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                     <div>
                       <div className="flex items-center gap-2">
-                        <Car className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+                        <Car className="w-4 h-4 text-orange-600 dark:text-orange-400" />
                         <h3 className="font-bold text-sm">Veículos Visíveis no Mapa</h3>
-                        <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border border-emerald-500/25">
+                        <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-orange-500/10 text-orange-700 dark:text-orange-300 border border-orange-500/25">
                           {filtroVeiculosIds.length === 0
                             ? `Todos os ${veiculosDisponiveis.length} veículos visíveis`
                             : `${filtroVeiculosIds.length} de ${veiculosDisponiveis.length} selecionados`}
@@ -1057,7 +1057,7 @@ export function ConfiguracoesView() {
                       className={`text-xs font-bold px-3 py-1.5 rounded-full transition flex items-center gap-1 cursor-pointer shrink-0 self-start sm:self-auto ${
                         isNeumorph
                           ? "bg-[#eaf0f8] dark:bg-slate-800 text-teal-700 dark:text-teal-300 shadow-[2px_2px_4px_#c3cfe2] dark:shadow-none border border-teal-300/50 dark:border-teal-700 hover:text-teal-950 dark:hover:text-white"
-                          : "text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 hover:bg-emerald-500/20"
+                          : "text-orange-600 dark:text-orange-400 bg-orange-500/10 hover:bg-orange-500/20"
                       }`}
                     >
                       <Check className="w-3.5 h-3.5 text-teal-600 dark:text-teal-400" />
@@ -1084,8 +1084,8 @@ export function ConfiguracoesView() {
                           className={`flex items-start gap-2.5 p-2.5 rounded-2xl border transition text-left cursor-pointer ${
                             isVisivel
                               ? isNeumorph
-                                ? "bg-[#9EBCEE]/25 dark:bg-emerald-950/40 border-emerald-500/60 dark:border-emerald-500/50 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none text-slate-900 dark:text-slate-100"
-                                : "border-emerald-500/50 bg-emerald-500/5 dark:bg-emerald-500/10 text-slate-900 dark:text-slate-100"
+                                ? "bg-[#9EBCEE]/25 dark:bg-orange-950/40 border-orange-500/60 dark:border-orange-500/50 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none text-slate-900 dark:text-slate-100"
+                                : "border-orange-500/50 bg-orange-500/5 dark:bg-orange-500/10 text-slate-900 dark:text-slate-100"
                               : isNeumorph
                                 ? "bg-[#eaf0f8] dark:bg-slate-900/60 border-slate-300/40 dark:border-slate-800 shadow-[inset_1px_1px_3px_#c8d4e4] dark:shadow-none text-slate-700 dark:text-slate-400 opacity-60"
                                 : "border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 opacity-60 text-slate-700 dark:text-slate-400"
@@ -1094,7 +1094,7 @@ export function ConfiguracoesView() {
                           <div
                             className={`h-4 w-4 rounded-lg border flex items-center justify-center shrink-0 mt-0.5 transition ${
                               isVisivel
-                                ? "bg-emerald-600 border-emerald-600 text-white"
+                                ? "bg-orange-600 border-orange-600 text-white"
                                 : "border-slate-400/60 bg-transparent"
                             }`}
                           >
@@ -1106,7 +1106,7 @@ export function ConfiguracoesView() {
                               <span
                                 className={`text-[9px] font-bold px-1.5 py-0.2 rounded-md ${
                                   isVisivel
-                                    ? "bg-emerald-500/20 text-emerald-700 dark:text-emerald-300"
+                                    ? "bg-orange-500/20 text-orange-700 dark:text-orange-300"
                                     : "bg-slate-200/50 dark:bg-slate-800/80 text-slate-600 dark:text-slate-400"
                                 }`}
                               >
@@ -1141,7 +1141,7 @@ export function ConfiguracoesView() {
                             isActive
                               ? isNeumorph
                                 ? "bg-[#9EBCEE] dark:bg-teal-600 text-slate-900 dark:text-white shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none font-black border border-slate-300/40 dark:border-teal-500"
-                                : "bg-emerald-500 text-slate-950 shadow"
+                                : "bg-orange-500 text-slate-950 shadow"
                               : isNeumorph
                                 ? "bg-[#eaf0f8] dark:bg-slate-800 text-slate-700 dark:text-slate-300 shadow-[2px_2px_4px_#c3cfe2] dark:shadow-none border border-slate-300/40 dark:border-slate-700 hover:text-slate-950 dark:hover:text-white"
                                 : "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700"
@@ -1183,7 +1183,7 @@ export function ConfiguracoesView() {
                             isActive
                               ? isNeumorph
                                 ? "bg-[#9EBCEE] dark:bg-teal-600 text-slate-900 dark:text-white shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none font-black border border-slate-300/40 dark:border-teal-500"
-                                : "bg-emerald-500 text-slate-950 shadow"
+                                : "bg-orange-500 text-slate-950 shadow"
                               : isNeumorph
                                 ? "bg-[#eaf0f8] dark:bg-slate-800 text-slate-700 dark:text-slate-300 shadow-[2px_2px_4px_#c3cfe2] dark:shadow-none border border-slate-300/40 dark:border-slate-700 hover:text-slate-950 dark:hover:text-white"
                                 : "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700"
@@ -1204,7 +1204,7 @@ export function ConfiguracoesView() {
         {!isInstalador && (
           <section className="space-y-4">
             <div className="flex items-center gap-2">
-              <Car className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
+              <Car className="h-4 w-4 text-orange-600 dark:text-orange-400" />
               <h2 className="text-xs sm:text-sm font-bold uppercase tracking-wider opacity-90">
                 {isMotorista
                   ? "Calibração e Odômetro do Veículo"
@@ -1246,17 +1246,17 @@ export function ConfiguracoesView() {
                       className={`flex flex-col items-center justify-center gap-2 p-4 rounded-2xl border transition group cursor-pointer ${
                         isNeumorph
                           ? "bg-[#eaf0f8] dark:bg-slate-900 border-slate-300/50 dark:border-slate-800 text-slate-800 dark:text-slate-200 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none hover:text-teal-900 dark:hover:text-teal-300 hover:shadow-[4px_4px_10px_#c3cfe2] active:shadow-[inset_2px_2px_4px_#c8d4e4]"
-                          : "bg-slate-50 dark:bg-slate-950 border-slate-200 dark:border-slate-800 hover:border-emerald-500/50 hover:bg-emerald-500/5 text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400"
+                          : "bg-slate-50 dark:bg-slate-950 border-slate-200 dark:border-slate-800 hover:border-orange-500/50 hover:bg-orange-500/5 text-slate-700 dark:text-slate-300 hover:text-orange-600 dark:hover:text-orange-400"
                       }`}
                     >
                       <div
                         className={`p-2.5 rounded-xl ${
                           isNeumorph
                             ? "bg-[#eaf0f8] dark:bg-slate-800 shadow-[2px_2px_4px_#c3cfe2] dark:shadow-none"
-                            : "bg-emerald-500/10"
+                            : "bg-orange-500/10"
                         }`}
                       >
-                        <Gauge className="h-6 w-6 text-emerald-600 dark:text-emerald-400 group-hover:scale-110 transition-transform" />
+                        <Gauge className="h-6 w-6 text-orange-600 dark:text-orange-400 group-hover:scale-110 transition-transform" />
                       </div>
                       <span className="text-xs font-bold text-center">Sincronizar Odômetro</span>
                       <span className="text-[10px] opacity-60 text-center">
@@ -1277,7 +1277,7 @@ export function ConfiguracoesView() {
                               : "bg-amber-500/10 border-amber-500/30 text-amber-700 dark:text-amber-400 hover:bg-amber-500/20"
                             : isNeumorph
                               ? "bg-[#eaf0f8] dark:bg-slate-900 border-slate-300/50 dark:border-slate-800 text-slate-800 dark:text-slate-200 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none hover:shadow-[4px_4px_10px_#c3cfe2] active:shadow-[inset_2px_2px_4px_#c8d4e4]"
-                              : "bg-slate-50 dark:bg-slate-950 border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:border-emerald-500/50 hover:text-emerald-600"
+                              : "bg-slate-50 dark:bg-slate-950 border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:border-orange-500/50 hover:text-orange-600"
                         }`}
                       >
                         <div
@@ -1291,7 +1291,7 @@ export function ConfiguracoesView() {
                             className={`h-6 w-6 transition-transform group-hover:scale-110 ${
                               veiculoSelecionado?.privacidade_localizacao !== false
                                 ? "text-amber-600 dark:text-amber-400"
-                                : "text-emerald-600 dark:text-emerald-400"
+                                : "text-orange-600 dark:text-orange-400"
                             }`}
                           />
                         </div>
@@ -1333,7 +1333,7 @@ export function ConfiguracoesView() {
                 <div>
                   <div className="flex items-center gap-2">
                     <h3 className="font-bold text-sm">Relatório Diário de Métricas e Governança</h3>
-                    <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-600 dark:text-emerald-400">
+                    <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-orange-500/15 text-orange-600 dark:text-orange-400">
                       Disparo Programado
                     </span>
                   </div>
@@ -1350,7 +1350,7 @@ export function ConfiguracoesView() {
                     disabled={disparandoRelatorio}
                     className={`shrink-0 flex items-center gap-2 px-4 py-2.5 rounded-2xl text-xs font-bold transition cursor-pointer justify-center flex-1 sm:flex-initial ${
                       isNeumorph
-                        ? "bg-[#eaf0f8] dark:bg-slate-800 text-emerald-800 dark:text-emerald-300 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none border border-emerald-300/50 dark:border-emerald-700 hover:text-emerald-950 dark:hover:text-white active:shadow-[inset_2px_2px_4px_#c8d4e4]"
+                        ? "bg-[#eaf0f8] dark:bg-slate-800 text-orange-800 dark:text-orange-300 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none border border-emerald-300/50 dark:border-emerald-700 hover:text-emerald-950 dark:hover:text-white active:shadow-[inset_2px_2px_4px_#c8d4e4]"
                         : "text-emerald-700 dark:text-emerald-300 bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/20"
                     }`}
                   >
@@ -1380,7 +1380,7 @@ export function ConfiguracoesView() {
         {session.isSuperAdmin && (
           <section className="space-y-4">
             <div className="flex items-center gap-2">
-              <QrCode className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
+              <QrCode className="h-4 w-4 text-orange-600 dark:text-orange-400" />
               <h2 className="text-xs sm:text-sm font-bold uppercase tracking-wider opacity-90">
                 Chave PIX Oficial do Sistema
               </h2>
@@ -1393,7 +1393,7 @@ export function ConfiguracoesView() {
                     <h3 className="font-bold text-sm">
                       Chave PIX para Recebimento de Mensalidades
                     </h3>
-                    <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-600 dark:text-emerald-400">
+                    <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-orange-500/15 text-orange-600 dark:text-orange-400">
                       Recebimento Imediato
                     </span>
                   </div>
@@ -1427,7 +1427,7 @@ export function ConfiguracoesView() {
                     }`}
                   >
                     {chavePixCopiada ? (
-                      <Check className="h-3.5 w-3.5 text-emerald-500" />
+                      <Check className="h-3.5 w-3.5 text-orange-500" />
                     ) : (
                       <Copy className="h-3.5 w-3.5" />
                     )}
@@ -1437,7 +1437,7 @@ export function ConfiguracoesView() {
                     type="button"
                     onClick={handleSalvarPix}
                     disabled={salvandoPix}
-                    className="flex items-center justify-center gap-1.5 px-4 py-2 rounded-xl text-xs font-black uppercase tracking-wider bg-emerald-500 hover:bg-emerald-400 text-slate-950 transition cursor-pointer disabled:opacity-50 shadow-xs flex-1 sm:flex-none"
+                    className="flex items-center justify-center gap-1.5 px-4 py-2 rounded-xl text-xs font-black uppercase tracking-wider bg-orange-500 hover:bg-orange-400 text-slate-950 transition cursor-pointer disabled:opacity-50 shadow-xs flex-1 sm:flex-none"
                   >
                     <span>{salvandoPix ? "Salvando..." : "Salvar Chave PIX"}</span>
                   </button>
@@ -1542,7 +1542,7 @@ export function ConfiguracoesView() {
                       Sem Chave
                     </div>
                   )}
-                  <span className="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 mt-2 truncate max-w-[160px]">
+                  <span className="text-[10px] font-mono text-orange-600 dark:text-orange-400 mt-2 truncate max-w-[160px]">
                     {configPix.chavePix || "Não configurada"}
                   </span>
                 </div>
@@ -1599,8 +1599,8 @@ export function ConfiguracoesView() {
                         ? "bg-[#eaf0f8] dark:bg-slate-800 text-rose-700 dark:text-rose-300 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none border border-rose-300/50 dark:border-rose-700 hover:text-rose-900"
                         : "text-rose-600 dark:text-rose-400 bg-rose-500/10 hover:bg-rose-500/20 border border-rose-500/20"
                       : isNeumorph
-                        ? "bg-[#eaf0f8] dark:bg-slate-800 text-emerald-800 dark:text-emerald-300 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none border border-emerald-300/50 dark:border-emerald-700 hover:text-emerald-950"
-                        : "text-emerald-700 dark:text-emerald-300 bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/20"
+                        ? "bg-[#eaf0f8] dark:bg-slate-800 text-orange-800 dark:text-orange-300 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none border border-emerald-300/50 dark:border-emerald-700 hover:text-emerald-950"
+                        : "text-orange-700 dark:text-orange-300 bg-orange-500/10 hover:bg-orange-500/20 border border-orange-500/20"
                   }`}
                 >
                   <span>{notificarNf ? "Desativar Todos" : "Ativar Todos"}</span>
@@ -1630,7 +1630,7 @@ export function ConfiguracoesView() {
                     <div>
                       <div className="font-bold text-xs text-slate-900 dark:text-slate-100 flex items-center gap-1.5">
                         <span>Web Push e Central do App</span>
-                        {canaisNf.push && <span className="w-2 h-2 rounded-full bg-emerald-500" />}
+                        {canaisNf.push && <span className="w-2 h-2 rounded-full bg-orange-500" />}
                       </div>
                       <div className="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5">
                         Notificação na tela do celular e computador
@@ -1703,7 +1703,7 @@ export function ConfiguracoesView() {
         {podeGerenciarCentralAlertas && (
           <section className="space-y-4">
             <div className="flex items-center gap-2">
-              <Sliders className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
+              <Sliders className="h-4 w-4 text-orange-600 dark:text-orange-400" />
               <h2 className="text-xs sm:text-sm font-bold uppercase tracking-wider opacity-90">
                 Central de Alertas e Canais
               </h2>
@@ -1733,11 +1733,11 @@ export function ConfiguracoesView() {
                   onClick={() => setModalCentralAlertasAberto(true)}
                   className={`shrink-0 flex items-center gap-2 px-4 py-2.5 min-h-[44px] rounded-2xl text-xs font-bold transition cursor-pointer w-full sm:w-auto justify-center ${
                     isNeumorph
-                      ? "bg-[#eaf0f8] dark:bg-slate-800 text-emerald-800 dark:text-emerald-300 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none border border-emerald-300/50 dark:border-emerald-700 hover:text-emerald-950 dark:hover:text-white active:shadow-[inset_2px_2px_4px_#c8d4e4]"
-                      : "text-emerald-700 dark:text-emerald-300 bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/20"
+                      ? "bg-[#eaf0f8] dark:bg-slate-800 text-orange-800 dark:text-orange-300 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none border border-emerald-300/50 dark:border-emerald-700 hover:text-emerald-950 dark:hover:text-white active:shadow-[inset_2px_2px_4px_#c8d4e4]"
+                      : "text-orange-700 dark:text-orange-300 bg-orange-500/10 hover:bg-orange-500/20 border border-orange-500/20"
                   }`}
                 >
-                  <Bell className="h-4 w-4 text-emerald-500" />
+                  <Bell className="h-4 w-4 text-orange-500" />
                   <span>Abrir Central de Alertas</span>
                 </button>
               </div>

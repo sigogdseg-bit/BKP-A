@@ -41,7 +41,7 @@ function corRole(role: string): string {
   switch (role?.toLowerCase()) {
     case "superadmin":
     case "adm":
-      return "text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 border-emerald-500/25";
+      return "text-orange-600 dark:text-orange-400 bg-orange-500/10 border-orange-500/25";
     case "operador":
       return "text-sky-600 dark:text-sky-400 bg-sky-500/10 border-sky-500/25";
     case "instalador":
@@ -91,7 +91,7 @@ export function ListaConversasRealizadas({
           <button
             type="button"
             onClick={onVoltar}
-            className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 transition cursor-pointer md:hidden active:scale-95 group -ml-1 px-2 py-1 rounded-lg hover:bg-emerald-500/10"
+            className="inline-flex items-center gap-1.5 text-xs font-bold text-orange-600 dark:text-orange-400 hover:text-orange-700 dark:hover:text-orange-300 transition cursor-pointer md:hidden active:scale-95 group -ml-1 px-2 py-1 rounded-lg hover:bg-orange-500/10"
             aria-label="Voltar para a lista de contatos"
             title="Voltar para contatos"
           >
@@ -110,7 +110,7 @@ export function ListaConversasRealizadas({
                 {inicialContato}
               </div>
               {online ? (
-                <span className="absolute -bottom-0.5 -right-0.5 h-3.5 w-3.5 rounded-full bg-emerald-500 ring-2 ring-white dark:ring-slate-800 shadow-[0_0_8px_rgba(16,185,129,0.85)]" />
+                <span className="absolute -bottom-0.5 -right-0.5 h-3.5 w-3.5 rounded-full bg-orange-500 ring-2 ring-white dark:ring-slate-800 shadow-[0_0_8px_rgba(16,185,129,0.85)]" />
               ) : (
                 <span className="absolute -bottom-0.5 -right-0.5 h-3.5 w-3.5 rounded-full bg-slate-300 dark:bg-slate-600 ring-2 ring-white dark:ring-slate-800" />
               )}

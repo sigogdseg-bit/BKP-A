@@ -380,9 +380,9 @@ export function UsuariosView() {
         spotlightColor={spotlight}
         className={`p-3.5 sm:p-4 rounded-3xl border transition-all duration-200 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 ${
           isSubordinado
-            ? "bg-white/80 dark:bg-slate-950/70 border-slate-300/50 dark:border-slate-800/80 shadow-[2px_2px_8px_#c3cfe2] dark:shadow-md hover:border-emerald-500/40"
+            ? "bg-white/80 dark:bg-slate-950/70 border-slate-300/50 dark:border-slate-800/80 shadow-[2px_2px_8px_#c3cfe2] dark:shadow-md hover:border-orange-500/40"
             : isNovaes
-              ? "bg-emerald-500/10 dark:bg-emerald-950/20 border-emerald-500/40 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-md"
+              ? "bg-orange-500/10 dark:bg-orange-950/20 border-orange-500/40 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-md"
               : "bg-[#eaf0f8] dark:bg-slate-900/80 border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none hover:shadow-[6px_6px_14px_#b8c6da] dark:hover:border-slate-700"
         }`}
       >
@@ -391,7 +391,7 @@ export function UsuariosView() {
           <div className="flex flex-wrap items-center gap-2">
             {isSubordinado && (
               <span
-                className="text-emerald-500 dark:text-emerald-400 font-mono text-sm font-black mr-0.5"
+                className="text-orange-500 dark:text-orange-400 font-mono text-sm font-black mr-0.5"
                 title="Subordinado ao cliente"
               >
                 ↳
@@ -408,11 +408,11 @@ export function UsuariosView() {
                 u.role === "superadmin"
                   ? "bg-amber-500/15 text-amber-600 dark:text-amber-300 border-amber-500/40"
                   : u.role === "adm"
-                    ? "bg-emerald-500/15 text-emerald-600 dark:text-emerald-300 border-emerald-500/30"
+                    ? "bg-orange-500/15 text-orange-600 dark:text-orange-300 border-orange-500/30"
                     : u.role === "operador"
                       ? "bg-sky-500/15 text-sky-600 dark:text-sky-300 border-sky-500/30"
                       : u.role === "cliente"
-                        ? "bg-emerald-500/15 text-emerald-700 dark:text-emerald-400 border-emerald-500/30"
+                        ? "bg-orange-500/15 text-orange-700 dark:text-orange-400 border-orange-500/30"
                         : u.role === "motorista"
                           ? "bg-blue-500/15 text-blue-600 dark:text-blue-400 border-blue-500/30"
                           : u.role === "funcionario"
@@ -426,10 +426,10 @@ export function UsuariosView() {
             {/* Badge de Vínculo com o Cliente Titular (para Motorista e Funcionário) */}
             {u.cliente_nome && (
               <span
-                className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30 shadow-2xs"
+                className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-orange-500/15 text-orange-700 dark:text-orange-300 border border-orange-500/30 shadow-2xs"
                 title={`Vinculado à conta do cliente ${u.cliente_nome}`}
               >
-                <Link2 className="h-3 w-3 text-emerald-500" />
+                <Link2 className="h-3 w-3 text-orange-500" />
                 <span>
                   {u.role === "motorista" ? "Motorista de" : "Funcionário de"}: {u.cliente_nome}
                 </span>
@@ -462,10 +462,10 @@ export function UsuariosView() {
             {/* Status de Sessão */}
             {statusSessao === "online" && (
               <span
-                className="flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30"
+                className="flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-orange-500/15 text-orange-600 dark:text-orange-400 border border-orange-500/30"
                 title="Usuário conectado e com tela ativa no sistema"
               >
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-ping inline-block" />
+                <span className="h-1.5 w-1.5 rounded-full bg-orange-500 animate-ping inline-block" />
                 <span>Logado (Online)</span>
               </span>
             )}
@@ -496,7 +496,7 @@ export function UsuariosView() {
 
             {/* Status Ativo/Inativo */}
             {u.ativo ? (
-              <span className="flex items-center gap-1 text-[11px] font-semibold text-emerald-600 dark:text-emerald-400">
+              <span className="flex items-center gap-1 text-[11px] font-semibold text-orange-600 dark:text-orange-400">
                 <CheckCircle2 className="h-3.5 w-3.5" />
                 Ativo
               </span>
@@ -518,8 +518,8 @@ export function UsuariosView() {
             {u.telefone && (
               <>
                 <span className="text-slate-300 dark:text-slate-700">•</span>
-                <span className="inline-flex items-center gap-1 font-mono text-[11px] font-semibold text-emerald-600 dark:text-emerald-400">
-                  <Phone className="h-3 w-3 text-emerald-500" />
+                <span className="inline-flex items-center gap-1 font-mono text-[11px] font-semibold text-orange-600 dark:text-orange-400">
+                  <Phone className="h-3 w-3 text-orange-500" />
                   <span>{u.telefone}</span>
                 </span>
               </>
@@ -530,7 +530,7 @@ export function UsuariosView() {
               <span className="text-slate-500 dark:text-slate-400">Último acesso:</span>
               <span className="font-semibold text-slate-800 dark:text-slate-200">
                 {statusSessao === "online" ? (
-                  <span className="text-emerald-600 dark:text-emerald-400 font-bold">
+                  <span className="text-orange-600 dark:text-orange-400 font-bold">
                     Online agora
                     {presencaOnline?.onlineAt && (
                       <span className="text-slate-400 dark:text-slate-500 font-normal text-[10px] ml-1">
@@ -558,8 +558,8 @@ export function UsuariosView() {
               Módulos:
             </span>
             {u.role === "superadmin" || u.role === "adm" ? (
-              <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30">
-                <CheckCircle2 className="h-3 w-3 text-emerald-500" />
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-orange-500/15 text-orange-600 dark:text-orange-400 border border-orange-500/30">
+                <CheckCircle2 className="h-3 w-3 text-orange-500" />
                 Todos os Módulos Liberados (Acesso Total)
               </span>
             ) : !u.modulos || u.modulos.length === 0 ? (
@@ -583,7 +583,7 @@ export function UsuariosView() {
             <button
               onClick={() => handleAlternarAtivo(u, true)}
               disabled={alternandoAtivoId === u.id}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold text-slate-950 bg-emerald-500 hover:bg-emerald-400 transition shadow-sm disabled:opacity-50"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold text-slate-950 bg-orange-500 hover:bg-orange-400 transition shadow-sm disabled:opacity-50"
               title="Habilitar e ativar acesso da conta"
             >
               {alternandoAtivoId === u.id ? (
@@ -664,7 +664,7 @@ export function UsuariosView() {
       {/* Cabeçalho da Página */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 p-5 sm:p-6 rounded-3xl shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl">
         <div className="flex items-center gap-3.5">
-          <div className="h-12 w-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shadow-xs">
+          <div className="h-12 w-12 rounded-2xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-orange-600 dark:text-orange-400 shadow-xs">
             <Users className="h-6 w-6 stroke-[2.2]" />
           </div>
           <div>
@@ -695,7 +695,7 @@ export function UsuariosView() {
                 setUsuarioEmEdicao(null);
                 setModalUsuarioAberto(true);
               }}
-              className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-2xl text-xs font-bold text-slate-950 bg-emerald-500 hover:bg-emerald-400 transition shadow-[2px_2px_8px_rgba(5,150,105,0.4)] min-h-[44px]"
+              className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-2xl text-xs font-bold text-slate-950 bg-orange-500 hover:bg-orange-400 transition shadow-[2px_2px_8px_rgba(5,150,105,0.4)] min-h-[44px]"
             >
               <Plus className="h-4 w-4 stroke-[3]" />
               <span>Novo Usuário</span>
@@ -729,15 +729,15 @@ export function UsuariosView() {
           spotlightColor="rgba(16, 185, 129, 0.20)"
           className={`cursor-pointer p-4 rounded-2xl border transition ${
             filtroRole === "cliente"
-              ? "bg-emerald-500/20 border-emerald-500/60 shadow-[inset_2px_2px_4px_#c8d4e4]"
-              : "bg-[#eaf0f8] dark:bg-slate-900/80 border border-slate-300/50 dark:border-slate-800/80 shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none hover:border-emerald-400"
+              ? "bg-orange-500/20 border-orange-500/60 shadow-[inset_2px_2px_4px_#c8d4e4]"
+              : "bg-[#eaf0f8] dark:bg-slate-900/80 border border-slate-300/50 dark:border-slate-800/80 shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none hover:border-orange-400"
           }`}
           title="Filtrar clientes titulares"
         >
-          <span className="text-[11px] text-emerald-600 dark:text-emerald-400 font-medium">
+          <span className="text-[11px] text-orange-600 dark:text-orange-400 font-medium">
             Clientes Titulares
           </span>
-          <div className="text-xl font-black font-mono text-emerald-600 dark:text-emerald-400 mt-0.5">
+          <div className="text-xl font-black font-mono text-orange-600 dark:text-orange-400 mt-0.5">
             {totais.clientes}
           </div>
         </TiltCard>
@@ -843,7 +843,7 @@ export function UsuariosView() {
               onClick={() => alternarFiltroRole(f.id)}
               className={`px-3 py-1.5 rounded-xl font-semibold transition min-h-[38px] ${
                 filtroRole === f.id
-                  ? "bg-emerald-500 text-slate-950 shadow-[1px_1px_4px_rgba(5,150,105,0.4)]"
+                  ? "bg-orange-500 text-slate-950 shadow-[1px_1px_4px_rgba(5,150,105,0.4)]"
                   : "bg-[#eaf0f8] dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-300/50 dark:border-slate-700 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none hover:shadow-[3px_3px_8px_#b8c6da]"
               }`}
             >
@@ -880,9 +880,9 @@ export function UsuariosView() {
 
                 {/* Subordinação Hierárquica: Motoristas e Funcionários do Cliente */}
                 {exibirSubordinados && (
-                  <div className="ml-4 sm:ml-8 pl-3.5 sm:pl-5 border-l-2 border-emerald-500/40 dark:border-emerald-500/30 space-y-2.5 mt-2 mb-3">
+                  <div className="ml-4 sm:ml-8 pl-3.5 sm:pl-5 border-l-2 border-orange-500/40 dark:border-orange-500/30 space-y-2.5 mt-2 mb-3">
                     <div className="text-[11px] font-black uppercase tracking-wider text-slate-600 dark:text-slate-400 flex items-center gap-1.5 pt-0.5">
-                      <CornerDownRight className="h-3.5 w-3.5 text-emerald-500 shrink-0" />
+                      <CornerDownRight className="h-3.5 w-3.5 text-orange-500 shrink-0" />
                       <span>
                         Equipe e Motoristas Subordinados a {u.nome} ({subordinados.length})
                       </span>

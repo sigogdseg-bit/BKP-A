@@ -203,7 +203,7 @@ export function ModalPlaybackTrajeto({ veiculo, onFechar }: ModalPlaybackTrajeto
         {/* Header */}
         <div className="p-4 sm:p-5 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between bg-white/70 dark:bg-slate-900/80">
           <div className="flex items-center gap-2.5">
-            <div className="h-10 w-10 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
+            <div className="h-10 w-10 rounded-2xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-orange-600 dark:text-orange-400">
               <Route className="h-5 w-5" />
             </div>
             <div>
@@ -222,7 +222,7 @@ export function ModalPlaybackTrajeto({ veiculo, onFechar }: ModalPlaybackTrajeto
           <div className="flex items-center gap-2">
             <button
               onClick={gerarPdfOficial}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold bg-emerald-100 dark:bg-emerald-500/20 hover:bg-emerald-200 dark:hover:bg-emerald-500/30 text-emerald-800 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-500/30 transition shadow-xs"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold bg-emerald-100 dark:bg-orange-500/20 hover:bg-emerald-200 dark:hover:bg-orange-500/30 text-orange-800 dark:text-orange-300 border border-emerald-300 dark:border-orange-500/30 transition shadow-xs"
             >
               <FileDown className="h-4 w-4" />
               <span className="hidden sm:inline">Baixar Laudo Oficial (PDF)</span>
@@ -287,7 +287,7 @@ export function ModalPlaybackTrajeto({ veiculo, onFechar }: ModalPlaybackTrajeto
               >
                 <div>
                   <div className="flex items-center gap-2 text-xs font-bold text-slate-900 dark:text-slate-200">
-                    <Clock className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400" />
+                    <Clock className="h-3.5 w-3.5 text-orange-600 dark:text-orange-400" />
                     <span>Início: {new Date(viagem.inicio_at).toLocaleString("pt-BR")}</span>
                   </div>
                   <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">
@@ -303,7 +303,7 @@ export function ModalPlaybackTrajeto({ veiculo, onFechar }: ModalPlaybackTrajeto
                     <span className="text-[10px] text-slate-400 dark:text-slate-500 block uppercase">
                       Distância
                     </span>
-                    <span className="text-emerald-700 dark:text-emerald-400 font-bold">
+                    <span className="text-orange-700 dark:text-orange-400 font-bold">
                       {formatarDistanciaViagem(viagem.km_percorrido)}
                     </span>
                   </div>

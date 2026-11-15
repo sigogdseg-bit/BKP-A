@@ -56,7 +56,7 @@ export function ChatBadge({ userId }: ChatBadgeProps) {
   return (
     <Link
       to="/chat"
-      className="relative p-2 min-h-[40px] min-w-[40px] flex items-center justify-center rounded-xl text-slate-500 hover:text-emerald-500 hover:bg-emerald-500/10 border border-slate-200 dark:border-slate-800 transition active:scale-95 cursor-pointer shadow-2xs"
+      className="relative p-2 min-h-[40px] min-w-[40px] flex items-center justify-center rounded-xl text-slate-500 hover:text-orange-500 hover:bg-orange-500/10 border border-slate-200 dark:border-slate-800 transition active:scale-95 cursor-pointer shadow-2xs"
       title="Chat em Tempo Real"
       aria-label="Chat em Tempo Real"
     >
@@ -64,7 +64,7 @@ export function ChatBadge({ userId }: ChatBadgeProps) {
 
       {/* Badge de contagem com animação */}
       {naoLidas > 0 && (
-        <span className="absolute -top-1.5 -right-1.5 min-w-[18px] h-[18px] flex items-center justify-center px-1 text-[9px] font-black rounded-full bg-emerald-500 text-white shadow-md ring-2 ring-white dark:ring-slate-900 animate-in zoom-in duration-200">
+        <span className="absolute -top-1.5 -right-1.5 min-w-[18px] h-[18px] flex items-center justify-center px-1 text-[9px] font-black rounded-full bg-orange-500 text-white shadow-md ring-2 ring-white dark:ring-slate-900 animate-in zoom-in duration-200">
           {naoLidas > 99 ? "99+" : naoLidas}
         </span>
       )}

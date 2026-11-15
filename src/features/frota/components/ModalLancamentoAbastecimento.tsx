@@ -268,7 +268,7 @@ export function ModalLancamentoAbastecimento({
           {/* Header */}
           <div className="p-4 sm:p-5 border-b border-slate-300/60 dark:border-slate-800 flex items-center justify-between bg-[#eaf0f8]/90 dark:bg-slate-950/60 shrink-0">
             <div className="flex items-center gap-3">
-              <div className="h-10 w-10 rounded-2xl bg-emerald-500/10 text-emerald-500 dark:text-emerald-400 flex items-center justify-center shadow-xs shrink-0">
+              <div className="h-10 w-10 rounded-2xl bg-orange-500/10 text-orange-500 dark:text-orange-400 flex items-center justify-center shadow-xs shrink-0">
                 <Fuel className="h-5 w-5" />
               </div>
               <div>
@@ -305,7 +305,7 @@ export function ModalLancamentoAbastecimento({
                   <select
                     value={veiculoSelecionadoId}
                     onChange={(e) => setVeiculoSelecionadoId(e.target.value)}
-                    className="w-full bg-white dark:bg-slate-800/90 border border-slate-300 dark:border-slate-700/80 rounded-xl px-3 py-2.5 text-sm text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500/40"
+                    className="w-full bg-white dark:bg-slate-800/90 border border-slate-300 dark:border-slate-700/80 rounded-xl px-3 py-2.5 text-sm text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-orange-500/40"
                     required
                   >
                     {veiculos.map((v) => (
@@ -320,7 +320,7 @@ export function ModalLancamentoAbastecimento({
             )}
 
             {/* Upload e OCR da NF */}
-            <div className="rounded-2xl border border-dashed border-emerald-500/40 bg-emerald-500/5 p-4 transition-all">
+            <div className="rounded-2xl border border-dashed border-orange-500/40 bg-orange-500/5 p-4 transition-all">
               <input
                 ref={fileRef}
                 type="file"
@@ -335,7 +335,7 @@ export function ModalLancamentoAbastecimento({
                     <img
                       src={preview}
                       alt="Preview NF"
-                      className="h-16 w-16 rounded-xl object-cover border border-emerald-500/40 shadow-xs shrink-0"
+                      className="h-16 w-16 rounded-xl object-cover border border-orange-500/40 shadow-xs shrink-0"
                     />
                   ) : (
                     <div className="h-16 w-16 rounded-xl bg-rose-500/10 border border-rose-500/30 flex flex-col items-center justify-center text-rose-500 shrink-0">
@@ -382,7 +382,7 @@ export function ModalLancamentoAbastecimento({
                   className="w-full flex flex-col items-center gap-2 py-3 hover:opacity-80 transition-opacity"
                 >
                   <div className="flex items-center gap-2">
-                    <Camera className="h-6 w-6 text-emerald-500" />
+                    <Camera className="h-6 w-6 text-orange-500" />
                     <Sparkles className="h-4 w-4 text-amber-400 animate-pulse" />
                   </div>
                   <p className="text-sm font-semibold text-slate-700 dark:text-slate-200">
@@ -405,7 +405,7 @@ export function ModalLancamentoAbastecimento({
                   type="date"
                   value={form.data_abastecimento}
                   onChange={(e) => set("data_abastecimento", e.target.value)}
-                  className="w-full bg-white dark:bg-slate-800/90 border border-slate-300 dark:border-slate-700/80 rounded-xl px-3 py-2 text-sm text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500/40"
+                  className="w-full bg-white dark:bg-slate-800/90 border border-slate-300 dark:border-slate-700/80 rounded-xl px-3 py-2 text-sm text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-orange-500/40"
                   required
                 />
               </div>
@@ -420,7 +420,7 @@ export function ModalLancamentoAbastecimento({
                   onChange={(e) => set("km_atual", e.target.value)}
                   placeholder="0"
                   min="0"
-                  className="w-full bg-white dark:bg-slate-800/90 border border-slate-300 dark:border-slate-700/80 rounded-xl px-3 py-2 text-sm text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500/40"
+                  className="w-full bg-white dark:bg-slate-800/90 border border-slate-300 dark:border-slate-700/80 rounded-xl px-3 py-2 text-sm text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-orange-500/40"
                   required
                 />
               </div>
@@ -434,7 +434,7 @@ export function ModalLancamentoAbastecimento({
               <select
                 value={form.combustivel}
                 onChange={(e) => set("combustivel", e.target.value as TipoCombustivel)}
-                className="w-full bg-white dark:bg-slate-800/90 border border-slate-300 dark:border-slate-700/80 rounded-xl px-3 py-2 text-sm text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500/40"
+                className="w-full bg-white dark:bg-slate-800/90 border border-slate-300 dark:border-slate-700/80 rounded-xl px-3 py-2 text-sm text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-orange-500/40"
               >
                 {COMBUSTIVEIS.map((c) => (
                   <option key={c.value} value={c.value}>
@@ -457,7 +457,7 @@ export function ModalLancamentoAbastecimento({
                   placeholder="0.000"
                   value={form.litros}
                   onChange={(e) => handleValorOuLitros("litros", e.target.value)}
-                  className="w-full bg-white dark:bg-slate-800/90 border border-slate-300 dark:border-slate-700/80 rounded-xl px-3 py-2 text-sm text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500/40"
+                  className="w-full bg-white dark:bg-slate-800/90 border border-slate-300 dark:border-slate-700/80 rounded-xl px-3 py-2 text-sm text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-orange-500/40"
                   required
                 />
               </div>
@@ -469,13 +469,13 @@ export function ModalLancamentoAbastecimento({
                 <MoedaInput
                   value={Number(form.valor_total) || 0}
                   onChange={(val) => handleValorOuLitros("valor_total", String(val))}
-                  className="w-full bg-white dark:bg-slate-800/90 border border-slate-300 dark:border-slate-700/80 rounded-xl px-3 py-2 text-sm font-semibold text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-emerald-500/40"
+                  className="w-full bg-white dark:bg-slate-800/90 border border-slate-300 dark:border-slate-700/80 rounded-xl px-3 py-2 text-sm font-semibold text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-orange-500/40"
                 />
               </div>
             </div>
 
             {form.valor_por_litro && Number(form.valor_por_litro) > 0 && (
-              <p className="text-xs text-emerald-600 dark:text-emerald-400 font-semibold text-right">
+              <p className="text-xs text-orange-600 dark:text-orange-400 font-semibold text-right">
                 Preço por litro: R$ {parseFloat(form.valor_por_litro).toFixed(3)}
               </p>
             )}
@@ -491,7 +491,7 @@ export function ModalLancamentoAbastecimento({
                   placeholder="Ex: Posto Ipiranga / Shell"
                   value={form.posto_nome}
                   onChange={(e) => set("posto_nome", e.target.value)}
-                  className="w-full bg-white dark:bg-slate-800/90 border border-slate-300 dark:border-slate-700/80 rounded-xl px-3 py-2 text-sm text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500/40"
+                  className="w-full bg-white dark:bg-slate-800/90 border border-slate-300 dark:border-slate-700/80 rounded-xl px-3 py-2 text-sm text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-orange-500/40"
                 />
               </div>
 
@@ -504,7 +504,7 @@ export function ModalLancamentoAbastecimento({
                   placeholder="Ex: Volta Redonda"
                   value={form.posto_cidade}
                   onChange={(e) => set("posto_cidade", e.target.value)}
-                  className="w-full bg-white dark:bg-slate-800/90 border border-slate-300 dark:border-slate-700/80 rounded-xl px-3 py-2 text-sm text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500/40"
+                  className="w-full bg-white dark:bg-slate-800/90 border border-slate-300 dark:border-slate-700/80 rounded-xl px-3 py-2 text-sm text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-orange-500/40"
                 />
               </div>
             </div>
@@ -519,7 +519,7 @@ export function ModalLancamentoAbastecimento({
                 placeholder="Ex: 206095"
                 value={form.nf_numero}
                 onChange={(e) => set("nf_numero", e.target.value)}
-                className="w-full bg-white dark:bg-slate-800/90 border border-slate-300 dark:border-slate-700/80 rounded-xl px-3 py-2 text-sm text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500/40"
+                className="w-full bg-white dark:bg-slate-800/90 border border-slate-300 dark:border-slate-700/80 rounded-xl px-3 py-2 text-sm text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-orange-500/40"
               />
             </div>
 
@@ -532,7 +532,7 @@ export function ModalLancamentoAbastecimento({
                 placeholder="Ex: Cartão corporativo, abastecimento completo"
                 value={form.observacoes}
                 onChange={(e) => set("observacoes", e.target.value)}
-                className="w-full bg-white dark:bg-slate-800/90 border border-slate-300 dark:border-slate-700/80 rounded-xl px-3 py-2 text-sm text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500/40"
+                className="w-full bg-white dark:bg-slate-800/90 border border-slate-300 dark:border-slate-700/80 rounded-xl px-3 py-2 text-sm text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-orange-500/40"
               />
             </div>
 
@@ -556,7 +556,7 @@ export function ModalLancamentoAbastecimento({
               <button
                 type="submit"
                 disabled={salvando || ocrLendo}
-                className="w-full sm:w-auto min-h-[44px] px-5 py-2.5 rounded-xl text-sm font-semibold bg-emerald-600 hover:bg-emerald-500 text-white shadow-md shadow-emerald-600/30 disabled:opacity-50 flex items-center justify-center gap-2 transition-all"
+                className="w-full sm:w-auto min-h-[44px] px-5 py-2.5 rounded-xl text-sm font-semibold bg-orange-600 hover:bg-orange-500 text-white shadow-md shadow-emerald-600/30 disabled:opacity-50 flex items-center justify-center gap-2 transition-all"
               >
                 {salvando ? (
                   <>

@@ -26,7 +26,7 @@ function PropostasRoute() {
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 border-b border-slate-200 dark:border-slate-800 pb-4">
         <div>
           <h1 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-white flex items-center gap-2">
-            <FileText className="h-6 w-6 text-emerald-500" />
+            <FileText className="h-6 w-6 text-orange-500" />
             Propostas Comerciais
           </h1>
           <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">

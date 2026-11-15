@@ -239,11 +239,11 @@ function CadastroInstaladorPage() {
               </div>
             ) : sucesso ? (
               <div className="text-center py-8 space-y-4">
-                <div className="w-14 h-14 rounded-2xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400 mx-auto">
+                <div className="w-14 h-14 rounded-2xl bg-orange-500/15 border border-orange-500/30 flex items-center justify-center text-orange-400 mx-auto">
                   <CheckCircle2 className="h-7 w-7" />
                 </div>
                 <div className="space-y-1.5">
-                  <h3 className="text-lg font-black text-emerald-400">
+                  <h3 className="text-lg font-black text-orange-400">
                     Cadastro Realizado com Sucesso!
                   </h3>
                   <p className="text-xs text-slate-300 max-w-md mx-auto leading-relaxed">
@@ -272,7 +272,7 @@ function CadastroInstaladorPage() {
                       <span className="text-xs font-mono font-bold text-amber-300 flex items-center gap-1.5 uppercase">
                         <Sparkles className="h-4 w-4" /> Ordem de Serviço Fantasma Atribuída
                       </span>
-                      <span className="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 text-[10px] font-mono font-bold">
+                      <span className="px-2 py-0.5 rounded-full bg-orange-500/20 text-orange-300 text-[10px] font-mono font-bold">
                         Kit J16 Liberado
                       </span>
                     </div>
@@ -310,7 +310,7 @@ function CadastroInstaladorPage() {
                     <div className="pt-2 border-t border-indigo-500/30 flex flex-col sm:flex-row gap-2">
                       <a
                         href="/instalacao?demo=true"
-                        className="flex-1 py-2.5 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center justify-center gap-1.5 transition text-center shadow-md shadow-emerald-600/20"
+                        className="flex-1 py-2.5 px-3 rounded-xl bg-orange-600 hover:bg-orange-500 text-white font-bold text-xs flex items-center justify-center gap-1.5 transition text-center shadow-md shadow-orange-600/20"
                       >
                         <Wrench className="h-3.5 w-3.5" />
                         <span>Abrir Módulo de Instalações e Executar OS Fantasma</span>
@@ -327,7 +327,7 @@ function CadastroInstaladorPage() {
                   <div className="pt-3">
                     <a
                       href="/login"
-                      className="inline-flex items-center justify-center px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-xs font-bold text-white shadow-lg shadow-emerald-600/20 transition"
+                      className="inline-flex items-center justify-center px-5 py-2.5 rounded-xl bg-orange-600 hover:bg-orange-500 text-xs font-bold text-white shadow-lg shadow-orange-600/20 transition"
                     >
                       Ir para a Página de Login
                     </a>
@@ -461,7 +461,7 @@ function CadastroInstaladorPage() {
                 {/* Chave PIX */}
                 <div className="space-y-1">
                   <label className="text-xs font-bold text-slate-300 flex items-center gap-1.5">
-                    <CreditCard className="h-3.5 w-3.5 text-emerald-400" />
+                    <CreditCard className="h-3.5 w-3.5 text-orange-400" />
                     <span>Chave PIX para Recebimento de Repasses</span>
                   </label>
                   <input
@@ -509,7 +509,7 @@ function CadastroInstaladorPage() {
                         value={valorSemBloqueador}
                         onChange={(e) => setValorSemBloqueador(e.target.value)}
                         placeholder="60,00"
-                        className="w-full bg-white dark:bg-slate-900 border border-slate-300/80 dark:border-slate-700/80 rounded-xl px-3.5 py-2 text-xs text-emerald-600 dark:text-emerald-400 font-mono font-bold focus:outline-none focus:border-emerald-500 shadow-xs transition"
+                        className="w-full bg-white dark:bg-slate-900 border border-slate-300/80 dark:border-slate-700/80 rounded-xl px-3.5 py-2 text-xs text-orange-600 dark:text-orange-400 font-mono font-bold focus:outline-none focus:border-orange-500 shadow-xs transition"
                       />
                       <span className="text-[10px] text-slate-500 block">
                         Apenas rastreador e telemetria básica.
@@ -540,7 +540,7 @@ function CadastroInstaladorPage() {
                   <button
                     type="submit"
                     disabled={enviando}
-                    className="w-full py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm shadow-lg shadow-emerald-600/25 transition disabled:opacity-50 flex items-center justify-center gap-2"
+                    className="w-full py-3 rounded-xl bg-orange-600 hover:bg-orange-500 text-white font-bold text-xs sm:text-sm shadow-lg shadow-orange-600/25 transition disabled:opacity-50 flex items-center justify-center gap-2"
                   >
                     <Wrench className="h-4 w-4" />
                     <span>

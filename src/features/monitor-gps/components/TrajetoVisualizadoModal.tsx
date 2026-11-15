@@ -250,7 +250,7 @@ export function TrajetoVisualizadoModal({
               <div className="absolute top-3 left-3 right-3 z-[1000] pointer-events-none">
                 <div className="bg-slate-900/90 backdrop-blur-md border border-slate-700/60 rounded-xl px-3 py-1.5 shadow-lg flex items-center justify-between text-xs text-slate-200 gap-2">
                   <div className="flex items-center gap-2 truncate">
-                    <span className="h-2 w-2 rounded-full bg-emerald-400 shrink-0 animate-pulse" />
+                    <span className="h-2 w-2 rounded-full bg-orange-400 shrink-0 animate-pulse" />
                     <span className="truncate">
                       {veiculoEstacionado
                         ? "Veículo permaneceu no mesmo local durante este acesso"
@@ -267,10 +267,10 @@ export function TrajetoVisualizadoModal({
             {/* Painel de Métricas e Locais de Início e Término */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {/* Local de Início */}
-              <div className="p-3.5 rounded-2xl border border-emerald-500/20 bg-emerald-500/5 dark:bg-emerald-950/20 space-y-1.5">
+              <div className="p-3.5 rounded-2xl border border-orange-500/20 bg-orange-500/5 dark:bg-orange-950/20 space-y-1.5">
                 <div className="flex items-center justify-between gap-2">
-                  <span className="text-[11px] font-bold text-emerald-600 dark:text-emerald-400 flex items-center gap-1.5">
-                    <span className="h-4 w-4 rounded-full bg-emerald-500 text-white flex items-center justify-center text-[9px] font-black">
+                  <span className="text-[11px] font-bold text-orange-600 dark:text-orange-400 flex items-center gap-1.5">
+                    <span className="h-4 w-4 rounded-full bg-orange-500 text-white flex items-center justify-center text-[9px] font-black">
                       A
                     </span>
                     Local de Início do Veículo
@@ -338,7 +338,7 @@ export function TrajetoVisualizadoModal({
                   Distância Vista
                 </span>
                 <span className="text-xs sm:text-sm font-bold text-slate-900 dark:text-slate-100 flex items-center gap-1 mt-0.5">
-                  <Navigation className="h-3.5 w-3.5 text-emerald-500" />
+                  <Navigation className="h-3.5 w-3.5 text-orange-500" />
                   {acesso.distancia_percorrida_km > 0
                     ? `${acesso.distancia_percorrida_km.toFixed(1)} km`
                     : "0 km (Parado)"}
@@ -414,7 +414,7 @@ export function TrajetoVisualizadoModal({
                   <Eye className="h-3.5 w-3.5 text-slate-400" />
                   <span>Modo Stealth: Não utilizado neste acesso</span>
                 </div>
-                <span className="text-[10px] text-emerald-600 dark:text-emerald-400 font-semibold">
+                <span className="text-[10px] text-orange-600 dark:text-orange-400 font-semibold">
                   Transmissão 100% em Tempo Real
                 </span>
               </div>
@@ -424,7 +424,7 @@ export function TrajetoVisualizadoModal({
           {/* Rodapé */}
           <div className="p-4 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950/40 flex items-center justify-between">
             <div className="text-[11px] text-slate-500 flex items-center gap-1.5">
-              <ShieldCheck className="h-3.5 w-3.5 text-emerald-500" />
+              <ShieldCheck className="h-3.5 w-3.5 text-orange-500" />
               <span>Auditoria forense do link de compartilhamento</span>
             </div>
             <button

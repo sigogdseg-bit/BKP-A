@@ -94,7 +94,7 @@ export function WebPushConfigModal({ aberto, onFechar }: WebPushConfigModalProps
             onClick={() => setAbaAtiva("status")}
             className={`pb-2.5 px-3 font-bold border-b-2 transition ${
               abaAtiva === "status"
-                ? "border-emerald-500 text-emerald-600 dark:text-emerald-400"
+                ? "border-orange-500 text-orange-600 dark:text-orange-400"
                 : "border-transparent text-slate-500 hover:text-slate-800 dark:hover:text-slate-200"
             }`}
           >
@@ -117,7 +117,7 @@ export function WebPushConfigModal({ aberto, onFechar }: WebPushConfigModalProps
             onClick={() => setAbaAtiva("android")}
             className={`pb-2.5 px-3 font-bold border-b-2 transition flex items-center gap-1.5 ${
               abaAtiva === "android"
-                ? "border-emerald-500 text-emerald-600 dark:text-emerald-400"
+                ? "border-orange-500 text-orange-600 dark:text-orange-400"
                 : "border-transparent text-slate-500 hover:text-slate-800 dark:hover:text-slate-200"
             }`}
           >
@@ -139,8 +139,8 @@ export function WebPushConfigModal({ aberto, onFechar }: WebPushConfigModalProps
                   <div className="mt-1 flex items-center gap-2">
                     {status.permissao === "granted" ? (
                       <>
-                        <CheckCircle2 className="h-4 w-4 text-emerald-500" />
-                        <span className="font-bold text-emerald-600 dark:text-emerald-400">
+                        <CheckCircle2 className="h-4 w-4 text-orange-500" />
+                        <span className="font-bold text-orange-600 dark:text-orange-400">
                           Autorizada (Ativa)
                         </span>
                       </>
@@ -197,7 +197,7 @@ export function WebPushConfigModal({ aberto, onFechar }: WebPushConfigModalProps
                     type="button"
                     onClick={handleSolicitarPermissao}
                     disabled={solicitando}
-                    className="w-full py-3 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center justify-center gap-2 transition shadow-lg shadow-emerald-600/20 active:scale-[0.99] disabled:opacity-50"
+                    className="w-full py-3 rounded-2xl bg-orange-600 hover:bg-orange-500 text-white font-bold text-xs flex items-center justify-center gap-2 transition shadow-lg shadow-orange-600/20 active:scale-[0.99] disabled:opacity-50"
                   >
                     <Bell className="h-4 w-4" />
                     <span>
@@ -205,8 +205,8 @@ export function WebPushConfigModal({ aberto, onFechar }: WebPushConfigModalProps
                     </span>
                   </button>
                 ) : (
-                  <div className="p-3.5 rounded-2xl bg-emerald-500/10 border border-emerald-500/25 text-emerald-800 dark:text-emerald-400 text-xs font-semibold flex items-center justify-center gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
+                  <div className="p-3.5 rounded-2xl bg-orange-500/10 border border-orange-500/25 text-orange-800 dark:text-orange-400 text-xs font-semibold flex items-center justify-center gap-2">
+                    <CheckCircle2 className="h-4 w-4 text-orange-600 dark:text-orange-400 shrink-0" />
                     <span>
                       Notificações ativas no dispositivo. Alertas operacionais e mensagens são
                       entregues instantaneamente.
@@ -238,7 +238,7 @@ export function WebPushConfigModal({ aberto, onFechar }: WebPushConfigModalProps
                 </li>
                 <li className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800">
                   <div className="flex items-center gap-1.5 font-bold text-slate-900 dark:text-white mb-1">
-                    <PlusSquare className="h-3.5 w-3.5 text-emerald-500" />
+                    <PlusSquare className="h-3.5 w-3.5 text-orange-500" />
                     <span>Adicionar à Tela de Início:</span>
                   </div>
                   Role as opções e selecione <strong>Adicionar à Tela de Início</strong>.
@@ -254,7 +254,7 @@ export function WebPushConfigModal({ aberto, onFechar }: WebPushConfigModalProps
 
           {abaAtiva === "android" && (
             <div className="space-y-3 leading-relaxed text-slate-700 dark:text-slate-300">
-              <div className="p-3 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 font-semibold text-emerald-800 dark:text-emerald-300">
+              <div className="p-3 rounded-2xl bg-orange-500/10 border border-orange-500/30 font-semibold text-orange-800 dark:text-orange-300">
                 Geração de App Android Nativo (APK) sem barra de URL
               </div>
 

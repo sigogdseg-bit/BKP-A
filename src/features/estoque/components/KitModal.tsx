@@ -217,13 +217,13 @@ export function KitModal({
     ? "w-full px-4 py-2 rounded-xl bg-white dark:bg-slate-950 text-slate-800 dark:text-slate-100 text-sm shadow-xs border border-slate-300/70 dark:border-slate-800 outline-none focus:ring-2 focus:ring-teal-500/30 transition [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
     : isStyleguide
       ? "w-full px-4 py-2 rounded-xl bg-[#F1F5F9] dark:bg-slate-950 text-slate-900 dark:text-slate-100 text-sm border border-[#CBD5E1] dark:border-slate-800 focus:border-[#00CFCC] focus:ring-2 focus:ring-[#00CFCC]/20 outline-none transition shadow-xs [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
-      : "w-full px-4 py-2 rounded-xl bg-white dark:bg-slate-950 text-slate-800 dark:text-slate-100 text-sm border border-slate-300/70 dark:border-slate-800 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 shadow-xs outline-none transition [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none";
+      : "w-full px-4 py-2 rounded-xl bg-white dark:bg-slate-950 text-slate-800 dark:text-slate-100 text-sm border border-slate-300/70 dark:border-slate-800 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 shadow-xs outline-none transition [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none";
 
   const btnSubmitClass = isNeumorph
     ? "px-6 py-2.5 rounded-xl font-bold text-sm text-slate-900 bg-[#9EBCEE] hover:bg-[#00CFCC] hover:text-slate-950 shadow-xs transition-all flex items-center justify-center gap-2"
     : isStyleguide
       ? "px-6 py-2.5 rounded-xl font-black text-sm text-[#064E3B] bg-[#9EE5D4] hover:bg-[#86ddc7] shadow-[0_4px_12px_rgba(158,229,212,0.4)] border border-[#7ed7c0] active:scale-95 transition flex items-center justify-center gap-2"
-      : "px-6 py-2.5 rounded-xl font-bold text-sm text-white bg-emerald-600 hover:bg-emerald-500 transition flex items-center justify-center gap-2 shadow-md shadow-emerald-500/20";
+      : "px-6 py-2.5 rounded-xl font-bold text-sm text-white bg-orange-600 hover:bg-orange-500 transition flex items-center justify-center gap-2 shadow-md shadow-orange-500/20";
 
   return (
     <ModalPortal>
@@ -458,7 +458,7 @@ export function KitModal({
                     required
                     value={precoVenda}
                     onChange={(e) => setPrecoVenda(Number(e.target.value))}
-                    className={`${inputClass} font-mono font-bold text-base text-emerald-700 dark:text-emerald-400 pl-10 pr-3`}
+                    className={`${inputClass} font-mono font-bold text-base text-orange-700 dark:text-orange-400 pl-10 pr-3`}
                   />
                 </div>
               </div>
@@ -572,7 +572,7 @@ export function KitModal({
                             setMarkupPercentual(Number(novoMk.toFixed(2)));
                           }
                         }}
-                        className={`${inputClass} font-mono font-bold text-base text-emerald-700 dark:text-emerald-400 pl-10 pr-3`}
+                        className={`${inputClass} font-mono font-bold text-base text-orange-700 dark:text-orange-400 pl-10 pr-3`}
                       />
                     </div>
                   </div>
@@ -581,9 +581,9 @@ export function KitModal({
                 {/* Badges de Análise de Rentabilidade */}
                 <div className="flex flex-wrap items-center justify-between gap-2 p-2.5 rounded-xl bg-white/70 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 text-xs">
                   <div className="flex items-center gap-1.5">
-                    <TrendingUp className="w-3.5 h-3.5 text-emerald-500" />
+                    <TrendingUp className="w-3.5 h-3.5 text-orange-500" />
                     <span className="text-slate-500 dark:text-slate-400">Lucro Bruto no Kit:</span>
-                    <span className="font-mono font-bold text-emerald-600 dark:text-emerald-400">
+                    <span className="font-mono font-bold text-orange-600 dark:text-orange-400">
                       R$ {analise.lucroBruto.toFixed(2)}
                     </span>
                   </div>
@@ -593,7 +593,7 @@ export function KitModal({
                     <span
                       className={`font-mono font-bold px-1.5 py-0.2 rounded text-[11px] ${
                         analise.margemBrutaPercentual >= 30
-                          ? "bg-emerald-500/15 text-emerald-700 dark:text-emerald-400 border border-emerald-500/30"
+                          ? "bg-orange-500/15 text-orange-700 dark:text-orange-400 border border-orange-500/30"
                           : analise.margemBrutaPercentual > 0
                             ? "bg-amber-500/15 text-amber-700 dark:text-amber-400 border border-amber-500/30"
                             : "bg-rose-500/15 text-rose-700 dark:text-rose-400 border border-rose-500/30"

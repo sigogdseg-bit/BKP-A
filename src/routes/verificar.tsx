@@ -103,7 +103,7 @@ function PaginaVerificacaoPublica() {
       {/* Cabeçalho */}
       <header className="max-w-4xl mx-auto w-full flex items-center justify-between pb-6 border-b border-slate-800">
         <div className="flex items-center gap-3">
-          <div className="p-2.5 rounded-2xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 shadow-lg shadow-emerald-500/5">
+          <div className="p-2.5 rounded-2xl bg-orange-500/10 text-orange-400 border border-orange-500/20 shadow-lg shadow-emerald-500/5">
             <ShieldCheck className="h-6 w-6" />
           </div>
           <div>
@@ -123,7 +123,7 @@ function PaginaVerificacaoPublica() {
         <div className="p-5 sm:p-6 rounded-2xl bg-slate-900/80 border border-slate-800 shadow-xl space-y-4">
           <div className="space-y-1">
             <h2 className="text-sm sm:text-base font-bold text-white flex items-center gap-2">
-              <Search className="h-4 w-4 text-emerald-400" />
+              <Search className="h-4 w-4 text-orange-400" />
               <span>Verificar Autenticidade de Documento</span>
             </h2>
             <p className="text-xs text-slate-400">
@@ -145,14 +145,14 @@ function PaginaVerificacaoPublica() {
                 value={identificador}
                 onChange={(e) => setIdentificador(e.target.value)}
                 placeholder="Ex: SGD-A1B2C3D4 ou K9X2P4 ou Hash SHA-256"
-                className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-700 text-white placeholder-slate-500 text-xs sm:text-sm font-mono focus:outline-hidden focus:ring-2 focus:ring-emerald-500"
+                className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-700 text-white placeholder-slate-500 text-xs sm:text-sm font-mono focus:outline-hidden focus:ring-2 focus:ring-orange-500"
               />
             </div>
 
             <button
               type="submit"
               disabled={carregando}
-              className="px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm transition shadow-lg shadow-emerald-600/20 active:scale-95 cursor-pointer disabled:opacity-50 flex items-center justify-center gap-2"
+              className="px-6 py-3 rounded-xl bg-orange-600 hover:bg-orange-500 text-white font-bold text-xs sm:text-sm transition shadow-lg shadow-orange-600/20 active:scale-95 cursor-pointer disabled:opacity-50 flex items-center justify-center gap-2"
             >
               {carregando ? (
                 <>
@@ -172,7 +172,7 @@ function PaginaVerificacaoPublica() {
           <div className="pt-2 flex items-center justify-between text-xs text-slate-400 border-t border-slate-800/80">
             <span>Possui o arquivo PDF original?</span>
             <label className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 cursor-pointer transition border border-slate-700">
-              <Upload className="h-3.5 w-3.5 text-emerald-400" />
+              <Upload className="h-3.5 w-3.5 text-orange-400" />
               <span>Enviar Arquivo PDF</span>
               <input
                 type="file"
@@ -189,7 +189,7 @@ function PaginaVerificacaoPublica() {
           <div
             className={`p-6 rounded-2xl border transition shadow-2xl space-y-4 animate-in fade-in zoom-in-95 duration-200 ${
               resultado.autentico
-                ? "bg-slate-900/90 border-emerald-500/40 text-slate-100"
+                ? "bg-slate-900/90 border-orange-500/40 text-slate-100"
                 : "bg-red-950/30 border-red-500/40 text-slate-100"
             }`}
           >
@@ -199,7 +199,7 @@ function PaginaVerificacaoPublica() {
                 <div
                   className={`p-3 rounded-2xl ${
                     resultado.autentico
-                      ? "bg-emerald-500/20 text-emerald-400 border border-emerald-500/30"
+                      ? "bg-orange-500/20 text-orange-400 border border-orange-500/30"
                       : "bg-red-500/20 text-red-400 border border-red-500/30"
                   }`}
                 >
@@ -226,7 +226,7 @@ function PaginaVerificacaoPublica() {
                     <span>Substituído por Atualização</span>
                   </span>
                 ) : (
-                  <span className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
+                  <span className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-orange-500/15 text-orange-400 border border-orange-500/30">
                     <ShieldCheck className="h-3.5 w-3.5" />
                     <span>Íntegro e Válido</span>
                   </span>
@@ -271,7 +271,7 @@ function PaginaVerificacaoPublica() {
                     <button
                       type="button"
                       onClick={() => copiarTexto(resultado.selo_autenticidade || "", "Selo")}
-                      className="font-mono font-bold text-emerald-400 flex items-center gap-1.5 hover:underline cursor-pointer"
+                      className="font-mono font-bold text-orange-400 flex items-center gap-1.5 hover:underline cursor-pointer"
                     >
                       <span>{resultado.selo_autenticidade}</span>
                       <Copy className="h-3 w-3" />
@@ -299,7 +299,7 @@ function PaginaVerificacaoPublica() {
                         resultado.status === "atualizado"
                           ? "text-amber-400"
                           : resultado.status === "assinado"
-                            ? "text-emerald-400"
+                            ? "text-orange-400"
                             : "text-sky-400"
                       }`}
                     >
@@ -325,7 +325,7 @@ function PaginaVerificacaoPublica() {
                   {resultado.data_assinatura && (
                     <div className="sm:col-span-2">
                       <span className="text-slate-400 block text-[11px]">Data da Assinatura:</span>
-                      <span className="text-emerald-300 font-semibold">
+                      <span className="text-orange-300 font-semibold">
                         {new Date(resultado.data_assinatura).toLocaleString("pt-BR")}
                       </span>
                     </div>
@@ -336,7 +336,7 @@ function PaginaVerificacaoPublica() {
                 <div className="space-y-2 bg-slate-950/80 p-4 rounded-xl border border-slate-800 font-mono text-[11px]">
                   <div>
                     <div className="flex items-center justify-between text-slate-400 mb-0.5">
-                      <span className="text-[10px] uppercase font-bold text-emerald-400">
+                      <span className="text-[10px] uppercase font-bold text-orange-400">
                         Hash SHA-256 do Documento Assinado:
                       </span>
                       {resultado.hash_pdf_assinado && (
@@ -389,7 +389,7 @@ function PaginaVerificacaoPublica() {
                       download
                       className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs transition border border-slate-700 shadow-md cursor-pointer"
                     >
-                      <Download className="h-4 w-4 text-emerald-400" />
+                      <Download className="h-4 w-4 text-orange-400" />
                       <span>Baixar Documento Original em PDF</span>
                     </a>
                   </div>

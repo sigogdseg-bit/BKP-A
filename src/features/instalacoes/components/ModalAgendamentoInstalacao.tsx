@@ -346,7 +346,7 @@ export function ModalAgendamentoInstalacao({
               {/* Seletor de Local de Atendimento */}
               <div className="space-y-2 pt-1 border-t border-slate-200/80 dark:border-slate-800">
                 <label className="text-xs font-bold text-slate-800 dark:text-slate-200 flex items-center gap-1">
-                  <MapPin className="h-3.5 w-3.5 text-emerald-500" />
+                  <MapPin className="h-3.5 w-3.5 text-orange-500" />
                   <span>Local de Atendimento</span>
                 </label>
 
@@ -403,13 +403,13 @@ export function ModalAgendamentoInstalacao({
                   <div className="p-3 rounded-2xl bg-sky-500/10 border border-sky-500/25 space-y-2 mt-2">
                     {enderecoClienteInformadoAtual ? (
                       <div>
-                        <div className="flex items-center justify-between text-xs font-bold text-emerald-700 dark:text-emerald-400">
+                        <div className="flex items-center justify-between text-xs font-bold text-orange-700 dark:text-orange-400">
                           <span className="flex items-center gap-1">
                             <Check className="h-3.5 w-3.5" />
                             <span>Endereço informado pelo cliente:</span>
                           </span>
                         </div>
-                        <div className="mt-1 text-xs font-medium text-slate-900 dark:text-slate-100 bg-white dark:bg-slate-900 p-2 rounded-xl border border-emerald-500/30 font-mono">
+                        <div className="mt-1 text-xs font-medium text-slate-900 dark:text-slate-100 bg-white dark:bg-slate-900 p-2 rounded-xl border border-orange-500/30 font-mono">
                           {enderecoClienteInformadoAtual}
                         </div>
                       </div>

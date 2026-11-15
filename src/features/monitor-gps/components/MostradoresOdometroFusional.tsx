@@ -215,7 +215,7 @@ export function MostradoresOdometroFusional({
             <div>
               <h4 className="text-xs sm:text-sm font-black text-slate-900 dark:text-slate-100 flex items-center gap-1.5">
                 <span>Laboratório de Odometria Fusional</span>
-                <span className="px-1.5 py-0.5 rounded text-[10px] font-bold bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30">
+                <span className="px-1.5 py-0.5 rounded text-[10px] font-bold bg-orange-500/15 text-orange-600 dark:text-orange-400 border border-orange-500/30">
                   Veículo {placaVeiculo}
                 </span>
               </h4>
@@ -279,7 +279,7 @@ export function MostradoresOdometroFusional({
               <span>{leituraA.odometroMetros.toLocaleString("pt-BR")} m</span>
               <span
                 className={
-                  leituraA.deltaMetros > 0 ? "text-emerald-400 font-bold" : "text-slate-500"
+                  leituraA.deltaMetros > 0 ? "text-orange-400 font-bold" : "text-slate-500"
                 }
               >
                 {leituraA.deltaMetros > 0 ? `+${leituraA.deltaMetros.toFixed(1)} m` : "0.0 m"}
@@ -296,7 +296,7 @@ export function MostradoresOdometroFusional({
               <span
                 className={`text-[11px] font-bold flex items-center gap-1 ${
                   leituraA.estadoZvu === "MOVIMENTO"
-                    ? "text-emerald-600 dark:text-emerald-400"
+                    ? "text-orange-600 dark:text-orange-400"
                     : "text-amber-600 dark:text-amber-400"
                 }`}
               >
@@ -393,7 +393,7 @@ export function MostradoresOdometroFusional({
               <span>{leituraB.odometroMetros.toLocaleString("pt-BR")} m</span>
               <span
                 className={
-                  leituraB.deltaMetros > 0 ? "text-emerald-400 font-bold" : "text-slate-500"
+                  leituraB.deltaMetros > 0 ? "text-orange-400 font-bold" : "text-slate-500"
                 }
               >
                 {leituraB.deltaMetros > 0 ? `+${leituraB.deltaMetros.toFixed(1)} m` : "0.0 m"}
@@ -410,7 +410,7 @@ export function MostradoresOdometroFusional({
               <span
                 className={`text-[11px] font-bold flex items-center gap-1 ${
                   leituraB.estadoZvu === "MOVIMENTO"
-                    ? "text-emerald-600 dark:text-emerald-400"
+                    ? "text-orange-600 dark:text-orange-400"
                     : "text-amber-600 dark:text-amber-400"
                 }`}
               >
@@ -471,8 +471,8 @@ export function MostradoresOdometroFusional({
         {/* ================================================================= */}
         {/* MOSTRADOR C */}
         {/* ================================================================= */}
-        <div className="flex flex-col rounded-2xl bg-white dark:bg-slate-900/95 border-2 border-emerald-500/70 dark:border-emerald-500/60 p-3.5 shadow-md shadow-emerald-500/5 relative">
-          <div className="absolute -top-2.5 right-4 px-2 py-0.5 rounded-full text-[9px] font-black uppercase tracking-wider bg-emerald-500 text-white shadow-sm flex items-center gap-1">
+        <div className="flex flex-col rounded-2xl bg-white dark:bg-slate-900/95 border-2 border-orange-500/70 dark:border-orange-500/60 p-3.5 shadow-md shadow-emerald-500/5 relative">
+          <div className="absolute -top-2.5 right-4 px-2 py-0.5 rounded-full text-[9px] font-black uppercase tracking-wider bg-orange-500 text-white shadow-sm flex items-center gap-1">
             <Sparkles className="w-2.5 h-2.5" />
             <span>Recomendado SIGO</span>
           </div>
@@ -480,7 +480,7 @@ export function MostradoresOdometroFusional({
           {/* Header do Mostrador C */}
           <div className="flex items-start justify-between gap-2 pb-2.5 border-b border-slate-100 dark:border-slate-800/80">
             <div>
-              <span className="inline-block px-2 py-0.5 rounded-md text-[10px] font-black uppercase tracking-wider bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30">
+              <span className="inline-block px-2 py-0.5 rounded-md text-[10px] font-black uppercase tracking-wider bg-orange-500/15 text-orange-600 dark:text-orange-400 border border-orange-500/30">
                 Mostrador C
               </span>
               <h5 className="text-xs font-black text-slate-900 dark:text-slate-100 mt-1">
@@ -490,19 +490,19 @@ export function MostradoresOdometroFusional({
                 Taylor 4ª Ordem e ZVU 6 Regras
               </p>
             </div>
-            <div className="p-1.5 rounded-lg bg-emerald-50 dark:bg-slate-800 text-emerald-500">
+            <div className="p-1.5 rounded-lg bg-orange-50 dark:bg-slate-800 text-orange-500">
               <Cpu className="w-4 h-4" />
             </div>
           </div>
 
           {/* Display Digital Automotivo do Odômetro */}
-          <div className="my-3 p-3 rounded-xl bg-slate-950 border border-emerald-500/30 text-center relative overflow-hidden shadow-inner">
-            <div className="absolute top-1 left-2 text-[9px] font-mono tracking-widest text-emerald-500/80 uppercase">
+          <div className="my-3 p-3 rounded-xl bg-slate-950 border border-orange-500/30 text-center relative overflow-hidden shadow-inner">
+            <div className="absolute top-1 left-2 text-[9px] font-mono tracking-widest text-orange-500/80 uppercase">
               ODOMETER · KM (ALVO CANÔNICO)
             </div>
-            <div className="text-2xl sm:text-3xl font-black font-mono tracking-wider text-emerald-400 pt-3 pb-1 select-all">
+            <div className="text-2xl sm:text-3xl font-black font-mono tracking-wider text-orange-400 pt-3 pb-1 select-all">
               {Math.floor(leituraC.odometroKm).toLocaleString("pt-BR")}
-              <span className="text-lg text-emerald-300/80">
+              <span className="text-lg text-orange-300/80">
                 ,{(leituraC.odometroKm % 1).toFixed(3).substring(2)}
               </span>
             </div>
@@ -510,7 +510,7 @@ export function MostradoresOdometroFusional({
               <span>{leituraC.odometroMetros.toLocaleString("pt-BR")} m</span>
               <span
                 className={
-                  leituraC.deltaMetros > 0 ? "text-emerald-400 font-bold" : "text-slate-500"
+                  leituraC.deltaMetros > 0 ? "text-orange-400 font-bold" : "text-slate-500"
                 }
               >
                 {leituraC.deltaMetros > 0 ? `+${leituraC.deltaMetros.toFixed(1)} m` : "0.0 m"}
@@ -520,15 +520,15 @@ export function MostradoresOdometroFusional({
 
           {/* Status ZVU e Detalhes */}
           <div className="space-y-2 text-xs flex-1">
-            <div className="flex items-center justify-between p-2 rounded-lg bg-emerald-50/60 dark:bg-emerald-950/20 border border-emerald-100 dark:border-emerald-900/40">
+            <div className="flex items-center justify-between p-2 rounded-lg bg-orange-50/60 dark:bg-orange-950/20 border border-emerald-100 dark:border-emerald-900/40">
               <span className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">
                 Anti-KM Fantasma (ZVU)
               </span>
               <span
                 className={`text-[11px] font-bold flex items-center gap-1 ${
                   leituraC.estadoZvu === "MOVIMENTO"
-                    ? "text-emerald-600 dark:text-emerald-400"
-                    : "text-emerald-600 dark:text-emerald-400"
+                    ? "text-orange-600 dark:text-orange-400"
+                    : "text-orange-600 dark:text-orange-400"
                 }`}
               >
                 {leituraC.estadoZvu === "MOVIMENTO" ? (
@@ -547,7 +547,7 @@ export function MostradoresOdometroFusional({
 
             <div className="flex items-center justify-between text-[11px] px-1 text-slate-600 dark:text-slate-400">
               <span>Fator K (Pneu e Roda):</span>
-              <strong className="font-mono text-emerald-600 dark:text-emerald-400">
+              <strong className="font-mono text-orange-600 dark:text-orange-400">
                 {leituraC.fatorCalibracaoK.toFixed(8)}
               </strong>
             </div>
@@ -574,13 +574,13 @@ export function MostradoresOdometroFusional({
                 />
                 <div
                   style={{ width: `${leituraC.pesos.mcuJ16}%` }}
-                  className="bg-emerald-500"
+                  className="bg-orange-500"
                   title={`MCU J16 (0x94): ${leituraC.pesos.mcuJ16}%`}
                 />
               </div>
             </div>
 
-            <div className="p-2 rounded-lg bg-emerald-50/60 dark:bg-emerald-950/20 text-[10px] text-emerald-800 dark:text-emerald-300 leading-tight">
+            <div className="p-2 rounded-lg bg-orange-50/60 dark:bg-orange-950/20 text-[10px] text-orange-800 dark:text-orange-300 leading-tight">
               Fusão elipsoidal WGS-84, expansão de Taylor de 4ª ordem, compatível com estado
               persistido no banco Supabase e protocolo GT06 pacote 0x94.
             </div>
@@ -592,7 +592,7 @@ export function MostradoresOdometroFusional({
       <div className="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-3">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <Activity className="w-4 h-4 text-emerald-500" />
+            <Activity className="w-4 h-4 text-orange-500" />
             <h5 className="text-xs font-black text-slate-900 dark:text-slate-100 uppercase tracking-wider">
               Simulador Interativo de Telemetria J16
             </h5>
@@ -611,7 +611,7 @@ export function MostradoresOdometroFusional({
                 onClick={() => executarCenario(cenario)}
                 className={`flex flex-col text-left p-2.5 rounded-xl border transition cursor-pointer ${
                   ativo
-                    ? "bg-emerald-50 dark:bg-emerald-950/40 border-emerald-500 text-emerald-950 dark:text-emerald-200 shadow-sm"
+                    ? "bg-orange-50 dark:bg-orange-950/40 border-orange-500 text-emerald-950 dark:text-orange-200 shadow-sm"
                     : "bg-slate-50 hover:bg-slate-100 dark:bg-slate-800/60 dark:hover:bg-slate-800 border-slate-200 dark:border-slate-700/80 text-slate-700 dark:text-slate-300"
                 }`}
               >
@@ -647,9 +647,7 @@ export function MostradoresOdometroFusional({
               <th className="p-3">Característica / Critério</th>
               <th className="p-3">Proposta A (Bayesiana 1D)</th>
               <th className="p-3">Proposta B (Haversine Simples)</th>
-              <th className="p-3 text-emerald-600 dark:text-emerald-400">
-                Proposta C (EKF 1D SIGO)
-              </th>
+              <th className="p-3 text-orange-600 dark:text-orange-400">Proposta C (EKF 1D SIGO)</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-slate-100 dark:divide-slate-800 text-[11px] text-slate-700 dark:text-slate-300">
@@ -659,7 +657,7 @@ export function MostradoresOdometroFusional({
               </td>
               <td className="p-3">WGS-84 Elipsoidal Gaussiano</td>
               <td className="p-3 text-amber-600 dark:text-amber-400">Esférico Simples (6371 km)</td>
-              <td className="p-3 font-semibold text-emerald-600 dark:text-emerald-400">
+              <td className="p-3 font-semibold text-orange-600 dark:text-orange-400">
                 WGS-84 Diferencial M(φ) e N(φ)
               </td>
             </tr>
@@ -669,7 +667,7 @@ export function MostradoresOdometroFusional({
               </td>
               <td className="p-3">Arco circular trigonométrico (teto 18%)</td>
               <td className="p-3 text-red-500">Ausente (Corda linear)</td>
-              <td className="p-3 font-semibold text-emerald-600 dark:text-emerald-400">
+              <td className="p-3 font-semibold text-orange-600 dark:text-orange-400">
                 Taylor 4ª ordem + Arco (teto 22%)
               </td>
             </tr>
@@ -679,7 +677,7 @@ export function MostradoresOdometroFusional({
               </td>
               <td className="p-3">Histerese de 4 regras</td>
               <td className="p-3">3 paradas simples</td>
-              <td className="p-3 font-semibold text-emerald-600 dark:text-emerald-400">
+              <td className="p-3 font-semibold text-orange-600 dark:text-orange-400">
                 6 regras físicas estritas (ACC, Doppler, Glitch)
               </td>
             </tr>
@@ -691,7 +689,7 @@ export function MostradoresOdometroFusional({
               <td className="p-3 text-amber-600 dark:text-amber-400">
                 Sobrescrita direta (K=1 fixo)
               </td>
-              <td className="p-3 font-semibold text-emerald-600 dark:text-emerald-400">
+              <td className="p-3 font-semibold text-orange-600 dark:text-orange-400">
                 EWMA adaptativo + Reconciliação histórica
               </td>
             </tr>
@@ -701,7 +699,7 @@ export function MostradoresOdometroFusional({
               </td>
               <td className="p-3">In-memory / Standalone</td>
               <td className="p-3">In-memory</td>
-              <td className="p-3 font-semibold text-emerald-600 dark:text-emerald-400">
+              <td className="p-3 font-semibold text-orange-600 dark:text-orange-400">
                 Interface EstadoPersistidoOdometro pronta
               </td>
             </tr>

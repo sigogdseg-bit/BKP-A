@@ -234,8 +234,8 @@ export function AbastecimentoPanel({
   if (sucesso) {
     return (
       <div className="flex flex-col items-center justify-center py-16 text-center space-y-4">
-        <div className="rounded-full bg-emerald-500/10 p-4">
-          <CheckCircle className="h-10 w-10 text-emerald-400" />
+        <div className="rounded-full bg-orange-500/10 p-4">
+          <CheckCircle className="h-10 w-10 text-orange-400" />
         </div>
         <h3 className="text-lg font-bold text-slate-200">Abastecimento registrado!</h3>
         <p className="text-sm text-slate-400 max-w-xs">
@@ -282,7 +282,7 @@ export function AbastecimentoPanel({
         </button>
         <div>
           <h2 className="text-base font-bold text-slate-200 flex items-center gap-2">
-            <Fuel className="h-5 w-5 text-emerald-400" />
+            <Fuel className="h-5 w-5 text-orange-400" />
             Registrar Abastecimento
           </h2>
           <p className="text-xs text-slate-400">{veiculoPlaca}</p>
@@ -354,7 +354,7 @@ export function AbastecimentoPanel({
             ) : (
               <>
                 <div className="flex items-center gap-2 text-slate-400">
-                  <Camera className="h-7 w-7 text-emerald-400" />
+                  <Camera className="h-7 w-7 text-orange-400" />
                   <Sparkles className="h-4 w-4 text-amber-400 animate-pulse" />
                 </div>
                 <p className="text-sm font-medium text-slate-200">Foto ou PDF da Nota Fiscal</p>
@@ -371,7 +371,7 @@ export function AbastecimentoPanel({
       <div className="p-4 rounded-2xl border border-slate-700/80 bg-gradient-to-r from-emerald-500/10 via-sky-500/5 to-transparent space-y-3">
         <div className="flex items-center justify-between gap-3 flex-wrap">
           <div className="flex items-center gap-2.5">
-            <div className="p-2 rounded-xl bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 shrink-0">
+            <div className="p-2 rounded-xl bg-orange-500/20 text-orange-400 border border-orange-500/30 shrink-0">
               <Fuel className="h-4 w-4" />
             </div>
             <div>
@@ -391,7 +391,7 @@ export function AbastecimentoPanel({
               onClick={() => handleRespostaPosto(true)}
               className={`px-3 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 cursor-pointer ${
                 estaNoPosto === true
-                  ? "bg-emerald-600 text-white shadow-xs"
+                  ? "bg-orange-600 text-white shadow-xs"
                   : "bg-slate-800 border border-slate-700 text-slate-300 hover:bg-slate-700"
               }`}
             >
@@ -415,8 +415,8 @@ export function AbastecimentoPanel({
         </div>
 
         {estaNoPosto === true && (
-          <div className="p-2.5 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center gap-2 text-xs text-emerald-300 font-medium animate-in fade-in duration-150">
-            <Sparkles className="h-4 w-4 shrink-0 text-emerald-400" />
+          <div className="p-2.5 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center gap-2 text-xs text-orange-300 font-medium animate-in fade-in duration-150">
+            <Sparkles className="h-4 w-4 shrink-0 text-orange-400" />
             <span>
               Modo de calibração ativo: complete o campo <strong>KM Atual</strong> com os 3 dígitos
               finais que aparecem no painel do carro para atualizar o odômetro real do veículo!
@@ -446,14 +446,14 @@ export function AbastecimentoPanel({
                 onChange={(e) => set("km_atual", e.target.value)}
                 className={`${inputCls} ${
                   estaNoPosto === true
-                    ? "border-emerald-500 bg-emerald-950/20 text-emerald-200 focus:ring-emerald-500"
+                    ? "border-orange-500 bg-emerald-950/20 text-emerald-200 focus:ring-orange-500"
                     : ""
                 }`}
                 placeholder={estaNoPosto === true ? "3 últimos dígitos" : "0"}
                 min="0"
               />
               {estaNoPosto === true && (
-                <p className="text-[10px] text-emerald-400 font-medium">
+                <p className="text-[10px] text-orange-400 font-medium">
                   * Prefixo carregado. Complete com os 3 dígitos finais do painel.
                 </p>
               )}
@@ -500,7 +500,7 @@ export function AbastecimentoPanel({
         </div>
 
         {form.valor_por_litro && (
-          <p className="text-xs text-emerald-400 text-right">
+          <p className="text-xs text-orange-400 text-right">
             R$ {parseFloat(form.valor_por_litro).toFixed(4)} / litro
           </p>
         )}
@@ -563,7 +563,7 @@ export function AbastecimentoPanel({
         onClick={handleSalvar}
         disabled={salvando}
         className="w-full flex items-center justify-center gap-2 py-3 rounded-xl
-          bg-emerald-600 hover:bg-emerald-500 disabled:opacity-60
+          bg-orange-600 hover:bg-orange-500 disabled:opacity-60
           text-white font-semibold transition-colors"
       >
         {salvando ? (

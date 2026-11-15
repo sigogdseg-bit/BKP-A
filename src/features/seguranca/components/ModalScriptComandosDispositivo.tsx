@@ -163,7 +163,7 @@ export function ModalScriptComandosDispositivo({
                     title="Copiar comando individual"
                   >
                     {comandoCopiadoIdx === idx ? (
-                      <Check className="h-4 w-4 text-emerald-500" />
+                      <Check className="h-4 w-4 text-orange-500" />
                     ) : (
                       <Copy className="h-4 w-4" />
                     )}
@@ -212,7 +212,7 @@ export function ModalScriptComandosDispositivo({
                 title="Copiar comandos concatenados por ponto e vírgula"
               >
                 {copiadoSms ? (
-                  <Check className="h-4 w-4 text-emerald-500" />
+                  <Check className="h-4 w-4 text-orange-500" />
                 ) : (
                   <FileCode className="h-4 w-4" />
                 )}

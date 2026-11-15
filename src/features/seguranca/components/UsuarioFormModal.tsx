@@ -273,7 +273,7 @@ export function UsuarioFormModal({ usuario, onSalvo, onFechar }: UsuarioFormModa
           {/* Cabeçalho Fixo */}
           <div className="p-4 sm:p-5 border-b border-slate-300/60 dark:border-slate-800 flex items-center justify-between shrink-0 bg-[#eaf0f8]/90 dark:bg-slate-900/80 backdrop-blur-md">
             <div className="flex items-center gap-3">
-              <div className="h-10 w-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shrink-0">
+              <div className="h-10 w-10 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-orange-600 dark:text-orange-400 shrink-0">
                 <User className="h-5 w-5" />
               </div>
               <div>
@@ -310,7 +310,7 @@ export function UsuarioFormModal({ usuario, onSalvo, onFechar }: UsuarioFormModa
                       value={nome}
                       onChange={(e) => setNome(e.target.value)}
                       placeholder="Ex: Carlos Eduardo Silva"
-                      className="w-full pl-9 pr-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-slate-100 text-xs focus:border-emerald-500 focus:outline-none"
+                      className="w-full pl-9 pr-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-slate-100 text-xs focus:border-orange-500 focus:outline-none"
                     />
                   </div>
                 </div>
@@ -336,7 +336,7 @@ export function UsuarioFormModal({ usuario, onSalvo, onFechar }: UsuarioFormModa
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="usuario@empresa.com.br"
-                      className="w-full pl-9 pr-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-slate-100 text-xs focus:border-emerald-500 focus:outline-none disabled:opacity-60"
+                      className="w-full pl-9 pr-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-slate-100 text-xs focus:border-orange-500 focus:outline-none disabled:opacity-60"
                     />
                   </div>
                 </div>
@@ -382,7 +382,7 @@ export function UsuarioFormModal({ usuario, onSalvo, onFechar }: UsuarioFormModa
                     <button
                       type="button"
                       onClick={gerarSenhaForte}
-                      className="text-[11px] font-bold text-emerald-600 dark:text-emerald-400 hover:underline flex items-center gap-1"
+                      className="text-[11px] font-bold text-orange-600 dark:text-orange-400 hover:underline flex items-center gap-1"
                     >
                       <RefreshCw className="h-3 w-3" />
                       Gerar Senha Forte
@@ -397,7 +397,7 @@ export function UsuarioFormModal({ usuario, onSalvo, onFechar }: UsuarioFormModa
                         value={senha}
                         onChange={(e) => setSenha(e.target.value)}
                         placeholder="Mínimo 6 caracteres"
-                        className="w-full pl-9 pr-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-slate-100 font-mono text-xs focus:border-emerald-500 focus:outline-none"
+                        className="w-full pl-9 pr-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-slate-100 font-mono text-xs focus:border-orange-500 focus:outline-none"
                       />
                     </div>
                     {senha && (
@@ -408,7 +408,7 @@ export function UsuarioFormModal({ usuario, onSalvo, onFechar }: UsuarioFormModa
                         title="Copiar senha"
                       >
                         {copiado ? (
-                          <Check className="h-4 w-4 text-emerald-500" />
+                          <Check className="h-4 w-4 text-orange-500" />
                         ) : (
                           <Copy className="h-4 w-4" />
                         )}
@@ -452,7 +452,7 @@ export function UsuarioFormModal({ usuario, onSalvo, onFechar }: UsuarioFormModa
                         toast.success("Perfil Cliente Titular selecionado.");
                       }
                     }}
-                    className="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-slate-100 text-xs focus:border-emerald-500 focus:outline-none disabled:opacity-80"
+                    className="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-slate-100 text-xs focus:border-orange-500 focus:outline-none disabled:opacity-80"
                   >
                     {isSuperAdm ? (
                       <option value="superadmin">SuperADM (Governança e Infraestrutura)</option>
@@ -511,7 +511,7 @@ export function UsuarioFormModal({ usuario, onSalvo, onFechar }: UsuarioFormModa
                             );
                           }}
                           placeholder="0,00"
-                          className="w-full pl-9 pr-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-slate-100 text-xs font-mono font-bold focus:border-emerald-500 focus:outline-none"
+                          className="w-full pl-9 pr-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-slate-100 text-xs font-mono font-bold focus:border-orange-500 focus:outline-none"
                         />
                       </div>
                       <span className="text-[10px] text-slate-400 block">
@@ -559,7 +559,7 @@ export function UsuarioFormModal({ usuario, onSalvo, onFechar }: UsuarioFormModa
                         value={chavePix}
                         onChange={(e) => setChavePix(e.target.value)}
                         placeholder="CPF, E-mail, Celular ou Chave Aleatória"
-                        className="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-slate-100 text-xs font-mono focus:border-emerald-500 focus:outline-none"
+                        className="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-slate-100 text-xs font-mono focus:border-orange-500 focus:outline-none"
                       />
                       <span className="text-[10px] text-slate-400 block">
                         Utilizada na geração automática de QR Code PIX (individual e em lote).
@@ -576,7 +576,7 @@ export function UsuarioFormModal({ usuario, onSalvo, onFechar }: UsuarioFormModa
                             type="checkbox"
                             checked={ativo}
                             onChange={(e) => setAtivo(e.target.checked)}
-                            className="rounded border-slate-300 text-emerald-600 focus:ring-emerald-500"
+                            className="rounded border-slate-300 text-orange-600 focus:ring-orange-500"
                           />
                           <span className="font-medium text-slate-700 dark:text-slate-300">
                             Conta Ativa e Habilitada
@@ -595,7 +595,7 @@ export function UsuarioFormModal({ usuario, onSalvo, onFechar }: UsuarioFormModa
                         value={enderecoInstalacao}
                         onChange={(e) => setEnderecoInstalacao(e.target.value)}
                         placeholder="Ex: Av. Brasil, 1500 - Centro, Rio de Janeiro - RJ"
-                        className="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-slate-100 text-xs focus:border-emerald-500 focus:outline-none"
+                        className="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-slate-100 text-xs focus:border-orange-500 focus:outline-none"
                       />
                       <span className="text-[10px] text-slate-400 block">
                         Local físico exibido para o cliente no agendamento para levar o veículo para
@@ -609,8 +609,8 @@ export function UsuarioFormModal({ usuario, onSalvo, onFechar }: UsuarioFormModa
                       Status da Conta
                     </label>
                     {isSuperAdm ? (
-                      <div className="flex items-center gap-2 p-2 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 text-xs font-bold">
-                        <CheckCircle2 className="h-4 w-4 shrink-0 text-emerald-500" />
+                      <div className="flex items-center gap-2 p-2 rounded-xl bg-orange-500/10 border border-orange-500/30 text-orange-600 dark:text-orange-400 text-xs font-bold">
+                        <CheckCircle2 className="h-4 w-4 shrink-0 text-orange-500" />
                         <span>Conta Ativa Permanente (Blindagem Anti-Desativação)</span>
                       </div>
                     ) : (
@@ -620,7 +620,7 @@ export function UsuarioFormModal({ usuario, onSalvo, onFechar }: UsuarioFormModa
                             type="checkbox"
                             checked={ativo}
                             onChange={(e) => setAtivo(e.target.checked)}
-                            className="rounded border-slate-300 text-emerald-600 focus:ring-emerald-500"
+                            className="rounded border-slate-300 text-orange-600 focus:ring-orange-500"
                           />
                           <span className="font-medium text-slate-700 dark:text-slate-300">
                             Conta Ativa e Habilitada
@@ -673,11 +673,11 @@ export function UsuarioFormModal({ usuario, onSalvo, onFechar }: UsuarioFormModa
                 )}
 
                 {(role === "superadmin" || role === "adm") && (
-                  <div className="p-3 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-800 dark:text-emerald-300 text-xs flex items-center gap-2.5 mb-2">
-                    <ShieldCheck className="h-5 w-5 text-emerald-500 shrink-0" />
+                  <div className="p-3 rounded-2xl bg-orange-500/10 border border-orange-500/30 text-orange-800 dark:text-orange-300 text-xs flex items-center gap-2.5 mb-2">
+                    <ShieldCheck className="h-5 w-5 text-orange-500 shrink-0" />
                     <div>
                       <span className="font-bold">Acesso Total de Administrador:</span>
-                      <p className="text-[11px] text-emerald-700/90 dark:text-emerald-300/90">
+                      <p className="text-[11px] text-orange-700/90 dark:text-orange-300/90">
                         Todos os {MODULOS_SISTEMA.length} módulos do sistema são liberados e
                         ativados automaticamente com acesso irrestrito.
                       </p>
@@ -706,7 +706,7 @@ export function UsuarioFormModal({ usuario, onSalvo, onFechar }: UsuarioFormModa
                   <>
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                       <div className="flex items-center gap-1.5">
-                        <Layers className="h-4 w-4 text-emerald-500" />
+                        <Layers className="h-4 w-4 text-orange-500" />
                         <span className="text-xs font-bold text-slate-900 dark:text-slate-100">
                           Módulos de Navegação Permitidos
                         </span>
@@ -715,7 +715,7 @@ export function UsuarioFormModal({ usuario, onSalvo, onFechar }: UsuarioFormModa
                         <button
                           type="button"
                           onClick={selecionarTodosModulos}
-                          className="text-emerald-600 dark:text-emerald-400 hover:underline font-semibold"
+                          className="text-orange-600 dark:text-orange-400 hover:underline font-semibold"
                         >
                           Marcar Todos
                         </button>
@@ -735,7 +735,7 @@ export function UsuarioFormModal({ usuario, onSalvo, onFechar }: UsuarioFormModa
                       <button
                         type="button"
                         onClick={() => aplicarPacote("basico")}
-                        className="px-2.5 py-1.5 rounded-xl border border-emerald-500/30 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 text-[11px] font-bold hover:bg-emerald-500/20 transition"
+                        className="px-2.5 py-1.5 rounded-xl border border-orange-500/30 bg-orange-500/10 text-orange-700 dark:text-orange-300 text-[11px] font-bold hover:bg-orange-500/20 transition"
                       >
                         Pacote Básico
                       </button>
@@ -778,7 +778,7 @@ export function UsuarioFormModal({ usuario, onSalvo, onFechar }: UsuarioFormModa
                         onClick={() => toggleModulo(mod.id)}
                         className={`text-left p-2.5 rounded-xl border text-xs transition flex items-start justify-between gap-2 ${
                           ativoMod
-                            ? "bg-emerald-500/10 border-emerald-500/40 text-emerald-700 dark:text-emerald-300 font-semibold"
+                            ? "bg-orange-500/10 border-orange-500/40 text-orange-700 dark:text-orange-300 font-semibold"
                             : "bg-slate-50 dark:bg-slate-950/60 border-slate-200 dark:border-slate-800/80 text-slate-600 dark:text-slate-400 hover:border-slate-300"
                         }`}
                       >
@@ -789,7 +789,7 @@ export function UsuarioFormModal({ usuario, onSalvo, onFechar }: UsuarioFormModa
                         <div
                           className={`h-4 w-4 rounded-md border flex items-center justify-center shrink-0 mt-0.5 ${
                             ativoMod
-                              ? "bg-emerald-500 border-emerald-500 text-slate-950"
+                              ? "bg-orange-500 border-orange-500 text-slate-950"
                               : "border-slate-300 dark:border-slate-700"
                           }`}
                         >
@@ -814,7 +814,7 @@ export function UsuarioFormModal({ usuario, onSalvo, onFechar }: UsuarioFormModa
               <button
                 type="submit"
                 disabled={salvando}
-                className="w-full sm:w-auto min-h-[44px] flex items-center justify-center px-5 py-2 rounded-xl text-xs font-bold text-slate-950 bg-emerald-500 hover:bg-emerald-400 transition shadow-lg shadow-emerald-500/20 disabled:opacity-50"
+                className="w-full sm:w-auto min-h-[44px] flex items-center justify-center px-5 py-2 rounded-xl text-xs font-bold text-slate-950 bg-orange-500 hover:bg-orange-400 transition shadow-lg shadow-orange-500/20 disabled:opacity-50"
               >
                 {salvando ? "Salvando..." : isEdicao ? "Salvar Alterações" : "Concluir Cadastro"}
               </button>

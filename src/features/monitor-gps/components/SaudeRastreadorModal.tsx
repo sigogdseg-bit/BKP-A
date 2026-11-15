@@ -88,7 +88,7 @@ export function SaudeRastreadorModal({ veiculo, onFechar }: SaudeRastreadorModal
           {/* Cabeçalho Fixo */}
           <div className="p-4 sm:p-5 border-b border-slate-300/60 dark:border-slate-800 flex items-center justify-between shrink-0">
             <div className="flex items-center gap-3">
-              <div className="h-10 w-10 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-500">
+              <div className="h-10 w-10 rounded-2xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-orange-500">
                 <Radio className="h-5 w-5" />
               </div>
               <div>
@@ -117,7 +117,7 @@ export function SaudeRastreadorModal({ veiculo, onFechar }: SaudeRastreadorModal
             <div
               className={`p-4 rounded-2xl border flex items-center gap-3.5 ${
                 tudoNormal
-                  ? "bg-emerald-500/10 border-emerald-500/20 text-emerald-600 dark:text-emerald-400"
+                  ? "bg-orange-500/10 border-orange-500/20 text-orange-600 dark:text-orange-400"
                   : alimentacaoExternaCortada
                     ? "bg-rose-500/10 border-rose-500/20 text-rose-600 dark:text-rose-400"
                     : "bg-amber-500/10 border-amber-500/20 text-amber-600 dark:text-amber-400"
@@ -155,7 +155,7 @@ export function SaudeRastreadorModal({ veiculo, onFechar }: SaudeRastreadorModal
                 <div className="flex items-center gap-1.5">
                   <span
                     className={`h-2.5 w-2.5 rounded-full ${
-                      statusRedeOk ? "bg-emerald-500" : "bg-rose-500"
+                      statusRedeOk ? "bg-orange-500" : "bg-rose-500"
                     }`}
                   />
                   <span className="text-xs font-bold text-slate-900 dark:text-slate-100">
@@ -177,7 +177,7 @@ export function SaudeRastreadorModal({ veiculo, onFechar }: SaudeRastreadorModal
                   <span
                     className={`h-2.5 w-2.5 rounded-full ${
                       statusGpsOk
-                        ? "bg-emerald-500"
+                        ? "bg-orange-500"
                         : statusRedeOk && satelites > 0
                           ? "bg-amber-500"
                           : "bg-rose-500"
@@ -218,7 +218,7 @@ export function SaudeRastreadorModal({ veiculo, onFechar }: SaudeRastreadorModal
                         : alimentacaoExternaCortada || voltagemNum! < 9.0
                           ? "bg-rose-500"
                           : statusBateriaCarroOk
-                            ? "bg-emerald-500"
+                            ? "bg-orange-500"
                             : "bg-rose-500"
                     }`}
                   />
@@ -257,7 +257,7 @@ export function SaudeRastreadorModal({ veiculo, onFechar }: SaudeRastreadorModal
                       !temPctRastreador
                         ? "bg-slate-400"
                         : statusBateriaInternaOk
-                          ? "bg-emerald-500"
+                          ? "bg-orange-500"
                           : "bg-amber-500"
                     }`}
                   />
@@ -285,7 +285,7 @@ export function SaudeRastreadorModal({ veiculo, onFechar }: SaudeRastreadorModal
             {/* Horário da Última Atualização */}
             <div className="p-3 rounded-2xl bg-slate-100 dark:bg-slate-800/40 text-xs text-slate-600 dark:text-slate-400 flex items-center justify-between">
               <span className="flex items-center gap-1.5">
-                <Clock className="h-3.5 w-3.5 text-emerald-500" />
+                <Clock className="h-3.5 w-3.5 text-orange-500" />
                 Última comunicação:
               </span>
               <span className="font-mono font-medium text-slate-900 dark:text-slate-200">
@@ -299,7 +299,7 @@ export function SaudeRastreadorModal({ veiculo, onFechar }: SaudeRastreadorModal
             <button
               onClick={executarTeste}
               disabled={testando}
-              className="w-full py-2.5 rounded-xl text-xs font-bold bg-emerald-500 hover:bg-emerald-400 text-slate-950 shadow-md shadow-emerald-500/20 active:scale-95 transition flex items-center justify-center gap-2 disabled:opacity-50 cursor-pointer min-h-[44px]"
+              className="w-full py-2.5 rounded-xl text-xs font-bold bg-orange-500 hover:bg-orange-400 text-slate-950 shadow-md shadow-orange-500/20 active:scale-95 transition flex items-center justify-center gap-2 disabled:opacity-50 cursor-pointer min-h-[44px]"
             >
               <RefreshCw className={`h-3.5 w-3.5 ${testando ? "animate-spin" : ""}`} />
               <span>{testando ? "Verificando equipamento..." : "Atualizar Diagnóstico"}</span>

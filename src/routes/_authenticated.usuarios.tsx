@@ -13,7 +13,7 @@ function UsuariosRoute() {
   if (carregando) {
     return (
       <div className="py-20 flex justify-center items-center">
-        <div className="h-8 w-8 rounded-full border-2 border-emerald-500 border-t-transparent animate-spin" />
+        <div className="h-8 w-8 rounded-full border-2 border-orange-500 border-t-transparent animate-spin" />
       </div>
     );
   }

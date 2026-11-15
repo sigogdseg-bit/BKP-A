@@ -2103,7 +2103,7 @@ export function FrotaAnalyticsView() {
             onClick={() => setAbaAtiva("financeiro")}
             className={`px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2 whitespace-nowrap cursor-pointer ${
               abaAtiva === "financeiro"
-                ? "bg-[#eaf0f8] dark:bg-slate-900 text-emerald-600 dark:text-emerald-400 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none border border-slate-300/60 dark:border-slate-700"
+                ? "bg-[#eaf0f8] dark:bg-slate-900 text-orange-600 dark:text-orange-400 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none border border-slate-300/60 dark:border-slate-700"
                 : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
             }`}
           >
@@ -2139,7 +2139,7 @@ export function FrotaAnalyticsView() {
                   {itensVencidos} VENCIDAS
                 </span>
               ) : (
-                <span className="ml-1 px-1.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-600 text-[10px] font-black">
+                <span className="ml-1 px-1.5 py-0.5 rounded-full bg-orange-500/20 text-orange-600 text-[10px] font-black">
                   100% OK
                 </span>
               )}
@@ -2217,7 +2217,7 @@ export function FrotaAnalyticsView() {
                     <span className="text-xs font-bold text-slate-400">/ 100</span>
                   </div>
                   <div className="flex items-center justify-between mt-1">
-                    <p className="text-[11px] text-emerald-600 dark:text-emerald-400 font-semibold truncate">
+                    <p className="text-[11px] text-orange-600 dark:text-orange-400 font-semibold truncate">
                       {avgScore >= 90
                         ? "Condução excelente"
                         : avgScore >= 75
@@ -2230,7 +2230,7 @@ export function FrotaAnalyticsView() {
                       </span>
                     )}
                     {filtroOperacionalKpi === "score_excelente" && (
-                      <span className="text-[9px] font-black uppercase px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-600">
+                      <span className="text-[9px] font-black uppercase px-1.5 py-0.5 rounded bg-orange-500/20 text-orange-600">
                         Score &gt;= 90
                       </span>
                     )}
@@ -2246,7 +2246,7 @@ export function FrotaAnalyticsView() {
                   }}
                   className={`p-5 rounded-3xl border transition-all cursor-pointer relative group hover:scale-[1.01] ${
                     ocultarSemDeslocamento
-                      ? "bg-emerald-50/80 dark:bg-emerald-950/30 border-emerald-500 ring-2 ring-emerald-500/50 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none"
+                      ? "bg-orange-50/80 dark:bg-orange-950/30 border-orange-500 ring-2 ring-orange-500/50 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none"
                       : "bg-[#eaf0f8] dark:bg-slate-900 border-slate-300/60 dark:border-slate-800 hover:border-emerald-300 dark:hover:border-emerald-700 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_14px_#b8c6da]"
                   }`}
                   title="Clique para alternar entre exibir apenas dias com circulação ou todos os dias"
@@ -2254,9 +2254,9 @@ export function FrotaAnalyticsView() {
                   <div className="flex items-center justify-between text-slate-500 dark:text-slate-400 mb-2">
                     <span className="text-xs font-bold flex items-center gap-1.5">
                       Distância Total
-                      <Filter className="h-3 w-3 text-emerald-500 opacity-60 group-hover:opacity-100" />
+                      <Filter className="h-3 w-3 text-orange-500 opacity-60 group-hover:opacity-100" />
                     </span>
-                    <TrendingUp className="h-4 w-4 text-emerald-500" />
+                    <TrendingUp className="h-4 w-4 text-orange-500" />
                   </div>
                   <div className="flex items-baseline gap-1.5">
                     <span className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white">
@@ -2271,7 +2271,7 @@ export function FrotaAnalyticsView() {
                     <p className="text-[11px] text-slate-500 dark:text-slate-400 font-medium truncate">
                       {totalDiasOperacionais} dias com circulação ativa
                     </p>
-                    <span className="text-[9px] font-black uppercase px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-600">
+                    <span className="text-[9px] font-black uppercase px-1.5 py-0.5 rounded bg-orange-500/20 text-orange-600">
                       {ocultarSemDeslocamento ? "Filtro Ativo" : "Todos os Dias"}
                     </span>
                   </div>
@@ -2479,7 +2479,7 @@ export function FrotaAnalyticsView() {
                 {/* GRÁFICO 2: SCORE VS VELOCIDADE */}
                 <div className="bg-[#eaf0f8] dark:bg-slate-900 p-5 rounded-3xl border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl">
                   <h3 className="font-bold text-slate-800 dark:text-slate-100 text-sm flex items-center gap-2 mb-4">
-                    <Activity className="h-4 w-4 text-emerald-500" />
+                    <Activity className="h-4 w-4 text-orange-500" />
                     Score de Condução e Velocidade Máxima
                   </h3>
                   <div className="h-64 w-full">
@@ -2704,7 +2704,7 @@ export function FrotaAnalyticsView() {
                                 <span
                                   className={`inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-bold ${
                                     d.score_conducao >= 90
-                                      ? "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20"
+                                      ? "bg-orange-500/10 text-orange-600 dark:text-orange-400 border border-orange-500/20"
                                       : d.score_conducao >= 75
                                         ? "bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20"
                                         : "bg-rose-500/10 text-rose-600 dark:text-rose-400 border border-rose-500/20"
@@ -2738,7 +2738,7 @@ export function FrotaAnalyticsView() {
                   onClick={() => setFiltroFinanceiroCategoria("todas")}
                   className={`p-5 rounded-3xl border transition-all cursor-pointer relative group hover:scale-[1.01] ${
                     filtroFinanceiroCategoria === "todas"
-                      ? "bg-emerald-50/80 dark:bg-emerald-950/30 border-emerald-500 ring-2 ring-emerald-500/50 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none"
+                      ? "bg-orange-50/80 dark:bg-orange-950/30 border-orange-500 ring-2 ring-orange-500/50 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none"
                       : "bg-[#eaf0f8] dark:bg-slate-900 border-slate-300/60 dark:border-slate-800 hover:border-emerald-300 dark:hover:border-emerald-700 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_14px_#b8c6da]"
                   }`}
                   title="Clique para exibir todos os lançamentos de custos"
@@ -2746,9 +2746,9 @@ export function FrotaAnalyticsView() {
                   <div className="flex items-center justify-between text-slate-500 dark:text-slate-400 mb-2">
                     <span className="text-xs font-bold flex items-center gap-1.5">
                       Custo Total Operacional (TCO)
-                      <Filter className="h-3 w-3 text-emerald-500 opacity-60 group-hover:opacity-100" />
+                      <Filter className="h-3 w-3 text-orange-500 opacity-60 group-hover:opacity-100" />
                     </span>
-                    <DollarSign className="h-4 w-4 text-emerald-500" />
+                    <DollarSign className="h-4 w-4 text-orange-500" />
                   </div>
                   <div className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white">
                     R$ {custoTotalOperacional.toLocaleString("pt-BR", { minimumFractionDigits: 2 })}
@@ -2758,7 +2758,7 @@ export function FrotaAnalyticsView() {
                       Combustível, oficinas e despesas
                     </p>
                     {filtroFinanceiroCategoria === "todas" && (
-                      <span className="text-[9px] font-black uppercase px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-600">
+                      <span className="text-[9px] font-black uppercase px-1.5 py-0.5 rounded bg-orange-500/20 text-orange-600">
                         Todos
                       </span>
                     )}
@@ -2868,9 +2868,9 @@ export function FrotaAnalyticsView() {
 
               {/* BARRA DE AVISO DE FILTRO ATIVO POR CATEGORIA */}
               {filtroFinanceiroCategoria !== "todas" && (
-                <div className="flex items-center justify-between px-4 py-2.5 bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 rounded-2xl text-xs text-emerald-900 dark:text-emerald-200 shadow-sm">
+                <div className="flex items-center justify-between px-4 py-2.5 bg-orange-50 dark:bg-orange-950/40 border border-emerald-200 dark:border-emerald-800 rounded-2xl text-xs text-emerald-900 dark:text-orange-200 shadow-sm">
                   <div className="flex items-center gap-2">
-                    <Filter className="h-4 w-4 text-emerald-600" />
+                    <Filter className="h-4 w-4 text-orange-600" />
                     <span className="font-semibold">
                       Filtro ativo por infográfico: Categoria{" "}
                       <strong className="uppercase">{filtroFinanceiroCategoria}</strong> (
@@ -2879,7 +2879,7 @@ export function FrotaAnalyticsView() {
                   </div>
                   <button
                     onClick={() => setFiltroFinanceiroCategoria("todas")}
-                    className="flex items-center gap-1 font-bold text-emerald-700 dark:text-emerald-300 hover:underline px-2 py-0.5 rounded-lg hover:bg-emerald-100 dark:hover:bg-emerald-900/50 cursor-pointer"
+                    className="flex items-center gap-1 font-bold text-orange-700 dark:text-orange-300 hover:underline px-2 py-0.5 rounded-lg hover:bg-emerald-100 dark:hover:bg-emerald-900/50 cursor-pointer"
                   >
                     <X className="h-3.5 w-3.5" />
                     <span>Limpar Filtro</span>
@@ -2892,7 +2892,7 @@ export function FrotaAnalyticsView() {
                 {/* EVOLUÇÃO DIÁRIA DE CUSTOS */}
                 <div className="lg:col-span-2 bg-[#eaf0f8] dark:bg-slate-900 p-5 rounded-3xl border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl">
                   <h3 className="font-bold text-slate-800 dark:text-slate-100 text-sm flex items-center gap-2 mb-4">
-                    <BarChart3 className="h-4 w-4 text-emerald-500" />
+                    <BarChart3 className="h-4 w-4 text-orange-500" />
                     Evolução Diária de Despesas da Frota (R$)
                   </h3>
                   <div className="h-64 w-full">
@@ -3044,7 +3044,7 @@ export function FrotaAnalyticsView() {
               <div className="bg-[#eaf0f8] dark:bg-slate-900 rounded-3xl border border-slate-300/60 dark:border-slate-800 overflow-hidden shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl">
                 <div className="p-4 sm:p-5 border-b border-slate-300/40 dark:border-slate-800 flex flex-wrap items-center justify-between gap-3">
                   <div className="flex items-center gap-2">
-                    <DollarSign className="h-4 w-4 text-emerald-500" />
+                    <DollarSign className="h-4 w-4 text-orange-500" />
                     <div>
                       <h3 className="font-bold text-slate-800 dark:text-slate-100 text-sm">
                         Lançamentos de Abastecimento e Despesas Operacionais (
@@ -3062,7 +3062,7 @@ export function FrotaAnalyticsView() {
                       id="btn-novo-abastecimento-frota"
                       type="button"
                       onClick={() => setModalAbastecimentoAberto(true)}
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white transition-colors shadow-sm shadow-emerald-600/20"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-xl bg-orange-600 hover:bg-orange-500 text-white transition-colors shadow-sm shadow-orange-600/20"
                     >
                       <Fuel className="h-3.5 w-3.5" />+ Registrar Abastecimento
                     </button>
@@ -3182,7 +3182,7 @@ export function FrotaAnalyticsView() {
                             <td className="px-4 py-3 font-mono">
                               {item.km_atual ? formatarKm(item.km_atual) : "—"}
                             </td>
-                            <td className="px-4 py-3 font-bold text-right text-emerald-600 dark:text-emerald-400">
+                            <td className="px-4 py-3 font-bold text-right text-orange-600 dark:text-orange-400">
                               R$ {item.valor.toFixed(2)}
                             </td>
                           </tr>
@@ -3537,7 +3537,7 @@ export function FrotaAnalyticsView() {
                   }
                   className={`p-5 rounded-3xl border transition-all cursor-pointer relative group hover:scale-[1.01] ${
                     filtroManutencaoStatus === "em_dia"
-                      ? "bg-emerald-50/80 dark:bg-emerald-950/30 border-emerald-500 ring-2 ring-emerald-500/50 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none"
+                      ? "bg-orange-50/80 dark:bg-orange-950/30 border-orange-500 ring-2 ring-orange-500/50 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none"
                       : "bg-[#eaf0f8] dark:bg-slate-900 border-slate-300/60 dark:border-slate-800 hover:border-emerald-300 dark:hover:border-emerald-700 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_14px_#b8c6da]"
                   }`}
                   title="Clique para filtrar apenas itens rigorosamente Em Dia"
@@ -3545,11 +3545,11 @@ export function FrotaAnalyticsView() {
                   <div className="flex items-center justify-between text-slate-500 dark:text-slate-400 mb-2">
                     <span className="text-xs font-bold flex items-center gap-1.5">
                       Itens Rigorosamente em Dia
-                      <Filter className="h-3 w-3 text-emerald-500 opacity-60 group-hover:opacity-100" />
+                      <Filter className="h-3 w-3 text-orange-500 opacity-60 group-hover:opacity-100" />
                     </span>
-                    <CheckCircle2 className="h-4 w-4 text-emerald-500" />
+                    <CheckCircle2 className="h-4 w-4 text-orange-500" />
                   </div>
-                  <div className="text-2xl sm:text-3xl font-black text-emerald-600">
+                  <div className="text-2xl sm:text-3xl font-black text-orange-600">
                     {itensEmDia}
                   </div>
                   <div className="flex items-center justify-between mt-1">
@@ -3557,7 +3557,7 @@ export function FrotaAnalyticsView() {
                       Quilometragem regular
                     </p>
                     {filtroManutencaoStatus === "em_dia" && (
-                      <span className="text-[9px] font-black uppercase px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-600">
+                      <span className="text-[9px] font-black uppercase px-1.5 py-0.5 rounded bg-orange-500/20 text-orange-600">
                         Em Dia
                       </span>
                     )}
@@ -3774,7 +3774,7 @@ export function FrotaAnalyticsView() {
                                     Vencido por {Math.abs(kmRestante).toLocaleString("pt-BR")} km
                                   </span>
                                 ) : (
-                                  <span className="text-emerald-600 font-medium">
+                                  <span className="text-orange-600 font-medium">
                                     {kmRestante.toLocaleString("pt-BR")} km restantes
                                   </span>
                                 )}
@@ -3783,7 +3783,7 @@ export function FrotaAnalyticsView() {
                                 <span
                                   className={`px-2 py-0.5 rounded-full text-[10px] font-bold uppercase ${
                                     m.status === "em_dia"
-                                      ? "bg-emerald-500/10 text-emerald-600 border border-emerald-500/20"
+                                      ? "bg-orange-500/10 text-orange-600 border border-orange-500/20"
                                       : m.status === "proxima"
                                         ? "bg-amber-500/10 text-amber-600 border border-amber-500/20"
                                         : "bg-rose-500/10 text-rose-600 border border-rose-500/20 font-black"

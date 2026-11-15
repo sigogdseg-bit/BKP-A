@@ -266,7 +266,7 @@ export function ModalConfiguracaoCanaisAlerta({
               type="button"
               onClick={onClose}
               aria-label="Fechar configuração"
-              className="min-h-[44px] min-w-[44px] flex items-center justify-center rounded-xl text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-200/50 dark:hover:bg-slate-800 transition cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+              className="min-h-[44px] min-w-[44px] flex items-center justify-center rounded-xl text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-200/50 dark:hover:bg-slate-800 transition cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500"
               title="Fechar configuração"
             >
               <X className="h-4 w-4" />
@@ -283,7 +283,7 @@ export function ModalConfiguracaoCanaisAlerta({
             <div className="p-3.5 rounded-2xl bg-white dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800 flex items-center justify-between gap-3 shadow-xs">
               <div className="space-y-0.5">
                 <div className="text-xs font-black flex items-center gap-1.5">
-                  <Bell className="h-3.5 w-3.5 text-emerald-500" />
+                  <Bell className="h-3.5 w-3.5 text-orange-500" />
                   <span>App e Notificação Web Push</span>
                 </div>
                 <p className="text-[11px] text-slate-500 dark:text-slate-400">
@@ -295,9 +295,9 @@ export function ModalConfiguracaoCanaisAlerta({
                 type="button"
                 aria-pressed={canais.app}
                 onClick={() => alternarCanal("app")}
-                className={`px-3 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 transition cursor-pointer border shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 ${
+                className={`px-3 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 transition cursor-pointer border shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 ${
                   canais.app
-                    ? "bg-emerald-500 text-slate-950 border-emerald-400 font-black shadow-xs"
+                    ? "bg-orange-500 text-slate-950 border-orange-400 font-black shadow-xs"
                     : "bg-slate-100 dark:bg-slate-900 text-slate-400 border-slate-200 dark:border-slate-800"
                 }`}
               >
@@ -350,7 +350,7 @@ export function ModalConfiguracaoCanaisAlerta({
                 type="button"
                 aria-pressed={canais.ligacao}
                 onClick={() => alternarCanal("ligacao")}
-                className={`px-3 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 transition cursor-pointer border shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 ${
+                className={`px-3 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 transition cursor-pointer border shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 ${
                   canais.ligacao
                     ? "bg-amber-500 text-slate-950 border-amber-400 font-black shadow-xs"
                     : "bg-slate-100 dark:bg-slate-900 text-slate-400 border-slate-200 dark:border-slate-800"
@@ -378,7 +378,7 @@ export function ModalConfiguracaoCanaisAlerta({
               value={telefone}
               onChange={(e) => setTelefone(e.target.value)}
               placeholder="Ex: 24992494830 ou 5524992494830 (com DDD)"
-              className="w-full px-3.5 py-2.5 rounded-xl text-xs font-mono bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-slate-800 dark:text-slate-100 focus:outline-hidden focus:ring-2 focus:ring-emerald-500"
+              className="w-full px-3.5 py-2.5 rounded-xl text-xs font-mono bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-slate-800 dark:text-slate-100 focus:outline-hidden focus:ring-2 focus:ring-orange-500"
             />
             <div className="flex items-center gap-2 pt-1 flex-wrap">
               <button
@@ -417,12 +417,12 @@ export function ModalConfiguracaoCanaisAlerta({
               <Info className="h-3 w-3" />
               <span>Conteúdo Enviado no Alerta (Exemplo Factual)</span>
             </div>
-            <div className="text-[11px] font-mono leading-relaxed bg-slate-950 p-2.5 rounded-xl border border-slate-800/80 text-emerald-400 space-y-1">
+            <div className="text-[11px] font-mono leading-relaxed bg-slate-950 p-2.5 rounded-xl border border-slate-800/80 text-orange-400 space-y-1">
               <div>📡 GD RASTREAMENTO — RETORNO DE COMANDO J16</div>
               <div className="text-slate-300">🚗 Veículo: ABC-1234 (Toyota Hilux)</div>
               <div className="text-slate-400">🔑 IMEI: 869890084959182</div>
               <div className="text-amber-300">⚡ Comando Agendado: ACCALM,ON,2#</div>
-              <div className="text-emerald-300 font-black">✅ Resposta da MCU: "ACCALM:ON"</div>
+              <div className="text-orange-300 font-black">✅ Resposta da MCU: "ACCALM:ON"</div>
               <div className="text-slate-500 text-[10px]">⏰ Horário: 06/11/2026 14:35:10</div>
             </div>
           </div>
@@ -440,7 +440,7 @@ export function ModalConfiguracaoCanaisAlerta({
               type="button"
               onClick={handleSalvar}
               disabled={salvando}
-              className="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs transition shadow-md active:scale-95 cursor-pointer flex items-center gap-2 disabled:opacity-50"
+              className="px-5 py-2.5 rounded-xl bg-orange-600 hover:bg-orange-500 text-white font-bold text-xs transition shadow-md active:scale-95 cursor-pointer flex items-center gap-2 disabled:opacity-50"
             >
               {salvando ? (
                 <Loader2 className="h-4 w-4 animate-spin" />

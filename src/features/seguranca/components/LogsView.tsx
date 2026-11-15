@@ -48,7 +48,7 @@ function formatarTipoDocumento(tipo: string): { label: string; cor: string } {
     case "PROPOSTA_COMERCIAL":
       return {
         label: "Proposta Comercial",
-        cor: "bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-500/20",
+        cor: "bg-orange-500/10 text-orange-700 dark:text-orange-400 border-orange-500/20",
       };
     case "LAUDO_TELEMETRIA":
       return {
@@ -275,7 +275,7 @@ export function LogsView() {
       {/* 1. Cabeçalho Canônico Neumorphic Hunter */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 p-5 sm:p-6 rounded-3xl shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl">
         <div className="flex items-center gap-3.5">
-          <div className="h-12 w-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shrink-0">
+          <div className="h-12 w-12 rounded-2xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-orange-600 dark:text-orange-400 shrink-0">
             <FileText className="h-6 w-6 stroke-[2.2]" />
           </div>
           <div>
@@ -283,7 +283,7 @@ export function LogsView() {
               <h1 className="text-lg sm:text-xl font-black text-slate-900 dark:text-slate-100 tracking-tight">
                 Logs e Auditoria do Sistema
               </h1>
-              <span className="px-2 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/20">
+              <span className="px-2 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider bg-orange-500/10 text-orange-700 dark:text-orange-400 border border-orange-500/20">
                 Forense SHA-256
               </span>
             </div>
@@ -304,7 +304,7 @@ export function LogsView() {
               }}
               className={`flex-1 sm:flex-none px-3.5 py-1.5 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 whitespace-nowrap ${
                 aba === "login"
-                  ? "bg-[#eaf0f8] dark:bg-slate-900 text-emerald-700 dark:text-emerald-400 shadow-sm border border-slate-300/60 dark:border-slate-700"
+                  ? "bg-[#eaf0f8] dark:bg-slate-900 text-orange-700 dark:text-orange-400 shadow-sm border border-slate-300/60 dark:border-slate-700"
                   : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
               }`}
             >
@@ -318,7 +318,7 @@ export function LogsView() {
               }}
               className={`flex-1 sm:flex-none px-3.5 py-1.5 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 whitespace-nowrap ${
                 aba === "atividade"
-                  ? "bg-[#eaf0f8] dark:bg-slate-900 text-emerald-700 dark:text-emerald-400 shadow-sm border border-slate-300/60 dark:border-slate-700"
+                  ? "bg-[#eaf0f8] dark:bg-slate-900 text-orange-700 dark:text-orange-400 shadow-sm border border-slate-300/60 dark:border-slate-700"
                   : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
               }`}
             >
@@ -329,7 +329,7 @@ export function LogsView() {
               onClick={() => setAba("documentos")}
               className={`flex-1 sm:flex-none px-3.5 py-1.5 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 whitespace-nowrap ${
                 aba === "documentos"
-                  ? "bg-[#eaf0f8] dark:bg-slate-900 text-emerald-700 dark:text-emerald-400 shadow-sm border border-slate-300/60 dark:border-slate-700"
+                  ? "bg-[#eaf0f8] dark:bg-slate-900 text-orange-700 dark:text-orange-400 shadow-sm border border-slate-300/60 dark:border-slate-700"
                   : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
               }`}
             >
@@ -344,7 +344,7 @@ export function LogsView() {
             className="p-2.5 rounded-2xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 shadow-[4px_4px_14px_#c3cfe2] dark:shadow-md transition shrink-0"
             title="Recarregar Registros"
           >
-            <RefreshCw className={`h-4 w-4 ${carregando ? "animate-spin text-emerald-500" : ""}`} />
+            <RefreshCw className={`h-4 w-4 ${carregando ? "animate-spin text-orange-500" : ""}`} />
           </button>
         </div>
       </div>
@@ -357,7 +357,7 @@ export function LogsView() {
             <div className="flex items-center justify-between">
               <div>
                 <h2 className="text-base font-black text-slate-900 dark:text-slate-100 flex items-center gap-2">
-                  <ShieldCheck className="h-5 w-5 text-emerald-600 dark:text-emerald-400" />
+                  <ShieldCheck className="h-5 w-5 text-orange-600 dark:text-orange-400" />
                   Conferência de Autenticidade e Integridade de Documentos
                 </h2>
                 <p className="text-xs text-slate-600 dark:text-slate-400 mt-0.5">
@@ -365,7 +365,7 @@ export function LogsView() {
                   os dados forenses oficiais
                 </p>
               </div>
-              <span className="hidden sm:inline-flex px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/20">
+              <span className="hidden sm:inline-flex px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-orange-500/10 text-orange-700 dark:text-orange-400 border border-orange-500/20">
                 Operador e Adm
               </span>
             </div>
@@ -386,8 +386,8 @@ export function LogsView() {
               onClick={() => fileInputRef.current?.click()}
               className={`cursor-pointer border-2 border-dashed rounded-2xl p-8 text-center transition-all ${
                 arrastando
-                  ? "border-emerald-500 bg-emerald-50/50 dark:bg-emerald-950/20 scale-[1.01]"
-                  : "border-slate-300 dark:border-slate-700 bg-slate-50/60 dark:bg-slate-950/40 hover:border-emerald-400 hover:bg-slate-100/50 dark:hover:bg-slate-800/40"
+                  ? "border-orange-500 bg-orange-50/50 dark:bg-orange-950/20 scale-[1.01]"
+                  : "border-slate-300 dark:border-slate-700 bg-slate-50/60 dark:bg-slate-950/40 hover:border-orange-400 hover:bg-slate-100/50 dark:hover:bg-slate-800/40"
               }`}
             >
               <input
@@ -402,7 +402,7 @@ export function LogsView() {
               />
 
               <div className="flex flex-col items-center justify-center gap-2.5">
-                <div className="h-14 w-14 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
+                <div className="h-14 w-14 rounded-2xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-orange-600 dark:text-orange-400">
                   <UploadCloud className="h-7 w-7 stroke-[2.2]" />
                 </div>
                 <div>
@@ -413,7 +413,7 @@ export function LogsView() {
                     ou clique para selecionar o documento (.pdf) no seu dispositivo
                   </p>
                 </div>
-                <span className="text-[11px] font-mono text-emerald-600 dark:text-emerald-400 font-semibold mt-1">
+                <span className="text-[11px] font-mono text-orange-600 dark:text-orange-400 font-semibold mt-1">
                   Cálculo binário SHA-256 via Web Crypto API · Verificação imediata
                 </span>
               </div>
@@ -429,12 +429,12 @@ export function LogsView() {
                   if (e.key === "Enter") processarHashManual();
                 }}
                 placeholder="Ou informe/cole o Hash SHA-256 (64 hexadecimais) para consulta direta..."
-                className="flex-1 px-3.5 py-2 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-xs font-mono text-slate-900 dark:text-slate-100 focus:border-emerald-500 focus:outline-none"
+                className="flex-1 px-3.5 py-2 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-xs font-mono text-slate-900 dark:text-slate-100 focus:border-orange-500 focus:outline-none"
               />
               <button
                 onClick={processarHashManual}
                 disabled={verificandoArquivo || !hashManual.trim()}
-                className="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shadow-sm transition disabled:opacity-50"
+                className="px-4 py-2 rounded-xl bg-orange-600 hover:bg-emerald-700 text-white font-bold text-xs shadow-sm transition disabled:opacity-50"
               >
                 Conferir Hash
               </button>
@@ -444,7 +444,7 @@ export function LogsView() {
           {/* Estado de Carregamento da Verificação */}
           {verificandoArquivo && (
             <div className="p-8 rounded-3xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 text-center space-y-3 shadow-[6px_6px_20px_#c3cfe2] dark:shadow-2xl animate-pulse">
-              <RefreshCw className="h-8 w-8 text-emerald-600 dark:text-emerald-400 animate-spin mx-auto" />
+              <RefreshCw className="h-8 w-8 text-orange-600 dark:text-orange-400 animate-spin mx-auto" />
               <p className="text-sm font-bold text-slate-800 dark:text-slate-200">
                 Calculando hash criptográfico SHA-256 e conferindo autenticidade forense...
               </p>
@@ -459,7 +459,7 @@ export function LogsView() {
             <div
               className={`p-6 rounded-3xl border transition-all shadow-[6px_6px_20px_#c3cfe2] dark:shadow-2xl ${
                 resultadoVerificacao.integro
-                  ? "bg-emerald-50/70 dark:bg-emerald-950/20 border-emerald-500/40"
+                  ? "bg-orange-50/70 dark:bg-orange-950/20 border-orange-500/40"
                   : "bg-rose-50/70 dark:bg-rose-950/20 border-rose-500/40"
               }`}
             >
@@ -468,7 +468,7 @@ export function LogsView() {
                   <div
                     className={`h-12 w-12 rounded-2xl flex items-center justify-center shrink-0 ${
                       resultadoVerificacao.integro
-                        ? "bg-emerald-500 text-white shadow-lg shadow-emerald-500/30"
+                        ? "bg-orange-500 text-white shadow-lg shadow-emerald-500/30"
                         : "bg-rose-500 text-white shadow-lg shadow-rose-500/30"
                     }`}
                   >
@@ -483,7 +483,7 @@ export function LogsView() {
                       <span
                         className={`text-sm font-black uppercase tracking-wider ${
                           resultadoVerificacao.integro
-                            ? "text-emerald-700 dark:text-emerald-400"
+                            ? "text-orange-700 dark:text-orange-400"
                             : "text-rose-700 dark:text-rose-400"
                         }`}
                       >
@@ -494,7 +494,7 @@ export function LogsView() {
                       <span
                         className={`px-2 py-0.5 rounded-full text-[9px] font-black uppercase tracking-wider border ${
                           resultadoVerificacao.integro
-                            ? "bg-emerald-500/20 text-emerald-800 dark:text-emerald-300 border-emerald-500/30"
+                            ? "bg-orange-500/20 text-orange-800 dark:text-orange-300 border-orange-500/30"
                             : "bg-rose-500/20 text-rose-800 dark:text-rose-300 border-rose-500/30"
                         }`}
                       >
@@ -522,7 +522,7 @@ export function LogsView() {
               {resultadoVerificacao.integro && resultadoVerificacao.documento ? (
                 <div className="mt-5 grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
                   {/* Nome do Arquivo */}
-                  <div className="bg-white/80 dark:bg-slate-900/80 p-3.5 rounded-2xl border border-emerald-500/20 space-y-1">
+                  <div className="bg-white/80 dark:bg-slate-900/80 p-3.5 rounded-2xl border border-orange-500/20 space-y-1">
                     <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500">
                       Nome do Arquivo Oficial
                     </span>
@@ -540,7 +540,7 @@ export function LogsView() {
                   </div>
 
                   {/* Do que se trata */}
-                  <div className="bg-white/80 dark:bg-slate-900/80 p-3.5 rounded-2xl border border-emerald-500/20 space-y-1">
+                  <div className="bg-white/80 dark:bg-slate-900/80 p-3.5 rounded-2xl border border-orange-500/20 space-y-1">
                     <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500">
                       Do que se trata o Documento
                     </span>
@@ -559,7 +559,7 @@ export function LogsView() {
                   </div>
 
                   {/* Data e Hora de Emissão */}
-                  <div className="bg-white/80 dark:bg-slate-900/80 p-3.5 rounded-2xl border border-emerald-500/20 space-y-1">
+                  <div className="bg-white/80 dark:bg-slate-900/80 p-3.5 rounded-2xl border border-orange-500/20 space-y-1">
                     <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500">
                       Data e Hora de Emissão
                     </span>
@@ -580,7 +580,7 @@ export function LogsView() {
                   </div>
 
                   {/* Quem Emitiu */}
-                  <div className="bg-white/80 dark:bg-slate-900/80 p-3.5 rounded-2xl border border-emerald-500/20 space-y-1">
+                  <div className="bg-white/80 dark:bg-slate-900/80 p-3.5 rounded-2xl border border-orange-500/20 space-y-1">
                     <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500">
                       Quem Emitiu o Documento
                     </span>
@@ -596,7 +596,7 @@ export function LogsView() {
                   </div>
 
                   {/* Hash SHA-256 Forense */}
-                  <div className="md:col-span-2 bg-white/80 dark:bg-slate-900/80 p-3.5 rounded-2xl border border-emerald-500/20 space-y-1.5">
+                  <div className="md:col-span-2 bg-white/80 dark:bg-slate-900/80 p-3.5 rounded-2xl border border-orange-500/20 space-y-1.5">
                     <div className="flex items-center justify-between">
                       <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500">
                         Hash Forense Criptográfico (SHA-256)
@@ -605,11 +605,11 @@ export function LogsView() {
                         onClick={() =>
                           copiarParaTransferencia(resultadoVerificacao.documento!.hash_sha256)
                         }
-                        className="flex items-center gap-1 text-[11px] font-bold text-emerald-600 dark:text-emerald-400 hover:underline"
+                        className="flex items-center gap-1 text-[11px] font-bold text-orange-600 dark:text-orange-400 hover:underline"
                       >
                         {hashCopiado === resultadoVerificacao.documento.hash_sha256 ? (
                           <>
-                            <Check className="h-3.5 w-3.5 text-emerald-500" />
+                            <Check className="h-3.5 w-3.5 text-orange-500" />
                             <span>Copiado!</span>
                           </>
                         ) : (
@@ -656,7 +656,7 @@ export function LogsView() {
           <div className="space-y-3">
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 p-3.5 rounded-2xl shadow-[4px_4px_14px_#c3cfe2] dark:shadow-md">
               <div className="flex items-center gap-2">
-                <FileBadge className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
+                <FileBadge className="h-4 w-4 text-orange-600 dark:text-orange-400" />
                 <h3 className="text-xs font-black uppercase tracking-wider text-slate-900 dark:text-slate-100">
                   Documentos Emitidos Oficialmente ({documentosEmitidos.length})
                 </h3>
@@ -669,7 +669,7 @@ export function LogsView() {
                   value={busca}
                   onChange={(e) => setBusca(e.target.value)}
                   placeholder="Buscar por arquivo, descrição, emissor ou hash..."
-                  className="w-full pl-8 pr-3 py-1.5 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-xs text-slate-900 dark:text-slate-100 focus:border-emerald-500 focus:outline-none"
+                  className="w-full pl-8 pr-3 py-1.5 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-xs text-slate-900 dark:text-slate-100 focus:border-orange-500 focus:outline-none"
                 />
               </div>
             </div>
@@ -688,7 +688,7 @@ export function LogsView() {
                   return (
                     <div
                       key={doc.id}
-                      className="p-4 rounded-2xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 text-xs shadow-[4px_4px_14px_#c3cfe2] dark:shadow-md hover:border-emerald-500/40 transition"
+                      className="p-4 rounded-2xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 text-xs shadow-[4px_4px_14px_#c3cfe2] dark:shadow-md hover:border-orange-500/40 transition"
                     >
                       <div className="space-y-1 min-w-0 flex-1">
                         <div className="flex flex-wrap items-center gap-2">
@@ -722,7 +722,7 @@ export function LogsView() {
                           </span>
                           <button
                             onClick={() => copiarParaTransferencia(doc.hash_sha256)}
-                            className="text-[10px] text-emerald-600 dark:text-emerald-400 hover:underline flex items-center gap-0.5 font-bold"
+                            className="text-[10px] text-orange-600 dark:text-orange-400 hover:underline flex items-center gap-0.5 font-bold"
                           >
                             <Copy className="h-3 w-3" />
                             <span>Copiar</span>
@@ -762,7 +762,7 @@ export function LogsView() {
                     ? "Filtrar por e-mail, perfil ou navegador..."
                     : "Filtrar por ação, detalhe ou hash..."
                 }
-                className="w-full pl-9 pr-3 py-1.5 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-xs text-slate-900 dark:text-slate-100 focus:border-emerald-500 focus:outline-none"
+                className="w-full pl-9 pr-3 py-1.5 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-xs text-slate-900 dark:text-slate-100 focus:border-orange-500 focus:outline-none"
               />
             </div>
 
@@ -827,7 +827,7 @@ export function LogsView() {
                         <span
                           className={`px-2 py-0.2 rounded-full text-[9px] font-bold uppercase tracking-wider border ${
                             l.status === "sucesso"
-                              ? "bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-500/20"
+                              ? "bg-orange-500/10 text-orange-700 dark:text-orange-400 border-orange-500/20"
                               : "bg-rose-500/10 text-rose-700 dark:text-rose-400 border-rose-500/20"
                           }`}
                         >
@@ -856,7 +856,7 @@ export function LogsView() {
                 >
                   <div className="space-y-1 min-w-0">
                     <div className="flex items-center gap-2">
-                      <span className="font-bold text-emerald-700 dark:text-emerald-400">
+                      <span className="font-bold text-orange-700 dark:text-orange-400">
                         {a.acao}
                       </span>
                     </div>

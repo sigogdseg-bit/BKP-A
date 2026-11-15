@@ -50,7 +50,7 @@ export function DetalhesHistoricoInstalacaoModal({
       case "concluida":
         return {
           label: "Concluída com Sucesso",
-          cor: "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border-emerald-500/30",
+          cor: "bg-orange-500/15 text-orange-600 dark:text-orange-400 border-orange-500/30",
         };
       case "concluida_com_pendencia":
         return {
@@ -139,7 +139,7 @@ export function DetalhesHistoricoInstalacaoModal({
               <span className="text-[10px] text-slate-500 dark:text-slate-400 block">
                 Odômetro / KM
               </span>
-              <span className="font-mono font-bold text-emerald-600 dark:text-emerald-400">
+              <span className="font-mono font-bold text-orange-600 dark:text-orange-400">
                 {instalacao.km_instalacao} km
               </span>
             </div>
@@ -148,7 +148,7 @@ export function DetalhesHistoricoInstalacaoModal({
           {/* Repasse Financeiro */}
           <div className="p-3 rounded-2xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-center justify-between text-xs">
             <div className="flex items-center gap-2">
-              <CreditCard className="h-4 w-4 text-emerald-500" />
+              <CreditCard className="h-4 w-4 text-orange-500" />
               <span className="text-slate-600 dark:text-slate-400 font-medium">
                 Repasse da Instalação:
               </span>
@@ -160,7 +160,7 @@ export function DetalhesHistoricoInstalacaoModal({
             <span
               className={`px-2 py-0.5 rounded-full text-[10px] font-bold uppercase ${
                 instalacao.status_pagamento === "pago"
-                  ? "bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30"
+                  ? "bg-orange-500/20 text-orange-600 dark:text-orange-400 border border-orange-500/30"
                   : "bg-amber-500/20 text-amber-600 dark:text-amber-400 border border-amber-500/30"
               }`}
             >
@@ -175,7 +175,7 @@ export function DetalhesHistoricoInstalacaoModal({
                 <div className="text-xs font-bold text-slate-900 dark:text-slate-100 flex items-center gap-1.5 uppercase tracking-wider">
                   <Boxes className="h-3.5 w-3.5 text-amber-500" /> Insumos Baixados do Estoque
                 </div>
-                <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30">
+                <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-orange-500/20 text-orange-600 dark:text-orange-400 border border-orange-500/30">
                   {materiaisBaixados.length} materiais baixados
                 </span>
               </div>
@@ -230,7 +230,7 @@ export function DetalhesHistoricoInstalacaoModal({
                       <div
                         className={`absolute -left-6 top-1 h-2.5 w-2.5 rounded-full ring-4 ring-white dark:ring-slate-950 ${
                           h.status_atendimento === "concluida"
-                            ? "bg-emerald-500"
+                            ? "bg-orange-500"
                             : h.status_atendimento === "concluida_com_pendencia"
                               ? "bg-amber-500"
                               : "bg-rose-500"

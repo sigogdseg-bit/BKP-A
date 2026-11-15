@@ -82,7 +82,7 @@ export function InicioHubView() {
           desc: "Telemetria em tempo real, status de ignição e bloqueio remoto",
           icone: MapPin,
           tag: "Tempo Real",
-          corTag: "text-emerald-500 bg-emerald-500/10 border-emerald-500/20",
+          corTag: "text-orange-500 bg-orange-500/10 border-orange-500/20",
         },
         {
           titulo: "Rotas e Trajetos Inteligentes",
@@ -106,7 +106,7 @@ export function InicioHubView() {
           desc: "Lançamento de combustível, leitura de NF com IA e controle de consumo",
           icone: Fuel,
           tag: "Combustível",
-          corTag: "text-emerald-500 bg-emerald-500/10 border-emerald-500/20",
+          corTag: "text-orange-500 bg-orange-500/10 border-orange-500/20",
         },
         {
           titulo: "Manutenção Preventiva",
@@ -180,7 +180,7 @@ export function InicioHubView() {
           desc: "Gestão de caixa, DRE operacional, extrato consolidado e relatórios",
           icone: Wallet,
           tag: "Financeiro",
-          corTag: "text-emerald-500 bg-emerald-500/10 border-emerald-500/20",
+          corTag: "text-orange-500 bg-orange-500/10 border-orange-500/20",
         },
         {
           titulo: session?.isCliente ? "Mensalidade" : "Mensalidades e Cobrança",
@@ -222,7 +222,7 @@ export function InicioHubView() {
           desc: "Carteira de clientes, comissões de mensalidade e taxas de instalação",
           icone: TrendingUp,
           tag: "Vendas",
-          corTag: "text-emerald-500 bg-emerald-500/10 border-emerald-500/20",
+          corTag: "text-orange-500 bg-orange-500/10 border-orange-500/20",
         },
         {
           titulo: "Propostas Comerciais",
@@ -230,7 +230,7 @@ export function InicioHubView() {
           desc: "Emissão de propostas oficiais, margem de repasse e envio ao cliente",
           icone: FileText,
           tag: "Comercial",
-          corTag: "text-emerald-500 bg-emerald-500/10 border-emerald-500/20",
+          corTag: "text-orange-500 bg-orange-500/10 border-orange-500/20",
         },
       ],
     },
@@ -319,11 +319,11 @@ export function InicioHubView() {
       {/* Banner Principal com Adaptação Canônica Neumorphism Suave e Dinâmica Tátil */}
       <TiltCard
         maxTilt={2}
-        glowRgb="16, 185, 129"
+        glowRgb="234, 88, 12"
         className="rounded-3xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 p-4 sm:p-6 sm:p-8 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl transition-all duration-300"
       >
-        <div className="absolute top-0 right-0 w-80 h-80 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-1/3 w-60 h-60 bg-teal-500/10 rounded-full blur-2xl pointer-events-none" />
+        <div className="absolute top-0 right-0 w-80 h-80 bg-orange-500/15 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 left-1/3 w-60 h-60 bg-amber-500/10 rounded-full blur-2xl pointer-events-none" />
 
         {/* Logotipo Oficial com Fundo Transparente em Destaque */}
         <div className="absolute right-6 top-1/2 -translate-y-1/2 hidden md:block opacity-90 hover:opacity-100 transition-all hover:scale-105 pointer-events-none">
@@ -337,7 +337,7 @@ export function InicioHubView() {
         </div>
 
         <div className="relative z-10 max-w-2xl">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-xs font-semibold mb-3 shadow-[1px_1px_3px_#c3cfe2] dark:shadow-none">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-600 dark:text-orange-400 text-xs font-semibold mb-3 shadow-[1px_1px_3px_#c3cfe2] dark:shadow-none">
             <Sparkles className="h-3.5 w-3.5 animate-pulse" />
             <span>
               {APP_NOME} v{APP_VERSION_NUMERO}
@@ -349,12 +349,12 @@ export function InicioHubView() {
           <p className="text-sm text-slate-600 dark:text-slate-400 mt-1">{APP_SLOGAN}</p>
           <div className="mt-4 flex flex-wrap items-center gap-2 text-xs text-slate-700 dark:text-slate-300">
             <span>Usuário Conectado:</span>
-            <span className="font-bold text-emerald-600 dark:text-emerald-400">
+            <span className="font-bold text-orange-600 dark:text-orange-400">
               {session?.nome?.replace(/superadmin/gi, "Administrador")}
             </span>
             {session?.isAdmin ? (
-              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-xl text-xs font-bold uppercase tracking-wider bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 shadow-[1px_1px_3px_#c3cfe2] dark:shadow-none">
-                <ShieldCheck className="h-3.5 w-3.5 text-emerald-500" />
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-xl text-xs font-bold uppercase tracking-wider bg-orange-500/10 text-orange-600 dark:text-orange-400 border border-orange-500/30 shadow-[1px_1px_3px_#c3cfe2] dark:shadow-none">
+                <ShieldCheck className="h-3.5 w-3.5 text-orange-500" />
                 <span>Administrador</span>
               </span>
             ) : (
@@ -397,7 +397,7 @@ export function InicioHubView() {
             return (
               <section key={secao.titulo} className="space-y-4">
                 <div className="flex items-center gap-2.5 pb-1">
-                  <div className="p-1.5 rounded-xl bg-emerald-500/10 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 shadow-xs">
+                  <div className="p-1.5 rounded-xl bg-orange-500/10 dark:bg-orange-500/20 text-orange-600 dark:text-orange-400 border border-orange-500/20 shadow-xs">
                     <SecaoIcon className="w-4 h-4" />
                   </div>
                   <h2 className="text-xs sm:text-sm font-bold tracking-wider text-slate-700 dark:text-slate-300 uppercase">

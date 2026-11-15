@@ -93,7 +93,7 @@ export const PROTOCOLOS_BANCADA: Record<FamiliaProtocolo, ProtocoloHardwareDef> 
         label: "Servidor (SERVER#)",
         cmd: "SERVER#",
         desc: "Consultar servidor e porta TCP gravados",
-        cor: "text-emerald-400",
+        cor: "text-orange-400",
       },
       {
         label: "Chip/GPRS (GPRSSET#)",
@@ -382,7 +382,7 @@ export const PROTOCOLOS_BANCADA: Record<FamiliaProtocolo, ProtocoloHardwareDef> 
         label: "IMEI (AT+CGSN)",
         cmd: "AT+CGSN",
         desc: "Consultar IMEI gravado no modem",
-        cor: "text-emerald-400",
+        cor: "text-orange-400",
       },
       {
         label: "ICCID (AT+CCID)",
@@ -621,7 +621,7 @@ export const PROTOCOLOS_BANCADA: Record<FamiliaProtocolo, ProtocoloHardwareDef> 
         label: "Ler IMEI (imei123456)",
         cmd: "imei123456",
         desc: "Ler IMEI",
-        cor: "text-emerald-400",
+        cor: "text-orange-400",
       },
       {
         label: "Maps / GPS (G123456#)",

@@ -314,7 +314,7 @@ function PaginaAssinaturaCliente() {
     return (
       <div className="min-h-screen bg-slate-900 flex items-center justify-center p-4">
         <div className="max-w-md w-full bg-slate-800/80 backdrop-blur-md border border-slate-700/60 rounded-2xl p-8 text-center space-y-4 shadow-2xl">
-          <div className="w-12 h-12 border-3 border-emerald-500 border-t-transparent rounded-full animate-spin mx-auto" />
+          <div className="w-12 h-12 border-3 border-orange-500 border-t-transparent rounded-full animate-spin mx-auto" />
           <h2 className="text-lg font-bold text-white">Carregando Contrato Seguro</h2>
           <p className="text-xs text-slate-400">
             Acessando cadeia de custódia e preparando ambiente de assinatura eletrônica...
@@ -338,7 +338,7 @@ function PaginaAssinaturaCliente() {
           <div className="pt-2">
             <a
               href="/verificar"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 hover:bg-emerald-500/20 transition"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold text-orange-400 bg-orange-500/10 border border-orange-500/20 hover:bg-orange-500/20 transition"
             >
               <ShieldCheck className="h-4 w-4" />
               <span>Conferência Pública de Documentos</span>
@@ -350,18 +350,18 @@ function PaginaAssinaturaCliente() {
   }
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col justify-between py-6 px-4 sm:px-6 lg:px-8 selection:bg-emerald-500 selection:text-white">
+    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col justify-between py-6 px-4 sm:px-6 lg:px-8 selection:bg-orange-500 selection:text-white">
       {/* Cabeçalho Oficial */}
       <header className="max-w-3xl w-full mx-auto space-y-3 pb-6 border-b border-slate-800">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-700 flex items-center justify-center text-white shadow-lg shadow-emerald-500/20">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-700 flex items-center justify-center text-white shadow-lg shadow-orange-500/20">
               <ShieldCheck className="h-6 w-6" />
             </div>
             <div>
               <h1 className="text-base font-black tracking-tight text-white flex items-center gap-2">
                 <span>{APP_NOME.toUpperCase()}</span>
-                <span className="text-[10px] uppercase font-bold px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
+                <span className="text-[10px] uppercase font-bold px-2 py-0.5 rounded-full bg-orange-500/15 text-orange-400 border border-orange-500/30">
                   Assinatura Eletrônica
                 </span>
               </h1>
@@ -373,7 +373,7 @@ function PaginaAssinaturaCliente() {
 
           <div className="text-left sm:text-right">
             <span className="text-[10px] text-slate-400 block font-mono">CONTRATO OFICIAL</span>
-            <span className="text-xs font-bold text-emerald-400 font-mono">
+            <span className="text-xs font-bold text-orange-400 font-mono">
               {contrato.numero_contrato}
             </span>
           </div>
@@ -381,7 +381,7 @@ function PaginaAssinaturaCliente() {
 
         {/* Amparo Jurídico */}
         <div className="p-2.5 rounded-xl bg-slate-900/90 border border-slate-800 text-[11px] text-slate-400 flex items-start gap-2">
-          <Lock className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
+          <Lock className="h-4 w-4 text-orange-500 shrink-0 mt-0.5" />
           <p className="leading-snug">
             <strong className="text-slate-200">Validade Jurídica e Força Executiva: </strong>
             Documento formalizado conforme o Art. 10, § 2º da Medida Provisória nº 2.200-2/2001 e
@@ -395,8 +395,8 @@ function PaginaAssinaturaCliente() {
       <main className="max-w-3xl w-full mx-auto py-6 space-y-6">
         {/* TELA DE SUCESSO: QUANDO O CONTRATO JÁ ESTÁ ASSINADO */}
         {assinaturaConcluida ? (
-          <div className="bg-slate-900 border border-emerald-500/40 rounded-2xl p-6 sm:p-8 text-center space-y-6 shadow-2xl">
-            <div className="w-16 h-16 rounded-full bg-emerald-500/20 border-2 border-emerald-500 flex items-center justify-center mx-auto text-emerald-400 shadow-lg shadow-emerald-500/20">
+          <div className="bg-slate-900 border border-orange-500/40 rounded-2xl p-6 sm:p-8 text-center space-y-6 shadow-2xl">
+            <div className="w-16 h-16 rounded-full bg-orange-500/20 border-2 border-orange-500 flex items-center justify-center mx-auto text-orange-400 shadow-lg shadow-orange-500/20">
               <CheckCircle2 className="h-8 w-8" />
             </div>
 
@@ -404,7 +404,7 @@ function PaginaAssinaturaCliente() {
               <h2 className="text-xl font-black text-white">Contrato Assinado com Sucesso!</h2>
               <p className="text-xs text-slate-300 max-w-lg mx-auto leading-relaxed">
                 A assinatura eletrônica de{" "}
-                <strong className="text-emerald-400 font-bold">
+                <strong className="text-orange-400 font-bold">
                   {contrato.cliente.nome_razao_social}
                 </strong>{" "}
                 foi confirmada, vinculada à trilha de auditoria pericial e gravada no banco de dados
@@ -418,9 +418,7 @@ function PaginaAssinaturaCliente() {
                 <span className="text-[10px] text-slate-400 uppercase font-mono">
                   Selo de Autenticidade:
                 </span>
-                <p className="font-mono font-bold text-emerald-400">
-                  {contrato.selo_autenticidade}
-                </p>
+                <p className="font-mono font-bold text-orange-400">{contrato.selo_autenticidade}</p>
               </div>
               <div className="space-y-1">
                 <span className="text-[10px] text-slate-400 uppercase font-mono">
@@ -448,7 +446,7 @@ function PaginaAssinaturaCliente() {
                 <span className="text-[10px] text-slate-400 uppercase font-mono">
                   Hash Criptográfico SHA-256 Definitivo:
                 </span>
-                <p className="font-mono text-[11px] text-emerald-400 break-all select-all bg-slate-900 p-2 rounded-lg border border-slate-800">
+                <p className="font-mono text-[11px] text-orange-400 break-all select-all bg-slate-900 p-2 rounded-lg border border-slate-800">
                   {contrato.hash_pdf_assinado ||
                     trilhaAudit?.hash_forense_aceite ||
                     "Gravado e Certificado na Cadeia de Custódia"}
@@ -460,7 +458,7 @@ function PaginaAssinaturaCliente() {
             <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
               <a
                 href={`/verificar?codigo=${contrato.codigo_verificacao}`}
-                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-500 transition shadow-lg shadow-emerald-600/20"
+                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold text-white bg-orange-600 hover:bg-orange-500 transition shadow-lg shadow-orange-600/20"
               >
                 <ShieldCheck className="h-4 w-4" />
                 <span>Verificar Autenticidade Pública</span>
@@ -483,7 +481,7 @@ function PaginaAssinaturaCliente() {
             {/* Barra de Ações Superior do Documento */}
             <div className="flex flex-wrap items-center justify-between gap-3 p-3 bg-slate-900 border border-slate-800 rounded-2xl">
               <div className="flex items-center gap-2 text-xs text-slate-300">
-                <FileText className="h-4 w-4 text-emerald-400" />
+                <FileText className="h-4 w-4 text-orange-400" />
                 <span>
                   Exibindo o <strong className="text-white">Documento Oficial Completo</strong> para
                   leitura e assinatura
@@ -496,7 +494,7 @@ function PaginaAssinaturaCliente() {
                   rel="noreferrer"
                   className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold text-slate-200 bg-slate-800 hover:bg-slate-700 border border-slate-700 transition"
                 >
-                  <Download className="h-3.5 w-3.5 text-emerald-400" />
+                  <Download className="h-3.5 w-3.5 text-orange-400" />
                   <span>Baixar Minuta em PDF</span>
                 </a>
                 <button
@@ -513,7 +511,7 @@ function PaginaAssinaturaCliente() {
             <article className="bg-slate-900 border border-slate-800 rounded-2xl p-6 sm:p-10 space-y-8 shadow-2xl text-slate-200 leading-relaxed font-sans">
               {/* Cabeçalho do Documento */}
               <div className="border-b border-slate-800 pb-6 text-center space-y-2">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold uppercase tracking-wider mb-2">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/30 text-orange-400 text-xs font-bold uppercase tracking-wider mb-2">
                   <ShieldCheck className="h-4 w-4" />
                   <span>Documento Oficial Certificado</span>
                 </div>
@@ -524,7 +522,7 @@ function PaginaAssinaturaCliente() {
                 <div className="flex flex-wrap items-center justify-center gap-4 text-xs font-mono text-slate-400 pt-2">
                   <span>
                     CONTRATO Nº:{" "}
-                    <strong className="text-emerald-400">{contrato.numero_contrato}</strong>
+                    <strong className="text-orange-400">{contrato.numero_contrato}</strong>
                   </span>
                   <span>•</span>
                   <span>
@@ -533,7 +531,7 @@ function PaginaAssinaturaCliente() {
                   <span>•</span>
                   <span>
                     CÓDIGO:{" "}
-                    <strong className="text-emerald-400">{contrato.codigo_verificacao}</strong>
+                    <strong className="text-orange-400">{contrato.codigo_verificacao}</strong>
                   </span>
                 </div>
               </div>
@@ -558,7 +556,7 @@ function PaginaAssinaturaCliente() {
 
               {/* 1. Identificação das Partes Contratantes */}
               <section className="space-y-3">
-                <h3 className="text-sm font-bold text-emerald-400 uppercase tracking-wide border-b border-slate-800 pb-1 flex items-center gap-2">
+                <h3 className="text-sm font-bold text-orange-400 uppercase tracking-wide border-b border-slate-800 pb-1 flex items-center gap-2">
                   <span>1. IDENTIFICAÇÃO DAS PARTES CONTRATANTES</span>
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
@@ -576,7 +574,7 @@ function PaginaAssinaturaCliente() {
                     </p>
                     <p className="text-slate-400">
                       Plataforma Oficial:{" "}
-                      <span className="text-emerald-400 font-mono">
+                      <span className="text-orange-400 font-mono">
                         GD Rastreamento (https://gd.oficial.tec.br)
                       </span>
                     </p>
@@ -605,7 +603,7 @@ function PaginaAssinaturaCliente() {
 
               {/* 2. Do Objeto do Contrato */}
               <section className="space-y-3">
-                <h3 className="text-sm font-bold text-emerald-400 uppercase tracking-wide border-b border-slate-800 pb-1">
+                <h3 className="text-sm font-bold text-orange-400 uppercase tracking-wide border-b border-slate-800 pb-1">
                   2. DO OBJETO DO CONTRATO E MODALIDADE DE SERVIÇO
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-300 text-justify leading-relaxed">
@@ -626,7 +624,7 @@ function PaginaAssinaturaCliente() {
 
               {/* 3. Parâmetros da Locação */}
               <section className="space-y-3">
-                <h3 className="text-sm font-bold text-emerald-400 uppercase tracking-wide border-b border-slate-800 pb-1">
+                <h3 className="text-sm font-bold text-orange-400 uppercase tracking-wide border-b border-slate-800 pb-1">
                   3. PARÂMETROS DA LOCAÇÃO E CONDIÇÕES PACTUADAS
                 </h3>
                 <div className="overflow-x-auto">
@@ -648,7 +646,7 @@ function PaginaAssinaturaCliente() {
                         <td className="p-3 font-bold text-slate-400">
                           Aluguel Mensal do Equipamento
                         </td>
-                        <td className="p-3 font-bold text-emerald-400">
+                        <td className="p-3 font-bold text-orange-400">
                           {contrato.valor_mensalidade > 0
                             ? `R$ ${contrato.valor_mensalidade.toFixed(2)} / mês`
                             : "Incluso / Cortesia Comercial"}
@@ -679,7 +677,7 @@ function PaginaAssinaturaCliente() {
 
               {/* 4. Veículos e Rastreadores Vinculados */}
               <section className="space-y-3">
-                <h3 className="text-sm font-bold text-emerald-400 uppercase tracking-wide border-b border-slate-800 pb-1">
+                <h3 className="text-sm font-bold text-orange-400 uppercase tracking-wide border-b border-slate-800 pb-1">
                   4. VEÍCULOS E BENS MÓVEIS LOCADOS (RASTREADORES E CHIPS)
                 </h3>
                 {contrato.cliente.veiculos && contrato.cliente.veiculos.length > 0 ? (
@@ -690,10 +688,10 @@ function PaginaAssinaturaCliente() {
                         className="p-3.5 rounded-xl bg-slate-950 border border-slate-800 text-xs space-y-1.5"
                       >
                         <div className="flex items-center justify-between">
-                          <span className="font-mono font-bold text-emerald-400 text-sm">
+                          <span className="font-mono font-bold text-orange-400 text-sm">
                             🚗 {v.placa || "SEM PLACA"}
                           </span>
-                          <span className="text-[10px] px-2 py-0.5 rounded bg-emerald-500/15 text-emerald-400 font-bold border border-emerald-500/30">
+                          <span className="text-[10px] px-2 py-0.5 rounded bg-orange-500/15 text-orange-400 font-bold border border-orange-500/30">
                             Homologado ANATEL
                           </span>
                         </div>
@@ -718,7 +716,7 @@ function PaginaAssinaturaCliente() {
 
               {/* 5. Cláusulas e Condições Gerais (1ª a 12ª) */}
               <section className="space-y-4">
-                <h3 className="text-sm font-bold text-emerald-400 uppercase tracking-wide border-b border-slate-800 pb-1">
+                <h3 className="text-sm font-bold text-orange-400 uppercase tracking-wide border-b border-slate-800 pb-1">
                   5. CLÁUSULAS E CONDIÇÕES GERAIS DO CONTRATO
                 </h3>
                 <div className="space-y-3.5 text-xs text-slate-300 text-justify leading-relaxed">
@@ -866,14 +864,14 @@ function PaginaAssinaturaCliente() {
               </section>
 
               {/* NO FINAL DO DOCUMENTO INTEIRO — ÁREA DE ASSINATURA ELETRÔNICA */}
-              <section className="pt-6 border-t-2 border-emerald-500/40 space-y-6">
+              <section className="pt-6 border-t-2 border-orange-500/40 space-y-6">
                 <div className="flex items-center justify-between">
                   <div className="space-y-0.5">
-                    <span className="text-[11px] uppercase font-bold text-emerald-400 tracking-wider">
+                    <span className="text-[11px] uppercase font-bold text-orange-400 tracking-wider">
                       Etapa Final de Formalização
                     </span>
                     <h3 className="text-base sm:text-lg font-black text-white flex items-center gap-2">
-                      <ShieldCheck className="h-5 w-5 text-emerald-400" />
+                      <ShieldCheck className="h-5 w-5 text-orange-400" />
                       <span>ASSINATURA ELETRÔNICA DO CLIENTE</span>
                     </h3>
                   </div>
@@ -907,7 +905,7 @@ function PaginaAssinaturaCliente() {
                           Geolocalização GPS:
                         </span>
                         {localizacao ? (
-                          <span className="font-mono text-emerald-400 font-bold">
+                          <span className="font-mono text-orange-400 font-bold">
                             Lat: {localizacao.latitude.toFixed(4)}, Lon:{" "}
                             {localizacao.longitude.toFixed(4)} (±{localizacao.precisao}m)
                           </span>
@@ -920,7 +918,7 @@ function PaginaAssinaturaCliente() {
                           type="button"
                           onClick={solicitarGeolocalizacao}
                           disabled={solicitandoLocalizacao}
-                          className="px-2.5 py-1 rounded-lg text-[10px] font-bold bg-emerald-500/20 text-emerald-300 hover:bg-emerald-500/30 border border-emerald-500/30 transition cursor-pointer"
+                          className="px-2.5 py-1 rounded-lg text-[10px] font-bold bg-orange-500/20 text-orange-300 hover:bg-orange-500/30 border border-orange-500/30 transition cursor-pointer"
                         >
                           {solicitandoLocalizacao ? "Obtendo GPS..." : "Autorizar Localização"}
                         </button>
@@ -972,13 +970,13 @@ function PaginaAssinaturaCliente() {
                 </div>
 
                 {/* Checkbox de Aceite Formal */}
-                <div className="p-4 rounded-xl bg-slate-950 border border-emerald-500/30 space-y-2">
+                <div className="p-4 rounded-xl bg-slate-950 border border-orange-500/30 space-y-2">
                   <label className="flex items-start gap-3 cursor-pointer">
                     <input
                       type="checkbox"
                       checked={aceitouTermos}
                       onChange={(e) => setAceitouTermos(e.target.checked)}
-                      className="mt-1 h-4 w-4 rounded border-slate-700 text-emerald-600 focus:ring-emerald-500 focus:ring-offset-slate-900 cursor-pointer"
+                      className="mt-1 h-4 w-4 rounded border-slate-700 text-orange-600 focus:ring-orange-500 focus:ring-offset-slate-900 cursor-pointer"
                     />
                     <span className="text-xs text-slate-300 leading-relaxed">
                       Eu,{" "}
@@ -990,7 +988,7 @@ function PaginaAssinaturaCliente() {
                       , declaro que li integralmente todas as páginas e cláusulas deste documento,
                       concordo expressamente com todos os seus termos e firmo eletronicamente o
                       presente{" "}
-                      <strong className="text-emerald-400">
+                      <strong className="text-orange-400">
                         Contrato Oficial nº {contrato.numero_contrato}
                       </strong>
                       , com plena validade jurídica e força executiva nos termos do Art. 10, § 2º da

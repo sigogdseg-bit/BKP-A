@@ -1839,7 +1839,7 @@ export function AbaConfiguracaoUsb() {
             </div>
           </div>
           <div className="bg-slate-950/90 text-slate-200 p-3.5 rounded-2xl font-mono text-xs space-y-2 border border-slate-800">
-            <div className="text-emerald-400 font-bold">
+            <div className="text-orange-400 font-bold">
               Como configurar via Terminal do macOS (Alternativa Direta):
             </div>
             <div>
@@ -1852,7 +1852,7 @@ export function AbaConfiguracaoUsb() {
             </div>
             <div>
               3. Digite o comando de apontamento e pressione Enter:{" "}
-              <code className="text-emerald-300">SERVER,0,167.234.233.82,7002,0#</code>
+              <code className="text-orange-300">SERVER,0,167.234.233.82,7002,0#</code>
             </div>
           </div>
         </div>
@@ -1867,7 +1867,7 @@ export function AbaConfiguracaoUsb() {
             <div
               className={`h-12 w-12 rounded-2xl flex items-center justify-center shrink-0 border transition ${
                 conectado
-                  ? "bg-emerald-500/15 border-emerald-500/30 text-emerald-600 dark:text-emerald-400 shadow-md shadow-emerald-500/20"
+                  ? "bg-orange-500/15 border-orange-500/30 text-orange-600 dark:text-orange-400 shadow-md shadow-orange-500/20"
                   : "bg-slate-500/10 border-slate-500/20 text-slate-500 dark:text-slate-400"
               }`}
             >
@@ -1881,12 +1881,12 @@ export function AbaConfiguracaoUsb() {
                 <span
                   className={`px-2 py-0.5 rounded-md text-[10px] font-mono font-bold border flex items-center gap-1 ${
                     conectado
-                      ? "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border-emerald-500/30"
+                      ? "bg-orange-500/15 text-orange-600 dark:text-orange-400 border-orange-500/30"
                       : "bg-rose-500/15 text-rose-600 dark:text-rose-400 border-rose-500/30"
                   }`}
                 >
                   <span
-                    className={`h-2 w-2 rounded-full ${conectado ? "bg-emerald-500 animate-pulse" : "bg-rose-500"}`}
+                    className={`h-2 w-2 rounded-full ${conectado ? "bg-orange-500 animate-pulse" : "bg-rose-500"}`}
                   />
                   {conectado
                     ? tipoConexao === "webusb"
@@ -1953,7 +1953,7 @@ export function AbaConfiguracaoUsb() {
                   onClick={conectarWebUsb}
                   disabled={conectando || !suportado}
                   title="Conecta diretamente ao modem/rastreador via cabo USB (Mac, Windows e Linux, sem driver)"
-                  className="px-4 py-2.5 rounded-2xl text-xs font-black uppercase tracking-wider bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-slate-950 transition flex items-center gap-2 cursor-pointer disabled:opacity-50 shadow-md shadow-emerald-500/20 active:scale-95"
+                  className="px-4 py-2.5 rounded-2xl text-xs font-black uppercase tracking-wider bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-slate-950 transition flex items-center gap-2 cursor-pointer disabled:opacity-50 shadow-md shadow-orange-500/20 active:scale-95"
                 >
                   {conectando ? (
                     <RefreshCw className="h-4 w-4 animate-spin" />
@@ -2015,7 +2015,7 @@ export function AbaConfiguracaoUsb() {
                   className={`px-3.5 py-2.5 rounded-2xl text-xs font-black uppercase tracking-wider transition flex items-center gap-1.5 cursor-pointer active:scale-95 shadow-md ${
                     varreduraAtiva
                       ? "bg-amber-500 hover:bg-amber-400 text-slate-950 animate-pulse border border-amber-300 shadow-amber-500/20"
-                      : "bg-emerald-500 hover:bg-emerald-400 text-slate-950 border border-emerald-400 shadow-emerald-500/20"
+                      : "bg-orange-500 hover:bg-orange-400 text-slate-950 border border-orange-400 shadow-orange-500/20"
                   }`}
                 >
                   <Radar className={`h-4 w-4 ${varreduraAtiva ? "animate-spin" : ""}`} />
@@ -2061,9 +2061,9 @@ export function AbaConfiguracaoUsb() {
 
         {/* Banner de Informações do Equipamento Detectado na Bancada */}
         {dadosBancada.imei && (
-          <div className="p-4 rounded-2xl bg-gradient-to-r from-slate-900 to-slate-950 text-white border border-emerald-500/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-lg">
+          <div className="p-4 rounded-2xl bg-gradient-to-r from-slate-900 to-slate-950 text-white border border-orange-500/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-lg">
             <div className="flex items-center gap-3">
-              <div className="h-10 w-10 rounded-xl bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400 shrink-0">
+              <div className="h-10 w-10 rounded-xl bg-orange-500/20 border border-orange-500/40 flex items-center justify-center text-orange-400 shrink-0">
                 <Radio className="h-5 w-5" />
               </div>
               <div>
@@ -2071,11 +2071,11 @@ export function AbaConfiguracaoUsb() {
                   <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
                     IMEI Identificado:
                   </span>
-                  <span className="text-sm font-mono font-black text-emerald-400">
+                  <span className="text-sm font-mono font-black text-orange-400">
                     {dadosBancada.imei}
                   </span>
                   {dadosBancada.cadastradoNoSistema ? (
-                    <span className="px-2 py-0.5 rounded-md text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                    <span className="px-2 py-0.5 rounded-md text-[10px] font-bold bg-orange-500/20 text-orange-300 border border-orange-500/30">
                       Cadastrado no Sistema ({dadosBancada.statusEstoque})
                     </span>
                   ) : (
@@ -2099,7 +2099,7 @@ export function AbaConfiguracaoUsb() {
                   {dadosBancada.operadora && (
                     <span>
                       Operadora:{" "}
-                      <strong className="text-emerald-300">{dadosBancada.operadora}</strong>
+                      <strong className="text-orange-300">{dadosBancada.operadora}</strong>
                     </span>
                   )}
                   {dadosBancada.iccid && (
@@ -2163,10 +2163,10 @@ export function AbaConfiguracaoUsb() {
                 <div className="flex items-center gap-1.5">
                   <div className="h-3 w-3 rounded-full bg-rose-500/80" />
                   <div className="h-3 w-3 rounded-full bg-amber-500/80" />
-                  <div className="h-3 w-3 rounded-full bg-emerald-500/80" />
+                  <div className="h-3 w-3 rounded-full bg-orange-500/80" />
                 </div>
                 <div className="flex items-center gap-2 ml-2 flex-wrap">
-                  <Terminal className="h-4 w-4 text-emerald-400" />
+                  <Terminal className="h-4 w-4 text-orange-400" />
                   <span className="text-xs font-mono font-bold text-slate-200">
                     Console Serial USB
                   </span>
@@ -2174,7 +2174,7 @@ export function AbaConfiguracaoUsb() {
                     ({baudRate} bps | {terminador})
                   </span>
                   {protocoloDetectado && (
-                    <span className="px-2 py-0.5 rounded text-[9px] font-mono font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                    <span className="px-2 py-0.5 rounded text-[9px] font-mono font-bold bg-orange-500/20 text-orange-300 border border-orange-500/30">
                       Auto: {protocoloDetectado}
                     </span>
                   )}
@@ -2194,7 +2194,7 @@ export function AbaConfiguracaoUsb() {
                   className={`px-2 py-1 rounded-lg text-[10px] font-mono transition cursor-pointer border flex items-center gap-1 ${
                     varreduraAtiva
                       ? "bg-amber-500 text-slate-950 border-amber-400 animate-pulse font-bold"
-                      : "bg-emerald-500/15 hover:bg-emerald-500/25 text-emerald-300 border-emerald-500/30"
+                      : "bg-orange-500/15 hover:bg-orange-500/25 text-orange-300 border-orange-500/30"
                   }`}
                   title="Testa automaticamente as velocidades e comandos até receber resposta positiva de STATUS"
                 >
@@ -2206,7 +2206,7 @@ export function AbaConfiguracaoUsb() {
                   onClick={() => setAutoScroll((prev) => !prev)}
                   className={`px-2 py-1 rounded-lg text-[10px] font-mono transition cursor-pointer border ${
                     autoScroll
-                      ? "bg-emerald-500/10 text-emerald-400 border-emerald-500/30"
+                      ? "bg-orange-500/10 text-orange-400 border-orange-500/30"
                       : "bg-slate-800 text-slate-400 border-slate-700"
                   }`}
                   title={autoScroll ? "Pausar rolagem automática" : "Ativar rolagem automática"}
@@ -2221,7 +2221,7 @@ export function AbaConfiguracaoUsb() {
                   title="Copiar log do terminal"
                 >
                   {copiado ? (
-                    <Check className="h-3.5 w-3.5 text-emerald-400" />
+                    <Check className="h-3.5 w-3.5 text-orange-400" />
                   ) : (
                     <Copy className="h-3.5 w-3.5" />
                   )}
@@ -2259,9 +2259,9 @@ export function AbaConfiguracaoUsb() {
                     prefixo = "TX ->";
                     corBadge = "bg-cyan-500/15 text-cyan-400 border-cyan-500/30";
                   } else if (log.tipo === "RX") {
-                    corTexto = "text-emerald-400";
+                    corTexto = "text-orange-400";
                     prefixo = "RX <-";
-                    corBadge = "bg-emerald-500/15 text-emerald-400 border-emerald-500/30";
+                    corBadge = "bg-orange-500/15 text-orange-400 border-orange-500/30";
                   } else if (log.tipo === "ERRO") {
                     corTexto = "text-rose-400";
                     prefixo = "ERR";
@@ -2300,7 +2300,7 @@ export function AbaConfiguracaoUsb() {
                       : "Conecte a porta USB para habilitar o envio de comandos..."
                   }
                   disabled={!conectado}
-                  className="w-full bg-slate-950/80 text-slate-100 placeholder:text-slate-600 font-mono text-xs px-3.5 py-2.5 rounded-xl border border-slate-800 focus:outline-hidden focus:border-emerald-500 transition disabled:opacity-50"
+                  className="w-full bg-slate-950/80 text-slate-100 placeholder:text-slate-600 font-mono text-xs px-3.5 py-2.5 rounded-xl border border-slate-800 focus:outline-hidden focus:border-orange-500 transition disabled:opacity-50"
                 />
               </div>
 
@@ -2308,7 +2308,7 @@ export function AbaConfiguracaoUsb() {
                 type="button"
                 onClick={() => enviarComandoSerial(comandoManual)}
                 disabled={!conectado || !comandoManual.trim()}
-                className="px-4 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs transition flex items-center gap-1.5 cursor-pointer disabled:opacity-50 active:scale-95 shrink-0"
+                className="px-4 py-2.5 rounded-xl bg-orange-500 hover:bg-orange-400 text-slate-950 font-bold text-xs transition flex items-center gap-1.5 cursor-pointer disabled:opacity-50 active:scale-95 shrink-0"
                 title="Enviar comando"
               >
                 <Send className="h-3.5 w-3.5" />
@@ -2351,7 +2351,7 @@ export function AbaConfiguracaoUsb() {
                     <h3 className="text-xs font-black uppercase tracking-wider text-slate-900 dark:text-slate-100">
                       Gravar Padrão Canônico (1-Clique)
                     </h3>
-                    <span className="px-1.5 py-0.5 rounded text-[9px] font-mono font-bold bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 border border-emerald-500/40">
+                    <span className="px-1.5 py-0.5 rounded text-[9px] font-mono font-bold bg-orange-500/20 text-orange-700 dark:text-orange-300 border border-orange-500/40">
                       HOMOLOGADO
                     </span>
                   </div>
@@ -2373,7 +2373,7 @@ export function AbaConfiguracaoUsb() {
             </div>
 
             {/* Seletor Manual e Governança da Família de Protocolo */}
-            <div className="flex items-center justify-between gap-2 p-2.5 rounded-2xl bg-white/80 dark:bg-slate-950/80 border border-emerald-500/30 flex-wrap">
+            <div className="flex items-center justify-between gap-2 p-2.5 rounded-2xl bg-white/80 dark:bg-slate-950/80 border border-orange-500/30 flex-wrap">
               <div className="flex items-center gap-2">
                 <span className="text-[10px] font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400">
                   Protocolo em Uso:
@@ -2381,24 +2381,24 @@ export function AbaConfiguracaoUsb() {
                 <select
                   value={familiaProtocolo}
                   onChange={(e) => alternarFamiliaProtocolo(e.target.value as FamiliaProtocolo)}
-                  className="bg-transparent text-xs font-bold text-emerald-700 dark:text-emerald-300 focus:outline-hidden cursor-pointer"
+                  className="bg-transparent text-xs font-bold text-orange-700 dark:text-orange-300 focus:outline-hidden cursor-pointer"
                 >
                   <option value="concox_wanway">WanWay / Concox (GT06 - Hash #)</option>
                   <option value="modem_at">Modem Celular AT (Hayes - CRLF)</option>
                   <option value="coban_tk">Coban / TK (TK103 - CRLF)</option>
                 </select>
               </div>
-              <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 font-bold border border-emerald-500/30 shrink-0">
+              <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-orange-500/20 text-orange-700 dark:text-orange-300 font-bold border border-orange-500/30 shrink-0">
                 {protocoloAtivoDef.badge}
               </span>
             </div>
 
             {/* Barra de Progresso durante a gravação */}
             {gravandoPadraoCanonico && progressoCanonico && (
-              <div className="space-y-1.5 bg-white/90 dark:bg-slate-950/80 p-3 rounded-2xl border border-emerald-500/30">
+              <div className="space-y-1.5 bg-white/90 dark:bg-slate-950/80 p-3 rounded-2xl border border-orange-500/30">
                 <div className="flex items-center justify-between text-[11px] font-mono">
-                  <span className="text-emerald-700 dark:text-emerald-400 font-bold flex items-center gap-1.5">
-                    <RefreshCw className="h-3 w-3 animate-spin text-emerald-500" />
+                  <span className="text-orange-700 dark:text-orange-400 font-bold flex items-center gap-1.5">
+                    <RefreshCw className="h-3 w-3 animate-spin text-orange-500" />
                     <span>{progressoCanonico.descricao}</span>
                   </span>
                   <span className="text-slate-500">
@@ -2407,7 +2407,7 @@ export function AbaConfiguracaoUsb() {
                 </div>
                 <div className="w-full bg-slate-200 dark:bg-slate-800 h-2 rounded-full overflow-hidden">
                   <div
-                    className="bg-emerald-500 h-full transition-all duration-300"
+                    className="bg-orange-500 h-full transition-all duration-300"
                     style={{
                       width: `${(progressoCanonico.passo / progressoCanonico.total) * 100}%`,
                     }}
@@ -2465,7 +2465,7 @@ export function AbaConfiguracaoUsb() {
           {/* GRUPO 1: RESGATE E APONTAMENTO PARA O SERVIDOR GD RASTREAMENTO */}
           <div className="bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 p-4 sm:p-5 rounded-3xl shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl space-y-3">
             <div className="flex items-center gap-2">
-              <span className="p-1.5 rounded-lg bg-emerald-500/10 text-emerald-500">
+              <span className="p-1.5 rounded-lg bg-orange-500/10 text-orange-500">
                 <Wifi className="h-4 w-4" />
               </span>
               <div>
@@ -2487,7 +2487,7 @@ export function AbaConfiguracaoUsb() {
                   type="text"
                   value={servidorDns}
                   onChange={(e) => setServidorDns(e.target.value)}
-                  className="w-full bg-white dark:bg-slate-950 border border-slate-300/80 dark:border-slate-800 rounded-xl px-3 py-1.5 text-xs font-mono font-bold text-slate-800 dark:text-slate-200 focus:outline-hidden focus:border-emerald-500"
+                  className="w-full bg-white dark:bg-slate-950 border border-slate-300/80 dark:border-slate-800 rounded-xl px-3 py-1.5 text-xs font-mono font-bold text-slate-800 dark:text-slate-200 focus:outline-hidden focus:border-orange-500"
                 />
               </div>
 
@@ -2499,7 +2499,7 @@ export function AbaConfiguracaoUsb() {
                   type="text"
                   value={portaTcp}
                   onChange={(e) => setPortaTcp(e.target.value)}
-                  className="w-full bg-white dark:bg-slate-950 border border-slate-300/80 dark:border-slate-800 rounded-xl px-3 py-1.5 text-xs font-mono font-bold text-slate-800 dark:text-slate-200 focus:outline-hidden focus:border-emerald-500"
+                  className="w-full bg-white dark:bg-slate-950 border border-slate-300/80 dark:border-slate-800 rounded-xl px-3 py-1.5 text-xs font-mono font-bold text-slate-800 dark:text-slate-200 focus:outline-hidden focus:border-orange-500"
                 />
               </div>
 
@@ -2510,7 +2510,7 @@ export function AbaConfiguracaoUsb() {
                 <select
                   value={modoIpDns}
                   onChange={(e) => setModoIpDns(e.target.value)}
-                  className="w-full bg-white dark:bg-slate-950 border border-slate-300/80 dark:border-slate-800 rounded-xl px-2 py-1.5 text-xs font-mono font-bold text-slate-800 dark:text-slate-200 focus:outline-hidden focus:border-emerald-500 cursor-pointer"
+                  className="w-full bg-white dark:bg-slate-950 border border-slate-300/80 dark:border-slate-800 rounded-xl px-2 py-1.5 text-xs font-mono font-bold text-slate-800 dark:text-slate-200 focus:outline-hidden focus:border-orange-500 cursor-pointer"
                 >
                   <option value="1">1 = DNS (Nome)</option>
                   <option value="0">0 = IP Direto</option>
@@ -2525,7 +2525,7 @@ export function AbaConfiguracaoUsb() {
                   ? "Comando GT06 (MCU):"
                   : `Comando TX (${protocoloAtivoDef.nome}):`}
               </span>
-              <span className="font-bold text-emerald-600 dark:text-emerald-400 truncate max-w-[240px]">
+              <span className="font-bold text-orange-600 dark:text-orange-400 truncate max-w-[240px]">
                 {protocoloAtivoDef.gerarComandoServidor(servidorDns, portaTcp, modoIpDns).cmd}
               </span>
             </div>
@@ -2534,7 +2534,7 @@ export function AbaConfiguracaoUsb() {
               type="button"
               onClick={gravarServidor}
               disabled={!conectado}
-              className="w-full py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-slate-950 font-black text-xs uppercase tracking-wider transition flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 active:scale-95 shadow-md shadow-emerald-500/20"
+              className="w-full py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-slate-950 font-black text-xs uppercase tracking-wider transition flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 active:scale-95 shadow-md shadow-orange-500/20"
             >
               <Play className="h-3.5 w-3.5 fill-slate-950" />
               <span>

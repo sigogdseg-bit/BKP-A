@@ -1904,7 +1904,7 @@ export function RefazerTrajetoModal({
               <div>
                 <h2 className="text-sm sm:text-base font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2">
                   <span>Refazer Trajeto e Telemetria</span>
-                  <span className="text-xs px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-mono font-semibold">
+                  <span className="text-xs px-2 py-0.5 rounded-full bg-orange-500/15 text-orange-600 dark:text-orange-400 font-mono font-semibold">
                     {modo}
                   </span>
                 </h2>
@@ -1937,7 +1937,7 @@ export function RefazerTrajetoModal({
                   }}
                   className={`px-3 py-1.5 rounded-lg transition flex items-center gap-1 ${
                     modo === "3D"
-                      ? "bg-emerald-500 text-white shadow-sm"
+                      ? "bg-orange-500 text-white shadow-sm"
                       : "text-slate-600 dark:text-slate-400 hover:text-slate-900"
                   }`}
                 >
@@ -1953,7 +1953,7 @@ export function RefazerTrajetoModal({
                   className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 font-semibold text-xs transition"
                   title="Alternar camadas do mapa (Ruas / Claro, Noturno, Satélite)"
                 >
-                  <Layers className="h-4 w-4 text-emerald-500" />
+                  <Layers className="h-4 w-4 text-orange-500" />
                   <span className="hidden sm:inline">Camadas</span>
                 </button>
 
@@ -1974,7 +1974,7 @@ export function RefazerTrajetoModal({
                           }}
                           className={`w-full flex items-center justify-between px-2.5 py-1.5 rounded-xl text-xs font-medium transition ${
                             selecionada
-                              ? "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-bold"
+                              ? "bg-orange-500/15 text-orange-600 dark:text-orange-400 font-bold"
                               : "hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300"
                           }`}
                         >
@@ -1983,7 +1983,7 @@ export function RefazerTrajetoModal({
                             <span>{c.label}</span>
                           </div>
                           {selecionada && (
-                            <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                            <span className="h-1.5 w-1.5 rounded-full bg-orange-500" />
                           )}
                         </button>
                       );
@@ -1994,7 +1994,7 @@ export function RefazerTrajetoModal({
 
               <button
                 onClick={baixarLaudoPdf}
-                className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold bg-emerald-500/15 hover:bg-emerald-500/25 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 transition shadow-sm"
+                className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold bg-orange-500/15 hover:bg-orange-500/25 text-orange-600 dark:text-orange-400 border border-orange-500/30 transition shadow-sm"
               >
                 <FileDown className="h-4 w-4" />
                 <span>Baixar Laudo (PDF)</span>
@@ -2025,7 +2025,7 @@ export function RefazerTrajetoModal({
                       onClick={() => setTipoVisao("jornada_completa")}
                       className={`py-1.5 px-2 rounded-lg transition text-center flex items-center justify-center gap-1.5 ${
                         tipoVisao === "jornada_completa"
-                          ? "bg-emerald-500 text-white shadow-xs font-black"
+                          ? "bg-orange-500 text-white shadow-xs font-black"
                           : "text-slate-500 hover:text-slate-900 dark:hover:text-slate-300"
                       }`}
                     >
@@ -2051,10 +2051,10 @@ export function RefazerTrajetoModal({
                   <div className="space-y-2 pt-1 border-t border-slate-100 dark:border-slate-800">
                     <div className="flex items-center justify-between">
                       <span className="text-[11px] font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider flex items-center gap-1.5">
-                        <Calendar className="h-3.5 w-3.5 text-emerald-500" />
+                        <Calendar className="h-3.5 w-3.5 text-orange-500" />
                         Período do Trajeto
                       </span>
-                      <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+                      <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-orange-500/10 text-orange-600 dark:text-orange-400 border border-orange-500/20">
                         {viagens.length} {viagens.length === 1 ? "ciclo" : "ciclos"}
                       </span>
                     </div>
@@ -2071,7 +2071,7 @@ export function RefazerTrajetoModal({
                             setAnoSelecionado(Number(e.target.value));
                             setDiaSelecionado(null);
                           }}
-                          className="w-full px-2 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-bold text-slate-800 dark:text-slate-100 focus:outline-none focus:border-emerald-500"
+                          className="w-full px-2 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-bold text-slate-800 dark:text-slate-100 focus:outline-none focus:border-orange-500"
                         >
                           {ANOS.map((a) => (
                             <option key={a} value={a}>
@@ -2091,7 +2091,7 @@ export function RefazerTrajetoModal({
                             setMesSelecionado(Number(e.target.value));
                             setDiaSelecionado(null);
                           }}
-                          className="w-full px-2 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-bold text-slate-800 dark:text-slate-100 focus:outline-none focus:border-emerald-500"
+                          className="w-full px-2 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-bold text-slate-800 dark:text-slate-100 focus:outline-none focus:border-orange-500"
                         >
                           {MESES.map((m) => (
                             <option key={m.valor} value={m.valor}>
@@ -2112,7 +2112,7 @@ export function RefazerTrajetoModal({
                           <button
                             type="button"
                             onClick={() => setDiaSelecionado(null)}
-                            className="text-[10px] text-emerald-600 dark:text-emerald-400 hover:underline font-semibold"
+                            className="text-[10px] text-orange-600 dark:text-orange-400 hover:underline font-semibold"
                           >
                             Ver Mês Inteiro
                           </button>
@@ -2123,7 +2123,7 @@ export function RefazerTrajetoModal({
                         onChange={(e) =>
                           setDiaSelecionado(e.target.value ? Number(e.target.value) : null)
                         }
-                        className="w-full px-2 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs text-slate-800 dark:text-slate-100 focus:outline-none focus:border-emerald-500 font-mono"
+                        className="w-full px-2 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs text-slate-800 dark:text-slate-100 focus:outline-none focus:border-orange-500 font-mono"
                       >
                         <option value="">
                           Todos os dias de {MESES.find((m) => m.valor === mesSelecionado)?.nome}
@@ -2145,7 +2145,7 @@ export function RefazerTrajetoModal({
                 {tipoVisao === "ciclo_unico" ? (
                   carregandoViagens ? (
                     <div className="text-center py-8 text-xs text-slate-400 flex flex-col items-center gap-2">
-                      <div className="h-5 w-5 border-2 border-emerald-500 border-t-transparent rounded-full animate-spin" />
+                      <div className="h-5 w-5 border-2 border-orange-500 border-t-transparent rounded-full animate-spin" />
                       <span>
                         Carregando trajetos de {MESES.find((m) => m.valor === mesSelecionado)?.nome}
                         /{anoSelecionado}...
@@ -2172,7 +2172,7 @@ export function RefazerTrajetoModal({
                             setMesSelecionado(mesAtual);
                             setDiaSelecionado(null);
                           }}
-                          className="mt-2 px-3 py-1.5 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-xs font-semibold border border-emerald-500/30 transition shadow-xs"
+                          className="mt-2 px-3 py-1.5 rounded-xl bg-orange-500/10 hover:bg-orange-500/20 text-orange-600 dark:text-orange-400 text-xs font-semibold border border-orange-500/30 transition shadow-xs"
                         >
                           Ir para Mês Atual
                         </button>
@@ -2188,7 +2188,7 @@ export function RefazerTrajetoModal({
                           onClick={() => setViagemSelecionada(v)}
                           className={`w-full text-left p-2.5 rounded-2xl border transition-all text-xs ${
                             isSel
-                              ? "bg-emerald-500/15 border-emerald-500 text-emerald-950 dark:text-emerald-100 shadow-sm"
+                              ? "bg-orange-500/15 border-orange-500 text-emerald-950 dark:text-orange-100 shadow-sm"
                               : "bg-white dark:bg-slate-900/60 border-slate-200 dark:border-slate-800 hover:border-slate-300"
                           }`}
                         >
@@ -2206,7 +2206,7 @@ export function RefazerTrajetoModal({
                                   })
                                 : "Em rota"}
                             </span>
-                            <span className="text-emerald-600 dark:text-emerald-400">
+                            <span className="text-orange-600 dark:text-orange-400">
                               {formatarDistanciaViagem(v.km_percorrido)}
                             </span>
                           </div>
@@ -2217,7 +2217,7 @@ export function RefazerTrajetoModal({
                           <div className="text-[10px] text-slate-400 flex items-center justify-between mt-0.5 pt-1 border-t border-slate-100 dark:border-slate-800/80">
                             <span>Máx: {v.velocidade_maxima} km/h</span>
                             <span
-                              className={v.fim_at ? "text-slate-400" : "text-emerald-500 font-bold"}
+                              className={v.fim_at ? "text-slate-400" : "text-orange-500 font-bold"}
                             >
                               {v.fim_at ? "Concluída" : "Em percurso"}
                             </span>
@@ -2232,7 +2232,7 @@ export function RefazerTrajetoModal({
                     {/* Seleção de Ponto de Início (Saída com Dia, Mês e Ano Separados) */}
                     <div className="p-3 rounded-2xl bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 space-y-2 shadow-xs">
                       <div className="flex items-center justify-between">
-                        <label className="text-[11px] font-extrabold uppercase tracking-wider text-emerald-600 dark:text-emerald-400 flex items-center gap-1.5">
+                        <label className="text-[11px] font-extrabold uppercase tracking-wider text-orange-600 dark:text-orange-400 flex items-center gap-1.5">
                           <MapPin className="h-3.5 w-3.5" />
                           <span>Ponto de Partida (Saída)</span>
                         </label>
@@ -2251,7 +2251,7 @@ export function RefazerTrajetoModal({
                           <select
                             value={diaPartida}
                             onChange={(e) => setDiaPartida(Number(e.target.value))}
-                            className="w-full px-2 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-mono font-bold text-slate-800 dark:text-slate-100 focus:outline-none focus:border-emerald-500"
+                            className="w-full px-2 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-mono font-bold text-slate-800 dark:text-slate-100 focus:outline-none focus:border-orange-500"
                           >
                             {Array.from({ length: totalDiasMesPartida }, (_, i) => i + 1).map(
                               (d) => (
@@ -2270,7 +2270,7 @@ export function RefazerTrajetoModal({
                           <select
                             value={mesPartida}
                             onChange={(e) => setMesPartida(Number(e.target.value))}
-                            className="w-full px-2 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-bold text-slate-800 dark:text-slate-100 focus:outline-none focus:border-emerald-500"
+                            className="w-full px-2 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-bold text-slate-800 dark:text-slate-100 focus:outline-none focus:border-orange-500"
                           >
                             {MESES.map((m) => (
                               <option key={m.valor} value={m.valor}>
@@ -2287,7 +2287,7 @@ export function RefazerTrajetoModal({
                           <select
                             value={anoPartida}
                             onChange={(e) => setAnoPartida(Number(e.target.value))}
-                            className="w-full px-2 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-mono font-bold text-slate-800 dark:text-slate-100 focus:outline-none focus:border-emerald-500"
+                            className="w-full px-2 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-mono font-bold text-slate-800 dark:text-slate-100 focus:outline-none focus:border-orange-500"
                           >
                             {ANOS.map((a) => (
                               <option key={a} value={a}>
@@ -2313,7 +2313,7 @@ export function RefazerTrajetoModal({
                           <select
                             value={viagemInicioJornadaId || ""}
                             onChange={(e) => setViagemInicioJornadaId(e.target.value)}
-                            className="w-full px-2 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-mono font-medium text-slate-800 dark:text-slate-100 focus:outline-none focus:border-emerald-500"
+                            className="w-full px-2 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-mono font-medium text-slate-800 dark:text-slate-100 focus:outline-none focus:border-orange-500"
                           >
                             {viagensPartida.map((v, idx) => (
                               <option key={v.id} value={v.id}>
@@ -2446,13 +2446,13 @@ export function RefazerTrajetoModal({
                         <div
                           className={`p-2 rounded-2xl flex items-center gap-2 text-xs font-bold border ${
                             jornadaConsolidada.retornouAoInicio
-                              ? "bg-emerald-500/15 border-emerald-500/30 text-emerald-600 dark:text-emerald-400"
+                              ? "bg-orange-500/15 border-orange-500/30 text-orange-600 dark:text-orange-400"
                               : "bg-slate-100 dark:bg-slate-800/80 border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300"
                           }`}
                         >
                           {jornadaConsolidada.retornouAoInicio ? (
                             <>
-                              <Home className="h-4 w-4 shrink-0 text-emerald-500" />
+                              <Home className="h-4 w-4 shrink-0 text-orange-500" />
                               <span>
                                 🏠 Retorno ao Ponto Inicial (
                                 {jornadaConsolidada.distanciaRetornoMetros}m da saída)
@@ -2471,13 +2471,13 @@ export function RefazerTrajetoModal({
                           <button
                             type="button"
                             onClick={ajustarEnquadramentoTrajeto}
-                            className="p-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-emerald-500/50 hover:bg-emerald-500/5 transition text-left cursor-pointer"
+                            className="p-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-orange-500/50 hover:bg-orange-500/5 transition text-left cursor-pointer"
                             title="Clique para reenquadrar o percurso completo no mapa"
                           >
                             <span className="text-[10px] text-slate-400 block font-sans font-bold">
                               Distância Total 🔍
                             </span>
-                            <span className="text-sm font-black text-emerald-600 dark:text-emerald-400">
+                            <span className="text-sm font-black text-orange-600 dark:text-orange-400">
                               {formatarDistanciaViagem(jornadaConsolidada.kmTotal)}
                             </span>
                           </button>
@@ -2574,7 +2574,7 @@ export function RefazerTrajetoModal({
                                           minute: "2-digit",
                                         })}
                                       </span>
-                                      <span className="text-[10px] text-emerald-600 dark:text-emerald-400 font-semibold">
+                                      <span className="text-[10px] text-orange-600 dark:text-orange-400 font-semibold">
                                         Ver detalhes
                                       </span>
                                     </div>
@@ -2597,9 +2597,9 @@ export function RefazerTrajetoModal({
               {pontoAtual && (
                 <div className="absolute top-3 left-3 right-3 sm:right-auto z-20 flex flex-wrap items-center gap-2 p-2 rounded-2xl bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-slate-100 text-xs shadow-xl font-mono">
                   {/* Velocidade */}
-                  <div className="flex items-center gap-1.5 px-2 py-1 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/60">
-                    <Gauge className="h-3.5 w-3.5 text-emerald-500 dark:text-emerald-400" />
-                    <span className="font-black text-emerald-600 dark:text-emerald-400">
+                  <div className="flex items-center gap-1.5 px-2 py-1 rounded-xl bg-orange-50 dark:bg-orange-950/40 border border-emerald-200 dark:border-emerald-800/60">
+                    <Gauge className="h-3.5 w-3.5 text-orange-500 dark:text-orange-400" />
+                    <span className="font-black text-orange-600 dark:text-orange-400">
                       {telemetriaPontoAtual?.velocidade ?? pontoAtual.velocidade} km/h
                     </span>
                   </div>
@@ -2610,7 +2610,7 @@ export function RefazerTrajetoModal({
                     title={`Rumo: ${rumoMomentoAtual}° (${calcularCardeal(rumoMomentoAtual)}) · Sentido da ponta de seta`}
                   >
                     <Compass
-                      className="h-3.5 w-3.5 text-emerald-500 transition-transform duration-300"
+                      className="h-3.5 w-3.5 text-orange-500 transition-transform duration-300"
                       style={{ transform: `rotate(${rumoMomentoAtual}deg)` }}
                     />
                     <span className="font-bold text-slate-700 dark:text-slate-200">
@@ -2684,8 +2684,8 @@ export function RefazerTrajetoModal({
                   className="flex items-center gap-1.5 cursor-help"
                   title="Ponta de seta verde piscante indica o ping de GPS e o sentido exato do deslocamento (mão ou contramão)"
                 >
-                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                  <span className="font-bold text-emerald-600 dark:text-emerald-400">
+                  <span className="w-2.5 h-2.5 rounded-full bg-orange-500 animate-pulse"></span>
+                  <span className="font-bold text-orange-600 dark:text-orange-400">
                     Seta: Sentido / Ping
                   </span>
                 </div>
@@ -2703,7 +2703,7 @@ export function RefazerTrajetoModal({
                 <button
                   type="button"
                   onClick={ajustarEnquadramentoTrajeto}
-                  className="text-[10px] text-slate-500 hover:text-emerald-600 dark:hover:text-emerald-400 font-bold underline transition cursor-pointer"
+                  className="text-[10px] text-slate-500 hover:text-orange-600 dark:hover:text-orange-400 font-bold underline transition cursor-pointer"
                   title="Reenquadrar percurso completo"
                 >
                   Enquadrar
@@ -2804,7 +2804,7 @@ export function RefazerTrajetoModal({
                         setIsPlaying(!isPlaying);
                       }}
                       disabled={pontos.length === 0}
-                      className="flex items-center gap-1.5 px-3 sm:px-4 py-1.5 rounded-xl font-bold text-xs bg-emerald-500 text-white hover:bg-emerald-600 transition disabled:opacity-50 shadow-sm"
+                      className="flex items-center gap-1.5 px-3 sm:px-4 py-1.5 rounded-xl font-bold text-xs bg-orange-500 text-white hover:bg-orange-600 transition disabled:opacity-50 shadow-sm"
                     >
                       {isPlaying ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
                       <span>{isPlaying ? "Pausar" : "Iniciar"}</span>
@@ -2868,7 +2868,7 @@ export function RefazerTrajetoModal({
                         onClick={() => setVelocidadePlayback(v)}
                         className={`px-2 py-1 rounded-lg transition ${
                           velocidadePlayback === v
-                            ? "bg-emerald-500 text-white shadow-xs"
+                            ? "bg-orange-500 text-white shadow-xs"
                             : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
                         }`}
                       >

@@ -427,10 +427,10 @@ export function AbastecimentoView() {
     <div className="space-y-6 max-w-5xl mx-auto select-none pb-12">
       {/* Banner Superior Canônico Neumorphism Suave */}
       <div className="relative overflow-hidden rounded-3xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 p-4 sm:p-6 md:p-8 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl transition-all duration-300">
-        <div className="absolute top-0 right-0 w-80 h-80 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-0 right-0 w-80 h-80 bg-orange-500/10 rounded-full blur-3xl pointer-events-none" />
         <div className="relative z-10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div className="space-y-1">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-xs font-semibold mb-1">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-600 dark:text-orange-400 text-xs font-semibold mb-1">
               <Fuel className="h-3.5 w-3.5" />
               <span>Módulo Canônico de Gestão de Combustível</span>
             </div>
@@ -452,7 +452,7 @@ export function AbastecimentoView() {
                 onClick={() => setAbaAtiva("novo")}
                 className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
                   abaAtiva === "novo"
-                    ? "bg-[#eaf0f8] dark:bg-slate-900 text-emerald-600 dark:text-emerald-400 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none border border-slate-300/40 dark:border-slate-800"
+                    ? "bg-[#eaf0f8] dark:bg-slate-900 text-orange-600 dark:text-orange-400 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none border border-slate-300/40 dark:border-slate-800"
                     : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
                 }`}
               >
@@ -464,7 +464,7 @@ export function AbastecimentoView() {
                 onClick={() => setAbaAtiva("historico")}
                 className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
                   abaAtiva === "historico"
-                    ? "bg-[#eaf0f8] dark:bg-slate-900 text-emerald-600 dark:text-emerald-400 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none border border-slate-300/40 dark:border-slate-800"
+                    ? "bg-[#eaf0f8] dark:bg-slate-900 text-orange-600 dark:text-orange-400 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none border border-slate-300/40 dark:border-slate-800"
                     : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
                 }`}
               >
@@ -478,7 +478,7 @@ export function AbastecimentoView() {
 
       {carregando ? (
         <div className="flex flex-col items-center justify-center py-20 text-slate-500">
-          <Loader2 className="h-8 w-8 animate-spin text-emerald-500 mb-3" />
+          <Loader2 className="h-8 w-8 animate-spin text-orange-500 mb-3" />
           <p className="text-sm font-medium">Carregando dados da frota...</p>
         </div>
       ) : veiculos.length === 0 ? (
@@ -506,14 +506,14 @@ export function AbastecimentoView() {
                 <span className="text-xs font-black uppercase tracking-wider text-slate-500 dark:text-slate-400">
                   Veículo Selecionado
                 </span>
-                <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400">
+                <span className="text-xs font-bold text-orange-600 dark:text-orange-400">
                   {veiculos.length} {veiculos.length === 1 ? "veículo" : "veículos"}
                 </span>
               </div>
 
               {veiculos.length === 1 ? (
                 <div className="p-4 rounded-2xl bg-[#eaf0f8] dark:bg-slate-950/60 border border-slate-300/50 dark:border-slate-800 shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-none flex items-center gap-3">
-                  <div className="p-2.5 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none">
+                  <div className="p-2.5 rounded-xl bg-orange-500/10 text-orange-600 dark:text-orange-400 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none">
                     <Car className="h-6 w-6" />
                   </div>
                   <div className="min-w-0 flex-1">
@@ -537,7 +537,7 @@ export function AbastecimentoView() {
                         onClick={() => handleSelecionarVeiculo(vId)}
                         className={`w-full flex items-center justify-between p-3 rounded-xl border text-left transition cursor-pointer ${
                           ativo
-                            ? "bg-emerald-500/10 border-emerald-500/40 text-emerald-700 dark:text-emerald-400 shadow-[2px_2px_6px_#c3cfe2] dark:shadow-none"
+                            ? "bg-orange-500/10 border-orange-500/40 text-orange-700 dark:text-orange-400 shadow-[2px_2px_6px_#c3cfe2] dark:shadow-none"
                             : "bg-[#eaf0f8] dark:bg-slate-950/60 border-slate-300/50 dark:border-slate-800 text-slate-700 dark:text-slate-300 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none hover:shadow-[3px_3px_8px_#b8c6da]"
                         }`}
                       >
@@ -545,7 +545,7 @@ export function AbastecimentoView() {
                           <Car
                             className={`h-4 w-4 shrink-0 ${
                               ativo
-                                ? "text-emerald-600 dark:text-emerald-400"
+                                ? "text-orange-600 dark:text-orange-400"
                                 : "text-slate-400 dark:text-slate-500"
                             }`}
                           />
@@ -559,7 +559,7 @@ export function AbastecimentoView() {
                           </div>
                         </div>
                         {ativo && (
-                          <CheckCircle className="h-4 w-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
+                          <CheckCircle className="h-4 w-4 text-orange-600 dark:text-orange-400 shrink-0" />
                         )}
                       </button>
                     );
@@ -591,8 +591,8 @@ export function AbastecimentoView() {
             </div>
 
             {/* Caixa de Dica de IA */}
-            <div className="p-4 rounded-2xl bg-[#eaf0f8] dark:bg-slate-900/60 border border-emerald-500/30 text-xs text-slate-600 dark:text-slate-400 space-y-2 shadow-[2px_2px_6px_#c3cfe2] dark:shadow-none">
-              <div className="flex items-center gap-2 font-bold text-emerald-700 dark:text-emerald-400">
+            <div className="p-4 rounded-2xl bg-[#eaf0f8] dark:bg-slate-900/60 border border-orange-500/30 text-xs text-slate-600 dark:text-slate-400 space-y-2 shadow-[2px_2px_6px_#c3cfe2] dark:shadow-none">
+              <div className="flex items-center gap-2 font-bold text-orange-700 dark:text-orange-400">
                 <Sparkles className="h-4 w-4" />
                 <span>Leitura Inteligente por IA</span>
               </div>
@@ -608,7 +608,7 @@ export function AbastecimentoView() {
           <div className="lg:col-span-2">
             {sucesso ? (
               <div className="bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 rounded-3xl p-8 sm:p-12 text-center space-y-5 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl">
-                <div className="w-16 h-16 mx-auto rounded-full bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shadow-[2px_2px_6px_#c3cfe2] dark:shadow-none">
+                <div className="w-16 h-16 mx-auto rounded-full bg-orange-500/15 border border-orange-500/30 flex items-center justify-center text-orange-600 dark:text-orange-400 shadow-[2px_2px_6px_#c3cfe2] dark:shadow-none">
                   <CheckCircle className="h-9 w-9" />
                 </div>
                 <div className="space-y-1">
@@ -636,7 +636,7 @@ export function AbastecimentoView() {
                       }));
                       removerArquivo();
                     }}
-                    className="px-5 py-2.5 rounded-xl font-bold text-xs bg-emerald-600 hover:bg-emerald-700 text-white shadow-[2px_2px_5px_#c3cfe2] active:shadow-[inset_2px_2px_4px_#047857] transition cursor-pointer"
+                    className="px-5 py-2.5 rounded-xl font-bold text-xs bg-orange-600 hover:bg-emerald-700 text-white shadow-[2px_2px_5px_#c3cfe2] active:shadow-[inset_2px_2px_4px_#047857] transition cursor-pointer"
                   >
                     Registrar Outro Abastecimento
                   </button>
@@ -724,9 +724,9 @@ export function AbastecimentoView() {
                       type="button"
                       onClick={() => fileRef.current?.click()}
                       disabled={ocrLendo}
-                      className="w-full flex flex-col items-center justify-center gap-2 p-6 rounded-2xl border-2 border-dashed border-slate-300 dark:border-slate-700 hover:border-emerald-500/60 dark:hover:border-emerald-500/60 bg-[#eaf0f8] dark:bg-slate-950/40 hover:bg-emerald-500/5 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none hover:shadow-[3px_3px_8px_#b8c6da] transition cursor-pointer text-slate-600 dark:text-slate-400"
+                      className="w-full flex flex-col items-center justify-center gap-2 p-6 rounded-2xl border-2 border-dashed border-slate-300 dark:border-slate-700 hover:border-orange-500/60 dark:hover:border-orange-500/60 bg-[#eaf0f8] dark:bg-slate-950/40 hover:bg-orange-500/5 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none hover:shadow-[3px_3px_8px_#b8c6da] transition cursor-pointer text-slate-600 dark:text-slate-400"
                     >
-                      <div className="p-3 rounded-2xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none">
+                      <div className="p-3 rounded-2xl bg-orange-500/10 text-orange-600 dark:text-orange-400 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none">
                         <Upload className="h-5 w-5" />
                       </div>
                       <div className="text-center">
@@ -745,7 +745,7 @@ export function AbastecimentoView() {
                 <div className="p-4 rounded-2xl border border-slate-300/50 dark:border-slate-800 bg-[#eaf0f8] dark:bg-slate-900/80 shadow-[2px_2px_6px_#c3cfe2] dark:shadow-none space-y-3">
                   <div className="flex items-center justify-between gap-3 flex-wrap">
                     <div className="flex items-center gap-2.5">
-                      <div className="p-2 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 shrink-0 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none">
+                      <div className="p-2 rounded-xl bg-orange-500/10 text-orange-600 dark:text-orange-400 border border-orange-500/20 shrink-0 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none">
                         <Fuel className="h-4 w-4" />
                       </div>
                       <div>
@@ -765,7 +765,7 @@ export function AbastecimentoView() {
                         onClick={() => handleRespostaPosto(true)}
                         className={`px-3 py-2 sm:py-1.5 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 cursor-pointer min-h-[40px] sm:min-h-0 ${
                           estaNoPosto === true
-                            ? "bg-emerald-600 text-white shadow-[2px_2px_5px_#c3cfe2]"
+                            ? "bg-orange-600 text-white shadow-[2px_2px_5px_#c3cfe2]"
                             : "bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 text-slate-700 dark:text-slate-300 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none hover:shadow-[3px_3px_8px_#b8c6da] active:shadow-[inset_2px_2px_4px_#c8d4e4]"
                         }`}
                       >
@@ -789,8 +789,8 @@ export function AbastecimentoView() {
                   </div>
 
                   {estaNoPosto === true && (
-                    <div className="p-2.5 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center gap-2 text-xs text-emerald-700 dark:text-emerald-300 font-medium animate-in fade-in duration-150">
-                      <Sparkles className="h-4 w-4 shrink-0 text-emerald-500" />
+                    <div className="p-2.5 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center gap-2 text-xs text-orange-700 dark:text-orange-300 font-medium animate-in fade-in duration-150">
+                      <Sparkles className="h-4 w-4 shrink-0 text-orange-500" />
                       <span>
                         Modo de calibração ativo: complete o campo <strong>KM do Odômetro</strong>{" "}
                         com os 3 dígitos finais que aparecem no painel do carro para atualizar o
@@ -812,7 +812,7 @@ export function AbastecimentoView() {
                       value={form.data_abastecimento}
                       onChange={(e) => setCampo("data_abastecimento", e.target.value)}
                       required
-                      className="w-full h-11 px-3.5 rounded-xl border border-slate-300/60 dark:border-slate-700 bg-[#eaf0f8] dark:bg-slate-950 text-slate-900 dark:text-slate-100 text-xs font-medium focus:ring-2 focus:ring-emerald-500 shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6)] outline-none transition"
+                      className="w-full h-11 px-3.5 rounded-xl border border-slate-300/60 dark:border-slate-700 bg-[#eaf0f8] dark:bg-slate-950 text-slate-900 dark:text-slate-100 text-xs font-medium focus:ring-2 focus:ring-orange-500 shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6)] outline-none transition"
                     />
                   </div>
 
@@ -823,7 +823,7 @@ export function AbastecimentoView() {
                         <span>KM do Odômetro</span>
                       </label>
                       {estaNoPosto === true && (
-                        <span className="text-[10px] font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wide">
+                        <span className="text-[10px] font-bold text-orange-600 dark:text-orange-400 uppercase tracking-wide">
                           Complete os 3 dígitos
                         </span>
                       )}
@@ -837,12 +837,12 @@ export function AbastecimentoView() {
                       onChange={(e) => setCampo("km_atual", e.target.value)}
                       className={`w-full h-11 px-3.5 rounded-xl border text-xs font-mono font-medium outline-none transition shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6)] ${
                         estaNoPosto === true
-                          ? "border-emerald-500 bg-emerald-50/20 dark:bg-emerald-950/20 text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-emerald-500"
-                          : "border-slate-300/60 dark:border-slate-700 bg-[#eaf0f8] dark:bg-slate-950 text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-emerald-500"
+                          ? "border-orange-500 bg-orange-50/20 dark:bg-orange-950/20 text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-orange-500"
+                          : "border-slate-300/60 dark:border-slate-700 bg-[#eaf0f8] dark:bg-slate-950 text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-orange-500"
                       }`}
                     />
                     {estaNoPosto === true && (
-                      <p className="text-[10px] text-emerald-600 dark:text-emerald-400">
+                      <p className="text-[10px] text-orange-600 dark:text-orange-400">
                         * Prefixo preenchido pelo sistema. Digite os 3 últimos dígitos para
                         registrar o KM exato do painel.
                       </p>
@@ -859,7 +859,7 @@ export function AbastecimentoView() {
                   <select
                     value={form.combustivel}
                     onChange={(e) => setCampo("combustivel", e.target.value)}
-                    className="w-full h-11 px-3.5 rounded-xl border border-slate-300/60 dark:border-slate-700 bg-[#eaf0f8] dark:bg-slate-950 text-slate-900 dark:text-slate-100 text-xs font-medium focus:ring-2 focus:ring-emerald-500 shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6)] outline-none transition cursor-pointer"
+                    className="w-full h-11 px-3.5 rounded-xl border border-slate-300/60 dark:border-slate-700 bg-[#eaf0f8] dark:bg-slate-950 text-slate-900 dark:text-slate-100 text-xs font-medium focus:ring-2 focus:ring-orange-500 shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6)] outline-none transition cursor-pointer"
                   >
                     {COMBUSTIVEIS.map((c) => (
                       <option key={c.value} value={c.value}>
@@ -881,7 +881,7 @@ export function AbastecimentoView() {
                       value={form.litros}
                       onChange={(e) => handleValorOuLitros("litros", e.target.value)}
                       required
-                      className="w-full h-11 px-3.5 rounded-xl border border-slate-300/60 dark:border-slate-700 bg-[#eaf0f8] dark:bg-slate-950 text-slate-900 dark:text-slate-100 text-xs font-mono font-medium focus:ring-2 focus:ring-emerald-500 shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6)] outline-none transition"
+                      className="w-full h-11 px-3.5 rounded-xl border border-slate-300/60 dark:border-slate-700 bg-[#eaf0f8] dark:bg-slate-950 text-slate-900 dark:text-slate-100 text-xs font-mono font-medium focus:ring-2 focus:ring-orange-500 shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6)] outline-none transition"
                     />
                   </div>
 
@@ -893,7 +893,7 @@ export function AbastecimentoView() {
                       value={Number(form.valor_total) || 0}
                       onChange={(v) => handleValorOuLitros("valor_total", String(v))}
                       placeholder="R$ 0,00"
-                      className="w-full h-11 px-3.5 rounded-xl border border-slate-300/60 dark:border-slate-700 bg-[#eaf0f8] dark:bg-slate-950 text-slate-900 dark:text-slate-100 text-xs font-mono font-bold focus:ring-2 focus:ring-emerald-500 shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6)] outline-none transition"
+                      className="w-full h-11 px-3.5 rounded-xl border border-slate-300/60 dark:border-slate-700 bg-[#eaf0f8] dark:bg-slate-950 text-slate-900 dark:text-slate-100 text-xs font-mono font-bold focus:ring-2 focus:ring-orange-500 shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6)] outline-none transition"
                     />
                   </div>
 
@@ -923,7 +923,7 @@ export function AbastecimentoView() {
                       placeholder="Ex: Posto Ipiranga Shell BR"
                       value={form.posto_nome}
                       onChange={(e) => setCampo("posto_nome", e.target.value)}
-                      className="w-full h-11 px-3.5 rounded-xl border border-slate-300/60 dark:border-slate-700 bg-[#eaf0f8] dark:bg-slate-950 text-slate-900 dark:text-slate-100 text-xs font-medium focus:ring-2 focus:ring-emerald-500 shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6)] outline-none transition"
+                      className="w-full h-11 px-3.5 rounded-xl border border-slate-300/60 dark:border-slate-700 bg-[#eaf0f8] dark:bg-slate-950 text-slate-900 dark:text-slate-100 text-xs font-medium focus:ring-2 focus:ring-orange-500 shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6)] outline-none transition"
                     />
                   </div>
 
@@ -937,7 +937,7 @@ export function AbastecimentoView() {
                       placeholder="Ex: 0045821"
                       value={form.nf_numero}
                       onChange={(e) => setCampo("nf_numero", e.target.value)}
-                      className="w-full h-11 px-3.5 rounded-xl border border-slate-300/60 dark:border-slate-700 bg-[#eaf0f8] dark:bg-slate-950 text-slate-900 dark:text-slate-100 text-xs font-mono font-medium focus:ring-2 focus:ring-emerald-500 shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6)] outline-none transition"
+                      className="w-full h-11 px-3.5 rounded-xl border border-slate-300/60 dark:border-slate-700 bg-[#eaf0f8] dark:bg-slate-950 text-slate-900 dark:text-slate-100 text-xs font-mono font-medium focus:ring-2 focus:ring-orange-500 shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6)] outline-none transition"
                     />
                   </div>
                 </div>
@@ -952,7 +952,7 @@ export function AbastecimentoView() {
                     placeholder="Informações adicionais sobre o trajeto, rota ou abastecimento..."
                     value={form.observacoes}
                     onChange={(e) => setCampo("observacoes", e.target.value)}
-                    className="w-full p-3.5 rounded-xl border border-slate-300/60 dark:border-slate-700 bg-[#eaf0f8] dark:bg-slate-950 text-slate-900 dark:text-slate-100 text-xs font-medium focus:ring-2 focus:ring-emerald-500 shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6)] outline-none transition resize-none"
+                    className="w-full p-3.5 rounded-xl border border-slate-300/60 dark:border-slate-700 bg-[#eaf0f8] dark:bg-slate-950 text-slate-900 dark:text-slate-100 text-xs font-medium focus:ring-2 focus:ring-orange-500 shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6)] outline-none transition resize-none"
                   />
                 </div>
 
@@ -960,7 +960,7 @@ export function AbastecimentoView() {
                 <button
                   type="submit"
                   disabled={salvando || ocrLendo}
-                  className="w-full h-12 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm shadow-[3px_3px_8px_#b8c6da] hover:shadow-[4px_4px_12px_#a6b8d0] active:shadow-[inset_2px_2px_4px_#047857] transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full h-12 rounded-2xl bg-orange-600 hover:bg-emerald-700 text-white font-bold text-sm shadow-[3px_3px_8px_#b8c6da] hover:shadow-[4px_4px_12px_#a6b8d0] active:shadow-[inset_2px_2px_4px_#047857] transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {salvando ? (
                     <>
@@ -1013,7 +1013,7 @@ export function AbastecimentoView() {
                 onClick={() => setFiltroCombustivel("todos")}
                 className={`p-3.5 sm:p-4 rounded-2xl cursor-pointer text-left transition-all ${
                   filtroCombustivel === "todos"
-                    ? "ring-2 ring-emerald-500 bg-[#dfe9f5] dark:bg-slate-800/90 shadow-[4px_4px_12px_#b8c7db]"
+                    ? "ring-2 ring-orange-500 bg-[#dfe9f5] dark:bg-slate-800/90 shadow-[4px_4px_12px_#b8c7db]"
                     : "bg-[#eaf0f8] dark:bg-slate-900/80 border border-slate-300/50 dark:border-slate-800/80 shadow-[3px_3px_8px_#c3cfe2]"
                 }`}
               >
@@ -1021,9 +1021,9 @@ export function AbastecimentoView() {
                   <span className="text-[11px] font-semibold text-slate-500 dark:text-slate-400 block">
                     Total Faturado
                   </span>
-                  <Fuel className="h-4 w-4 text-emerald-500" />
+                  <Fuel className="h-4 w-4 text-orange-500" />
                 </div>
-                <div className="text-xl sm:text-2xl font-black font-mono text-emerald-600 dark:text-emerald-400 mt-1">
+                <div className="text-xl sm:text-2xl font-black font-mono text-orange-600 dark:text-orange-400 mt-1">
                   {totaisHistorico.totalValor.toLocaleString("pt-BR", {
                     style: "currency",
                     currency: "BRL",
@@ -1122,7 +1122,7 @@ export function AbastecimentoView() {
             <div className="flex items-center justify-between pt-1">
               <span className="text-xs text-slate-600 dark:text-slate-400">
                 Filtrando por combustível:{" "}
-                <strong className="capitalize text-emerald-600 dark:text-emerald-400">
+                <strong className="capitalize text-orange-600 dark:text-orange-400">
                   {filtroCombustivel === "gasolina"
                     ? "Gasolina (Comum e Aditivada)"
                     : filtroCombustivel === "diesel"
@@ -1133,7 +1133,7 @@ export function AbastecimentoView() {
               <button
                 type="button"
                 onClick={() => setFiltroCombustivel("todos")}
-                className="text-xs text-slate-500 hover:text-emerald-600 dark:hover:text-emerald-400 underline font-semibold cursor-pointer"
+                className="text-xs text-slate-500 hover:text-orange-600 dark:hover:text-orange-400 underline font-semibold cursor-pointer"
               >
                 Limpar filtro (Ver todos)
               </button>
@@ -1142,7 +1142,7 @@ export function AbastecimentoView() {
 
           {carregandoHistorico ? (
             <div className="py-16 text-center text-slate-500">
-              <Loader2 className="h-6 w-6 animate-spin text-emerald-500 mx-auto mb-2" />
+              <Loader2 className="h-6 w-6 animate-spin text-orange-500 mx-auto mb-2" />
               <p className="text-xs">Consultando abastecimentos no banco de dados...</p>
             </div>
           ) : historicoFiltrado.length === 0 ? (
@@ -1174,7 +1174,7 @@ export function AbastecimentoView() {
                   className="py-4 flex flex-col md:flex-row md:items-center justify-between gap-4 bg-[#eaf0f8] dark:bg-slate-900/60 border border-slate-300/40 dark:border-slate-800/80 p-4 rounded-2xl shadow-[2px_2px_6px_#c3cfe2] dark:shadow-none hover:shadow-[3px_3px_9px_#b8c6da] transition"
                 >
                   <div className="flex items-start gap-3.5">
-                    <div className="p-2.5 rounded-2xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 shrink-0 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none">
+                    <div className="p-2.5 rounded-2xl bg-orange-500/10 text-orange-600 dark:text-orange-400 shrink-0 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none">
                       <Fuel className="h-5 w-5" />
                     </div>
                     <div className="space-y-1">
@@ -1229,7 +1229,7 @@ export function AbastecimentoView() {
                         title="Baixar Comprovante / PDF"
                       >
                         {baixandoNfId === item.id ? (
-                          <Loader2 className="h-4 w-4 animate-spin text-emerald-500" />
+                          <Loader2 className="h-4 w-4 animate-spin text-orange-500" />
                         ) : (
                           <Download className="h-4 w-4" />
                         )}

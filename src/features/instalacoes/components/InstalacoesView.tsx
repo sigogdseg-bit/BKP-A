@@ -404,7 +404,7 @@ export function InstalacoesView() {
         return {
           label: "Concluída",
           icone: CheckCircle2,
-          classe: "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border-emerald-500/30",
+          classe: "bg-orange-500/15 text-orange-600 dark:text-orange-400 border-orange-500/30",
         };
       case "concluida_com_pendencia":
         return {
@@ -496,7 +496,7 @@ export function InstalacoesView() {
                   setInstalacaoEdicao(null);
                   setModalNovaAberto(true);
                 }}
-                className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none active:shadow-[inset_2px_2px_4px_#047857] transition cursor-pointer"
+                className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-orange-600 hover:bg-orange-500 text-white font-bold text-xs shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none active:shadow-[inset_2px_2px_4px_#047857] transition cursor-pointer"
               >
                 <Plus className="h-4 w-4" />
                 <span>Nova Instalação</span>
@@ -585,7 +585,7 @@ export function InstalacoesView() {
               <CheckCircle2 className="h-4 w-4 shrink-0" />
               <span>Instalados</span>
               {totalInstalados > 0 && (
-                <span className="px-1.5 py-0.5 rounded-full text-[10px] font-mono font-bold bg-emerald-500 text-white shrink-0">
+                <span className="px-1.5 py-0.5 rounded-full text-[10px] font-mono font-bold bg-orange-500 text-white shrink-0">
                   {totalInstalados}
                 </span>
               )}
@@ -709,17 +709,17 @@ export function InstalacoesView() {
             tabIndex={0}
             className={`p-3.5 rounded-2xl border cursor-pointer transition-all duration-200 hover:-translate-y-0.5 ${
               abaAtiva === "ordens" && filtroPagamento === "pago"
-                ? "bg-emerald-500/15 border-emerald-500/80 ring-2 ring-emerald-500/30 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none"
-                : "bg-[#eaf0f8] dark:bg-slate-900 border-slate-300/60 dark:border-slate-800 hover:border-emerald-500/40 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_14px_#b8c6da]"
+                ? "bg-orange-500/15 border-orange-500/80 ring-2 ring-orange-500/30 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none"
+                : "bg-[#eaf0f8] dark:bg-slate-900 border-slate-300/60 dark:border-slate-800 hover:border-orange-500/40 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_14px_#b8c6da]"
             }`}
           >
             <div className="flex items-center justify-between">
-              <span className="text-[11px] font-semibold text-emerald-600 dark:text-emerald-400 block">
+              <span className="text-[11px] font-semibold text-orange-600 dark:text-orange-400 block">
                 Recebido
               </span>
-              <CheckCircle2 className="h-4 w-4 text-emerald-500" />
+              <CheckCircle2 className="h-4 w-4 text-orange-500" />
             </div>
-            <span className="text-xl sm:text-2xl font-black font-mono text-emerald-600 dark:text-emerald-400 truncate block mt-1">
+            <span className="text-xl sm:text-2xl font-black font-mono text-orange-600 dark:text-orange-400 truncate block mt-1">
               R$ {formatarMoeda(resumoFinanceiro.recebido ?? resumoFinanceiro.valorTotalPago)}
             </span>
             <span className="text-[10px] text-slate-400 block mt-0.5">Quitados pelo operador</span>
@@ -793,7 +793,7 @@ export function InstalacoesView() {
             onKeyDown={(e) => e.key === "Enter" && setFiltroStatus("todos")}
             className={`p-3.5 rounded-2xl border cursor-pointer transition-all duration-200 hover:-translate-y-0.5 ${
               filtroStatus === "todos" && filtroPagamento === "todos" && abaAtiva === "ordens"
-                ? "bg-emerald-500/10 border-emerald-500/80 ring-2 ring-emerald-500/30 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none"
+                ? "bg-orange-500/10 border-orange-500/80 ring-2 ring-orange-500/30 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none"
                 : "bg-[#eaf0f8] dark:bg-slate-900 border-slate-300/60 dark:border-slate-800 hover:border-slate-400 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_14px_#b8c6da]"
             }`}
           >
@@ -802,7 +802,7 @@ export function InstalacoesView() {
                 Total de Instalações
               </span>
               {filtroStatus === "todos" && filtroPagamento === "todos" && abaAtiva === "ordens" && (
-                <span className="text-[9px] text-emerald-500 font-bold uppercase">(Ativo)</span>
+                <span className="text-[9px] text-orange-500 font-bold uppercase">(Ativo)</span>
               )}
             </div>
             <span className="text-2xl font-black font-mono text-slate-900 dark:text-slate-100">
@@ -824,19 +824,19 @@ export function InstalacoesView() {
             onKeyDown={(e) => e.key === "Enter" && setFiltroStatus("concluida")}
             className={`p-3.5 rounded-2xl border cursor-pointer transition-all duration-200 hover:-translate-y-0.5 ${
               filtroStatus === "concluida" && abaAtiva === "ordens"
-                ? "bg-emerald-500/15 border-emerald-500/80 ring-2 ring-emerald-500/30 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none"
-                : "bg-[#eaf0f8] dark:bg-slate-900 border-slate-300/60 dark:border-slate-800 hover:border-emerald-500/40 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_14px_#b8c6da]"
+                ? "bg-orange-500/15 border-orange-500/80 ring-2 ring-orange-500/30 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none"
+                : "bg-[#eaf0f8] dark:bg-slate-900 border-slate-300/60 dark:border-slate-800 hover:border-orange-500/40 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_14px_#b8c6da]"
             }`}
           >
             <div className="flex items-center justify-between">
-              <span className="text-[11px] font-semibold text-emerald-600 dark:text-emerald-400 block">
+              <span className="text-[11px] font-semibold text-orange-600 dark:text-orange-400 block">
                 Concluídas Plenas
               </span>
               {filtroStatus === "concluida" && (
-                <span className="text-[9px] text-emerald-500 font-bold uppercase">(Ativo)</span>
+                <span className="text-[9px] text-orange-500 font-bold uppercase">(Ativo)</span>
               )}
             </div>
-            <span className="text-2xl font-black font-mono text-emerald-600 dark:text-emerald-400">
+            <span className="text-2xl font-black font-mono text-orange-600 dark:text-orange-400">
               {resumoFinanceiro.totalConcluidas}
             </span>
           </TiltCard>
@@ -916,7 +916,7 @@ export function InstalacoesView() {
             value={busca}
             onChange={(e) => setBusca(e.target.value)}
             placeholder="Buscar por placa, modelo, cliente ou IMEI..."
-            className="w-full pl-9 pr-3 py-1.5 rounded-xl bg-[#eaf0f8] dark:bg-slate-950 border border-slate-300/60 dark:border-slate-800 shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6)] text-xs text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-1 focus:ring-emerald-500"
+            className="w-full pl-9 pr-3 py-1.5 rounded-xl bg-[#eaf0f8] dark:bg-slate-950 border border-slate-300/60 dark:border-slate-800 shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6)] text-xs text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-1 focus:ring-orange-500"
           />
         </div>
 
@@ -972,7 +972,7 @@ export function InstalacoesView() {
               }}
               className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-bold transition cursor-pointer active:scale-95 ${
                 modoExibicao === "cards"
-                  ? "bg-emerald-500 text-slate-950 shadow-xs"
+                  ? "bg-orange-500 text-slate-950 shadow-xs"
                   : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
               }`}
               title="Exibir ordens em formato de Cards"
@@ -988,7 +988,7 @@ export function InstalacoesView() {
               }}
               className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-bold transition cursor-pointer active:scale-95 ${
                 modoExibicao === "lista"
-                  ? "bg-emerald-500 text-slate-950 shadow-xs"
+                  ? "bg-orange-500 text-slate-950 shadow-xs"
                   : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
               }`}
               title="Exibir ordens em formato de Lista"
@@ -1152,12 +1152,12 @@ export function InstalacoesView() {
                                   Aguardando
                                 </span>
                               ) : inst.kit_confirmado_instalador ? (
-                                <span className="inline-flex items-center gap-0.5 text-[10px] font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-1.5 py-0.5 rounded-md">
+                                <span className="inline-flex items-center gap-0.5 text-[10px] font-bold text-orange-600 dark:text-orange-400 bg-orange-500/10 border border-orange-500/20 px-1.5 py-0.5 rounded-md">
                                   <CheckCircle2 className="h-3 w-3" />
                                   Conferido
                                 </span>
                               ) : inst.status === "concluida" ? (
-                                <span className="inline-flex items-center gap-0.5 text-[10px] font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-1.5 py-0.5 rounded-md">
+                                <span className="inline-flex items-center gap-0.5 text-[10px] font-bold text-orange-600 dark:text-orange-400 bg-orange-500/10 border border-orange-500/20 px-1.5 py-0.5 rounded-md">
                                   <CheckCircle2 className="h-3 w-3" />
                                   Instalado (Direto)
                                 </span>
@@ -1174,7 +1174,7 @@ export function InstalacoesView() {
                                 Bloqueador:
                               </span>
                               {(inst as any).com_bloqueador || inst.bloqueador_instalado ? (
-                                <span className="text-[10px] font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded-md border border-emerald-500/20">
+                                <span className="text-[10px] font-bold text-orange-600 dark:text-orange-400 bg-orange-500/10 px-1.5 py-0.5 rounded-md border border-orange-500/20">
                                   Sim
                                 </span>
                               ) : (
@@ -1221,7 +1221,7 @@ export function InstalacoesView() {
                                 {Number((inst as any).horimetro_inicial || 0).toFixed(1)} h
                               </span>
                             ) : (
-                              <span className="font-mono text-emerald-600 dark:text-emerald-400 font-bold">
+                              <span className="font-mono text-orange-600 dark:text-orange-400 font-bold">
                                 {inst.km_instalacao} km
                               </span>
                             )}
@@ -1241,8 +1241,8 @@ export function InstalacoesView() {
                                 {inst.hora_agendamento || ""}
                               </span>
                             ) : inst.status === "concluida" ? (
-                              <span className="font-mono text-emerald-600 dark:text-emerald-400 font-bold text-[10px] flex items-center gap-1">
-                                <CheckCircle2 className="h-3 w-3 text-emerald-500" />
+                              <span className="font-mono text-orange-600 dark:text-orange-400 font-bold text-[10px] flex items-center gap-1">
+                                <CheckCircle2 className="h-3 w-3 text-orange-500" />
                                 <span>
                                   {dataConclusaoCurta
                                     ? `Concluída em ${dataConclusaoCurta}`
@@ -1258,7 +1258,7 @@ export function InstalacoesView() {
 
                           <div className="flex items-center justify-between gap-2 pt-0.5">
                             <span className="text-[11px] font-medium text-slate-500 dark:text-slate-400 flex items-center gap-1">
-                              <MapPin className="h-3 w-3 text-emerald-500" />
+                              <MapPin className="h-3 w-3 text-orange-500" />
                               <span>Atendimento:</span>
                             </span>
                             {inst.local_tipo === "local_veiculo" ? (
@@ -1269,8 +1269,8 @@ export function InstalacoesView() {
                             ) : ehDireta &&
                               inst.status === "concluida" &&
                               !inst.data_agendamento ? (
-                              <span className="text-[10px] font-bold text-emerald-700 dark:text-emerald-300 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded-md flex items-center gap-1">
-                                <CheckCircle2 className="h-3 w-3 text-emerald-500" />
+                              <span className="text-[10px] font-bold text-orange-700 dark:text-orange-300 bg-orange-500/10 border border-orange-500/20 px-2 py-0.5 rounded-md flex items-center gap-1">
+                                <CheckCircle2 className="h-3 w-3 text-orange-500" />
                                 <span>Instalação Direta</span>
                               </span>
                             ) : (
@@ -1286,7 +1286,7 @@ export function InstalacoesView() {
                             <div className="p-2 rounded-xl bg-sky-500/10 border border-sky-500/20 text-xs space-y-1">
                               {inst.endereco_cliente_informado || inst.local_endereco ? (
                                 <>
-                                  <div className="flex items-center justify-between text-[10px] font-bold text-emerald-600 dark:text-emerald-400">
+                                  <div className="flex items-center justify-between text-[10px] font-bold text-orange-600 dark:text-orange-400">
                                     <span className="flex items-center gap-1">
                                       <CheckCircle2 className="h-3 w-3" />
                                       <span>Endereço de Atendimento:</span>
@@ -1348,7 +1348,7 @@ export function InstalacoesView() {
                             <span className="text-[11px] font-bold text-slate-600 dark:text-slate-400">
                               Mão de Obra:
                             </span>
-                            <span className="text-[11px] font-black text-emerald-600 dark:text-emerald-400 font-mono">
+                            <span className="text-[11px] font-black text-orange-600 dark:text-orange-400 font-mono">
                               {Number(inst.valor_instalacao || 0) > 0
                                 ? `R$ ${Number(inst.valor_instalacao).toFixed(2).replace(".", ",")}`
                                 : "Isenta (R$ 0,00)"}
@@ -1508,7 +1508,7 @@ export function InstalacoesView() {
                             <button
                               type="button"
                               onClick={() => setInstalacaoFinalizarTecnica(inst)}
-                              className="px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-[11px] font-black transition flex items-center gap-1.5 shadow-md shadow-emerald-600/20 animate-pulse cursor-pointer"
+                              className="px-3 py-1.5 rounded-xl bg-orange-600 hover:bg-orange-500 text-white text-[11px] font-black transition flex items-center gap-1.5 shadow-md shadow-orange-600/20 animate-pulse cursor-pointer"
                               title="Abrir tela com modelos em desenho a mão e realizar fotos obrigatórias da instalação"
                             >
                               <Camera className="h-3.5 w-3.5" />
@@ -1647,7 +1647,7 @@ export function InstalacoesView() {
                                   : inst.instalador_nome}
                               </span>
                             </div>
-                            <div className="text-[11px] font-black font-mono text-emerald-600 dark:text-emerald-400">
+                            <div className="text-[11px] font-black font-mono text-orange-600 dark:text-orange-400">
                               Mão de obra:{" "}
                               {Number(inst.valor_instalacao || 0) > 0
                                 ? `R$ ${Number(inst.valor_instalacao).toFixed(2).replace(".", ",")}`
@@ -1679,12 +1679,12 @@ export function InstalacoesView() {
                                   Kit: Aguardando
                                 </span>
                               ) : inst.kit_confirmado_instalador ? (
-                                <span className="inline-flex items-center gap-0.5 text-[10px] font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-1.5 py-0.5 rounded-md">
+                                <span className="inline-flex items-center gap-0.5 text-[10px] font-bold text-orange-600 dark:text-orange-400 bg-orange-500/10 border border-orange-500/20 px-1.5 py-0.5 rounded-md">
                                   <CheckCircle2 className="h-3 w-3" />
                                   Kit Conferido
                                 </span>
                               ) : inst.status === "concluida" ? (
-                                <span className="inline-flex items-center gap-0.5 text-[10px] font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-1.5 py-0.5 rounded-md">
+                                <span className="inline-flex items-center gap-0.5 text-[10px] font-bold text-orange-600 dark:text-orange-400 bg-orange-500/10 border border-orange-500/20 px-1.5 py-0.5 rounded-md">
                                   <CheckCircle2 className="h-3 w-3" />
                                   Kit Instalado (Direto)
                                 </span>
@@ -1696,7 +1696,7 @@ export function InstalacoesView() {
                               )}
 
                               {(inst as any).com_bloqueador || inst.bloqueador_instalado ? (
-                                <span className="text-[10px] font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded-md border border-emerald-500/20">
+                                <span className="text-[10px] font-bold text-orange-600 dark:text-orange-400 bg-orange-500/10 px-1.5 py-0.5 rounded-md border border-orange-500/20">
                                   Bloqueador: Sim
                                 </span>
                               ) : (
@@ -1732,8 +1732,8 @@ export function InstalacoesView() {
                                   {inst.hora_agendamento || ""}
                                 </div>
                               ) : inst.status === "concluida" ? (
-                                <div className="font-mono text-emerald-600 dark:text-emerald-400 font-bold text-[10px] inline-flex items-center gap-1">
-                                  <CheckCircle2 className="h-3 w-3 text-emerald-500" />
+                                <div className="font-mono text-orange-600 dark:text-orange-400 font-bold text-[10px] inline-flex items-center gap-1">
+                                  <CheckCircle2 className="h-3 w-3 text-orange-500" />
                                   <span>
                                     {dataConclusaoCurta
                                       ? `Concluída em ${dataConclusaoCurta}`
@@ -1756,8 +1756,8 @@ export function InstalacoesView() {
                               ) : ehDireta &&
                                 inst.status === "concluida" &&
                                 !inst.data_agendamento ? (
-                                <span className="text-[10px] font-bold text-emerald-700 dark:text-emerald-300 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded-md inline-flex items-center gap-1">
-                                  <CheckCircle2 className="h-3 w-3 text-emerald-500" />
+                                <span className="text-[10px] font-bold text-orange-700 dark:text-orange-300 bg-orange-500/10 border border-orange-500/20 px-2 py-0.5 rounded-md inline-flex items-center gap-1">
+                                  <CheckCircle2 className="h-3 w-3 text-orange-500" />
                                   <span>Instalação Direta</span>
                                 </span>
                               ) : (
@@ -1899,7 +1899,7 @@ export function InstalacoesView() {
                                   <button
                                     type="button"
                                     onClick={() => setInstalacaoFinalizarTecnica(inst)}
-                                    className="px-2.5 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-[11px] font-black transition inline-flex items-center gap-1 shadow-xs cursor-pointer"
+                                    className="px-2.5 py-1.5 rounded-xl bg-orange-600 hover:bg-orange-500 text-white text-[11px] font-black transition inline-flex items-center gap-1 shadow-xs cursor-pointer"
                                   >
                                     <Camera className="h-3.5 w-3.5" />
                                     <span>Realizar Instalação</span>
@@ -1964,7 +1964,7 @@ export function InstalacoesView() {
 
               {session?.enderecoInstalacao && isInstalador && (
                 <div className="text-[11px] text-slate-600 dark:text-slate-400 flex items-center gap-1.5 bg-slate-50 dark:bg-slate-950 p-2 rounded-xl border border-slate-200 dark:border-slate-800">
-                  <MapPin className="h-3.5 w-3.5 text-emerald-500 shrink-0" />
+                  <MapPin className="h-3.5 w-3.5 text-orange-500 shrink-0" />
                   <span className="truncate max-w-xs font-medium">
                     Sua Oficina: {session.enderecoInstalacao}
                   </span>
@@ -2031,7 +2031,7 @@ export function InstalacoesView() {
 
                           <div className="shrink-0">
                             {isConcluido ? (
-                              <span className="px-2 py-0.5 rounded-full text-[10px] font-bold uppercase bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30">
+                              <span className="px-2 py-0.5 rounded-full text-[10px] font-bold uppercase bg-orange-500/15 text-orange-600 dark:text-orange-400 border border-orange-500/30">
                                 Instalado
                               </span>
                             ) : isAgendado ? (
@@ -2060,7 +2060,7 @@ export function InstalacoesView() {
 
                           {isAdmOuSuper && c.instalador?.nome && (
                             <div className="flex items-center gap-1 text-[11px]">
-                              <Wrench className="h-3 w-3 text-emerald-500" />
+                              <Wrench className="h-3 w-3 text-orange-500" />
                               <span className="text-slate-400">Técnico:</span>
                               <strong className="text-slate-800 dark:text-slate-200">
                                 {c.instalador.nome}
@@ -2145,7 +2145,7 @@ export function InstalacoesView() {
                               setInstalacaoEdicao(null);
                               setModalNovaAberto(true);
                             }}
-                            className="px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center gap-1.5 transition shadow-xs"
+                            className="px-3 py-1.5 rounded-xl bg-orange-600 hover:bg-orange-500 text-white font-bold text-xs flex items-center gap-1.5 transition shadow-xs"
                             title="Atendimento de almoxarifado e baixa de insumos"
                           >
                             <Boxes className="h-3.5 w-3.5" />
@@ -2163,7 +2163,7 @@ export function InstalacoesView() {
                                 setAbaAtiva("a_instalar");
                               }
                             }}
-                            className="px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center gap-1.5 transition shadow-xs"
+                            className="px-3 py-1.5 rounded-xl bg-orange-600 hover:bg-orange-500 text-white font-bold text-xs flex items-center gap-1.5 transition shadow-xs"
                             title="Realizar atendimento fotográfico e finalizar instalação"
                           >
                             <Camera className="h-3.5 w-3.5" />
@@ -2199,7 +2199,7 @@ export function InstalacoesView() {
               </div>
 
               <div className="flex items-center gap-2 text-xs font-mono font-bold">
-                <span className="text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-xl border border-emerald-500/20">
+                <span className="text-orange-600 dark:text-orange-400 bg-orange-500/10 px-2.5 py-1 rounded-xl border border-orange-500/20">
                   Pago: R$ {formatarMoeda(resumoFinanceiro.valorTotalPago)}
                 </span>
                 <span className="text-amber-600 dark:text-amber-400 bg-amber-500/10 px-2.5 py-1 rounded-xl border border-amber-500/20">
@@ -2267,7 +2267,7 @@ export function InstalacoesView() {
                               {s.label}
                             </span>
                           </td>
-                          <td className="py-2.5 px-3 text-right font-black text-emerald-600 dark:text-emerald-400">
+                          <td className="py-2.5 px-3 text-right font-black text-orange-600 dark:text-orange-400">
                             {ehIsentaDireta
                               ? "Isenta (R$ 0,00)"
                               : `R$ ${formatarMoeda(inst.valor_instalacao)}`}
@@ -2281,7 +2281,7 @@ export function InstalacoesView() {
                               <span
                                 className={`px-2 py-0.5 rounded-full text-[10px] font-bold uppercase ${
                                   isPago
-                                    ? "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30"
+                                    ? "bg-orange-500/15 text-orange-600 dark:text-orange-400 border border-orange-500/30"
                                     : "bg-amber-500/15 text-amber-600 dark:text-amber-400 border border-amber-500/30"
                                 }`}
                               >
@@ -2312,7 +2312,7 @@ export function InstalacoesView() {
                                     className={`px-2.5 py-1 rounded-xl text-[11px] font-bold transition ${
                                       isPago
                                         ? "bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-300"
-                                        : "bg-emerald-600 hover:bg-emerald-500 text-white shadow-xs"
+                                        : "bg-orange-600 hover:bg-orange-500 text-white shadow-xs"
                                     }`}
                                   >
                                     {isPago ? "Reverter" : "Marcar Pago"}

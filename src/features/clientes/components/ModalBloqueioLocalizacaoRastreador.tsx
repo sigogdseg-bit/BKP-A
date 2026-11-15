@@ -200,7 +200,7 @@ export function ModalBloqueioLocalizacaoRastreador({
             <div className="flex items-center justify-center p-3 rounded-2xl bg-white text-slate-950 border border-slate-300/60 shadow-inner">
               {gerandoQr ? (
                 <div className="h-32 flex items-center justify-center gap-2">
-                  <div className="h-6 w-6 rounded-full border-2 border-emerald-500 border-t-transparent animate-spin" />
+                  <div className="h-6 w-6 rounded-full border-2 border-orange-500 border-t-transparent animate-spin" />
                   <span className="text-xs text-slate-500 font-mono">Gerando QR Code...</span>
                 </div>
               ) : qrCodeDataUrl ? (
@@ -221,7 +221,7 @@ export function ModalBloqueioLocalizacaoRastreador({
                   </span>
                   <button
                     onClick={handleCopiarPix}
-                    className="text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 font-bold flex items-center gap-1 text-[11px] transition"
+                    className="text-orange-600 dark:text-orange-400 hover:text-orange-700 font-bold flex items-center gap-1 text-[11px] transition"
                   >
                     {copiadoPix ? (
                       <Check className="h-3.5 w-3.5" />
@@ -245,7 +245,7 @@ export function ModalBloqueioLocalizacaoRastreador({
                 <button
                   onClick={handleVerificar}
                   disabled={verificando}
-                  className="w-full py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-md shadow-emerald-600/20 transition disabled:opacity-50"
+                  className="w-full py-2.5 rounded-xl bg-orange-600 hover:bg-orange-500 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-md shadow-orange-600/20 transition disabled:opacity-50"
                 >
                   <RefreshCw className={`h-3.5 w-3.5 ${verificando ? "animate-spin" : ""}`} />
                   <span>{verificando ? "Verificando..." : "Já Paguei / Checar Liberação"}</span>
@@ -257,7 +257,7 @@ export function ModalBloqueioLocalizacaoRastreador({
                   onClick={handleSuporte}
                   className="py-2.5 rounded-xl bg-white dark:bg-slate-800 hover:bg-slate-100 text-slate-700 dark:text-slate-200 font-semibold text-xs flex items-center justify-center gap-1.5 transition border border-slate-300/70 dark:border-slate-700 shadow-xs"
                 >
-                  <Phone className="h-3.5 w-3.5 text-emerald-600" />
+                  <Phone className="h-3.5 w-3.5 text-orange-600" />
                   <span>Contatar GD Rastreamento</span>
                 </button>
 

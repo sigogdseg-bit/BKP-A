@@ -1299,7 +1299,7 @@ export async function obterStatusDefesaCibernetica(): Promise<StatusDefesaCibern
     media >= 4.3 ? "Excelente" : media >= 3.8 ? "Muito bom" : media >= 3.3 ? "Bom" : "Atenção";
   const notaCor =
     media >= 4.3
-      ? "text-emerald-500"
+      ? "text-orange-500"
       : media >= 3.8
         ? "text-sky-500"
         : media >= 3.3

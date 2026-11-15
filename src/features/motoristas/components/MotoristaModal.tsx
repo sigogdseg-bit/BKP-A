@@ -358,15 +358,15 @@ export function MotoristaModal({
                       className="flex items-center gap-2 px-3.5 py-2.5 rounded-xl bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-200 text-xs font-bold transition-all cursor-pointer disabled:opacity-50 shadow-xs"
                       title="Tirar foto da CNH física em papel com a câmera do celular"
                     >
-                      <Camera className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
+                      <Camera className="h-4 w-4 text-orange-600 dark:text-orange-400" />
                       Foto
                     </button>
                   </div>
                 </div>
 
                 {ocrSucessoMsg && (
-                  <div className="mt-3 flex items-center gap-2 text-xs text-emerald-700 dark:text-emerald-400 bg-emerald-100/70 dark:bg-emerald-950/40 border border-emerald-500/30 rounded-xl px-3 py-2">
-                    <CheckCircle className="h-4 w-4 shrink-0 text-emerald-600 dark:text-emerald-400" />
+                  <div className="mt-3 flex items-center gap-2 text-xs text-orange-700 dark:text-orange-400 bg-emerald-100/70 dark:bg-orange-950/40 border border-orange-500/30 rounded-xl px-3 py-2">
+                    <CheckCircle className="h-4 w-4 shrink-0 text-orange-600 dark:text-orange-400" />
                     <span>{ocrSucessoMsg}</span>
                   </div>
                 )}
@@ -380,8 +380,8 @@ export function MotoristaModal({
                 </div>
               )}
               {sucessoGeralMsg && (
-                <div className="flex items-start gap-2.5 text-xs text-emerald-700 dark:text-emerald-400 bg-emerald-100/80 dark:bg-emerald-950/40 border border-emerald-500/30 rounded-xl p-3">
-                  <CheckCircle className="h-4 w-4 shrink-0 mt-0.5 text-emerald-600 dark:text-emerald-400" />
+                <div className="flex items-start gap-2.5 text-xs text-orange-700 dark:text-orange-400 bg-emerald-100/80 dark:bg-orange-950/40 border border-orange-500/30 rounded-xl p-3">
+                  <CheckCircle className="h-4 w-4 shrink-0 mt-0.5 text-orange-600 dark:text-orange-400" />
                   <span>{sucessoGeralMsg}</span>
                 </div>
               )}
@@ -406,13 +406,13 @@ export function MotoristaModal({
                 <div
                   className={`flex items-center justify-between p-3.5 rounded-xl border ${
                     motoristaEmEdicao.ativo
-                      ? "bg-emerald-100/60 dark:bg-emerald-950/20 border-emerald-500/30"
+                      ? "bg-emerald-100/60 dark:bg-orange-950/20 border-orange-500/30"
                       : "bg-red-100/60 dark:bg-red-950/20 border-red-500/30"
                   }`}
                 >
                   <div>
                     <p
-                      className={`text-xs font-bold ${motoristaEmEdicao.ativo ? "text-emerald-700 dark:text-emerald-400" : "text-red-700 dark:text-red-400"}`}
+                      className={`text-xs font-bold ${motoristaEmEdicao.ativo ? "text-orange-700 dark:text-orange-400" : "text-red-700 dark:text-red-400"}`}
                     >
                       Status Atual: {motoristaEmEdicao.ativo ? "ATIVO" : "INATIVO"}
                     </p>
@@ -429,7 +429,7 @@ export function MotoristaModal({
                     className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-colors cursor-pointer disabled:opacity-50 ${
                       motoristaEmEdicao.ativo
                         ? "bg-red-500/15 text-red-700 dark:text-red-400 hover:bg-red-500/25"
-                        : "bg-emerald-500/15 text-emerald-700 dark:text-emerald-400 hover:bg-emerald-500/25"
+                        : "bg-orange-500/15 text-orange-700 dark:text-orange-400 hover:bg-orange-500/25"
                     }`}
                   >
                     {motoristaEmEdicao.ativo ? (

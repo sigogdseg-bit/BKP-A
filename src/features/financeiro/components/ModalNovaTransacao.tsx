@@ -417,7 +417,7 @@ export function ModalNovaTransacao({
                 className={`h-10 w-10 rounded-2xl flex items-center justify-center shadow-xs shrink-0 ${
                   isEdicao
                     ? "bg-sky-500/10 border border-sky-500/20 text-sky-600 dark:text-sky-400"
-                    : "bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400"
+                    : "bg-orange-500/10 border border-orange-500/20 text-orange-600 dark:text-orange-400"
                 }`}
               >
                 {isEdicao ? <Pencil className="h-5 w-5" /> : <Plus className="h-5 w-5" />}
@@ -457,7 +457,7 @@ export function ModalNovaTransacao({
                       onClick={() => handleTipoChange("entrada")}
                       className={`py-2 px-3 rounded-xl text-xs font-bold border transition ${
                         tipo === "entrada"
-                          ? "bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 border-emerald-500/40 shadow-xs"
+                          ? "bg-orange-500/20 text-orange-700 dark:text-orange-300 border-orange-500/40 shadow-xs"
                           : "bg-white dark:bg-slate-950 text-slate-600 dark:text-slate-400 border-slate-300/70 dark:border-slate-800 hover:text-slate-900 dark:hover:text-slate-200"
                       }`}
                     >
@@ -476,7 +476,7 @@ export function ModalNovaTransacao({
                     </button>
                   </div>
                 ) : (
-                  <div className="py-2 px-3 rounded-xl text-xs font-bold bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 border border-emerald-500/40 shadow-xs inline-flex items-center gap-1.5">
+                  <div className="py-2 px-3 rounded-xl text-xs font-bold bg-orange-500/20 text-orange-700 dark:text-orange-300 border border-orange-500/40 shadow-xs inline-flex items-center gap-1.5">
                     <span>+ Entrada (Receita)</span>
                   </div>
                 )}
@@ -505,7 +505,7 @@ export function ModalNovaTransacao({
                         }}
                         className={`px-3 py-2 rounded-xl text-xs font-bold transition border ${
                           fontePagamento === "caixa_empresa"
-                            ? "bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 border-emerald-500/40 shadow-xs ring-1 ring-emerald-500/30"
+                            ? "bg-orange-500/20 text-orange-700 dark:text-orange-300 border-orange-500/40 shadow-xs ring-1 ring-orange-500/30"
                             : "bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 border-slate-300/70 dark:border-slate-800 hover:text-slate-900 dark:hover:text-slate-200"
                         }`}
                       >
@@ -597,7 +597,7 @@ export function ModalNovaTransacao({
                             }}
                             className={`px-3 py-1.5 rounded-xl text-xs font-bold transition border ${
                               statusRessarcimento === "ressarcido"
-                                ? "bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 border-emerald-500/50 shadow-xs"
+                                ? "bg-orange-500/20 text-orange-700 dark:text-orange-300 border-orange-500/50 shadow-xs"
                                 : "bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 border-slate-300/70 dark:border-slate-800"
                             }`}
                           >
@@ -638,7 +638,7 @@ export function ModalNovaTransacao({
                         onClick={() => setMoeda("BRL")}
                         className={`px-3 py-1 rounded-xl text-xs font-bold transition border ${
                           moeda === "BRL"
-                            ? "bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 border-emerald-500/40"
+                            ? "bg-orange-500/20 text-orange-700 dark:text-orange-300 border-orange-500/40"
                             : "bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 border-slate-300/70 dark:border-slate-800 hover:text-slate-900 dark:hover:text-slate-200"
                         }`}
                       >
@@ -699,7 +699,7 @@ export function ModalNovaTransacao({
                           <span className="text-slate-700 dark:text-slate-300">
                             Total em Reais (BRL):
                           </span>
-                          <span className="text-emerald-600 dark:text-emerald-400">
+                          <span className="text-orange-600 dark:text-orange-400">
                             {formatarValorMoeda(valorBrlCalculado, "BRL")}
                           </span>
                         </div>
@@ -723,13 +723,13 @@ export function ModalNovaTransacao({
                       </span>
                     )}
                     {isRecorrente && (
-                      <div className="flex flex-col gap-2 w-full mt-1.5 p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-900 dark:text-emerald-200">
+                      <div className="flex flex-col gap-2 w-full mt-1.5 p-3 rounded-xl bg-orange-500/10 border border-orange-500/30 text-emerald-900 dark:text-orange-200">
                         <div className="flex items-center justify-between">
                           <div className="flex items-center gap-2">
-                            <Repeat className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
+                            <Repeat className="h-4 w-4 text-orange-600 dark:text-orange-400" />
                             <span className="text-xs font-bold">Lançamento Recorrente Mensal</span>
                           </div>
-                          <span className="px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 border border-emerald-500/40">
+                          <span className="px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-orange-500/20 text-orange-700 dark:text-orange-300 border border-orange-500/40">
                             Recorrência Ativa
                           </span>
                         </div>
@@ -743,7 +743,7 @@ export function ModalNovaTransacao({
                             onClick={() => setEscopoRecorrencia("somente_esta")}
                             className={`p-2 rounded-xl border text-left transition ${
                               escopoRecorrencia === "somente_esta"
-                                ? "bg-white dark:bg-slate-900 border-emerald-500 text-emerald-700 dark:text-emerald-300 shadow-xs ring-1 ring-emerald-500 font-bold"
+                                ? "bg-white dark:bg-slate-900 border-orange-500 text-orange-700 dark:text-orange-300 shadow-xs ring-1 ring-orange-500 font-bold"
                                 : "bg-white/60 dark:bg-slate-950/60 border-slate-300/70 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
                             }`}
                           >
@@ -761,7 +761,7 @@ export function ModalNovaTransacao({
                             onClick={() => setEscopoRecorrencia("todas_futuras")}
                             className={`p-2 rounded-xl border text-left transition ${
                               escopoRecorrencia === "todas_futuras"
-                                ? "bg-white dark:bg-slate-900 border-emerald-500 text-emerald-700 dark:text-emerald-300 shadow-xs ring-1 ring-emerald-500 font-bold"
+                                ? "bg-white dark:bg-slate-900 border-orange-500 text-orange-700 dark:text-orange-300 shadow-xs ring-1 ring-orange-500 font-bold"
                                 : "bg-white/60 dark:bg-slate-950/60 border-slate-300/70 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
                             }`}
                           >
@@ -828,7 +828,7 @@ export function ModalNovaTransacao({
                       onClick={() => setModalidade("recorrente")}
                       className={`py-2 px-2 rounded-xl border text-center transition ${
                         modalidade === "recorrente"
-                          ? "bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 border-emerald-500/40 shadow-xs"
+                          ? "bg-orange-500/20 text-orange-700 dark:text-orange-300 border-orange-500/40 shadow-xs"
                           : "bg-white dark:bg-slate-950 text-slate-600 dark:text-slate-400 border-slate-300/70 dark:border-slate-800 hover:text-slate-900 dark:hover:text-slate-200"
                       }`}
                     >
@@ -893,7 +893,7 @@ export function ModalNovaTransacao({
 
                   {/* Explicação de Lançamento Recorrente */}
                   {modalidade === "recorrente" && (
-                    <div className="p-2.5 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-[11px] text-emerald-700 dark:text-emerald-300">
+                    <div className="p-2.5 rounded-xl bg-orange-500/10 border border-orange-500/20 text-[11px] text-orange-700 dark:text-orange-300">
                       Lançamento contínuo e perpétuo (sem data final). Mantém automaticamente uma
                       janela rolante projetada de 12 meses futuros no fluxo de caixa, renovando-se
                       mês a mês de forma contínua até ser encerrado.
@@ -910,7 +910,7 @@ export function ModalNovaTransacao({
                   <select
                     value={categoria}
                     onChange={(e) => setCategoria(e.target.value as CategoriaTransacao)}
-                    className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-100 focus:outline-none focus:border-emerald-500 shadow-xs"
+                    className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-100 focus:outline-none focus:border-orange-500 shadow-xs"
                   >
                     {tipo === "entrada" ? (
                       <>
@@ -942,7 +942,7 @@ export function ModalNovaTransacao({
                     value={valor || 0}
                     onChange={setValor}
                     placeholder="0,00"
-                    className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-900 dark:text-slate-100 focus:outline-none focus:border-emerald-500 font-mono font-bold shadow-xs"
+                    className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-900 dark:text-slate-100 focus:outline-none focus:border-orange-500 font-mono font-bold shadow-xs"
                   />
                 </div>
               </div>
@@ -956,7 +956,7 @@ export function ModalNovaTransacao({
                   value={descricao}
                   onChange={(e) => setDescricao(e.target.value)}
                   placeholder="Ex: Fatura mensal operadora Vivo M2M, Compra de chicotes..."
-                  className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-900 dark:text-slate-100 focus:outline-none focus:border-emerald-500 shadow-xs"
+                  className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-900 dark:text-slate-100 focus:outline-none focus:border-orange-500 shadow-xs"
                   required
                 />
               </div>
@@ -970,7 +970,7 @@ export function ModalNovaTransacao({
                     type="date"
                     value={dataCompetencia}
                     onChange={(e) => setDataCompetencia(e.target.value)}
-                    className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-100 focus:outline-none focus:border-emerald-500 font-mono shadow-xs"
+                    className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-100 focus:outline-none focus:border-orange-500 font-mono shadow-xs"
                     required
                   />
                 </div>
@@ -983,7 +983,7 @@ export function ModalNovaTransacao({
                     type="date"
                     value={dataVencimento}
                     onChange={(e) => setDataVencimento(e.target.value)}
-                    className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-100 focus:outline-none focus:border-emerald-500 font-mono shadow-xs"
+                    className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-100 focus:outline-none focus:border-orange-500 font-mono shadow-xs"
                     required
                   />
                 </div>
@@ -995,7 +995,7 @@ export function ModalNovaTransacao({
                   <select
                     value={status}
                     onChange={(e) => setStatus(e.target.value as StatusTransacao)}
-                    className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-100 focus:outline-none focus:border-emerald-500 shadow-xs"
+                    className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-100 focus:outline-none focus:border-orange-500 shadow-xs"
                   >
                     <option value="concluido">Liquidado / Efetivado (Realizado)</option>
                     <option value="pendente">A Liquidar (Previsto / Pendente)</option>
@@ -1012,7 +1012,7 @@ export function ModalNovaTransacao({
                   value={observacoes}
                   onChange={(e) => setObservacoes(e.target.value)}
                   placeholder="Número de nota fiscal, comprovante ou observações contábeis..."
-                  className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-100 focus:outline-none focus:border-emerald-500 resize-none shadow-xs"
+                  className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-100 focus:outline-none focus:border-orange-500 resize-none shadow-xs"
                 />
               </div>
             </div>
@@ -1030,7 +1030,7 @@ export function ModalNovaTransacao({
               <button
                 type="submit"
                 disabled={salvando}
-                className="w-full sm:w-auto min-h-[44px] flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold bg-emerald-500 hover:bg-emerald-400 text-slate-950 transition shadow-lg shadow-emerald-500/20 disabled:opacity-50"
+                className="w-full sm:w-auto min-h-[44px] flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold bg-orange-500 hover:bg-orange-400 text-slate-950 transition shadow-lg shadow-orange-500/20 disabled:opacity-50"
               >
                 {salvando ? (
                   <>

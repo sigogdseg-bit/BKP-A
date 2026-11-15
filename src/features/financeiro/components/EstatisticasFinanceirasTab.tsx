@@ -125,7 +125,7 @@ export function EstatisticasFinanceirasTab({
           <div>
             <h2 className="text-base font-black text-slate-900 dark:text-slate-100 flex items-center gap-2">
               <span>Estatísticas e Projeções de Receitas</span>
-              <span className="px-2 py-0.5 rounded-full text-[10px] font-black bg-emerald-500/15 text-emerald-700 dark:text-emerald-400 border border-emerald-500/30 uppercase tracking-wider">
+              <span className="px-2 py-0.5 rounded-full text-[10px] font-black bg-orange-500/15 text-orange-700 dark:text-orange-400 border border-orange-500/30 uppercase tracking-wider">
                 Realtime e Preditivo
               </span>
             </h2>
@@ -142,7 +142,7 @@ export function EstatisticasFinanceirasTab({
             onClick={() => setHorizonte(6)}
             className={`px-3 py-1 rounded-lg font-bold transition ${
               horizonte === 6
-                ? "bg-emerald-500 text-slate-950 shadow-sm"
+                ? "bg-orange-500 text-slate-950 shadow-sm"
                 : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
             }`}
           >
@@ -152,7 +152,7 @@ export function EstatisticasFinanceirasTab({
             onClick={() => setHorizonte(12)}
             className={`px-3 py-1 rounded-lg font-bold transition ${
               horizonte === 12
-                ? "bg-emerald-500 text-slate-950 shadow-sm"
+                ? "bg-orange-500 text-slate-950 shadow-sm"
                 : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
             }`}
           >
@@ -166,13 +166,13 @@ export function EstatisticasFinanceirasTab({
         {/* MRR Atual */}
         <div className="p-4 rounded-2xl bg-[#eaf0f8] dark:bg-slate-900/60 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none flex flex-col justify-between">
           <div className="flex items-center justify-between text-slate-600 dark:text-slate-400 text-xs mb-1">
-            <span className="font-semibold text-emerald-600 dark:text-emerald-400 flex items-center gap-1">
+            <span className="font-semibold text-orange-600 dark:text-orange-400 flex items-center gap-1">
               <span>MRR (Receita Recorrente)</span>
             </span>
-            <DollarSign className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
+            <DollarSign className="h-4 w-4 text-orange-600 dark:text-orange-400" />
           </div>
           <div>
-            <div className="text-xl sm:text-2xl font-black font-mono text-emerald-600 dark:text-emerald-400">
+            <div className="text-xl sm:text-2xl font-black font-mono text-orange-600 dark:text-orange-400">
               R$ {metricas.mrrAtual.toFixed(2)}
             </div>
             <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5 flex items-center gap-1">
@@ -249,7 +249,7 @@ export function EstatisticasFinanceirasTab({
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
             <div>
               <h3 className="text-sm font-bold text-slate-900 dark:text-slate-200 flex items-center gap-2">
-                <TrendingUp className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
+                <TrendingUp className="h-4 w-4 text-orange-600 dark:text-orange-400" />
                 <span>Evolução e Projeção de Receitas ({horizonte} Meses)</span>
               </h3>
               <p className="text-[11px] text-slate-600 dark:text-slate-400">
@@ -259,7 +259,7 @@ export function EstatisticasFinanceirasTab({
 
             <div className="flex items-center gap-3 text-[11px] text-slate-700 dark:text-slate-300">
               <span className="flex items-center gap-1.5">
-                <span className="h-2.5 w-2.5 rounded-sm bg-emerald-500 inline-block" />
+                <span className="h-2.5 w-2.5 rounded-sm bg-orange-500 inline-block" />
                 <span>Receita Liquidada</span>
               </span>
               <span className="flex items-center gap-1.5">
@@ -277,7 +277,7 @@ export function EstatisticasFinanceirasTab({
                 <span className="font-bold text-slate-900 dark:text-slate-200">
                   {mesHover.mesRotulo}:
                 </span>
-                <span className="text-emerald-600 dark:text-emerald-400 font-mono font-bold">
+                <span className="text-orange-600 dark:text-orange-400 font-mono font-bold">
                   Total: R$ {mesHover.receitasTotal.toFixed(2)}
                 </span>
                 <span className="text-slate-500 dark:text-slate-400 text-[10px]">
@@ -309,7 +309,7 @@ export function EstatisticasFinanceirasTab({
                       style={{ height: `${alturaTotal}%` }}
                       className={`w-full max-w-[42px] rounded-t-lg overflow-hidden flex flex-col justify-end transition-all duration-200 ${
                         isAtivoHover
-                          ? "ring-2 ring-emerald-400 scale-[1.03] shadow-lg shadow-emerald-500/20"
+                          ? "ring-2 ring-orange-400 scale-[1.03] shadow-lg shadow-orange-500/20"
                           : "group-hover:brightness-110"
                       }`}
                     >
@@ -328,7 +328,7 @@ export function EstatisticasFinanceirasTab({
                           style={{
                             height: `${(alturaRealizada / alturaTotal) * 100}%`,
                           }}
-                          className="w-full bg-emerald-500"
+                          className="w-full bg-orange-500"
                         />
                       )}
                     </div>
@@ -431,10 +431,10 @@ export function EstatisticasFinanceirasTab({
           <div className="space-y-2 text-xs border-t border-slate-300/60 dark:border-slate-800/80 pt-3">
             <div className="flex items-center justify-between">
               <span className="flex items-center gap-1.5 text-slate-700 dark:text-slate-300">
-                <span className="h-2 w-2 rounded-full bg-emerald-500 inline-block" />
+                <span className="h-2 w-2 rounded-full bg-orange-500 inline-block" />
                 <span>Mensalidades</span>
               </span>
-              <span className="font-mono font-bold text-emerald-600 dark:text-emerald-400">
+              <span className="font-mono font-bold text-orange-600 dark:text-orange-400">
                 {composicaoReceitas.mensalidades.pct.toFixed(0)}% (R${" "}
                 {composicaoReceitas.mensalidades.valor.toFixed(2)})
               </span>
@@ -486,7 +486,7 @@ export function EstatisticasFinanceirasTab({
             <span
               className={`text-base font-black font-mono ${
                 projecoes[projecoes.length - 1]?.saldoFinalProjetado >= 0
-                  ? "text-emerald-600 dark:text-emerald-400"
+                  ? "text-orange-600 dark:text-orange-400"
                   : "text-rose-600 dark:text-rose-400"
               }`}
             >
@@ -596,7 +596,7 @@ export function EstatisticasFinanceirasTab({
       <div className="p-4 rounded-2xl bg-[#eaf0f8] dark:bg-slate-900/60 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none space-y-3">
         <div className="flex items-center justify-between">
           <h3 className="text-xs font-bold text-slate-900 dark:text-slate-200 flex items-center gap-1.5 uppercase tracking-wider">
-            <Layers className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
+            <Layers className="h-4 w-4 text-orange-600 dark:text-orange-400" />
             <span>Demonstrativo Mensal de Projeções e Caixa Transportado</span>
           </h3>
           <span className="text-[11px] text-slate-500 dark:text-slate-400">
@@ -610,7 +610,7 @@ export function EstatisticasFinanceirasTab({
               <tr className="border-b border-slate-300/60 dark:border-slate-800 text-slate-600 dark:text-slate-400 text-[11px]">
                 <th className="py-2 px-2">Competência</th>
                 <th className="py-2 px-2 text-right">Caixa Anterior (Transportado)</th>
-                <th className="py-2 px-2 text-right text-emerald-600 dark:text-emerald-400">
+                <th className="py-2 px-2 text-right text-orange-600 dark:text-orange-400">
                   (+) Receitas Totais
                 </th>
                 <th className="py-2 px-2 text-right text-rose-600 dark:text-rose-400">
@@ -638,7 +638,7 @@ export function EstatisticasFinanceirasTab({
                     <td className="py-2.5 px-2 font-bold text-slate-800 dark:text-slate-200 flex items-center gap-1.5">
                       <span>{p.mesRotulo}</span>
                       {p.isPassadoOuAtual && (
-                        <span className="px-1.5 py-0.2 rounded text-[9px] bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 font-sans uppercase">
+                        <span className="px-1.5 py-0.2 rounded text-[9px] bg-orange-500/20 text-orange-700 dark:text-orange-300 font-sans uppercase">
                           Atual
                         </span>
                       )}
@@ -648,7 +648,7 @@ export function EstatisticasFinanceirasTab({
                       R$ {p.caixaInicialTransportado.toFixed(2)}
                     </td>
 
-                    <td className="py-2.5 px-2 text-right text-emerald-600 dark:text-emerald-400 font-bold">
+                    <td className="py-2.5 px-2 text-right text-orange-600 dark:text-orange-400 font-bold">
                       + R$ {p.receitasTotal.toFixed(2)}
                     </td>
 
@@ -669,7 +669,7 @@ export function EstatisticasFinanceirasTab({
                     <td
                       className={`py-2.5 px-2 text-right font-black ${
                         isPositivo
-                          ? "text-emerald-600 dark:text-emerald-400"
+                          ? "text-orange-600 dark:text-orange-400"
                           : "text-rose-600 dark:text-rose-400"
                       }`}
                     >
@@ -680,7 +680,7 @@ export function EstatisticasFinanceirasTab({
                       <button
                         onClick={() => onSelecionarMes && onSelecionarMes(p.ano, p.mes)}
                         title="Ver livro-caixa deste mês"
-                        className="p-1 rounded-lg text-slate-500 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-slate-200 dark:hover:bg-slate-800 transition"
+                        className="p-1 rounded-lg text-slate-500 dark:text-slate-400 hover:text-orange-600 dark:hover:text-orange-400 hover:bg-slate-200 dark:hover:bg-slate-800 transition"
                       >
                         <ArrowUpRight className="h-4 w-4" />
                       </button>

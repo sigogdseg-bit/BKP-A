@@ -115,7 +115,7 @@ export function ItemManutencaoModal({
           {/* Header Fixo */}
           <div className="p-4 sm:p-5 border-b border-slate-300/60 dark:border-slate-800 flex items-center justify-between bg-[#eaf0f8]/80 dark:bg-slate-950/50 shrink-0">
             <div className="flex items-center gap-3">
-              <div className="h-10 w-10 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shadow-xs shrink-0">
+              <div className="h-10 w-10 rounded-2xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-orange-600 dark:text-orange-400 shadow-xs shrink-0">
                 <Wrench className="h-5 w-5" />
               </div>
               <div>
@@ -154,7 +154,7 @@ export function ItemManutencaoModal({
                   placeholder="Ex: Troca de Óleo e Filtro, Pastilhas, Correia Dentada..."
                   value={itemNome}
                   onChange={(e) => setItemNome(e.target.value)}
-                  className="w-full px-3.5 py-2.5 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-2xl text-xs text-slate-800 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-emerald-500 shadow-xs"
+                  className="w-full px-3.5 py-2.5 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-2xl text-xs text-slate-800 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-orange-500 shadow-xs"
                 />
               </div>
 
@@ -172,7 +172,7 @@ export function ItemManutencaoModal({
                     required
                     value={intervaloKm}
                     onChange={(e) => setIntervaloKm(parseInt(e.target.value, 10) || 0)}
-                    className="w-full px-3.5 py-2.5 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-2xl text-xs font-mono text-slate-800 dark:text-slate-100 focus:outline-none focus:border-emerald-500 shadow-xs"
+                    className="w-full px-3.5 py-2.5 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-2xl text-xs font-mono text-slate-800 dark:text-slate-100 focus:outline-none focus:border-orange-500 shadow-xs"
                   />
                   <span className="text-[10px] text-slate-500 dark:text-slate-400">
                     {isMaquina
@@ -193,7 +193,7 @@ export function ItemManutencaoModal({
                     required
                     value={avisoAntecipadoKm}
                     onChange={(e) => setAvisoAntecipadoKm(parseInt(e.target.value, 10) || 0)}
-                    className="w-full px-3.5 py-2.5 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-2xl text-xs font-mono text-slate-800 dark:text-slate-100 focus:outline-none focus:border-emerald-500 shadow-xs"
+                    className="w-full px-3.5 py-2.5 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-2xl text-xs font-mono text-slate-800 dark:text-slate-100 focus:outline-none focus:border-orange-500 shadow-xs"
                   />
                   <span className="text-[10px] text-slate-500 dark:text-slate-400">
                     {isMaquina ? "Alertar 25h antes da revisão" : "Alertar antes da meta"}
@@ -214,7 +214,7 @@ export function ItemManutencaoModal({
                   required
                   value={ultimoKm}
                   onChange={(e) => setUltimoKm(parseInt(e.target.value, 10) || 0)}
-                  className="w-full px-3.5 py-2.5 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-2xl text-xs font-mono text-slate-800 dark:text-slate-100 focus:outline-none focus:border-emerald-500 shadow-xs"
+                  className="w-full px-3.5 py-2.5 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-2xl text-xs font-mono text-slate-800 dark:text-slate-100 focus:outline-none focus:border-orange-500 shadow-xs"
                 />
                 <div className="flex items-center justify-between text-[11px] text-slate-500 dark:text-slate-400 pt-0.5">
                   <span>
@@ -225,7 +225,7 @@ export function ItemManutencaoModal({
                   <button
                     type="button"
                     onClick={() => setUltimoKm(metricaAtual)}
-                    className="text-emerald-600 dark:text-emerald-400 hover:underline font-semibold"
+                    className="text-orange-600 dark:text-orange-400 hover:underline font-semibold"
                   >
                     Usar atual
                   </button>
@@ -233,16 +233,16 @@ export function ItemManutencaoModal({
               </div>
 
               {/* Card Resumo do Próximo Alvo */}
-              <div className="p-3.5 rounded-2xl bg-emerald-500/10 border border-emerald-500/25 flex items-center justify-between text-xs shadow-xs">
+              <div className="p-3.5 rounded-2xl bg-orange-500/10 border border-orange-500/25 flex items-center justify-between text-xs shadow-xs">
                 <div>
-                  <span className="text-emerald-700 dark:text-emerald-400 font-bold block">
+                  <span className="text-orange-700 dark:text-orange-400 font-bold block">
                     Próxima Meta de Revisão
                   </span>
                   <span className="text-[11px] text-slate-500 dark:text-slate-400">
                     {isMaquina ? "Alvo calculado no horímetro" : "Alvo calculado no odômetro"}
                   </span>
                 </div>
-                <div className="text-base font-black font-mono text-emerald-700 dark:text-emerald-400">
+                <div className="text-base font-black font-mono text-orange-700 dark:text-orange-400">
                   {proximoAlvoCalculado.toLocaleString()} {unidadeCurta}
                 </div>
               </div>
@@ -276,7 +276,7 @@ export function ItemManutencaoModal({
                 <button
                   type="submit"
                   disabled={salvando || excluindo}
-                  className="w-full sm:w-auto min-h-[44px] flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-500 transition shadow-md shadow-emerald-500/20 disabled:opacity-50"
+                  className="w-full sm:w-auto min-h-[44px] flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold text-white bg-orange-600 hover:bg-orange-500 transition shadow-md shadow-orange-500/20 disabled:opacity-50"
                 >
                   <CheckCircle2 className="h-4 w-4" />
                   <span>{salvando ? "Salvando..." : "Salvar Configuração"}</span>

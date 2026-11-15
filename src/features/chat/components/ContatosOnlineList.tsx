@@ -108,7 +108,7 @@ export function ContatosOnlineList({
               <div
                 className={`p-1.5 rounded-xl shrink-0 ${
                   visivelParaClientes
-                    ? "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400"
+                    ? "bg-orange-500/15 text-orange-600 dark:text-orange-400"
                     : "bg-slate-200 dark:bg-slate-700 text-slate-500 dark:text-slate-400"
                 }`}
               >
@@ -134,7 +134,7 @@ export function ContatosOnlineList({
               aria-checked={visivelParaClientes}
               onClick={() => onToggleVisibilidade(!visivelParaClientes)}
               className={`relative inline-flex h-5 w-9 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none ${
-                visivelParaClientes ? "bg-emerald-500" : "bg-slate-300 dark:bg-slate-600"
+                visivelParaClientes ? "bg-orange-500" : "bg-slate-300 dark:bg-slate-600"
               }`}
               title="Alternar visibilidade para clientes"
             >
@@ -201,7 +201,7 @@ export function ContatosOnlineList({
 
                   {/* Indicador de Status com Halo Suave */}
                   {online ? (
-                    <span className="absolute -bottom-0.5 -right-0.5 h-3.5 w-3.5 rounded-full bg-emerald-500 ring-2 ring-white dark:ring-slate-800 shadow-[0_0_8px_rgba(16,185,129,0.8)]" />
+                    <span className="absolute -bottom-0.5 -right-0.5 h-3.5 w-3.5 rounded-full bg-orange-500 ring-2 ring-white dark:ring-slate-800 shadow-[0_0_8px_rgba(16,185,129,0.8)]" />
                   ) : (
                     <span className="absolute -bottom-0.5 -right-0.5 h-3.5 w-3.5 rounded-full bg-slate-300 dark:bg-slate-600 ring-2 ring-white dark:ring-slate-800" />
                   )}
@@ -242,7 +242,7 @@ export function ContatosOnlineList({
                     <span
                       className={`text-[10px] font-medium ${
                         online
-                          ? "text-emerald-600 dark:text-emerald-400"
+                          ? "text-orange-600 dark:text-orange-400"
                           : "text-slate-400 dark:text-slate-500"
                       }`}
                     >

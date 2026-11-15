@@ -137,7 +137,7 @@ function CadastroParceiroPage() {
       </div>
 
       {/* Luz ambiente de fundo Neumorphic Canônica */}
-      <div className="absolute top-1/4 -left-20 w-96 h-96 bg-emerald-500/10 dark:bg-emerald-500/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/4 -left-20 w-96 h-96 bg-orange-500/10 dark:bg-orange-500/5 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-sky-500/10 dark:bg-sky-500/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="relative z-10 w-full max-w-xl bg-[#f0f4f9] dark:bg-slate-900 border border-slate-300/80 dark:border-slate-800 rounded-3xl p-6 sm:p-8 shadow-[12px_12px_28px_#c3cfe2,-12px_-12px_28px_#ffffff] dark:shadow-2xl backdrop-blur-xl transition-all duration-200">
@@ -162,7 +162,7 @@ function CadastroParceiroPage() {
           </div>
 
           <div className="pt-1">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-700 dark:text-emerald-400 text-[11px] font-mono font-bold uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/15 border border-orange-500/30 text-orange-700 dark:text-orange-400 text-[11px] font-mono font-bold uppercase tracking-wider">
               <ShieldCheck className="h-3.5 w-3.5" />
               <span>
                 {tipoParceiro === "revendedor"
@@ -175,7 +175,7 @@ function CadastroParceiroPage() {
 
         {validando ? (
           <div className="py-12 flex flex-col items-center justify-center gap-3 text-center">
-            <div className="h-9 w-9 rounded-full border-3 border-emerald-500 border-t-transparent animate-spin" />
+            <div className="h-9 w-9 rounded-full border-3 border-orange-500 border-t-transparent animate-spin" />
             <span className="text-xs text-slate-500 dark:text-slate-400 font-mono font-bold">
               Validando autorização do convite comercial...
             </span>
@@ -202,7 +202,7 @@ function CadastroParceiroPage() {
           </div>
         ) : sucesso ? (
           <div className="py-6 text-center space-y-4">
-            <div className="h-16 w-16 rounded-3xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-500 flex items-center justify-center mx-auto shadow-lg shadow-emerald-500/15">
+            <div className="h-16 w-16 rounded-3xl bg-orange-500/15 border border-orange-500/30 text-orange-500 flex items-center justify-center mx-auto shadow-lg shadow-emerald-500/15">
               <CheckCircle2 className="h-8 w-8" />
             </div>
             <h2 className="text-xl font-black text-slate-900 dark:text-slate-100 uppercase tracking-wider">
@@ -210,7 +210,7 @@ function CadastroParceiroPage() {
             </h2>
             <p className="text-xs text-slate-600 dark:text-slate-400 max-w-md mx-auto leading-relaxed">
               Seu perfil oficial de{" "}
-              <strong className="font-bold text-emerald-600 dark:text-emerald-400 uppercase">
+              <strong className="font-bold text-orange-600 dark:text-orange-400 uppercase">
                 {tipoParceiro}
               </strong>{" "}
               foi ativado na rede comercial do {APP_NOME}. Agora você já pode acessar seu painel de
@@ -219,7 +219,7 @@ function CadastroParceiroPage() {
             <div className="pt-4">
               <a
                 href="/login"
-                className="inline-flex items-center justify-center gap-2 w-full py-3.5 rounded-2xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-xs uppercase tracking-wider transition shadow-md shadow-emerald-500/20 active:scale-95 cursor-pointer"
+                className="inline-flex items-center justify-center gap-2 w-full py-3.5 rounded-2xl bg-orange-500 hover:bg-orange-400 text-slate-950 font-black text-xs uppercase tracking-wider transition shadow-md shadow-orange-500/20 active:scale-95 cursor-pointer"
               >
                 <span>Acessar Meu Painel Agora</span>
                 <ArrowRight className="h-4 w-4" />
@@ -245,7 +245,7 @@ function CadastroParceiroPage() {
                   </span>
                 </span>
                 {valorBase !== undefined && (
-                  <span className="font-mono font-black text-emerald-700 dark:text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-md border border-emerald-500/25">
+                  <span className="font-mono font-black text-orange-700 dark:text-orange-400 bg-orange-500/10 px-2 py-0.5 rounded-md border border-orange-500/25">
                     Cota Base: R$ {valorBase.toFixed(2)}/un
                   </span>
                 )}
@@ -270,7 +270,7 @@ function CadastroParceiroPage() {
                     value={nome}
                     onChange={(e) => setNome(e.target.value)}
                     placeholder="Ex: João da Silva ou Silva Rastreamento Ltda"
-                    className="w-full pl-10 pr-3.5 py-2.5 bg-white dark:bg-slate-950 border border-slate-300/80 dark:border-slate-700 rounded-xl text-xs font-medium text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-hidden focus:border-emerald-500 shadow-[inset_2px_2px_4px_rgba(0,0,0,0.04)] transition"
+                    className="w-full pl-10 pr-3.5 py-2.5 bg-white dark:bg-slate-950 border border-slate-300/80 dark:border-slate-700 rounded-xl text-xs font-medium text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-hidden focus:border-orange-500 shadow-[inset_2px_2px_4px_rgba(0,0,0,0.04)] transition"
                   />
                 </div>
               </div>
@@ -287,7 +287,7 @@ function CadastroParceiroPage() {
                       value={documento}
                       onChange={(e) => setDocumento(formatarCpfCnpj(e.target.value))}
                       placeholder="000.000.000-00"
-                      className="w-full pl-10 pr-3.5 py-2.5 bg-white dark:bg-slate-950 border border-slate-300/80 dark:border-slate-700 rounded-xl text-xs font-medium text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-hidden focus:border-emerald-500 shadow-[inset_2px_2px_4px_rgba(0,0,0,0.04)] font-mono transition"
+                      className="w-full pl-10 pr-3.5 py-2.5 bg-white dark:bg-slate-950 border border-slate-300/80 dark:border-slate-700 rounded-xl text-xs font-medium text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-hidden focus:border-orange-500 shadow-[inset_2px_2px_4px_rgba(0,0,0,0.04)] font-mono transition"
                     />
                   </div>
                 </div>
@@ -303,7 +303,7 @@ function CadastroParceiroPage() {
                       value={telefone}
                       onChange={(e) => setTelefone(formatarTelefone(e.target.value))}
                       placeholder="(24) 99999-9999"
-                      className="w-full pl-10 pr-3.5 py-2.5 bg-white dark:bg-slate-950 border border-slate-300/80 dark:border-slate-700 rounded-xl text-xs font-medium text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-hidden focus:border-emerald-500 shadow-[inset_2px_2px_4px_rgba(0,0,0,0.04)] font-mono transition"
+                      className="w-full pl-10 pr-3.5 py-2.5 bg-white dark:bg-slate-950 border border-slate-300/80 dark:border-slate-700 rounded-xl text-xs font-medium text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-hidden focus:border-orange-500 shadow-[inset_2px_2px_4px_rgba(0,0,0,0.04)] font-mono transition"
                     />
                   </div>
                 </div>
@@ -322,7 +322,7 @@ function CadastroParceiroPage() {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="seu.email@exemplo.com"
-                      className="w-full pl-10 pr-3.5 py-2.5 bg-white dark:bg-slate-950 border border-slate-300/80 dark:border-slate-700 rounded-xl text-xs font-medium text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-hidden focus:border-emerald-500 shadow-[inset_2px_2px_4px_rgba(0,0,0,0.04)] font-mono transition"
+                      className="w-full pl-10 pr-3.5 py-2.5 bg-white dark:bg-slate-950 border border-slate-300/80 dark:border-slate-700 rounded-xl text-xs font-medium text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-hidden focus:border-orange-500 shadow-[inset_2px_2px_4px_rgba(0,0,0,0.04)] font-mono transition"
                     />
                   </div>
                 </div>
@@ -338,7 +338,7 @@ function CadastroParceiroPage() {
                       value={chavePix}
                       onChange={(e) => setChavePix(e.target.value)}
                       placeholder="E-mail, CPF ou chave aleatória"
-                      className="w-full pl-10 pr-3.5 py-2.5 bg-white dark:bg-slate-950 border border-slate-300/80 dark:border-slate-700 rounded-xl text-xs font-medium text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-hidden focus:border-emerald-500 shadow-[inset_2px_2px_4px_rgba(0,0,0,0.04)] font-mono transition"
+                      className="w-full pl-10 pr-3.5 py-2.5 bg-white dark:bg-slate-950 border border-slate-300/80 dark:border-slate-700 rounded-xl text-xs font-medium text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-hidden focus:border-orange-500 shadow-[inset_2px_2px_4px_rgba(0,0,0,0.04)] font-mono transition"
                     />
                   </div>
                 </div>
@@ -358,7 +358,7 @@ function CadastroParceiroPage() {
                       value={senha}
                       onChange={(e) => setSenha(e.target.value)}
                       placeholder="Mínimo 6 dígitos"
-                      className="w-full pl-10 pr-10 py-2.5 bg-white dark:bg-slate-950 border border-slate-300/80 dark:border-slate-700 rounded-xl text-xs font-medium text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-hidden focus:border-emerald-500 shadow-[inset_2px_2px_4px_rgba(0,0,0,0.04)] transition"
+                      className="w-full pl-10 pr-10 py-2.5 bg-white dark:bg-slate-950 border border-slate-300/80 dark:border-slate-700 rounded-xl text-xs font-medium text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-hidden focus:border-orange-500 shadow-[inset_2px_2px_4px_rgba(0,0,0,0.04)] transition"
                     />
                     <button
                       type="button"
@@ -383,7 +383,7 @@ function CadastroParceiroPage() {
                       value={confirmarSenha}
                       onChange={(e) => setConfirmarSenha(e.target.value)}
                       placeholder="Repita a senha"
-                      className="w-full pl-10 pr-10 py-2.5 bg-white dark:bg-slate-950 border border-slate-300/80 dark:border-slate-700 rounded-xl text-xs font-medium text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-hidden focus:border-emerald-500 shadow-[inset_2px_2px_4px_rgba(0,0,0,0.04)] transition"
+                      className="w-full pl-10 pr-10 py-2.5 bg-white dark:bg-slate-950 border border-slate-300/80 dark:border-slate-700 rounded-xl text-xs font-medium text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-hidden focus:border-orange-500 shadow-[inset_2px_2px_4px_rgba(0,0,0,0.04)] transition"
                     />
                     <button
                       type="button"
@@ -404,7 +404,7 @@ function CadastroParceiroPage() {
                 <button
                   type="submit"
                   disabled={enviando}
-                  className="w-full py-3.5 rounded-2xl bg-emerald-500 hover:bg-emerald-400 disabled:opacity-50 text-slate-950 font-black text-xs uppercase tracking-wider transition shadow-lg shadow-emerald-500/20 cursor-pointer flex items-center justify-center gap-2 active:scale-95"
+                  className="w-full py-3.5 rounded-2xl bg-orange-500 hover:bg-orange-400 disabled:opacity-50 text-slate-950 font-black text-xs uppercase tracking-wider transition shadow-lg shadow-orange-500/20 cursor-pointer flex items-center justify-center gap-2 active:scale-95"
                 >
                   {enviando ? (
                     <>
@@ -426,7 +426,7 @@ function CadastroParceiroPage() {
         {/* Rodapé Seguro */}
         <div className="mt-6 pt-4 border-t border-slate-200/80 dark:border-slate-800 text-center space-y-2">
           <div className="flex items-center justify-center gap-1.5 text-[11px] text-slate-500 dark:text-slate-400 font-medium">
-            <ShieldCheck className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400" />
+            <ShieldCheck className="h-3.5 w-3.5 text-orange-600 dark:text-orange-400" />
             <span>Ambiente Seguro • Canal Oficial da Rede {APP_NOME}</span>
           </div>
           <div>

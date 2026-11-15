@@ -528,7 +528,7 @@ export function ModalSolicitarRemanejamento({
                                 </span>
                               ))}
                             </div>
-                            <p className="text-[10px] text-emerald-700 dark:text-emerald-400 font-medium">
+                            <p className="text-[10px] text-orange-700 dark:text-orange-400 font-medium">
                               ✓ Todos os itens do kit acima retornarão automaticamente com estorno
                               ao estoque disponível na conclusão da desinstalação.
                             </p>
@@ -678,7 +678,7 @@ export function ModalSolicitarRemanejamento({
                   <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-800 space-y-3">
                     <div className="flex items-center justify-between">
                       <label className="text-xs font-bold text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
-                        <DollarSign className="h-4 w-4 text-emerald-500" />
+                        <DollarSign className="h-4 w-4 text-orange-500" />
                         <span>Valores de Mão de Obra e Repasse Técnico</span>
                       </label>
                       <span className="text-[11px] text-slate-400">
@@ -783,14 +783,14 @@ export function ModalSolicitarRemanejamento({
                           <span
                             className={`font-mono text-sm font-black ${
                               Number(valorRetirada) === 0
-                                ? "text-emerald-600 dark:text-emerald-400"
+                                ? "text-orange-600 dark:text-orange-400"
                                 : "text-slate-900 dark:text-slate-100"
                             }`}
                           >
                             R$ {Number(valorRetirada || 0).toFixed(2)}
                           </span>
                           {Number(valorRetirada) === 0 && (
-                            <span className="block text-[9px] font-extrabold uppercase text-emerald-600 dark:text-emerald-400">
+                            <span className="block text-[9px] font-extrabold uppercase text-orange-600 dark:text-orange-400">
                               (Isento / Sem Custo)
                             </span>
                           )}

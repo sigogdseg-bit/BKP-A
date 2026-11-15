@@ -292,7 +292,7 @@ export function ModalLancamentoDespesaVeiculo({
               <div
                 className={`h-10 w-10 rounded-2xl flex items-center justify-center shadow-xs shrink-0 ${
                   isConclusaoRevisao
-                    ? "bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400"
+                    ? "bg-orange-500/10 border border-orange-500/20 text-orange-600 dark:text-orange-400"
                     : "bg-blue-500/10 border border-blue-500/20 text-blue-600 dark:text-blue-400"
                 }`}
               >
@@ -338,7 +338,7 @@ export function ModalLancamentoDespesaVeiculo({
               <div className="space-y-1.5">
                 <div className="flex items-center justify-between">
                   <label className="text-[11px] font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
-                    <Sparkles className="h-3 w-3 text-emerald-500" />
+                    <Sparkles className="h-3 w-3 text-orange-500" />
                     <span>Sugestões de Serviços e Gastos Rápidos</span>
                   </label>
                   <span className="text-[10px] text-slate-400">
@@ -362,7 +362,7 @@ export function ModalLancamentoDespesaVeiculo({
                           }}
                           className={`px-2.5 py-1 text-xs font-semibold transition border ${
                             isSelecionado
-                              ? "bg-emerald-500 text-slate-950 border-emerald-400 font-bold shadow-xs"
+                              ? "bg-orange-500 text-slate-950 border-orange-400 font-bold shadow-xs"
                               : "bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700"
                           } ${at.isPersonalizada ? "rounded-l-xl border-r-0" : "rounded-xl"}`}
                         >
@@ -378,7 +378,7 @@ export function ModalLancamentoDespesaVeiculo({
                             }}
                             className={`px-1.5 py-1 text-[11px] transition border border-l-0 ${
                               isSelecionado
-                                ? "bg-emerald-600 text-slate-950 border-emerald-400 hover:bg-emerald-700"
+                                ? "bg-orange-600 text-slate-950 border-orange-400 hover:bg-emerald-700"
                                 : "bg-white dark:bg-slate-800 text-slate-400 hover:text-rose-500 border-slate-200 dark:border-slate-700 hover:bg-rose-50 dark:hover:bg-rose-950/30"
                             } rounded-r-xl`}
                             title={`Remover sugestão "${at.label}"`}
@@ -405,7 +405,7 @@ export function ModalLancamentoDespesaVeiculo({
                 onChange={(e) => setDescricao(e.target.value)}
                 placeholder="Ex: Troca de Óleo 5W30, Troca de Palhetas Dianteiras..."
                 required
-                className="w-full px-3.5 py-2.5 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-2xl text-xs font-medium text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-emerald-500 transition"
+                className="w-full px-3.5 py-2.5 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-2xl text-xs font-medium text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-orange-500 transition"
               />
             </div>
 
@@ -418,14 +418,14 @@ export function ModalLancamentoDespesaVeiculo({
                   <span className="text-rose-500">*</span>
                 </label>
                 <div className="relative">
-                  <span className="absolute left-3.5 top-2.5 text-xs font-black text-emerald-600 dark:text-emerald-400">
+                  <span className="absolute left-3.5 top-2.5 text-xs font-black text-orange-600 dark:text-orange-400">
                     R$
                   </span>
                   <MoedaInput
                     value={valorTotal}
                     onChange={setValorTotal}
                     placeholder="0,00"
-                    className="w-full pl-10 pr-3.5 py-2.5 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-2xl text-xs font-mono font-bold text-slate-900 dark:text-slate-100 focus:outline-none focus:border-emerald-500 transition"
+                    className="w-full pl-10 pr-3.5 py-2.5 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-2xl text-xs font-mono font-bold text-slate-900 dark:text-slate-100 focus:outline-none focus:border-orange-500 transition"
                   />
                 </div>
               </div>
@@ -442,7 +442,7 @@ export function ModalLancamentoDespesaVeiculo({
                     <button
                       type="button"
                       onClick={() => setKmRealizado(odometroAtual)}
-                      className="text-[10px] font-bold text-emerald-600 dark:text-emerald-400 hover:underline"
+                      className="text-[10px] font-bold text-orange-600 dark:text-orange-400 hover:underline"
                     >
                       Usar atual ({formatarKm(odometroAtual)})
                     </button>
@@ -456,7 +456,7 @@ export function ModalLancamentoDespesaVeiculo({
                   onChange={(e) => setKmRealizado(parseInt(e.target.value, 10) || 0)}
                   placeholder="Ex: 182947"
                   required
-                  className="w-full px-3.5 py-2.5 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-2xl text-xs font-mono font-bold text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-emerald-500 transition"
+                  className="w-full px-3.5 py-2.5 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-2xl text-xs font-mono font-bold text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-orange-500 transition"
                 />
               </div>
             </div>
@@ -475,7 +475,7 @@ export function ModalLancamentoDespesaVeiculo({
                     onClick={() => setFormaPagamento(fp.id)}
                     className={`flex flex-col items-center justify-center gap-1 p-2 rounded-2xl text-center text-xs transition border ${
                       formaPagamento === fp.id
-                        ? "bg-emerald-500/15 border-emerald-500 text-emerald-700 dark:text-emerald-300 font-bold shadow-xs"
+                        ? "bg-orange-500/15 border-orange-500 text-orange-700 dark:text-orange-300 font-bold shadow-xs"
                         : "bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700 font-medium"
                     }`}
                   >
@@ -500,7 +500,7 @@ export function ModalLancamentoDespesaVeiculo({
                   value={dataRealizacao}
                   onChange={(e) => setDataRealizacao(e.target.value)}
                   required
-                  className="w-full px-3.5 py-2.5 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-2xl text-xs font-medium text-slate-900 dark:text-slate-100 focus:outline-none focus:border-emerald-500 transition"
+                  className="w-full px-3.5 py-2.5 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-2xl text-xs font-medium text-slate-900 dark:text-slate-100 focus:outline-none focus:border-orange-500 transition"
                 />
               </div>
 
@@ -515,7 +515,7 @@ export function ModalLancamentoDespesaVeiculo({
                   value={oficina}
                   onChange={(e) => setOficina(e.target.value)}
                   placeholder="Ex: Auto Center Silva, Posto Ipiranga..."
-                  className="w-full px-3.5 py-2.5 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-2xl text-xs font-medium text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-emerald-500 transition"
+                  className="w-full px-3.5 py-2.5 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-2xl text-xs font-medium text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-orange-500 transition"
                 />
               </div>
             </div>
@@ -532,7 +532,7 @@ export function ModalLancamentoDespesaVeiculo({
                 value={nfNumero}
                 onChange={(e) => setNfNumero(e.target.value)}
                 placeholder="Ex: NF-e 004812"
-                className="w-full px-3.5 py-2.5 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-2xl text-xs font-medium text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-emerald-500 transition"
+                className="w-full px-3.5 py-2.5 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-2xl text-xs font-medium text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-orange-500 transition"
               />
             </div>
 
@@ -540,10 +540,10 @@ export function ModalLancamentoDespesaVeiculo({
             <div className="space-y-1.5">
               <label className="text-xs font-bold text-slate-700 dark:text-slate-300 flex items-center justify-between">
                 <span className="flex items-center gap-1.5">
-                  <Upload className="h-3.5 w-3.5 text-emerald-500" />
+                  <Upload className="h-3.5 w-3.5 text-orange-500" />
                   <span>Anexar Comprovante / Nota Fiscal (Foto ou PDF)</span>
                 </span>
-                <span className="text-[10px] text-emerald-600 dark:text-emerald-400 font-semibold">
+                <span className="text-[10px] text-orange-600 dark:text-orange-400 font-semibold">
                   Disponível para download pelo adm
                 </span>
               </label>
@@ -562,7 +562,7 @@ export function ModalLancamentoDespesaVeiculo({
                   type="button"
                   onClick={() => fileInputRef.current?.click()}
                   disabled={ocrLendo}
-                  className="w-full p-4 rounded-2xl border-2 border-dashed border-slate-300 dark:border-slate-700 hover:border-emerald-500 bg-white/60 dark:bg-slate-800/60 flex flex-col items-center justify-center gap-1.5 text-center transition group disabled:opacity-50"
+                  className="w-full p-4 rounded-2xl border-2 border-dashed border-slate-300 dark:border-slate-700 hover:border-orange-500 bg-white/60 dark:bg-slate-800/60 flex flex-col items-center justify-center gap-1.5 text-center transition group disabled:opacity-50"
                 >
                   {ocrLendo ? (
                     <>
@@ -573,7 +573,7 @@ export function ModalLancamentoDespesaVeiculo({
                     </>
                   ) : (
                     <>
-                      <div className="h-9 w-9 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-600 dark:text-emerald-400 group-hover:scale-110 transition">
+                      <div className="h-9 w-9 rounded-full bg-orange-500/10 flex items-center justify-center text-orange-600 dark:text-orange-400 group-hover:scale-110 transition">
                         <Camera className="h-4 w-4" />
                       </div>
                       <span className="text-xs font-bold text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
@@ -596,7 +596,7 @@ export function ModalLancamentoDespesaVeiculo({
                         className="h-10 w-10 object-cover rounded-xl border border-slate-200 dark:border-slate-700 shrink-0"
                       />
                     ) : (
-                      <div className="h-10 w-10 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-600 shrink-0">
+                      <div className="h-10 w-10 rounded-xl bg-orange-500/10 flex items-center justify-center text-orange-600 shrink-0">
                         <FileText className="h-5 w-5" />
                       </div>
                     )}
@@ -637,7 +637,7 @@ export function ModalLancamentoDespesaVeiculo({
                 value={observacoes}
                 onChange={(e) => setObservacoes(e.target.value)}
                 placeholder="Detalhes adicionais da manutenção, garantia da peça ou observações do mecânico..."
-                className="w-full px-3.5 py-2 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-2xl text-xs font-medium text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-emerald-500 transition resize-none"
+                className="w-full px-3.5 py-2 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-2xl text-xs font-medium text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-orange-500 transition resize-none"
               />
             </div>
           </form>
@@ -657,7 +657,7 @@ export function ModalLancamentoDespesaVeiculo({
               type="button"
               onClick={handleSubmit}
               disabled={salvando}
-              className="w-full sm:w-auto min-h-[44px] flex items-center justify-center gap-1.5 px-5 py-2.5 rounded-xl text-xs font-bold text-slate-950 bg-emerald-500 hover:bg-emerald-400 transition shadow-lg shadow-emerald-500/20 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full sm:w-auto min-h-[44px] flex items-center justify-center gap-1.5 px-5 py-2.5 rounded-xl text-xs font-bold text-slate-950 bg-orange-500 hover:bg-orange-400 transition shadow-lg shadow-orange-500/20 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {salvando ? (
                 <>

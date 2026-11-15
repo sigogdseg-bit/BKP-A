@@ -204,7 +204,7 @@ export function ConversaChat({
             <button
               type="button"
               onClick={onVoltarParaListaConversas}
-              className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 transition cursor-pointer active:scale-95 group -ml-1 px-2 py-1 rounded-lg hover:bg-emerald-500/10"
+              className="inline-flex items-center gap-1.5 text-xs font-bold text-orange-600 dark:text-orange-400 hover:text-orange-700 dark:hover:text-orange-300 transition cursor-pointer active:scale-95 group -ml-1 px-2 py-1 rounded-lg hover:bg-orange-500/10"
               title="Voltar para a lista de conversas deste usuário"
             >
               <ArrowLeft className="h-3.5 w-3.5 group-hover:-translate-x-0.5 transition-transform" />
@@ -214,7 +214,7 @@ export function ConversaChat({
             <button
               type="button"
               onClick={onVoltar}
-              className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 transition cursor-pointer md:hidden active:scale-95 group -ml-1 px-2 py-1 rounded-lg hover:bg-emerald-500/10"
+              className="inline-flex items-center gap-1.5 text-xs font-bold text-orange-600 dark:text-orange-400 hover:text-orange-700 dark:hover:text-orange-300 transition cursor-pointer md:hidden active:scale-95 group -ml-1 px-2 py-1 rounded-lg hover:bg-orange-500/10"
               aria-label="Voltar para a lista de contatos"
               title="Voltar para contatos"
             >
@@ -241,7 +241,7 @@ export function ConversaChat({
             </div>
 
             {contatoOnline ? (
-              <span className="absolute -bottom-0.5 -right-0.5 h-3.5 w-3.5 rounded-full bg-emerald-500 ring-2 ring-white dark:ring-slate-800 shadow-[0_0_8px_rgba(16,185,129,0.85)]" />
+              <span className="absolute -bottom-0.5 -right-0.5 h-3.5 w-3.5 rounded-full bg-orange-500 ring-2 ring-white dark:ring-slate-800 shadow-[0_0_8px_rgba(16,185,129,0.85)]" />
             ) : (
               <span className="absolute -bottom-0.5 -right-0.5 h-3.5 w-3.5 rounded-full bg-slate-300 dark:bg-slate-600 ring-2 ring-white dark:ring-slate-800" />
             )}
@@ -258,7 +258,7 @@ export function ConversaChat({
                   Diálogo: {supervisaoInfo.usuarioANome} ↔ {supervisaoInfo.usuarioBNome}
                 </span>
               ) : contatoOnline ? (
-                <span className="text-emerald-600 dark:text-emerald-400 font-semibold">
+                <span className="text-orange-600 dark:text-orange-400 font-semibold">
                   Online Agora
                 </span>
               ) : (

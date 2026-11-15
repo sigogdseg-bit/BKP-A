@@ -314,12 +314,12 @@ function CadastroClientePage() {
       <div className="flex-1 flex flex-col justify-center py-8 px-4 sm:px-6 lg:px-8">
         {/* Background Decorativo */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-emerald-900/20 via-slate-950 to-slate-950 pointer-events-none" />
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-orange-500/10 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-sky-500/10 rounded-full blur-3xl pointer-events-none" />
 
         <div className="sm:mx-auto sm:w-full sm:max-w-2xl relative z-10">
           <div className="flex justify-center mb-4">
-            <div className="h-16 w-16 rounded-3xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 shadow-xl shadow-emerald-500/10">
+            <div className="h-16 w-16 rounded-3xl bg-orange-500/10 border border-orange-500/30 flex items-center justify-center text-orange-400 shadow-xl shadow-emerald-500/10">
               <Users className="h-8 w-8" />
             </div>
           </div>
@@ -335,7 +335,7 @@ function CadastroClientePage() {
           <div className="bg-slate-900/90 border border-slate-800 shadow-2xl rounded-3xl p-5 sm:p-8 backdrop-blur-xl">
             {validando ? (
               <div className="py-16 text-center space-y-4">
-                <Clock className="h-10 w-10 text-emerald-400 animate-spin mx-auto" />
+                <Clock className="h-10 w-10 text-orange-400 animate-spin mx-auto" />
                 <p className="text-sm text-slate-400 font-medium">
                   Validando seu código de autorização...
                 </p>
@@ -361,19 +361,19 @@ function CadastroClientePage() {
               </div>
             ) : sucesso ? (
               <div className="py-8 text-center space-y-5">
-                <div className="h-20 w-20 bg-emerald-500/10 border border-emerald-500/30 rounded-3xl flex items-center justify-center mx-auto text-emerald-400 shadow-xl shadow-emerald-500/10">
+                <div className="h-20 w-20 bg-orange-500/10 border border-orange-500/30 rounded-3xl flex items-center justify-center mx-auto text-orange-400 shadow-xl shadow-emerald-500/10">
                   <CheckCircle2 className="h-10 w-10" />
                 </div>
                 <div>
                   <h3 className="text-xl font-black text-white">Cadastro Enviado com Sucesso!</h3>
-                  <p className="text-xs sm:text-sm text-emerald-400/90 font-medium mt-1">
+                  <p className="text-xs sm:text-sm text-orange-400/90 font-medium mt-1">
                     Seus dados e seus veículos foram recebidos pela central operacional.
                   </p>
                 </div>
 
                 <div className="bg-slate-950/60 border border-slate-800 rounded-2xl p-4 text-left space-y-2 text-xs text-slate-300">
                   <div className="flex items-center gap-2 font-bold text-slate-200">
-                    <ShieldCheck className="h-4 w-4 text-emerald-400" />
+                    <ShieldCheck className="h-4 w-4 text-orange-400" />
                     <span>Próximas Etapas:</span>
                   </div>
                   <ul className="list-disc pl-5 space-y-1.5 text-slate-400 text-[11px] leading-relaxed">
@@ -400,7 +400,7 @@ function CadastroClientePage() {
                         <span className="text-xs font-mono font-bold text-amber-300 flex items-center gap-1.5 uppercase">
                           <Sparkles className="h-4 w-4" /> Agendamento Técnico Simulado
                         </span>
-                        <span className="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 text-[10px] font-mono font-bold">
+                        <span className="px-2 py-0.5 rounded-full bg-orange-500/20 text-orange-300 text-[10px] font-mono font-bold">
                           Instalador Fantasma Atribuído
                         </span>
                       </div>
@@ -433,7 +433,7 @@ function CadastroClientePage() {
                       <div className="pt-2 border-t border-indigo-500/30 flex flex-col sm:flex-row gap-2">
                         <a
                           href="/instalacao?demo=true"
-                          className="flex-1 py-2.5 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center justify-center gap-1.5 transition text-center shadow-md shadow-emerald-600/20"
+                          className="flex-1 py-2.5 px-3 rounded-xl bg-orange-600 hover:bg-orange-500 text-white font-bold text-xs flex items-center justify-center gap-1.5 transition text-center shadow-md shadow-orange-600/20"
                         >
                           <Wrench className="h-3.5 w-3.5" />
                           <span>Simular Instalação Deste Veículo (Jornada Instalador)</span>
@@ -449,7 +449,7 @@ function CadastroClientePage() {
                   ) : (
                     <a
                       href="/login"
-                      className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-xs font-bold bg-emerald-500 hover:bg-emerald-400 text-slate-950 transition shadow-lg shadow-emerald-500/20"
+                      className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-xs font-bold bg-orange-500 hover:bg-orange-400 text-slate-950 transition shadow-lg shadow-orange-500/20"
                     >
                       <Lock className="h-4 w-4" />
                       <span>Acessar Painel do Cliente</span>
@@ -462,7 +462,7 @@ function CadastroClientePage() {
                 {/* Etapa 1: Dados do Cliente */}
                 <div className="space-y-4">
                   <div className="flex items-center gap-2 pb-2 border-b border-slate-800">
-                    <User className="h-4 w-4 text-emerald-400" />
+                    <User className="h-4 w-4 text-orange-400" />
                     <h3 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-200">
                       1. Dados do Titular / Cliente
                     </h3>
@@ -482,7 +482,7 @@ function CadastroClientePage() {
                           value={nome}
                           onChange={(e) => setNome(e.target.value)}
                           placeholder="Ex: Carlos Eduardo de Oliveira"
-                          className="w-full pl-9 pr-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-xs text-slate-100 placeholder-slate-500 focus:outline-none focus:border-emerald-500 transition"
+                          className="w-full pl-9 pr-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-xs text-slate-100 placeholder-slate-500 focus:outline-none focus:border-orange-500 transition"
                         />
                       </div>
                     </div>
@@ -498,7 +498,7 @@ function CadastroClientePage() {
                           value={documento}
                           onChange={(e) => setDocumento(formatarCpfCnpj(e.target.value))}
                           placeholder="000.000.000-00"
-                          className="w-full pl-9 pr-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-xs text-slate-100 placeholder-slate-500 focus:outline-none focus:border-emerald-500 transition"
+                          className="w-full pl-9 pr-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-xs text-slate-100 placeholder-slate-500 focus:outline-none focus:border-orange-500 transition"
                         />
                       </div>
                     </div>
@@ -514,7 +514,7 @@ function CadastroClientePage() {
                           value={telefone}
                           onChange={(e) => setTelefone(formatarTelefone(e.target.value))}
                           placeholder="(00) 00000-0000"
-                          className="w-full pl-9 pr-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-xs text-slate-100 placeholder-slate-500 focus:outline-none focus:border-emerald-500 transition"
+                          className="w-full pl-9 pr-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-xs text-slate-100 placeholder-slate-500 focus:outline-none focus:border-orange-500 transition"
                         />
                       </div>
                     </div>
@@ -532,7 +532,7 @@ function CadastroClientePage() {
                           value={email}
                           onChange={(e) => setEmail(e.target.value)}
                           placeholder="cliente@email.com"
-                          className="w-full pl-9 pr-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-xs text-slate-100 placeholder-slate-500 focus:outline-none focus:border-emerald-500 transition"
+                          className="w-full pl-9 pr-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-xs text-slate-100 placeholder-slate-500 focus:outline-none focus:border-orange-500 transition"
                         />
                       </div>
                     </div>
@@ -544,7 +544,7 @@ function CadastroClientePage() {
                       <select
                         value={diaVencimento}
                         onChange={(e) => setDiaVencimento(Number(e.target.value))}
-                        className="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-xs text-slate-100 focus:outline-none focus:border-emerald-500 transition"
+                        className="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-xs text-slate-100 focus:outline-none focus:border-orange-500 transition"
                       >
                         <option value={5}>Todo dia 05</option>
                         <option value={10}>Todo dia 10 (Padrão)</option>
@@ -567,7 +567,7 @@ function CadastroClientePage() {
                           value={senha}
                           onChange={(e) => setSenha(e.target.value)}
                           placeholder="Mínimo 6 caracteres"
-                          className="w-full pl-9 pr-10 py-2 bg-slate-950 border border-slate-800 rounded-xl text-xs text-slate-100 placeholder-slate-500 focus:outline-none focus:border-emerald-500 transition"
+                          className="w-full pl-9 pr-10 py-2 bg-slate-950 border border-slate-800 rounded-xl text-xs text-slate-100 placeholder-slate-500 focus:outline-none focus:border-orange-500 transition"
                         />
                         <button
                           type="button"
@@ -598,7 +598,7 @@ function CadastroClientePage() {
                           value={confirmarSenha}
                           onChange={(e) => setConfirmarSenha(e.target.value)}
                           placeholder="Repita a senha"
-                          className="w-full pl-9 pr-10 py-2 bg-slate-950 border border-slate-800 rounded-xl text-xs text-slate-100 placeholder-slate-500 focus:outline-none focus:border-emerald-500 transition"
+                          className="w-full pl-9 pr-10 py-2 bg-slate-950 border border-slate-800 rounded-xl text-xs text-slate-100 placeholder-slate-500 focus:outline-none focus:border-orange-500 transition"
                         />
                         <button
                           type="button"
@@ -622,7 +622,7 @@ function CadastroClientePage() {
                 <div className="space-y-4 pt-2">
                   <div className="flex items-center justify-between pb-2 border-b border-slate-800">
                     <div className="flex items-center gap-2">
-                      <Car className="h-4 w-4 text-emerald-400" />
+                      <Car className="h-4 w-4 text-orange-400" />
                       <h3 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-200">
                         2. Veículos para Rastreamento ({veiculos.length})
                       </h3>
@@ -630,7 +630,7 @@ function CadastroClientePage() {
                     <button
                       type="button"
                       onClick={handleAdicionarVeiculo}
-                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-emerald-500/15 hover:bg-emerald-500/25 text-emerald-400 border border-emerald-500/30 transition shadow-xs"
+                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-orange-500/15 hover:bg-orange-500/25 text-orange-400 border border-orange-500/30 transition shadow-xs"
                     >
                       <Plus className="h-3.5 w-3.5" />
                       <span>Adicionar Outro Veículo</span>
@@ -644,8 +644,8 @@ function CadastroClientePage() {
                         className="bg-slate-950/70 border border-slate-800/80 rounded-2xl p-4 space-y-3 relative group"
                       >
                         <div className="flex items-center justify-between">
-                          <span className="text-xs font-black text-emerald-400 flex items-center gap-1.5">
-                            <span className="h-5 w-5 rounded-lg bg-emerald-500/20 flex items-center justify-center text-[11px] font-mono">
+                          <span className="text-xs font-black text-orange-400 flex items-center gap-1.5">
+                            <span className="h-5 w-5 rounded-lg bg-orange-500/20 flex items-center justify-center text-[11px] font-mono">
                               {index + 1}
                             </span>
                             <span>Veículo #{index + 1}</span>
@@ -677,7 +677,7 @@ function CadastroClientePage() {
                                   e.target.value as TipoVeiculo,
                                 )
                               }
-                              className="w-full px-2.5 py-1.5 bg-slate-900 border border-slate-800 rounded-xl text-xs text-slate-100 focus:outline-none focus:border-emerald-500 transition"
+                              className="w-full px-2.5 py-1.5 bg-slate-900 border border-slate-800 rounded-xl text-xs text-slate-100 focus:outline-none focus:border-orange-500 transition"
                             >
                               {LISTA_TIPOS_VEICULO.map((t) => (
                                 <option key={t.id} value={t.id}>
@@ -729,7 +729,7 @@ function CadastroClientePage() {
                                         : "ABC-1234 ou ABC1D23"
                                     }
                                     maxLength={10}
-                                    className="w-full px-2.5 py-1.5 font-mono uppercase bg-slate-900 border border-slate-800 rounded-xl text-xs text-slate-100 placeholder-slate-500 focus:outline-none focus:border-emerald-500 transition"
+                                    className="w-full px-2.5 py-1.5 font-mono uppercase bg-slate-900 border border-slate-800 rounded-xl text-xs text-slate-100 placeholder-slate-500 focus:outline-none focus:border-orange-500 transition"
                                   />
                                 </div>
 
@@ -754,7 +754,7 @@ function CadastroClientePage() {
                                     }
                                     placeholder="6 últimos dígitos p/ mapa"
                                     maxLength={25}
-                                    className="w-full px-2.5 py-1.5 font-mono uppercase bg-slate-900 border border-slate-800 rounded-xl text-xs text-slate-100 placeholder-slate-500 focus:outline-none focus:border-emerald-500 transition"
+                                    className="w-full px-2.5 py-1.5 font-mono uppercase bg-slate-900 border border-slate-800 rounded-xl text-xs text-slate-100 placeholder-slate-500 focus:outline-none focus:border-orange-500 transition"
                                   />
                                 </div>
                               </>
@@ -774,7 +774,7 @@ function CadastroClientePage() {
                                 handleAtualizarVeiculo(index, "modelo", e.target.value)
                               }
                               placeholder="Ex: Hilux, Gol, Fan 160"
-                              className="w-full px-2.5 py-1.5 bg-slate-900 border border-slate-800 rounded-xl text-xs text-slate-100 placeholder-slate-500 focus:outline-none focus:border-emerald-500 transition"
+                              className="w-full px-2.5 py-1.5 bg-slate-900 border border-slate-800 rounded-xl text-xs text-slate-100 placeholder-slate-500 focus:outline-none focus:border-orange-500 transition"
                             />
                           </div>
 
@@ -789,7 +789,7 @@ function CadastroClientePage() {
                                 handleAtualizarVeiculo(index, "marca", e.target.value)
                               }
                               placeholder="Ex: Toyota, VW, Honda"
-                              className="w-full px-2.5 py-1.5 bg-slate-900 border border-slate-800 rounded-xl text-xs text-slate-100 placeholder-slate-500 focus:outline-none focus:border-emerald-500 transition"
+                              className="w-full px-2.5 py-1.5 bg-slate-900 border border-slate-800 rounded-xl text-xs text-slate-100 placeholder-slate-500 focus:outline-none focus:border-orange-500 transition"
                             />
                           </div>
 
@@ -801,7 +801,7 @@ function CadastroClientePage() {
                               onChange={(e) => handleAtualizarVeiculo(index, "ano", e.target.value)}
                               placeholder="Ex: 2023"
                               maxLength={4}
-                              className="w-full px-2.5 py-1.5 bg-slate-900 border border-slate-800 rounded-xl text-xs text-slate-100 placeholder-slate-500 focus:outline-none focus:border-emerald-500 transition"
+                              className="w-full px-2.5 py-1.5 bg-slate-900 border border-slate-800 rounded-xl text-xs text-slate-100 placeholder-slate-500 focus:outline-none focus:border-orange-500 transition"
                             />
                           </div>
 
@@ -812,7 +812,7 @@ function CadastroClientePage() {
                               value={veiculo.cor || ""}
                               onChange={(e) => handleAtualizarVeiculo(index, "cor", e.target.value)}
                               placeholder="Ex: Prata, Preto, Branco"
-                              className="w-full px-2.5 py-1.5 bg-slate-900 border border-slate-800 rounded-xl text-xs text-slate-100 placeholder-slate-500 focus:outline-none focus:border-emerald-500 transition"
+                              className="w-full px-2.5 py-1.5 bg-slate-900 border border-slate-800 rounded-xl text-xs text-slate-100 placeholder-slate-500 focus:outline-none focus:border-orange-500 transition"
                             />
                           </div>
 
@@ -827,7 +827,7 @@ function CadastroClientePage() {
                                 handleAtualizarVeiculo(index, "observacoes", e.target.value)
                               }
                               placeholder="Ex: Veículo possui chave presencial ou corta-corrente"
-                              className="w-full px-2.5 py-1.5 bg-slate-900 border border-slate-800 rounded-xl text-xs text-slate-100 placeholder-slate-500 focus:outline-none focus:border-emerald-500 transition"
+                              className="w-full px-2.5 py-1.5 bg-slate-900 border border-slate-800 rounded-xl text-xs text-slate-100 placeholder-slate-500 focus:outline-none focus:border-orange-500 transition"
                             />
                           </div>
                         </div>
@@ -854,7 +854,7 @@ function CadastroClientePage() {
                 <button
                   type="submit"
                   disabled={enviando}
-                  className="w-full py-3.5 px-4 rounded-2xl text-xs sm:text-sm font-bold bg-emerald-500 hover:bg-emerald-400 text-slate-950 transition shadow-lg shadow-emerald-500/20 disabled:opacity-50 flex items-center justify-center gap-2"
+                  className="w-full py-3.5 px-4 rounded-2xl text-xs sm:text-sm font-bold bg-orange-500 hover:bg-orange-400 text-slate-950 transition shadow-lg shadow-orange-500/20 disabled:opacity-50 flex items-center justify-center gap-2"
                 >
                   {enviando ? (
                     <>

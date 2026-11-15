@@ -589,7 +589,7 @@ Total de Contratos na Rede: ${meusClientes.length}`;
             <span className="text-[10.5px] font-bold uppercase tracking-wider">
               Clientes da Rede
             </span>
-            <div className="h-7 w-7 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
+            <div className="h-7 w-7 rounded-lg bg-orange-500/10 flex items-center justify-center text-orange-600 dark:text-orange-400">
               <Users className="h-4 w-4" />
             </div>
           </div>
@@ -597,7 +597,7 @@ Total de Contratos na Rede: ${meusClientes.length}`;
             <p className="text-xl font-black font-mono text-slate-900 dark:text-white">
               {resumoFinanceiro.totalClientes}
             </p>
-            <span className="text-[10px] text-emerald-600 dark:text-emerald-400 font-semibold block mt-0.5">
+            <span className="text-[10px] text-orange-600 dark:text-orange-400 font-semibold block mt-0.5">
               Diretos e equipe
             </span>
           </div>
@@ -630,19 +630,19 @@ Total de Contratos na Rede: ${meusClientes.length}`;
           maxTilt={4}
           spotlightColor="rgba(16, 185, 129, 0.35)"
           onClick={() => setAbaAtiva("extrato")}
-          className="bg-[#eaf0f8] dark:bg-slate-900/70 border border-emerald-500/30 rounded-2xl p-3.5 flex flex-col justify-between shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_12px_#b8c6da] transition cursor-pointer active:scale-95"
+          className="bg-[#eaf0f8] dark:bg-slate-900/70 border border-orange-500/30 rounded-2xl p-3.5 flex flex-col justify-between shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_12px_#b8c6da] transition cursor-pointer active:scale-95"
         >
-          <div className="flex items-center justify-between text-emerald-600 dark:text-emerald-400">
+          <div className="flex items-center justify-between text-orange-600 dark:text-orange-400">
             <span className="text-[10.5px] font-bold uppercase tracking-wider">Minha Margem</span>
-            <div className="h-7 w-7 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
+            <div className="h-7 w-7 rounded-lg bg-orange-500/10 flex items-center justify-center text-orange-600 dark:text-orange-400">
               <TrendingUp className="h-4 w-4" />
             </div>
           </div>
           <div className="mt-2">
-            <p className="text-lg font-black font-mono text-emerald-700 dark:text-emerald-300 truncate">
+            <p className="text-lg font-black font-mono text-orange-700 dark:text-orange-300 truncate">
               R$ {resumoFinanceiro.lucroLiquidoRevendedor.toFixed(2)}
             </p>
-            <span className="text-[10px] text-emerald-600 dark:text-emerald-400 font-bold block mt-0.5">
+            <span className="text-[10px] text-orange-600 dark:text-orange-400 font-bold block mt-0.5">
               Lucro recorrente/mês
             </span>
           </div>
@@ -818,7 +818,7 @@ Total de Contratos na Rede: ${meusClientes.length}`;
                         <span
                           className={`px-2 py-0.5 rounded-md text-[10px] font-bold ${
                             v.ativo
-                              ? "bg-emerald-500/10 text-emerald-600 border border-emerald-500/20"
+                              ? "bg-orange-500/10 text-orange-600 border border-orange-500/20"
                               : "bg-rose-500/10 text-rose-600 border border-rose-500/20"
                           }`}
                         >
@@ -955,9 +955,7 @@ Total de Contratos na Rede: ${meusClientes.length}`;
                   <th className="py-3 px-4">Instalador Responsável</th>
                   <th className="py-3 px-4">Taxa Cobrada</th>
                   <th className="py-3 px-4 text-rose-600 dark:text-rose-400">Repasse Técnico</th>
-                  <th className="py-3 px-4 text-emerald-600 dark:text-emerald-400">
-                    Sobra Franquia
-                  </th>
+                  <th className="py-3 px-4 text-orange-600 dark:text-orange-400">Sobra Franquia</th>
                   <th className="py-3 px-4">Status Repasse</th>
                   <th className="py-3 px-4 text-right">Ação</th>
                 </tr>
@@ -1000,14 +998,14 @@ Total de Contratos na Rede: ${meusClientes.length}`;
                           <td className="py-3 px-4 font-bold text-rose-600 dark:text-rose-400">
                             R$ {custoInstalador.toFixed(2)}
                           </td>
-                          <td className="py-3 px-4 font-bold text-emerald-600 dark:text-emerald-400">
+                          <td className="py-3 px-4 font-bold text-orange-600 dark:text-orange-400">
                             R$ {sobra.toFixed(2)}
                           </td>
                           <td className="py-3 px-4 font-sans">
                             <span
                               className={`px-2 py-0.5 rounded-md text-[10px] font-bold ${
                                 isPago
-                                  ? "bg-emerald-500/15 text-emerald-600 border border-emerald-500/25"
+                                  ? "bg-orange-500/15 text-orange-600 border border-orange-500/25"
                                   : "bg-amber-500/15 text-amber-600 border border-amber-500/25"
                               }`}
                             >
@@ -1019,7 +1017,7 @@ Total de Contratos na Rede: ${meusClientes.length}`;
                               <button
                                 type="button"
                                 onClick={() => marcarRepassePago(c.id)}
-                                className="px-2.5 py-1 rounded-lg text-[10px] font-bold bg-emerald-600 hover:bg-emerald-500 text-white transition shadow-xs cursor-pointer active:scale-95"
+                                className="px-2.5 py-1 rounded-lg text-[10px] font-bold bg-orange-600 hover:bg-orange-500 text-white transition shadow-xs cursor-pointer active:scale-95"
                               >
                                 Marcar Pago
                               </button>
@@ -1113,7 +1111,7 @@ Total de Contratos na Rede: ${meusClientes.length}`;
                     <th className="py-3 px-4">Cliente / Contrato</th>
                     <th className="py-3 px-4">Canal</th>
                     <th className="py-3 px-4">Mensalidade</th>
-                    <th className="py-3 px-4 text-emerald-600 dark:text-emerald-400">
+                    <th className="py-3 px-4 text-orange-600 dark:text-orange-400">
                       Cota da Matriz
                     </th>
                     <th className="py-3 px-4 text-blue-600 dark:text-blue-400">
@@ -1181,7 +1179,7 @@ Total de Contratos na Rede: ${meusClientes.length}`;
                             <td className="py-3 px-4 font-bold text-slate-800 dark:text-slate-200">
                               R$ {mensalidade.toFixed(2)}
                             </td>
-                            <td className="py-3 px-4 font-bold text-emerald-600 dark:text-emerald-400">
+                            <td className="py-3 px-4 font-bold text-orange-600 dark:text-orange-400">
                               R$ {split.parteSistema.toFixed(2)}
                             </td>
                             <td className="py-3 px-4 font-bold text-blue-600 dark:text-blue-400">
@@ -1192,7 +1190,7 @@ Total de Contratos na Rede: ${meusClientes.length}`;
                             </td>
                             <td className="py-3 px-4 font-sans">
                               {isPagoPelaMatriz ? (
-                                <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[10px] font-bold bg-emerald-500/15 text-emerald-700 dark:text-emerald-400 border border-emerald-500/30">
+                                <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[10px] font-bold bg-orange-500/15 text-orange-700 dark:text-orange-400 border border-orange-500/30">
                                   <CheckCircle2 className="h-3 w-3" />
                                   <span>Repasse Pago pela Matriz</span>
                                 </span>
@@ -1433,7 +1431,7 @@ Total de Contratos na Rede: ${meusClientes.length}`;
                       }}
                       className={`p-2.5 rounded-xl font-bold border transition text-center cursor-pointer active:scale-95 ${
                         tipoConvite === "instalador"
-                          ? "bg-emerald-600 text-white border-emerald-600 shadow-md"
+                          ? "bg-orange-600 text-white border-orange-600 shadow-md"
                           : "bg-white dark:bg-slate-950 border-slate-300/70 dark:border-slate-800 text-slate-700 dark:text-slate-300 shadow-xs"
                       }`}
                     >
@@ -1517,19 +1515,19 @@ Total de Contratos na Rede: ${meusClientes.length}`;
                 </button>
 
                 {linkGerado && (
-                  <div className="p-3.5 bg-emerald-500/10 dark:bg-emerald-950/20 border border-emerald-500/30 rounded-2xl space-y-2 animate-in fade-in">
-                    <div className="flex items-center gap-2 text-emerald-700 dark:text-emerald-400 font-bold text-xs">
+                  <div className="p-3.5 bg-orange-500/10 dark:bg-orange-950/20 border border-orange-500/30 rounded-2xl space-y-2 animate-in fade-in">
+                    <div className="flex items-center gap-2 text-orange-700 dark:text-orange-400 font-bold text-xs">
                       <CheckCircle2 className="h-4 w-4" />
                       <span>Link Pronto para Compartilhamento:</span>
                     </div>
-                    <div className="p-2 rounded-xl bg-white dark:bg-slate-950 border border-emerald-500/20 font-mono text-[11px] break-all select-all text-slate-800 dark:text-slate-200">
+                    <div className="p-2 rounded-xl bg-white dark:bg-slate-950 border border-orange-500/20 font-mono text-[11px] break-all select-all text-slate-800 dark:text-slate-200">
                       {linkGerado}
                     </div>
                     <div className="flex items-center gap-2">
                       <button
                         type="button"
                         onClick={() => copiarLink(linkGerado)}
-                        className="flex-1 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center justify-center gap-1.5 transition shadow-xs cursor-pointer active:scale-95"
+                        className="flex-1 py-1.5 rounded-xl bg-orange-600 hover:bg-orange-500 text-white font-bold text-xs flex items-center justify-center gap-1.5 transition shadow-xs cursor-pointer active:scale-95"
                       >
                         <Copy className="h-3.5 w-3.5" />
                         <span>Copiar Link</span>

@@ -841,7 +841,7 @@ export function NovaInstalacaoModal({
                       <button
                         type="button"
                         onClick={irParaCadastroNovoCliente}
-                        className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-emerald-500/15 hover:bg-emerald-500/25 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30 text-[11px] font-bold transition cursor-pointer"
+                        className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-orange-500/15 hover:bg-orange-500/25 text-orange-700 dark:text-orange-300 border border-orange-500/30 text-[11px] font-bold transition cursor-pointer"
                         title="Ir para a tela de Clientes para cadastrar um novo cliente"
                       >
                         <UserPlus className="h-3 w-3" />
@@ -872,7 +872,7 @@ export function NovaInstalacaoModal({
                 ) : clienteSelecionado ? (
                   <div className="space-y-2">
                     {/* Card do Cliente Selecionado */}
-                    <div className="p-3 rounded-xl bg-white dark:bg-slate-950 border border-emerald-500/40 flex items-center justify-between gap-3 shadow-xs">
+                    <div className="p-3 rounded-xl bg-white dark:bg-slate-950 border border-orange-500/40 flex items-center justify-between gap-3 shadow-xs">
                       <div className="space-y-0.5 min-w-0">
                         <div className="flex items-center gap-2">
                           <span className="font-bold text-xs text-slate-900 dark:text-slate-100 truncate">
@@ -884,7 +884,7 @@ export function NovaInstalacaoModal({
                               <span>Aguardando Instalação</span>
                             </span>
                           ) : (
-                            <span className="flex items-center gap-1 px-2 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-wider bg-emerald-500/15 text-emerald-500 border border-emerald-500/30">
+                            <span className="flex items-center gap-1 px-2 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-wider bg-orange-500/15 text-orange-500 border border-orange-500/30">
                               <Check className="h-2.5 w-2.5" />
                               <span>Cliente Ativo</span>
                             </span>
@@ -903,7 +903,7 @@ export function NovaInstalacaoModal({
                         </div>
                       </div>
 
-                      <div className="shrink-0 text-emerald-500">
+                      <div className="shrink-0 text-orange-500">
                         <CheckCircle2 className="h-5 w-5" />
                       </div>
                     </div>
@@ -923,8 +923,8 @@ export function NovaInstalacaoModal({
                         </button>
                       </div>
                     ) : !isEdicao && clienteSelecionado.status === "ativo" ? (
-                      <div className="p-2.5 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-[11px] text-emerald-800 dark:text-emerald-300 flex items-center gap-2">
-                        <Sparkles className="h-3.5 w-3.5 shrink-0 text-emerald-600 dark:text-emerald-400" />
+                      <div className="p-2.5 rounded-xl bg-orange-500/10 border border-orange-500/30 text-[11px] text-orange-800 dark:text-orange-300 flex items-center gap-2">
+                        <Sparkles className="h-3.5 w-3.5 shrink-0 text-orange-600 dark:text-orange-400" />
                         <span>
                           Novo veículo para cliente ativo: informe o IMEI, chip M2M e placa do novo
                           veículo abaixo. As instalações já concluídas deste cliente permanecem
@@ -943,7 +943,7 @@ export function NovaInstalacaoModal({
                         value={buscaCliente}
                         onChange={(e) => setBuscaCliente(e.target.value)}
                         placeholder="Buscar cliente por nome parcial, telefone ou CPF/CNPJ..."
-                        className="w-full pl-9 pr-3 py-2 rounded-xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-xs text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:border-emerald-500 focus:outline-none"
+                        className="w-full pl-9 pr-3 py-2 rounded-xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-xs text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:border-orange-500 focus:outline-none"
                       />
                     </div>
 
@@ -955,7 +955,7 @@ export function NovaInstalacaoModal({
                             <button
                               type="button"
                               onClick={irParaCadastroNovoCliente}
-                              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-[11px] font-bold transition shadow-xs cursor-pointer"
+                              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-orange-600 hover:bg-orange-500 text-white text-[11px] font-bold transition shadow-xs cursor-pointer"
                             >
                               <UserPlus className="h-3.5 w-3.5" />
                               <span>Ir para Cadastro de Novo Cliente</span>
@@ -973,10 +973,10 @@ export function NovaInstalacaoModal({
                               setClienteId(c.id);
                               setBuscaCliente("");
                             }}
-                            className="w-full text-left p-2 rounded-lg hover:bg-emerald-500/10 hover:border-emerald-500/30 transition flex items-center justify-between gap-2 group"
+                            className="w-full text-left p-2 rounded-lg hover:bg-orange-500/10 hover:border-orange-500/30 transition flex items-center justify-between gap-2 group"
                           >
                             <div className="min-w-0">
-                              <div className="font-semibold text-xs text-slate-800 dark:text-slate-200 group-hover:text-emerald-500 truncate">
+                              <div className="font-semibold text-xs text-slate-800 dark:text-slate-200 group-hover:text-orange-500 truncate">
                                 {c.nome}
                               </div>
                               <div className="text-[10px] text-slate-400 font-mono flex items-center gap-2">
@@ -995,7 +995,7 @@ export function NovaInstalacaoModal({
                                 {c.status}
                               </span>
                             ) : (
-                              <span className="shrink-0 flex items-center gap-1 px-1.5 py-0.5 rounded text-[9px] font-bold uppercase tracking-wider bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">
+                              <span className="shrink-0 flex items-center gap-1 px-1.5 py-0.5 rounded text-[9px] font-bold uppercase tracking-wider bg-orange-500/10 text-orange-500 border border-orange-500/20">
                                 Ativo
                               </span>
                             )}
@@ -1012,7 +1012,7 @@ export function NovaInstalacaoModal({
                         <button
                           type="button"
                           onClick={irParaCadastroNovoCliente}
-                          className="inline-flex items-center gap-1 text-emerald-600 dark:text-emerald-400 hover:underline font-bold shrink-0 cursor-pointer"
+                          className="inline-flex items-center gap-1 text-orange-600 dark:text-orange-400 hover:underline font-bold shrink-0 cursor-pointer"
                         >
                           <UserPlus className="h-3 w-3" />
                           <span>Ir para Cadastro de Novo Cliente</span>
@@ -1025,14 +1025,14 @@ export function NovaInstalacaoModal({
 
               {/* Card de Repasse ao Instalador */}
               {isInstalador && (
-                <div className="p-4 rounded-3xl bg-gradient-to-r from-emerald-500/15 via-teal-500/10 to-slate-900 border border-emerald-500/30 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-md">
+                <div className="p-4 rounded-3xl bg-gradient-to-r from-emerald-500/15 via-teal-500/10 to-slate-900 border border-orange-500/30 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-md">
                   <div className="space-y-0.5">
-                    <span className="text-[10px] font-extrabold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
+                    <span className="text-[10px] font-extrabold uppercase tracking-wider text-orange-600 dark:text-orange-400">
                       Extrato do Atendimento · Repasse Previsto
                     </span>
-                    <div className="text-xl font-black text-emerald-700 dark:text-emerald-300 flex items-center gap-2">
+                    <div className="text-xl font-black text-orange-700 dark:text-orange-300 flex items-center gap-2">
                       <span>R$ {valorRepasseCalculado.toFixed(2)}</span>
-                      <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-800 dark:text-emerald-200">
+                      <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-orange-500/20 text-orange-800 dark:text-orange-200">
                         {bloqueadorInstalado ? "Com Bloqueador" : "Sem Bloqueador"}
                       </span>
                     </div>
@@ -1048,7 +1048,7 @@ export function NovaInstalacaoModal({
               <div className="p-4 rounded-2xl bg-white dark:bg-slate-900/60 border border-slate-300/70 dark:border-slate-800 shadow-xs space-y-3">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-200/80 dark:border-slate-800 pb-2.5">
                   <div className="text-xs font-bold text-slate-800 dark:text-slate-200 flex items-center gap-1.5 uppercase tracking-wider">
-                    <Radio className="h-4 w-4 text-emerald-600 dark:text-emerald-400" /> Conferência
+                    <Radio className="h-4 w-4 text-orange-600 dark:text-orange-400" /> Conferência
                     do Rastreador e Conectividade
                   </div>
                   <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-100 text-amber-900 border border-amber-300 dark:bg-amber-950/60 dark:text-amber-300 dark:border-amber-800 self-start sm:self-auto">
@@ -1062,7 +1062,7 @@ export function NovaInstalacaoModal({
                       <label className="text-[11px] text-slate-700 dark:text-slate-300 font-bold">
                         IMEI do Rastreador Físico *
                       </label>
-                      <span className="text-[9px] font-bold text-emerald-600 dark:text-emerald-400 uppercase">
+                      <span className="text-[9px] font-bold text-orange-600 dark:text-orange-400 uppercase">
                         Ler no Aparelho ou Caixa
                       </span>
                     </div>
@@ -1083,7 +1083,7 @@ export function NovaInstalacaoModal({
                           imeiDivergente
                             ? "border-rose-500 text-rose-600 dark:text-rose-400 bg-rose-50/50 dark:bg-rose-950/30"
                             : imeiConfere && temImeiEsperado
-                              ? "border-emerald-500 text-emerald-700 dark:text-emerald-400 bg-emerald-50/30"
+                              ? "border-orange-500 text-orange-700 dark:text-orange-400 bg-orange-50/30"
                               : "border-slate-300 dark:border-slate-800 text-slate-900 dark:text-slate-100"
                         }`}
                       />
@@ -1113,8 +1113,8 @@ export function NovaInstalacaoModal({
                         </div>
                       </div>
                     ) : imeiConfere && temImeiEsperado ? (
-                      <div className="mt-2 p-2 rounded-xl bg-emerald-500/15 border border-emerald-500/40 text-emerald-800 dark:text-emerald-300 text-xs flex items-center gap-2">
-                        <CheckCircle2 className="h-4 w-4 shrink-0 text-emerald-600 dark:text-emerald-400" />
+                      <div className="mt-2 p-2 rounded-xl bg-orange-500/15 border border-orange-500/40 text-orange-800 dark:text-orange-300 text-xs flex items-center gap-2">
+                        <CheckCircle2 className="h-4 w-4 shrink-0 text-orange-600 dark:text-orange-400" />
                         <span>
                           <strong>Rastreador conferido com sucesso!</strong> O IMEI coincide
                           exatamente com o equipamento determinado pelo operador. Dados do veículo
@@ -1149,7 +1149,7 @@ export function NovaInstalacaoModal({
                       value={rastreadorModelo}
                       onChange={(e) => setRastreadorModelo(e.target.value)}
                       placeholder="J16 4G"
-                      className="w-full px-3 py-1.5 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-800 text-xs text-slate-900 dark:text-slate-100 focus:border-emerald-500 focus:outline-none shadow-inner"
+                      className="w-full px-3 py-1.5 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-800 text-xs text-slate-900 dark:text-slate-100 focus:border-orange-500 focus:outline-none shadow-inner"
                     />
                   </div>
 
@@ -1160,7 +1160,7 @@ export function NovaInstalacaoModal({
                     <select
                       value={chipOperadora}
                       onChange={(e) => setChipOperadora(e.target.value)}
-                      className="w-full px-3 py-1.5 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-800 text-xs text-slate-900 dark:text-slate-100 focus:border-emerald-500 focus:outline-none shadow-inner"
+                      className="w-full px-3 py-1.5 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-800 text-xs text-slate-900 dark:text-slate-100 focus:border-orange-500 focus:outline-none shadow-inner"
                     >
                       <option value="Vivo">Vivo M2M</option>
                       <option value="Claro">Claro M2M</option>
@@ -1182,7 +1182,7 @@ export function NovaInstalacaoModal({
                       value={chipIccid}
                       onChange={(e) => setChipIccid(e.target.value.trim())}
                       placeholder="8955..."
-                      className="w-full px-3 py-1.5 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-800 font-mono text-xs text-slate-900 dark:text-slate-100 focus:border-emerald-500 focus:outline-none shadow-inner"
+                      className="w-full px-3 py-1.5 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-800 font-mono text-xs text-slate-900 dark:text-slate-100 focus:border-orange-500 focus:outline-none shadow-inner"
                     />
                   </div>
                 </div>
@@ -1198,7 +1198,7 @@ export function NovaInstalacaoModal({
               >
                 <div className="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-2">
                   <div className="text-xs font-bold text-slate-700 dark:text-slate-300 flex items-center gap-1.5 uppercase tracking-wider">
-                    <Car className="h-3.5 w-3.5 text-emerald-500" /> Dados do Veículo e Local da
+                    <Car className="h-3.5 w-3.5 text-orange-500" /> Dados do Veículo e Local da
                     Instalação
                   </div>
                   {isInstalador && !imeiConfere && (
@@ -1216,7 +1216,7 @@ export function NovaInstalacaoModal({
                     <select
                       value={tipoVeiculo}
                       onChange={(e) => setTipoVeiculo(e.target.value)}
-                      className="w-full px-3 py-1.5 rounded-xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-xs font-semibold text-slate-900 dark:text-slate-100 focus:border-emerald-500 focus:outline-none"
+                      className="w-full px-3 py-1.5 rounded-xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-xs font-semibold text-slate-900 dark:text-slate-100 focus:border-orange-500 focus:outline-none"
                     >
                       <option value="carro">Automóvel / Passeio</option>
                       <option value="moto">Motocicleta</option>
@@ -1266,7 +1266,7 @@ export function NovaInstalacaoModal({
                             ? "ABC1D23"
                             : "Opcional (A DEFINIR)"
                       }
-                      className="w-full px-3 py-1.5 rounded-xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 font-mono font-black text-xs text-slate-900 dark:text-slate-100 uppercase focus:border-emerald-500 focus:outline-none"
+                      className="w-full px-3 py-1.5 rounded-xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 font-mono font-black text-xs text-slate-900 dark:text-slate-100 uppercase focus:border-orange-500 focus:outline-none"
                     />
                   </div>
 
@@ -1285,7 +1285,7 @@ export function NovaInstalacaoModal({
                       value={chassi}
                       onChange={(e) => setChassi(e.target.value.toUpperCase())}
                       placeholder="6 últimos dígitos p/ mapa"
-                      className="w-full px-3 py-1.5 rounded-xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 font-mono font-black text-xs text-slate-900 dark:text-slate-100 uppercase focus:border-emerald-500 focus:outline-none"
+                      className="w-full px-3 py-1.5 rounded-xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 font-mono font-black text-xs text-slate-900 dark:text-slate-100 uppercase focus:border-orange-500 focus:outline-none"
                     />
                   </div>
 
@@ -1307,7 +1307,7 @@ export function NovaInstalacaoModal({
                       value={marca}
                       onChange={(e) => setMarca(e.target.value)}
                       placeholder="Ex: Fiat, Caterpillar, John Deere"
-                      className="w-full px-3 py-1.5 rounded-xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-xs text-slate-900 dark:text-slate-100 focus:border-emerald-500 focus:outline-none"
+                      className="w-full px-3 py-1.5 rounded-xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-xs text-slate-900 dark:text-slate-100 focus:border-orange-500 focus:outline-none"
                     />
                   </div>
 
@@ -1329,7 +1329,7 @@ export function NovaInstalacaoModal({
                       value={modelo}
                       onChange={(e) => setModelo(e.target.value)}
                       placeholder="Ex: Onix 1.0, Retroescavadeira 310L"
-                      className="w-full px-3 py-1.5 rounded-xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-xs text-slate-900 dark:text-slate-100 focus:border-emerald-500 focus:outline-none"
+                      className="w-full px-3 py-1.5 rounded-xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-xs text-slate-900 dark:text-slate-100 focus:border-orange-500 focus:outline-none"
                     />
                   </div>
 
@@ -1342,7 +1342,7 @@ export function NovaInstalacaoModal({
                       value={ano || ""}
                       onChange={(e) => setAno(Number(e.target.value))}
                       placeholder="2024"
-                      className="w-full px-3 py-1.5 rounded-xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-xs font-mono text-slate-900 dark:text-slate-100 focus:border-emerald-500 focus:outline-none"
+                      className="w-full px-3 py-1.5 rounded-xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-xs font-mono text-slate-900 dark:text-slate-100 focus:border-orange-500 focus:outline-none"
                     />
                   </div>
 
@@ -1355,7 +1355,7 @@ export function NovaInstalacaoModal({
                       value={cor}
                       onChange={(e) => setCor(e.target.value)}
                       placeholder="Amarelo, Branco, Preto"
-                      className="w-full px-3 py-1.5 rounded-xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-xs text-slate-900 dark:text-slate-100 focus:border-emerald-500 focus:outline-none"
+                      className="w-full px-3 py-1.5 rounded-xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-xs text-slate-900 dark:text-slate-100 focus:border-orange-500 focus:outline-none"
                     />
                   </div>
 
@@ -1399,7 +1399,7 @@ export function NovaInstalacaoModal({
                         value={kmInstalacao}
                         onChange={(e) => setKmInstalacao(Number(e.target.value))}
                         placeholder="Ex: 45200"
-                        className="w-full px-3 py-1.5 rounded-xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-xs font-mono font-bold text-slate-900 dark:text-slate-100 focus:border-emerald-500 focus:outline-none"
+                        className="w-full px-3 py-1.5 rounded-xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-xs font-mono font-bold text-slate-900 dark:text-slate-100 focus:border-orange-500 focus:outline-none"
                       />
                     </div>
                   )}
@@ -1410,7 +1410,7 @@ export function NovaInstalacaoModal({
                       <label className="text-[11px] text-slate-700 dark:text-slate-300 font-bold">
                         Local de Instalação Física no Veículo (Onde Instalou) *
                       </label>
-                      <span className="text-[10px] text-emerald-600 dark:text-emerald-400 font-semibold">
+                      <span className="text-[10px] text-orange-600 dark:text-orange-400 font-semibold">
                         Obrigatório para o Instalador
                       </span>
                     </div>
@@ -1424,7 +1424,7 @@ export function NovaInstalacaoModal({
                       value={posicaoInstalacao}
                       onChange={(e) => setPosicaoInstalacao(e.target.value)}
                       placeholder="Ex: Atrás do painel de instrumentos, Coluna A lado motorista, Sob o banco traseiro, Chicote da bomba"
-                      className="w-full px-3 py-2 rounded-xl bg-white dark:bg-slate-950 border border-slate-300 dark:border-slate-800 text-xs font-medium text-slate-900 dark:text-slate-100 focus:border-emerald-500 focus:outline-none shadow-xs"
+                      className="w-full px-3 py-2 rounded-xl bg-white dark:bg-slate-950 border border-slate-300 dark:border-slate-800 text-xs font-medium text-slate-900 dark:text-slate-100 focus:border-orange-500 focus:outline-none shadow-xs"
                     />
                   </div>
                 </div>
@@ -1437,7 +1437,7 @@ export function NovaInstalacaoModal({
                     <PowerOff className="h-4 w-4 text-amber-500" /> Relé de Bloqueio e Corte de
                     Combustível
                   </div>
-                  <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/20">
+                  <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-orange-500/10 text-orange-700 dark:text-orange-400 border border-orange-500/20">
                     DEFINIDO PELO INSTALADOR
                   </span>
                 </div>
@@ -1454,14 +1454,14 @@ export function NovaInstalacaoModal({
                     onClick={() => setBloqueadorInstalado(true)}
                     className={`p-3.5 rounded-2xl border text-left transition flex items-start gap-3 cursor-pointer ${
                       bloqueadorInstalado
-                        ? "bg-emerald-50 dark:bg-emerald-950/30 border-emerald-500 text-emerald-900 dark:text-emerald-200 ring-2 ring-emerald-500/20"
+                        ? "bg-orange-50 dark:bg-orange-950/30 border-orange-500 text-emerald-900 dark:text-orange-200 ring-2 ring-orange-500/20"
                         : "bg-slate-50 dark:bg-slate-950 border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:border-slate-300"
                     }`}
                   >
                     <div
                       className={`mt-0.5 h-4 w-4 rounded-full border flex items-center justify-center shrink-0 ${
                         bloqueadorInstalado
-                          ? "border-emerald-600 bg-emerald-600 text-white"
+                          ? "border-orange-600 bg-orange-600 text-white"
                           : "border-slate-400"
                       }`}
                     >
@@ -1471,7 +1471,7 @@ export function NovaInstalacaoModal({
                       <div className="text-xs font-bold text-slate-900 dark:text-slate-100 flex items-center justify-between gap-1">
                         <span>Com Bloqueador Instalado</span>
                         {isInstalador && (
-                          <span className="text-[10px] font-black text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded">
+                          <span className="text-[10px] font-black text-orange-600 dark:text-orange-400 bg-orange-500/10 px-1.5 py-0.5 rounded">
                             R$ {(Number(session?.valor_instalacao_com_bloqueador) || 80).toFixed(2)}
                           </span>
                         )}
@@ -1588,12 +1588,12 @@ export function NovaInstalacaoModal({
                       Utilizados
                     </div>
                     <div className="flex items-center gap-2">
-                      <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30">
+                      <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-orange-500/15 text-orange-600 dark:text-orange-400 border border-orange-500/30">
                         {totalItensSelecionados > 0
                           ? `${totalItensSelecionados} itens (${totalUnidadesSelecionadas} un.)`
                           : "Nenhum material selecionado"}
                       </span>
-                      <span className="text-[10px] text-emerald-600 dark:text-emerald-400 font-medium hidden sm:inline">
+                      <span className="text-[10px] text-orange-600 dark:text-orange-400 font-medium hidden sm:inline">
                         Sincronização com estorno automático
                       </span>
                     </div>
@@ -1722,7 +1722,7 @@ export function NovaInstalacaoModal({
                                   className={`font-mono font-bold ${
                                     semSaldo
                                       ? "text-rose-500"
-                                      : "text-emerald-600 dark:text-emerald-400"
+                                      : "text-orange-600 dark:text-orange-400"
                                   }`}
                                 >
                                   {mat.quantidade_atual} {mat.unidade_medida}
@@ -1814,7 +1814,7 @@ export function NovaInstalacaoModal({
                           <span
                             className={`font-mono font-bold ${
                               margemBrutaInstalacao >= 0
-                                ? "text-emerald-600 dark:text-emerald-400"
+                                ? "text-orange-600 dark:text-orange-400"
                                 : "text-rose-500"
                             }`}
                           >
@@ -1830,14 +1830,14 @@ export function NovaInstalacaoModal({
               {/* 5. Status da Instalação e Motivo / Pendência */}
               <div className="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 space-y-2.5">
                 <div className="text-xs font-bold text-slate-700 dark:text-slate-300 flex items-center gap-1.5 uppercase tracking-wider">
-                  <CheckCircle2 className="h-3.5 w-3.5 text-emerald-500" /> Status do Atendimento
+                  <CheckCircle2 className="h-3.5 w-3.5 text-orange-500" /> Status do Atendimento
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
                   <label
                     className={`p-3 rounded-xl border flex items-center gap-2 cursor-pointer text-xs font-bold transition ${
                       status === "concluida"
-                        ? "bg-emerald-500/15 border-emerald-500 text-emerald-700 dark:text-emerald-300 shadow-xs"
+                        ? "bg-orange-500/15 border-orange-500 text-orange-700 dark:text-orange-300 shadow-xs"
                         : "bg-white dark:bg-slate-950 border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400"
                     }`}
                   >
@@ -1847,7 +1847,7 @@ export function NovaInstalacaoModal({
                       value="concluida"
                       checked={status === "concluida"}
                       onChange={() => setStatus("concluida")}
-                      className="text-emerald-600"
+                      className="text-orange-600"
                     />
                     <span>Concluída com Sucesso</span>
                   </label>
@@ -1920,7 +1920,7 @@ export function NovaInstalacaoModal({
                     value={observacoes}
                     onChange={(e) => setObservacoes(e.target.value)}
                     placeholder="Observações do teste de bloqueio, leitura de ignição, chicote, etc."
-                    className="w-full px-3 py-1.5 rounded-xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-xs text-slate-900 dark:text-slate-100 focus:border-emerald-500 focus:outline-none"
+                    className="w-full px-3 py-1.5 rounded-xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-xs text-slate-900 dark:text-slate-100 focus:border-orange-500 focus:outline-none"
                   />
                 </div>
               </div>
@@ -1943,7 +1943,7 @@ export function NovaInstalacaoModal({
                   (isInstalador && temImeiEsperado && !imeiConfere) ||
                   (isInstalador && !posicaoInstalacao.trim())
                 }
-                className="w-full sm:w-auto px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-emerald-600 hover:bg-emerald-500 text-white shadow-md shadow-emerald-600/20 transition flex items-center justify-center gap-1.5 disabled:opacity-50 disabled:cursor-not-allowed min-h-[44px]"
+                className="w-full sm:w-auto px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-orange-600 hover:bg-orange-500 text-white shadow-md shadow-orange-600/20 transition flex items-center justify-center gap-1.5 disabled:opacity-50 disabled:cursor-not-allowed min-h-[44px]"
               >
                 <CheckCircle2 className="h-4 w-4 shrink-0" />
                 <span className="hidden sm:inline">

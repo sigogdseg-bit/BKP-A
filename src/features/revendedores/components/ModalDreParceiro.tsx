@@ -251,7 +251,7 @@ Total de Clientes Ativos: ${clientesQtd}`;
                   <span className="text-slate-700 dark:text-slate-300">
                     Minha Margem Mensal Recorrente:
                   </span>
-                  <span className="font-bold text-emerald-600 dark:text-emerald-400">
+                  <span className="font-bold text-orange-600 dark:text-orange-400">
                     + R$ {(dados.lucroLiquidoRevendedor || 0).toFixed(2)}
                   </span>
                 </div>
@@ -259,7 +259,7 @@ Total de Clientes Ativos: ${clientesQtd}`;
                   <span className="text-slate-700 dark:text-slate-300">
                     Taxas de Instalação Recebidas (Diretas):
                   </span>
-                  <span className="font-bold text-emerald-600 dark:text-emerald-400">
+                  <span className="font-bold text-orange-600 dark:text-orange-400">
                     + R$ {(dados.totalTaxasInstalacaoRecebidas || 0).toFixed(2)}
                   </span>
                 </div>
@@ -291,7 +291,7 @@ Total de Clientes Ativos: ${clientesQtd}`;
                   <span className="font-black text-slate-900 dark:text-white uppercase font-sans">
                     LUCRO LÍQUIDO ESTIMADO:
                   </span>
-                  <span className="font-black text-emerald-600 dark:text-emerald-400 text-base">
+                  <span className="font-black text-orange-600 dark:text-orange-400 text-base">
                     R${" "}
                     {(
                       (dados.lucroLiquidoRevendedor || 0) +
@@ -326,7 +326,7 @@ Total de Clientes Ativos: ${clientesQtd}`;
                   <span className="text-slate-700 dark:text-slate-300">
                     Minha Comissão Mensal Recorrente:
                   </span>
-                  <span className="font-bold text-emerald-600 dark:text-emerald-400">
+                  <span className="font-bold text-orange-600 dark:text-orange-400">
                     + R$ {(dados.minhaComissaoTotal || 0).toFixed(2)}
                   </span>
                 </div>
@@ -342,7 +342,7 @@ Total de Clientes Ativos: ${clientesQtd}`;
                   <span className="font-black text-slate-900 dark:text-white uppercase font-sans">
                     GANHO LÍQUIDO ESTIMADO:
                   </span>
-                  <span className="font-black text-emerald-600 dark:text-emerald-400 text-base">
+                  <span className="font-black text-orange-600 dark:text-orange-400 text-base">
                     R$ {(dados.ganhoLiquidoEstimado || 0).toFixed(2)}
                   </span>
                 </div>
@@ -362,8 +362,8 @@ Total de Clientes Ativos: ${clientesQtd}`;
             >
               {copiado ? (
                 <>
-                  <CheckCircle2 className="h-4 w-4 text-emerald-600" />
-                  <span className="text-emerald-600 font-black">DRE Copiada!</span>
+                  <CheckCircle2 className="h-4 w-4 text-orange-600" />
+                  <span className="text-orange-600 font-black">DRE Copiada!</span>
                 </>
               ) : (
                 <>

@@ -101,7 +101,7 @@ export function ModalConviteCliente({ aberto, onFechar }: ModalConviteClientePro
           {/* Header */}
           <div className="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-slate-800">
             <div className="flex items-center gap-2.5">
-              <div className="p-2 rounded-2xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30">
+              <div className="p-2 rounded-2xl bg-orange-500/10 text-orange-600 dark:text-orange-400 border border-orange-500/30">
                 <UserCheck className="h-5 w-5" />
               </div>
               <div>
@@ -123,12 +123,12 @@ export function ModalConviteCliente({ aberto, onFechar }: ModalConviteClientePro
           </div>
 
           {/* Regras e Alertas */}
-          <div className="p-3.5 rounded-2xl bg-emerald-500/10 border border-emerald-500/25 space-y-2 text-xs text-emerald-900 dark:text-emerald-200">
+          <div className="p-3.5 rounded-2xl bg-orange-500/10 border border-orange-500/25 space-y-2 text-xs text-emerald-900 dark:text-orange-200">
             <div className="flex items-center gap-1.5 font-bold">
-              <ShieldCheck className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
+              <ShieldCheck className="h-4 w-4 text-orange-600 dark:text-orange-400" />
               <span>Regras do Auto-Cadastro de Cliente:</span>
             </div>
-            <ul className="text-[11px] space-y-1 list-disc list-inside text-emerald-800 dark:text-emerald-300">
+            <ul className="text-[11px] space-y-1 list-disc list-inside text-orange-800 dark:text-orange-300">
               <li>
                 <strong>Multi-Veículos:</strong> O cliente pode cadastrar 1 ou vários veículos pelo
                 mesmo link.
@@ -148,7 +148,7 @@ export function ModalConviteCliente({ aberto, onFechar }: ModalConviteClientePro
           {/* Área do Link Gerado */}
           <div className="space-y-3">
             <label className="text-xs font-semibold text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
-              <LinkIcon className="h-3.5 w-3.5 text-emerald-500" />
+              <LinkIcon className="h-3.5 w-3.5 text-orange-500" />
               <span>Link Exclusivo de Auto-Cadastro:</span>
             </label>
 
@@ -169,7 +169,7 @@ export function ModalConviteCliente({ aberto, onFechar }: ModalConviteClientePro
                     onClick={copiarLink}
                     className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition shrink-0 ${
                       copiado
-                        ? "bg-emerald-500 text-slate-950 font-black shadow-md shadow-emerald-500/20"
+                        ? "bg-orange-500 text-slate-950 font-black shadow-md shadow-orange-500/20"
                         : "bg-slate-900 text-white dark:bg-slate-100 dark:text-slate-900 hover:opacity-90"
                     }`}
                   >
@@ -198,7 +198,7 @@ export function ModalConviteCliente({ aberto, onFechar }: ModalConviteClientePro
                     placeholder="(00) 00000-0000"
                     value={telefoneDestino}
                     onChange={(e) => setTelefoneDestino(formatarTelefone(e.target.value))}
-                    className="w-full px-3.5 py-2 rounded-xl bg-white dark:bg-slate-800/70 border border-slate-300 dark:border-slate-700 text-xs text-slate-900 dark:text-slate-100 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/40"
+                    className="w-full px-3.5 py-2 rounded-xl bg-white dark:bg-slate-800/70 border border-slate-300 dark:border-slate-700 text-xs text-slate-900 dark:text-slate-100 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-orange-500/40"
                   />
                 </div>
 

@@ -496,7 +496,7 @@ export function ClienteVeiculosAnalyticsModal({
 
                 <div className="bg-white dark:bg-slate-950/50 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-xs">
                   <p className="text-xs font-bold text-slate-500 dark:text-slate-400 mb-1 flex items-center gap-1.5">
-                    <Calendar className="h-3.5 w-3.5 text-emerald-500" /> Km Rodados
+                    <Calendar className="h-3.5 w-3.5 text-orange-500" /> Km Rodados
                   </p>
                   <p className="text-2xl font-black text-slate-900 dark:text-white">
                     {totalKm.toLocaleString("pt-BR", {

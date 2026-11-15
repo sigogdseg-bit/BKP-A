@@ -252,7 +252,7 @@ export function EditarCompraModal({
                   Valor do Frete (R$)
                 </label>
                 <div className="relative">
-                  <DollarSign className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-emerald-500" />
+                  <DollarSign className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-orange-500" />
                   <input
                     type="number"
                     min="0"
@@ -260,7 +260,7 @@ export function EditarCompraModal({
                     value={valorFrete || ""}
                     onChange={(e) => setValorFrete(parseFloat(e.target.value) || 0)}
                     placeholder="0,00"
-                    className="w-full pl-10 pr-4 py-2.5 bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-xl text-sm font-bold text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all"
+                    className="w-full pl-10 pr-4 py-2.5 bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-xl text-sm font-bold text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 transition-all"
                   />
                 </div>
               </div>
@@ -324,7 +324,7 @@ export function EditarCompraModal({
                 </span>
               </div>
               {valorFrete > 0 && (
-                <div className="flex justify-between items-center text-xs text-emerald-600 dark:text-emerald-400">
+                <div className="flex justify-between items-center text-xs text-orange-600 dark:text-orange-400">
                   <span>Frete:</span>
                   <span className="font-semibold">
                     +{" "}

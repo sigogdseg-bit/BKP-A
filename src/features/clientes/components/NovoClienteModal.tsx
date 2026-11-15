@@ -719,8 +719,8 @@ export function NovoClienteModal({ clienteEdicao, onFechar, onSucesso }: NovoCli
     return (
       <ModalPortal>
         <div className="fixed inset-0 z-[99999] flex items-center justify-center p-2.5 sm:p-4 bg-slate-950/85 backdrop-blur-md overflow-y-auto select-none">
-          <div className="bg-[#eaf0f8] dark:bg-slate-900 border border-emerald-500/40 rounded-3xl w-full max-w-md shadow-2xl p-6 space-y-5 text-center text-slate-800 dark:text-slate-100 max-h-[calc(100dvh-2.5rem)] sm:max-h-[85vh] overflow-y-auto my-auto">
-            <div className="h-14 w-14 rounded-2xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-600 dark:text-emerald-400 mx-auto">
+          <div className="bg-[#eaf0f8] dark:bg-slate-900 border border-orange-500/40 rounded-3xl w-full max-w-md shadow-2xl p-6 space-y-5 text-center text-slate-800 dark:text-slate-100 max-h-[calc(100dvh-2.5rem)] sm:max-h-[85vh] overflow-y-auto my-auto">
+            <div className="h-14 w-14 rounded-2xl bg-orange-500/15 border border-orange-500/30 flex items-center justify-center text-orange-600 dark:text-orange-400 mx-auto">
               <ShieldCheck className="h-8 w-8 animate-pulse" />
             </div>
 
@@ -746,7 +746,7 @@ export function NovoClienteModal({ clienteEdicao, onFechar, onSucesso }: NovoCli
                 <span className="text-[10px] text-slate-500 dark:text-slate-400 uppercase tracking-wider block">
                   Login / E-mail
                 </span>
-                <span className="text-emerald-600 dark:text-emerald-400 font-bold select-all">
+                <span className="text-orange-600 dark:text-orange-400 font-bold select-all">
                   {credenciaisCriadas.email}
                 </span>
               </div>
@@ -764,7 +764,7 @@ export function NovoClienteModal({ clienteEdicao, onFechar, onSucesso }: NovoCli
               <button
                 type="button"
                 onClick={copiarTextoCredenciais}
-                className="w-full px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center justify-center gap-1.5 transition shadow-lg shadow-emerald-950/40 cursor-pointer"
+                className="w-full px-4 py-2.5 rounded-xl bg-orange-600 hover:bg-orange-500 text-white font-bold text-xs flex items-center justify-center gap-1.5 transition shadow-lg shadow-orange-950/40 cursor-pointer"
               >
                 {copiado ? (
                   <Check className="h-4 w-4 text-white" />
@@ -802,7 +802,7 @@ export function NovoClienteModal({ clienteEdicao, onFechar, onSucesso }: NovoCli
           {/* Cabeçalho Fixo */}
           <div className="p-4 sm:p-5 border-b border-slate-300/60 dark:border-slate-800 bg-[#eaf0f8]/80 dark:bg-slate-950/60 flex items-center justify-between shrink-0">
             <div className="flex items-center gap-2.5">
-              <div className="h-9 w-9 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
+              <div className="h-9 w-9 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-orange-600 dark:text-orange-400">
                 <Users className="h-5 w-5" />
               </div>
               <div>
@@ -819,10 +819,10 @@ export function NovoClienteModal({ clienteEdicao, onFechar, onSucesso }: NovoCli
                 <button
                   type="button"
                   onClick={() => setModalHistoricoAberto(true)}
-                  className="flex items-center gap-1 px-2.5 py-1.5 rounded-xl bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 text-xs font-semibold border border-slate-300/70 dark:border-slate-700/60 transition shadow-xs"
+                  className="flex items-center gap-1 px-2.5 py-1.5 rounded-xl bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 hover:text-orange-600 dark:hover:text-orange-400 text-xs font-semibold border border-slate-300/70 dark:border-slate-700/60 transition shadow-xs"
                   title="Visualizar histórico 360 do cliente"
                 >
-                  <History className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400" />
+                  <History className="h-3.5 w-3.5 text-orange-600 dark:text-orange-400" />
                   <span>Histórico 360°</span>
                 </button>
               )}
@@ -865,7 +865,7 @@ export function NovoClienteModal({ clienteEdicao, onFechar, onSucesso }: NovoCli
                   value={nome}
                   onChange={(e) => setNome(e.target.value)}
                   placeholder="Ex: João da Silva / Transportes SA"
-                  className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-200 focus:outline-none focus:border-emerald-500 shadow-xs"
+                  className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-200 focus:outline-none focus:border-orange-500 shadow-xs"
                 />
               </div>
 
@@ -879,7 +879,7 @@ export function NovoClienteModal({ clienteEdicao, onFechar, onSucesso }: NovoCli
                     value={documento}
                     onChange={(e) => setDocumento(e.target.value)}
                     placeholder="000.000.000-00"
-                    className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs font-mono text-slate-800 dark:text-slate-200 focus:outline-none focus:border-emerald-500 shadow-xs"
+                    className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs font-mono text-slate-800 dark:text-slate-200 focus:outline-none focus:border-orange-500 shadow-xs"
                   />
                 </div>
                 <div>
@@ -891,7 +891,7 @@ export function NovoClienteModal({ clienteEdicao, onFechar, onSucesso }: NovoCli
                     value={telefone}
                     onChange={(e) => setTelefone(formatarTelefone(e.target.value))}
                     placeholder="(00) 00000-0000"
-                    className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs font-mono text-slate-800 dark:text-slate-200 focus:outline-none focus:border-emerald-500 shadow-xs"
+                    className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs font-mono text-slate-800 dark:text-slate-200 focus:outline-none focus:border-orange-500 shadow-xs"
                   />
                 </div>
               </div>
@@ -906,7 +906,7 @@ export function NovoClienteModal({ clienteEdicao, onFechar, onSucesso }: NovoCli
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="cliente@email.com"
-                  className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-200 focus:outline-none focus:border-emerald-500 shadow-xs"
+                  className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-200 focus:outline-none focus:border-orange-500 shadow-xs"
                 />
               </div>
 
@@ -927,7 +927,7 @@ export function NovoClienteModal({ clienteEdicao, onFechar, onSucesso }: NovoCli
                   <select
                     value={status}
                     onChange={(e) => setStatus(e.target.value as StatusCliente)}
-                    className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-200 font-semibold focus:outline-none focus:border-emerald-500 shadow-xs"
+                    className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-200 font-semibold focus:outline-none focus:border-orange-500 shadow-xs"
                   >
                     <option value="aguardando_instalacao">Aguardando Instalação Física</option>
                     <option value="ativo">Ativo / Em Operação</option>
@@ -942,14 +942,14 @@ export function NovoClienteModal({ clienteEdicao, onFechar, onSucesso }: NovoCli
                     status === "aguardando_instalacao"
                       ? "bg-amber-500/10 border-amber-500/20 text-amber-700 dark:text-amber-400"
                       : status === "ativo"
-                        ? "bg-emerald-500/10 border-emerald-500/20 text-emerald-700 dark:text-emerald-400"
+                        ? "bg-orange-500/10 border-orange-500/20 text-orange-700 dark:text-orange-400"
                         : "bg-rose-500/10 border-rose-500/20 text-rose-700 dark:text-rose-400"
                   }`}
                 >
                   {status === "aguardando_instalacao" ? (
                     <Clock className="h-5 w-5 shrink-0 mt-0.5 text-amber-600 dark:text-amber-400" />
                   ) : status === "ativo" ? (
-                    <Check className="h-5 w-5 shrink-0 mt-0.5 text-emerald-600 dark:text-emerald-400" />
+                    <Check className="h-5 w-5 shrink-0 mt-0.5 text-orange-600 dark:text-orange-400" />
                   ) : (
                     <ShieldAlert className="h-5 w-5 shrink-0 mt-0.5 text-rose-600 dark:text-rose-400" />
                   )}
@@ -988,10 +988,10 @@ export function NovoClienteModal({ clienteEdicao, onFechar, onSucesso }: NovoCli
                       onClick={() => recarregarInstaladores()}
                       disabled={carregandoInstaladores}
                       title="Recarregar lista de técnicos"
-                      className="text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors p-1"
+                      className="text-slate-400 hover:text-orange-600 dark:hover:text-orange-400 transition-colors p-1"
                     >
                       <RefreshCw
-                        className={`h-3 w-3 ${carregandoInstaladores ? "animate-spin text-emerald-600 dark:text-emerald-400" : ""}`}
+                        className={`h-3 w-3 ${carregandoInstaladores ? "animate-spin text-orange-600 dark:text-orange-400" : ""}`}
                       />
                     </button>
                     <span className="text-[10px] text-slate-500">
@@ -1027,7 +1027,7 @@ export function NovoClienteModal({ clienteEdicao, onFechar, onSucesso }: NovoCli
                     }
                   }}
                   disabled={carregandoInstaladores}
-                  className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-200 focus:outline-none focus:border-emerald-500 disabled:opacity-60 shadow-xs"
+                  className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-200 focus:outline-none focus:border-orange-500 disabled:opacity-60 shadow-xs"
                 >
                   <option value="">
                     {carregandoInstaladores
@@ -1058,14 +1058,14 @@ export function NovoClienteModal({ clienteEdicao, onFechar, onSucesso }: NovoCli
                   const instSelecionado = instaladores.find((i) => i.id === instaladorId);
                   if (!instSelecionado) return null;
                   return (
-                    <div className="p-3 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-xs space-y-1.5 animate-fadeIn shadow-xs">
-                      <div className="font-semibold text-emerald-700 dark:text-emerald-400 flex items-center gap-1.5">
+                    <div className="p-3 rounded-2xl bg-orange-500/10 border border-orange-500/20 text-xs space-y-1.5 animate-fadeIn shadow-xs">
+                      <div className="font-semibold text-orange-700 dark:text-orange-400 flex items-center gap-1.5">
                         <Wrench className="h-3.5 w-3.5" />
                         <span>Técnico: {instSelecionado.nome}</span>
                       </div>
                       {instSelecionado.endereco_instalacao ? (
                         <div className="flex items-start gap-1.5 text-slate-700 dark:text-slate-300">
-                          <MapPin className="h-3.5 w-3.5 shrink-0 text-emerald-600 dark:text-emerald-400 mt-0.5" />
+                          <MapPin className="h-3.5 w-3.5 shrink-0 text-orange-600 dark:text-orange-400 mt-0.5" />
                           <span>{instSelecionado.endereco_instalacao}</span>
                         </div>
                       ) : null}
@@ -1082,7 +1082,7 @@ export function NovoClienteModal({ clienteEdicao, onFechar, onSucesso }: NovoCli
               <div className="space-y-3 pt-2 border-t border-slate-300/60 dark:border-slate-800">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                   <div className="flex items-center gap-1.5">
-                    <Car className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
+                    <Car className="h-4 w-4 text-orange-600 dark:text-orange-400" />
                     <label className="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300">
                       Veículos para Rastreamento ({veiculosExistentes.length})
                     </label>
@@ -1093,7 +1093,7 @@ export function NovoClienteModal({ clienteEdicao, onFechar, onSucesso }: NovoCli
                       <button
                         type="button"
                         onClick={() => setModalDistribuirAberto(true)}
-                        className="px-2.5 py-1 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-[11px] font-bold flex items-center gap-1.5 transition shadow-xs cursor-pointer"
+                        className="px-2.5 py-1 rounded-lg bg-orange-600 hover:bg-orange-500 text-white text-[11px] font-bold flex items-center gap-1.5 transition shadow-xs cursor-pointer"
                         title="Abrir lista completa para distribuir instaladores e kits de comodato por veículo"
                       >
                         <Layers className="h-3.5 w-3.5" />
@@ -1144,7 +1144,7 @@ export function NovoClienteModal({ clienteEdicao, onFechar, onSucesso }: NovoCli
                         <button
                           type="button"
                           onClick={() => setModalDistribuirAberto(true)}
-                          className="px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold inline-flex items-center gap-1.5 transition shadow-xs cursor-pointer"
+                          className="px-3 py-1.5 rounded-lg bg-orange-600 hover:bg-orange-500 text-white text-xs font-bold inline-flex items-center gap-1.5 transition shadow-xs cursor-pointer"
                         >
                           <Plus className="h-3.5 w-3.5" />
                           <span>Adicionar Veículo e Distribuir Instalação</span>
@@ -1183,7 +1183,7 @@ export function NovoClienteModal({ clienteEdicao, onFechar, onSucesso }: NovoCli
                                     className={`px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider border ${
                                       vex.bloqueado
                                         ? "bg-rose-500/15 text-rose-600 dark:text-rose-400 border-rose-500/30"
-                                        : "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border-emerald-500/30"
+                                        : "bg-orange-500/15 text-orange-600 dark:text-orange-400 border-orange-500/30"
                                     }`}
                                   >
                                     {vex.bloqueado ? "Bloqueado" : "Desbloqueado"}
@@ -1191,7 +1191,7 @@ export function NovoClienteModal({ clienteEdicao, onFechar, onSucesso }: NovoCli
                                   <span
                                     className={`px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider border ${
                                       temRastreadorAtivo
-                                        ? "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border-emerald-500/30"
+                                        ? "bg-orange-500/15 text-orange-600 dark:text-orange-400 border-orange-500/30"
                                         : "bg-amber-500/15 text-amber-600 dark:text-amber-400 border-amber-500/30"
                                     }`}
                                   >
@@ -1208,7 +1208,7 @@ export function NovoClienteModal({ clienteEdicao, onFechar, onSucesso }: NovoCli
                                   onClick={() => handleToggleBloqueio(vex)}
                                   className={`px-2.5 py-1 rounded-lg text-[11px] font-bold flex items-center gap-1 transition shadow-xs ${
                                     vex.bloqueado
-                                      ? "bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30"
+                                      ? "bg-orange-500/10 hover:bg-orange-500/20 text-orange-600 dark:text-orange-400 border border-orange-500/30"
                                       : "bg-rose-500/10 hover:bg-rose-500/20 text-rose-600 dark:text-rose-400 border border-rose-500/30"
                                   }`}
                                 >
@@ -1223,7 +1223,7 @@ export function NovoClienteModal({ clienteEdicao, onFechar, onSucesso }: NovoCli
                                 <button
                                   type="button"
                                   onClick={() => setModalDistribuirAberto(true)}
-                                  className="px-2.5 py-1 rounded-lg text-[11px] font-bold bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-700 dark:text-emerald-400 border border-emerald-500/30 flex items-center gap-1 transition shadow-xs cursor-pointer"
+                                  className="px-2.5 py-1 rounded-lg text-[11px] font-bold bg-orange-500/10 hover:bg-orange-500/20 text-orange-700 dark:text-orange-400 border border-orange-500/30 flex items-center gap-1 transition shadow-xs cursor-pointer"
                                   title="Definir instalador credenciado e kit de rastreador deste veículo"
                                 >
                                   <Wrench className="h-3 w-3" />
@@ -1275,7 +1275,7 @@ export function NovoClienteModal({ clienteEdicao, onFechar, onSucesso }: NovoCli
                               {/* Formulário Inline de Edição do Veículo */}
                               {veiculoEmEdicao?.id === vex.id ? (
                                 <div className="p-3 rounded-xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/70 dark:border-slate-700 space-y-2 animate-fadeIn mt-2 shadow-xs">
-                                  <div className="text-[11px] font-bold text-emerald-600 dark:text-emerald-400 flex items-center justify-between">
+                                  <div className="text-[11px] font-bold text-orange-600 dark:text-orange-400 flex items-center justify-between">
                                     <div className="flex items-center gap-1.5">
                                       <Edit3 className="h-3.5 w-3.5" />
                                       <span>Editar Veículo {vex.placa}</span>
@@ -1298,7 +1298,7 @@ export function NovoClienteModal({ clienteEdicao, onFechar, onSucesso }: NovoCli
                                             tipo_veiculo: e.target.value,
                                           })
                                         }
-                                        className="w-full px-2 py-1 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-700 rounded text-xs font-semibold text-slate-800 dark:text-slate-100 focus:outline-none focus:border-emerald-500 shadow-xs"
+                                        className="w-full px-2 py-1 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-700 rounded text-xs font-semibold text-slate-800 dark:text-slate-100 focus:outline-none focus:border-orange-500 shadow-xs"
                                       >
                                         {LISTA_TIPOS_VEICULO.map((tv) => (
                                           <option key={tv.id} value={tv.id}>
@@ -1323,7 +1323,7 @@ export function NovoClienteModal({ clienteEdicao, onFechar, onSucesso }: NovoCli
                                               .slice(0, 7),
                                           })
                                         }
-                                        className="w-full px-2 py-1 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-700 rounded text-xs font-mono font-bold text-slate-800 dark:text-slate-100 uppercase focus:outline-none focus:border-emerald-500 shadow-xs"
+                                        className="w-full px-2 py-1 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-700 rounded text-xs font-mono font-bold text-slate-800 dark:text-slate-100 uppercase focus:outline-none focus:border-orange-500 shadow-xs"
                                       />
                                     </div>
                                     <div>
@@ -1339,7 +1339,7 @@ export function NovoClienteModal({ clienteEdicao, onFechar, onSucesso }: NovoCli
                                             marca_modelo: e.target.value,
                                           })
                                         }
-                                        className="w-full px-2 py-1 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-700 rounded text-xs text-slate-800 dark:text-slate-100 focus:outline-none focus:border-emerald-500 shadow-xs"
+                                        className="w-full px-2 py-1 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-700 rounded text-xs text-slate-800 dark:text-slate-100 focus:outline-none focus:border-orange-500 shadow-xs"
                                       />
                                     </div>
                                     <div>
@@ -1355,7 +1355,7 @@ export function NovoClienteModal({ clienteEdicao, onFechar, onSucesso }: NovoCli
                                             ano: e.target.value ? Number(e.target.value) : null,
                                           })
                                         }
-                                        className="w-full px-2 py-1 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-700 rounded text-xs font-mono text-slate-800 dark:text-slate-100 focus:outline-none focus:border-emerald-500 shadow-xs"
+                                        className="w-full px-2 py-1 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-700 rounded text-xs font-mono text-slate-800 dark:text-slate-100 focus:outline-none focus:border-orange-500 shadow-xs"
                                       />
                                     </div>
                                     <div className="sm:col-span-2">
@@ -1371,7 +1371,7 @@ export function NovoClienteModal({ clienteEdicao, onFechar, onSucesso }: NovoCli
                                             cor: e.target.value,
                                           })
                                         }
-                                        className="w-full px-2 py-1 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-700 rounded text-xs text-slate-800 dark:text-slate-100 focus:outline-none focus:border-emerald-500 shadow-xs"
+                                        className="w-full px-2 py-1 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-700 rounded text-xs text-slate-800 dark:text-slate-100 focus:outline-none focus:border-orange-500 shadow-xs"
                                       />
                                     </div>
 
@@ -1387,7 +1387,7 @@ export function NovoClienteModal({ clienteEdicao, onFechar, onSucesso }: NovoCli
                                             instalador_id: e.target.value,
                                           } as any)
                                         }
-                                        className="w-full px-2 py-1 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-700 rounded text-xs font-semibold text-slate-800 dark:text-slate-100 focus:outline-none focus:border-emerald-500 shadow-xs"
+                                        className="w-full px-2 py-1 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-700 rounded text-xs font-semibold text-slate-800 dark:text-slate-100 focus:outline-none focus:border-orange-500 shadow-xs"
                                       >
                                         <option value="">Selecione o Instalador...</option>
                                         {instaladores.map((inst) => (
@@ -1413,7 +1413,7 @@ export function NovoClienteModal({ clienteEdicao, onFechar, onSucesso }: NovoCli
                                       type="button"
                                       disabled={processandoAcaoVeiculo === vex.id}
                                       onClick={handleSalvarEdicaoVeiculo}
-                                      className="px-3 py-1 rounded bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold transition shadow-xs"
+                                      className="px-3 py-1 rounded bg-orange-600 hover:bg-orange-500 text-white text-xs font-bold transition shadow-xs"
                                     >
                                       Salvar Veículo
                                     </button>
@@ -1433,7 +1433,7 @@ export function NovoClienteModal({ clienteEdicao, onFechar, onSucesso }: NovoCli
                   <div className="p-4 rounded-2xl bg-white dark:bg-slate-900/80 border border-slate-300/70 dark:border-slate-800 shadow-[4px_4px_14px_#c3cfe2] dark:shadow-none space-y-4">
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-200/80 dark:border-slate-800 pb-3">
                       <div className="flex items-center gap-2">
-                        <div className="p-2 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 text-emerald-600 dark:text-emerald-400">
+                        <div className="p-2 rounded-xl bg-orange-50 dark:bg-orange-950/40 border border-emerald-200 dark:border-emerald-800 text-orange-600 dark:text-orange-400">
                           <Radio className="w-4 h-4" />
                         </div>
                         <div>
@@ -1454,9 +1454,9 @@ export function NovoClienteModal({ clienteEdicao, onFechar, onSucesso }: NovoCli
                     </div>
 
                     {/* Banner de Esclarecimento Operacional e Jurídico */}
-                    <div className="p-3 rounded-xl bg-emerald-50/70 dark:bg-emerald-950/30 border border-emerald-200/70 dark:border-emerald-800/60 flex items-start gap-2.5">
-                      <Info className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
-                      <div className="text-[11px] text-emerald-950 dark:text-emerald-200 leading-relaxed">
+                    <div className="p-3 rounded-xl bg-orange-50/70 dark:bg-orange-950/30 border border-emerald-200/70 dark:border-emerald-800/60 flex items-start gap-2.5">
+                      <Info className="w-4 h-4 text-orange-600 dark:text-orange-400 shrink-0 mt-0.5" />
+                      <div className="text-[11px] text-emerald-950 dark:text-orange-200 leading-relaxed">
                         <strong>Regra de Campo e Comodato {APP_NOME}:</strong> Os equipamentos
                         permanecem sob regime de empréstimo de uso gratuito (comodato) durante o
                         contrato. A administração informa os dados do chip e do rastreador
@@ -1558,7 +1558,7 @@ export function NovoClienteModal({ clienteEdicao, onFechar, onSucesso }: NovoCli
                             value={rastreadorImei}
                             onChange={(e) => setRastreadorImei(e.target.value.replace(/\D/g, ""))}
                             placeholder="Ex: 864502049182341"
-                            className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-950 border border-slate-300/70 dark:border-slate-700 rounded-xl text-xs font-mono font-bold text-emerald-700 dark:text-emerald-400 focus:outline-none focus:border-emerald-500 transition shadow-inner"
+                            className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-950 border border-slate-300/70 dark:border-slate-700 rounded-xl text-xs font-mono font-bold text-orange-700 dark:text-orange-400 focus:outline-none focus:border-orange-500 transition shadow-inner"
                           />
                         </div>
 
@@ -1571,7 +1571,7 @@ export function NovoClienteModal({ clienteEdicao, onFechar, onSucesso }: NovoCli
                             value={rastreadorModelo}
                             onChange={(e) => setRastreadorModelo(e.target.value)}
                             placeholder="Ex: J16 4G"
-                            className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-950 border border-slate-300/70 dark:border-slate-700 rounded-xl text-xs font-semibold text-slate-800 dark:text-slate-100 focus:outline-none focus:border-emerald-500 transition shadow-inner"
+                            className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-950 border border-slate-300/70 dark:border-slate-700 rounded-xl text-xs font-semibold text-slate-800 dark:text-slate-100 focus:outline-none focus:border-orange-500 transition shadow-inner"
                           />
                         </div>
                       </div>
@@ -1584,7 +1584,7 @@ export function NovoClienteModal({ clienteEdicao, onFechar, onSucesso }: NovoCli
                           <select
                             value={chipOperadora}
                             onChange={(e) => setChipOperadora(e.target.value)}
-                            className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-950 border border-slate-300/70 dark:border-slate-700 rounded-xl text-xs font-semibold text-slate-800 dark:text-slate-100 focus:outline-none focus:border-emerald-500 transition shadow-inner"
+                            className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-950 border border-slate-300/70 dark:border-slate-700 rounded-xl text-xs font-semibold text-slate-800 dark:text-slate-100 focus:outline-none focus:border-orange-500 transition shadow-inner"
                           >
                             <option value="Algar">Algar Telecom</option>
                             <option value="Vivo">Vivo M2M</option>
@@ -1606,7 +1606,7 @@ export function NovoClienteModal({ clienteEdicao, onFechar, onSucesso }: NovoCli
                             value={chipLinha}
                             onChange={(e) => setChipLinha(e.target.value)}
                             placeholder="(24) 99999-0000"
-                            className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-950 border border-slate-300/70 dark:border-slate-700 rounded-xl text-xs font-mono text-slate-800 dark:text-slate-100 focus:outline-none focus:border-emerald-500 transition shadow-inner"
+                            className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-950 border border-slate-300/70 dark:border-slate-700 rounded-xl text-xs font-mono text-slate-800 dark:text-slate-100 focus:outline-none focus:border-orange-500 transition shadow-inner"
                           />
                         </div>
 
@@ -1620,7 +1620,7 @@ export function NovoClienteModal({ clienteEdicao, onFechar, onSucesso }: NovoCli
                             value={chipIccid}
                             onChange={(e) => setChipIccid(e.target.value.replace(/\D/g, ""))}
                             placeholder="8955..."
-                            className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-950 border border-slate-300/70 dark:border-slate-700 rounded-xl text-xs font-mono text-slate-800 dark:text-slate-100 focus:outline-none focus:border-emerald-500 transition shadow-inner"
+                            className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-950 border border-slate-300/70 dark:border-slate-700 rounded-xl text-xs font-mono text-slate-800 dark:text-slate-100 focus:outline-none focus:border-orange-500 transition shadow-inner"
                           />
                         </div>
                       </div>
@@ -1634,7 +1634,7 @@ export function NovoClienteModal({ clienteEdicao, onFechar, onSucesso }: NovoCli
                       <div className="space-y-2 pt-2 border-t border-slate-200/80 dark:border-slate-800">
                         <div className="flex items-center justify-between">
                           <span className="text-[11px] font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
-                            <Car className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
+                            <Car className="w-3.5 h-3.5 text-orange-600 dark:text-orange-400" />
                             Veículo Vinculado ao Contrato
                           </span>
                           <div className="flex items-center gap-2">
@@ -1652,7 +1652,7 @@ export function NovoClienteModal({ clienteEdicao, onFechar, onSucesso }: NovoCli
                             <select
                               value={tipoVeiculoInicial}
                               onChange={(e) => setTipoVeiculoInicial(e.target.value as TipoVeiculo)}
-                              className="w-full px-2.5 py-2 bg-slate-50 dark:bg-slate-950 border border-slate-300/70 dark:border-slate-700 rounded-xl text-xs font-semibold text-slate-800 dark:text-slate-100 focus:outline-none focus:border-emerald-500 transition shadow-inner"
+                              className="w-full px-2.5 py-2 bg-slate-50 dark:bg-slate-950 border border-slate-300/70 dark:border-slate-700 rounded-xl text-xs font-semibold text-slate-800 dark:text-slate-100 focus:outline-none focus:border-orange-500 transition shadow-inner"
                             >
                               {LISTA_TIPOS_VEICULO.map((tv) => (
                                 <option key={tv.id} value={tv.id}>
@@ -1682,7 +1682,7 @@ export function NovoClienteModal({ clienteEdicao, onFechar, onSucesso }: NovoCli
                                   ? "Opcional (Chassi/Nº)"
                                   : "ABC1D23"
                               }
-                              className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-950 border border-slate-300/70 dark:border-slate-700 rounded-xl text-xs font-mono font-bold text-slate-800 dark:text-slate-100 uppercase focus:outline-none focus:border-emerald-500 transition shadow-inner"
+                              className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-950 border border-slate-300/70 dark:border-slate-700 rounded-xl text-xs font-mono font-bold text-slate-800 dark:text-slate-100 uppercase focus:outline-none focus:border-orange-500 transition shadow-inner"
                             />
                           </div>
 
@@ -1701,7 +1701,7 @@ export function NovoClienteModal({ clienteEdicao, onFechar, onSucesso }: NovoCli
                               value={chassiInicial}
                               onChange={(e) => setChassiInicial(e.target.value.toUpperCase())}
                               placeholder="Últimos 6 dígitos p/ mapa"
-                              className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-950 border border-slate-300/70 dark:border-slate-700 rounded-xl text-xs font-mono font-bold text-slate-800 dark:text-slate-100 uppercase focus:outline-none focus:border-emerald-500 transition shadow-inner"
+                              className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-950 border border-slate-300/70 dark:border-slate-700 rounded-xl text-xs font-mono font-bold text-slate-800 dark:text-slate-100 uppercase focus:outline-none focus:border-orange-500 transition shadow-inner"
                             />
                           </div>
 
@@ -1714,7 +1714,7 @@ export function NovoClienteModal({ clienteEdicao, onFechar, onSucesso }: NovoCli
                               value={marcaModeloInicial}
                               onChange={(e) => setMarcaModeloInicial(e.target.value)}
                               placeholder="Ex: Toyota Corolla"
-                              className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-950 border border-slate-300/70 dark:border-slate-700 rounded-xl text-xs text-slate-800 dark:text-slate-100 focus:outline-none focus:border-emerald-500 transition shadow-inner"
+                              className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-950 border border-slate-300/70 dark:border-slate-700 rounded-xl text-xs text-slate-800 dark:text-slate-100 focus:outline-none focus:border-orange-500 transition shadow-inner"
                             />
                           </div>
 
@@ -1729,7 +1729,7 @@ export function NovoClienteModal({ clienteEdicao, onFechar, onSucesso }: NovoCli
                                 setAnoInicial(e.target.value ? Number(e.target.value) : undefined)
                               }
                               placeholder="2024"
-                              className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-950 border border-slate-300/70 dark:border-slate-700 rounded-xl text-xs text-slate-800 dark:text-slate-100 focus:outline-none focus:border-emerald-500 transition shadow-inner"
+                              className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-950 border border-slate-300/70 dark:border-slate-700 rounded-xl text-xs text-slate-800 dark:text-slate-100 focus:outline-none focus:border-orange-500 transition shadow-inner"
                             />
                           </div>
 
@@ -1742,7 +1742,7 @@ export function NovoClienteModal({ clienteEdicao, onFechar, onSucesso }: NovoCli
                               value={corInicial}
                               onChange={(e) => setCorInicial(e.target.value)}
                               placeholder="Ex: Prata"
-                              className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-950 border border-slate-300/70 dark:border-slate-700 rounded-xl text-xs text-slate-800 dark:text-slate-100 focus:outline-none focus:border-emerald-500 transition shadow-inner"
+                              className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-950 border border-slate-300/70 dark:border-slate-700 rounded-xl text-xs text-slate-800 dark:text-slate-100 focus:outline-none focus:border-orange-500 transition shadow-inner"
                             />
                           </div>
                         </div>
@@ -1783,7 +1783,7 @@ export function NovoClienteModal({ clienteEdicao, onFechar, onSucesso }: NovoCli
                       <div className="pt-2 border-t border-slate-200/80 dark:border-slate-800">
                         <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800 flex items-center justify-between gap-3 text-xs text-slate-600 dark:text-slate-400">
                           <div className="flex items-center gap-2">
-                            <Car className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
+                            <Car className="w-4 h-4 text-orange-600 dark:text-orange-400 shrink-0" />
                             <span>
                               O rastreador e chip configurados serão vinculados à frota ativa e à
                               ordem de serviço deste cliente.
@@ -1800,7 +1800,7 @@ export function NovoClienteModal({ clienteEdicao, onFechar, onSucesso }: NovoCli
               <div className="space-y-2.5 pt-2 border-t border-slate-300/60 dark:border-slate-800">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-1.5">
-                    <Key className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
+                    <Key className="h-4 w-4 text-orange-600 dark:text-orange-400" />
                     <label className="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300">
                       Acesso do Cliente ao Sistema
                     </label>
@@ -1812,7 +1812,7 @@ export function NovoClienteModal({ clienteEdicao, onFechar, onSucesso }: NovoCli
                         type="checkbox"
                         checked={criarUsuario}
                         onChange={(e) => setCriarUsuario(e.target.checked)}
-                        className="rounded border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-950 text-emerald-600 focus:ring-emerald-500"
+                        className="rounded border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-950 text-orange-600 focus:ring-orange-500"
                       />
                       <span>Liberar login agora</span>
                     </label>
@@ -1827,7 +1827,7 @@ export function NovoClienteModal({ clienteEdicao, onFechar, onSucesso }: NovoCli
                             setCriarUsuario(e.target.checked);
                           }
                         }}
-                        className="rounded border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-950 text-emerald-600 focus:ring-emerald-500"
+                        className="rounded border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-950 text-orange-600 focus:ring-orange-500"
                       />
                       <span>
                         {clienteEdicao?.user_id ? "Redefinir Senha de Acesso" : "Criar Login Agora"}
@@ -1853,7 +1853,7 @@ export function NovoClienteModal({ clienteEdicao, onFechar, onSucesso }: NovoCli
                         <button
                           type="button"
                           onClick={gerarSenhaForte}
-                          className="text-[10px] text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 font-semibold flex items-center gap-1 transition"
+                          className="text-[10px] text-orange-600 dark:text-orange-400 hover:text-orange-700 dark:hover:text-orange-300 font-semibold flex items-center gap-1 transition"
                         >
                           <RefreshCw className="h-3 w-3" /> Gerar Senha Forte
                         </button>
@@ -1863,7 +1863,7 @@ export function NovoClienteModal({ clienteEdicao, onFechar, onSucesso }: NovoCli
                         value={senha}
                         onChange={(e) => setSenha(e.target.value)}
                         placeholder="Mínimo 6 caracteres"
-                        className="w-full px-3 py-2 bg-white dark:bg-slate-900 border border-slate-300/70 dark:border-slate-700 rounded-xl text-xs font-mono text-slate-800 dark:text-slate-100 focus:outline-none focus:border-emerald-500 shadow-xs"
+                        className="w-full px-3 py-2 bg-white dark:bg-slate-900 border border-slate-300/70 dark:border-slate-700 rounded-xl text-xs font-mono text-slate-800 dark:text-slate-100 focus:outline-none focus:border-orange-500 shadow-xs"
                       />
                     </div>
                   </div>
@@ -1872,10 +1872,10 @@ export function NovoClienteModal({ clienteEdicao, onFechar, onSucesso }: NovoCli
                 {isEdicao && !alterarSenha && clienteEdicao?.user_id && (
                   <div className="flex items-center justify-between p-2.5 rounded-xl bg-white dark:bg-slate-950/40 border border-slate-300/60 dark:border-slate-800/80 text-[11px] text-slate-600 dark:text-slate-400 shadow-xs">
                     <div className="flex items-center gap-2">
-                      <Lock className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400" />
+                      <Lock className="h-3.5 w-3.5 text-orange-600 dark:text-orange-400" />
                       <span>Login ativo vinculado ao e-mail {clienteEdicao.email}</span>
                     </div>
-                    <span className="text-[10px] text-emerald-600 dark:text-emerald-400 font-semibold">
+                    <span className="text-[10px] text-orange-600 dark:text-orange-400 font-semibold">
                       Conta Ativa
                     </span>
                   </div>
@@ -1899,7 +1899,7 @@ export function NovoClienteModal({ clienteEdicao, onFechar, onSucesso }: NovoCli
                       onClick={() => selecionarPlano(p.id as any)}
                       className={`p-2.5 rounded-xl border text-center transition shadow-xs ${
                         plano === p.id
-                          ? "bg-emerald-500/15 border-emerald-500/50 text-emerald-700 dark:text-emerald-300 shadow"
+                          ? "bg-orange-500/15 border-orange-500/50 text-orange-700 dark:text-orange-300 shadow"
                           : "bg-white dark:bg-slate-950/40 border-slate-300/60 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:border-slate-400 dark:hover:border-slate-700"
                       }`}
                     >
@@ -1907,7 +1907,7 @@ export function NovoClienteModal({ clienteEdicao, onFechar, onSucesso }: NovoCli
                       <div className="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5">
                         {p.hist} visíveis
                       </div>
-                      <div className="text-[9px] text-emerald-600 dark:text-emerald-400 font-mono">
+                      <div className="text-[9px] text-orange-600 dark:text-orange-400 font-mono">
                         ({p.ret} no banco)
                       </div>
                     </button>
@@ -1929,7 +1929,7 @@ export function NovoClienteModal({ clienteEdicao, onFechar, onSucesso }: NovoCli
                         onClick={() => setDiaVencimento(dia)}
                         className={`flex-1 py-1 text-xs font-bold rounded-lg transition border cursor-pointer ${
                           Number(diaVencimento) === dia
-                            ? "bg-emerald-600 text-white border-emerald-600 shadow-xs"
+                            ? "bg-orange-600 text-white border-orange-600 shadow-xs"
                             : "bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-slate-300 border-slate-300/60 dark:border-slate-800 hover:bg-slate-200 dark:hover:bg-slate-800"
                         }`}
                       >
@@ -1943,7 +1943,7 @@ export function NovoClienteModal({ clienteEdicao, onFechar, onSucesso }: NovoCli
                     max={31}
                     value={diaVencimento}
                     onChange={(e) => setDiaVencimento(Number(e.target.value))}
-                    className="w-full px-3 py-1.5 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-200 focus:outline-none focus:border-emerald-500 shadow-xs"
+                    className="w-full px-3 py-1.5 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-200 focus:outline-none focus:border-orange-500 shadow-xs"
                     placeholder="Outro dia (1-31)"
                   />
                   <span className="text-[10px] text-slate-500 dark:text-slate-400 block mt-1 leading-tight">
@@ -1961,7 +1961,7 @@ export function NovoClienteModal({ clienteEdicao, onFechar, onSucesso }: NovoCli
                   <MoedaInput
                     value={valorMensalidade}
                     onChange={setValorMensalidade}
-                    className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-200 focus:outline-none focus:border-emerald-500 shadow-xs"
+                    className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-200 focus:outline-none focus:border-orange-500 shadow-xs"
                   />
                 </div>
                 <div>
@@ -1977,7 +1977,7 @@ export function NovoClienteModal({ clienteEdicao, onFechar, onSucesso }: NovoCli
                     value={taxaInstalacao}
                     onChange={setTaxaInstalacao}
                     onBlur={handleBlurTaxaInstalacao}
-                    className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-200 focus:outline-none focus:border-emerald-500 font-mono shadow-xs"
+                    className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-200 focus:outline-none focus:border-orange-500 font-mono shadow-xs"
                     placeholder="350,00"
                     title="Paga no ato da contratação. Caso altere, o sistema permite salvar como novo padrão global para todos."
                   />
@@ -2073,7 +2073,7 @@ export function NovoClienteModal({ clienteEdicao, onFechar, onSucesso }: NovoCli
                     type="button"
                     onClick={handleBaixarContrato}
                     disabled={gerandoPdf}
-                    className="px-3 py-1.5 rounded-xl bg-emerald-500/15 hover:bg-emerald-500/25 border border-emerald-500/40 text-emerald-700 dark:text-emerald-300 text-xs font-semibold flex items-center gap-1.5 transition shadow-xs"
+                    className="px-3 py-1.5 rounded-xl bg-orange-500/15 hover:bg-orange-500/25 border border-orange-500/40 text-orange-700 dark:text-orange-300 text-xs font-semibold flex items-center gap-1.5 transition shadow-xs"
                   >
                     <FileDown className="h-3.5 w-3.5" />
                     {gerandoPdf ? "Gerando PDF..." : "Baixar Contrato (PDF)"}
@@ -2092,7 +2092,7 @@ export function NovoClienteModal({ clienteEdicao, onFechar, onSucesso }: NovoCli
                         onClick={() => setTemFidelidade(true)}
                         className={`py-2 px-2.5 rounded-xl text-xs font-bold transition border ${
                           temFidelidade
-                            ? "bg-emerald-500/20 border-emerald-500 text-emerald-700 dark:text-emerald-400"
+                            ? "bg-orange-500/20 border-orange-500 text-orange-700 dark:text-orange-400"
                             : "bg-white dark:bg-slate-900 border-slate-300 dark:border-slate-800 text-slate-600 dark:text-slate-400"
                         }`}
                       >
@@ -2124,10 +2124,10 @@ export function NovoClienteModal({ clienteEdicao, onFechar, onSucesso }: NovoCli
                     </label>
                     <div className="px-3 py-2 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-800 rounded-xl text-xs text-slate-700 dark:text-slate-300 flex items-center justify-between">
                       <div className="flex items-center gap-2">
-                        <span className="w-2 h-2 rounded-full bg-emerald-500 shrink-0" />
+                        <span className="w-2 h-2 rounded-full bg-orange-500 shrink-0" />
                         <span className="font-semibold">Horas com Ignição Ligada</span>
                       </div>
-                      <span className="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 font-bold uppercase">
+                      <span className="text-[10px] font-mono text-orange-600 dark:text-orange-400 font-bold uppercase">
                         Automático
                       </span>
                     </div>
@@ -2160,7 +2160,7 @@ export function NovoClienteModal({ clienteEdicao, onFechar, onSucesso }: NovoCli
                         }}
                         className={`p-2 rounded-xl text-xs font-bold transition border shadow-xs ${
                           mesesContrato === item.m
-                            ? "bg-emerald-500/20 border-emerald-500 text-emerald-700 dark:text-emerald-400"
+                            ? "bg-orange-500/20 border-orange-500 text-orange-700 dark:text-orange-400"
                             : "bg-white dark:bg-slate-900 border-slate-300/70 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:border-slate-400 dark:hover:border-slate-700"
                         }`}
                       >
@@ -2180,7 +2180,7 @@ export function NovoClienteModal({ clienteEdicao, onFechar, onSucesso }: NovoCli
                       type="date"
                       value={dataInicioContrato}
                       onChange={(e) => setDataInicioContrato(e.target.value)}
-                      className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-200 focus:outline-none focus:border-emerald-500 font-mono shadow-xs"
+                      className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-200 focus:outline-none focus:border-orange-500 font-mono shadow-xs"
                     />
                   </div>
 
@@ -2197,7 +2197,7 @@ export function NovoClienteModal({ clienteEdicao, onFechar, onSucesso }: NovoCli
                           setMesesRenovacao(mesesContrato);
                         }
                       }}
-                      className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-200 focus:outline-none focus:border-emerald-500 shadow-xs"
+                      className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-200 focus:outline-none focus:border-orange-500 shadow-xs"
                     >
                       <option value="mesma_vigencia">
                         Mesmo período contratado ({mesesContrato} meses)
@@ -2222,7 +2222,7 @@ export function NovoClienteModal({ clienteEdicao, onFechar, onSucesso }: NovoCli
                         max={60}
                         value={mesesRenovacao}
                         onChange={(e) => setMesesRenovacao(Math.max(1, Number(e.target.value)))}
-                        className="w-32 px-3 py-1 bg-white dark:bg-slate-900 border border-slate-300/70 dark:border-slate-700 rounded-lg text-xs text-slate-800 dark:text-slate-200 focus:outline-none focus:border-emerald-500 shadow-xs"
+                        className="w-32 px-3 py-1 bg-white dark:bg-slate-900 border border-slate-300/70 dark:border-slate-700 rounded-lg text-xs text-slate-800 dark:text-slate-200 focus:outline-none focus:border-orange-500 shadow-xs"
                       />
                     </div>
                   )}
@@ -2234,7 +2234,7 @@ export function NovoClienteModal({ clienteEdicao, onFechar, onSucesso }: NovoCli
                     <span className="text-slate-500 dark:text-slate-400">
                       Foro de Eleição Mandatório:
                     </span>
-                    <span className="font-bold text-emerald-600 dark:text-emerald-400">
+                    <span className="font-bold text-orange-600 dark:text-orange-400">
                       Comarca de Volta Redonda/RJ
                     </span>
                   </div>
@@ -2256,7 +2256,7 @@ export function NovoClienteModal({ clienteEdicao, onFechar, onSucesso }: NovoCli
                     </span>
                   </div>
                   <div className="text-[10px] text-slate-500 dark:text-slate-400 pt-1 border-t border-slate-200/60 dark:border-slate-800/60 flex items-center gap-1.5">
-                    <Sparkles className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400 shrink-0" />
+                    <Sparkles className="h-3.5 w-3.5 text-orange-600 dark:text-orange-400 shrink-0" />
                     <span>
                       Ao salvar, a <b>Taxa de Instalação e Ativação</b> e as{" "}
                       <b>{mesesContrato} parcelas mensais</b> com vencimento todo dia{" "}
@@ -2293,7 +2293,7 @@ export function NovoClienteModal({ clienteEdicao, onFechar, onSucesso }: NovoCli
                 <button
                   type="submit"
                   disabled={salvando}
-                  className="w-full sm:w-auto px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-emerald-600 hover:bg-emerald-500 text-white transition shadow disabled:opacity-50 min-h-[44px] flex items-center justify-center"
+                  className="w-full sm:w-auto px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-orange-600 hover:bg-orange-500 text-white transition shadow disabled:opacity-50 min-h-[44px] flex items-center justify-center"
                 >
                   {salvando ? "Salvando..." : isEdicao ? "Salvar Alterações" : "Cadastrar Cliente"}
                 </button>

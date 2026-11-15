@@ -396,9 +396,9 @@ export function VehicleTelemetryDrawer({
                   setMenuAcoesAberto(false);
                   onAbrirRotasMonitoradas(veiculo);
                 }}
-                className="w-full flex items-start gap-2.5 px-2.5 py-2 rounded-xl text-xs font-semibold hover:bg-emerald-500/10 text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition text-left"
+                className="w-full flex items-start gap-2.5 px-2.5 py-2 rounded-xl text-xs font-semibold hover:bg-orange-500/10 text-slate-700 dark:text-slate-300 hover:text-orange-600 dark:hover:text-orange-400 transition text-left"
               >
-                <Route className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
+                <Route className="h-4 w-4 text-orange-500 shrink-0 mt-0.5" />
                 <div>
                   <div className="font-bold text-slate-900 dark:text-slate-100">
                     Rotas Monitoradas
@@ -421,9 +421,9 @@ export function VehicleTelemetryDrawer({
                 setMenuAcoesAberto(false);
                 setModalAreasAberto(true);
               }}
-              className="w-full flex items-start gap-2.5 px-2.5 py-2 rounded-xl text-xs font-semibold hover:bg-emerald-500/10 text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition text-left"
+              className="w-full flex items-start gap-2.5 px-2.5 py-2 rounded-xl text-xs font-semibold hover:bg-orange-500/10 text-slate-700 dark:text-slate-300 hover:text-orange-600 dark:hover:text-orange-400 transition text-left"
             >
-              <Shield className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
+              <Shield className="h-4 w-4 text-orange-500 shrink-0 mt-0.5" />
               <div>
                 <div className="font-bold text-slate-900 dark:text-slate-100">
                   Áreas Seguras (Cercas Virtuais)
@@ -473,9 +473,9 @@ export function VehicleTelemetryDrawer({
                 setMenuAcoesAberto(false);
                 setModalTimelineAberto(true);
               }}
-              className="w-full flex items-center gap-2 px-2.5 py-1.5 rounded-xl text-xs font-semibold hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 hover:text-emerald-500 transition text-left"
+              className="w-full flex items-center gap-2 px-2.5 py-1.5 rounded-xl text-xs font-semibold hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 hover:text-orange-500 transition text-left"
             >
-              <History className="h-3.5 w-3.5 text-emerald-500 shrink-0" />
+              <History className="h-3.5 w-3.5 text-orange-500 shrink-0" />
               <span>Timeline do Veículo</span>
             </button>
             <button
@@ -483,9 +483,9 @@ export function VehicleTelemetryDrawer({
                 setMenuAcoesAberto(false);
                 setModalSaudeAberto(true);
               }}
-              className="w-full flex items-center gap-2 px-2.5 py-1.5 rounded-xl text-xs font-semibold hover:bg-emerald-500/10 text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition text-left"
+              className="w-full flex items-center gap-2 px-2.5 py-1.5 rounded-xl text-xs font-semibold hover:bg-orange-500/10 text-slate-700 dark:text-slate-300 hover:text-orange-600 dark:hover:text-orange-400 transition text-left"
             >
-              <HeartPulse className="h-3.5 w-3.5 text-emerald-500 shrink-0" />
+              <HeartPulse className="h-3.5 w-3.5 text-orange-500 shrink-0" />
               <span>Saúde do Rastreador</span>
             </button>
             <button
@@ -494,9 +494,9 @@ export function VehicleTelemetryDrawer({
                 handleTestarComunicacao();
               }}
               disabled={testandoCom}
-              className="w-full flex items-center gap-2 px-2.5 py-1.5 rounded-xl text-xs font-semibold hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 hover:text-emerald-500 transition text-left"
+              className="w-full flex items-center gap-2 px-2.5 py-1.5 rounded-xl text-xs font-semibold hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 hover:text-orange-500 transition text-left"
             >
-              <Radio className="h-3.5 w-3.5 text-emerald-500 shrink-0" />
+              <Radio className="h-3.5 w-3.5 text-orange-500 shrink-0" />
               <span>Testar Sinal e Latência</span>
             </button>
           </div>
@@ -637,8 +637,8 @@ export function VehicleTelemetryDrawer({
                     JAMMER
                   </span>
                 ) : statusComunicacao.ativo ? (
-                  <span className="px-1.5 py-0.5 rounded-full text-[8px] font-bold uppercase tracking-wider bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 flex items-center gap-1 shrink-0">
-                    <span className="h-1 w-1 rounded-full bg-emerald-500 animate-ping" />
+                  <span className="px-1.5 py-0.5 rounded-full text-[8px] font-bold uppercase tracking-wider bg-orange-500/15 text-orange-600 dark:text-orange-400 border border-orange-500/30 flex items-center gap-1 shrink-0">
+                    <span className="h-1 w-1 rounded-full bg-orange-500 animate-ping" />
                     Ativo
                   </span>
                 ) : (
@@ -659,7 +659,7 @@ export function VehicleTelemetryDrawer({
                         Bloqueado
                       </span>
                     ) : isEmRota ? (
-                      <span className="px-1.5 py-0.5 rounded-full text-[8px] font-bold uppercase tracking-wider bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 shrink-0">
+                      <span className="px-1.5 py-0.5 rounded-full text-[8px] font-bold uppercase tracking-wider bg-orange-500/15 text-orange-600 dark:text-orange-400 border border-orange-500/30 shrink-0">
                         Em Rota
                       </span>
                     ) : isParadoLigado ? (
@@ -741,7 +741,7 @@ export function VehicleTelemetryDrawer({
                 </div>
               ) : (
                 <div className="flex items-center gap-2 text-[11px] font-mono mt-0.5">
-                  <span className="text-emerald-600 dark:text-emerald-400 font-black shrink-0">
+                  <span className="text-orange-600 dark:text-orange-400 font-black shrink-0">
                     {veiculo.velocidade || 0} km/h
                   </span>
 
@@ -753,10 +753,10 @@ export function VehicleTelemetryDrawer({
                         copiarCoordenadas();
                         if (onCentralizarVeiculo) onCentralizarVeiculo(veiculo);
                       }}
-                      className="hover:text-emerald-500 transition py-0.5 flex items-center gap-1 font-mono text-[11px]"
+                      className="hover:text-orange-500 transition py-0.5 flex items-center gap-1 font-mono text-[11px]"
                       title="Centralizar no mapa e copiar coordenadas"
                     >
-                      <LocateFixed className="h-3 w-3 text-emerald-500" />
+                      <LocateFixed className="h-3 w-3 text-orange-500" />
                       <span>
                         {copiado
                           ? "Copiado!"
@@ -795,7 +795,7 @@ export function VehicleTelemetryDrawer({
                   type="button"
                   onClick={handleTestarComunicacao}
                   disabled={testandoCom}
-                  className="flex items-center gap-1 px-3 py-1.5 rounded-xl text-xs font-bold bg-emerald-600 hover:bg-emerald-700 text-white shadow-xs transition active:scale-95 cursor-pointer disabled:opacity-50"
+                  className="flex items-center gap-1 px-3 py-1.5 rounded-xl text-xs font-bold bg-orange-600 hover:bg-emerald-700 text-white shadow-xs transition active:scale-95 cursor-pointer disabled:opacity-50"
                   title="Testar sinal e latência do rastreador"
                 >
                   <Radio className="h-3.5 w-3.5" />
@@ -814,7 +814,7 @@ export function VehicleTelemetryDrawer({
                   className="flex items-center gap-1 px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 transition active:scale-95 cursor-pointer"
                   title="Saúde do Rastreador"
                 >
-                  <HeartPulse className="h-3.5 w-3.5 text-emerald-500" />
+                  <HeartPulse className="h-3.5 w-3.5 text-orange-500" />
                   <span className="hidden sm:inline">Saúde</span>
                 </button>
 
@@ -833,7 +833,7 @@ export function VehicleTelemetryDrawer({
                 {/* 1. Botão Direto para o Cockpit e Telemetria 3D (Desktop / Tablet) */}
                 <button
                   onClick={onToggleRecolhido}
-                  className="hidden sm:flex items-center gap-1 px-3 py-1.5 rounded-xl text-xs font-black bg-gradient-to-r from-emerald-500 to-teal-500 text-slate-950 shadow-md shadow-emerald-500/20 hover:from-emerald-400 hover:to-teal-400 transition active:scale-95 cursor-pointer shrink-0"
+                  className="hidden sm:flex items-center gap-1 px-3 py-1.5 rounded-xl text-xs font-black bg-gradient-to-r from-emerald-500 to-teal-500 text-slate-950 shadow-md shadow-orange-500/20 hover:from-emerald-400 hover:to-teal-400 transition active:scale-95 cursor-pointer shrink-0"
                   title="Abrir tela exclusiva de Cockpit 3D e Telemetria"
                 >
                   <Sparkles className="h-3.5 w-3.5" />
@@ -843,7 +843,7 @@ export function VehicleTelemetryDrawer({
                 {/* 2. Botão Rápido: Refazer Trajeto */}
                 <button
                   onClick={() => onAbrirPlayback(veiculo)}
-                  className="p-1.5 sm:px-2.5 sm:py-1.5 rounded-xl text-xs font-bold bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 transition hover:bg-emerald-500/25 flex items-center gap-1 active:scale-95 cursor-pointer"
+                  className="p-1.5 sm:px-2.5 sm:py-1.5 rounded-xl text-xs font-bold bg-orange-500/15 text-orange-600 dark:text-orange-400 border border-orange-500/30 transition hover:bg-orange-500/25 flex items-center gap-1 active:scale-95 cursor-pointer"
                   title="Refazer Trajeto do Dia"
                 >
                   <Play className="h-4 w-4 fill-current" />
@@ -889,7 +889,7 @@ export function VehicleTelemetryDrawer({
                       ? "bg-slate-100 dark:bg-slate-800 text-slate-400 dark:text-slate-500 border-slate-200 dark:border-slate-700 cursor-not-allowed opacity-50"
                       : isBloqueado
                         ? "bg-rose-500/20 text-rose-600 dark:text-rose-400 border-rose-500/40 hover:bg-rose-500/30 animate-pulse cursor-pointer"
-                        : "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border-emerald-500/30 hover:bg-emerald-500/25 cursor-pointer"
+                        : "bg-orange-500/15 text-orange-600 dark:text-orange-400 border-orange-500/30 hover:bg-orange-500/25 cursor-pointer"
                   }`}
                   title={
                     !temBloqueador
@@ -905,7 +905,7 @@ export function VehicleTelemetryDrawer({
                         ? "text-slate-400"
                         : isBloqueado
                           ? "text-rose-500"
-                          : "text-emerald-500"
+                          : "text-orange-500"
                     }`}
                   />
                   <span className="hidden sm:inline">
@@ -954,7 +954,7 @@ export function VehicleTelemetryDrawer({
                     className="flex items-center gap-1 p-1.5 sm:px-2.5 sm:py-1.5 rounded-xl text-xs font-bold bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 transition active:scale-95 cursor-pointer"
                     title="Abrir módulos e recursos do veículo"
                   >
-                    <SlidersHorizontal className="h-4 w-4 text-emerald-500" />
+                    <SlidersHorizontal className="h-4 w-4 text-orange-500" />
                     <span className="hidden md:inline">Ações</span>
                     <ChevronUp className="h-3 w-3 text-slate-400" />
                   </button>
@@ -995,7 +995,7 @@ export function VehicleTelemetryDrawer({
           {/* Botão de Retorno ao Mapa */}
           <button
             onClick={onVoltarAoMapa || onToggleRecolhido}
-            className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-black text-slate-950 bg-emerald-400 hover:bg-emerald-300 shadow-md shadow-emerald-500/20 active:scale-95 transition shrink-0 cursor-pointer"
+            className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-black text-slate-950 bg-orange-400 hover:bg-emerald-300 shadow-md shadow-orange-500/20 active:scale-95 transition shrink-0 cursor-pointer"
             title="Retornar à visualização completa do mapa"
           >
             <ArrowLeft className="h-4 w-4" />
@@ -1011,7 +1011,7 @@ export function VehicleTelemetryDrawer({
                   const v = veiculos.find((x) => x.id === e.target.value);
                   if (v) onSelectVeiculo(v);
                 }}
-                className="px-2.5 py-1.5 rounded-xl bg-[#eaf0f8] dark:bg-slate-800 border border-slate-300/60 dark:border-slate-700 text-xs font-bold text-slate-800 dark:text-slate-200 shadow-[inset_1px_1px_3px_#c8d4e4,inset_-1px_-1px_3px_#ffffff] dark:shadow-none focus:outline-none focus:border-emerald-500 transition cursor-pointer"
+                className="px-2.5 py-1.5 rounded-xl bg-[#eaf0f8] dark:bg-slate-800 border border-slate-300/60 dark:border-slate-700 text-xs font-bold text-slate-800 dark:text-slate-200 shadow-[inset_1px_1px_3px_#c8d4e4,inset_-1px_-1px_3px_#ffffff] dark:shadow-none focus:outline-none focus:border-orange-500 transition cursor-pointer"
                 title="Trocar de veículo no Cockpit"
               >
                 {veiculos.map((v) => (
@@ -1048,8 +1048,8 @@ export function VehicleTelemetryDrawer({
                   SUSPEITA DE JAMMER
                 </span>
               ) : statusComunicacao.ativo ? (
-                <span className="px-2 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-wider bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 flex items-center gap-1 shrink-0">
-                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-ping" />
+                <span className="px-2 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-wider bg-orange-500/15 text-orange-600 dark:text-orange-400 border border-orange-500/30 flex items-center gap-1 shrink-0">
+                  <span className="h-1.5 w-1.5 rounded-full bg-orange-500 animate-ping" />
                   Ativo
                 </span>
               ) : (
@@ -1066,7 +1066,7 @@ export function VehicleTelemetryDrawer({
                     </span>
                   )}
                   {isEmRota ? (
-                    <span className="px-2 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-wider bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 shrink-0">
+                    <span className="px-2 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-wider bg-orange-500/15 text-orange-600 dark:text-orange-400 border border-orange-500/30 shrink-0">
                       Em Rota
                     </span>
                   ) : isParadoLigado ? (
@@ -1152,7 +1152,7 @@ export function VehicleTelemetryDrawer({
               </div>
             ) : (
               <div className="flex items-center gap-2 text-xs text-slate-400 font-mono mt-0.5 flex-wrap">
-                <span className="text-emerald-600 dark:text-emerald-400 font-bold">
+                <span className="text-orange-600 dark:text-orange-400 font-bold">
                   {veiculo.velocidade || 0} km/h
                 </span>
                 <span>·</span>
@@ -1163,10 +1163,10 @@ export function VehicleTelemetryDrawer({
                     <button
                       type="button"
                       onClick={copiarCoordenadas}
-                      className="hover:text-emerald-500 transition cursor-pointer flex items-center gap-0.5"
+                      className="hover:text-orange-500 transition cursor-pointer flex items-center gap-0.5"
                       title="Clique para copiar coordenadas exatas"
                     >
-                      <LocateFixed className="h-3 w-3 text-emerald-500" />
+                      <LocateFixed className="h-3 w-3 text-orange-500" />
                       <span>
                         {veiculo.latitude.toFixed(4)}, {veiculo.longitude.toFixed(4)}
                       </span>
@@ -1206,7 +1206,7 @@ export function VehicleTelemetryDrawer({
                 type="button"
                 onClick={handleTestarComunicacao}
                 disabled={testandoCom}
-                className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold bg-emerald-600 hover:bg-emerald-700 text-white shadow-xs transition active:scale-95 cursor-pointer disabled:opacity-50"
+                className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold bg-orange-600 hover:bg-emerald-700 text-white shadow-xs transition active:scale-95 cursor-pointer disabled:opacity-50"
                 title="Testar sinal e latência do rastreador"
               >
                 <Radio className="h-4 w-4" />
@@ -1225,7 +1225,7 @@ export function VehicleTelemetryDrawer({
                 className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 transition active:scale-95 cursor-pointer"
                 title="Saúde do Rastreador"
               >
-                <HeartPulse className="h-4 w-4 text-emerald-500" />
+                <HeartPulse className="h-4 w-4 text-orange-500" />
                 <span>Saúde do Rastreador</span>
               </button>
             </>
@@ -1233,7 +1233,7 @@ export function VehicleTelemetryDrawer({
             <>
               <button
                 onClick={() => onAbrirPlayback(veiculo)}
-                className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold bg-emerald-500/15 hover:bg-emerald-500/25 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 transition active:scale-95 cursor-pointer"
+                className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold bg-orange-500/15 hover:bg-orange-500/25 text-orange-600 dark:text-orange-400 border border-orange-500/30 transition active:scale-95 cursor-pointer"
                 title="Refazer Trajeto"
               >
                 <Play className="h-4 w-4 fill-current" />
@@ -1272,7 +1272,7 @@ export function VehicleTelemetryDrawer({
                     ? "bg-slate-100 dark:bg-slate-800 text-slate-400 dark:text-slate-500 border-slate-200 dark:border-slate-700 cursor-not-allowed opacity-50"
                     : isBloqueado
                       ? "bg-rose-500/20 text-rose-600 dark:text-rose-400 border-rose-500/40 hover:bg-rose-500/30 animate-pulse cursor-pointer"
-                      : "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border-emerald-500/30 hover:bg-emerald-500/25 cursor-pointer"
+                      : "bg-orange-500/15 text-orange-600 dark:text-orange-400 border-orange-500/30 hover:bg-orange-500/25 cursor-pointer"
                 }`}
                 title={
                   !temBloqueador
@@ -1288,7 +1288,7 @@ export function VehicleTelemetryDrawer({
                       ? "text-slate-400"
                       : isBloqueado
                         ? "text-rose-500"
-                        : "text-emerald-500"
+                        : "text-orange-500"
                   }`}
                 />
                 <span>
@@ -1335,7 +1335,7 @@ export function VehicleTelemetryDrawer({
                   onClick={() => setMenuAcoesAberto(!menuAcoesAberto)}
                   className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 transition active:scale-95 cursor-pointer"
                 >
-                  <SlidersHorizontal className="h-4 w-4 text-emerald-500" />
+                  <SlidersHorizontal className="h-4 w-4 text-orange-500" />
                   <span>Ações e Módulos</span>
                   <ChevronDown className="h-3 w-3 text-slate-400" />
                 </button>
@@ -1504,7 +1504,7 @@ function MostradoresCockpit3D({
     if (!statusComunicacao?.ativo) {
       return { texto: "Último registro", cor: "text-slate-400" };
     }
-    if (voltagem >= 13.5) return { texto: "Alternador Carregando", cor: "text-emerald-400" };
+    if (voltagem >= 13.5) return { texto: "Alternador Carregando", cor: "text-orange-400" };
     if (voltagem >= 12.3) return { texto: "Bateria Estabilizada", cor: "text-sky-400" };
     if (voltagem > 9.0) return { texto: "Alerta Subtensão", cor: "text-amber-400" };
     return { texto: "Bateria Desconectada", cor: "text-rose-400" };
@@ -1514,7 +1514,7 @@ function MostradoresCockpit3D({
     if (bateriaRastreador === null) return { texto: "Não informada", cor: "text-slate-400" };
     if (bateriaRastreador <= 20) return { texto: "Crítica", cor: "text-rose-400" };
     if (bateriaRastreador <= 50) return { texto: "Média", cor: "text-amber-400" };
-    return { texto: "Operacional", cor: "text-emerald-400" };
+    return { texto: "Operacional", cor: "text-orange-400" };
   }, [bateriaRastreador]);
 
   const infoPing = useMemo(() => {
@@ -1894,23 +1894,23 @@ function MostradoresCockpit3D({
       <TiltCard
         maxTilt={10}
         spotlightColor="rgba(16, 185, 129, 0.25)"
-        className="rounded-2xl p-3.5 bg-[#eaf0f8] dark:bg-gradient-to-b dark:from-slate-900/90 dark:to-slate-950/95 border border-slate-300/70 dark:border-emerald-500/40 shadow-[4px_4px_14px_#c3cfe2] dark:shadow-xl dark:shadow-emerald-950/20 flex flex-col justify-between"
+        className="rounded-2xl p-3.5 bg-[#eaf0f8] dark:bg-gradient-to-b dark:from-slate-900/90 dark:to-slate-950/95 border border-slate-300/70 dark:border-orange-500/40 shadow-[4px_4px_14px_#c3cfe2] dark:shadow-xl dark:shadow-emerald-950/20 flex flex-col justify-between"
       >
-        <div className="flex items-center justify-between text-[11px] font-mono font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">
+        <div className="flex items-center justify-between text-[11px] font-mono font-bold text-orange-600 dark:text-orange-400 uppercase tracking-wider">
           <span className="flex items-center gap-1.5 whitespace-nowrap">
             <Gauge className="h-3.5 w-3.5 animate-pulse" /> VELOCIDADE REAL
           </span>
-          <span className="px-1.5 py-0.5 rounded bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 text-[9px] border border-emerald-500/20 whitespace-nowrap font-bold">
+          <span className="px-1.5 py-0.5 rounded bg-orange-500/15 text-orange-700 dark:text-orange-300 text-[9px] border border-orange-500/20 whitespace-nowrap font-bold">
             GPS / ACC
           </span>
         </div>
 
         <div className="my-2 flex items-baseline justify-between">
           <div>
-            <span className="text-3xl sm:text-4xl font-black font-mono text-emerald-600 dark:text-emerald-300 dark:drop-shadow-[0_0_12px_rgba(16,185,129,0.6)]">
+            <span className="text-3xl sm:text-4xl font-black font-mono text-orange-600 dark:text-orange-300 dark:drop-shadow-[0_0_12px_rgba(16,185,129,0.6)]">
               {velocidade}
             </span>
-            <span className="text-xs font-mono text-emerald-600/80 dark:text-emerald-400/80 ml-1">
+            <span className="text-xs font-mono text-orange-600/80 dark:text-orange-400/80 ml-1">
               KM/H
             </span>
           </div>
@@ -1918,7 +1918,7 @@ function MostradoresCockpit3D({
             <div
               className={
                 veiculo.ignicao
-                  ? "text-emerald-600 dark:text-emerald-400 font-bold"
+                  ? "text-orange-600 dark:text-orange-400 font-bold"
                   : "text-slate-500 dark:text-slate-400"
               }
             >
@@ -1932,7 +1932,7 @@ function MostradoresCockpit3D({
 
         {/* Colunas Isométricas de Velocidade */}
         <div
-          className="flex items-end gap-1 h-10 w-full px-1 py-1 bg-slate-100 dark:bg-slate-950/80 rounded-xl border border-slate-200 dark:border-emerald-500/30"
+          className="flex items-end gap-1 h-10 w-full px-1 py-1 bg-slate-100 dark:bg-slate-950/80 rounded-xl border border-slate-200 dark:border-orange-500/30"
           style={{ perspective: "400px" }}
         >
           {[...Array(12)].map((_, i) => {
@@ -2196,7 +2196,7 @@ function MostradoresCockpit3D({
                         ? "bg-rose-500/15 text-rose-700 dark:text-rose-300 border-rose-500/30 animate-pulse"
                         : isModerado
                           ? "bg-amber-500/15 text-amber-700 dark:text-amber-300 border-amber-500/30"
-                          : "bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border-emerald-500/30"
+                          : "bg-orange-500/15 text-orange-700 dark:text-orange-300 border-orange-500/30"
                   }`}
                 >
                   {!statusComunicacao?.ativo ? "OFFLINE" : "TRIAXIAL"}
@@ -2227,7 +2227,7 @@ function MostradoresCockpit3D({
                         ? "text-rose-600 dark:text-rose-400"
                         : isModerado
                           ? "text-amber-600 dark:text-amber-400"
-                          : "text-emerald-600 dark:text-emerald-400"
+                          : "text-orange-600 dark:text-orange-400"
                     }`}
                   >
                     {!statusComunicacao?.ativo
@@ -2250,7 +2250,7 @@ function MostradoresCockpit3D({
                           ? "text-rose-600 dark:text-rose-400"
                           : isModerado
                             ? "text-amber-600 dark:text-amber-400"
-                            : "text-emerald-600 dark:text-emerald-400"
+                            : "text-orange-600 dark:text-orange-400"
                     }`}
                   >
                     {!statusComunicacao?.ativo
@@ -2287,7 +2287,7 @@ function MostradoresCockpit3D({
                           ? "bg-rose-500 shadow-rose-500/80 animate-pulse"
                           : isModerado
                             ? "bg-amber-500 shadow-amber-500/80"
-                            : "bg-emerald-500 shadow-emerald-500/80"
+                            : "bg-orange-500 shadow-emerald-500/80"
                       }`}
                       style={{
                         transform: `translate(${(valorForcaG * 8).toFixed(1)}px, -${(valorForcaG * 3).toFixed(1)}px)`,
@@ -2480,7 +2480,7 @@ function MostradoresCockpit3D({
             style={{ perspective: "250px" }}
           >
             <div className="flex items-center gap-2 z-10 text-[10px] font-mono text-slate-600 dark:text-slate-400">
-              <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse shrink-0" />
+              <span className="h-2 w-2 rounded-full bg-orange-500 animate-pulse shrink-0" />
               <span>Conexão Segura Criptografada • Telemetria Ativa</span>
             </div>
 
@@ -2656,13 +2656,13 @@ function MostradoresCockpit3D({
             <TiltCard
               maxTilt={10}
               spotlightColor="rgba(16, 185, 129, 0.25)"
-              className="rounded-2xl p-3.5 bg-[#eaf0f8] dark:bg-gradient-to-b dark:from-slate-900/90 dark:to-slate-950/95 border border-slate-300/70 dark:border-emerald-500/40 shadow-[4px_4px_14px_#c3cfe2] dark:shadow-xl dark:shadow-emerald-950/20 flex flex-col justify-between col-span-1 sm:col-span-2 xl:col-span-2"
+              className="rounded-2xl p-3.5 bg-[#eaf0f8] dark:bg-gradient-to-b dark:from-slate-900/90 dark:to-slate-950/95 border border-slate-300/70 dark:border-orange-500/40 shadow-[4px_4px_14px_#c3cfe2] dark:shadow-xl dark:shadow-emerald-950/20 flex flex-col justify-between col-span-1 sm:col-span-2 xl:col-span-2"
             >
-              <div className="flex items-center justify-between text-[11px] font-mono font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">
+              <div className="flex items-center justify-between text-[11px] font-mono font-bold text-orange-600 dark:text-orange-400 uppercase tracking-wider">
                 <span className="flex items-center gap-1.5 whitespace-nowrap">
                   <Gauge className="h-3.5 w-3.5 animate-pulse" /> ODÔMETRO ACUMULADO
                 </span>
-                <span className="px-1.5 py-0.5 rounded bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 text-[9px] border border-emerald-500/20 whitespace-nowrap font-bold">
+                <span className="px-1.5 py-0.5 rounded bg-orange-500/15 text-orange-700 dark:text-orange-300 text-[9px] border border-orange-500/20 whitespace-nowrap font-bold">
                   PRECISÃO OFICIAL
                 </span>
               </div>
@@ -2670,13 +2670,13 @@ function MostradoresCockpit3D({
               <div className="my-2 flex items-baseline justify-between">
                 <div>
                   <div className="flex items-baseline">
-                    <span className="text-2xl sm:text-3xl font-black font-mono text-emerald-600 dark:text-emerald-300 dark:drop-shadow-[0_0_12px_rgba(16,185,129,0.6)]">
+                    <span className="text-2xl sm:text-3xl font-black font-mono text-orange-600 dark:text-orange-300 dark:drop-shadow-[0_0_12px_rgba(16,185,129,0.6)]">
                       {odometroPrincipal7.toLocaleString("pt-BR", {
                         minimumFractionDigits: 1,
                         maximumFractionDigits: 1,
                       })}
                     </span>
-                    <span className="text-xs font-mono font-bold text-emerald-600/80 dark:text-emerald-400/80 ml-1.5">
+                    <span className="text-xs font-mono font-bold text-orange-600/80 dark:text-orange-400/80 ml-1.5">
                       KM
                     </span>
                   </div>
@@ -2688,7 +2688,7 @@ function MostradoresCockpit3D({
                   <div
                     className={
                       veiculo.status_operacional === "em_rota"
-                        ? "text-emerald-600 dark:text-emerald-400 font-bold"
+                        ? "text-orange-600 dark:text-orange-400 font-bold"
                         : veiculo.ignicao
                           ? "text-amber-600 dark:text-amber-400 font-bold"
                           : "text-sky-600 dark:text-sky-400 font-bold"
@@ -2711,10 +2711,10 @@ function MostradoresCockpit3D({
               </div>
 
               {/* Rodapé de Telemetria: Última Transmissão */}
-              <div className="w-full bg-slate-100/90 dark:bg-slate-950/90 rounded-xl border border-slate-200 dark:border-emerald-500/30 p-2 flex flex-col gap-1.5">
+              <div className="w-full bg-slate-100/90 dark:bg-slate-950/90 rounded-xl border border-slate-200 dark:border-orange-500/30 p-2 flex flex-col gap-1.5">
                 <div className="flex items-center justify-between text-[10px] font-mono">
-                  <span className="flex items-center gap-1 font-bold text-slate-700 dark:text-emerald-300 whitespace-nowrap">
-                    <Clock className="h-3 w-3 text-emerald-600 dark:text-emerald-400" /> ÚLTIMA
+                  <span className="flex items-center gap-1 font-bold text-slate-700 dark:text-orange-300 whitespace-nowrap">
+                    <Clock className="h-3 w-3 text-orange-600 dark:text-orange-400" /> ÚLTIMA
                     TRANSMISSÃO
                   </span>
                   <span className="text-slate-800 dark:text-slate-200 font-black">
@@ -2728,7 +2728,7 @@ function MostradoresCockpit3D({
                     <span
                       className={`h-1.5 w-1.5 rounded-full ${
                         infoPing.statusBadge === "ativo_rota"
-                          ? "bg-emerald-500 animate-ping"
+                          ? "bg-orange-500 animate-ping"
                           : infoPing.statusBadge === "ativo_marcha_lenta"
                             ? "bg-amber-500 animate-pulse"
                             : infoPing.statusBadge === "sem_sinal"
@@ -2756,13 +2756,13 @@ function MostradoresCockpit3D({
             <TiltCard
               maxTilt={10}
               spotlightColor="rgba(16, 185, 129, 0.25)"
-              className="rounded-2xl p-3.5 bg-[#eaf0f8] dark:bg-gradient-to-b dark:from-slate-900/90 dark:to-slate-950/95 border border-slate-300/70 dark:border-emerald-500/40 shadow-[4px_4px_14px_#c3cfe2] dark:shadow-xl dark:shadow-emerald-950/20 flex flex-col justify-between col-span-1 sm:col-span-2 xl:col-span-2"
+              className="rounded-2xl p-3.5 bg-[#eaf0f8] dark:bg-gradient-to-b dark:from-slate-900/90 dark:to-slate-950/95 border border-slate-300/70 dark:border-orange-500/40 shadow-[4px_4px_14px_#c3cfe2] dark:shadow-xl dark:shadow-emerald-950/20 flex flex-col justify-between col-span-1 sm:col-span-2 xl:col-span-2"
             >
-              <div className="flex items-center justify-between text-[11px] font-mono font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">
+              <div className="flex items-center justify-between text-[11px] font-mono font-bold text-orange-600 dark:text-orange-400 uppercase tracking-wider">
                 <span className="flex items-center gap-1.5 whitespace-nowrap">
                   <Gauge className="h-3.5 w-3.5 animate-pulse" /> ODÔMETRO ACUMULADO
                 </span>
-                <span className="px-1.5 py-0.5 rounded bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 text-[9px] border border-emerald-500/20 whitespace-nowrap font-bold">
+                <span className="px-1.5 py-0.5 rounded bg-orange-500/15 text-orange-700 dark:text-orange-300 text-[9px] border border-orange-500/20 whitespace-nowrap font-bold">
                   PRECISÃO OFICIAL
                 </span>
               </div>
@@ -2770,13 +2770,13 @@ function MostradoresCockpit3D({
               <div className="my-2 flex items-baseline justify-between">
                 <div>
                   <div className="flex items-baseline">
-                    <span className="text-2xl sm:text-3xl font-black font-mono text-emerald-600 dark:text-emerald-300 dark:drop-shadow-[0_0_12px_rgba(16,185,129,0.6)]">
+                    <span className="text-2xl sm:text-3xl font-black font-mono text-orange-600 dark:text-orange-300 dark:drop-shadow-[0_0_12px_rgba(16,185,129,0.6)]">
                       {odometroPrincipal7.toLocaleString("pt-BR", {
                         minimumFractionDigits: 1,
                         maximumFractionDigits: 1,
                       })}
                     </span>
-                    <span className="text-xs font-mono font-bold text-emerald-600/80 dark:text-emerald-400/80 ml-1.5">
+                    <span className="text-xs font-mono font-bold text-orange-600/80 dark:text-orange-400/80 ml-1.5">
                       KM
                     </span>
                   </div>
@@ -2788,7 +2788,7 @@ function MostradoresCockpit3D({
                   <div
                     className={
                       veiculo.status_operacional === "em_rota"
-                        ? "text-emerald-600 dark:text-emerald-400 font-bold"
+                        ? "text-orange-600 dark:text-orange-400 font-bold"
                         : veiculo.ignicao
                           ? "text-amber-600 dark:text-amber-400 font-bold"
                           : "text-sky-600 dark:text-sky-400 font-bold"
@@ -2811,10 +2811,10 @@ function MostradoresCockpit3D({
               </div>
 
               {/* Rodapé de Telemetria: Última Transmissão */}
-              <div className="w-full bg-slate-100/90 dark:bg-slate-950/90 rounded-xl border border-slate-200 dark:border-emerald-500/30 p-2 flex flex-col gap-1.5">
+              <div className="w-full bg-slate-100/90 dark:bg-slate-950/90 rounded-xl border border-slate-200 dark:border-orange-500/30 p-2 flex flex-col gap-1.5">
                 <div className="flex items-center justify-between text-[10px] font-mono">
-                  <span className="flex items-center gap-1 font-bold text-slate-700 dark:text-emerald-300 whitespace-nowrap">
-                    <Clock className="h-3 w-3 text-emerald-600 dark:text-emerald-400" /> ÚLTIMA
+                  <span className="flex items-center gap-1 font-bold text-slate-700 dark:text-orange-300 whitespace-nowrap">
+                    <Clock className="h-3 w-3 text-orange-600 dark:text-orange-400" /> ÚLTIMA
                     TRANSMISSÃO
                   </span>
                   <span className="text-slate-800 dark:text-slate-200 font-black">
@@ -2828,7 +2828,7 @@ function MostradoresCockpit3D({
                     <span
                       className={`h-1.5 w-1.5 rounded-full ${
                         infoPing.statusBadge === "ativo_rota"
-                          ? "bg-emerald-500 animate-ping"
+                          ? "bg-orange-500 animate-ping"
                           : infoPing.statusBadge === "ativo_marcha_lenta"
                             ? "bg-amber-500 animate-pulse"
                             : infoPing.statusBadge === "sem_sinal"
@@ -2856,7 +2856,7 @@ function MostradoresCockpit3D({
             {/* Faixa Tática SuperADM: Governança dos 7 Odômetros */}
             <div className="col-span-1 sm:col-span-2 lg:col-span-3 xl:col-span-4 p-2.5 rounded-2xl bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 border border-indigo-500/30 flex flex-wrap items-center justify-between gap-2 shadow-lg">
               <div className="flex items-center gap-2">
-                <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse shrink-0" />
+                <span className="h-2 w-2 rounded-full bg-orange-400 animate-pulse shrink-0" />
                 <span className="font-mono font-bold text-xs text-white uppercase tracking-wider">
                   BANCADA DE ODOMETRIA COMPARATIVA · 7 MOTORES SIMULTÂNEOS ATIVOS
                 </span>
@@ -2879,13 +2879,13 @@ function MostradoresCockpit3D({
             <TiltCard
               maxTilt={10}
               spotlightColor="rgba(16, 185, 129, 0.25)"
-              className="rounded-2xl p-3.5 bg-[#eaf0f8] dark:bg-gradient-to-b dark:from-slate-900/90 dark:to-slate-950/95 border border-slate-300/70 dark:border-emerald-500/40 shadow-[4px_4px_14px_#c3cfe2] dark:shadow-xl dark:shadow-emerald-950/20 flex flex-col justify-between"
+              className="rounded-2xl p-3.5 bg-[#eaf0f8] dark:bg-gradient-to-b dark:from-slate-900/90 dark:to-slate-950/95 border border-slate-300/70 dark:border-orange-500/40 shadow-[4px_4px_14px_#c3cfe2] dark:shadow-xl dark:shadow-emerald-950/20 flex flex-col justify-between"
             >
-              <div className="flex items-center justify-between text-[11px] font-mono font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">
+              <div className="flex items-center justify-between text-[11px] font-mono font-bold text-orange-600 dark:text-orange-400 uppercase tracking-wider">
                 <span className="flex items-center gap-1.5 whitespace-nowrap">
                   <Gauge className="h-3.5 w-3.5 animate-pulse" /> 1. BASE (WGS-84)
                 </span>
-                <span className="px-1.5 py-0.5 rounded bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 text-[9px] border border-emerald-500/20 whitespace-nowrap font-bold">
+                <span className="px-1.5 py-0.5 rounded bg-orange-500/15 text-orange-700 dark:text-orange-300 text-[9px] border border-orange-500/20 whitespace-nowrap font-bold">
                   GEODÉSICO BASE
                 </span>
               </div>
@@ -2893,13 +2893,13 @@ function MostradoresCockpit3D({
               <div className="my-2 flex items-baseline justify-between">
                 <div>
                   <div className="flex items-baseline">
-                    <span className="text-2xl sm:text-3xl font-black font-mono text-emerald-600 dark:text-emerald-300 dark:drop-shadow-[0_0_12px_rgba(16,185,129,0.6)]">
+                    <span className="text-2xl sm:text-3xl font-black font-mono text-orange-600 dark:text-orange-300 dark:drop-shadow-[0_0_12px_rgba(16,185,129,0.6)]">
                       {kmWgs84.toLocaleString("pt-BR", {
                         minimumFractionDigits: 1,
                         maximumFractionDigits: 1,
                       })}
                     </span>
-                    <span className="text-xs font-mono font-bold text-emerald-600/80 dark:text-emerald-400/80 ml-1.5">
+                    <span className="text-xs font-mono font-bold text-orange-600/80 dark:text-orange-400/80 ml-1.5">
                       KM
                     </span>
                   </div>
@@ -2911,7 +2911,7 @@ function MostradoresCockpit3D({
                   <div
                     className={
                       veiculo.status_operacional === "em_rota"
-                        ? "text-emerald-600 dark:text-emerald-400 font-bold"
+                        ? "text-orange-600 dark:text-orange-400 font-bold"
                         : veiculo.ignicao
                           ? "text-amber-600 dark:text-amber-400 font-bold"
                           : "text-sky-600 dark:text-sky-400 font-bold"
@@ -2929,18 +2929,18 @@ function MostradoresCockpit3D({
                 </div>
               </div>
 
-              <div className="w-full bg-slate-100/90 dark:bg-slate-950/90 rounded-xl border border-slate-200 dark:border-emerald-500/30 p-2 flex flex-col gap-1.5">
+              <div className="w-full bg-slate-100/90 dark:bg-slate-950/90 rounded-xl border border-slate-200 dark:border-orange-500/30 p-2 flex flex-col gap-1.5">
                 <div className="flex items-center justify-between text-[10px] font-mono">
-                  <span className="flex items-center gap-1 font-bold text-slate-700 dark:text-emerald-300 whitespace-nowrap">
-                    <Clock className="h-3 w-3 text-emerald-600 dark:text-emerald-400" /> ÚLTIMO PING
+                  <span className="flex items-center gap-1 font-bold text-slate-700 dark:text-orange-300 whitespace-nowrap">
+                    <Clock className="h-3 w-3 text-orange-600 dark:text-orange-400" /> ÚLTIMO PING
                   </span>
                   <span className="text-slate-800 dark:text-slate-200 font-black">
                     {infoPing.dataHoraFormatada}
                   </span>
                 </div>
                 <div className="flex items-center justify-between gap-1 text-[9px] font-mono pt-1 border-t border-slate-200/80 dark:border-slate-800/80">
-                  <span className="px-1.5 py-0.5 rounded border font-black uppercase tracking-wider flex items-center gap-1 shrink-0 bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border-emerald-500/30">
-                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                  <span className="px-1.5 py-0.5 rounded border font-black uppercase tracking-wider flex items-center gap-1 shrink-0 bg-orange-500/15 text-orange-700 dark:text-orange-300 border-orange-500/30">
+                    <span className="h-1.5 w-1.5 rounded-full bg-orange-500" />
                     WGS-84 Padrão
                   </span>
                   <span className="text-slate-500 dark:text-slate-400 text-[8.5px] text-right truncate">
@@ -3076,7 +3076,7 @@ function MostradoresCockpit3D({
                       type="button"
                       onClick={onCalibrarOdometroMcu}
                       disabled={calibrandoOdometroMcu}
-                      className="px-2 py-0.5 text-[9px] font-mono font-bold rounded bg-emerald-500/15 hover:bg-emerald-500/25 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30 transition active:scale-95 cursor-pointer disabled:opacity-50"
+                      className="px-2 py-0.5 text-[9px] font-mono font-bold rounded bg-orange-500/15 hover:bg-orange-500/25 text-orange-700 dark:text-orange-300 border border-orange-500/30 transition active:scale-95 cursor-pointer disabled:opacity-50"
                       title={`Gravar ${odometroServidor.toFixed(1)} km na MCU J16`}
                     >
                       {calibrandoOdometroMcu ? "GRAVANDO..." : "EQUALIZAR"}
@@ -3106,7 +3106,7 @@ function MostradoresCockpit3D({
                       odometroHardware === null
                         ? "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border-slate-300 dark:border-slate-700"
                         : estaSincronizado
-                          ? "bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border-emerald-500/30"
+                          ? "bg-orange-500/15 text-orange-700 dark:text-orange-300 border-orange-500/30"
                           : "bg-amber-500/15 text-amber-700 dark:text-amber-300 border-amber-500/30"
                     }`}
                   >
@@ -3115,7 +3115,7 @@ function MostradoresCockpit3D({
                         odometroHardware === null
                           ? "bg-slate-400"
                           : estaSincronizado
-                            ? "bg-emerald-500"
+                            ? "bg-orange-500"
                             : "bg-amber-500"
                       }`}
                     />

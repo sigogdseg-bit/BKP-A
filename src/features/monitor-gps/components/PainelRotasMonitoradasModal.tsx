@@ -218,7 +218,7 @@ export function PainelRotasMonitoradasModal({
                 {/* Rotas Ativas */}
                 <div>
                   <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-2 flex items-center gap-1.5">
-                    <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+                    <span className="h-2 w-2 rounded-full bg-orange-500 animate-pulse" />
                     Monitoramento em Andamento ({rotasAtivas.length})
                   </h4>
 
@@ -307,7 +307,7 @@ export function PainelRotasMonitoradasModal({
                                       className={`text-[10px] font-bold px-2 py-0.5 rounded-full uppercase ${
                                         isDesvio
                                           ? "bg-rose-500 text-white animate-pulse"
-                                          : "bg-emerald-500/20 text-emerald-600 dark:text-emerald-400"
+                                          : "bg-orange-500/20 text-orange-600 dark:text-orange-400"
                                       }`}
                                     >
                                       {isDesvio ? "Desvio Detectado" : "Na Rota"}
@@ -436,7 +436,7 @@ export function PainelRotasMonitoradasModal({
               <div className="space-y-3">
                 <div className="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
                   <span>Trajetos Gravados na sua Conta</span>
-                  <span className="font-mono font-bold text-emerald-500">
+                  <span className="font-mono font-bold text-orange-500">
                     {trajetosSalvos.length} de 5 utilizados
                   </span>
                 </div>

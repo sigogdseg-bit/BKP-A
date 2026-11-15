@@ -379,7 +379,7 @@ export function ManutencaoView() {
       {/* Cabeçalho Geral da Página */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 p-5 sm:p-6 rounded-3xl shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl">
         <div className="flex items-center gap-3.5">
-          <div className="h-12 w-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none">
+          <div className="h-12 w-12 rounded-2xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-orange-600 dark:text-orange-400 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none">
             <Wrench className="h-6 w-6 stroke-[2.2]" />
           </div>
           <div>
@@ -400,7 +400,7 @@ export function ManutencaoView() {
                 onClick={handleVoltarParaClientes}
                 className={`px-3 py-1.5 rounded-xl transition ${
                   etapa === 1
-                    ? "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 shadow-[inset_1px_1px_3px_#c8d4e4] dark:shadow-none"
+                    ? "bg-orange-500/10 text-orange-600 dark:text-orange-400 border border-orange-500/30 shadow-[inset_1px_1px_3px_#c8d4e4] dark:shadow-none"
                     : "bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/50 dark:border-slate-800 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none hover:shadow-[3px_3px_8px_#b8c6da] text-slate-600 dark:text-slate-400"
                 }`}
               >
@@ -416,7 +416,7 @@ export function ManutencaoView() {
                 disabled={etapa === 1}
                 className={`px-3 py-1.5 rounded-xl transition ${
                   etapa === 2
-                    ? "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 shadow-[inset_1px_1px_3px_#c8d4e4] dark:shadow-none"
+                    ? "bg-orange-500/10 text-orange-600 dark:text-orange-400 border border-orange-500/30 shadow-[inset_1px_1px_3px_#c8d4e4] dark:shadow-none"
                     : etapa === 3
                       ? "bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/50 dark:border-slate-800 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none hover:shadow-[3px_3px_8px_#b8c6da] text-slate-700 dark:text-slate-200"
                       : "opacity-40 cursor-not-allowed text-slate-400"
@@ -430,7 +430,7 @@ export function ManutencaoView() {
               <span
                 className={`px-3 py-1.5 rounded-xl ${
                   etapa === 3
-                    ? "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 shadow-[inset_1px_1px_3px_#c8d4e4] dark:shadow-none"
+                    ? "bg-orange-500/10 text-orange-600 dark:text-orange-400 border border-orange-500/30 shadow-[inset_1px_1px_3px_#c8d4e4] dark:shadow-none"
                     : "opacity-40 text-slate-400"
                 }`}
               >
@@ -445,7 +445,7 @@ export function ManutencaoView() {
                     onClick={handleVoltarParaVeiculos}
                     className={`px-3 py-1.5 rounded-xl transition ${
                       etapa === 2
-                        ? "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 shadow-[inset_1px_1px_3px_#c8d4e4] dark:shadow-none"
+                        ? "bg-orange-500/10 text-orange-600 dark:text-orange-400 border border-orange-500/30 shadow-[inset_1px_1px_3px_#c8d4e4] dark:shadow-none"
                         : "bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/50 dark:border-slate-800 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none hover:shadow-[3px_3px_8px_#b8c6da] text-slate-600 dark:text-slate-400"
                     }`}
                   >
@@ -458,7 +458,7 @@ export function ManutencaoView() {
               <span
                 className={`px-3 py-1.5 rounded-xl ${
                   etapa === 3
-                    ? "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 shadow-[inset_1px_1px_3px_#c8d4e4] dark:shadow-none"
+                    ? "bg-orange-500/10 text-orange-600 dark:text-orange-400 border border-orange-500/30 shadow-[inset_1px_1px_3px_#c8d4e4] dark:shadow-none"
                     : "opacity-40 text-slate-400"
                 }`}
               >
@@ -493,7 +493,7 @@ export function ManutencaoView() {
                 placeholder="Buscar cliente por nome, documento ou telefone..."
                 value={busca}
                 onChange={(e) => setBusca(e.target.value)}
-                className="w-full pl-10 pr-3.5 py-2 bg-[#eaf0f8] dark:bg-slate-950 border border-slate-300/60 dark:border-slate-800 rounded-2xl text-xs text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500 shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6)]"
+                className="w-full pl-10 pr-3.5 py-2 bg-[#eaf0f8] dark:bg-slate-950 border border-slate-300/60 dark:border-slate-800 rounded-2xl text-xs text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-orange-500 shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6)]"
               />
             </div>
           </div>
@@ -513,20 +513,20 @@ export function ManutencaoView() {
                   key={cliente.id}
                   onClick={() => handleSelecionarCliente(cliente)}
                   spotlightColor="rgba(16, 185, 129, 0.16)"
-                  className="group p-5 rounded-3xl bg-[#eaf0f8] dark:bg-slate-900/70 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_12px_#c3cfe2] dark:shadow-lg hover:border-emerald-500/50 dark:hover:border-emerald-500/50 transition-all duration-200 cursor-pointer flex flex-col justify-between space-y-3"
+                  className="group p-5 rounded-3xl bg-[#eaf0f8] dark:bg-slate-900/70 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_12px_#c3cfe2] dark:shadow-lg hover:border-orange-500/50 dark:hover:border-orange-500/50 transition-all duration-200 cursor-pointer flex flex-col justify-between space-y-3"
                 >
                   <div className="space-y-1.5">
                     <div className="flex items-center justify-between gap-2">
                       <span className="px-2 py-0.5 rounded-md text-[10px] font-black uppercase tracking-wider bg-[#eaf0f8] dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-300/50 dark:border-slate-700 shadow-[1px_1px_3px_#c3cfe2] dark:shadow-none">
                         Plano {cliente.plano}
                       </span>
-                      <span className="text-[11px] font-bold text-emerald-600 dark:text-emerald-400">
+                      <span className="text-[11px] font-bold text-orange-600 dark:text-orange-400">
                         {cliente.total_veiculos}{" "}
                         {cliente.total_veiculos === 1 ? "veículo" : "veículos"}
                       </span>
                     </div>
 
-                    <h3 className="text-sm font-black text-slate-900 dark:text-slate-100 group-hover:text-emerald-500 transition line-clamp-1">
+                    <h3 className="text-sm font-black text-slate-900 dark:text-slate-100 group-hover:text-orange-500 transition line-clamp-1">
                       {cliente.nome_razao_social}
                     </h3>
 
@@ -540,7 +540,7 @@ export function ManutencaoView() {
                     )}
                   </div>
 
-                  <div className="pt-2 border-t border-slate-300/40 dark:border-slate-800/80 flex items-center justify-between text-xs font-bold text-slate-500 group-hover:text-emerald-500 transition">
+                  <div className="pt-2 border-t border-slate-300/40 dark:border-slate-800/80 flex items-center justify-between text-xs font-bold text-slate-500 group-hover:text-orange-500 transition">
                     <span>Selecionar Frota</span>
                     <ArrowRight className="h-4 w-4 transform group-hover:translate-x-1 transition" />
                   </div>
@@ -586,7 +586,7 @@ export function ManutencaoView() {
                 placeholder="Filtrar veículos por placa ou modelo..."
                 value={busca}
                 onChange={(e) => setBusca(e.target.value)}
-                className="w-full pl-10 pr-3.5 py-2 bg-[#eaf0f8] dark:bg-slate-950 border border-slate-300/60 dark:border-slate-800 rounded-2xl text-xs text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500 shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6)]"
+                className="w-full pl-10 pr-3.5 py-2 bg-[#eaf0f8] dark:bg-slate-950 border border-slate-300/60 dark:border-slate-800 rounded-2xl text-xs text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-orange-500 shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6)]"
               />
             </div>
           </div>
@@ -618,7 +618,7 @@ export function ManutencaoView() {
                           ? "rgba(245, 158, 11, 0.18)"
                           : "rgba(16, 185, 129, 0.16)"
                     }
-                    className="group p-5 rounded-3xl bg-[#eaf0f8] dark:bg-slate-900/70 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_12px_#c3cfe2] dark:shadow-lg hover:shadow-[6px_6px_16px_#b8c6da] hover:border-emerald-500/50 dark:hover:border-emerald-500/50 transition-all duration-200 cursor-pointer flex flex-col justify-between space-y-3.5"
+                    className="group p-5 rounded-3xl bg-[#eaf0f8] dark:bg-slate-900/70 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_12px_#c3cfe2] dark:shadow-lg hover:shadow-[6px_6px_16px_#b8c6da] hover:border-orange-500/50 dark:hover:border-orange-500/50 transition-all duration-200 cursor-pointer flex flex-col justify-between space-y-3.5"
                   >
                     <div className="space-y-2">
                       <div className="flex items-center justify-between gap-2">
@@ -632,7 +632,7 @@ export function ManutencaoView() {
                               ? "bg-rose-500/10 text-rose-600 dark:text-rose-400 border border-rose-500/20"
                               : temAlertas
                                 ? "bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20"
-                                : "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20"
+                                : "bg-orange-500/10 text-orange-600 dark:text-orange-400 border border-orange-500/20"
                           }`}
                         >
                           {temVencidos
@@ -644,7 +644,7 @@ export function ManutencaoView() {
                       </div>
 
                       <div>
-                        <h3 className="text-sm font-black text-slate-900 dark:text-slate-100 group-hover:text-emerald-500 transition">
+                        <h3 className="text-sm font-black text-slate-900 dark:text-slate-100 group-hover:text-orange-500 transition">
                           {v.marca_modelo}
                         </h3>
                         <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400 mt-0.5">
@@ -681,7 +681,7 @@ export function ManutencaoView() {
                       })()}
                     </div>
 
-                    <div className="pt-2 border-t border-slate-300/40 dark:border-slate-800/80 flex items-center justify-between text-xs font-bold text-slate-500 group-hover:text-emerald-500 transition">
+                    <div className="pt-2 border-t border-slate-300/40 dark:border-slate-800/80 flex items-center justify-between text-xs font-bold text-slate-500 group-hover:text-orange-500 transition">
                       <span>
                         {v.tipo_veiculo === "maquina" || v.tipo_veiculo === "trator"
                           ? "Abrir Manutenções da Máquina"
@@ -762,7 +762,7 @@ export function ManutencaoView() {
                   setItemSelecionadoParaConcluir(null);
                   setModalDespesaAberto(true);
                 }}
-                className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold text-emerald-950 dark:text-emerald-900 bg-emerald-400 hover:bg-emerald-300 shadow-[2px_2px_5px_#c3cfe2] active:shadow-[inset_2px_2px_4px_#059669] transition cursor-pointer"
+                className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold text-emerald-950 dark:text-emerald-900 bg-orange-400 hover:bg-emerald-300 shadow-[2px_2px_5px_#c3cfe2] active:shadow-[inset_2px_2px_4px_#059669] transition cursor-pointer"
               >
                 <Receipt className="h-3.5 w-3.5 stroke-[2.5]" />
                 <span>+ Lançar Gasto / NF</span>
@@ -784,7 +784,7 @@ export function ManutencaoView() {
                   setItemSelecionadoParaAgendar(null);
                   setModalAgendarAberto(true);
                 }}
-                className="flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold text-slate-950 bg-emerald-500 hover:bg-emerald-400 shadow-[2px_2px_6px_#c3cfe2] active:shadow-[inset_2px_2px_4px_#047857] transition cursor-pointer"
+                className="flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold text-slate-950 bg-orange-500 hover:bg-orange-400 shadow-[2px_2px_6px_#c3cfe2] active:shadow-[inset_2px_2px_4px_#047857] transition cursor-pointer"
               >
                 <Calendar className="h-3.5 w-3.5" />
                 <span>Agendar Manutenção</span>
@@ -877,21 +877,21 @@ export function ManutencaoView() {
               spotlightColor="rgba(16, 185, 129, 0.16)"
               className={`p-3.5 rounded-2xl bg-[#eaf0f8] dark:bg-slate-900/60 border shadow-[2px_2px_6px_#c3cfe2] dark:shadow-none cursor-pointer transition text-left ${
                 filtroStatusItem === "em_dia"
-                  ? "border-emerald-500/60 ring-2 ring-emerald-500/20 bg-emerald-500/5 dark:bg-emerald-900/20"
-                  : "border-slate-300/50 dark:border-slate-800 hover:border-emerald-400/50"
+                  ? "border-orange-500/60 ring-2 ring-orange-500/20 bg-orange-500/5 dark:bg-emerald-900/20"
+                  : "border-slate-300/50 dark:border-slate-800 hover:border-orange-400/50"
               }`}
             >
               <div className="flex items-center justify-between">
-                <span className="text-[11px] text-emerald-600 dark:text-emerald-400 font-medium">
+                <span className="text-[11px] text-orange-600 dark:text-orange-400 font-medium">
                   Revisões em Dia
                 </span>
                 {filtroStatusItem === "em_dia" && (
-                  <span className="text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded-md bg-emerald-500/20 text-emerald-600 dark:text-emerald-400">
+                  <span className="text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded-md bg-orange-500/20 text-orange-600 dark:text-orange-400">
                     Ativo
                   </span>
                 )}
               </div>
-              <div className="text-xl font-black font-mono text-emerald-600 dark:text-emerald-400 mt-0.5">
+              <div className="text-xl font-black font-mono text-orange-600 dark:text-orange-400 mt-0.5">
                 {metricasVeiculo.emDia}
               </div>
             </TiltCard>
@@ -919,7 +919,7 @@ export function ManutencaoView() {
             >
               <span>Agendamentos</span>
               {metricasVeiculo.agendamentosPendentes > 0 && (
-                <span className="px-1.5 py-0.2 rounded-full bg-emerald-500 text-slate-950 text-[10px] font-black font-mono">
+                <span className="px-1.5 py-0.2 rounded-full bg-orange-500 text-slate-950 text-[10px] font-black font-mono">
                   {metricasVeiculo.agendamentosPendentes}
                 </span>
               )}
@@ -935,7 +935,7 @@ export function ManutencaoView() {
               <Receipt className="h-3.5 w-3.5" />
               <span>Histórico de Gastos</span>
               {historicoDespesas.length > 0 && (
-                <span className="px-1.5 py-0.2 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 text-[10px] font-black font-mono">
+                <span className="px-1.5 py-0.2 rounded-full bg-orange-500/10 text-orange-600 dark:text-orange-400 border border-orange-500/20 text-[10px] font-black font-mono">
                   {historicoDespesas.length}
                 </span>
               )}
@@ -967,7 +967,7 @@ export function ManutencaoView() {
                         setItemParaEdicao(null);
                         setModalItemAberto(true);
                       }}
-                      className="px-4 py-2 rounded-xl text-xs font-bold bg-emerald-500 text-slate-950 hover:bg-emerald-400 shadow-[2px_2px_5px_#c3cfe2] active:shadow-[inset_2px_2px_4px_#047857] transition cursor-pointer"
+                      className="px-4 py-2 rounded-xl text-xs font-bold bg-orange-500 text-slate-950 hover:bg-orange-400 shadow-[2px_2px_5px_#c3cfe2] active:shadow-[inset_2px_2px_4px_#047857] transition cursor-pointer"
                     >
                       + Novo Item Personalizado
                     </button>
@@ -1001,7 +1001,7 @@ export function ManutencaoView() {
                   </p>
                   <button
                     onClick={() => setFiltroStatusItem("todos")}
-                    className="px-3.5 py-1.5 rounded-xl text-xs font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 hover:bg-emerald-500/20 transition cursor-pointer"
+                    className="px-3.5 py-1.5 rounded-xl text-xs font-bold text-orange-600 dark:text-orange-400 bg-orange-500/10 border border-orange-500/20 hover:bg-orange-500/20 transition cursor-pointer"
                   >
                     Exibir Todos os Itens
                   </button>
@@ -1061,7 +1061,7 @@ export function ManutencaoView() {
                                   ? "bg-rose-500/10 text-rose-600 dark:text-rose-400 border border-rose-500/20"
                                   : isProxima
                                     ? "bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20"
-                                    : "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20"
+                                    : "bg-orange-500/10 text-orange-600 dark:text-orange-400 border border-orange-500/20"
                               }`}
                             >
                               {isVencida
@@ -1113,7 +1113,7 @@ export function ManutencaoView() {
                                   ? "bg-rose-500"
                                   : isProxima
                                     ? "bg-amber-500"
-                                    : "bg-emerald-500"
+                                    : "bg-orange-500"
                               }`}
                               style={{ width: `${percentual}%` }}
                             />
@@ -1149,7 +1149,7 @@ export function ManutencaoView() {
                               }}
                               className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold text-slate-700 dark:text-slate-200 bg-[#eaf0f8] dark:bg-slate-800 border border-slate-300/60 dark:border-slate-700 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none hover:shadow-[3px_3px_8px_#b8c6da] active:shadow-[inset_2px_2px_4px_#c8d4e4] transition cursor-pointer"
                             >
-                              <Calendar className="h-3.5 w-3.5 text-emerald-500" />
+                              <Calendar className="h-3.5 w-3.5 text-orange-500" />
                               <span>Agendar</span>
                             </button>
 
@@ -1177,7 +1177,7 @@ export function ManutencaoView() {
 
                           <button
                             onClick={() => handleConcluirRevisao(item)}
-                            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold text-slate-950 bg-emerald-500 hover:bg-emerald-400 shadow-[2px_2px_5px_#c3cfe2] active:shadow-[inset_2px_2px_4px_#047857] transition cursor-pointer"
+                            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold text-slate-950 bg-orange-500 hover:bg-orange-400 shadow-[2px_2px_5px_#c3cfe2] active:shadow-[inset_2px_2px_4px_#047857] transition cursor-pointer"
                           >
                             <Check className="h-3.5 w-3.5 stroke-[3]" />
                             <span>Concluir Revisão</span>
@@ -1217,7 +1217,7 @@ export function ManutencaoView() {
                           <span
                             className={`px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider ${
                               agendamento.status === "concluido"
-                                ? "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20"
+                                ? "bg-orange-500/10 text-orange-600 dark:text-orange-400 border border-orange-500/20"
                                 : agendamento.status === "confirmado"
                                   ? "bg-sky-500/10 text-sky-600 dark:text-sky-400 border border-sky-500/20"
                                   : agendamento.status === "cancelado"
@@ -1245,13 +1245,13 @@ export function ManutencaoView() {
 
                         <div className="p-3 rounded-2xl bg-[#eaf0f8] dark:bg-slate-950/60 border border-slate-300/50 dark:border-slate-800/80 shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-none space-y-1 text-xs">
                           <div className="flex items-center gap-2 text-slate-600 dark:text-slate-300">
-                            <Calendar className="h-3.5 w-3.5 text-emerald-500" />
+                            <Calendar className="h-3.5 w-3.5 text-orange-500" />
                             <span>
                               Data sugerida: <strong>{agendamento.data_sugerida}</strong>
                             </span>
                           </div>
                           <div className="flex items-center gap-2 text-slate-600 dark:text-slate-300">
-                            <Clock className="h-3.5 w-3.5 text-emerald-500" />
+                            <Clock className="h-3.5 w-3.5 text-orange-500" />
                             <span>
                               Turno: <strong className="capitalize">{agendamento.turno}</strong>
                             </span>
@@ -1279,7 +1279,7 @@ export function ManutencaoView() {
                             onClick={() =>
                               handleAlterarStatusAgendamento(agendamento.id, "confirmado")
                             }
-                            className="px-3.5 py-1.5 rounded-xl text-xs font-bold text-slate-950 bg-emerald-500 hover:bg-emerald-400 shadow-[2px_2px_5px_#c3cfe2] active:shadow-[inset_2px_2px_4px_#047857] transition cursor-pointer"
+                            className="px-3.5 py-1.5 rounded-xl text-xs font-bold text-slate-950 bg-orange-500 hover:bg-orange-400 shadow-[2px_2px_5px_#c3cfe2] active:shadow-[inset_2px_2px_4px_#047857] transition cursor-pointer"
                           >
                             Confirmar
                           </button>
@@ -1292,7 +1292,7 @@ export function ManutencaoView() {
                             onClick={() =>
                               handleAlterarStatusAgendamento(agendamento.id, "concluido")
                             }
-                            className="px-3.5 py-1.5 rounded-xl text-xs font-bold text-slate-950 bg-emerald-500 hover:bg-emerald-400 shadow-[2px_2px_5px_#c3cfe2] active:shadow-[inset_2px_2px_4px_#047857] transition cursor-pointer"
+                            className="px-3.5 py-1.5 rounded-xl text-xs font-bold text-slate-950 bg-orange-500 hover:bg-orange-400 shadow-[2px_2px_5px_#c3cfe2] active:shadow-[inset_2px_2px_4px_#047857] transition cursor-pointer"
                           >
                             Marcar como Concluído
                           </button>
@@ -1311,14 +1311,14 @@ export function ManutencaoView() {
               {/* Barra de Resumo Financeiro do Veículo */}
               <div className="p-4 sm:p-5 rounded-3xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div className="flex items-center gap-3">
-                  <div className="h-10 w-10 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none">
+                  <div className="h-10 w-10 rounded-2xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-orange-600 dark:text-orange-400 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none">
                     <Receipt className="h-5 w-5" />
                   </div>
                   <div>
                     <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
                       Total Investido em Serviços / Peças
                     </span>
-                    <div className="text-xl sm:text-2xl font-black font-mono text-emerald-600 dark:text-emerald-400">
+                    <div className="text-xl sm:text-2xl font-black font-mono text-orange-600 dark:text-orange-400">
                       {new Intl.NumberFormat("pt-BR", {
                         style: "currency",
                         currency: "BRL",
@@ -1335,7 +1335,7 @@ export function ManutencaoView() {
                       setItemSelecionadoParaConcluir(null);
                       setModalDespesaAberto(true);
                     }}
-                    className="flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold text-emerald-950 bg-emerald-400 hover:bg-emerald-300 shadow-[2px_2px_5px_#c3cfe2] active:shadow-[inset_2px_2px_4px_#059669] transition cursor-pointer"
+                    className="flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold text-emerald-950 bg-orange-400 hover:bg-emerald-300 shadow-[2px_2px_5px_#c3cfe2] active:shadow-[inset_2px_2px_4px_#059669] transition cursor-pointer"
                   >
                     <Plus className="h-3.5 w-3.5 stroke-[3]" />
                     <span>Lançar Nova Despesa</span>
@@ -1364,7 +1364,7 @@ export function ManutencaoView() {
                       setItemSelecionadoParaConcluir(null);
                       setModalDespesaAberto(true);
                     }}
-                    className="px-4 py-2 rounded-xl text-xs font-bold bg-emerald-500 text-slate-950 hover:bg-emerald-400 shadow-[2px_2px_5px_#c3cfe2] active:shadow-[inset_2px_2px_4px_#047857] transition cursor-pointer"
+                    className="px-4 py-2 rounded-xl text-xs font-bold bg-orange-500 text-slate-950 hover:bg-orange-400 shadow-[2px_2px_5px_#c3cfe2] active:shadow-[inset_2px_2px_4px_#047857] transition cursor-pointer"
                   >
                     + Lançar Primeiro Gasto
                   </button>
@@ -1389,7 +1389,7 @@ export function ManutencaoView() {
                           <div className="flex items-start justify-between gap-2">
                             <div className="space-y-1">
                               <div className="flex items-center gap-2">
-                                <span className="px-2 py-0.5 rounded-lg text-[10px] font-bold uppercase tracking-wider bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+                                <span className="px-2 py-0.5 rounded-lg text-[10px] font-bold uppercase tracking-wider bg-orange-500/10 text-orange-600 dark:text-orange-400 border border-orange-500/20">
                                   {desp.tipo_despesa || desp.categoria || "Manutenção"}
                                 </span>
                                 {desp.odometro_km != null && (
@@ -1422,7 +1422,7 @@ export function ManutencaoView() {
                               </span>
                               <span className="font-semibold text-slate-700 dark:text-slate-200 flex items-center gap-1.5 mt-0.5">
                                 {desp.forma_pagamento === "pix" && (
-                                  <QrCode className="h-3.5 w-3.5 text-emerald-500" />
+                                  <QrCode className="h-3.5 w-3.5 text-orange-500" />
                                 )}
                                 {(desp.forma_pagamento === "cartao_credito" ||
                                   desp.forma_pagamento === "cartao_debito") && (
@@ -1489,7 +1489,7 @@ export function ManutencaoView() {
                                 <button
                                   onClick={() => handleBaixarNf(desp)}
                                   disabled={baixandoNfId === desp.id}
-                                  className="flex items-center gap-1 px-3 py-1.5 rounded-xl text-xs font-bold text-emerald-950 dark:text-emerald-900 bg-emerald-400 hover:bg-emerald-300 shadow-[2px_2px_5px_#c3cfe2] active:shadow-[inset_2px_2px_4px_#059669] transition cursor-pointer disabled:opacity-50"
+                                  className="flex items-center gap-1 px-3 py-1.5 rounded-xl text-xs font-bold text-emerald-950 dark:text-emerald-900 bg-orange-400 hover:bg-emerald-300 shadow-[2px_2px_5px_#c3cfe2] active:shadow-[inset_2px_2px_4px_#059669] transition cursor-pointer disabled:opacity-50"
                                   title="Baixar Nota Fiscal / Comprovante"
                                 >
                                   {baixandoNfId === desp.id ? (

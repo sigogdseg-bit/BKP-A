@@ -47,7 +47,7 @@ export function ResumoDiarioCard({ veiculoId, onAbrirTimeline }: ResumoDiarioCar
       {/* Cabeçalho do Card */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-1.5 text-xs font-bold text-slate-800 dark:text-slate-200">
-          <Sparkles className="h-3.5 w-3.5 text-emerald-500" />
+          <Sparkles className="h-3.5 w-3.5 text-orange-500" />
           <span>Resumo de Hoje ({resumo.dataReferencia})</span>
         </div>
         <div className="flex items-center gap-1">
@@ -61,7 +61,7 @@ export function ResumoDiarioCard({ veiculoId, onAbrirTimeline }: ResumoDiarioCar
           {onAbrirTimeline && (
             <button
               onClick={onAbrirTimeline}
-              className="text-[10px] font-bold text-emerald-600 dark:text-emerald-400 hover:underline px-1.5 py-0.5"
+              className="text-[10px] font-bold text-orange-600 dark:text-orange-400 hover:underline px-1.5 py-0.5"
             >
               Ver Timeline →
             </button>
@@ -86,7 +86,7 @@ export function ResumoDiarioCard({ veiculoId, onAbrirTimeline }: ResumoDiarioCar
           <div className="text-[10px] text-slate-500 dark:text-slate-400 font-sans uppercase">
             Distância
           </div>
-          <div className="text-sm font-black text-emerald-600 dark:text-emerald-400 mt-0.5">
+          <div className="text-sm font-black text-orange-600 dark:text-orange-400 mt-0.5">
             {resumo.kmTotalPercorrido} <span className="text-[9px] font-normal">km</span>
           </div>
         </div>

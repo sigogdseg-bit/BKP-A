@@ -110,7 +110,7 @@ export function AreasSegurasModal({ veiculo, onFechar }: AreasSegurasModalProps)
   const getIconeTipo = (t: AreaSegura["tipo"]) => {
     switch (t) {
       case "casa":
-        return <Home className="h-4 w-4 text-emerald-500" />;
+        return <Home className="h-4 w-4 text-orange-500" />;
       case "trabalho":
         return <Briefcase className="h-4 w-4 text-sky-500" />;
       case "condominio":
@@ -205,7 +205,7 @@ export function AreasSegurasModal({ veiculo, onFechar }: AreasSegurasModalProps)
           {/* Header */}
           <div className="p-4 sm:p-5 border-b border-slate-300/60 dark:border-slate-800 flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="h-10 w-10 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-500">
+              <div className="h-10 w-10 rounded-2xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-orange-500">
                 <Shield className="h-5 w-5" />
               </div>
               <div>
@@ -238,7 +238,7 @@ export function AreasSegurasModal({ veiculo, onFechar }: AreasSegurasModalProps)
                   </span>
                   <button
                     onClick={handleIniciarCriacao}
-                    className="px-3 py-1.5 rounded-xl text-xs font-bold bg-emerald-500 hover:bg-emerald-400 text-slate-950 shadow-md shadow-emerald-500/20 transition flex items-center gap-1.5"
+                    className="px-3 py-1.5 rounded-xl text-xs font-bold bg-orange-500 hover:bg-orange-400 text-slate-950 shadow-md shadow-orange-500/20 transition flex items-center gap-1.5"
                   >
                     <Plus className="h-3.5 w-3.5" />
                     <span>Nova Área</span>
@@ -273,7 +273,7 @@ export function AreasSegurasModal({ veiculo, onFechar }: AreasSegurasModalProps)
                               <span className="font-bold text-xs text-slate-900 dark:text-slate-100 truncate">
                                 {a.nome}
                               </span>
-                              <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+                              <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-orange-500/10 text-orange-600 dark:text-orange-400 border border-orange-500/20">
                                 {a.raio_metros}m
                               </span>
                             </div>
@@ -326,7 +326,7 @@ export function AreasSegurasModal({ veiculo, onFechar }: AreasSegurasModalProps)
                         <div className="flex items-center gap-1 shrink-0">
                           <button
                             onClick={() => handleIniciarEdicao(a)}
-                            className="p-2 rounded-xl text-slate-400 hover:text-emerald-500 hover:bg-emerald-500/10 transition"
+                            className="p-2 rounded-xl text-slate-400 hover:text-orange-500 hover:bg-orange-500/10 transition"
                             title="Alterar / Editar área segura"
                           >
                             <Pencil className="h-4 w-4" />
@@ -372,7 +372,7 @@ export function AreasSegurasModal({ veiculo, onFechar }: AreasSegurasModalProps)
                     placeholder="Ex: Minha Casa, Trabalho, Condomínio"
                     value={nome}
                     onChange={(e) => setNome(e.target.value)}
-                    className="w-full bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800 rounded-xl px-3 py-2 text-xs text-slate-900 dark:text-slate-100 focus:outline-hidden focus:ring-1 focus:ring-emerald-500"
+                    className="w-full bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800 rounded-xl px-3 py-2 text-xs text-slate-900 dark:text-slate-100 focus:outline-hidden focus:ring-1 focus:ring-orange-500"
                   />
                 </div>
 
@@ -384,7 +384,7 @@ export function AreasSegurasModal({ veiculo, onFechar }: AreasSegurasModalProps)
                   <select
                     value={tipo}
                     onChange={(e) => setTipo(e.target.value as any)}
-                    className="w-full bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800 rounded-xl px-3 py-2 text-xs text-slate-900 dark:text-slate-100 focus:outline-hidden focus:ring-1 focus:ring-emerald-500"
+                    className="w-full bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800 rounded-xl px-3 py-2 text-xs text-slate-900 dark:text-slate-100 focus:outline-hidden focus:ring-1 focus:ring-orange-500"
                   >
                     <option value="casa">Casa / Residência</option>
                     <option value="trabalho">Trabalho / Empresa</option>
@@ -409,7 +409,7 @@ export function AreasSegurasModal({ veiculo, onFechar }: AreasSegurasModalProps)
                         setLongitude(veiculo.longitude);
                         toast.info("Posição preenchida com a localização atual do veículo.");
                       }}
-                      className="text-[10px] font-bold text-emerald-600 dark:text-emerald-400 hover:underline flex items-center gap-1"
+                      className="text-[10px] font-bold text-orange-600 dark:text-orange-400 hover:underline flex items-center gap-1"
                     >
                       <MapPin className="h-3 w-3" />
                       Usar Local do Veículo
@@ -474,7 +474,7 @@ export function AreasSegurasModal({ veiculo, onFechar }: AreasSegurasModalProps)
                 {/* Regras de Entrada e Saída */}
                 <div className="space-y-3 pt-1">
                   <div className="text-[11px] font-bold text-slate-900 dark:text-slate-100 uppercase tracking-wider flex items-center gap-1.5">
-                    <Shield className="h-3.5 w-3.5 text-emerald-500" />
+                    <Shield className="h-3.5 w-3.5 text-orange-500" />
                     <span>Regras de Alerta da Área Segura</span>
                   </div>
 
@@ -591,7 +591,7 @@ export function AreasSegurasModal({ veiculo, onFechar }: AreasSegurasModalProps)
                           onClick={() => alternarDiaSemana(idx)}
                           className={`flex-1 py-1.5 rounded-lg text-xs font-bold transition ${
                             ativo
-                              ? "bg-emerald-500 text-slate-950 font-black shadow-xs"
+                              ? "bg-orange-500 text-slate-950 font-black shadow-xs"
                               : "bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400"
                           }`}
                         >
@@ -607,7 +607,7 @@ export function AreasSegurasModal({ veiculo, onFechar }: AreasSegurasModalProps)
                   type="button"
                   onClick={handleSalvar}
                   disabled={salvando}
-                  className="w-full py-2.5 rounded-xl text-xs font-bold bg-emerald-500 hover:bg-emerald-400 text-slate-950 shadow-md shadow-emerald-500/20 active:scale-95 transition flex items-center justify-center gap-2 disabled:opacity-50 min-h-[44px] cursor-pointer"
+                  className="w-full py-2.5 rounded-xl text-xs font-bold bg-orange-500 hover:bg-orange-400 text-slate-950 shadow-md shadow-orange-500/20 active:scale-95 transition flex items-center justify-center gap-2 disabled:opacity-50 min-h-[44px] cursor-pointer"
                 >
                   {salvando ? (
                     <Loader2 className="h-4 w-4 animate-spin" />

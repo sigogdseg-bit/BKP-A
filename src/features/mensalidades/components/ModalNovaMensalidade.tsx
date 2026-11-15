@@ -113,7 +113,7 @@ export function ModalNovaMensalidade({ clientes, onFechar, onSucesso }: ModalNov
           {/* Header Fixo */}
           <div className="p-4 sm:p-5 border-b border-slate-300/60 dark:border-slate-800 flex items-center justify-between shrink-0 bg-white/70 dark:bg-slate-900/80 backdrop-blur-md">
             <div className="flex items-center gap-3">
-              <div className="h-10 w-10 rounded-2xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shadow-xs shrink-0">
+              <div className="h-10 w-10 rounded-2xl bg-orange-500/15 border border-orange-500/30 flex items-center justify-center text-orange-600 dark:text-orange-400 shadow-xs shrink-0">
                 <Plus className="h-5 w-5" />
               </div>
               <div>
@@ -143,7 +143,7 @@ export function ModalNovaMensalidade({ clientes, onFechar, onSucesso }: ModalNov
                 <select
                   value={clienteId}
                   onChange={(e) => handleClienteChange(e.target.value)}
-                  className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-100 shadow-[inset_1px_1px_3px_#c8d4e4] dark:shadow-none focus:outline-none focus:border-emerald-500"
+                  className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-100 shadow-[inset_1px_1px_3px_#c8d4e4] dark:shadow-none focus:outline-none focus:border-orange-500"
                   required
                 >
                   {clientes.length === 0 ? (
@@ -167,7 +167,7 @@ export function ModalNovaMensalidade({ clientes, onFechar, onSucesso }: ModalNov
                   <select
                     value={mes}
                     onChange={(e) => handleMesAnoChange(Number(e.target.value), ano)}
-                    className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-100 shadow-[inset_1px_1px_3px_#c8d4e4] dark:shadow-none focus:outline-none focus:border-emerald-500"
+                    className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-100 shadow-[inset_1px_1px_3px_#c8d4e4] dark:shadow-none focus:outline-none focus:border-orange-500"
                   >
                     {Array.from({ length: 12 }, (_, i) => i + 1).map((m) => (
                       <option key={m} value={m}>
@@ -187,7 +187,7 @@ export function ModalNovaMensalidade({ clientes, onFechar, onSucesso }: ModalNov
                     max={2035}
                     value={ano}
                     onChange={(e) => handleMesAnoChange(mes, Number(e.target.value))}
-                    className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-100 shadow-[inset_1px_1px_3px_#c8d4e4] dark:shadow-none focus:outline-none focus:border-emerald-500 font-mono"
+                    className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-100 shadow-[inset_1px_1px_3px_#c8d4e4] dark:shadow-none focus:outline-none focus:border-orange-500 font-mono"
                     required
                   />
                 </div>
@@ -204,7 +204,7 @@ export function ModalNovaMensalidade({ clientes, onFechar, onSucesso }: ModalNov
                     min="0.01"
                     value={valor}
                     onChange={(e) => setValor(Number(e.target.value))}
-                    className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-100 shadow-[inset_1px_1px_3px_#c8d4e4] dark:shadow-none focus:outline-none focus:border-emerald-500 font-mono font-bold"
+                    className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-100 shadow-[inset_1px_1px_3px_#c8d4e4] dark:shadow-none focus:outline-none focus:border-orange-500 font-mono font-bold"
                     required
                   />
                 </div>
@@ -217,7 +217,7 @@ export function ModalNovaMensalidade({ clientes, onFechar, onSucesso }: ModalNov
                     type="date"
                     value={dataVencimento}
                     onChange={(e) => setDataVencimento(e.target.value)}
-                    className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-100 shadow-[inset_1px_1px_3px_#c8d4e4] dark:shadow-none focus:outline-none focus:border-emerald-500 font-mono"
+                    className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-100 shadow-[inset_1px_1px_3px_#c8d4e4] dark:shadow-none focus:outline-none focus:border-orange-500 font-mono"
                     required
                   />
                 </div>
@@ -244,7 +244,7 @@ export function ModalNovaMensalidade({ clientes, onFechar, onSucesso }: ModalNov
                     onClick={() => setStatus("pago")}
                     className={`py-2 px-3 rounded-xl text-xs font-bold border transition ${
                       status === "pago"
-                        ? "bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 border-emerald-500/40 shadow-xs"
+                        ? "bg-orange-500/20 text-orange-700 dark:text-orange-300 border-orange-500/40 shadow-xs"
                         : "bg-white dark:bg-slate-950 text-slate-600 dark:text-slate-400 border-slate-300/70 dark:border-slate-800 hover:text-slate-900 dark:hover:text-slate-200"
                     }`}
                   >
@@ -267,7 +267,7 @@ export function ModalNovaMensalidade({ clientes, onFechar, onSucesso }: ModalNov
               <button
                 type="submit"
                 disabled={salvando || clientes.length === 0}
-                className="w-full sm:w-auto min-h-[44px] flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold bg-emerald-500 hover:bg-emerald-400 text-slate-950 transition shadow-lg shadow-emerald-500/20 disabled:opacity-50"
+                className="w-full sm:w-auto min-h-[44px] flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold bg-orange-500 hover:bg-orange-400 text-slate-950 transition shadow-lg shadow-orange-500/20 disabled:opacity-50"
               >
                 {salvando ? (
                   <>

@@ -94,7 +94,7 @@ export function AtendimentoView() {
       {/* 1. Header do Módulo */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 bg-[#eaf0f8] dark:bg-slate-900/80 border border-slate-300/60 dark:border-slate-800 p-4 sm:p-5 rounded-2xl shadow-[4px_4px_10px_#c3cfe2] dark:shadow-xl">
         <div className="flex items-center gap-3">
-          <div className="h-12 w-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shadow-xs">
+          <div className="h-12 w-12 rounded-2xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-orange-600 dark:text-orange-400 shadow-xs">
             <Headphones className="h-6 w-6" />
           </div>
           <div>
@@ -109,7 +109,7 @@ export function AtendimentoView() {
 
         <button
           onClick={() => setModalNovo(true)}
-          className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold bg-emerald-500 hover:bg-emerald-400 text-slate-950 transition shadow-lg shadow-emerald-500/20"
+          className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold bg-orange-500 hover:bg-orange-400 text-slate-950 transition shadow-lg shadow-orange-500/20"
         >
           <Plus className="h-4 w-4" />
           <span>Novo Atendimento</span>
@@ -129,14 +129,14 @@ export function AtendimentoView() {
           onKeyDown={(e) => e.key === "Enter" && setFiltroStatus("todos")}
           className={`rounded-2xl p-3.5 sm:p-4 text-center cursor-pointer transition-all duration-200 hover:-translate-y-0.5 border ${
             filtroStatus === "todos"
-              ? "bg-emerald-500/15 border-emerald-500/80 ring-2 ring-emerald-500/30 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-lg"
+              ? "bg-orange-500/15 border-orange-500/80 ring-2 ring-orange-500/30 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-lg"
               : "bg-[#eaf0f8] dark:bg-slate-900/60 border-slate-300/60 dark:border-slate-800/80 hover:border-slate-400 dark:hover:border-slate-700 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none"
           }`}
         >
           <div className="text-xs text-slate-600 dark:text-slate-400 font-semibold uppercase flex items-center justify-center gap-1">
             <span>Total</span>
             {filtroStatus === "todos" && (
-              <span className="text-[9px] text-emerald-600 dark:text-emerald-400 font-bold">
+              <span className="text-[9px] text-orange-600 dark:text-orange-400 font-bold">
                 (Ativo)
               </span>
             )}
@@ -211,19 +211,19 @@ export function AtendimentoView() {
           onKeyDown={(e) => e.key === "Enter" && setFiltroStatus("resolvido")}
           className={`rounded-2xl p-3.5 sm:p-4 text-center cursor-pointer transition-all duration-200 hover:-translate-y-0.5 border ${
             filtroStatus === "resolvido"
-              ? "bg-emerald-500/15 border-emerald-500/80 ring-2 ring-emerald-500/30 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-lg"
-              : "bg-[#eaf0f8] dark:bg-slate-900/60 border-slate-300/60 dark:border-slate-800/80 hover:border-emerald-500/40 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none"
+              ? "bg-orange-500/15 border-orange-500/80 ring-2 ring-orange-500/30 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-lg"
+              : "bg-[#eaf0f8] dark:bg-slate-900/60 border-slate-300/60 dark:border-slate-800/80 hover:border-orange-500/40 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none"
           }`}
         >
-          <div className="text-xs text-emerald-600 dark:text-emerald-400 font-semibold uppercase flex items-center justify-center gap-1">
+          <div className="text-xs text-orange-600 dark:text-orange-400 font-semibold uppercase flex items-center justify-center gap-1">
             <span>Resolvidos</span>
             {filtroStatus === "resolvido" && (
-              <span className="text-[9px] text-emerald-600 dark:text-emerald-300 font-bold">
+              <span className="text-[9px] text-orange-600 dark:text-orange-300 font-bold">
                 (Ativo)
               </span>
             )}
           </div>
-          <div className="text-2xl font-black font-mono text-emerald-600 dark:text-emerald-400 mt-1">
+          <div className="text-2xl font-black font-mono text-orange-600 dark:text-orange-400 mt-1">
             {totais.resolvidos}
           </div>
         </TiltCard>
@@ -238,7 +238,7 @@ export function AtendimentoView() {
             placeholder="Buscar por protocolo, título, cliente, placa..."
             value={busca}
             onChange={(e) => setBusca(e.target.value)}
-            className="w-full pl-9 pr-3 py-1.5 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-200 placeholder-slate-400 shadow-[inset_1px_1px_3px_#c8d4e4] dark:shadow-none focus:outline-none focus:border-emerald-500"
+            className="w-full pl-9 pr-3 py-1.5 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-200 placeholder-slate-400 shadow-[inset_1px_1px_3px_#c8d4e4] dark:shadow-none focus:outline-none focus:border-orange-500"
           />
         </div>
 
@@ -249,7 +249,7 @@ export function AtendimentoView() {
               onClick={() => setFiltroStatus(st)}
               className={`px-3 py-1.5 rounded-xl font-medium capitalize transition ${
                 filtroStatus === st
-                  ? "bg-emerald-500/20 text-emerald-700 dark:text-emerald-400 border border-emerald-500/30 font-bold shadow-xs"
+                  ? "bg-orange-500/20 text-orange-700 dark:text-orange-400 border border-orange-500/30 font-bold shadow-xs"
                   : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
               }`}
             >
@@ -282,7 +282,7 @@ export function AtendimentoView() {
                   <div
                     className={`h-10 w-10 rounded-xl flex items-center justify-center font-bold text-xs font-mono shrink-0 border ${
                       isResolvido
-                        ? "bg-emerald-500/15 border-emerald-500/30 text-emerald-700 dark:text-emerald-400 shadow-xs"
+                        ? "bg-orange-500/15 border-orange-500/30 text-orange-700 dark:text-orange-400 shadow-xs"
                         : isAberto
                           ? "bg-amber-500/15 border-amber-500/30 text-amber-700 dark:text-amber-400 shadow-xs"
                           : "bg-sky-500/15 border-sky-500/30 text-sky-700 dark:text-sky-400 shadow-xs"
@@ -293,13 +293,13 @@ export function AtendimentoView() {
 
                   <div className="min-w-0">
                     <div className="flex items-center gap-2 flex-wrap">
-                      <span className="font-bold text-sm text-slate-900 dark:text-slate-100 truncate group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition">
+                      <span className="font-bold text-sm text-slate-900 dark:text-slate-100 truncate group-hover:text-orange-600 dark:group-hover:text-orange-400 transition">
                         {a.titulo}
                       </span>
                       <span
                         className={`px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider ${
                           isResolvido
-                            ? "bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30"
+                            ? "bg-orange-500/20 text-orange-700 dark:text-orange-300 border border-orange-500/30"
                             : isAberto
                               ? "bg-amber-500/20 text-amber-700 dark:text-amber-300 border border-amber-500/30"
                               : "bg-sky-500/20 text-sky-700 dark:text-sky-300 border border-sky-500/30"
@@ -319,7 +319,7 @@ export function AtendimentoView() {
                         <>
                           {" "}
                           · Veículo:{" "}
-                          <span className="font-mono text-emerald-600 dark:text-emerald-400">
+                          <span className="font-mono text-orange-600 dark:text-orange-400">
                             {a.veiculo_placa}
                           </span>
                         </>

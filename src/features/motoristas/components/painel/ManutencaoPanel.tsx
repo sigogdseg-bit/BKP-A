@@ -312,8 +312,8 @@ export function ManutencaoPanel({
       </div>
 
       {mensagemSucesso && (
-        <div className="flex items-start gap-2.5 rounded-xl bg-emerald-500/10 border border-emerald-500/30 p-3.5">
-          <CheckCircle className="h-5 w-5 text-emerald-400 flex-shrink-0 mt-0.5" />
+        <div className="flex items-start gap-2.5 rounded-xl bg-orange-500/10 border border-orange-500/30 p-3.5">
+          <CheckCircle className="h-5 w-5 text-orange-400 flex-shrink-0 mt-0.5" />
           <p className="text-xs text-emerald-200 leading-relaxed">{mensagemSucesso}</p>
         </div>
       )}
@@ -410,7 +410,7 @@ export function ManutencaoPanel({
                   <span>Valor Total Gasto (R$)</span>
                 </label>
                 <div className="relative">
-                  <span className="absolute left-3 top-2 text-xs font-black text-emerald-600 dark:text-emerald-400">
+                  <span className="absolute left-3 top-2 text-xs font-black text-orange-600 dark:text-orange-400">
                     R$
                   </span>
                   <MoedaInput
@@ -599,7 +599,7 @@ export function ManutencaoPanel({
                         ? "bg-red-500/20 text-red-300 border border-red-500/30"
                         : proxima
                           ? "bg-amber-500/20 text-amber-300 border border-amber-500/30"
-                          : "bg-emerald-500/20 text-emerald-300 border border-emerald-500/30"
+                          : "bg-orange-500/20 text-orange-300 border border-orange-500/30"
                     }`}
                   >
                     {vencida ? "Vencida" : proxima ? "Próxima" : "Em dia"}

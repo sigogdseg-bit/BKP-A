@@ -167,7 +167,7 @@ export function ModalDadosInstalador({
               {/* Chave PIX */}
               <div className="space-y-1.5">
                 <label className="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
-                  <CreditCard className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
+                  <CreditCard className="h-4 w-4 text-orange-600 dark:text-orange-400" />
                   Chave PIX para Recebimento de Repasses
                 </label>
                 <input

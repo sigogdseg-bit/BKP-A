@@ -604,10 +604,10 @@ export function MobileDrawer({
                 className="h-14 w-14 object-contain shrink-0 drop-shadow-md group-hover:scale-105 transition-transform"
               />
               <div>
-                <span className="font-black text-slate-900 dark:text-slate-100 tracking-wider text-sm uppercase block group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+                <span className="font-black text-slate-900 dark:text-slate-100 tracking-wider text-sm uppercase block group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors">
                   {APP_NOME}
                 </span>
-                <span className="text-[10px] text-emerald-600 dark:text-emerald-400 font-mono font-bold block">
+                <span className="text-[10px] text-orange-600 dark:text-orange-400 font-mono font-bold block">
                   v{APP_VERSION_NUMERO}
                 </span>
               </div>
@@ -632,7 +632,7 @@ export function MobileDrawer({
               {session.email}
             </div>
             <div className="mt-2 flex items-center gap-1.5 flex-wrap">
-              <span className="px-2 py-0.5 text-[9px] rounded-md font-bold uppercase tracking-wider bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/20">
+              <span className="px-2 py-0.5 text-[9px] rounded-md font-bold uppercase tracking-wider bg-orange-500/10 text-orange-700 dark:text-orange-400 border border-orange-500/20">
                 {session.isAdmin
                   ? "Administrador"
                   : session.isRevendedor
@@ -694,7 +694,7 @@ export function MobileDrawer({
                 className="w-full flex items-center justify-between p-3 rounded-2xl text-xs font-bold text-emerald-800 dark:text-emerald-300 bg-emerald-500/15 hover:bg-emerald-500/25 border border-emerald-500/30 transition shadow-xs cursor-pointer text-left group"
               >
                 <div className="flex items-center gap-3">
-                  <div className="p-2 rounded-xl bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 group-hover:scale-105 transition-transform">
+                  <div className="p-2 rounded-xl bg-orange-500/20 text-orange-600 dark:text-orange-400 group-hover:scale-105 transition-transform">
                     <MessageSquare className="h-4 w-4" />
                   </div>
                   <div>
@@ -704,12 +704,12 @@ export function MobileDrawer({
                         Gateway
                       </span>
                     </div>
-                    <div className="text-[10px] text-emerald-700 dark:text-emerald-400 font-normal">
+                    <div className="text-[10px] text-orange-700 dark:text-orange-400 font-normal">
                       Disparo rápido para clientes e motoristas
                     </div>
                   </div>
                 </div>
-                <ChevronRight className="h-4 w-4 text-emerald-600 dark:text-emerald-400 opacity-60 group-hover:translate-x-0.5 transition-transform" />
+                <ChevronRight className="h-4 w-4 text-orange-600 dark:text-orange-400 opacity-60 group-hover:translate-x-0.5 transition-transform" />
               </button>
             )}
 
@@ -731,11 +731,11 @@ export function MobileDrawer({
                       className="flex items-center justify-between px-3 py-2.5 min-h-[44px] rounded-xl text-xs font-medium text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200/60 dark:hover:bg-slate-800/80 transition group"
                       activeProps={{
                         className:
-                          "bg-emerald-500/15 text-emerald-800 dark:text-emerald-300 font-bold border border-emerald-500/30 shadow-xs",
+                          "bg-orange-500/15 text-orange-800 dark:text-orange-300 font-bold border border-orange-500/30 shadow-xs",
                       }}
                     >
                       <div className="flex items-center gap-3 min-w-0">
-                        <Icone className="h-4 w-4 text-slate-500 dark:text-slate-400 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition shrink-0" />
+                        <Icone className="h-4 w-4 text-slate-500 dark:text-slate-400 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition shrink-0" />
                         <div className="truncate">
                           <div className="truncate font-semibold">{item.titulo}</div>
                           {item.descricao && (

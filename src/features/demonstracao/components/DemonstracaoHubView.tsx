@@ -67,7 +67,7 @@ export function DemonstracaoHubView() {
                 <Sparkles className="h-3.5 w-3.5 text-amber-400 animate-pulse" />
                 Ambiente de Demonstração e Treinamento
               </span>
-              <span className="px-2.5 py-0.5 rounded-full bg-emerald-500/20 border border-emerald-400/30 text-emerald-300 text-[11px] font-mono font-bold">
+              <span className="px-2.5 py-0.5 rounded-full bg-orange-500/20 border border-orange-400/30 text-orange-300 text-[11px] font-mono font-bold">
                 100% Sandbox Isolado
               </span>
             </div>
@@ -84,7 +84,7 @@ export function DemonstracaoHubView() {
 
           <div className="flex flex-col items-end gap-2 shrink-0">
             <div className="p-3 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md flex items-center gap-3">
-              <ShieldCheck className="h-8 w-8 text-emerald-400" />
+              <ShieldCheck className="h-8 w-8 text-orange-400" />
               <div className="text-right">
                 <div className="text-xs font-mono font-bold text-slate-200">
                   Proteção Ativa de Dados
@@ -127,26 +127,26 @@ export function DemonstracaoHubView() {
               </div>
 
               <div className="flex items-center gap-2 text-xs text-slate-700 dark:text-slate-300">
-                <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0" />
+                <CheckCircle2 className="h-4 w-4 text-orange-500 shrink-0" />
                 <span>1. Abertura do link de convite e autorização instantânea</span>
               </div>
               <div className="flex items-center gap-2 text-xs text-slate-700 dark:text-slate-300">
-                <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0" />
+                <CheckCircle2 className="h-4 w-4 text-orange-500 shrink-0" />
                 <span>2. Preenchimento de dados pessoais, senha e plano</span>
               </div>
               <div className="flex items-center gap-2 text-xs text-slate-700 dark:text-slate-300">
-                <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0" />
+                <CheckCircle2 className="h-4 w-4 text-orange-500 shrink-0" />
                 <span>3. Cadastro de veículo com seletor 3D e placa</span>
               </div>
               <div className="flex items-center gap-2 text-xs text-slate-700 dark:text-slate-300">
-                <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0" />
+                <CheckCircle2 className="h-4 w-4 text-orange-500 shrink-0" />
                 <span>
                   4. Agendamento pré-atribuído com o instalador fantasma:{" "}
                   <strong>{INSTALADOR_FANTASMA_PADRAO.nome.split("—")[0]}</strong>
                 </span>
               </div>
               <div className="flex items-center gap-2 text-xs text-slate-700 dark:text-slate-300">
-                <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0" />
+                <CheckCircle2 className="h-4 w-4 text-orange-500 shrink-0" />
                 <span>5. Visualização no painel sem gravar nada no banco real</span>
               </div>
             </div>
@@ -181,19 +181,19 @@ export function DemonstracaoHubView() {
         </div>
 
         {/* CARD 2: Jornada do Instalador */}
-        <div className="rounded-3xl p-6 sm:p-7 bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl flex flex-col justify-between hover:border-emerald-500/50 transition duration-300 relative group overflow-hidden">
+        <div className="rounded-3xl p-6 sm:p-7 bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl flex flex-col justify-between hover:border-orange-500/50 transition duration-300 relative group overflow-hidden">
           <div className="space-y-4">
             <div className="flex items-center justify-between">
-              <div className="p-3 rounded-2xl bg-[#eaf0f8] dark:bg-slate-800 border border-slate-300/60 dark:border-slate-700 text-emerald-600 dark:text-emerald-400 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none">
+              <div className="p-3 rounded-2xl bg-[#eaf0f8] dark:bg-slate-800 border border-slate-300/60 dark:border-slate-700 text-orange-600 dark:text-orange-400 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none">
                 <Wrench className="h-7 w-7" />
               </div>
-              <span className="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 text-xs font-bold font-mono">
+              <span className="px-3 py-1 rounded-full bg-orange-500/10 text-orange-700 dark:text-orange-300 text-xs font-bold font-mono">
                 Jornada B • Instalador Técnico
               </span>
             </div>
 
             <div>
-              <h2 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition">
+              <h2 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white group-hover:text-orange-600 dark:group-hover:text-orange-400 transition">
                 Simulação do Instalador (Campo)
               </h2>
               <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1">
@@ -209,25 +209,25 @@ export function DemonstracaoHubView() {
               </div>
 
               <div className="flex items-center gap-2 text-xs text-slate-700 dark:text-slate-300">
-                <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0" />
+                <CheckCircle2 className="h-4 w-4 text-orange-500 shrink-0" />
                 <span>1. Abertura do link de credenciamento e preenchimento de PIX</span>
               </div>
               <div className="flex items-center gap-2 text-xs text-slate-700 dark:text-slate-300">
-                <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0" />
+                <CheckCircle2 className="h-4 w-4 text-orange-500 shrink-0" />
                 <span>
                   2. Acesso à fila com cliente fantasma e kit fantasma atribuído (J16 + Chip M2M)
                 </span>
               </div>
               <div className="flex items-center gap-2 text-xs text-slate-700 dark:text-slate-300">
-                <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0" />
+                <CheckCircle2 className="h-4 w-4 text-orange-500 shrink-0" />
                 <span>3. Conferência de IMEI, fotos de instalação e checklist de chicote</span>
               </div>
               <div className="flex items-center gap-2 text-xs text-slate-700 dark:text-slate-300">
-                <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0" />
+                <CheckCircle2 className="h-4 w-4 text-orange-500 shrink-0" />
                 <span>4. Testes simulados de ignição e comando de bloqueio Concox</span>
               </div>
               <div className="flex items-center gap-2 text-xs text-slate-700 dark:text-slate-300">
-                <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0" />
+                <CheckCircle2 className="h-4 w-4 text-orange-500 shrink-0" />
                 <span>5. Conclusão da OS com assinatura digital e recibo simulado</span>
               </div>
             </div>
@@ -250,7 +250,7 @@ export function DemonstracaoHubView() {
               type="button"
               onClick={iniciarJornadaInstalador}
               disabled={iniciando === "instalador"}
-              className="flex-1 py-3 px-4 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none active:shadow-[inset_2px_2px_4px_#047857] flex items-center justify-center gap-2 transition cursor-pointer disabled:opacity-50"
+              className="flex-1 py-3 px-4 rounded-2xl bg-orange-600 hover:bg-orange-500 text-white font-bold text-sm shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none active:shadow-[inset_2px_2px_4px_#047857] flex items-center justify-center gap-2 transition cursor-pointer disabled:opacity-50"
             >
               <Play className="h-4 w-4 fill-white" />
               <span>

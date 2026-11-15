@@ -182,7 +182,7 @@ export function TelaBloqueioMensalidadeVencida({
         <div className="flex flex-col items-center justify-center p-4 rounded-2xl bg-white text-slate-950 border border-slate-300/60 dark:border-transparent shadow-inner">
           {gerandoQr ? (
             <div className="h-44 flex flex-col items-center justify-center gap-2">
-              <div className="h-8 w-8 rounded-full border-2 border-emerald-500 border-t-transparent animate-spin" />
+              <div className="h-8 w-8 rounded-full border-2 border-orange-500 border-t-transparent animate-spin" />
               <span className="text-xs text-slate-600 font-mono">Gerando QR Code...</span>
             </div>
           ) : qrCodeDataUrl ? (
@@ -211,7 +211,7 @@ export function TelaBloqueioMensalidadeVencida({
             </label>
             <button
               onClick={handleCopiarPix}
-              className="text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 font-bold flex items-center gap-1 text-[11px] transition"
+              className="text-orange-600 dark:text-orange-400 hover:text-orange-700 dark:hover:text-orange-300 font-bold flex items-center gap-1 text-[11px] transition"
             >
               {copiadoPix ? <Check className="h-3.5 w-3.5" /> : <Copy className="h-3.5 w-3.5" />}
               <span>{copiadoPix ? "Copiado!" : "Copiar Código"}</span>
@@ -230,7 +230,7 @@ export function TelaBloqueioMensalidadeVencida({
           <button
             onClick={handleChecarQuitacao}
             disabled={verificandoBaixa}
-            className="w-full py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/20 transition disabled:opacity-50"
+            className="w-full py-3 rounded-xl bg-orange-600 hover:bg-orange-500 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-lg shadow-orange-600/20 transition disabled:opacity-50"
           >
             <RefreshCw className={`h-4 w-4 ${verificandoBaixa ? "animate-spin" : ""}`} />
             <span>
@@ -243,7 +243,7 @@ export function TelaBloqueioMensalidadeVencida({
               onClick={handleSuporte}
               className="py-2.5 rounded-xl bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-semibold text-xs flex items-center justify-center gap-1.5 transition border border-slate-300/70 dark:border-slate-700 shadow-xs"
             >
-              <Phone className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400" />
+              <Phone className="h-3.5 w-3.5 text-orange-600 dark:text-orange-400" />
               <span>Contatar Suporte</span>
             </button>
 

@@ -128,7 +128,7 @@ export function ModalClienteSolicitarVeiculo({
           {/* Header */}
           <div className="flex items-center justify-between p-4 sm:p-5 border-b border-slate-300/60 dark:border-slate-800 bg-[#eaf0f8]/90 dark:bg-slate-900/90 shrink-0">
             <div className="flex items-center gap-3">
-              <div className="h-10 w-10 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shadow-xs">
+              <div className="h-10 w-10 rounded-2xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-orange-600 dark:text-orange-400 shadow-xs">
                 <Car className="h-5 w-5" />
               </div>
               <div>
@@ -173,7 +173,7 @@ export function ModalClienteSolicitarVeiculo({
                 <select
                   value={tipoVeiculo}
                   onChange={(e) => setTipoVeiculo(e.target.value as TipoVeiculo)}
-                  className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-200 focus:outline-none focus:border-emerald-500 transition"
+                  className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-200 focus:outline-none focus:border-orange-500 transition"
                 >
                   {LISTA_TIPOS_VEICULO.map((t) => (
                     <option key={t.id} value={t.id}>
@@ -212,7 +212,7 @@ export function ModalClienteSolicitarVeiculo({
                           isSemPlaca ? "Opcional (ou Chassi / Nº)" : "ABC-1234 ou ABC1D23"
                         }
                         maxLength={10}
-                        className="w-full px-3 py-2 font-mono uppercase bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-200 focus:outline-none focus:border-emerald-500 transition"
+                        className="w-full px-3 py-2 font-mono uppercase bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-200 focus:outline-none focus:border-orange-500 transition"
                       />
                     </div>
 
@@ -229,7 +229,7 @@ export function ModalClienteSolicitarVeiculo({
                         onChange={(e) => setChassi(e.target.value.toUpperCase())}
                         placeholder="6 últimos dígitos p/ mapa"
                         maxLength={25}
-                        className="w-full px-3 py-2 font-mono uppercase bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-200 focus:outline-none focus:border-emerald-500 transition"
+                        className="w-full px-3 py-2 font-mono uppercase bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-200 focus:outline-none focus:border-orange-500 transition"
                       />
                     </div>
                   </>
@@ -247,7 +247,7 @@ export function ModalClienteSolicitarVeiculo({
                   value={modelo}
                   onChange={(e) => setModelo(e.target.value)}
                   placeholder="Ex: Corolla, Onix, CG 160"
-                  className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-200 focus:outline-none focus:border-emerald-500 transition"
+                  className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-200 focus:outline-none focus:border-orange-500 transition"
                 />
               </div>
 
@@ -260,7 +260,7 @@ export function ModalClienteSolicitarVeiculo({
                   value={marca}
                   onChange={(e) => setMarca(e.target.value)}
                   placeholder="Ex: Toyota, Chevrolet, Honda"
-                  className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-200 focus:outline-none focus:border-emerald-500 transition"
+                  className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-200 focus:outline-none focus:border-orange-500 transition"
                 />
               </div>
 
@@ -274,7 +274,7 @@ export function ModalClienteSolicitarVeiculo({
                   onChange={(e) => setAno(e.target.value)}
                   placeholder="Ex: 2024"
                   maxLength={4}
-                  className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-200 focus:outline-none focus:border-emerald-500 transition"
+                  className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-200 focus:outline-none focus:border-orange-500 transition"
                 />
               </div>
 
@@ -287,7 +287,7 @@ export function ModalClienteSolicitarVeiculo({
                   value={cor}
                   onChange={(e) => setCor(e.target.value)}
                   placeholder="Ex: Prata, Preto, Branco"
-                  className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-200 focus:outline-none focus:border-emerald-500 transition"
+                  className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-200 focus:outline-none focus:border-orange-500 transition"
                 />
               </div>
 
@@ -300,7 +300,7 @@ export function ModalClienteSolicitarVeiculo({
                   value={observacoes}
                   onChange={(e) => setObservacoes(e.target.value)}
                   placeholder="Ex: Preferência por instalação aos sábados pela manhã"
-                  className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-200 focus:outline-none focus:border-emerald-500 transition resize-none"
+                  className="w-full px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300/70 dark:border-slate-800 rounded-xl text-xs text-slate-800 dark:text-slate-200 focus:outline-none focus:border-orange-500 transition resize-none"
                 />
               </div>
             </div>
@@ -318,7 +318,7 @@ export function ModalClienteSolicitarVeiculo({
               <button
                 type="submit"
                 disabled={salvando}
-                className="flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold bg-emerald-500 hover:bg-emerald-400 text-slate-950 transition shadow-lg shadow-emerald-500/20 disabled:opacity-50"
+                className="flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold bg-orange-500 hover:bg-orange-400 text-slate-950 transition shadow-lg shadow-orange-500/20 disabled:opacity-50"
               >
                 {salvando ? (
                   <>

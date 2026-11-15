@@ -402,7 +402,7 @@ export function ModalNovaProposta({
           {/* Cabeçalho Fixo */}
           <div className="p-4 sm:p-5 border-b border-slate-300/60 dark:border-slate-800 flex items-center justify-between shrink-0 bg-white/70 dark:bg-slate-900/80 backdrop-blur-md">
             <div className="flex items-center gap-3">
-              <div className="h-10 w-10 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shadow-xs shrink-0">
+              <div className="h-10 w-10 rounded-2xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-orange-600 dark:text-orange-400 shadow-xs shrink-0">
                 {isEdicao ? <Edit3 className="h-5 w-5" /> : <FileText className="h-5 w-5" />}
               </div>
               <div>
@@ -413,7 +413,7 @@ export function ModalNovaProposta({
                       : "Montar Proposta Comercial"}
                   </h2>
                   {memoriaAtiva && !isEdicao && (
-                    <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/15 text-emerald-700 dark:text-emerald-400 border border-emerald-500/30">
+                    <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold bg-orange-500/15 text-orange-700 dark:text-orange-400 border border-orange-500/30">
                       <Sparkles className="h-3 w-3" /> Memória Ativa
                     </span>
                   )}
@@ -451,7 +451,7 @@ export function ModalNovaProposta({
                     : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
                 }`}
               >
-                <Car className="h-4 w-4 text-emerald-600" />
+                <Car className="h-4 w-4 text-orange-600" />
                 <span>Veículo Individual</span>
               </button>
 
@@ -470,14 +470,14 @@ export function ModalNovaProposta({
             </div>
 
             {/* Alerta de Governança e Regra de Repasse Mínimo */}
-            <div className="p-3 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-between gap-2 text-xs">
-              <div className="flex items-center gap-2 text-emerald-800 dark:text-emerald-300 font-bold">
-                <ShieldCheck className="h-4 w-4 shrink-0 text-emerald-600 dark:text-emerald-400" />
+            <div className="p-3 rounded-2xl bg-orange-500/10 border border-orange-500/30 flex items-center justify-between gap-2 text-xs">
+              <div className="flex items-center gap-2 text-orange-800 dark:text-orange-300 font-bold">
+                <ShieldCheck className="h-4 w-4 shrink-0 text-orange-600 dark:text-orange-400" />
                 <span>
                   Base Mínima de Repasse: R$ {baseRepasseMinima.toFixed(2).replace(".", ",")}
                 </span>
               </div>
-              <span className="text-[11px] font-semibold text-emerald-700 dark:text-emerald-400">
+              <span className="text-[11px] font-semibold text-orange-700 dark:text-orange-400">
                 Sugestão (+ R$ 15,00): R$ {(baseRepasseMinima + 15).toFixed(2).replace(".", ",")}
                 /mês
               </span>
@@ -486,7 +486,7 @@ export function ModalNovaProposta({
             {/* Seção 1: Dados do Cliente */}
             <div className="p-3.5 rounded-2xl bg-white/70 dark:bg-slate-950/60 border border-slate-300/60 dark:border-slate-800 space-y-3 shadow-xs">
               <div className="flex items-center gap-2 text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider">
-                <User className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
+                <User className="h-4 w-4 text-orange-600 dark:text-orange-400" />
                 <span>1. Informações do Cliente ou Empresa</span>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -500,7 +500,7 @@ export function ModalNovaProposta({
                     placeholder="Ex: Carlos Eduardo Silva ou Transportes Ltda"
                     value={clienteNome}
                     onChange={(e) => setClienteNome(e.target.value)}
-                    className="w-full text-xs px-3 py-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-300/70 dark:border-slate-800 focus:outline-none focus:ring-2 focus:ring-emerald-500/30 font-medium"
+                    className="w-full text-xs px-3 py-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-300/70 dark:border-slate-800 focus:outline-none focus:ring-2 focus:ring-orange-500/30 font-medium"
                   />
                 </div>
                 <div>
@@ -513,7 +513,7 @@ export function ModalNovaProposta({
                     placeholder="Ex: (24) 99999-8888"
                     value={clienteTelefone}
                     onChange={(e) => setClienteTelefone(formatarTelefone(e.target.value))}
-                    className="w-full text-xs px-3 py-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-300/70 dark:border-slate-800 focus:outline-none focus:ring-2 focus:ring-emerald-500/30 font-medium"
+                    className="w-full text-xs px-3 py-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-300/70 dark:border-slate-800 focus:outline-none focus:ring-2 focus:ring-orange-500/30 font-medium"
                   />
                 </div>
               </div>
@@ -523,7 +523,7 @@ export function ModalNovaProposta({
             {tipoProposta === "individual" ? (
               <div className="p-3.5 rounded-2xl bg-white/70 dark:bg-slate-950/60 border border-slate-300/60 dark:border-slate-800 space-y-3 shadow-xs">
                 <div className="flex items-center gap-2 text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider">
-                  <Car className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
+                  <Car className="h-4 w-4 text-orange-600 dark:text-orange-400" />
                   <span>2. Identificação do Veículo</span>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -537,7 +537,7 @@ export function ModalNovaProposta({
                       placeholder="Ex: Toyota, Honda, Fiat"
                       value={veiculoMarca}
                       onChange={(e) => setVeiculoMarca(e.target.value)}
-                      className="w-full text-xs px-3 py-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-300/70 dark:border-slate-800 focus:outline-none focus:ring-2 focus:ring-emerald-500/30 font-medium"
+                      className="w-full text-xs px-3 py-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-300/70 dark:border-slate-800 focus:outline-none focus:ring-2 focus:ring-orange-500/30 font-medium"
                     />
                   </div>
                   <div>
@@ -550,7 +550,7 @@ export function ModalNovaProposta({
                       placeholder="Ex: Corolla XEi, Civic, Strada"
                       value={veiculoModelo}
                       onChange={(e) => setVeiculoModelo(e.target.value)}
-                      className="w-full text-xs px-3 py-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-300/70 dark:border-slate-800 focus:outline-none focus:ring-2 focus:ring-emerald-500/30 font-medium"
+                      className="w-full text-xs px-3 py-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-300/70 dark:border-slate-800 focus:outline-none focus:ring-2 focus:ring-orange-500/30 font-medium"
                     />
                   </div>
                   <div>
@@ -563,7 +563,7 @@ export function ModalNovaProposta({
                       placeholder="Ex: 2024"
                       value={veiculoAno}
                       onChange={(e) => setVeiculoAno(e.target.value)}
-                      className="w-full text-xs px-3 py-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-300/70 dark:border-slate-800 focus:outline-none focus:ring-2 focus:ring-emerald-500/30 font-medium"
+                      className="w-full text-xs px-3 py-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-300/70 dark:border-slate-800 focus:outline-none focus:ring-2 focus:ring-orange-500/30 font-medium"
                     />
                   </div>
                 </div>
@@ -602,7 +602,7 @@ export function ModalNovaProposta({
               <div className="p-3.5 rounded-2xl bg-white/70 dark:bg-slate-950/60 border border-slate-300/60 dark:border-slate-800 space-y-3.5 shadow-xs">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                   <div className="flex items-center gap-2 text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider">
-                    <ShieldCheck className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
+                    <ShieldCheck className="h-4 w-4 text-orange-600 dark:text-orange-400" />
                     <span>3. Valores e Condições (Individual)</span>
                   </div>
 
@@ -613,7 +613,7 @@ export function ModalNovaProposta({
                       onClick={() => setAplicarPromocao(true)}
                       className={`px-2.5 py-1 rounded-lg text-[11px] font-bold transition flex items-center gap-1.5 ${
                         aplicarPromocao
-                          ? "bg-emerald-600 text-white shadow-xs"
+                          ? "bg-orange-600 text-white shadow-xs"
                           : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
                       }`}
                       title="Exibe na proposta 'De: R$ X por Valor Promocional: R$ Y'"
@@ -638,13 +638,13 @@ export function ModalNovaProposta({
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                   {/* Opção 1: COM Fidelidade */}
-                  <div className="p-3.5 rounded-xl bg-emerald-500/5 border border-emerald-500/20 space-y-3">
+                  <div className="p-3.5 rounded-xl bg-orange-500/5 border border-orange-500/20 space-y-3">
                     <div className="flex items-center justify-between">
                       <div>
-                        <span className="text-xs font-bold text-emerald-700 dark:text-emerald-400">
+                        <span className="text-xs font-bold text-orange-700 dark:text-orange-400">
                           Plano COM Fidelidade
                         </span>
-                        <span className="block text-[10px] text-emerald-600/90 dark:text-emerald-400/90 font-medium">
+                        <span className="block text-[10px] text-orange-600/90 dark:text-orange-400/90 font-medium">
                           Locação de Equipamento inclusa
                         </span>
                       </div>
@@ -656,7 +656,7 @@ export function ModalNovaProposta({
                           max={48}
                           value={comFidelidadeMeses}
                           onChange={(e) => setComFidelidadeMeses(Number(e.target.value))}
-                          className="w-12 text-center text-xs py-0.5 px-1 rounded-md bg-white dark:bg-slate-900 border border-emerald-500/40 font-bold"
+                          className="w-12 text-center text-xs py-0.5 px-1 rounded-md bg-white dark:bg-slate-900 border border-orange-500/40 font-bold"
                         />
                         <span className="text-slate-500">meses</span>
                       </div>
@@ -665,8 +665,8 @@ export function ModalNovaProposta({
                     {aplicarPromocao ? (
                       /* Modo Promocional: De X por Y (100% Editáveis) */
                       <div className="space-y-2.5">
-                        <div className="p-2.5 rounded-lg bg-emerald-500/10 border border-emerald-500/30 space-y-2">
-                          <span className="block text-[10px] font-bold uppercase tracking-wider text-emerald-800 dark:text-emerald-300">
+                        <div className="p-2.5 rounded-lg bg-orange-500/10 border border-orange-500/30 space-y-2">
+                          <span className="block text-[10px] font-bold uppercase tracking-wider text-orange-800 dark:text-orange-300">
                             Taxa de Instalação e Ativação
                           </span>
                           <div className="grid grid-cols-2 gap-2">
@@ -681,20 +681,20 @@ export function ModalNovaProposta({
                               />
                             </div>
                             <div>
-                              <label className="block text-[10px] font-bold text-emerald-700 dark:text-emerald-400 mb-0.5">
+                              <label className="block text-[10px] font-bold text-orange-700 dark:text-orange-400 mb-0.5">
                                 Por (Promocional R$) *
                               </label>
                               <MoedaInput
                                 value={comFidelidadeInstalacao}
                                 onChange={setComFidelidadeInstalacao}
-                                className="w-full text-xs px-2.5 py-1.5 rounded-lg bg-white dark:bg-slate-900 border border-emerald-500/50 font-bold text-emerald-600 dark:text-emerald-400"
+                                className="w-full text-xs px-2.5 py-1.5 rounded-lg bg-white dark:bg-slate-900 border border-orange-500/50 font-bold text-orange-600 dark:text-orange-400"
                               />
                             </div>
                           </div>
                         </div>
 
-                        <div className="p-2.5 rounded-lg bg-emerald-500/10 border border-emerald-500/30 space-y-2">
-                          <span className="block text-[10px] font-bold uppercase tracking-wider text-emerald-800 dark:text-emerald-300">
+                        <div className="p-2.5 rounded-lg bg-orange-500/10 border border-orange-500/30 space-y-2">
+                          <span className="block text-[10px] font-bold uppercase tracking-wider text-orange-800 dark:text-orange-300">
                             Mensalidade Recorrente
                           </span>
                           <div className="grid grid-cols-2 gap-2">
@@ -709,13 +709,13 @@ export function ModalNovaProposta({
                               />
                             </div>
                             <div>
-                              <label className="block text-[10px] font-bold text-emerald-700 dark:text-emerald-400 mb-0.5">
+                              <label className="block text-[10px] font-bold text-orange-700 dark:text-orange-400 mb-0.5">
                                 Por (Promocional R$/mês) *
                               </label>
                               <MoedaInput
                                 value={comFidelidadeMensalidade}
                                 onChange={setComFidelidadeMensalidade}
-                                className="w-full text-xs px-2.5 py-1.5 rounded-lg bg-white dark:bg-slate-900 border border-emerald-500/50 font-bold text-emerald-600 dark:text-emerald-400"
+                                className="w-full text-xs px-2.5 py-1.5 rounded-lg bg-white dark:bg-slate-900 border border-orange-500/50 font-bold text-orange-600 dark:text-orange-400"
                               />
                             </div>
                           </div>
@@ -741,7 +741,7 @@ export function ModalNovaProposta({
                           <MoedaInput
                             value={comFidelidadeMensalidade}
                             onChange={setComFidelidadeMensalidade}
-                            className="w-full text-xs px-2.5 py-1.5 rounded-lg bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-800 font-bold text-emerald-600 dark:text-emerald-400"
+                            className="w-full text-xs px-2.5 py-1.5 rounded-lg bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-800 font-bold text-orange-600 dark:text-orange-400"
                           />
                         </div>
                       </div>
@@ -857,7 +857,7 @@ export function ModalNovaProposta({
                     <ShieldCheck className="h-4 w-4 text-sky-600 dark:text-sky-400" />
                     <span>3. Tabela de Preços por Quantidade de Veículos (Frota)</span>
                   </div>
-                  <span className="text-[10px] font-bold text-emerald-600 dark:text-emerald-400">
+                  <span className="text-[10px] font-bold text-orange-600 dark:text-orange-400">
                     Equipamentos em Locação
                   </span>
                 </div>
@@ -880,7 +880,7 @@ export function ModalNovaProposta({
 
                       <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                         <div>
-                          <label className="block text-[9px] font-medium text-emerald-700 dark:text-emerald-400 mb-0.5">
+                          <label className="block text-[9px] font-medium text-orange-700 dark:text-orange-400 mb-0.5">
                             Instal. C/ Fidelidade
                           </label>
                           <MoedaInput
@@ -892,7 +892,7 @@ export function ModalNovaProposta({
                           />
                         </div>
                         <div>
-                          <label className="block text-[9px] font-medium text-emerald-700 dark:text-emerald-400 mb-0.5">
+                          <label className="block text-[9px] font-medium text-orange-700 dark:text-orange-400 mb-0.5">
                             Mensal. C/ Fidelidade
                           </label>
                           <MoedaInput
@@ -900,7 +900,7 @@ export function ModalNovaProposta({
                             onChange={(val) =>
                               handleAtualizarFaixaFrota(idx, "mensalidade_com_fidelidade", val)
                             }
-                            className="w-full text-xs px-2 py-1 rounded-lg bg-white dark:bg-slate-950 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 font-bold"
+                            className="w-full text-xs px-2 py-1 rounded-lg bg-white dark:bg-slate-950 border border-orange-500/30 text-orange-600 dark:text-orange-400 font-bold"
                           />
                         </div>
                         <div>
@@ -960,7 +960,7 @@ export function ModalNovaProposta({
                 placeholder="Ex: Instalação agendada para sábado na garagem da empresa..."
                 value={observacoes}
                 onChange={(e) => setObservacoes(e.target.value)}
-                className="w-full text-xs px-3 py-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-300/70 dark:border-slate-800 focus:outline-none focus:ring-2 focus:ring-emerald-500/30"
+                className="w-full text-xs px-3 py-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-300/70 dark:border-slate-800 focus:outline-none focus:ring-2 focus:ring-orange-500/30"
               />
             </div>
           </div>

@@ -193,7 +193,7 @@ export function FuncionarioModal({
                 </span>{" "}
                 Este usuário terá visibilidade exclusiva da frota e operações do cliente titular.{" "}
                 {!isEdicao && (
-                  <span className="font-semibold text-emerald-700 dark:text-emerald-400">
+                  <span className="font-semibold text-orange-700 dark:text-orange-400">
                     No 1º acesso, a troca de senha será exigida compulsoriamente.
                   </span>
                 )}
@@ -337,7 +337,7 @@ export function FuncionarioModal({
                     onChange={(e) => setAtivo(e.target.checked)}
                     className="sr-only peer"
                   />
-                  <div className="w-11 h-6 bg-slate-300 peer-focus:outline-none rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-slate-600 peer-checked:bg-emerald-500"></div>
+                  <div className="w-11 h-6 bg-slate-300 peer-focus:outline-none rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-slate-600 peer-checked:bg-orange-500"></div>
                   <span className="ml-3 text-xs font-bold text-slate-700 dark:text-slate-300">
                     {ativo ? "Ativo" : "Inativo"}
                   </span>

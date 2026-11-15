@@ -184,8 +184,8 @@ export function DespesaPanel({ clienteId, motoristaId, veiculoId, veiculoPlaca, 
   if (sucesso) {
     return (
       <div className="flex flex-col items-center justify-center py-16 text-center space-y-4">
-        <div className="rounded-full bg-emerald-500/10 p-4">
-          <CheckCircle className="h-10 w-10 text-emerald-400" />
+        <div className="rounded-full bg-orange-500/10 p-4">
+          <CheckCircle className="h-10 w-10 text-orange-400" />
         </div>
         <h3 className="text-lg font-bold text-slate-200">Despesa registrada!</h3>
         <p className="text-sm text-slate-400 max-w-xs">

@@ -134,7 +134,7 @@ export function TabelaInstaladoresCredenciados() {
             <div>
               <h3 className="text-sm font-bold text-slate-900 dark:text-white flex items-center gap-2">
                 Instaladores Credenciados
-                <span className="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 font-bold">
+                <span className="text-[10px] px-2 py-0.5 rounded-full bg-orange-500/10 text-orange-600 dark:text-orange-400 border border-orange-500/30 font-bold">
                   {instaladores.length} ativos
                 </span>
               </h3>
@@ -214,7 +214,7 @@ export function TabelaInstaladoresCredenciados() {
                         <h4 className="text-xs font-bold text-slate-900 dark:text-white leading-tight">
                           {inst.nome}
                         </h4>
-                        <span className="inline-flex items-center gap-1 text-[10px] text-emerald-600 dark:text-emerald-400 font-medium">
+                        <span className="inline-flex items-center gap-1 text-[10px] text-orange-600 dark:text-orange-400 font-medium">
                           <ShieldCheck className="h-3 w-3" />
                           Credenciado Ativo
                         </span>

@@ -337,7 +337,7 @@ export function EstoqueView() {
 
   const inputSearchClass = isNeumorph
     ? "w-full pl-10 pr-4 py-2.5 rounded-full bg-[#eaf0f8] dark:bg-slate-950 text-slate-800 dark:text-slate-100 text-sm shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6)] border border-slate-300/50 dark:border-slate-800 outline-none focus:ring-2 focus:ring-[#00CFCC] transition"
-    : "w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-950 text-slate-900 dark:text-slate-100 text-sm border border-slate-300 dark:border-slate-800 focus:border-emerald-500 outline-none transition";
+    : "w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-950 text-slate-900 dark:text-slate-100 text-sm border border-slate-300 dark:border-slate-800 focus:border-orange-500 outline-none transition";
 
   // Regra Inegociável DJR-NEW: Instalador não cadastra nada no estoque, não vê fornecedor, não cadastra fornecedor e não compra material
   if (session?.isInstalador) {
@@ -368,7 +368,7 @@ export function EstoqueView() {
               className={`p-2.5 rounded-2xl shrink-0 ${
                 isNeumorph
                   ? "bg-[#eaf0f8] dark:bg-slate-900 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none border border-slate-300/40 dark:border-slate-800 text-teal-600 dark:text-teal-400"
-                  : "bg-emerald-500/20 text-emerald-500 dark:text-emerald-400 border border-emerald-500/30"
+                  : "bg-orange-500/20 text-orange-500 dark:text-orange-400 border border-orange-500/30"
               }`}
             >
               <Boxes className="w-6 h-6" />
@@ -382,7 +382,7 @@ export function EstoqueView() {
                   className={`text-[10px] font-mono font-bold px-2 py-0.5 rounded-full ${
                     isNeumorph
                       ? "bg-[#9EBCEE] dark:bg-teal-900/60 text-slate-800 dark:text-teal-300 shadow-[2px_2px_4px_#c3cfe2] dark:shadow-none border dark:border-teal-700/50"
-                      : "bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30"
+                      : "bg-orange-500/20 text-orange-600 dark:text-orange-400 border border-orange-500/30"
                   }`}
                 >
                   INTEGRADO
@@ -412,7 +412,7 @@ export function EstoqueView() {
                   : "bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-300 dark:hover:bg-slate-700"
             }`}
           >
-            <PackagePlus className="w-4 h-4 text-emerald-500 shrink-0" />
+            <PackagePlus className="w-4 h-4 text-orange-500 shrink-0" />
             <span>Novo Material</span>
           </button>
 
@@ -451,7 +451,7 @@ export function EstoqueView() {
                       : "bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-300 dark:hover:bg-slate-700"
                 }`}
               >
-                <Building2 className="w-4 h-4 text-emerald-500 shrink-0" />
+                <Building2 className="w-4 h-4 text-orange-500 shrink-0" />
                 <span>Fornecedor</span>
               </button>
 
@@ -469,7 +469,7 @@ export function EstoqueView() {
                       : "bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-300 dark:hover:bg-slate-700"
                 }`}
               >
-                <ShoppingCart className="w-4 h-4 text-emerald-500 shrink-0" />
+                <ShoppingCart className="w-4 h-4 text-orange-500 shrink-0" />
                 <span>Comprar</span>
               </button>
 
@@ -506,7 +506,7 @@ export function EstoqueView() {
           }}
           className={`${cardMetricClass} cursor-pointer transition-all ${
             abaAtiva === "itens" && !filtroAlerta && categoriaFiltro === "todas"
-              ? "ring-2 ring-emerald-500 shadow-[4px_4px_12px_#b8c7db]"
+              ? "ring-2 ring-orange-500 shadow-[4px_4px_12px_#b8c7db]"
               : ""
           }`}
         >
@@ -514,10 +514,10 @@ export function EstoqueView() {
             <span className="text-xs uppercase tracking-wider font-semibold opacity-70">
               Itens no Catálogo
             </span>
-            <Package className="w-4 h-4 text-emerald-500" />
+            <Package className="w-4 h-4 text-orange-500" />
           </div>
           <div className="mt-2 flex items-baseline gap-2">
-            <span className="text-2xl sm:text-3xl font-black font-mono text-emerald-600 dark:text-emerald-400">
+            <span className="text-2xl sm:text-3xl font-black font-mono text-orange-600 dark:text-orange-400">
               {resumo.totalItens}
             </span>
             <span className="text-xs opacity-60">materiais ativos</span>
@@ -539,14 +539,14 @@ export function EstoqueView() {
               {podeVerCustosEFornecedores ? "Patrimônio em Estoque" : "Total de Itens"}
             </span>
             {podeVerCustosEFornecedores ? (
-              <DollarSign className="w-4 h-4 text-emerald-500" />
+              <DollarSign className="w-4 h-4 text-orange-500" />
             ) : (
-              <Boxes className="w-4 h-4 text-emerald-500" />
+              <Boxes className="w-4 h-4 text-orange-500" />
             )}
           </div>
           <div className="mt-2 flex items-baseline gap-2">
             {podeVerCustosEFornecedores ? (
-              <span className="text-2xl sm:text-3xl font-black font-mono text-emerald-600 dark:text-emerald-400">
+              <span className="text-2xl sm:text-3xl font-black font-mono text-orange-600 dark:text-orange-400">
                 R${" "}
                 {resumo.valorPatrimonial.toLocaleString("pt-BR", {
                   minimumFractionDigits: 0,
@@ -555,7 +555,7 @@ export function EstoqueView() {
               </span>
             ) : (
               <>
-                <span className="text-2xl sm:text-3xl font-black font-mono text-emerald-600 dark:text-emerald-400">
+                <span className="text-2xl sm:text-3xl font-black font-mono text-orange-600 dark:text-orange-400">
                   {resumo.totalItens}
                 </span>
                 <span className="text-xs opacity-60">materiais cadastrados</span>
@@ -583,15 +583,13 @@ export function EstoqueView() {
               Em Nível de Reposição
             </span>
             <AlertTriangle
-              className={`w-4 h-4 ${resumo.itensEmAlerta > 0 ? "text-rose-500 animate-pulse" : "text-emerald-500"}`}
+              className={`w-4 h-4 ${resumo.itensEmAlerta > 0 ? "text-rose-500 animate-pulse" : "text-orange-500"}`}
             />
           </div>
           <div className="mt-2 flex items-baseline gap-2">
             <span
               className={`text-2xl sm:text-3xl font-black font-mono ${
-                resumo.itensEmAlerta > 0
-                  ? "text-rose-500"
-                  : "text-emerald-600 dark:text-emerald-400"
+                resumo.itensEmAlerta > 0 ? "text-rose-500" : "text-orange-600 dark:text-orange-400"
               }`}
             >
               {resumo.itensEmAlerta}
@@ -616,10 +614,10 @@ export function EstoqueView() {
               <span className="text-xs uppercase tracking-wider font-semibold opacity-70">
                 Fornecedores Ativos
               </span>
-              <Building2 className="w-4 h-4 text-emerald-500" />
+              <Building2 className="w-4 h-4 text-orange-500" />
             </div>
             <div className="mt-2 flex items-baseline gap-2">
-              <span className="text-2xl sm:text-3xl font-black font-mono text-emerald-600 dark:text-emerald-400">
+              <span className="text-2xl sm:text-3xl font-black font-mono text-orange-600 dark:text-orange-400">
                 {resumo.totalFornecedores}
               </span>
               <span className="text-xs opacity-60">parceiros homologados</span>
@@ -644,7 +642,7 @@ export function EstoqueView() {
                 ? "bg-[#9EBCEE] dark:bg-teal-600 text-slate-900 dark:text-slate-950 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-[0_2px_8px_rgba(20,184,166,0.3)] font-black"
                 : isStyleguide
                   ? "bg-[#9EE5D4] text-[#064E3B] shadow-[0_2px_6px_rgba(0,0,0,0.08)] font-black"
-                  : "bg-emerald-500 text-slate-950 shadow"
+                  : "bg-orange-500 text-slate-950 shadow"
               : isStyleguide
                 ? "text-slate-600 hover:text-slate-900 font-semibold"
                 : "opacity-60 hover:opacity-100"
@@ -666,7 +664,7 @@ export function EstoqueView() {
                 ? "bg-[#9EBCEE] dark:bg-teal-600 text-slate-900 dark:text-slate-950 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-[0_2px_8px_rgba(20,184,166,0.3)] font-black"
                 : isStyleguide
                   ? "bg-[#9EE5D4] text-[#064E3B] shadow-[0_2px_6px_rgba(0,0,0,0.08)] font-black"
-                  : "bg-emerald-500 text-slate-950 shadow"
+                  : "bg-orange-500 text-slate-950 shadow"
               : isStyleguide
                 ? "text-slate-600 hover:text-slate-900 font-semibold"
                 : "opacity-60 hover:opacity-100"
@@ -687,7 +685,7 @@ export function EstoqueView() {
                 ? "bg-[#9EBCEE] dark:bg-teal-600 text-slate-900 dark:text-slate-950 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-[0_2px_8px_rgba(20,184,166,0.3)] font-black"
                 : isStyleguide
                   ? "bg-[#9EE5D4] text-[#064E3B] shadow-[0_2px_6px_rgba(0,0,0,0.08)] font-black"
-                  : "bg-emerald-500 text-slate-950 shadow"
+                  : "bg-orange-500 text-slate-950 shadow"
               : isStyleguide
                 ? "text-slate-600 hover:text-slate-900 font-semibold"
                 : "opacity-60 hover:opacity-100"
@@ -707,7 +705,7 @@ export function EstoqueView() {
                   ? "bg-[#9EBCEE] dark:bg-teal-600 text-slate-900 dark:text-slate-950 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-[0_2px_8px_rgba(20,184,166,0.3)] font-black"
                   : isStyleguide
                     ? "bg-[#9EE5D4] text-[#064E3B] shadow-[0_2px_6px_rgba(0,0,0,0.08)] font-black"
-                    : "bg-emerald-500 text-slate-950 shadow"
+                    : "bg-orange-500 text-slate-950 shadow"
                 : isStyleguide
                   ? "text-slate-600 hover:text-slate-900 font-semibold"
                   : "opacity-60 hover:opacity-100"
@@ -729,7 +727,7 @@ export function EstoqueView() {
                 ? "bg-[#9EBCEE] dark:bg-teal-600 text-slate-900 dark:text-slate-950 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-[0_2px_8px_rgba(20,184,166,0.3)] font-black"
                 : isStyleguide
                   ? "bg-[#9EE5D4] text-[#064E3B] shadow-[0_2px_6px_rgba(0,0,0,0.08)] font-black"
-                  : "bg-emerald-500 text-slate-950 shadow"
+                  : "bg-orange-500 text-slate-950 shadow"
               : isStyleguide
                 ? "text-slate-600 hover:text-slate-900 font-semibold"
                 : "opacity-60 hover:opacity-100"
@@ -780,7 +778,7 @@ export function EstoqueView() {
                         ? "bg-[#00CFCC] text-slate-950 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none"
                         : isStyleguide
                           ? "bg-[#9EE5D4] text-[#064E3B] border border-[#7ed7c0] shadow-sm font-black"
-                          : "bg-white dark:bg-slate-900 text-emerald-600 dark:text-emerald-400 shadow-sm"
+                          : "bg-white dark:bg-slate-900 text-orange-600 dark:text-orange-400 shadow-sm"
                       : "opacity-60 hover:opacity-100"
                   }`}
                   title="Exibir em Grade / Cards"
@@ -798,7 +796,7 @@ export function EstoqueView() {
                         ? "bg-[#00CFCC] text-slate-950 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none"
                         : isStyleguide
                           ? "bg-[#9EE5D4] text-[#064E3B] border border-[#7ed7c0] shadow-sm font-black"
-                          : "bg-white dark:bg-slate-900 text-emerald-600 dark:text-emerald-400 shadow-sm"
+                          : "bg-white dark:bg-slate-900 text-orange-600 dark:text-orange-400 shadow-sm"
                       : "opacity-60 hover:opacity-100"
                   }`}
                   title="Exibir em Lista / Tabela"
@@ -821,7 +819,7 @@ export function EstoqueView() {
                       ? "bg-[#00CFCC] text-slate-950 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none"
                       : isStyleguide
                         ? "bg-[#9EE5D4] text-[#064E3B] border border-[#7ed7c0] shadow-sm font-black"
-                        : "bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30"
+                        : "bg-orange-500/20 text-orange-600 dark:text-orange-400 border border-orange-500/30"
                     : isStyleguide
                       ? "bg-[#F1F5F9] text-[#475569] border border-[#CBD5E1] hover:bg-[#E2E8F0] font-semibold"
                       : "opacity-60 hover:opacity-100"
@@ -840,7 +838,7 @@ export function EstoqueView() {
                         ? "bg-[#00CFCC] text-slate-950 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none"
                         : isStyleguide
                           ? "bg-[#9EE5D4] text-[#064E3B] border border-[#7ed7c0] shadow-sm font-black"
-                          : "bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30"
+                          : "bg-orange-500/20 text-orange-600 dark:text-orange-400 border border-orange-500/30"
                       : isStyleguide
                         ? "bg-[#F1F5F9] text-[#475569] border border-[#CBD5E1] hover:bg-[#E2E8F0] font-semibold"
                         : "opacity-60 hover:opacity-100"
@@ -869,7 +867,7 @@ export function EstoqueView() {
                     ? "bg-[#eaf0f8] dark:bg-slate-950 shadow-[2px_2px_6px_#c3cfe2] dark:shadow-none text-teal-600 dark:text-teal-400 border border-slate-300/40 dark:border-slate-800"
                     : isStyleguide
                       ? "bg-[#9EE5D4]/40 text-[#064E3B] border border-[#9EE5D4]"
-                      : "bg-emerald-500/20 text-emerald-500 border border-emerald-500/30"
+                      : "bg-orange-500/20 text-orange-500 border border-orange-500/30"
                 }`}
               >
                 <Boxes className="w-8 h-8" />
@@ -888,10 +886,10 @@ export function EstoqueView() {
                 }}
                 className={`px-5 py-2.5 rounded-full text-xs font-bold transition inline-flex items-center gap-2 ${
                   isNeumorph
-                    ? "bg-[#9EBCEEC] dark:bg-emerald-600 text-slate-900 dark:text-slate-950 shadow-[2px_2px_6px_#c3cfe2] dark:shadow-none hover:bg-[#00CFCC]"
+                    ? "bg-[#9EBCEEC] dark:bg-orange-600 text-slate-900 dark:text-slate-950 shadow-[2px_2px_6px_#c3cfe2] dark:shadow-none hover:bg-[#00CFCC]"
                     : isStyleguide
                       ? "bg-[#9EE5D4] hover:bg-[#86ddc7] text-[#064E3B] font-black border border-[#7ed7c0] shadow-[0_2px_8px_rgba(158,229,212,0.4)]"
-                      : "bg-emerald-500 text-slate-950 hover:bg-emerald-400 font-bold"
+                      : "bg-orange-500 text-slate-950 hover:bg-orange-400 font-bold"
                 }`}
               >
                 <Plus className="w-4 h-4" />
@@ -969,7 +967,7 @@ export function EstoqueView() {
                                   : "bg-rose-500/20 text-rose-500 border border-rose-500/30"
                                 : isStyleguide
                                   ? "bg-[#D1FAE5] text-[#065F46] border border-[#A7F3D0] font-bold"
-                                  : "bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30"
+                                  : "bg-orange-500/20 text-orange-600 dark:text-orange-400 border border-orange-500/30"
                             }`}
                           >
                             {emAlerta ? "Reposição" : "Regular"}
@@ -997,7 +995,7 @@ export function EstoqueView() {
                                 ? "bg-rose-500"
                                 : isNeumorph || isStyleguide
                                   ? "bg-[#00CFCC]"
-                                  : "bg-emerald-500"
+                                  : "bg-orange-500"
                             }`}
                             style={{ width: `${percentual}%` }}
                           />
@@ -1012,7 +1010,7 @@ export function EstoqueView() {
                           <span className="text-[10px] uppercase tracking-wider block opacity-60">
                             Custo Médio Unitário
                           </span>
-                          <span className="text-sm font-black font-mono text-emerald-600 dark:text-emerald-400">
+                          <span className="text-sm font-black font-mono text-orange-600 dark:text-orange-400">
                             R$ {Number(item.custo_medio_unitario || 0).toFixed(2)}
                           </span>
                         </div>
@@ -1024,10 +1022,10 @@ export function EstoqueView() {
                           }}
                           className={`px-3 py-1.5 rounded-full text-xs font-bold transition flex items-center gap-1.5 ${
                             isNeumorph
-                              ? "bg-[#9EBCEEC] dark:bg-emerald-600 text-slate-900 dark:text-slate-950 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none hover:bg-[#00CFCC]"
+                              ? "bg-[#9EBCEEC] dark:bg-orange-600 text-slate-900 dark:text-slate-950 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none hover:bg-[#00CFCC]"
                               : isStyleguide
                                 ? "bg-[#9EE5D4] hover:bg-[#86ddc7] text-[#064E3B] font-bold border border-[#7ed7c0] shadow-[0_2px_8px_rgba(158,229,212,0.4)] active:scale-95"
-                                : "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-500/25"
+                                : "bg-orange-500/15 text-orange-600 dark:text-orange-400 hover:bg-orange-500/25"
                           }`}
                         >
                           <ShoppingCart className="w-3.5 h-3.5" />
@@ -1094,7 +1092,7 @@ export function EstoqueView() {
                                 className={`font-mono font-black text-sm ${
                                   emAlerta
                                     ? "text-rose-500"
-                                    : "text-emerald-600 dark:text-emerald-400"
+                                    : "text-orange-600 dark:text-orange-400"
                                 }`}
                               >
                                 {item.quantidade_atual} {item.unidade_medida}
@@ -1104,14 +1102,14 @@ export function EstoqueView() {
                                   Reposição (mín: {item.quantidade_minima})
                                 </span>
                               ) : (
-                                <span className="text-[9px] px-1.5 py-0.5 rounded-full font-bold uppercase tracking-wider bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30">
+                                <span className="text-[9px] px-1.5 py-0.5 rounded-full font-bold uppercase tracking-wider bg-orange-500/20 text-orange-600 dark:text-orange-400 border border-orange-500/30">
                                   Regular (mín: {item.quantidade_minima})
                                 </span>
                               )}
                             </div>
                           </td>
                           {podeVerCustosEFornecedores && (
-                            <td className="py-3.5 px-4 font-mono font-bold text-emerald-600 dark:text-emerald-400 whitespace-nowrap">
+                            <td className="py-3.5 px-4 font-mono font-bold text-orange-600 dark:text-orange-400 whitespace-nowrap">
                               R$ {Number(item.custo_medio_unitario || 0).toFixed(2)}
                             </td>
                           )}
@@ -1130,8 +1128,8 @@ export function EstoqueView() {
                                   }}
                                   className={`px-3 py-1 rounded-full text-xs font-bold transition inline-flex items-center gap-1 ${
                                     isNeumorph
-                                      ? "bg-[#9EBCEEC] dark:bg-emerald-600 text-slate-900 dark:text-slate-950 shadow-[1px_1px_3px_#c3cfe2] dark:shadow-none hover:bg-[#00CFCC]"
-                                      : "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-500/25"
+                                      ? "bg-[#9EBCEEC] dark:bg-orange-600 text-slate-900 dark:text-slate-950 shadow-[1px_1px_3px_#c3cfe2] dark:shadow-none hover:bg-[#00CFCC]"
+                                      : "bg-orange-500/15 text-orange-600 dark:text-orange-400 hover:bg-orange-500/25"
                                   }`}
                                   title="Abastecer / Comprar este material"
                                 >
@@ -1268,7 +1266,7 @@ export function EstoqueView() {
                             <span
                               className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
                                 maxMontaveis > 0
-                                  ? "bg-emerald-500/15 text-emerald-700 dark:text-emerald-300"
+                                  ? "bg-orange-500/15 text-orange-700 dark:text-orange-300"
                                   : "bg-rose-500/15 text-rose-700 dark:text-rose-300"
                               }`}
                             >
@@ -1363,13 +1361,13 @@ export function EstoqueView() {
                         <div className="flex items-center justify-between text-[11px] text-slate-500">
                           <span>
                             Margem Bruta:{" "}
-                            <strong className="font-mono text-emerald-600 dark:text-emerald-400">
+                            <strong className="font-mono text-orange-600 dark:text-orange-400">
                               {margemBruta.toFixed(1)}%
                             </strong>
                           </span>
                           <span>
                             Lucro:{" "}
-                            <strong className="font-mono text-emerald-600 dark:text-emerald-400">
+                            <strong className="font-mono text-orange-600 dark:text-orange-400">
                               R$ {lucroBruto.toFixed(2)}
                             </strong>
                           </span>
@@ -1432,8 +1430,8 @@ export function EstoqueView() {
                 }}
                 className={`px-4 py-2.5 rounded-xl sm:rounded-full text-xs font-bold transition flex items-center justify-center gap-1.5 shrink-0 ${
                   isNeumorph
-                    ? "bg-[#9EBCEEC] dark:bg-emerald-600 text-slate-900 dark:text-slate-950 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none hover:bg-[#00CFCC]"
-                    : "bg-emerald-500 text-slate-950 hover:bg-emerald-400 shadow-sm"
+                    ? "bg-[#9EBCEEC] dark:bg-orange-600 text-slate-900 dark:text-slate-950 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none hover:bg-[#00CFCC]"
+                    : "bg-orange-500 text-slate-950 hover:bg-orange-400 shadow-sm"
                 }`}
               >
                 <Plus className="w-4 h-4" />
@@ -1453,8 +1451,8 @@ export function EstoqueView() {
                 className={`px-3 py-1 rounded-full text-xs font-bold transition shrink-0 ${
                   fornecedorCategoriaFiltro === "todas"
                     ? isNeumorph
-                      ? "bg-slate-900 dark:bg-emerald-500 text-white dark:text-slate-950 shadow-[inset_2px_2px_4px_rgba(0,0,0,0.4)]"
-                      : "bg-emerald-500 text-slate-950 font-black shadow-sm"
+                      ? "bg-slate-900 dark:bg-orange-500 text-white dark:text-slate-950 shadow-[inset_2px_2px_4px_rgba(0,0,0,0.4)]"
+                      : "bg-orange-500 text-slate-950 font-black shadow-sm"
                     : "bg-slate-500/10 hover:bg-slate-500/20 opacity-80"
                 }`}
               >
@@ -1477,8 +1475,8 @@ export function EstoqueView() {
                     className={`px-3 py-1 rounded-full text-xs font-bold transition shrink-0 flex items-center gap-1.5 ${
                       fornecedorCategoriaFiltro.toLowerCase() === catNome.toLowerCase()
                         ? isNeumorph
-                          ? "bg-slate-900 dark:bg-emerald-500 text-white dark:text-slate-950 shadow-[inset_2px_2px_4px_rgba(0,0,0,0.4)]"
-                          : "bg-emerald-500 text-slate-950 font-black shadow-sm"
+                          ? "bg-slate-900 dark:bg-orange-500 text-white dark:text-slate-950 shadow-[inset_2px_2px_4px_rgba(0,0,0,0.4)]"
+                          : "bg-orange-500 text-slate-950 font-black shadow-sm"
                         : "bg-slate-500/10 hover:bg-slate-500/20 opacity-80"
                     }`}
                   >
@@ -1525,7 +1523,7 @@ export function EstoqueView() {
                             .map((cat, idx) => (
                               <span
                                 key={idx}
-                                className="px-2 py-0.5 rounded-full text-[10px] font-bold uppercase bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20"
+                                className="px-2 py-0.5 rounded-full text-[10px] font-bold uppercase bg-orange-500/10 text-orange-600 dark:text-orange-400 border border-orange-500/20"
                               >
                                 {cat}
                               </span>
@@ -1625,7 +1623,7 @@ export function EstoqueView() {
                         <span
                           className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold uppercase ${
                             isEntrada
-                              ? "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400"
+                              ? "bg-orange-500/15 text-orange-600 dark:text-orange-400"
                               : "bg-amber-500/15 text-amber-600 dark:text-amber-400"
                           }`}
                         >
@@ -1668,7 +1666,7 @@ export function EstoqueView() {
                       <td className="py-3.5 px-4">
                         {isEntrada ? (
                           <div>
-                            <span className="text-emerald-600 dark:text-emerald-400 font-semibold block">
+                            <span className="text-orange-600 dark:text-orange-400 font-semibold block">
                               Entrada de Compra
                             </span>
                             {podeVerCustosEFornecedores && (

@@ -42,7 +42,7 @@ function EstoqueErrorFallback({ error, reset }: { error: any; reset: () => void 
               reset();
             }
           }}
-          className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs shadow-md transition cursor-pointer"
+          className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-orange-600 hover:bg-orange-500 text-white font-bold text-xs shadow-md transition cursor-pointer"
         >
           <RefreshCw className="w-4 h-4" />
           <span>Recarregar Modulo</span>

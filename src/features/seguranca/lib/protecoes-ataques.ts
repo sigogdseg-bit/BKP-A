@@ -321,7 +321,7 @@ export const NIVEL_LABEL: Record<NivelProtecao, string> = {
 };
 
 export const NIVEL_COR: Record<NivelProtecao, string> = {
-  bloquear: "text-emerald-600 dark:text-emerald-400",
+  bloquear: "text-orange-600 dark:text-orange-400",
   detectar: "text-sky-600 dark:text-sky-400",
   exposto: "text-amber-600 dark:text-amber-400",
 };

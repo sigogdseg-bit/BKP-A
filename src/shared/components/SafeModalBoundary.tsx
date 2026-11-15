@@ -70,7 +70,7 @@ export class SafeModalBoundary extends Component<SafeModalBoundaryProps, SafeMod
               <button
                 type="button"
                 onClick={this.reset}
-                className="px-5 py-2.5 rounded-xl text-xs font-bold bg-emerald-600 hover:bg-emerald-500 text-white shadow-md transition cursor-pointer"
+                className="px-5 py-2.5 rounded-xl text-xs font-bold bg-orange-600 hover:bg-orange-500 text-white shadow-md transition cursor-pointer"
               >
                 Fechar
               </button>

@@ -25,7 +25,7 @@ export function UpgradePlanoModal({ aberto, onFechar, recursoSolicitado }: Upgra
         <div className="relative w-full max-w-3xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 rounded-3xl shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl overflow-hidden flex flex-col max-h-[calc(100dvh-2.5rem)] sm:max-h-[85vh] my-auto">
           {/* Cabeçalho */}
           <div className="relative p-6 sm:p-8 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 border-b border-slate-800 text-white overflow-hidden">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute top-0 right-0 w-64 h-64 bg-orange-500/10 rounded-full blur-3xl pointer-events-none" />
             <div className="absolute -bottom-10 left-10 w-48 h-48 bg-sky-500/10 rounded-full blur-2xl pointer-events-none" />
 
             <button
@@ -36,7 +36,7 @@ export function UpgradePlanoModal({ aberto, onFechar, recursoSolicitado }: Upgra
               <X className="h-5 w-5" />
             </button>
 
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-xs font-bold uppercase tracking-wider mb-2">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-500/15 border border-orange-500/30 text-orange-400 text-xs font-bold uppercase tracking-wider mb-2">
               <Sparkles className="h-3.5 w-3.5 animate-pulse" />
               <span>GD Rastreamento Telemetria Avançada</span>
             </div>
@@ -100,17 +100,17 @@ export function UpgradePlanoModal({ aberto, onFechar, recursoSolicitado }: Upgra
             </div>
 
             {/* Card Plano Master */}
-            <div className="rounded-2xl border border-emerald-500/40 bg-emerald-500/5 p-5 flex flex-col justify-between hover:border-emerald-500/70 transition relative overflow-hidden">
-              <div className="absolute top-0 right-0 bg-emerald-500 text-slate-950 font-black text-[9px] uppercase tracking-widest px-3 py-0.5 rounded-bl-xl shadow-md">
+            <div className="rounded-2xl border border-orange-500/40 bg-orange-500/5 p-5 flex flex-col justify-between hover:border-orange-500/70 transition relative overflow-hidden">
+              <div className="absolute top-0 right-0 bg-orange-500 text-slate-950 font-black text-[9px] uppercase tracking-widest px-3 py-0.5 rounded-bl-xl shadow-md">
                 Mais Completo
               </div>
 
               <div>
                 <div className="flex items-center justify-between gap-2 mb-3">
-                  <span className="px-2.5 py-1 rounded-lg text-xs font-bold uppercase tracking-wider bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+                  <span className="px-2.5 py-1 rounded-lg text-xs font-bold uppercase tracking-wider bg-orange-500/20 text-orange-400 border border-orange-500/30">
                     Plano Master
                   </span>
-                  <span className="text-xs text-emerald-400 font-mono">Defesa Total</span>
+                  <span className="text-xs text-orange-400 font-mono">Defesa Total</span>
                 </div>
                 <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
                   Sensores Físicos e Acidentes
@@ -121,27 +121,27 @@ export function UpgradePlanoModal({ aberto, onFechar, recursoSolicitado }: Upgra
 
                 <ul className="space-y-2 text-xs text-slate-700 dark:text-slate-300 mb-6">
                   <li className="flex items-center gap-2">
-                    <Check className="h-4 w-4 text-emerald-500 shrink-0" />
+                    <Check className="h-4 w-4 text-orange-500 shrink-0" />
                     <span>Todos os recursos do Plano Pro</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <Check className="h-4 w-4 text-emerald-500 shrink-0" />
+                    <Check className="h-4 w-4 text-orange-500 shrink-0" />
                     <span>Acelerômetro triaxial com medição de Força G</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <Check className="h-4 w-4 text-emerald-500 shrink-0" />
+                    <Check className="h-4 w-4 text-orange-500 shrink-0" />
                     <span>Giroscópio de inclinação angular do chassi</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <Check className="h-4 w-4 text-emerald-500 shrink-0" />
+                    <Check className="h-4 w-4 text-orange-500 shrink-0" />
                     <span>Detecção instantânea de acidentes e colisão</span>
                   </li>
-                  <li className="flex items-center gap-2 font-bold text-emerald-400">
-                    <Check className="h-4 w-4 text-emerald-500 shrink-0" />
+                  <li className="flex items-center gap-2 font-bold text-orange-400">
+                    <Check className="h-4 w-4 text-orange-500 shrink-0" />
                     <span>Montagem de Trajeto Inteligente e Roteirização Otimizada</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <Check className="h-4 w-4 text-emerald-500 shrink-0" />
+                    <Check className="h-4 w-4 text-orange-500 shrink-0" />
                     <span>35 dias de histórico técnico</span>
                   </li>
                 </ul>
@@ -160,7 +160,7 @@ export function UpgradePlanoModal({ aberto, onFechar, recursoSolicitado }: Upgra
           {/* Rodapé com Central de Suporte */}
           <div className="p-3.5 sm:p-4 bg-[#eaf0f8]/95 dark:bg-slate-950/80 border-t border-slate-300/60 dark:border-slate-800/80 flex items-center justify-between text-xs text-slate-600 dark:text-slate-400 shrink-0">
             <div className="flex items-center gap-2">
-              <Headphones className="h-4 w-4 text-emerald-500" />
+              <Headphones className="h-4 w-4 text-orange-500" />
               <span className="truncate">
                 Atendimento GD Rastreamento 24h para migração instantânea
               </span>
