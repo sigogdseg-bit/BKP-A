@@ -156,11 +156,12 @@ describe("Hunter — Chave PIX Oficial do Sistema e Lembrete Leve de Vencimento 
   });
 
   test("7. obterDadosCobrancaClienteFactual utiliza o valor factual do cadastro (R$ 45,00) de clientes com veículo ativo", async () => {
-    // Alex Sandro possui veículo ativo (LTK1A94) e mensalidade 45
+    // Cliente com veículo ativo e mensalidade 45
     const dados = await obterDadosCobrancaClienteFactual(
       "f4c2d6fb-e829-4507-bcfb-6b95143e04c4",
       45,
       10,
+      { statusCliente: "ativo", temVeiculoAtivo: true },
     );
 
     assert.equal(dados.isento, false, "Cliente com mensalidade 45 e veículo ativo não é isento");
@@ -169,11 +170,12 @@ describe("Hunter — Chave PIX Oficial do Sistema e Lembrete Leve de Vencimento 
   });
 
   test("8. Regra Pétrea de Cobrança: Cliente aguardando instalação sem veículo ativo não inicia cobrança", async () => {
-    // Weidisson está como aguardando_instalacao e sem veículo ativo
+    // Cliente aguardando_instalacao e sem veículo ativo
     const dados = await obterDadosCobrancaClienteFactual(
       "ee7f9f7d-7ab6-4ade-9fa1-313751cd1213",
       45,
       10,
+      { statusCliente: "aguardando_instalacao", temVeiculoAtivo: false },
     );
 
     assert.equal(

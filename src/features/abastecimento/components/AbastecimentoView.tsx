@@ -511,7 +511,17 @@ export function AbastecimentoView() {
                 </span>
               </div>
 
-              {veiculos.length === 1 ? (
+              {veiculos.length === 0 ? (
+                <div className="p-4 rounded-2xl bg-[#eaf0f8] dark:bg-slate-950/60 border border-slate-300/50 dark:border-slate-800 text-center space-y-1.5 shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-none">
+                  <Car className="h-6 w-6 text-slate-400 dark:text-slate-500 mx-auto" />
+                  <p className="text-xs font-bold text-slate-700 dark:text-slate-300">
+                    Nenhum veículo cadastrado
+                  </p>
+                  <p className="text-[11px] text-slate-500 dark:text-slate-400">
+                    Cadastre um veículo para lançar abastecimentos.
+                  </p>
+                </div>
+              ) : veiculos.length === 1 ? (
                 <div className="p-4 rounded-2xl bg-[#eaf0f8] dark:bg-slate-950/60 border border-slate-300/50 dark:border-slate-800 shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-none flex items-center gap-3">
                   <div className="p-2.5 rounded-xl bg-orange-500/10 text-orange-600 dark:text-orange-400 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none">
                     <Car className="h-6 w-6" />
