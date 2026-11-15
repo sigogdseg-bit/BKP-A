@@ -4007,7 +4007,7 @@ export function RastreadorJ16View() {
                   <button
                     type="button"
                     onClick={aplicarPadraoDoSistema}
-                    className="flex-1 sm:flex-none px-2.5 py-1.5 rounded-lg text-[10px] font-bold uppercase tracking-wider text-cyan-700 dark:text-cyan-300 bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyan-500/30 hover:shadow-xs transition cursor-pointer text-center flex items-center justify-center gap-1"
+                    className="flex-1 sm:flex-none px-2.5 py-1.5 rounded-lg text-[10px] font-bold uppercase tracking-wider text-orange-700 dark:text-orange-300 bg-orange-500/10 hover:bg-orange-500/20 border border-orange-500/30 hover:shadow-xs transition cursor-pointer text-center flex items-center justify-center gap-1"
                     title="Carregar e aplicar a configuração padrão do sistema (valores e opções marcadas)"
                   >
                     <SlidersHorizontal className="h-3 w-3 shrink-0" />
@@ -4040,7 +4040,7 @@ export function RastreadorJ16View() {
                   disabled={
                     enviandoComando || selectedImeis.size === 0 || totalComandosAtivos === 0
                   }
-                  className="w-full sm:w-auto justify-center px-4 sm:px-5 py-3 rounded-2xl text-xs font-black uppercase tracking-wider bg-gradient-to-r from-emerald-500 via-teal-500 to-emerald-600 hover:from-emerald-400 hover:to-teal-500 text-slate-950 transition flex items-center gap-2 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-orange-500/20 active:scale-95 text-center"
+                  className="w-full sm:w-auto justify-center px-4 sm:px-5 py-3 rounded-2xl text-xs font-black uppercase tracking-wider bg-gradient-to-r from-emerald-500 via-orange-500 to-emerald-600 hover:from-emerald-400 hover:to-orange-500 text-slate-950 transition flex items-center gap-2 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-orange-500/20 active:scale-95 text-center"
                   title={
                     totalComandosAtivos === 0
                       ? "Selecione ao menos um comando para habilitar o envio"
@@ -5148,7 +5148,7 @@ export function RastreadorJ16View() {
                         className="p-3 cursor-pointer select-none hover:text-slate-900 dark:hover:text-slate-100 transition whitespace-nowrap"
                       >
                         <div className="flex items-center gap-1.5">
-                          <Gauge className="h-3 w-3 text-cyan-500" />
+                          <Gauge className="h-3 w-3 text-orange-500" />
                           <span>ODÔMETRO (KM)</span>
                           {campoOrdenacao === "odometro" ? (
                             direcaoOrdenacao === "asc" ? (
@@ -5451,7 +5451,7 @@ export function RastreadorJ16View() {
                           {/* ODÔMETRO (KM) - MCU Interno e WGS-84 */}
                           <td className="p-3 font-mono text-[11px] whitespace-nowrap">
                             <div className="flex items-center gap-1.5">
-                              <Gauge className="h-3.5 w-3.5 text-cyan-500 shrink-0" />
+                              <Gauge className="h-3.5 w-3.5 text-orange-500 shrink-0" />
                               <div>
                                 <div className="font-bold text-slate-800 dark:text-slate-200">
                                   {disp.odometroKm !== null && disp.odometroKm !== undefined
@@ -5550,7 +5550,7 @@ export function RastreadorJ16View() {
                                   )
                                 }
                                 title="SZCS#GT06SEL=1#GT06METER=1: Ativa cálculo interno de odômetro MCU"
-                                className="px-2 py-1 rounded-md text-[10px] font-mono font-bold bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-600 dark:text-cyan-400 border border-cyan-500/30 transition cursor-pointer active:scale-95"
+                                className="px-2 py-1 rounded-md text-[10px] font-mono font-bold bg-orange-500/10 hover:bg-orange-500/20 text-orange-600 dark:text-orange-400 border border-orange-500/30 transition cursor-pointer active:scale-95"
                               >
                                 METER
                               </button>
@@ -5754,7 +5754,7 @@ export function RastreadorJ16View() {
 
                         <div className="p-2 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-100 dark:border-slate-800">
                           <span className="text-slate-400 block font-bold flex items-center gap-1">
-                            <Gauge className="h-2.5 w-2.5 text-cyan-500" /> ODÔMETRO
+                            <Gauge className="h-2.5 w-2.5 text-orange-500" /> ODÔMETRO
                           </span>
                           <span className="font-bold text-slate-800 dark:text-slate-200">
                             {disp.odometroKm !== null && disp.odometroKm !== undefined
@@ -5825,7 +5825,7 @@ export function RastreadorJ16View() {
                             )
                           }
                           title="SZCS#GT06SEL=1#GT06METER=1: Ativa cálculo interno de odômetro MCU"
-                          className="px-2 py-1 rounded-md text-[10px] font-mono font-bold bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-600 dark:text-cyan-400 border border-cyan-500/30 transition cursor-pointer active:scale-95"
+                          className="px-2 py-1 rounded-md text-[10px] font-mono font-bold bg-orange-500/10 hover:bg-orange-500/20 text-orange-600 dark:text-orange-400 border border-orange-500/30 transition cursor-pointer active:scale-95"
                         >
                           METER
                         </button>
@@ -6078,7 +6078,7 @@ export function RastreadorJ16View() {
                     disabled={
                       !buscaComandoCatalogo.trim() || selectedImeis.size === 0 || enviandoComando
                     }
-                    className="w-full py-2 px-3 rounded-xl text-xs font-black uppercase tracking-wider bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 transition flex items-center justify-center gap-1.5 shadow-sm active:scale-95 cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed text-center"
+                    className="w-full py-2 px-3 rounded-xl text-xs font-black uppercase tracking-wider bg-gradient-to-r from-emerald-500 to-orange-500 hover:from-emerald-400 hover:to-orange-400 text-slate-950 transition flex items-center justify-center gap-1.5 shadow-sm active:scale-95 cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed text-center"
                     title={
                       !buscaComandoCatalogo.trim()
                         ? "Digite um comando para disparar"

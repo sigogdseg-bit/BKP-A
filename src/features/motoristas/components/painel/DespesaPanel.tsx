@@ -121,7 +121,7 @@ export function DespesaPanel({ clienteId, motoristaId, veiculoId, veiculoPlaca, 
     try {
       setOcrLendo(true);
       toast.info("Lendo nota fiscal com Inteligência Artificial...", {
-        icon: <Sparkles className="h-4 w-4 text-cyan-400 animate-pulse" />,
+        icon: <Sparkles className="h-4 w-4 text-orange-400 animate-pulse" />,
       });
       const ocr = await extrairDadosNF(file);
 
@@ -274,7 +274,7 @@ export function DespesaPanel({ clienteId, motoristaId, veiculoId, veiculoPlaca, 
                 </span>
               </div>
               {ocrLendo ? (
-                <span className="inline-flex items-center gap-1 text-[11px] text-cyan-400 mt-1 font-medium animate-pulse">
+                <span className="inline-flex items-center gap-1 text-[11px] text-orange-400 mt-1 font-medium animate-pulse">
                   <Sparkles className="h-3 w-3" /> Lendo comprovante com IA...
                 </span>
               ) : (
@@ -295,7 +295,7 @@ export function DespesaPanel({ clienteId, motoristaId, veiculoId, veiculoPlaca, 
           >
             <Camera className="h-8 w-8 text-slate-500" />
             <p className="text-sm text-slate-400">Foto ou PDF do Recibo / Nota Fiscal</p>
-            <p className="text-xs text-cyan-400/80 flex items-center gap-1 font-medium">
+            <p className="text-xs text-orange-400/80 flex items-center gap-1 font-medium">
               <Sparkles className="h-3 w-3" /> Leitura e preenchimento automático por Inteligência
               Artificial
             </p>

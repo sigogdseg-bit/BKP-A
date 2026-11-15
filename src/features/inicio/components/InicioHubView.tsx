@@ -90,7 +90,7 @@ export function InicioHubView() {
           desc: "Planejamento com múltiplos pontos, desvios e rotas inteligentes pelas ruas",
           icone: Navigation,
           tag: "Navegação",
-          corTag: "text-cyan-500 bg-cyan-500/10 border-cyan-500/20",
+          corTag: "text-orange-500 bg-orange-500/10 border-orange-500/20",
         },
         {
           titulo: "Desempenho da Frota",
@@ -190,7 +190,7 @@ export function InicioHubView() {
             : "Controle financeiro, vencimentos e confirmação de pagamento",
           icone: CreditCard,
           tag: "Financeiro",
-          corTag: "text-teal-500 bg-teal-500/10 border-teal-500/20",
+          corTag: "text-orange-500 bg-orange-500/10 border-orange-500/20",
         },
         {
           titulo: "Estoque e Suprimentos",

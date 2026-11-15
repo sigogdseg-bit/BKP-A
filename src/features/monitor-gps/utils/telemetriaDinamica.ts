@@ -155,7 +155,7 @@ export function gerarHtmlBalaoTelemetria(
       <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 2px solid #10B981; padding-bottom: 6px; margin-bottom: 8px;">
         <div style="display: flex; align-items: center; gap: 6px;">
           <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #10B981; box-shadow: 0 0 8px #10B981;"></span>
-          <span style="font-size: 11px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.05em; color: #047857;">MÉTRICA DO TRAJETO</span>
+          <span style="font-size: 11px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.05em; color: #c2410c;">MÉTRICA DO TRAJETO</span>
         </div>
         <span style="font-family: monospace; font-size: 10px; font-weight: 800; background: #F1F5F9; color: #334155; padding: 2px 7px; border-radius: 6px; border: 1px solid #CBD5E1;">
           Ponto ${indice + 1}/${total}
@@ -173,11 +173,11 @@ export function gerarHtmlBalaoTelemetria(
 
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-family: monospace;">
         <div style="background: #ECFDF5; border: 1px solid #A7F3D0; border-radius: 8px; padding: 6px 8px;">
-          <div style="font-size: 9px; font-weight: 800; color: #047857; text-transform: uppercase; letter-spacing: 0.04em;">Velocidade</div>
+          <div style="font-size: 9px; font-weight: 800; color: #c2410c; text-transform: uppercase; letter-spacing: 0.04em;">Velocidade</div>
           <div style="font-size: 16px; font-weight: 900; color: #065F46; line-height: 1.2; margin-top: 2px;">
             ${telemetria.velocidade} <span style="font-size: 10px; font-weight: 700;">km/h</span>
           </div>
-          <div style="font-size: 8px; color: #047857; margin-top: 2px; font-weight: 700;">GPS Real</div>
+          <div style="font-size: 8px; color: #c2410c; margin-top: 2px; font-weight: 700;">GPS Real</div>
         </div>
 
         <div style="background: #EFF6FF; border: 1px solid #BFDBFE; border-radius: 8px; padding: 6px 8px;">
@@ -214,7 +214,7 @@ export function gerarHtmlBalaoTelemetria(
       </div>
 
       <div style="margin-top: 8px; padding-top: 6px; border-top: 1px dashed #CBD5E1; font-size: 10px; font-weight: 800; display: flex; align-items: center; justify-content: space-between; color: #475569;">
-        <span style="color: #047857;">📡 Registro GPS Real</span>
+        <span style="color: #c2410c;">📡 Registro GPS Real</span>
         <span>🔑 ${telemetria.ignicao ? "Ignição Ligada" : "Ignição Desligada"}</span>
       </div>
     </div>

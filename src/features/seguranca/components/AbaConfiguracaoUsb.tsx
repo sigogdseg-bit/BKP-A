@@ -1953,7 +1953,7 @@ export function AbaConfiguracaoUsb() {
                   onClick={conectarWebUsb}
                   disabled={conectando || !suportado}
                   title="Conecta diretamente ao modem/rastreador via cabo USB (Mac, Windows e Linux, sem driver)"
-                  className="px-4 py-2.5 rounded-2xl text-xs font-black uppercase tracking-wider bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-slate-950 transition flex items-center gap-2 cursor-pointer disabled:opacity-50 shadow-md shadow-orange-500/20 active:scale-95"
+                  className="px-4 py-2.5 rounded-2xl text-xs font-black uppercase tracking-wider bg-gradient-to-r from-emerald-500 to-orange-600 hover:from-emerald-400 hover:to-orange-500 text-slate-950 transition flex items-center gap-2 cursor-pointer disabled:opacity-50 shadow-md shadow-orange-500/20 active:scale-95"
                 >
                   {conectando ? (
                     <RefreshCw className="h-4 w-4 animate-spin" />
@@ -2110,14 +2110,15 @@ export function AbaConfiguracaoUsb() {
                   {dadosBancada.servidorAtual && (
                     <span>
                       Servidor Atual:{" "}
-                      <strong className="text-cyan-400">
+                      <strong className="text-orange-400">
                         {dadosBancada.servidorAtual}:{dadosBancada.portaAtual}
                       </strong>
                     </span>
                   )}
                   {dadosBancada.apnAtual && (
                     <span>
-                      APN Atual: <strong className="text-cyan-400">{dadosBancada.apnAtual}</strong>
+                      APN Atual:{" "}
+                      <strong className="text-orange-400">{dadosBancada.apnAtual}</strong>
                     </span>
                   )}
                   {dadosBancada.versaoFirmware && (
@@ -2255,9 +2256,9 @@ export function AbaConfiguracaoUsb() {
                   let corBadge = "bg-slate-800 text-slate-400 border-slate-700";
 
                   if (log.tipo === "TX") {
-                    corTexto = "text-cyan-300 font-semibold";
+                    corTexto = "text-orange-300 font-semibold";
                     prefixo = "TX ->";
-                    corBadge = "bg-cyan-500/15 text-cyan-400 border-cyan-500/30";
+                    corBadge = "bg-orange-500/15 text-orange-400 border-orange-500/30";
                   } else if (log.tipo === "RX") {
                     corTexto = "text-orange-400";
                     prefixo = "RX <-";
@@ -2340,7 +2341,7 @@ export function AbaConfiguracaoUsb() {
         {/* COLUNA DIREITA (5 COLS): PRESETS RÁPIDOS E FORMULÁRIOS DE APONTAMENTO */}
         <div className="lg:col-span-5 space-y-4">
           {/* CARD MASTER: GRAVAÇÃO EM 1-CLIQUE DO PADRÃO CANÔNICO */}
-          <div className="bg-gradient-to-br from-emerald-500/10 via-[#eaf0f8] to-teal-500/10 dark:from-emerald-950/30 dark:via-slate-900 dark:to-teal-950/30 border-2 border-emerald-500/40 p-4 sm:p-5 rounded-3xl shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl space-y-3.5">
+          <div className="bg-gradient-to-br from-emerald-500/10 via-[#eaf0f8] to-orange-500/10 dark:from-emerald-950/30 dark:via-slate-900 dark:to-orange-950/30 border-2 border-emerald-500/40 p-4 sm:p-5 rounded-3xl shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl space-y-3.5">
             <div className="flex items-start justify-between gap-3">
               <div className="flex items-center gap-2.5">
                 <span className="p-2 rounded-2xl bg-emerald-500 text-slate-950 shadow-md shadow-emerald-500/30 shrink-0">
@@ -2420,7 +2421,7 @@ export function AbaConfiguracaoUsb() {
               type="button"
               onClick={gravarPadraoCanonicoCompleto}
               disabled={!conectado || gravandoPadraoCanonico}
-              className="w-full py-3 rounded-2xl bg-gradient-to-r from-emerald-500 via-teal-500 to-emerald-600 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-black text-xs uppercase tracking-wider transition flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 active:scale-95 shadow-lg shadow-emerald-500/25"
+              className="w-full py-3 rounded-2xl bg-gradient-to-r from-emerald-500 via-orange-500 to-emerald-600 hover:from-emerald-400 hover:to-orange-400 text-slate-950 font-black text-xs uppercase tracking-wider transition flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 active:scale-95 shadow-lg shadow-emerald-500/25"
             >
               <Zap className="h-4 w-4 fill-slate-950" />
               <span>
@@ -2534,7 +2535,7 @@ export function AbaConfiguracaoUsb() {
               type="button"
               onClick={gravarServidor}
               disabled={!conectado}
-              className="w-full py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-slate-950 font-black text-xs uppercase tracking-wider transition flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 active:scale-95 shadow-md shadow-orange-500/20"
+              className="w-full py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-orange-600 hover:from-emerald-400 hover:to-orange-500 text-slate-950 font-black text-xs uppercase tracking-wider transition flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 active:scale-95 shadow-md shadow-orange-500/20"
             >
               <Play className="h-3.5 w-3.5 fill-slate-950" />
               <span>

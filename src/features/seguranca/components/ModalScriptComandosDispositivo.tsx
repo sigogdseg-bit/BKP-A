@@ -85,7 +85,7 @@ export function ModalScriptComandosDispositivo({
           {/* Cabeçalho */}
           <div className="p-4 sm:p-5 border-b border-slate-300/60 dark:border-slate-800 flex items-center justify-between bg-[#eaf0f8]/95 dark:bg-slate-950/60 shrink-0">
             <div className="flex items-center gap-3">
-              <span className="p-2.5 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-600 dark:text-cyan-400">
+              <span className="p-2.5 rounded-2xl bg-orange-500/10 border border-orange-500/20 text-orange-600 dark:text-orange-400">
                 <Terminal className="h-5 w-5" />
               </span>
               <div>
@@ -108,7 +108,7 @@ export function ModalScriptComandosDispositivo({
           </div>
 
           {/* Resumo Rápido dos Parâmetros Configurados */}
-          <div className="px-5 py-3 bg-cyan-500/5 dark:bg-cyan-950/20 border-b border-cyan-500/10 flex items-center gap-2 flex-wrap text-xs font-mono shrink-0">
+          <div className="px-5 py-3 bg-orange-500/5 dark:bg-orange-950/20 border-b border-orange-500/10 flex items-center gap-2 flex-wrap text-xs font-mono shrink-0">
             <span className="px-2 py-0.5 rounded-md bg-white dark:bg-slate-800 border border-slate-300/60 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-bold">
               Timer: {padrao.timerMovimento}s / {padrao.timerParado}s
             </span>
@@ -135,7 +135,7 @@ export function ModalScriptComandosDispositivo({
               {comandos.map((c, idx) => (
                 <div
                   key={c.cmd}
-                  className="p-3 rounded-2xl bg-white dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/60 flex items-center justify-between gap-3 shadow-xs hover:border-cyan-500/40 transition"
+                  className="p-3 rounded-2xl bg-white dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/60 flex items-center justify-between gap-3 shadow-xs hover:border-orange-500/40 transition"
                 >
                   <div className="flex items-center gap-3 min-w-0">
                     <span className="h-7 w-7 rounded-lg bg-slate-100 dark:bg-slate-700 flex items-center justify-center text-xs font-mono font-bold text-slate-600 dark:text-slate-300 shrink-0">
@@ -143,7 +143,7 @@ export function ModalScriptComandosDispositivo({
                     </span>
                     <div className="min-w-0">
                       <div className="flex items-center gap-2 flex-wrap">
-                        <span className="font-mono font-black text-sm text-cyan-600 dark:text-cyan-400 select-all">
+                        <span className="font-mono font-black text-sm text-orange-600 dark:text-orange-400 select-all">
                           {c.cmd}
                         </span>
                         <span className="text-[11px] font-bold text-slate-700 dark:text-slate-300">
@@ -159,7 +159,7 @@ export function ModalScriptComandosDispositivo({
                   <button
                     type="button"
                     onClick={() => handleCopiarIndividual(c.cmd, idx)}
-                    className="p-2 rounded-xl text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 hover:bg-cyan-500/10 transition cursor-pointer shrink-0"
+                    className="p-2 rounded-xl text-slate-400 hover:text-orange-600 dark:hover:text-orange-400 hover:bg-orange-500/10 transition cursor-pointer shrink-0"
                     title="Copiar comando individual"
                   >
                     {comandoCopiadoIdx === idx ? (
@@ -222,7 +222,7 @@ export function ModalScriptComandosDispositivo({
               <button
                 type="button"
                 onClick={handleCopiarLinhas}
-                className="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-cyan-600 hover:bg-cyan-700 text-white text-xs font-black uppercase tracking-wider transition active:scale-95 cursor-pointer shadow-md flex items-center justify-center gap-2"
+                className="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-orange-600 hover:bg-orange-700 text-white text-xs font-black uppercase tracking-wider transition active:scale-95 cursor-pointer shadow-md flex items-center justify-center gap-2"
               >
                 {copiadoGeral ? (
                   <Check className="h-4 w-4 text-white" />

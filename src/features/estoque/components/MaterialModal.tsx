@@ -230,7 +230,7 @@ export function MaterialModal({
               <div
                 className={`p-2.5 rounded-2xl ${
                   isNeumorph
-                    ? "bg-[#eaf0f8] shadow-[2px_2px_5px_#c3cfe2] border border-slate-300/40 text-teal-600"
+                    ? "bg-[#eaf0f8] shadow-[2px_2px_5px_#c3cfe2] border border-slate-300/40 text-orange-600"
                     : isStyleguide
                       ? "bg-[#9EE5D4]/40 text-[#064E3B] border border-[#9EE5D4]"
                       : "bg-orange-500/20 text-orange-400 border border-orange-500/30"
@@ -264,11 +264,11 @@ export function MaterialModal({
               <div>
                 <div className="flex items-center justify-between mb-1.5">
                   <label className="text-xs font-semibold uppercase tracking-wider opacity-80 flex items-center gap-1">
-                    <Hash className="w-3 h-3 text-teal-500" />
+                    <Hash className="w-3 h-3 text-orange-500" />
                     <span>Código SKU *</span>
                   </label>
                   {!materialParaEdicao && (
-                    <span className="text-[10px] font-mono font-bold px-1.5 py-0.2 rounded bg-teal-500/20 text-teal-700 dark:text-teal-300 border border-teal-500/40">
+                    <span className="text-[10px] font-mono font-bold px-1.5 py-0.2 rounded bg-orange-500/20 text-orange-700 dark:text-orange-300 border border-orange-500/40">
                       AUTO
                     </span>
                   )}
@@ -330,7 +330,7 @@ export function MaterialModal({
                         selecionada
                           ? isStyleguide
                             ? "bg-[#9EE5D4] text-[#064E3B] border border-[#7ed7c0] shadow-sm font-black"
-                            : "bg-teal-600 text-white dark:bg-teal-500 dark:text-slate-950 font-black shadow-sm ring-2 ring-teal-500/40"
+                            : "bg-orange-600 text-white dark:bg-orange-500 dark:text-slate-950 font-black shadow-sm ring-2 ring-orange-500/40"
                           : "bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-100 border border-slate-300 dark:border-slate-700 shadow-xs hover:bg-slate-100 dark:hover:bg-slate-700 hover:text-slate-950"
                       }`}
                     >
@@ -430,17 +430,17 @@ export function MaterialModal({
                 </div>
               </div>
             ) : (
-              <div className="p-4 rounded-2xl bg-gradient-to-br from-teal-500/10 via-slate-50 to-emerald-500/10 dark:from-teal-950/20 dark:via-slate-900/60 dark:to-emerald-950/20 border border-teal-500/30 space-y-3.5">
+              <div className="p-4 rounded-2xl bg-gradient-to-br from-orange-500/10 via-slate-50 to-amber-500/10 dark:from-orange-950/20 dark:via-slate-900/60 dark:to-amber-950/20 border border-orange-500/30 space-y-3.5">
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-teal-800 dark:text-teal-300">
-                    <Sparkles className="w-4 h-4 text-teal-500" />
+                  <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-orange-800 dark:text-orange-300">
+                    <Sparkles className="w-4 h-4 text-orange-500" />
                     <span>Precificação com Markup Inteligente</span>
                   </div>
                   <div className="text-right">
                     <span className="text-[11px] text-slate-500 dark:text-slate-400 block">
                       Custo Médio Total
                     </span>
-                    <span className="font-mono font-black text-sm text-teal-700 dark:text-teal-300">
+                    <span className="font-mono font-black text-sm text-orange-700 dark:text-orange-300">
                       R$ {custoTotalUnitario.toFixed(2)}
                     </span>
                     {custoFrete > 0 && (
@@ -466,8 +466,8 @@ export function MaterialModal({
                           onClick={() => aplicarMarkupAutomatico(p.markup)}
                           className={`px-2 py-1.5 rounded-xl text-center text-xs transition border flex flex-col items-center justify-center ${
                             ativo
-                              ? "bg-teal-600 text-white dark:bg-teal-500 dark:text-slate-950 border-teal-600 font-bold shadow-xs scale-[1.02]"
-                              : "bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border-slate-300 dark:border-slate-700 hover:border-teal-500/50"
+                              ? "bg-orange-600 text-white dark:bg-orange-500 dark:text-slate-950 border-orange-600 font-bold shadow-xs scale-[1.02]"
+                              : "bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border-slate-300 dark:border-slate-700 hover:border-orange-500/50"
                           }`}
                         >
                           <span className="font-black text-xs">+{p.markup}%</span>
@@ -563,7 +563,7 @@ export function MaterialModal({
                       <label className="text-xs font-semibold uppercase tracking-wider opacity-80">
                         Preço de Venda (R$) *
                       </label>
-                      <span className="text-[10px] text-teal-600 dark:text-teal-400 font-semibold">
+                      <span className="text-[10px] text-orange-600 dark:text-orange-400 font-semibold">
                         Livre edição
                       </span>
                     </div>

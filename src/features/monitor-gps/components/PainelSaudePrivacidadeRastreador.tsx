@@ -129,7 +129,7 @@ export function PainelSaudePrivacidadeRastreador({
             type="button"
             onClick={handleTestarComunicacao}
             disabled={testandoCom}
-            className="w-full py-2.5 px-3 rounded-xl bg-orange-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center justify-center gap-2 transition active:scale-95 shadow-xs cursor-pointer disabled:opacity-50"
+            className="w-full py-2.5 px-3 rounded-xl bg-orange-600 hover:bg-orange-500 text-white font-bold text-xs flex items-center justify-center gap-2 transition active:scale-95 shadow-xs cursor-pointer disabled:opacity-50"
           >
             {testandoCom ? (
               <>
@@ -186,9 +186,9 @@ export function PainelSaudePrivacidadeRastreador({
         <div className="rounded-2xl p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between space-y-4">
           <div className="flex items-center justify-between text-xs font-bold text-slate-700 dark:text-slate-300">
             <span className="flex items-center gap-1.5">
-              <Compass className="h-4 w-4 text-teal-500" /> SINAL GNSS / GPS
+              <Compass className="h-4 w-4 text-orange-500" /> SINAL GNSS / GPS
             </span>
-            <span className="px-2 py-0.5 rounded text-[10px] font-black uppercase bg-teal-500/15 text-teal-700 dark:text-teal-400 border border-teal-500/30">
+            <span className="px-2 py-0.5 rounded text-[10px] font-black uppercase bg-orange-500/15 text-orange-700 dark:text-orange-400 border border-orange-500/30">
               ORBITAL
             </span>
           </div>

@@ -355,7 +355,7 @@ function PaginaAssinaturaCliente() {
       <header className="max-w-3xl w-full mx-auto space-y-3 pb-6 border-b border-slate-800">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-700 flex items-center justify-center text-white shadow-lg shadow-orange-500/20">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-orange-500 to-amber-700 flex items-center justify-center text-white shadow-lg shadow-orange-500/20">
               <ShieldCheck className="h-6 w-6" />
             </div>
             <div>
@@ -1002,7 +1002,7 @@ function PaginaAssinaturaCliente() {
                   type="button"
                   onClick={handleConfirmarAssinatura}
                   disabled={enviandoAssinatura || !temAssinatura || !aceitouTermos}
-                  className="w-full py-4 rounded-xl text-sm font-black text-white bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-700 hover:from-emerald-500 hover:to-teal-600 transition shadow-xl shadow-emerald-600/30 active:scale-[0.99] cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                  className="w-full py-4 rounded-xl text-sm font-black text-white bg-gradient-to-r from-orange-600 via-amber-600 to-orange-700 hover:from-orange-500 hover:to-amber-600 transition shadow-xl shadow-orange-600/30 active:scale-[0.99] cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                 >
                   {enviandoAssinatura ? (
                     <>

@@ -193,7 +193,7 @@ export function FornecedorModal({
               <div
                 className={`p-2.5 rounded-2xl ${
                   isNeumorph
-                    ? "bg-[#eaf0f8] shadow-[2px_2px_5px_#c3cfe2] border border-slate-300/40 text-teal-600"
+                    ? "bg-[#eaf0f8] shadow-[2px_2px_5px_#c3cfe2] border border-slate-300/40 text-orange-600"
                     : isStyleguide
                       ? "bg-[#9EE5D4]/40 text-[#064E3B] border border-[#9EE5D4]"
                       : "bg-orange-500/20 text-orange-400 border border-orange-500/30"
@@ -275,7 +275,7 @@ export function FornecedorModal({
                 </label>
                 <div className="flex items-center gap-2">
                   <span className="text-[10px] opacity-60">Escolha ou digite novas</span>
-                  <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-teal-500/20 text-teal-700 dark:text-teal-300 border border-teal-500/40">
+                  <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-orange-500/20 text-orange-700 dark:text-orange-300 border border-orange-500/40">
                     {categorias.length} {categorias.length === 1 ? "selecionada" : "selecionadas"}
                   </span>
                 </div>
@@ -303,7 +303,7 @@ export function FornecedorModal({
                       onClick={() => toggleCategoria(catNome)}
                       className={`px-3 py-1 rounded-full text-xs font-bold transition flex items-center gap-1.5 ${
                         selecionada
-                          ? "bg-teal-600 text-white shadow-xs font-black"
+                          ? "bg-orange-600 text-white shadow-xs font-black"
                           : "bg-white/80 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700"
                       }`}
                     >

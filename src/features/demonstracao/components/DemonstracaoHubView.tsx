@@ -250,7 +250,7 @@ export function DemonstracaoHubView() {
               type="button"
               onClick={iniciarJornadaInstalador}
               disabled={iniciando === "instalador"}
-              className="flex-1 py-3 px-4 rounded-2xl bg-orange-600 hover:bg-orange-500 text-white font-bold text-sm shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none active:shadow-[inset_2px_2px_4px_#047857] flex items-center justify-center gap-2 transition cursor-pointer disabled:opacity-50"
+              className="flex-1 py-3 px-4 rounded-2xl bg-orange-600 hover:bg-orange-500 text-white font-bold text-sm shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none active:shadow-[inset_2px_2px_4px_#c2410c] flex items-center justify-center gap-2 transition cursor-pointer disabled:opacity-50"
             >
               <Play className="h-4 w-4 fill-white" />
               <span>

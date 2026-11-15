@@ -415,7 +415,7 @@ export function AlertasAcidenteBanner({
                   <div className="flex items-center gap-2 pt-1 border-t border-rose-900/60">
                     <a
                       href={`tel:${alertaPrincipal.cliente_telefone.replace(/\D/g, "")}`}
-                      className="w-full flex items-center justify-center gap-1.5 px-2 py-1.5 rounded bg-emerald-700 hover:bg-orange-600 text-white font-bold text-[10px] transition shadow-xs"
+                      className="w-full flex items-center justify-center gap-1.5 px-2 py-1.5 rounded bg-orange-600 hover:bg-orange-500 text-white font-bold text-[10px] transition shadow-xs"
                     >
                       <Phone className="h-3 w-3" />
                       <span>Ligar ({alertaPrincipal.cliente_telefone})</span>
@@ -697,7 +697,7 @@ export function AlertasAcidenteBanner({
                           href={`https://waze.com/ul?ll=${modalAlerta.latitude},${modalAlerta.longitude}&navigate=yes`}
                           target="_blank"
                           rel="noreferrer"
-                          className="p-1.5 px-2.5 rounded-lg bg-cyan-100 dark:bg-cyan-600/20 hover:bg-cyan-200 dark:hover:bg-cyan-600/30 border border-cyan-300 dark:border-cyan-500/40 text-cyan-800 dark:text-cyan-300 hover:text-cyan-900 dark:hover:text-white text-xs font-bold flex items-center gap-1 transition shadow-xs"
+                          className="p-1.5 px-2.5 rounded-lg bg-orange-100 dark:bg-orange-600/20 hover:bg-orange-200 dark:hover:bg-orange-600/30 border border-orange-300 dark:border-orange-500/40 text-orange-800 dark:text-orange-300 hover:text-orange-900 dark:hover:text-white text-xs font-bold flex items-center gap-1 transition shadow-xs"
                         >
                           <Navigation className="h-3.5 w-3.5" />
                           <span>Waze</span>

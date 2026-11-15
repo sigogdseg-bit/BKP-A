@@ -484,7 +484,7 @@ export function ModalSerialRastreadorChip({
                               <span className="px-2 py-0.5 rounded-lg text-[10px] font-bold bg-sky-100 dark:bg-sky-900/60 text-sky-700 dark:text-sky-300">
                                 {c.operadora}
                               </span>
-                              <span className="px-1.5 py-0.5 rounded text-[9px] font-medium bg-orange-50 dark:bg-orange-950 text-orange-600 dark:text-orange-400 border border-emerald-200 dark:border-emerald-800">
+                              <span className="px-1.5 py-0.5 rounded text-[9px] font-medium bg-orange-50 dark:bg-orange-950 text-orange-600 dark:text-orange-400 border border-orange-200 dark:border-orange-800">
                                 Livre
                               </span>
                             </div>

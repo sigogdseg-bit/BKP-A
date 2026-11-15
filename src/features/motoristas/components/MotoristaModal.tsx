@@ -365,7 +365,7 @@ export function MotoristaModal({
                 </div>
 
                 {ocrSucessoMsg && (
-                  <div className="mt-3 flex items-center gap-2 text-xs text-orange-700 dark:text-orange-400 bg-emerald-100/70 dark:bg-orange-950/40 border border-orange-500/30 rounded-xl px-3 py-2">
+                  <div className="mt-3 flex items-center gap-2 text-xs text-orange-700 dark:text-orange-400 bg-orange-100/70 dark:bg-orange-950/40 border border-orange-500/30 rounded-xl px-3 py-2">
                     <CheckCircle className="h-4 w-4 shrink-0 text-orange-600 dark:text-orange-400" />
                     <span>{ocrSucessoMsg}</span>
                   </div>
@@ -380,7 +380,7 @@ export function MotoristaModal({
                 </div>
               )}
               {sucessoGeralMsg && (
-                <div className="flex items-start gap-2.5 text-xs text-orange-700 dark:text-orange-400 bg-emerald-100/80 dark:bg-orange-950/40 border border-orange-500/30 rounded-xl p-3">
+                <div className="flex items-start gap-2.5 text-xs text-orange-700 dark:text-orange-400 bg-orange-100/80 dark:bg-orange-950/40 border border-orange-500/30 rounded-xl p-3">
                   <CheckCircle className="h-4 w-4 shrink-0 mt-0.5 text-orange-600 dark:text-orange-400" />
                   <span>{sucessoGeralMsg}</span>
                 </div>
@@ -406,7 +406,7 @@ export function MotoristaModal({
                 <div
                   className={`flex items-center justify-between p-3.5 rounded-xl border ${
                     motoristaEmEdicao.ativo
-                      ? "bg-emerald-100/60 dark:bg-orange-950/20 border-orange-500/30"
+                      ? "bg-orange-100/60 dark:bg-orange-950/20 border-orange-500/30"
                       : "bg-red-100/60 dark:bg-red-950/20 border-red-500/30"
                   }`}
                 >

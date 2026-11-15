@@ -1179,9 +1179,11 @@ export function TrajetoInteligenteModal({
                   : "text-slate-500 hover:text-slate-800 dark:hover:text-slate-200"
               }`}
             >
-              <Route className="h-3.5 w-3.5 text-cyan-500" />
+              <Route className="h-3.5 w-3.5 text-orange-500" />
               <span>Mapa Interativo</span>
-              {resultadoRota && <span className="h-2 w-2 rounded-full bg-cyan-400 animate-pulse" />}
+              {resultadoRota && (
+                <span className="h-2 w-2 rounded-full bg-orange-400 animate-pulse" />
+              )}
             </button>
           </div>
 
@@ -1300,7 +1302,7 @@ export function TrajetoInteligenteModal({
                     </span>
 
                     {ordemModo === "manual" ? (
-                      <span className="text-[10px] text-cyan-600 dark:text-cyan-400 font-bold bg-cyan-500/10 px-1.5 py-0.5 rounded border border-cyan-500/20">
+                      <span className="text-[10px] text-orange-600 dark:text-orange-400 font-bold bg-orange-500/10 px-1.5 py-0.5 rounded border border-orange-500/20">
                         Ordem Manual
                       </span>
                     ) : (
@@ -1629,15 +1631,15 @@ export function TrajetoInteligenteModal({
                 {navegacaoVozAtiva &&
                   resultadoRota?.instrucoesManobras &&
                   resultadoRota.instrucoesManobras.length > 0 && (
-                    <div className="absolute top-3 left-3 right-3 z-[1000] bg-slate-950/95 border border-cyan-500/50 shadow-2xl rounded-2xl p-3 text-white backdrop-blur-md flex flex-col gap-2">
+                    <div className="absolute top-3 left-3 right-3 z-[1000] bg-slate-950/95 border border-orange-500/50 shadow-2xl rounded-2xl p-3 text-white backdrop-blur-md flex flex-col gap-2">
                       <div className="flex items-center justify-between gap-3">
                         <div className="flex items-center gap-2.5 min-w-0">
-                          <div className="h-10 w-10 rounded-xl bg-cyan-500/20 border border-cyan-400/40 flex items-center justify-center text-cyan-400 shrink-0">
+                          <div className="h-10 w-10 rounded-xl bg-orange-500/20 border border-orange-400/40 flex items-center justify-center text-orange-400 shrink-0">
                             <Navigation className="h-5 w-5 animate-pulse" />
                           </div>
                           <div className="min-w-0">
                             <div className="flex items-center gap-2">
-                              <span className="text-xs font-black font-mono text-cyan-400 uppercase tracking-wider">
+                              <span className="text-xs font-black font-mono text-orange-400 uppercase tracking-wider">
                                 {distanciaParaProximoPasso !== null && distanciaParaProximoPasso > 0
                                   ? distanciaParaProximoPasso > 1000
                                     ? `Em ${(distanciaParaProximoPasso / 1000).toFixed(1)} km`
@@ -1696,7 +1698,7 @@ export function TrajetoInteligenteModal({
                           <button
                             type="button"
                             onClick={handleRepetirPassoAtual}
-                            className="px-2.5 py-1 rounded bg-cyan-500/20 hover:bg-cyan-500/30 text-[10px] font-bold text-cyan-300 border border-cyan-500/40 transition flex items-center gap-1 cursor-pointer"
+                            className="px-2.5 py-1 rounded bg-orange-500/20 hover:bg-orange-500/30 text-[10px] font-bold text-orange-300 border border-orange-500/40 transition flex items-center gap-1 cursor-pointer"
                           >
                             <Volume2 className="h-3 w-3" />
                             <span>Repetir</span>
@@ -1738,7 +1740,7 @@ export function TrajetoInteligenteModal({
                     </div>
 
                     <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800 flex items-center gap-2.5">
-                      <Clock className="h-5 w-5 text-cyan-500 shrink-0" />
+                      <Clock className="h-5 w-5 text-orange-500 shrink-0" />
                       <div>
                         <div className="text-[10px] text-slate-400 font-bold uppercase">
                           Tempo Total
@@ -1796,13 +1798,13 @@ export function TrajetoInteligenteModal({
                   {/* Acordeão de Orientações Faladas por Rua Estilo Waze */}
                   {resultadoRota.instrucoesManobras &&
                     resultadoRota.instrucoesManobras.length > 0 && (
-                      <div className="border border-cyan-500/30 dark:border-cyan-500/20 rounded-xl overflow-hidden bg-cyan-50/20 dark:bg-cyan-950/20">
+                      <div className="border border-orange-500/30 dark:border-orange-500/20 rounded-xl overflow-hidden bg-orange-50/20 dark:bg-orange-950/20">
                         <button
                           onClick={() => setMostrarOrientacoesVoz(!mostrarOrientacoesVoz)}
-                          className="w-full px-3 py-2 text-left text-xs font-bold text-slate-800 dark:text-slate-200 flex items-center justify-between hover:bg-cyan-500/10 transition cursor-pointer"
+                          className="w-full px-3 py-2 text-left text-xs font-bold text-slate-800 dark:text-slate-200 flex items-center justify-between hover:bg-orange-500/10 transition cursor-pointer"
                         >
                           <span className="flex items-center gap-1.5">
-                            <Radio className="h-3.5 w-3.5 text-cyan-500" />
+                            <Radio className="h-3.5 w-3.5 text-orange-500" />
                             <span>
                               Orientações Faladas Waze ({resultadoRota.instrucoesManobras.length}{" "}
                               vias/manobras)
@@ -1831,12 +1833,12 @@ export function TrajetoInteligenteModal({
                                   key={manobra.id}
                                   className={`pt-1.5 first:pt-0 flex items-center justify-between gap-2 p-1.5 rounded-lg transition ${
                                     isFalandoEsta
-                                      ? "bg-cyan-500/20 border border-cyan-400/60 font-bold"
+                                      ? "bg-orange-500/20 border border-orange-400/60 font-bold"
                                       : "hover:bg-slate-50 dark:hover:bg-slate-800/60"
                                   }`}
                                 >
                                   <div className="flex items-center gap-2 min-w-0">
-                                    <span className="flex items-center justify-center w-5 h-5 rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-[10px] font-mono font-black shrink-0">
+                                    <span className="flex items-center justify-center w-5 h-5 rounded-full bg-orange-500/10 text-orange-600 dark:text-orange-400 text-[10px] font-mono font-black shrink-0">
                                       {idx + 1}
                                     </span>
                                     <div className="truncate">
@@ -1845,7 +1847,7 @@ export function TrajetoInteligenteModal({
                                           {manobra.texto}
                                         </span>
                                         {navegacaoVozAtiva && passoAtualIdx === idx && (
-                                          <span className="px-1.5 py-0.2 rounded text-[8px] font-bold bg-cyan-500 text-slate-950 uppercase shrink-0">
+                                          <span className="px-1.5 py-0.2 rounded text-[8px] font-bold bg-orange-500 text-slate-950 uppercase shrink-0">
                                             PASSO ATUAL
                                           </span>
                                         )}
@@ -1862,7 +1864,7 @@ export function TrajetoInteligenteModal({
                                   <button
                                     type="button"
                                     onClick={() => handleOuvirManobra(manobra, idx)}
-                                    className="p-1.5 rounded-lg hover:bg-cyan-500/20 text-cyan-600 dark:text-cyan-400 transition shrink-0"
+                                    className="p-1.5 rounded-lg hover:bg-orange-500/20 text-orange-600 dark:text-orange-400 transition shrink-0"
                                     title="Ouvir esta orientação"
                                   >
                                     <Volume2 className="h-3.5 w-3.5" />
@@ -1884,14 +1886,14 @@ export function TrajetoInteligenteModal({
                       className={`flex-1 min-w-[150px] flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold transition cursor-pointer border ${
                         navegacaoVozAtiva
                           ? "bg-amber-500 text-slate-950 border-amber-400 shadow-md animate-pulse font-black"
-                          : "bg-cyan-500/15 text-cyan-600 dark:text-cyan-400 border-cyan-500/30 hover:bg-cyan-500/25"
+                          : "bg-orange-500/15 text-orange-600 dark:text-orange-400 border-orange-500/30 hover:bg-orange-500/25"
                       }`}
                       title="Navegação passo a passo com orientações por voz sincronizadas ao deslocamento do veículo"
                     >
                       {navegacaoVozAtiva ? (
                         <VolumeX className="h-3.5 w-3.5" />
                       ) : (
-                        <Volume2 className="h-3.5 w-3.5 text-cyan-500" />
+                        <Volume2 className="h-3.5 w-3.5 text-orange-500" />
                       )}
                       <span>
                         {navegacaoVozAtiva ? "Pausar Navegação Waze" : "Ouvir Rota Waze (Ao Vivo)"}
@@ -1913,7 +1915,7 @@ export function TrajetoInteligenteModal({
                     <div className="relative flex-1 min-w-[110px]">
                       <button
                         onClick={() => setMenuWazeAberto(!menuWazeAberto)}
-                        className="w-full flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border border-cyan-500/30 hover:bg-cyan-500/20 transition cursor-pointer"
+                        className="w-full flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold bg-orange-500/10 text-orange-600 dark:text-orange-400 border border-orange-500/30 hover:bg-orange-500/20 transition cursor-pointer"
                       >
                         <ExternalLink className="h-3.5 w-3.5" />
                         <span>Waze</span>
@@ -1933,9 +1935,9 @@ export function TrajetoInteligenteModal({
                                 href={gerarLinkWazePonto(ponto)}
                                 target="_blank"
                                 rel="noreferrer noopener"
-                                className="block p-1.5 rounded-lg hover:bg-cyan-500/10 text-slate-800 dark:text-slate-200 transition text-[11px]"
+                                className="block p-1.5 rounded-lg hover:bg-orange-500/10 text-slate-800 dark:text-slate-200 transition text-[11px]"
                               >
-                                <div className="font-bold text-cyan-600 dark:text-cyan-400">
+                                <div className="font-bold text-orange-600 dark:text-orange-400">
                                   {ponto.titulo}
                                 </div>
                                 <div className="text-[10px] text-slate-400 truncate">
@@ -1995,7 +1997,7 @@ export function TrajetoInteligenteModal({
                     {veiculo && (
                       <button
                         onClick={() => setModalAtivarMonitoramento(true)}
-                        className="px-3.5 py-2 rounded-xl text-xs font-black bg-gradient-to-r from-cyan-500 to-emerald-500 text-slate-950 shadow-md shadow-cyan-500/20 hover:from-cyan-400 hover:to-emerald-400 transition flex items-center gap-1.5 cursor-pointer active:scale-95"
+                        className="px-3.5 py-2 rounded-xl text-xs font-black bg-gradient-to-r from-orange-500 to-amber-500 text-slate-950 shadow-md shadow-orange-500/20 hover:from-orange-400 hover:to-amber-400 transition flex items-center gap-1.5 cursor-pointer active:scale-95"
                         title="Ativar como Rota Monitorada Oficial com alerta em tempo real se o veículo sair das ruas deste trajeto"
                       >
                         <ShieldAlert className="h-4 w-4" />
@@ -2109,7 +2111,7 @@ export function TrajetoInteligenteModal({
             <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl w-full max-w-md p-5 space-y-4 shadow-2xl">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <ShieldAlert className="h-5 w-5 text-cyan-500" />
+                  <ShieldAlert className="h-5 w-5 text-orange-500" />
                   <h3 className="font-bold text-sm text-slate-900 dark:text-slate-100">
                     Ativar Rota Monitorada
                   </h3>
@@ -2141,7 +2143,7 @@ export function TrajetoInteligenteModal({
                       onClick={() => setToleranciaCorredorMetros(tol)}
                       className={`py-2 px-1 text-xs rounded-xl font-bold border transition ${
                         toleranciaCorredorMetros === tol
-                          ? "bg-cyan-500 text-slate-950 border-cyan-400 shadow-sm"
+                          ? "bg-orange-500 text-slate-950 border-orange-400 shadow-sm"
                           : "bg-slate-50 dark:bg-slate-800/60 text-slate-600 dark:text-slate-400 border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800"
                       }`}
                     >
@@ -2165,7 +2167,7 @@ export function TrajetoInteligenteModal({
                 <button
                   onClick={handleAtivarRotaMonitorada}
                   disabled={ativandoMonitoramento}
-                  className="px-4 py-2 rounded-xl text-xs font-bold bg-cyan-500 hover:bg-cyan-400 text-slate-950 transition flex items-center gap-1.5 shadow cursor-pointer"
+                  className="px-4 py-2 rounded-xl text-xs font-bold bg-orange-500 hover:bg-orange-400 text-slate-950 transition flex items-center gap-1.5 shadow cursor-pointer"
                 >
                   {ativandoMonitoramento ? (
                     <>
@@ -2237,7 +2239,7 @@ export function TrajetoInteligenteModal({
                           <span>•</span>
                           <span>{tr.paradas.length} paradas</span>
                           {tr.retornar_ao_ponto_saida && (
-                            <span className="text-cyan-500 font-bold">(Circular)</span>
+                            <span className="text-orange-500 font-bold">(Circular)</span>
                           )}
                         </div>
                       </div>

@@ -496,7 +496,7 @@ export function InstalacoesView() {
                   setInstalacaoEdicao(null);
                   setModalNovaAberto(true);
                 }}
-                className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-orange-600 hover:bg-orange-500 text-white font-bold text-xs shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none active:shadow-[inset_2px_2px_4px_#047857] transition cursor-pointer"
+                className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-orange-600 hover:bg-orange-500 text-white font-bold text-xs shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none active:shadow-[inset_2px_2px_4px_#c2410c] transition cursor-pointer"
               >
                 <Plus className="h-4 w-4" />
                 <span>Nova Instalação</span>

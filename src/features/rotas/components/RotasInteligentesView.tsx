@@ -86,7 +86,7 @@ export function RotasInteligentesView() {
             <button
               type="button"
               onClick={() => setModalAberto(true)}
-              className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold bg-orange-600 hover:bg-orange-500 text-white shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none active:shadow-[inset_2px_2px_4px_#047857] transition cursor-pointer"
+              className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold bg-orange-600 hover:bg-orange-500 text-white shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none active:shadow-[inset_2px_2px_4px_#c2410c] transition cursor-pointer"
             >
               <Navigation className="h-4 w-4" />
               <span>Abrir Planejador de Rota</span>
@@ -122,7 +122,7 @@ export function RotasInteligentesView() {
             <button
               type="button"
               onClick={() => setModalAberto(true)}
-              className="px-6 py-3 rounded-2xl bg-orange-600 hover:bg-orange-500 text-white font-bold text-xs uppercase tracking-wider shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none active:shadow-[inset_2px_2px_4px_#047857] transition cursor-pointer"
+              className="px-6 py-3 rounded-2xl bg-orange-600 hover:bg-orange-500 text-white font-bold text-xs uppercase tracking-wider shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none active:shadow-[inset_2px_2px_4px_#c2410c] transition cursor-pointer"
             >
               Montar Novo Trajeto Agora
             </button>

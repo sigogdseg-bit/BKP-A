@@ -110,7 +110,7 @@ export function BannerPagamentosAguardandoBaixa() {
 
   return (
     <>
-      <div className="bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-700 text-white px-3 sm:px-4 py-2 text-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 shadow-md animate-fadeIn select-none border-b border-orange-500/40">
+      <div className="bg-gradient-to-r from-orange-600 via-amber-600 to-orange-700 text-white px-3 sm:px-4 py-2 text-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 shadow-md animate-fadeIn select-none border-b border-orange-500/40">
         <div className="flex items-center gap-2 overflow-hidden w-full sm:w-auto">
           <div className="h-6 w-6 rounded-lg bg-white/20 flex items-center justify-center shrink-0 animate-pulse">
             <DollarSign className="h-4 w-4 text-white" />

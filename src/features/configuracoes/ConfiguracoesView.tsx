@@ -625,7 +625,7 @@ export function ConfiguracoesView() {
             <div
               className={`p-2.5 rounded-2xl shrink-0 ${
                 isNeumorph
-                  ? "bg-[#eaf0f8] dark:bg-slate-900 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none border border-slate-300/40 dark:border-slate-800 text-teal-600 dark:text-teal-400"
+                  ? "bg-[#eaf0f8] dark:bg-slate-900 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none border border-slate-300/40 dark:border-slate-800 text-orange-600 dark:text-orange-400"
                   : isInstalador
                     ? "bg-indigo-500/20 text-indigo-500 dark:text-indigo-400 border border-indigo-500/30"
                     : "bg-orange-500/20 text-orange-500 dark:text-orange-400 border border-orange-500/30"
@@ -645,7 +645,7 @@ export function ConfiguracoesView() {
                 <span
                   className={`text-[10px] font-mono font-bold px-2 py-0.5 rounded-full ${
                     isNeumorph
-                      ? "bg-[#9EBCEE] dark:bg-teal-500/20 text-slate-800 dark:text-teal-300 shadow-[2px_2px_4px_#c3cfe2] dark:shadow-none border border-transparent dark:border-teal-500/30"
+                      ? "bg-[#9EBCEE] dark:bg-orange-500/20 text-slate-800 dark:text-orange-300 shadow-[2px_2px_4px_#c3cfe2] dark:shadow-none border border-transparent dark:border-orange-500/30"
                       : isInstalador
                         ? "bg-indigo-500/20 text-indigo-600 dark:text-indigo-400 border border-indigo-500/30"
                         : "bg-orange-500/20 text-orange-600 dark:text-orange-400 border border-orange-500/30"
@@ -692,10 +692,10 @@ export function ConfiguracoesView() {
                     className={`flex flex-col items-center justify-center p-3 rounded-2xl border transition cursor-pointer ${
                       !iconeGenerico
                         ? isNeumorph
-                          ? "bg-[#9EBCEE]/30 dark:bg-teal-500/20 border-teal-500/70 dark:border-teal-400/50 shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-none text-slate-900 dark:text-slate-100"
+                          ? "bg-[#9EBCEE]/30 dark:bg-orange-500/20 border-orange-500/70 dark:border-orange-400/50 shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-none text-slate-900 dark:text-slate-100"
                           : "border-orange-500 bg-orange-500/10 shadow-xs"
                         : isNeumorph
-                          ? "bg-[#eaf0f8] dark:bg-slate-900/80 border-slate-300/50 dark:border-slate-800 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none hover:border-teal-400/50 text-slate-700 dark:text-slate-300"
+                          ? "bg-[#eaf0f8] dark:bg-slate-900/80 border-slate-300/50 dark:border-slate-800 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none hover:border-orange-400/50 text-slate-700 dark:text-slate-300"
                           : "border-slate-200 dark:border-slate-700 hover:border-orange-400/50"
                     }`}
                   >
@@ -716,10 +716,10 @@ export function ConfiguracoesView() {
                     className={`flex flex-col items-center justify-center p-3 rounded-2xl border transition cursor-pointer ${
                       iconeGenerico
                         ? isNeumorph
-                          ? "bg-[#9EBCEE]/30 dark:bg-teal-500/20 border-teal-500/70 dark:border-teal-400/50 shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-none text-slate-900 dark:text-slate-100"
+                          ? "bg-[#9EBCEE]/30 dark:bg-orange-500/20 border-orange-500/70 dark:border-orange-400/50 shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-none text-slate-900 dark:text-slate-100"
                           : "border-orange-500 bg-orange-500/10 shadow-xs"
                         : isNeumorph
-                          ? "bg-[#eaf0f8] dark:bg-slate-900/80 border-slate-300/50 dark:border-slate-800 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none hover:border-teal-400/50 text-slate-700 dark:text-slate-300"
+                          ? "bg-[#eaf0f8] dark:bg-slate-900/80 border-slate-300/50 dark:border-slate-800 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none hover:border-orange-400/50 text-slate-700 dark:text-slate-300"
                           : "border-slate-200 dark:border-slate-700 hover:border-orange-400/50"
                     }`}
                   >
@@ -761,7 +761,7 @@ export function ConfiguracoesView() {
                           className={`min-h-[32px] px-2 py-1 rounded-xl text-xs font-bold transition text-center cursor-pointer ${
                             isAtivo
                               ? isNeumorph
-                                ? "bg-[#9EBCEE] dark:bg-teal-600 text-slate-900 dark:text-white shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none font-black border border-slate-300/40 dark:border-teal-500"
+                                ? "bg-[#9EBCEE] dark:bg-orange-600 text-slate-900 dark:text-white shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none font-black border border-slate-300/40 dark:border-orange-500"
                                 : "bg-orange-500 text-slate-950 font-black shadow"
                               : isNeumorph
                                 ? "bg-[#eaf0f8] dark:bg-slate-800 text-slate-700 dark:text-slate-300 shadow-[2px_2px_4px_#c3cfe2] dark:shadow-none border border-slate-300/40 dark:border-slate-700 hover:text-slate-950 dark:hover:text-white"
@@ -1056,11 +1056,11 @@ export function ConfiguracoesView() {
                       onClick={handleToggleTodosVeiculosFiltro}
                       className={`text-xs font-bold px-3 py-1.5 rounded-full transition flex items-center gap-1 cursor-pointer shrink-0 self-start sm:self-auto ${
                         isNeumorph
-                          ? "bg-[#eaf0f8] dark:bg-slate-800 text-teal-700 dark:text-teal-300 shadow-[2px_2px_4px_#c3cfe2] dark:shadow-none border border-teal-300/50 dark:border-teal-700 hover:text-teal-950 dark:hover:text-white"
+                          ? "bg-[#eaf0f8] dark:bg-slate-800 text-orange-700 dark:text-orange-300 shadow-[2px_2px_4px_#c3cfe2] dark:shadow-none border border-orange-300/50 dark:border-orange-700 hover:text-orange-950 dark:hover:text-white"
                           : "text-orange-600 dark:text-orange-400 bg-orange-500/10 hover:bg-orange-500/20"
                       }`}
                     >
-                      <Check className="w-3.5 h-3.5 text-teal-600 dark:text-teal-400" />
+                      <Check className="w-3.5 h-3.5 text-orange-600 dark:text-orange-400" />
                       <span>Mostrar Todos</span>
                     </button>
                   </div>
@@ -1140,7 +1140,7 @@ export function ConfiguracoesView() {
                           className={`min-h-[30px] px-3 py-1 rounded-full text-xs font-bold transition cursor-pointer ${
                             isActive
                               ? isNeumorph
-                                ? "bg-[#9EBCEE] dark:bg-teal-600 text-slate-900 dark:text-white shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none font-black border border-slate-300/40 dark:border-teal-500"
+                                ? "bg-[#9EBCEE] dark:bg-orange-600 text-slate-900 dark:text-white shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none font-black border border-slate-300/40 dark:border-orange-500"
                                 : "bg-orange-500 text-slate-950 shadow"
                               : isNeumorph
                                 ? "bg-[#eaf0f8] dark:bg-slate-800 text-slate-700 dark:text-slate-300 shadow-[2px_2px_4px_#c3cfe2] dark:shadow-none border border-slate-300/40 dark:border-slate-700 hover:text-slate-950 dark:hover:text-white"
@@ -1182,7 +1182,7 @@ export function ConfiguracoesView() {
                           className={`min-h-[34px] px-3.5 py-1.5 rounded-full text-xs font-bold transition cursor-pointer ${
                             isActive
                               ? isNeumorph
-                                ? "bg-[#9EBCEE] dark:bg-teal-600 text-slate-900 dark:text-white shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none font-black border border-slate-300/40 dark:border-teal-500"
+                                ? "bg-[#9EBCEE] dark:bg-orange-600 text-slate-900 dark:text-white shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none font-black border border-slate-300/40 dark:border-orange-500"
                                 : "bg-orange-500 text-slate-950 shadow"
                               : isNeumorph
                                 ? "bg-[#eaf0f8] dark:bg-slate-800 text-slate-700 dark:text-slate-300 shadow-[2px_2px_4px_#c3cfe2] dark:shadow-none border border-slate-300/40 dark:border-slate-700 hover:text-slate-950 dark:hover:text-white"
@@ -1245,7 +1245,7 @@ export function ConfiguracoesView() {
                       onClick={() => setModalAjusteOdometroAberto(true)}
                       className={`flex flex-col items-center justify-center gap-2 p-4 rounded-2xl border transition group cursor-pointer ${
                         isNeumorph
-                          ? "bg-[#eaf0f8] dark:bg-slate-900 border-slate-300/50 dark:border-slate-800 text-slate-800 dark:text-slate-200 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none hover:text-teal-900 dark:hover:text-teal-300 hover:shadow-[4px_4px_10px_#c3cfe2] active:shadow-[inset_2px_2px_4px_#c8d4e4]"
+                          ? "bg-[#eaf0f8] dark:bg-slate-900 border-slate-300/50 dark:border-slate-800 text-slate-800 dark:text-slate-200 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none hover:text-orange-900 dark:hover:text-orange-300 hover:shadow-[4px_4px_10px_#c3cfe2] active:shadow-[inset_2px_2px_4px_#c8d4e4]"
                           : "bg-slate-50 dark:bg-slate-950 border-slate-200 dark:border-slate-800 hover:border-orange-500/50 hover:bg-orange-500/5 text-slate-700 dark:text-slate-300 hover:text-orange-600 dark:hover:text-orange-400"
                       }`}
                     >
@@ -1350,7 +1350,7 @@ export function ConfiguracoesView() {
                     disabled={disparandoRelatorio}
                     className={`shrink-0 flex items-center gap-2 px-4 py-2.5 rounded-2xl text-xs font-bold transition cursor-pointer justify-center flex-1 sm:flex-initial ${
                       isNeumorph
-                        ? "bg-[#eaf0f8] dark:bg-slate-800 text-orange-800 dark:text-orange-300 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none border border-emerald-300/50 dark:border-emerald-700 hover:text-emerald-950 dark:hover:text-white active:shadow-[inset_2px_2px_4px_#c8d4e4]"
+                        ? "bg-[#eaf0f8] dark:bg-slate-800 text-orange-800 dark:text-orange-300 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none border border-orange-300/50 dark:border-orange-700 hover:text-orange-950 dark:hover:text-white active:shadow-[inset_2px_2px_4px_#c8d4e4]"
                         : "text-emerald-700 dark:text-emerald-300 bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/20"
                     }`}
                   >
@@ -1409,7 +1409,7 @@ export function ConfiguracoesView() {
                     onClick={() => setModalEnvioWhatsappAberto(true)}
                     className={`flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold transition cursor-pointer flex-1 sm:flex-none ${
                       isNeumorph
-                        ? "bg-[#eaf0f8] dark:bg-slate-800 text-teal-800 dark:text-teal-300 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none border border-teal-300/50 dark:border-teal-700 hover:text-teal-950"
+                        ? "bg-[#eaf0f8] dark:bg-slate-800 text-orange-800 dark:text-orange-300 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none border border-orange-300/50 dark:border-orange-700 hover:text-orange-950"
                         : "text-emerald-700 dark:text-emerald-300 bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30"
                     }`}
                     title="Abrir WhatsApp com atalho para envio de cobrança ou lembrete Pix"
@@ -1599,7 +1599,7 @@ export function ConfiguracoesView() {
                         ? "bg-[#eaf0f8] dark:bg-slate-800 text-rose-700 dark:text-rose-300 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none border border-rose-300/50 dark:border-rose-700 hover:text-rose-900"
                         : "text-rose-600 dark:text-rose-400 bg-rose-500/10 hover:bg-rose-500/20 border border-rose-500/20"
                       : isNeumorph
-                        ? "bg-[#eaf0f8] dark:bg-slate-800 text-orange-800 dark:text-orange-300 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none border border-emerald-300/50 dark:border-emerald-700 hover:text-emerald-950"
+                        ? "bg-[#eaf0f8] dark:bg-slate-800 text-orange-800 dark:text-orange-300 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none border border-orange-300/50 dark:border-orange-700 hover:text-orange-950"
                         : "text-orange-700 dark:text-orange-300 bg-orange-500/10 hover:bg-orange-500/20 border border-orange-500/20"
                   }`}
                 >
@@ -1687,7 +1687,7 @@ export function ConfiguracoesView() {
                     disabled={salvandoPreferenciaNf}
                     className={`px-3 py-1.5 rounded-xl text-xs font-bold transition cursor-pointer ${
                       canaisNf.whatsapp
-                        ? "bg-emerald-600 text-white hover:bg-emerald-700"
+                        ? "bg-orange-600 text-white hover:bg-orange-500"
                         : "bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-300"
                     }`}
                   >
@@ -1733,7 +1733,7 @@ export function ConfiguracoesView() {
                   onClick={() => setModalCentralAlertasAberto(true)}
                   className={`shrink-0 flex items-center gap-2 px-4 py-2.5 min-h-[44px] rounded-2xl text-xs font-bold transition cursor-pointer w-full sm:w-auto justify-center ${
                     isNeumorph
-                      ? "bg-[#eaf0f8] dark:bg-slate-800 text-orange-800 dark:text-orange-300 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none border border-emerald-300/50 dark:border-emerald-700 hover:text-emerald-950 dark:hover:text-white active:shadow-[inset_2px_2px_4px_#c8d4e4]"
+                      ? "bg-[#eaf0f8] dark:bg-slate-800 text-orange-800 dark:text-orange-300 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none border border-orange-300/50 dark:border-orange-700 hover:text-orange-950 dark:hover:text-white active:shadow-[inset_2px_2px_4px_#c8d4e4]"
                       : "text-orange-700 dark:text-orange-300 bg-orange-500/10 hover:bg-orange-500/20 border border-orange-500/20"
                   }`}
                 >

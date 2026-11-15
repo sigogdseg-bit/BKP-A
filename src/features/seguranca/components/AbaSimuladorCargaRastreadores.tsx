@@ -1046,8 +1046,8 @@ export function AbaSimuladorCargaRastreadores() {
               </div>
 
               {/* 4. Medidor 4: Motor A Gauss */}
-              <div className="p-3 rounded-xl bg-slate-100 dark:bg-slate-950 border border-cyan-500/40 flex flex-col justify-between">
-                <div className="text-[10px] font-mono text-cyan-600 dark:text-cyan-400 font-black uppercase">
+              <div className="p-3 rounded-xl bg-slate-100 dark:bg-slate-950 border border-orange-500/40 flex flex-col justify-between">
+                <div className="text-[10px] font-mono text-orange-600 dark:text-orange-400 font-black uppercase">
                   4. MOTOR A (GAUSS)
                 </div>
                 <div className="my-1.5">

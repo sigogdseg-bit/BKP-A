@@ -116,7 +116,7 @@ export function BannerComandosAguardoGlobal() {
               todosConcluidos
                 ? "border-orange-500/90 bg-slate-950/95 text-white shadow-orange-500/20 ring-2 ring-orange-500/30"
                 : emDespertar
-                  ? "border-cyan-500/90 bg-slate-950/95 text-white shadow-cyan-500/20 ring-2 ring-cyan-500/30"
+                  ? "border-orange-500/90 bg-slate-950/95 text-white shadow-orange-500/20 ring-2 ring-orange-500/30"
                   : "border-amber-500/90 bg-slate-950/95 text-white shadow-amber-500/20 ring-2 ring-amber-500/30"
             }`}
             title="Clique para expandir o painel militar de comandos em aguardo"
@@ -126,14 +126,14 @@ export function BannerComandosAguardoGlobal() {
                 todosConcluidos
                   ? "bg-orange-500/20 text-orange-400"
                   : emDespertar
-                    ? "bg-cyan-500/20 text-cyan-400 animate-pulse"
+                    ? "bg-orange-500/20 text-orange-400 animate-pulse"
                     : "bg-amber-500/20 text-amber-400 animate-pulse"
               }`}
             >
               {todosConcluidos ? (
                 <CheckCircle2 className="h-4 w-4" />
               ) : emDespertar ? (
-                <Zap className="h-4 w-4 text-cyan-400" />
+                <Zap className="h-4 w-4 text-orange-400" />
               ) : (
                 <Clock className="h-4 w-4" />
               )}
@@ -157,7 +157,7 @@ export function BannerComandosAguardoGlobal() {
                     todosConcluidos
                       ? "bg-orange-500 text-slate-950"
                       : emDespertar
-                        ? "bg-cyan-500 text-slate-950 font-black animate-pulse"
+                        ? "bg-orange-500 text-slate-950 font-black animate-pulse"
                         : "bg-amber-500 text-slate-950"
                   }`}
                 >
@@ -215,7 +215,7 @@ export function BannerComandosAguardoGlobal() {
               todosConcluidos
                 ? "border-orange-500/90 bg-slate-950/95 text-white shadow-orange-500/20 ring-2 ring-orange-500/30"
                 : emDespertar
-                  ? "border-cyan-500/90 bg-slate-950/95 text-white shadow-cyan-500/20 ring-2 ring-cyan-500/30"
+                  ? "border-orange-500/90 bg-slate-950/95 text-white shadow-orange-500/20 ring-2 ring-orange-500/30"
                   : "border-amber-500/90 bg-slate-950/95 text-white shadow-amber-500/20 ring-2 ring-amber-500/30"
             }`}
           >
@@ -225,7 +225,7 @@ export function BannerComandosAguardoGlobal() {
                 todosConcluidos
                   ? "bg-emerald-950/60 border-emerald-800/80"
                   : emDespertar
-                    ? "bg-cyan-950/60 border-cyan-800/80"
+                    ? "bg-orange-950/60 border-orange-800/80"
                     : "bg-amber-950/60 border-amber-800/80"
               }`}
             >
@@ -235,14 +235,14 @@ export function BannerComandosAguardoGlobal() {
                     todosConcluidos
                       ? "bg-orange-500/20 text-orange-400 border border-orange-500/30"
                       : emDespertar
-                        ? "bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 animate-pulse"
+                        ? "bg-orange-500/20 text-orange-400 border border-orange-500/30 animate-pulse"
                         : "bg-amber-500/20 text-amber-400 border border-amber-500/30 animate-pulse"
                   }`}
                 >
                   {todosConcluidos ? (
                     <CheckCircle2 className="h-5 w-5" />
                   ) : emDespertar ? (
-                    <Zap className="h-5 w-5 text-cyan-400" />
+                    <Zap className="h-5 w-5 text-orange-400" />
                   ) : (
                     <Clock className="h-5 w-5" />
                   )}
@@ -267,7 +267,7 @@ export function BannerComandosAguardoGlobal() {
                         todosConcluidos
                           ? "bg-orange-500 text-slate-950"
                           : emDespertar
-                            ? "bg-cyan-500 text-slate-950 font-black animate-pulse"
+                            ? "bg-orange-500 text-slate-950 font-black animate-pulse"
                             : "bg-amber-500 text-slate-950"
                       }`}
                     >
@@ -473,10 +473,10 @@ export function BannerComandosAguardoGlobal() {
                         <div className="space-y-1.5 pt-1">
                           <div className="flex items-center justify-between text-[10px] font-mono">
                             <span className="text-slate-400 flex items-center gap-1">
-                              <Radio className="h-3 w-3 text-cyan-400 animate-pulse" />
+                              <Radio className="h-3 w-3 text-orange-400 animate-pulse" />
                               <span>Probe Ativo (15s):</span>
                             </span>
-                            <span className="font-black text-cyan-300">
+                            <span className="font-black text-orange-300">
                               ~{item.segundosAteProximoProbe ?? 15}s para envio ·{" "}
                               {item.tentativasEnvio || 1}ª tentativa
                             </span>
@@ -484,7 +484,7 @@ export function BannerComandosAguardoGlobal() {
 
                           <div className="h-2 w-full bg-slate-800 rounded-full overflow-hidden p-0.5 border border-slate-700">
                             <div
-                              className="h-full rounded-full transition-all duration-1000 bg-gradient-to-r from-amber-500 via-cyan-400 to-emerald-400 animate-pulse"
+                              className="h-full rounded-full transition-all duration-1000 bg-gradient-to-r from-amber-500 via-orange-400 to-emerald-400 animate-pulse"
                               style={{
                                 width: `${Math.max(
                                   8,
@@ -498,10 +498,10 @@ export function BannerComandosAguardoGlobal() {
                           </div>
 
                           {item.mensagemStatus && (
-                            <div className="text-[10px] text-cyan-300/90 font-mono bg-cyan-950/50 px-2 py-1 rounded-lg border border-cyan-800/50 flex items-center justify-between gap-1">
+                            <div className="text-[10px] text-orange-300/90 font-mono bg-orange-950/50 px-2 py-1 rounded-lg border border-orange-800/50 flex items-center justify-between gap-1">
                               <span className="truncate">{item.mensagemStatus}</span>
                               {item.tentativasEnvio && item.tentativasEnvio > 1 && (
-                                <span className="shrink-0 font-bold text-[9px] bg-cyan-500/20 px-1.5 py-0.5 rounded text-cyan-300 border border-cyan-500/30">
+                                <span className="shrink-0 font-bold text-[9px] bg-orange-500/20 px-1.5 py-0.5 rounded text-orange-300 border border-orange-500/30">
                                   {item.tentativasEnvio}ª tentativa
                                 </span>
                               )}

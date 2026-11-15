@@ -1337,13 +1337,13 @@ export function AbaComparativoPadroesRastreador({
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-5 gap-2 font-mono text-xs">
-          <div className="p-2.5 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-800 dark:text-cyan-300">
+          <div className="p-2.5 rounded-xl bg-orange-500/10 border border-orange-500/30 text-orange-800 dark:text-orange-300">
             <div className="flex items-center justify-between">
               <span className="font-black text-[11px]">Passo 1</span>
-              <FlaskConical className="h-3.5 w-3.5 text-cyan-600 dark:text-cyan-400" />
+              <FlaskConical className="h-3.5 w-3.5 text-orange-600 dark:text-orange-400" />
             </div>
             <div className="font-bold text-[11px] mt-0.5">Auto-Otimizador Fino</div>
-            <div className="text-[9px] text-cyan-600/80 dark:text-cyan-400/80 mt-0.5 leading-tight">
+            <div className="text-[9px] text-orange-600/80 dark:text-orange-400/80 mt-0.5 leading-tight">
               Varredura + refinamento fino automático
             </div>
           </div>
@@ -1397,16 +1397,16 @@ export function AbaComparativoPadroesRastreador({
       {/* AUTO-OTIMIZADOR DE COMBINAÇÕES DE PARÂMETROS                      */}
       {/* Teste automatizado de todas as combinações ±5 por parâmetro       */}
       {/* ─────────────────────────────────────────────────────────────────── */}
-      <div className="p-5 rounded-2xl bg-[#eaf0f8] dark:bg-slate-900 border-2 border-cyan-500/40 dark:border-cyan-500/30 shadow-[6px_6px_14px_#c3cfe2] dark:shadow-xl space-y-4">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-cyan-500/20 pb-3">
+      <div className="p-5 rounded-2xl bg-[#eaf0f8] dark:bg-slate-900 border-2 border-orange-500/40 dark:border-orange-500/30 shadow-[6px_6px_14px_#c3cfe2] dark:shadow-xl space-y-4">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-orange-500/20 pb-3">
           <div className="flex items-center gap-2">
-            <span className="p-2 rounded-xl bg-cyan-500/10 text-cyan-600 dark:text-cyan-400">
+            <span className="p-2 rounded-xl bg-orange-500/10 text-orange-600 dark:text-orange-400">
               <FlaskConical className="h-5 w-5" />
             </span>
             <div>
               <h3 className="text-sm font-black text-slate-900 dark:text-slate-100 uppercase tracking-wide flex items-center gap-2 flex-wrap">
                 PASSO 1: Auto-Otimizador de Parâmetros com Refinamento Fino Automático
-                <span className="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-cyan-500/20 text-cyan-700 dark:text-cyan-300 border border-cyan-500/30">
+                <span className="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-orange-500/20 text-orange-700 dark:text-orange-300 border border-orange-500/30">
                   BRUTE-FORCE {autoOtimizadorModo === "completa" ? "VARREDURA TOTAL" : "±5"} ·{" "}
                   {autoOtimizadorHorasDia}H/DIA{" "}
                   {autoOtimizadorHorasDia <= 2
@@ -1434,7 +1434,7 @@ export function AbaComparativoPadroesRastreador({
                 title="Varredura Universal completa com Refinamento Fino automático no final"
                 className={`px-2.5 py-1 rounded-lg text-[10px] font-mono font-black transition cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed ${
                   autoOtimizadorModo === "completa"
-                    ? "bg-cyan-500 text-slate-950 shadow-xs"
+                    ? "bg-orange-500 text-slate-950 shadow-xs"
                     : "text-slate-600 dark:text-slate-400 hover:text-slate-900"
                 }`}
               >
@@ -1447,7 +1447,7 @@ export function AbaComparativoPadroesRastreador({
                 title="Refina apenas a vizinhança do Padrão B atual"
                 className={`px-2.5 py-1 rounded-lg text-[10px] font-mono font-black transition cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed ${
                   autoOtimizadorModo === "refinamento"
-                    ? "bg-cyan-500 text-slate-950 shadow-xs"
+                    ? "bg-orange-500 text-slate-950 shadow-xs"
                     : "text-slate-600 dark:text-slate-400 hover:text-slate-900"
                 }`}
               >
@@ -1457,7 +1457,7 @@ export function AbaComparativoPadroesRastreador({
 
             {/* Seletor de Horas por Dia com Destaque de Uso Real vs Estresse Máximo */}
             <div className="flex items-center gap-1 bg-white dark:bg-slate-800 p-1 rounded-xl border border-slate-300/60 dark:border-slate-700">
-              <Clock className="h-3.5 w-3.5 text-cyan-500 ml-1" />
+              <Clock className="h-3.5 w-3.5 text-orange-500 ml-1" />
               {[2, 4, 6, 8, 10, 12, 16].map((h) => (
                 <button
                   key={h}
@@ -1473,7 +1473,7 @@ export function AbaComparativoPadroesRastreador({
                   }
                   className={`px-2 py-0.5 rounded-lg text-[10px] font-mono font-black transition cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed ${
                     autoOtimizadorHorasDia === h
-                      ? "bg-cyan-500 text-slate-950 shadow-xs"
+                      ? "bg-orange-500 text-slate-950 shadow-xs"
                       : "text-slate-600 dark:text-slate-400 hover:text-slate-900"
                   }`}
                 >
@@ -1497,7 +1497,7 @@ export function AbaComparativoPadroesRastreador({
               <button
                 type="button"
                 onClick={executarAutoOtimizador}
-                className="px-4 py-2 rounded-xl text-xs font-black uppercase tracking-wider bg-cyan-600 hover:bg-cyan-700 text-white transition cursor-pointer flex items-center gap-1.5 shadow-sm"
+                className="px-4 py-2 rounded-xl text-xs font-black uppercase tracking-wider bg-orange-600 hover:bg-orange-700 text-white transition cursor-pointer flex items-center gap-1.5 shadow-sm"
               >
                 <Target className="h-3.5 w-3.5" />
                 <span>Iniciar Teste Completo (Varredura + Refinamento Automático)</span>
@@ -1512,13 +1512,13 @@ export function AbaComparativoPadroesRastreador({
             <div className="flex items-center justify-between text-xs font-mono">
               <span className="text-slate-600 dark:text-slate-400 flex items-center gap-1.5">
                 {autoOtimizadorAtivo && (
-                  <Loader2 className="h-3.5 w-3.5 animate-spin text-cyan-500" />
+                  <Loader2 className="h-3.5 w-3.5 animate-spin text-orange-500" />
                 )}
                 {autoOtimizadorAtivo
                   ? "Processando e filtrando aberrações..."
                   : "Varredura Concluída"}
               </span>
-              <span className="font-black text-cyan-600 dark:text-cyan-400">
+              <span className="font-black text-orange-600 dark:text-orange-400">
                 {autoOtimizadorProgresso}% ({autoOtimizadorTotal.toLocaleString()} combinações)
               </span>
             </div>
@@ -1526,7 +1526,7 @@ export function AbaComparativoPadroesRastreador({
               <div
                 className={`h-full rounded-full transition-all duration-300 ${
                   autoOtimizadorAtivo
-                    ? "bg-linear-to-r from-cyan-500 to-cyan-400 animate-pulse"
+                    ? "bg-linear-to-r from-orange-500 to-orange-400 animate-pulse"
                     : "bg-linear-to-r from-emerald-500 to-emerald-400"
                 }`}
                 style={{ width: `${autoOtimizadorProgresso}%` }}
@@ -1627,7 +1627,7 @@ export function AbaComparativoPadroesRastreador({
                     };
                     handleCopiarComandosRapido(paramsMelhor);
                   }}
-                  className="px-3 py-1.5 rounded-xl text-xs font-black uppercase bg-cyan-600 hover:bg-cyan-700 text-white transition cursor-pointer flex items-center gap-1.5 shadow-sm"
+                  className="px-3 py-1.5 rounded-xl text-xs font-black uppercase bg-orange-600 hover:bg-orange-700 text-white transition cursor-pointer flex items-center gap-1.5 shadow-sm"
                   title="Copia os comandos desta combinação para implementar no dispositivo"
                 >
                   <Copy className="h-3.5 w-3.5" />
@@ -1825,7 +1825,7 @@ export function AbaComparativoPadroesRastreador({
                         </span>
                       </td>
                       <td className="px-2 py-1.5 text-center">
-                        <span className="px-1.5 py-0.5 rounded-md bg-cyan-500/20 text-cyan-700 dark:text-cyan-300 font-black">
+                        <span className="px-1.5 py-0.5 rounded-md bg-orange-500/20 text-orange-700 dark:text-orange-300 font-black">
                           {r.scoreComposto}
                         </span>
                       </td>
@@ -1854,7 +1854,7 @@ export function AbaComparativoPadroesRastreador({
                                 `Combinação #${idx + 1} aplicada ao Padrão B com Padrão A no Oficial do Sistema. Teste iniciado nos 2 veículos na pista virtual!`,
                               );
                             }}
-                            className="px-2 py-0.5 rounded-lg text-[10px] font-bold bg-cyan-500/20 text-cyan-700 dark:text-cyan-300 hover:bg-cyan-500/40 transition cursor-pointer"
+                            className="px-2 py-0.5 rounded-lg text-[10px] font-bold bg-orange-500/20 text-orange-700 dark:text-orange-300 hover:bg-orange-500/40 transition cursor-pointer"
                             title="Aplica ao Padrão B e roda teste nos 2 veículos"
                           >
                             Aplicar
@@ -1878,7 +1878,7 @@ export function AbaComparativoPadroesRastreador({
                               };
                               handleCopiarComandosRapido(paramsLinha);
                             }}
-                            className="p-1 rounded-lg text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 hover:bg-cyan-500/10 transition cursor-pointer"
+                            className="p-1 rounded-lg text-slate-400 hover:text-orange-600 dark:hover:text-orange-400 hover:bg-orange-500/10 transition cursor-pointer"
                             title="Copiar comandos para o dispositivo"
                           >
                             <Copy className="h-3 w-3" />

@@ -291,10 +291,10 @@ export function FuncionariosView() {
 
         <TiltCard
           onClick={() => setFiltroStatus(filtroStatus === "ativos" ? "todos" : "ativos")}
-          spotlightColor="rgba(16, 185, 129, 0.20)"
+          spotlightColor="rgba(249, 115, 22, 0.20)"
           className={`cursor-pointer p-4 rounded-2xl border transition-all duration-200 select-none ${
             filtroStatus === "ativos"
-              ? "bg-orange-600 text-white border-emerald-700 shadow-[3px_3px_10px_rgba(16,185,129,0.35)] scale-[1.02]"
+              ? "bg-orange-600 text-white border-orange-700 shadow-[3px_3px_10px_rgba(249,115,22,0.35)] scale-[1.02]"
               : "bg-[#eaf0f8] dark:bg-slate-900 border-slate-300/60 dark:border-slate-800 text-slate-800 dark:text-slate-200 hover:border-orange-400 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-md"
           }`}
         >
@@ -317,11 +317,11 @@ export function FuncionariosView() {
 
         <TiltCard
           onClick={() => setFiltroStatus(filtroStatus === "mapa" ? "todos" : "mapa")}
-          spotlightColor="rgba(6, 182, 212, 0.20)"
+          spotlightColor="rgba(249, 115, 22, 0.20)"
           className={`cursor-pointer p-4 rounded-2xl border transition-all duration-200 select-none ${
             filtroStatus === "mapa"
-              ? "bg-cyan-600 text-white border-cyan-700 shadow-[3px_3px_10px_rgba(6,182,212,0.35)] scale-[1.02]"
-              : "bg-[#eaf0f8] dark:bg-slate-900 border-slate-300/60 dark:border-slate-800 text-slate-800 dark:text-slate-200 hover:border-cyan-400 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-md"
+              ? "bg-orange-600 text-white border-orange-700 shadow-[3px_3px_10px_rgba(249,115,22,0.35)] scale-[1.02]"
+              : "bg-[#eaf0f8] dark:bg-slate-900 border-slate-300/60 dark:border-slate-800 text-slate-800 dark:text-slate-200 hover:border-orange-400 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-md"
           }`}
         >
           <div className="flex items-center justify-between">
@@ -329,12 +329,12 @@ export function FuncionariosView() {
               Com Acesso ao Mapa
             </span>
             <MapPin
-              className={`h-4 w-4 ${filtroStatus === "mapa" ? "text-white" : "text-cyan-500 opacity-80"}`}
+              className={`h-4 w-4 ${filtroStatus === "mapa" ? "text-white" : "text-orange-500 opacity-80"}`}
             />
           </div>
           <p
             className={`text-2xl sm:text-3xl font-black mt-2 ${
-              filtroStatus === "mapa" ? "text-white" : "text-cyan-600 dark:text-cyan-400"
+              filtroStatus === "mapa" ? "text-white" : "text-orange-600 dark:text-orange-400"
             }`}
           >
             {totais.mapa}

@@ -367,7 +367,7 @@ export function EstoqueView() {
             <div
               className={`p-2.5 rounded-2xl shrink-0 ${
                 isNeumorph
-                  ? "bg-[#eaf0f8] dark:bg-slate-900 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none border border-slate-300/40 dark:border-slate-800 text-teal-600 dark:text-teal-400"
+                  ? "bg-[#eaf0f8] dark:bg-slate-900 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none border border-slate-300/40 dark:border-slate-800 text-orange-600 dark:text-orange-400"
                   : "bg-orange-500/20 text-orange-500 dark:text-orange-400 border border-orange-500/30"
               }`}
             >
@@ -381,7 +381,7 @@ export function EstoqueView() {
                 <span
                   className={`text-[10px] font-mono font-bold px-2 py-0.5 rounded-full ${
                     isNeumorph
-                      ? "bg-[#9EBCEE] dark:bg-teal-900/60 text-slate-800 dark:text-teal-300 shadow-[2px_2px_4px_#c3cfe2] dark:shadow-none border dark:border-teal-700/50"
+                      ? "bg-[#9EBCEE] dark:bg-orange-900/60 text-slate-800 dark:text-orange-300 shadow-[2px_2px_4px_#c3cfe2] dark:shadow-none border dark:border-orange-700/50"
                       : "bg-orange-500/20 text-orange-600 dark:text-orange-400 border border-orange-500/30"
                   }`}
                 >
@@ -424,14 +424,14 @@ export function EstoqueView() {
             }}
             className={`min-h-[44px] px-3.5 py-2 rounded-2xl sm:rounded-full text-xs font-bold transition flex items-center justify-center gap-1.5 w-full sm:w-auto ${
               isNeumorph
-                ? "bg-[#eaf0f8] dark:bg-slate-900 text-teal-700 dark:text-teal-400 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-[2px_2px_6px_rgba(0,0,0,0.4)] border border-teal-300/50 dark:border-teal-800 hover:text-teal-950 dark:hover:text-teal-300"
+                ? "bg-[#eaf0f8] dark:bg-slate-900 text-orange-700 dark:text-orange-400 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-[2px_2px_6px_rgba(0,0,0,0.4)] border border-orange-300/50 dark:border-orange-800 hover:text-orange-950 dark:hover:text-orange-300"
                 : isStyleguide
-                  ? "bg-[#F1F5F9] text-teal-700 hover:bg-[#E2E8F0] border border-teal-300 shadow-[0_2px_4px_rgba(0,0,0,0.04)]"
-                  : "bg-teal-500/15 dark:bg-teal-950/40 text-teal-600 dark:text-teal-400 hover:bg-teal-500/25 border border-teal-500/30"
+                  ? "bg-[#F1F5F9] text-orange-700 hover:bg-[#E2E8F0] border border-orange-300 shadow-[0_2px_4px_rgba(0,0,0,0.04)]"
+                  : "bg-orange-500/15 dark:bg-orange-950/40 text-orange-600 dark:text-orange-400 hover:bg-orange-500/25 border border-orange-500/30"
             }`}
             title="Montar kit com materiais, soma de custos e markup inteligente"
           >
-            <Layers className="w-4 h-4 text-teal-500 shrink-0" />
+            <Layers className="w-4 h-4 text-orange-500 shrink-0" />
             <span>Montar Kit</span>
           </button>
 
@@ -478,14 +478,14 @@ export function EstoqueView() {
                 onClick={() => setModalLeitorPdfAberto(true)}
                 className={`col-span-2 sm:col-span-1 min-h-[44px] px-3.5 py-2 rounded-2xl sm:rounded-full text-xs font-bold transition flex items-center justify-center gap-1.5 w-full sm:w-auto ${
                   isNeumorph
-                    ? "bg-[#eaf0f8] dark:bg-slate-900 text-teal-700 dark:text-teal-400 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-[2px_2px_6px_rgba(0,0,0,0.4)] border border-teal-300/60 dark:border-teal-800 hover:text-teal-950 dark:hover:text-teal-300"
+                    ? "bg-[#eaf0f8] dark:bg-slate-900 text-orange-700 dark:text-orange-400 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-[2px_2px_6px_rgba(0,0,0,0.4)] border border-orange-300/60 dark:border-orange-800 hover:text-orange-950 dark:hover:text-orange-300"
                     : isStyleguide
-                      ? "bg-[#F1F5F9] text-teal-700 hover:bg-[#E2E8F0] border border-teal-300 shadow-[0_2px_4px_rgba(0,0,0,0.04)]"
-                      : "bg-teal-500/10 dark:bg-teal-950/40 text-teal-600 dark:text-teal-400 hover:bg-teal-500/20 border border-teal-500/30"
+                      ? "bg-[#F1F5F9] text-orange-700 hover:bg-[#E2E8F0] border border-orange-300 shadow-[0_2px_4px_rgba(0,0,0,0.04)]"
+                      : "bg-orange-500/10 dark:bg-orange-950/40 text-orange-600 dark:text-orange-400 hover:bg-orange-500/20 border border-orange-500/30"
                 }`}
                 title="Importar e extrair dados de Nota Fiscal ou Comprovante PDF"
               >
-                <FileUp className="w-4 h-4 text-teal-500 shrink-0" />
+                <FileUp className="w-4 h-4 text-orange-500 shrink-0" />
                 <span>Importar PDF / NF-e</span>
               </button>
             </>
@@ -639,7 +639,7 @@ export function EstoqueView() {
           className={`min-h-[44px] px-2 sm:px-3 py-2 rounded-2xl text-xs font-bold transition flex items-center justify-center gap-1.5 text-center w-full ${
             abaAtiva === "itens"
               ? isNeumorph
-                ? "bg-[#9EBCEE] dark:bg-teal-600 text-slate-900 dark:text-slate-950 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-[0_2px_8px_rgba(20,184,166,0.3)] font-black"
+                ? "bg-[#9EBCEE] dark:bg-orange-600 text-slate-900 dark:text-slate-950 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-[0_2px_8px_rgba(20,184,166,0.3)] font-black"
                 : isStyleguide
                   ? "bg-[#9EE5D4] text-[#064E3B] shadow-[0_2px_6px_rgba(0,0,0,0.08)] font-black"
                   : "bg-orange-500 text-slate-950 shadow"
@@ -661,7 +661,7 @@ export function EstoqueView() {
           className={`min-h-[44px] px-2 sm:px-3 py-2 rounded-2xl text-xs font-bold transition flex items-center justify-center gap-1.5 text-center w-full ${
             abaAtiva === "kits"
               ? isNeumorph
-                ? "bg-[#9EBCEE] dark:bg-teal-600 text-slate-900 dark:text-slate-950 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-[0_2px_8px_rgba(20,184,166,0.3)] font-black"
+                ? "bg-[#9EBCEE] dark:bg-orange-600 text-slate-900 dark:text-slate-950 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-[0_2px_8px_rgba(20,184,166,0.3)] font-black"
                 : isStyleguide
                   ? "bg-[#9EE5D4] text-[#064E3B] shadow-[0_2px_6px_rgba(0,0,0,0.08)] font-black"
                   : "bg-orange-500 text-slate-950 shadow"
@@ -682,7 +682,7 @@ export function EstoqueView() {
           className={`min-h-[44px] px-2 sm:px-3 py-2 rounded-2xl text-xs font-bold transition flex items-center justify-center gap-1.5 text-center w-full ${
             abaAtiva === "rastreadores"
               ? isNeumorph
-                ? "bg-[#9EBCEE] dark:bg-teal-600 text-slate-900 dark:text-slate-950 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-[0_2px_8px_rgba(20,184,166,0.3)] font-black"
+                ? "bg-[#9EBCEE] dark:bg-orange-600 text-slate-900 dark:text-slate-950 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-[0_2px_8px_rgba(20,184,166,0.3)] font-black"
                 : isStyleguide
                   ? "bg-[#9EE5D4] text-[#064E3B] shadow-[0_2px_6px_rgba(0,0,0,0.08)] font-black"
                   : "bg-orange-500 text-slate-950 shadow"
@@ -702,7 +702,7 @@ export function EstoqueView() {
             className={`min-h-[44px] px-2 sm:px-3 py-2 rounded-2xl text-xs font-bold transition flex items-center justify-center gap-1.5 text-center w-full ${
               abaAtiva === "fornecedores"
                 ? isNeumorph
-                  ? "bg-[#9EBCEE] dark:bg-teal-600 text-slate-900 dark:text-slate-950 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-[0_2px_8px_rgba(20,184,166,0.3)] font-black"
+                  ? "bg-[#9EBCEE] dark:bg-orange-600 text-slate-900 dark:text-slate-950 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-[0_2px_8px_rgba(20,184,166,0.3)] font-black"
                   : isStyleguide
                     ? "bg-[#9EE5D4] text-[#064E3B] shadow-[0_2px_6px_rgba(0,0,0,0.08)] font-black"
                     : "bg-orange-500 text-slate-950 shadow"
@@ -724,7 +724,7 @@ export function EstoqueView() {
           className={`min-h-[44px] px-2 sm:px-3 py-2 rounded-2xl text-xs font-bold transition flex items-center justify-center gap-1.5 text-center w-full ${
             abaAtiva === "movimentacoes"
               ? isNeumorph
-                ? "bg-[#9EBCEE] dark:bg-teal-600 text-slate-900 dark:text-slate-950 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-[0_2px_8px_rgba(20,184,166,0.3)] font-black"
+                ? "bg-[#9EBCEE] dark:bg-orange-600 text-slate-900 dark:text-slate-950 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-[0_2px_8px_rgba(20,184,166,0.3)] font-black"
                 : isStyleguide
                   ? "bg-[#9EE5D4] text-[#064E3B] shadow-[0_2px_6px_rgba(0,0,0,0.08)] font-black"
                   : "bg-orange-500 text-slate-950 shadow"
@@ -864,7 +864,7 @@ export function EstoqueView() {
               <div
                 className={`w-16 h-16 mx-auto rounded-3xl flex items-center justify-center mb-4 ${
                   isNeumorph
-                    ? "bg-[#eaf0f8] dark:bg-slate-950 shadow-[2px_2px_6px_#c3cfe2] dark:shadow-none text-teal-600 dark:text-teal-400 border border-slate-300/40 dark:border-slate-800"
+                    ? "bg-[#eaf0f8] dark:bg-slate-950 shadow-[2px_2px_6px_#c3cfe2] dark:shadow-none text-orange-600 dark:text-orange-400 border border-slate-300/40 dark:border-slate-800"
                     : isStyleguide
                       ? "bg-[#9EE5D4]/40 text-[#064E3B] border border-[#9EE5D4]"
                       : "bg-orange-500/20 text-orange-500 border border-orange-500/30"
@@ -1176,7 +1176,7 @@ export function EstoqueView() {
           <div className="p-4 rounded-3xl bg-white/70 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
             <div>
               <h3 className="text-sm font-black uppercase tracking-wider text-slate-800 dark:text-slate-100 flex items-center gap-2">
-                <Layers className="w-4 h-4 text-teal-500" />
+                <Layers className="w-4 h-4 text-orange-500" />
                 <span>Kits de Instalação e Pacotes Padronizados</span>
               </h3>
               <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
@@ -1192,8 +1192,8 @@ export function EstoqueView() {
               }}
               className={`px-4 py-2 rounded-full text-xs font-bold transition flex items-center gap-1.5 shrink-0 ${
                 isNeumorph
-                  ? "bg-[#9EBCEEC] dark:bg-teal-600 text-slate-900 dark:text-slate-950 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none hover:bg-[#00CFCC]"
-                  : "bg-teal-600 hover:bg-teal-500 text-white font-bold shadow-md shadow-teal-500/20"
+                  ? "bg-[#9EBCEEC] dark:bg-orange-600 text-slate-900 dark:text-slate-950 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none hover:bg-[#00CFCC]"
+                  : "bg-orange-600 hover:bg-orange-500 text-white font-bold shadow-md shadow-orange-500/20"
               }`}
             >
               <Plus className="w-4 h-4" />
@@ -1204,7 +1204,7 @@ export function EstoqueView() {
           {/* Listagem de Kits */}
           {kits.length === 0 ? (
             <div className="text-center py-12 p-6 rounded-3xl bg-white/60 dark:bg-slate-900/40 border border-dashed border-slate-300 dark:border-slate-800">
-              <div className="w-12 h-12 rounded-2xl bg-teal-500/10 text-teal-600 dark:text-teal-400 flex items-center justify-center mx-auto mb-3">
+              <div className="w-12 h-12 rounded-2xl bg-orange-500/10 text-orange-600 dark:text-orange-400 flex items-center justify-center mx-auto mb-3">
                 <Layers className="w-6 h-6" />
               </div>
               <h4 className="text-sm font-bold text-slate-800 dark:text-slate-200">
@@ -1219,7 +1219,7 @@ export function EstoqueView() {
                   setKitEdicao(null);
                   setModalKitAberto(true);
                 }}
-                className="px-4 py-2 rounded-full bg-teal-600 text-white text-xs font-bold hover:bg-teal-500 transition shadow-sm"
+                className="px-4 py-2 rounded-full bg-orange-600 text-white text-xs font-bold hover:bg-orange-500 transition shadow-sm"
               >
                 Montar Primeiro Kit
               </button>
@@ -1260,7 +1260,7 @@ export function EstoqueView() {
                       <div className="flex items-start justify-between gap-2">
                         <div>
                           <div className="flex items-center gap-1.5">
-                            <span className="text-xs font-mono font-bold px-2 py-0.5 rounded-lg bg-teal-500/10 text-teal-700 dark:text-teal-300 border border-teal-500/20">
+                            <span className="text-xs font-mono font-bold px-2 py-0.5 rounded-lg bg-orange-500/10 text-orange-700 dark:text-orange-300 border border-orange-500/20">
                               {kit.codigo_sku}
                             </span>
                             <span
@@ -1306,7 +1306,7 @@ export function EstoqueView() {
                                   {it.material?.nome || mat?.nome || "Material do Kit"}
                                 </span>
                                 <div className="flex items-center gap-1.5 shrink-0">
-                                  <span className="font-mono font-bold text-teal-600 dark:text-teal-400">
+                                  <span className="font-mono font-bold text-orange-600 dark:text-orange-400">
                                     {it.quantidade} un.
                                   </span>
                                   <span
@@ -1340,18 +1340,18 @@ export function EstoqueView() {
                             </span>
                           </div>
                         )}
-                        <div className="p-2 rounded-xl bg-teal-500/10 border border-teal-500/20">
+                        <div className="p-2 rounded-xl bg-orange-500/10 border border-orange-500/20">
                           <div className="flex items-center justify-between">
-                            <span className="text-[10px] text-teal-700 dark:text-teal-300 font-bold">
+                            <span className="text-[10px] text-orange-700 dark:text-orange-300 font-bold">
                               Preço de Venda
                             </span>
                             {podeVerCustosEFornecedores && (
-                              <span className="text-[9px] font-mono font-bold text-teal-600 dark:text-teal-400">
+                              <span className="text-[9px] font-mono font-bold text-orange-600 dark:text-orange-400">
                                 +{kit.markup_percentual}%
                               </span>
                             )}
                           </div>
-                          <span className="font-mono font-black text-teal-800 dark:text-teal-200 text-sm">
+                          <span className="font-mono font-black text-orange-800 dark:text-orange-200 text-sm">
                             R$ {Number(kit.preco_venda || 0).toFixed(2)}
                           </span>
                         </div>

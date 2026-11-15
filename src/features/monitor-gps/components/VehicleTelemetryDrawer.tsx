@@ -365,7 +365,7 @@ export function VehicleTelemetryDrawer({
 
           {/* Seção 1: Navegação e Trajetos */}
           <div className="space-y-0.5 py-1">
-            <div className="px-2 text-[9px] font-bold uppercase tracking-wider text-cyan-600 dark:text-cyan-400">
+            <div className="px-2 text-[9px] font-bold uppercase tracking-wider text-orange-600 dark:text-orange-400">
               Navegação e Trajetos
             </div>
             {onAbrirTrajetoInteligente && (
@@ -374,13 +374,13 @@ export function VehicleTelemetryDrawer({
                   setMenuAcoesAberto(false);
                   onAbrirTrajetoInteligente(veiculo);
                 }}
-                className="w-full flex items-start gap-2.5 px-2.5 py-2 rounded-xl text-xs font-semibold hover:bg-cyan-500/10 text-slate-700 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 transition text-left"
+                className="w-full flex items-start gap-2.5 px-2.5 py-2 rounded-xl text-xs font-semibold hover:bg-orange-500/10 text-slate-700 dark:text-slate-300 hover:text-orange-600 dark:hover:text-orange-400 transition text-left"
               >
-                <Navigation className="h-4 w-4 text-cyan-500 shrink-0 mt-0.5" />
+                <Navigation className="h-4 w-4 text-orange-500 shrink-0 mt-0.5" />
                 <div>
                   <div className="font-bold text-slate-900 dark:text-slate-100 flex items-center gap-1.5">
                     <span>Trajeto Inteligente (A → B)</span>
-                    <span className="text-[9px] px-1.5 py-0.2 rounded bg-cyan-500/20 text-cyan-500 font-mono">
+                    <span className="text-[9px] px-1.5 py-0.2 rounded bg-orange-500/20 text-orange-500 font-mono">
                       IA
                     </span>
                   </div>
@@ -438,9 +438,9 @@ export function VehicleTelemetryDrawer({
                 setMenuAcoesAberto(false);
                 setModalModoViagemAberto(true);
               }}
-              className="w-full flex items-center gap-2 px-2.5 py-1.5 rounded-xl text-xs font-semibold hover:bg-cyan-500/10 text-slate-700 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 transition text-left"
+              className="w-full flex items-center gap-2 px-2.5 py-1.5 rounded-xl text-xs font-semibold hover:bg-orange-500/10 text-slate-700 dark:text-slate-300 hover:text-orange-600 dark:hover:text-orange-400 transition text-left"
             >
-              <Navigation className="h-3.5 w-3.5 text-cyan-500 shrink-0" />
+              <Navigation className="h-3.5 w-3.5 text-orange-500 shrink-0" />
               <span>Modo Viagem HUD</span>
             </button>
             <button
@@ -777,7 +777,7 @@ export function VehicleTelemetryDrawer({
                       href={`https://waze.com/ul?ll=${veiculo.latitude},${veiculo.longitude}&navigate=yes`}
                       target="_blank"
                       rel="noreferrer"
-                      className="text-cyan-500 hover:underline"
+                      className="text-orange-500 hover:underline"
                     >
                       Waze
                     </a>
@@ -795,7 +795,7 @@ export function VehicleTelemetryDrawer({
                   type="button"
                   onClick={handleTestarComunicacao}
                   disabled={testandoCom}
-                  className="flex items-center gap-1 px-3 py-1.5 rounded-xl text-xs font-bold bg-orange-600 hover:bg-emerald-700 text-white shadow-xs transition active:scale-95 cursor-pointer disabled:opacity-50"
+                  className="flex items-center gap-1 px-3 py-1.5 rounded-xl text-xs font-bold bg-orange-600 hover:bg-orange-500 text-white shadow-xs transition active:scale-95 cursor-pointer disabled:opacity-50"
                   title="Testar sinal e latência do rastreador"
                 >
                   <Radio className="h-3.5 w-3.5" />
@@ -833,7 +833,7 @@ export function VehicleTelemetryDrawer({
                 {/* 1. Botão Direto para o Cockpit e Telemetria 3D (Desktop / Tablet) */}
                 <button
                   onClick={onToggleRecolhido}
-                  className="hidden sm:flex items-center gap-1 px-3 py-1.5 rounded-xl text-xs font-black bg-gradient-to-r from-emerald-500 to-teal-500 text-slate-950 shadow-md shadow-orange-500/20 hover:from-emerald-400 hover:to-teal-400 transition active:scale-95 cursor-pointer shrink-0"
+                  className="hidden sm:flex items-center gap-1 px-3 py-1.5 rounded-xl text-xs font-black bg-gradient-to-r from-orange-500 to-amber-500 text-slate-950 shadow-md shadow-orange-500/20 hover:from-orange-400 hover:to-amber-400 transition active:scale-95 cursor-pointer shrink-0"
                   title="Abrir tela exclusiva de Cockpit 3D e Telemetria"
                 >
                   <Sparkles className="h-3.5 w-3.5" />
@@ -995,7 +995,7 @@ export function VehicleTelemetryDrawer({
           {/* Botão de Retorno ao Mapa */}
           <button
             onClick={onVoltarAoMapa || onToggleRecolhido}
-            className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-black text-slate-950 bg-orange-400 hover:bg-emerald-300 shadow-md shadow-orange-500/20 active:scale-95 transition shrink-0 cursor-pointer"
+            className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-black text-slate-950 bg-orange-400 hover:bg-orange-300 shadow-md shadow-orange-500/20 active:scale-95 transition shrink-0 cursor-pointer"
             title="Retornar à visualização completa do mapa"
           >
             <ArrowLeft className="h-4 w-4" />
@@ -1206,7 +1206,7 @@ export function VehicleTelemetryDrawer({
                 type="button"
                 onClick={handleTestarComunicacao}
                 disabled={testandoCom}
-                className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold bg-orange-600 hover:bg-emerald-700 text-white shadow-xs transition active:scale-95 cursor-pointer disabled:opacity-50"
+                className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold bg-orange-600 hover:bg-orange-500 text-white shadow-xs transition active:scale-95 cursor-pointer disabled:opacity-50"
                 title="Testar sinal e latência do rastreador"
               >
                 <Radio className="h-4 w-4" />
@@ -1893,8 +1893,8 @@ function MostradoresCockpit3D({
       {/* 1. Velocidade Real via Satélite GPS e Sinal Físico de Ignição */}
       <TiltCard
         maxTilt={10}
-        spotlightColor="rgba(16, 185, 129, 0.25)"
-        className="rounded-2xl p-3.5 bg-[#eaf0f8] dark:bg-gradient-to-b dark:from-slate-900/90 dark:to-slate-950/95 border border-slate-300/70 dark:border-orange-500/40 shadow-[4px_4px_14px_#c3cfe2] dark:shadow-xl dark:shadow-emerald-950/20 flex flex-col justify-between"
+        spotlightColor="rgba(249, 115, 22, 0.25)"
+        className="rounded-2xl p-3.5 bg-[#eaf0f8] dark:bg-gradient-to-b dark:from-slate-900/90 dark:to-slate-950/95 border border-slate-300/70 dark:border-orange-500/40 shadow-[4px_4px_14px_#c3cfe2] dark:shadow-xl dark:shadow-orange-950/20 flex flex-col justify-between"
       >
         <div className="flex items-center justify-between text-[11px] font-mono font-bold text-orange-600 dark:text-orange-400 uppercase tracking-wider">
           <span className="flex items-center gap-1.5 whitespace-nowrap">
@@ -2287,7 +2287,7 @@ function MostradoresCockpit3D({
                           ? "bg-rose-500 shadow-rose-500/80 animate-pulse"
                           : isModerado
                             ? "bg-amber-500 shadow-amber-500/80"
-                            : "bg-orange-500 shadow-emerald-500/80"
+                            : "bg-orange-500 shadow-orange-500/80"
                       }`}
                       style={{
                         transform: `translate(${(valorForcaG * 8).toFixed(1)}px, -${(valorForcaG * 3).toFixed(1)}px)`,
@@ -2317,8 +2317,8 @@ function MostradoresCockpit3D({
       {podeVerSatelites ? (
         <TiltCard
           maxTilt={10}
-          spotlightColor="rgba(20, 184, 166, 0.25)"
-          className="rounded-2xl p-3.5 bg-[#eaf0f8] dark:bg-gradient-to-b dark:from-slate-900/90 dark:to-slate-950/95 border border-slate-300/70 dark:border-teal-500/40 shadow-[4px_4px_14px_#c3cfe2] dark:shadow-xl dark:shadow-teal-950/20 flex flex-col justify-between col-span-1 sm:col-span-2 xl:col-span-2"
+          spotlightColor="rgba(249, 115, 22, 0.25)"
+          className="rounded-2xl p-3.5 bg-[#eaf0f8] dark:bg-gradient-to-b dark:from-slate-900/90 dark:to-slate-950/95 border border-slate-300/70 dark:border-orange-500/40 shadow-[4px_4px_14px_#c3cfe2] dark:shadow-xl dark:shadow-orange-950/20 flex flex-col justify-between col-span-1 sm:col-span-2 xl:col-span-2"
         >
           {(() => {
             const emRepousoIgnicao = !veiculo.ignicao;
@@ -2333,7 +2333,7 @@ function MostradoresCockpit3D({
             const badgeCor = !statusComunicacao?.ativo
               ? "bg-rose-500/15 text-rose-700 dark:text-rose-300 border-rose-500/20"
               : temFix
-                ? "bg-teal-500/15 text-teal-700 dark:text-teal-300 border-teal-500/20"
+                ? "bg-orange-500/15 text-orange-700 dark:text-orange-300 border-orange-500/20"
                 : emRepousoIgnicao
                   ? "bg-amber-500/15 text-amber-700 dark:text-amber-300 border-amber-500/20"
                   : "bg-sky-500/15 text-sky-700 dark:text-sky-300 border-sky-500/20";
@@ -2356,9 +2356,9 @@ function MostradoresCockpit3D({
 
             return (
               <>
-                <div className="flex items-center justify-between text-[11px] font-mono font-bold text-teal-600 dark:text-teal-400 uppercase tracking-wider">
+                <div className="flex items-center justify-between text-[11px] font-mono font-bold text-orange-600 dark:text-orange-400 uppercase tracking-wider">
                   <span className="flex items-center gap-1.5 whitespace-nowrap">
-                    <Compass className="h-3.5 w-3.5 text-teal-500" /> GNSS E REDE 4G (GSM)
+                    <Compass className="h-3.5 w-3.5 text-orange-500" /> GNSS E REDE 4G (GSM)
                   </span>
                   <div className="flex items-center gap-1.5">
                     <span
@@ -2372,20 +2372,20 @@ function MostradoresCockpit3D({
                 {/* Grid Principal: GNSS Orbital (Esquerda) vs Rede 4G M2M (Direita) */}
                 <div className="my-2.5 grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                   {/* Bloco 1: GNSS Orbital */}
-                  <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-950/60 border border-teal-500/30 flex flex-col justify-between">
-                    <div className="flex items-center justify-between text-[9px] font-mono text-teal-600 dark:text-teal-400 font-bold">
+                  <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-950/60 border border-orange-500/30 flex flex-col justify-between">
+                    <div className="flex items-center justify-between text-[9px] font-mono text-orange-600 dark:text-orange-400 font-bold">
                       <span className="flex items-center gap-1 whitespace-nowrap">
                         <Compass className="h-3 w-3" /> CONSTELAÇÃO GNSS
                       </span>
-                      <span className="text-[8px] px-1 py-0.2 rounded bg-teal-500/15 text-teal-700 dark:text-teal-300 font-bold">
+                      <span className="text-[8px] px-1 py-0.2 rounded bg-orange-500/15 text-orange-700 dark:text-orange-300 font-bold">
                         GPS/GLONASS
                       </span>
                     </div>
                     <div className="my-1.5 flex items-baseline">
-                      <span className="text-2xl sm:text-3xl font-black font-mono text-teal-600 dark:text-teal-300 dark:drop-shadow-[0_0_12px_rgba(20,184,166,0.6)]">
+                      <span className="text-2xl sm:text-3xl font-black font-mono text-orange-600 dark:text-orange-300 dark:drop-shadow-[0_0_12px_rgba(249,115,22,0.6)]">
                         {temFix ? satelites : emRepousoIgnicao ? "0" : "—"}
                       </span>
-                      <span className="text-[10px] font-mono text-teal-600/80 dark:text-teal-400/80 ml-1.5 font-bold">
+                      <span className="text-[10px] font-mono text-orange-600/80 dark:text-orange-400/80 ml-1.5 font-bold">
                         {temFix
                           ? "SATÉLITES FIXADOS"
                           : emRepousoIgnicao
@@ -2395,7 +2395,7 @@ function MostradoresCockpit3D({
                     </div>
                     <div className="text-[9px] font-mono text-slate-500 dark:text-slate-400 flex items-center justify-between pt-1 border-t border-slate-200/60 dark:border-slate-800">
                       <span>Rumo / Azimute:</span>
-                      <span className="font-bold text-teal-600 dark:text-teal-400">
+                      <span className="font-bold text-orange-600 dark:text-orange-400">
                         {veiculo.rumo !== undefined
                           ? `${veiculo.rumo}° ${getRumoCardeal(veiculo.rumo)}`
                           : "—"}
@@ -2476,7 +2476,7 @@ function MostradoresCockpit3D({
 
           {/* Anéis Orbitais em CSS 3D com Rotação e Status da Conexão */}
           <div
-            className="h-9 w-full bg-slate-100 dark:bg-slate-950/80 rounded-xl border border-slate-200 dark:border-teal-500/30 flex items-center justify-between px-3 relative overflow-hidden"
+            className="h-9 w-full bg-slate-100 dark:bg-slate-950/80 rounded-xl border border-slate-200 dark:border-orange-500/30 flex items-center justify-between px-3 relative overflow-hidden"
             style={{ perspective: "250px" }}
           >
             <div className="flex items-center gap-2 z-10 text-[10px] font-mono text-slate-600 dark:text-slate-400">
@@ -2485,8 +2485,8 @@ function MostradoresCockpit3D({
             </div>
 
             {satelites !== null && statusComunicacao?.ativo && (
-              <div className="flex items-center gap-1.5 z-10 text-[9px] font-mono text-teal-600 dark:text-teal-400 font-bold">
-                <span className="h-1.5 w-1.5 rounded-full bg-teal-500" />
+              <div className="flex items-center gap-1.5 z-10 text-[9px] font-mono text-orange-600 dark:text-orange-400 font-bold">
+                <span className="h-1.5 w-1.5 rounded-full bg-orange-500" />
                 <span>Fixação Satélite 3D</span>
               </div>
             )}
@@ -2655,8 +2655,8 @@ function MostradoresCockpit3D({
           return (
             <TiltCard
               maxTilt={10}
-              spotlightColor="rgba(16, 185, 129, 0.25)"
-              className="rounded-2xl p-3.5 bg-[#eaf0f8] dark:bg-gradient-to-b dark:from-slate-900/90 dark:to-slate-950/95 border border-slate-300/70 dark:border-orange-500/40 shadow-[4px_4px_14px_#c3cfe2] dark:shadow-xl dark:shadow-emerald-950/20 flex flex-col justify-between col-span-1 sm:col-span-2 xl:col-span-2"
+              spotlightColor="rgba(249, 115, 22, 0.25)"
+              className="rounded-2xl p-3.5 bg-[#eaf0f8] dark:bg-gradient-to-b dark:from-slate-900/90 dark:to-slate-950/95 border border-slate-300/70 dark:border-orange-500/40 shadow-[4px_4px_14px_#c3cfe2] dark:shadow-xl dark:shadow-orange-950/20 flex flex-col justify-between col-span-1 sm:col-span-2 xl:col-span-2"
             >
               <div className="flex items-center justify-between text-[11px] font-mono font-bold text-orange-600 dark:text-orange-400 uppercase tracking-wider">
                 <span className="flex items-center gap-1.5 whitespace-nowrap">
@@ -2755,8 +2755,8 @@ function MostradoresCockpit3D({
           return (
             <TiltCard
               maxTilt={10}
-              spotlightColor="rgba(16, 185, 129, 0.25)"
-              className="rounded-2xl p-3.5 bg-[#eaf0f8] dark:bg-gradient-to-b dark:from-slate-900/90 dark:to-slate-950/95 border border-slate-300/70 dark:border-orange-500/40 shadow-[4px_4px_14px_#c3cfe2] dark:shadow-xl dark:shadow-emerald-950/20 flex flex-col justify-between col-span-1 sm:col-span-2 xl:col-span-2"
+              spotlightColor="rgba(249, 115, 22, 0.25)"
+              className="rounded-2xl p-3.5 bg-[#eaf0f8] dark:bg-gradient-to-b dark:from-slate-900/90 dark:to-slate-950/95 border border-slate-300/70 dark:border-orange-500/40 shadow-[4px_4px_14px_#c3cfe2] dark:shadow-xl dark:shadow-orange-950/20 flex flex-col justify-between col-span-1 sm:col-span-2 xl:col-span-2"
             >
               <div className="flex items-center justify-between text-[11px] font-mono font-bold text-orange-600 dark:text-orange-400 uppercase tracking-wider">
                 <span className="flex items-center gap-1.5 whitespace-nowrap">
@@ -2878,8 +2878,8 @@ function MostradoresCockpit3D({
             {/* 1. Odômetro Base (WGS-84 / Fusão Satélite) */}
             <TiltCard
               maxTilt={10}
-              spotlightColor="rgba(16, 185, 129, 0.25)"
-              className="rounded-2xl p-3.5 bg-[#eaf0f8] dark:bg-gradient-to-b dark:from-slate-900/90 dark:to-slate-950/95 border border-slate-300/70 dark:border-orange-500/40 shadow-[4px_4px_14px_#c3cfe2] dark:shadow-xl dark:shadow-emerald-950/20 flex flex-col justify-between"
+              spotlightColor="rgba(249, 115, 22, 0.25)"
+              className="rounded-2xl p-3.5 bg-[#eaf0f8] dark:bg-gradient-to-b dark:from-slate-900/90 dark:to-slate-950/95 border border-slate-300/70 dark:border-orange-500/40 shadow-[4px_4px_14px_#c3cfe2] dark:shadow-xl dark:shadow-orange-950/20 flex flex-col justify-between"
             >
               <div className="flex items-center justify-between text-[11px] font-mono font-bold text-orange-600 dark:text-orange-400 uppercase tracking-wider">
                 <span className="flex items-center gap-1.5 whitespace-nowrap">
@@ -3261,14 +3261,14 @@ function MostradoresCockpit3D({
             {/* 6. Motor C: EKF 1D Canônico (Filtro de Kalman Estendido com Expansão de Taylor) */}
             <TiltCard
               maxTilt={10}
-              spotlightColor="rgba(20, 184, 166, 0.25)"
-              className="rounded-2xl p-3.5 bg-[#eaf0f8] dark:bg-gradient-to-b dark:from-slate-900/90 dark:to-slate-950/95 border border-slate-300/70 dark:border-teal-500/40 shadow-[4px_4px_14px_#c3cfe2] dark:shadow-xl dark:shadow-teal-950/20 flex flex-col justify-between"
+              spotlightColor="rgba(249, 115, 22, 0.25)"
+              className="rounded-2xl p-3.5 bg-[#eaf0f8] dark:bg-gradient-to-b dark:from-slate-900/90 dark:to-slate-950/95 border border-slate-300/70 dark:border-orange-500/40 shadow-[4px_4px_14px_#c3cfe2] dark:shadow-xl dark:shadow-orange-950/20 flex flex-col justify-between"
             >
-              <div className="flex items-center justify-between text-[11px] font-mono font-bold text-teal-600 dark:text-teal-400 uppercase tracking-wider">
+              <div className="flex items-center justify-between text-[11px] font-mono font-bold text-orange-600 dark:text-orange-400 uppercase tracking-wider">
                 <span className="flex items-center gap-1.5 whitespace-nowrap">
                   <ShieldCheck className="h-3.5 w-3.5" /> 6. MOTOR C (EKF CANÔNICO)
                 </span>
-                <span className="px-1.5 py-0.5 rounded bg-teal-500/15 text-teal-700 dark:text-teal-300 text-[9px] border border-teal-500/20 whitespace-nowrap font-bold">
+                <span className="px-1.5 py-0.5 rounded bg-orange-500/15 text-orange-700 dark:text-orange-300 text-[9px] border border-orange-500/20 whitespace-nowrap font-bold">
                   TAYLOR 4ª ORDEM
                 </span>
               </div>
@@ -3276,13 +3276,13 @@ function MostradoresCockpit3D({
               <div className="my-2 flex items-baseline justify-between">
                 <div>
                   <div className="flex items-baseline">
-                    <span className="text-2xl sm:text-3xl font-black font-mono text-teal-600 dark:text-teal-300 dark:drop-shadow-[0_0_12px_rgba(20,184,166,0.6)]">
+                    <span className="text-2xl sm:text-3xl font-black font-mono text-orange-600 dark:text-orange-300 dark:drop-shadow-[0_0_12px_rgba(249,115,22,0.6)]">
                       {kmMotorC.toLocaleString("pt-BR", {
                         minimumFractionDigits: 1,
                         maximumFractionDigits: 2,
                       })}
                     </span>
-                    <span className="text-xs font-mono font-bold text-teal-600/80 dark:text-teal-400/80 ml-1.5">
+                    <span className="text-xs font-mono font-bold text-orange-600/80 dark:text-orange-400/80 ml-1.5">
                       KM
                     </span>
                   </div>
@@ -3291,7 +3291,7 @@ function MostradoresCockpit3D({
                   </div>
                 </div>
                 <div className="text-right font-mono text-[10px]">
-                  <div className="text-teal-600 dark:text-teal-400 font-bold">
+                  <div className="text-orange-600 dark:text-orange-400 font-bold">
                     {`Δ ${(deltaMotorC >= 0 ? "+" : "") + deltaMotorC.toFixed(2)} km`}
                   </div>
                   <div className="text-slate-500 dark:text-slate-400 text-[9px]">
@@ -3300,18 +3300,18 @@ function MostradoresCockpit3D({
                 </div>
               </div>
 
-              <div className="w-full bg-slate-100/90 dark:bg-slate-950/90 rounded-xl border border-slate-200 dark:border-teal-500/30 p-2 flex flex-col gap-1.5">
+              <div className="w-full bg-slate-100/90 dark:bg-slate-950/90 rounded-xl border border-slate-200 dark:border-orange-500/30 p-2 flex flex-col gap-1.5">
                 <div className="flex items-center justify-between text-[10px] font-mono">
-                  <span className="flex items-center gap-1 font-bold text-slate-700 dark:text-teal-300 whitespace-nowrap">
-                    <Zap className="h-3 w-3 text-teal-600 dark:text-teal-400" /> PESOS EKF
+                  <span className="flex items-center gap-1 font-bold text-slate-700 dark:text-orange-300 whitespace-nowrap">
+                    <Zap className="h-3 w-3 text-orange-600 dark:text-orange-400" /> PESOS EKF
                   </span>
                   <span className="text-slate-800 dark:text-slate-200 font-black text-[9px]">
                     {`Arco ${Math.round(pesosMotorC.gnssOuArco)}% · Cin ${Math.round(pesosMotorC.cinematico)}% · MCU ${Math.round(pesosMotorC.mcuJ16)}%`}
                   </span>
                 </div>
                 <div className="flex items-center justify-between gap-1 text-[9px] font-mono pt-1 border-t border-slate-200/80 dark:border-slate-800/80">
-                  <span className="px-1.5 py-0.5 rounded border font-black uppercase tracking-wider flex items-center gap-1 shrink-0 bg-teal-500/15 text-teal-700 dark:text-teal-300 border-teal-500/30">
-                    <span className="h-1.5 w-1.5 rounded-full bg-teal-500" />k ={" "}
+                  <span className="px-1.5 py-0.5 rounded border font-black uppercase tracking-wider flex items-center gap-1 shrink-0 bg-orange-500/15 text-orange-700 dark:text-orange-300 border-orange-500/30">
+                    <span className="h-1.5 w-1.5 rounded-full bg-orange-500" />k ={" "}
                     {leituraC.fatorCalibracaoK.toFixed(5)}
                   </span>
                   <span className="text-slate-500 dark:text-slate-400 text-[8.5px] text-right truncate">
@@ -3482,14 +3482,14 @@ function CardPaywall3D({
     sky: "border-sky-500/30 hover:border-sky-500/60 bg-sky-500/5",
     amber: "border-amber-500/30 hover:border-amber-500/60 bg-amber-500/5",
     rose: "border-rose-500/30 hover:border-rose-500/60 bg-rose-500/5",
-    teal: "border-teal-500/30 hover:border-teal-500/60 bg-teal-500/5",
+    teal: "border-orange-500/30 hover:border-orange-500/60 bg-orange-500/5",
   };
 
   const coresTexto = {
     sky: "text-sky-500",
     amber: "text-amber-500",
     rose: "text-rose-500",
-    teal: "text-teal-500",
+    teal: "text-orange-500",
   };
 
   return (

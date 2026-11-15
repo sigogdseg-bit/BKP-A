@@ -655,7 +655,7 @@ export function RelatorioGerencialModal({ aberto, onClose }: RelatorioGerencialM
                       }`}
                     >
                       <div className="flex items-center gap-2.5">
-                        <Cpu className="h-4 w-4 text-cyan-500" />
+                        <Cpu className="h-4 w-4 text-orange-500" />
                         <div>
                           <span className="font-bold text-xs block">Limites Free Tier e Infra</span>
                           <span className="text-[10px] opacity-70">

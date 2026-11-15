@@ -336,7 +336,7 @@ export function LeitorPdfModal({
               <div
                 className={`p-2.5 rounded-2xl ${
                   isNeumorph
-                    ? "bg-[#eaf0f8] shadow-[2px_2px_5px_#c3cfe2] border border-slate-300/40 text-teal-600"
+                    ? "bg-[#eaf0f8] shadow-[2px_2px_5px_#c3cfe2] border border-slate-300/40 text-orange-600"
                     : isStyleguide
                       ? "bg-[#9EE5D4]/40 text-[#064E3B] border border-[#9EE5D4]"
                       : "bg-orange-500/20 text-orange-400 border border-orange-500/30"
@@ -397,7 +397,7 @@ export function LeitorPdfModal({
                   />
                   {analisando ? (
                     <div className="flex flex-col items-center justify-center space-y-3">
-                      <RefreshCw className="w-10 h-10 text-teal-500 animate-spin" />
+                      <RefreshCw className="w-10 h-10 text-orange-500 animate-spin" />
                       <span className="text-sm font-bold">
                         Lendo e estruturando dados do PDF...
                       </span>
@@ -407,7 +407,7 @@ export function LeitorPdfModal({
                     </div>
                   ) : (
                     <div className="flex flex-col items-center justify-center space-y-3">
-                      <div className="w-16 h-16 rounded-2xl bg-teal-500/10 text-teal-600 dark:text-teal-400 flex items-center justify-center">
+                      <div className="w-16 h-16 rounded-2xl bg-orange-500/10 text-orange-600 dark:text-orange-400 flex items-center justify-center">
                         <FileText className="w-8 h-8" />
                       </div>
                       <div>
@@ -429,9 +429,9 @@ export function LeitorPdfModal({
             {dadosExtraidos && (
               <div className="my-5 space-y-5">
                 {/* Aviso Superior do Arquivo */}
-                <div className="flex flex-wrap items-center justify-between gap-2 p-3 rounded-2xl bg-teal-500/10 border border-teal-500/20 text-xs">
+                <div className="flex flex-wrap items-center justify-between gap-2 p-3 rounded-2xl bg-orange-500/10 border border-orange-500/20 text-xs">
                   <div className="flex items-center gap-2">
-                    <FileText className="w-4 h-4 text-teal-600 dark:text-teal-400" />
+                    <FileText className="w-4 h-4 text-orange-600 dark:text-orange-400" />
                     <span className="font-bold font-mono">{arquivoNome}</span>
                   </div>
                   <button
@@ -440,7 +440,7 @@ export function LeitorPdfModal({
                       setDadosExtraidos(null);
                       setArquivoNome("");
                     }}
-                    className="text-teal-700 dark:text-teal-300 font-bold hover:underline"
+                    className="text-orange-700 dark:text-orange-300 font-bold hover:underline"
                   >
                     Trocar arquivo PDF
                   </button>
@@ -454,10 +454,10 @@ export function LeitorPdfModal({
                         type="checkbox"
                         checked={fornecedorAtivo}
                         onChange={(e) => setFornecedorAtivo(e.target.checked)}
-                        className="w-4 h-4 rounded text-teal-600 focus:ring-teal-500"
+                        className="w-4 h-4 rounded text-orange-600 focus:ring-orange-500"
                       />
                       <div className="flex items-center gap-1.5 font-bold text-xs uppercase tracking-wide">
-                        <Building2 className="w-4 h-4 text-teal-500" />
+                        <Building2 className="w-4 h-4 text-orange-500" />
                         <span>1. Dados do Fornecedor / Emitente</span>
                       </div>
                     </label>
@@ -542,7 +542,7 @@ export function LeitorPdfModal({
                         type="checkbox"
                         checked={compraAtiva}
                         onChange={(e) => setCompraAtiva(e.target.checked)}
-                        className="w-4 h-4 rounded text-teal-600 focus:ring-teal-500"
+                        className="w-4 h-4 rounded text-orange-600 focus:ring-orange-500"
                       />
                       <div className="flex items-center gap-1.5 font-bold text-xs uppercase tracking-wide">
                         <ShoppingCart className="w-4 h-4 text-orange-500" />
@@ -611,13 +611,13 @@ export function LeitorPdfModal({
                 <div className={cardSectionClass}>
                   <div className="flex items-center justify-between border-b border-slate-700/20 pb-2">
                     <div className="flex items-center gap-1.5 font-bold text-xs uppercase tracking-wide">
-                      <Package className="w-4 h-4 text-teal-500" />
+                      <Package className="w-4 h-4 text-orange-500" />
                       <span>3. Materiais Identificados no PDF ({itens.length})</span>
                     </div>
                     <button
                       type="button"
                       onClick={adicionarItemManual}
-                      className="px-2.5 py-1 rounded-full text-[11px] font-bold bg-teal-500/15 hover:bg-teal-500/25 text-teal-700 dark:text-teal-300 transition flex items-center gap-1"
+                      className="px-2.5 py-1 rounded-full text-[11px] font-bold bg-orange-500/15 hover:bg-orange-500/25 text-orange-700 dark:text-orange-300 transition flex items-center gap-1"
                     >
                       <Plus className="w-3.5 h-3.5" />
                       <span>Adicionar Item Manual</span>
@@ -635,7 +635,7 @@ export function LeitorPdfModal({
                           key={it.idTemp}
                           className={`p-3 rounded-2xl border transition-all ${
                             it.selecionado
-                              ? "bg-slate-500/5 border-teal-500/40"
+                              ? "bg-slate-500/5 border-orange-500/40"
                               : "opacity-50 border-slate-500/20"
                           }`}
                         >
@@ -645,7 +645,7 @@ export function LeitorPdfModal({
                                 type="checkbox"
                                 checked={it.selecionado}
                                 onChange={() => alternarItem(it.idTemp)}
-                                className="w-4 h-4 rounded text-teal-600 focus:ring-teal-500"
+                                className="w-4 h-4 rounded text-orange-600 focus:ring-orange-500"
                               />
                               <span>
                                 Item {idx + 1}: {it.descricao}
@@ -810,7 +810,7 @@ export function LeitorPdfModal({
                   type="button"
                   onClick={handleConfirmarCadastros}
                   disabled={processandoAcoes}
-                  className={`w-full sm:w-auto px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm text-white bg-teal-600 hover:bg-teal-500 shadow-md shadow-teal-500/20 transition flex items-center justify-center gap-2 min-h-[44px] ${
+                  className={`w-full sm:w-auto px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm text-white bg-orange-600 hover:bg-orange-500 shadow-md shadow-orange-500/20 transition flex items-center justify-center gap-2 min-h-[44px] ${
                     processandoAcoes ? "opacity-60 cursor-not-allowed" : ""
                   }`}
                 >

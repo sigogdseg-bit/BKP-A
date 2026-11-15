@@ -467,7 +467,7 @@ export function ModalDistribuirInstalacoesVeiculos({
           {/* Cabeçalho Fixo Cockpit */}
           <div className="p-4 sm:p-5 border-b border-slate-200/80 dark:border-slate-800/80 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md flex items-center justify-between shrink-0">
             <div className="flex items-center gap-3 min-w-0">
-              <div className="h-11 w-11 rounded-2xl bg-linear-to-br from-emerald-500 to-teal-700 flex items-center justify-center text-white shadow-lg shadow-orange-500/20 shrink-0">
+              <div className="h-11 w-11 rounded-2xl bg-linear-to-br from-orange-500 to-amber-700 flex items-center justify-center text-white shadow-lg shadow-orange-500/20 shrink-0">
                 <Layers className="h-5 w-5" />
               </div>
               <div className="truncate">

@@ -1437,7 +1437,7 @@ export function GpsMonitorView({
                 {rotaMonitoradaAtiva && (
                   <button
                     onClick={() => handleEncerrarRotaAtiva(rotaMonitoradaAtiva.id)}
-                    className="flex items-center gap-1 px-1.5 py-0.5 rounded-lg bg-cyan-500/15 border border-cyan-500/30 text-cyan-600 dark:text-cyan-400 text-[10px] font-bold shrink-0 animate-pulse"
+                    className="flex items-center gap-1 px-1.5 py-0.5 rounded-lg bg-orange-500/15 border border-orange-500/30 text-orange-600 dark:text-orange-400 text-[10px] font-bold shrink-0 animate-pulse"
                     title="Desativar rota monitorada"
                   >
                     <Route className="h-3 w-3" />
@@ -1725,8 +1725,8 @@ export function GpsMonitorView({
             )}
 
             {rotaMonitoradaAtiva && (
-              <div className="flex items-center gap-2 px-3 py-1 rounded-xl bg-cyan-500/15 border border-cyan-500/30 text-cyan-600 dark:text-cyan-300 font-bold text-xs animate-pulse">
-                <Route className="h-3.5 w-3.5 text-cyan-500 shrink-0" />
+              <div className="flex items-center gap-2 px-3 py-1 rounded-xl bg-orange-500/15 border border-orange-500/30 text-orange-600 dark:text-orange-300 font-bold text-xs animate-pulse">
+                <Route className="h-3.5 w-3.5 text-orange-500 shrink-0" />
                 <span
                   className="truncate max-w-[140px] sm:max-w-[220px]"
                   title={rotaMonitoradaAtiva.nome}
@@ -1754,10 +1754,10 @@ export function GpsMonitorView({
             {/* Botão de Montagem de Rota Inteligente */}
             <button
               onClick={() => abrirMontarRota()}
-              className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-gradient-to-r from-cyan-500/15 to-emerald-500/15 hover:from-cyan-500/25 hover:to-emerald-500/25 text-cyan-700 dark:text-cyan-400 border border-cyan-500/30 font-bold transition shadow-xs cursor-pointer active:scale-95"
+              className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-gradient-to-r from-orange-500/15 to-amber-500/15 hover:from-orange-500/25 hover:to-amber-500/25 text-orange-700 dark:text-orange-300 border border-orange-500/30 font-bold transition shadow-xs cursor-pointer active:scale-95"
               title="Montar Rota Inteligente (Otimização pelas ruas com múltiplos destinos)"
             >
-              <Navigation className="h-3.5 w-3.5 text-cyan-600 dark:text-cyan-400" />
+              <Navigation className="h-3.5 w-3.5 text-orange-600 dark:text-orange-400" />
               <span className="hidden sm:inline">Montar Rota</span>
             </button>
 
@@ -1914,7 +1914,7 @@ export function GpsMonitorView({
 
       {/* Banner de Boas-Vindas e Degustação do Plano Master para Clientes Novos (Não exibido para quem já é Master) */}
       {session?.isCliente && session?.isTrialMaster && session?.planoContratado !== "master" && (
-        <div className="z-30 px-3 py-1.5 bg-gradient-to-r from-amber-500/15 via-emerald-500/15 to-cyan-500/15 border-b border-amber-500/30 backdrop-blur-md flex items-center justify-between text-xs">
+        <div className="z-30 px-3 py-1.5 bg-gradient-to-r from-orange-500/15 via-amber-500/15 to-orange-600/15 border-b border-orange-500/30 backdrop-blur-md flex items-center justify-between text-xs">
           <div className="flex items-center gap-2 text-slate-800 dark:text-slate-200 font-medium truncate">
             <Sparkles className="h-4 w-4 text-amber-500 shrink-0 animate-pulse" />
             <span className="truncate">
@@ -1991,15 +1991,15 @@ export function GpsMonitorView({
               {/* Botão de Ação Rápida: Montar Rota */}
               <button
                 onClick={() => abrirMontarRota()}
-                className="w-full flex items-center justify-between px-3 py-2 rounded-xl bg-gradient-to-r from-cyan-500/15 to-emerald-500/15 hover:from-cyan-500/25 hover:to-emerald-500/25 text-cyan-600 dark:text-cyan-400 border border-cyan-500/30 transition text-xs font-bold shadow-xs active:scale-98"
+                className="w-full flex items-center justify-between px-3 py-2 rounded-xl bg-gradient-to-r from-orange-500/15 to-amber-500/15 hover:from-orange-500/25 hover:to-amber-500/25 text-orange-700 dark:text-orange-300 border border-orange-500/30 transition text-xs font-bold shadow-xs active:scale-98"
                 title="Planejar Trajeto Inteligente com Múltiplas Paradas (Exclusivo Master)"
               >
                 <div className="flex items-center gap-1.5">
-                  <Navigation className="h-4 w-4 text-cyan-500" />
+                  <Navigation className="h-4 w-4 text-orange-500" />
                   <span>Montar Rota Inteligente</span>
                 </div>
                 {recursosPlano.montarRota ? (
-                  <span className="text-[9px] px-1.5 py-0.5 rounded-full bg-cyan-500/20 font-mono uppercase">
+                  <span className="text-[9px] px-1.5 py-0.5 rounded-full bg-orange-500/20 text-orange-700 dark:text-orange-300 font-mono uppercase">
                     Liberado
                   </span>
                 ) : (
@@ -2081,7 +2081,7 @@ export function GpsMonitorView({
 
               {/* Indicador de Filtro de Veículos Ativo */}
               {filtroVeiculosIds.length > 0 && (
-                <div className="flex items-center justify-between px-2 py-1 bg-teal-500/10 text-teal-700 dark:text-teal-300 rounded-lg text-[10px] font-bold border border-teal-500/25">
+                <div className="flex items-center justify-between px-2 py-1 bg-orange-500/10 text-orange-700 dark:text-orange-300 rounded-lg text-[10px] font-bold border border-orange-500/25">
                   <div className="flex items-center gap-1.5 min-w-0">
                     <Layers className="h-3 w-3 shrink-0" />
                     <span className="truncate">
@@ -2096,7 +2096,7 @@ export function GpsMonitorView({
                       localStorage.setItem("@hunter_filtro_veiculos_ids", "[]");
                       window.dispatchEvent(new Event("hunter_filtro_veiculos_alterado"));
                     }}
-                    className="underline hover:text-teal-950 dark:hover:text-white cursor-pointer ml-2 shrink-0 font-extrabold"
+                    className="underline hover:text-orange-950 dark:hover:text-white cursor-pointer ml-2 shrink-0 font-extrabold"
                   >
                     Mostrar Todos
                   </button>

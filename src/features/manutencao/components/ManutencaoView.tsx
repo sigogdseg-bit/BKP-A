@@ -784,7 +784,7 @@ export function ManutencaoView() {
                   setItemSelecionadoParaAgendar(null);
                   setModalAgendarAberto(true);
                 }}
-                className="flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold text-slate-950 bg-orange-500 hover:bg-orange-400 shadow-[2px_2px_6px_#c3cfe2] active:shadow-[inset_2px_2px_4px_#047857] transition cursor-pointer"
+                className="flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold text-slate-950 bg-orange-500 hover:bg-orange-400 shadow-[2px_2px_6px_#c3cfe2] active:shadow-[inset_2px_2px_4px_#c2410c] transition cursor-pointer"
               >
                 <Calendar className="h-3.5 w-3.5" />
                 <span>Agendar Manutenção</span>
@@ -967,7 +967,7 @@ export function ManutencaoView() {
                         setItemParaEdicao(null);
                         setModalItemAberto(true);
                       }}
-                      className="px-4 py-2 rounded-xl text-xs font-bold bg-orange-500 text-slate-950 hover:bg-orange-400 shadow-[2px_2px_5px_#c3cfe2] active:shadow-[inset_2px_2px_4px_#047857] transition cursor-pointer"
+                      className="px-4 py-2 rounded-xl text-xs font-bold bg-orange-500 text-slate-950 hover:bg-orange-400 shadow-[2px_2px_5px_#c3cfe2] active:shadow-[inset_2px_2px_4px_#c2410c] transition cursor-pointer"
                     >
                       + Novo Item Personalizado
                     </button>
@@ -1177,7 +1177,7 @@ export function ManutencaoView() {
 
                           <button
                             onClick={() => handleConcluirRevisao(item)}
-                            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold text-slate-950 bg-orange-500 hover:bg-orange-400 shadow-[2px_2px_5px_#c3cfe2] active:shadow-[inset_2px_2px_4px_#047857] transition cursor-pointer"
+                            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold text-slate-950 bg-orange-500 hover:bg-orange-400 shadow-[2px_2px_5px_#c3cfe2] active:shadow-[inset_2px_2px_4px_#c2410c] transition cursor-pointer"
                           >
                             <Check className="h-3.5 w-3.5 stroke-[3]" />
                             <span>Concluir Revisão</span>
@@ -1279,7 +1279,7 @@ export function ManutencaoView() {
                             onClick={() =>
                               handleAlterarStatusAgendamento(agendamento.id, "confirmado")
                             }
-                            className="px-3.5 py-1.5 rounded-xl text-xs font-bold text-slate-950 bg-orange-500 hover:bg-orange-400 shadow-[2px_2px_5px_#c3cfe2] active:shadow-[inset_2px_2px_4px_#047857] transition cursor-pointer"
+                            className="px-3.5 py-1.5 rounded-xl text-xs font-bold text-slate-950 bg-orange-500 hover:bg-orange-400 shadow-[2px_2px_5px_#c3cfe2] active:shadow-[inset_2px_2px_4px_#c2410c] transition cursor-pointer"
                           >
                             Confirmar
                           </button>
@@ -1292,7 +1292,7 @@ export function ManutencaoView() {
                             onClick={() =>
                               handleAlterarStatusAgendamento(agendamento.id, "concluido")
                             }
-                            className="px-3.5 py-1.5 rounded-xl text-xs font-bold text-slate-950 bg-orange-500 hover:bg-orange-400 shadow-[2px_2px_5px_#c3cfe2] active:shadow-[inset_2px_2px_4px_#047857] transition cursor-pointer"
+                            className="px-3.5 py-1.5 rounded-xl text-xs font-bold text-slate-950 bg-orange-500 hover:bg-orange-400 shadow-[2px_2px_5px_#c3cfe2] active:shadow-[inset_2px_2px_4px_#c2410c] transition cursor-pointer"
                           >
                             Marcar como Concluído
                           </button>
@@ -1364,7 +1364,7 @@ export function ManutencaoView() {
                       setItemSelecionadoParaConcluir(null);
                       setModalDespesaAberto(true);
                     }}
-                    className="px-4 py-2 rounded-xl text-xs font-bold bg-orange-500 text-slate-950 hover:bg-orange-400 shadow-[2px_2px_5px_#c3cfe2] active:shadow-[inset_2px_2px_4px_#047857] transition cursor-pointer"
+                    className="px-4 py-2 rounded-xl text-xs font-bold bg-orange-500 text-slate-950 hover:bg-orange-400 shadow-[2px_2px_5px_#c3cfe2] active:shadow-[inset_2px_2px_4px_#c2410c] transition cursor-pointer"
                   >
                     + Lançar Primeiro Gasto
                   </button>

@@ -1025,7 +1025,7 @@ export function NovaInstalacaoModal({
 
               {/* Card de Repasse ao Instalador */}
               {isInstalador && (
-                <div className="p-4 rounded-3xl bg-gradient-to-r from-emerald-500/15 via-teal-500/10 to-slate-900 border border-orange-500/30 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-md">
+                <div className="p-4 rounded-3xl bg-gradient-to-r from-orange-500/15 via-amber-500/10 to-slate-900 border border-orange-500/30 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-md">
                   <div className="space-y-0.5">
                     <span className="text-[10px] font-extrabold uppercase tracking-wider text-orange-600 dark:text-orange-400">
                       Extrato do Atendimento · Repasse Previsto
@@ -1608,7 +1608,7 @@ export function NovaInstalacaoModal({
                           <select
                             value={kitSelecionadoId}
                             onChange={(e) => aplicarKitCadastrado(e.target.value)}
-                            className="w-full px-3 py-1.5 rounded-xl bg-white dark:bg-slate-950 border border-teal-500/40 text-xs font-semibold text-teal-800 dark:text-teal-300 focus:outline-none focus:ring-1 focus:ring-teal-500"
+                            className="w-full px-3 py-1.5 rounded-xl bg-white dark:bg-slate-950 border border-orange-500/40 text-xs font-semibold text-orange-800 dark:text-orange-300 focus:outline-none focus:ring-1 focus:ring-orange-500"
                           >
                             <option value="">-- Escolher Kit de Instalação Cadastrado --</option>
                             {kitsDisponiveis.map((k) => (
@@ -1666,7 +1666,7 @@ export function NovaInstalacaoModal({
                   </div>
 
                   {/* Aviso Informativo de Integridade de Estoque */}
-                  <div className="p-2 rounded-xl bg-teal-500/10 border border-teal-500/20 text-[11px] text-teal-800 dark:text-teal-300 flex items-center justify-between">
+                  <div className="p-2 rounded-xl bg-orange-500/10 border border-orange-500/20 text-[11px] text-orange-800 dark:text-orange-300 flex items-center justify-between">
                     <span>
                       {isEdicao
                         ? "Materiais utilizados nesta instalação carregados. Caso algum item seja desmarcado ou reduzido, ele voltará automaticamente ao estoque."
@@ -1711,7 +1711,7 @@ export function NovaInstalacaoModal({
                                   </span>
                                 )}
                                 {qtdOriginal > 0 && (
-                                  <span className="text-[9px] font-mono font-bold px-1.5 py-0.2 rounded bg-teal-500/20 text-teal-700 dark:text-teal-300 border border-teal-500/30">
+                                  <span className="text-[9px] font-mono font-bold px-1.5 py-0.2 rounded bg-orange-500/20 text-orange-700 dark:text-orange-300 border border-orange-500/30">
                                     gravado: {qtdOriginal} un.
                                   </span>
                                 )}

@@ -99,7 +99,7 @@ export const PROTOCOLOS_BANCADA: Record<FamiliaProtocolo, ProtocoloHardwareDef> 
         label: "Chip/GPRS (GPRSSET#)",
         cmd: "GPRSSET#",
         desc: "Dados de operadora, APN e link GPRS",
-        cor: "text-cyan-400",
+        cor: "text-orange-400",
       },
       {
         label: "Raio-X (CXZT#)",
@@ -123,7 +123,7 @@ export const PROTOCOLOS_BANCADA: Record<FamiliaProtocolo, ProtocoloHardwareDef> 
         label: "GPS (WHERE#)",
         cmd: "WHERE#",
         desc: "Coordenadas GPS atuais",
-        cor: "text-teal-400",
+        cor: "text-amber-400",
       },
       {
         label: "Maps (URL#)",
@@ -376,7 +376,7 @@ export const PROTOCOLOS_BANCADA: Record<FamiliaProtocolo, ProtocoloHardwareDef> 
         label: "Testar (AT)",
         cmd: "AT",
         desc: "Teste de comunicação do modem",
-        cor: "text-cyan-400",
+        cor: "text-orange-400",
       },
       {
         label: "IMEI (AT+CGSN)",
@@ -388,7 +388,7 @@ export const PROTOCOLOS_BANCADA: Record<FamiliaProtocolo, ProtocoloHardwareDef> 
         label: "ICCID (AT+CCID)",
         cmd: "AT+CCID",
         desc: "Consultar serial ICCID do chip M2M",
-        cor: "text-teal-400",
+        cor: "text-amber-400",
       },
       {
         label: "Sinal 4G (AT+CSQ)",
@@ -627,7 +627,7 @@ export const PROTOCOLOS_BANCADA: Record<FamiliaProtocolo, ProtocoloHardwareDef> 
         label: "Maps / GPS (G123456#)",
         cmd: "G123456#",
         desc: "Link de localização GPS Coban",
-        cor: "text-cyan-400",
+        cor: "text-orange-400",
       },
     ],
     comandosUmToque: [

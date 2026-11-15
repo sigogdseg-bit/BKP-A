@@ -368,7 +368,7 @@ export function AbastecimentoPanel({
       </div>
 
       {/* Pergunta de Verificação no Posto de Combustível */}
-      <div className="p-4 rounded-2xl border border-slate-700/80 bg-gradient-to-r from-emerald-500/10 via-sky-500/5 to-transparent space-y-3">
+      <div className="p-4 rounded-2xl border border-slate-700/80 bg-gradient-to-r from-orange-500/10 via-amber-500/5 to-transparent space-y-3">
         <div className="flex items-center justify-between gap-3 flex-wrap">
           <div className="flex items-center gap-2.5">
             <div className="p-2 rounded-xl bg-orange-500/20 text-orange-400 border border-orange-500/30 shrink-0">
@@ -446,7 +446,7 @@ export function AbastecimentoPanel({
                 onChange={(e) => set("km_atual", e.target.value)}
                 className={`${inputCls} ${
                   estaNoPosto === true
-                    ? "border-orange-500 bg-emerald-950/20 text-emerald-200 focus:ring-orange-500"
+                    ? "border-orange-500 bg-orange-950/20 text-orange-200 focus:ring-orange-500"
                     : ""
                 }`}
                 placeholder={estaNoPosto === true ? "3 últimos dígitos" : "0"}

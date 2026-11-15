@@ -69,7 +69,7 @@ export function resolverTemaModulo(to: string, title: string, customGradient?: s
   // 1. Atendimento ao Cliente (Esmeralda Suporte / Verde Laser)
   if (rota.includes("atendimento") || t.includes("atendimento")) {
     return {
-      gradient: customGradient || "from-emerald-500 via-teal-600 to-green-700",
+      gradient: customGradient || "from-emerald-500 via-orange-600 to-green-700",
       glowRgb: "16, 185, 129",
       textHover: "group-hover:text-orange-300",
       borderHover: "group-hover:border-orange-500/50",
@@ -174,29 +174,11 @@ export function resolverTemaModulo(to: string, title: string, customGradient?: s
     };
   }
 
-  // 7. Mapa Operacional (Ciano Ártico / Turquesa Cyber)
+  // 7. Mapa Operacional (Laranja Tático GD)
   if (rota.includes("monitor-gps") || t.includes("mapa") || t.includes("gps")) {
     return {
-      gradient: customGradient || "from-cyan-400 via-teal-500 to-blue-600",
-      glowRgb: "6, 182, 212",
-      textHover: "group-hover:text-cyan-300",
-      borderHover: "group-hover:border-cyan-500/50",
-      iconHoverBg: "group-hover:bg-cyan-500/20",
-      iconHoverBorder: "group-hover:border-cyan-400/50",
-      iconHoverText: "group-hover:text-cyan-200",
-      badgeHoverBg: "group-hover:bg-cyan-500/20",
-      badgeHoverBorder: "group-hover:border-cyan-500/40",
-      badgeHoverText: "group-hover:text-cyan-300",
-      dotHoverBg: "group-hover:bg-cyan-400",
-      shadowHover: "hover:shadow-cyan-950/40",
-    };
-  }
-
-  // 7.1. Financeiro e Fluxo de Caixa (Esmeralda Nobre / Ouro Imperial)
-  if (rota.includes("financeiro") || t.includes("financeiro") || t.includes("caixa")) {
-    return {
-      gradient: customGradient || "from-emerald-400 via-teal-500 to-amber-500",
-      glowRgb: "16, 185, 129",
+      gradient: customGradient || "from-orange-500 via-amber-500 to-orange-600",
+      glowRgb: "249, 115, 22",
       textHover: "group-hover:text-orange-300",
       borderHover: "group-hover:border-orange-500/50",
       iconHoverBg: "group-hover:bg-orange-500/20",
@@ -210,21 +192,39 @@ export function resolverTemaModulo(to: string, title: string, customGradient?: s
     };
   }
 
-  // 8. Mensalidades e Cobrança (Teal Prisma / Ciano Holográfico)
+  // 7.1. Financeiro e Fluxo de Caixa (Esmeralda Nobre / Ouro Imperial)
+  if (rota.includes("financeiro") || t.includes("financeiro") || t.includes("caixa")) {
+    return {
+      gradient: customGradient || "from-orange-500 via-amber-500 to-orange-600",
+      glowRgb: "249, 115, 22",
+      textHover: "group-hover:text-orange-300",
+      borderHover: "group-hover:border-orange-500/50",
+      iconHoverBg: "group-hover:bg-orange-500/20",
+      iconHoverBorder: "group-hover:border-orange-400/50",
+      iconHoverText: "group-hover:text-orange-200",
+      badgeHoverBg: "group-hover:bg-orange-500/20",
+      badgeHoverBorder: "group-hover:border-orange-500/40",
+      badgeHoverText: "group-hover:text-orange-300",
+      dotHoverBg: "group-hover:bg-orange-400",
+      shadowHover: "hover:shadow-orange-950/40",
+    };
+  }
+
+  // 8. Mensalidades e Cobrança (Laranja Âmbar Nobre)
   if (rota.includes("mensalidade") || t.includes("mensalidade") || t.includes("cobrança")) {
     return {
-      gradient: customGradient || "from-teal-400 via-cyan-500 to-blue-600",
-      glowRgb: "45, 212, 191",
-      textHover: "group-hover:text-teal-300",
-      borderHover: "group-hover:border-teal-500/50",
-      iconHoverBg: "group-hover:bg-teal-500/20",
-      iconHoverBorder: "group-hover:border-teal-400/50",
-      iconHoverText: "group-hover:text-teal-200",
-      badgeHoverBg: "group-hover:bg-teal-500/20",
-      badgeHoverBorder: "group-hover:border-teal-500/40",
-      badgeHoverText: "group-hover:text-teal-300",
-      dotHoverBg: "group-hover:bg-teal-400",
-      shadowHover: "hover:shadow-teal-950/40",
+      gradient: customGradient || "from-amber-500 via-orange-500 to-amber-600",
+      glowRgb: "245, 158, 11",
+      textHover: "group-hover:text-orange-300",
+      borderHover: "group-hover:border-orange-500/50",
+      iconHoverBg: "group-hover:bg-orange-500/20",
+      iconHoverBorder: "group-hover:border-orange-400/50",
+      iconHoverText: "group-hover:text-orange-200",
+      badgeHoverBg: "group-hover:bg-orange-500/20",
+      badgeHoverBorder: "group-hover:border-orange-500/40",
+      badgeHoverText: "group-hover:text-orange-300",
+      dotHoverBg: "group-hover:bg-orange-400",
+      shadowHover: "hover:shadow-orange-950/40",
     };
   }
 
@@ -249,7 +249,7 @@ export function resolverTemaModulo(to: string, title: string, customGradient?: s
   // 10. Temas dos Cards e Módulos (Prisma Cromático Neon / Fúcsia)
   if (rota.includes("temas") || t.includes("temas")) {
     return {
-      gradient: customGradient || "from-fuchsia-500 via-cyan-500 to-amber-500",
+      gradient: customGradient || "from-fuchsia-500 via-orange-500 to-amber-500",
       glowRgb: "236, 72, 153",
       textHover: "group-hover:text-fuchsia-300",
       borderHover: "group-hover:border-fuchsia-500/50",
@@ -284,18 +284,18 @@ export function resolverTemaModulo(to: string, title: string, customGradient?: s
 
   // Fallback
   return {
-    gradient: customGradient || "from-cyan-500 via-blue-600 to-indigo-700",
-    glowRgb: "6, 182, 212",
-    textHover: "group-hover:text-cyan-300",
-    borderHover: "group-hover:border-cyan-500/50",
-    iconHoverBg: "group-hover:bg-cyan-500/20",
-    iconHoverBorder: "group-hover:border-cyan-400/50",
-    iconHoverText: "group-hover:text-cyan-200",
-    badgeHoverBg: "group-hover:bg-cyan-500/20",
-    badgeHoverBorder: "group-hover:border-cyan-500/40",
-    badgeHoverText: "group-hover:text-cyan-300",
-    dotHoverBg: "group-hover:bg-cyan-400",
-    shadowHover: "hover:shadow-cyan-950/40",
+    gradient: customGradient || "from-orange-500 via-amber-500 to-orange-600",
+    glowRgb: "249, 115, 22",
+    textHover: "group-hover:text-orange-300",
+    borderHover: "group-hover:border-orange-500/50",
+    iconHoverBg: "group-hover:bg-orange-500/20",
+    iconHoverBorder: "group-hover:border-orange-400/50",
+    iconHoverText: "group-hover:text-orange-200",
+    badgeHoverBg: "group-hover:bg-orange-500/20",
+    badgeHoverBorder: "group-hover:border-orange-500/40",
+    badgeHoverText: "group-hover:text-orange-300",
+    dotHoverBg: "group-hover:bg-orange-400",
+    shadowHover: "hover:shadow-orange-950/40",
   };
 }
 
@@ -343,7 +343,7 @@ export const CARD_COLOR_PALETTES: Record<CardColorKey, ModuloTema> = {
     shadowHover: "hover:shadow-red-950/40",
   },
   green: {
-    gradient: "from-emerald-500 via-teal-600 to-green-700",
+    gradient: "from-emerald-500 via-orange-600 to-green-700",
     glowRgb: "16, 185, 129",
     textHover: "group-hover:text-orange-300",
     borderHover: "group-hover:border-orange-500/50",
@@ -371,18 +371,18 @@ export const CARD_COLOR_PALETTES: Record<CardColorKey, ModuloTema> = {
     shadowHover: "hover:shadow-purple-950/40",
   },
   cyan: {
-    gradient: "from-teal-400 via-cyan-500 to-blue-600",
-    glowRgb: "45, 212, 191",
-    textHover: "group-hover:text-cyan-300",
-    borderHover: "group-hover:border-cyan-500/50",
-    iconHoverBg: "group-hover:bg-cyan-500/20",
-    iconHoverBorder: "group-hover:border-cyan-400/50",
-    iconHoverText: "group-hover:text-cyan-200",
-    badgeHoverBg: "group-hover:bg-cyan-500/20",
-    badgeHoverBorder: "group-hover:border-cyan-500/40",
-    badgeHoverText: "group-hover:text-cyan-300",
-    dotHoverBg: "group-hover:bg-cyan-400",
-    shadowHover: "hover:shadow-cyan-950/40",
+    gradient: "from-amber-400 via-orange-500 to-amber-600",
+    glowRgb: "249, 115, 22",
+    textHover: "group-hover:text-orange-300",
+    borderHover: "group-hover:border-orange-500/50",
+    iconHoverBg: "group-hover:bg-orange-500/20",
+    iconHoverBorder: "group-hover:border-orange-400/50",
+    iconHoverText: "group-hover:text-orange-200",
+    badgeHoverBg: "group-hover:bg-orange-500/20",
+    badgeHoverBorder: "group-hover:border-orange-500/40",
+    badgeHoverText: "group-hover:text-orange-300",
+    dotHoverBg: "group-hover:bg-orange-400",
+    shadowHover: "hover:shadow-orange-950/40",
   },
   amber: {
     gradient: "from-amber-400 via-yellow-500 to-amber-600",

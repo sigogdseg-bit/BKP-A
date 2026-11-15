@@ -141,7 +141,7 @@ export function PainelRotasMonitoradasModal({
           {/* Header */}
           <div className="p-4 sm:p-5 border-b border-slate-300/60 dark:border-slate-800 flex items-center justify-between shrink-0">
             <div className="flex items-center gap-3">
-              <div className="h-10 w-10 rounded-2xl bg-cyan-500/15 border border-cyan-500/30 flex items-center justify-center text-cyan-500">
+              <div className="h-10 w-10 rounded-2xl bg-orange-500/15 border border-orange-500/30 flex items-center justify-center text-orange-500">
                 <Route className="h-5 w-5" />
               </div>
               <div>
@@ -172,7 +172,7 @@ export function PainelRotasMonitoradasModal({
                 onClick={() => setAbaAtiva("monitoradas")}
                 className={`px-3 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 shrink-0 whitespace-nowrap cursor-pointer ${
                   abaAtiva === "monitoradas"
-                    ? "bg-cyan-500 text-slate-950 shadow-sm"
+                    ? "bg-orange-500 text-slate-950 shadow-sm"
                     : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
                 }`}
               >
@@ -184,7 +184,7 @@ export function PainelRotasMonitoradasModal({
                 onClick={() => setAbaAtiva("salvas")}
                 className={`px-3 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 shrink-0 whitespace-nowrap cursor-pointer ${
                   abaAtiva === "salvas"
-                    ? "bg-cyan-500 text-slate-950 shadow-sm"
+                    ? "bg-orange-500 text-slate-950 shadow-sm"
                     : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
                 }`}
               >
@@ -198,7 +198,7 @@ export function PainelRotasMonitoradasModal({
                 onFechar();
                 onAbrirNovoTrajeto();
               }}
-              className="w-full sm:w-auto px-3.5 py-2 sm:py-1.5 rounded-xl text-xs font-bold bg-gradient-to-r from-emerald-500 to-cyan-500 text-slate-950 shadow-sm hover:brightness-110 active:scale-95 transition flex items-center justify-center gap-1.5 cursor-pointer shrink-0"
+              className="w-full sm:w-auto px-3.5 py-2 sm:py-1.5 rounded-xl text-xs font-bold bg-gradient-to-r from-orange-500 to-amber-500 text-slate-950 shadow-sm hover:brightness-110 active:scale-95 transition flex items-center justify-center gap-1.5 cursor-pointer shrink-0"
             >
               <Play className="h-3 w-3 fill-current shrink-0" />
               <span>Criar Nova Rota</span>
@@ -209,7 +209,7 @@ export function PainelRotasMonitoradasModal({
           <div className="flex-1 overflow-y-auto p-4 sm:p-5 space-y-4">
             {carregando ? (
               <div className="flex flex-col items-center justify-center py-12 text-slate-400 gap-2">
-                <Loader2 className="h-6 w-6 animate-spin text-cyan-500" />
+                <Loader2 className="h-6 w-6 animate-spin text-orange-500" />
                 <span className="text-xs">Carregando rotas do veículo...</span>
               </div>
             ) : abaAtiva === "monitoradas" ? (
@@ -238,7 +238,7 @@ export function PainelRotasMonitoradasModal({
                             className={`p-4 rounded-2xl border transition-all ${
                               isDesvio
                                 ? "bg-rose-500/10 border-rose-500/30"
-                                : "bg-cyan-500/10 border-cyan-500/30"
+                                : "bg-orange-500/10 border-orange-500/30"
                             }`}
                           >
                             {isEditando ? (
@@ -267,7 +267,7 @@ export function PainelRotasMonitoradasModal({
                                         onClick={() => setToleranciaEditada(tol)}
                                         className={`px-2.5 py-1 rounded-lg text-xs font-bold border transition ${
                                           toleranciaEditada === tol
-                                            ? "bg-cyan-500 text-slate-950 border-cyan-400 shadow-xs"
+                                            ? "bg-orange-500 text-slate-950 border-orange-400 shadow-xs"
                                             : "bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border-slate-300 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800"
                                         }`}
                                       >
@@ -289,7 +289,7 @@ export function PainelRotasMonitoradasModal({
                                     type="button"
                                     disabled={salvandoEdicao}
                                     onClick={() => handleSalvarEdicao(r.id)}
-                                    className="px-3 py-1.5 rounded-xl text-xs font-bold bg-cyan-500 text-slate-950 flex items-center gap-1"
+                                    className="px-3 py-1.5 rounded-xl text-xs font-bold bg-orange-500 text-slate-950 flex items-center gap-1"
                                   >
                                     <Check className="h-3.5 w-3.5" />
                                     Salvar
@@ -336,7 +336,7 @@ export function PainelRotasMonitoradasModal({
                                         onFocarRotaNoMapa(r.coordenadas_rota);
                                         onFechar();
                                       }}
-                                      className="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-cyan-500 hover:text-slate-950 transition"
+                                      className="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-orange-500 hover:text-slate-950 transition"
                                       title="Ver traçado no mapa"
                                     >
                                       <MapPin className="h-4 w-4" />
@@ -411,7 +411,7 @@ export function PainelRotasMonitoradasModal({
                                   onFocarRotaNoMapa(r.coordenadas_rota);
                                   onFechar();
                                 }}
-                                className="p-1.5 rounded-lg text-slate-400 hover:text-cyan-400"
+                                className="p-1.5 rounded-lg text-slate-400 hover:text-orange-400"
                                 title="Visualizar traçado"
                               >
                                 <MapPin className="h-4 w-4" />
@@ -461,7 +461,7 @@ export function PainelRotasMonitoradasModal({
                       <div>
                         <div className="font-bold text-sm text-slate-900 dark:text-slate-100 flex items-center gap-2">
                           <span>{ts.nome}</span>
-                          <span className="text-[10px] px-2 py-0.5 rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 font-mono">
+                          <span className="text-[10px] px-2 py-0.5 rounded-full bg-orange-500/10 text-orange-600 dark:text-orange-400 font-mono">
                             {ts.distancia_km} km · {ts.duracao_minutos} min
                           </span>
                         </div>
@@ -474,7 +474,7 @@ export function PainelRotasMonitoradasModal({
                             <strong>Destino:</strong> {ts.chegada.endereco}
                           </div>
                           {ts.paradas.length > 0 && (
-                            <div className="text-[11px] text-cyan-600 dark:text-cyan-400">
+                            <div className="text-[11px] text-orange-600 dark:text-orange-400">
                               {ts.paradas.length} parada(s) intermediária(s) otimizada(s)
                             </div>
                           )}
@@ -491,7 +491,7 @@ export function PainelRotasMonitoradasModal({
                               onAbrirNovoTrajeto();
                             }
                           }}
-                          className="px-3 py-1.5 rounded-xl bg-cyan-500 text-slate-950 font-bold text-xs hover:brightness-110 transition flex items-center gap-1"
+                          className="px-3 py-1.5 rounded-xl bg-orange-500 text-slate-950 font-bold text-xs hover:brightness-110 transition flex items-center gap-1"
                           title="Carregar trajeto para monitoramento"
                         >
                           <Play className="h-3 w-3 fill-current" />

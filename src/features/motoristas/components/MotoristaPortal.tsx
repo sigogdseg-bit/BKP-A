@@ -531,7 +531,7 @@ function InicioMotorista({
       label: "Trajeto Inteligente",
       desc: "Planejamento de rotas, paradas e navegação otimizada",
       icon: <Navigation className="h-6 w-6" />,
-      cor: "text-cyan-400 bg-cyan-500/10",
+      cor: "text-orange-400 bg-orange-500/10",
       onClick: onAbrirTrajeto,
       visivel: true,
     },

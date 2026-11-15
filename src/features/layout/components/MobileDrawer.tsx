@@ -660,22 +660,22 @@ export function MobileDrawer({
                 onFechar();
                 onAbrirManual();
               }}
-              className="w-full flex items-center justify-between p-3 rounded-2xl text-xs font-bold text-teal-800 dark:text-teal-300 bg-teal-500/15 hover:bg-teal-500/25 border border-teal-500/30 transition shadow-xs cursor-pointer text-left group"
+              className="w-full flex items-center justify-between p-3 rounded-2xl text-xs font-bold text-orange-800 dark:text-orange-300 bg-orange-500/15 hover:bg-orange-500/25 border border-orange-500/30 transition shadow-xs cursor-pointer text-left group"
             >
               <div className="flex items-center gap-3">
-                <div className="p-2 rounded-xl bg-teal-500/20 text-teal-600 dark:text-teal-400 group-hover:scale-105 transition-transform">
+                <div className="p-2 rounded-xl bg-orange-500/20 text-orange-600 dark:text-orange-400 group-hover:scale-105 transition-transform">
                   <BookOpen className="h-4 w-4" />
                 </div>
                 <div>
                   <div className="font-bold text-slate-900 dark:text-slate-100">
                     Manual do Usuário
                   </div>
-                  <div className="text-[10px] text-teal-700 dark:text-teal-400 font-normal">
+                  <div className="text-[10px] text-orange-700 dark:text-orange-400 font-normal">
                     Guias passo a passo por módulo
                   </div>
                 </div>
               </div>
-              <ChevronRight className="h-4 w-4 text-teal-600 dark:text-teal-400 opacity-60 group-hover:translate-x-0.5 transition-transform" />
+              <ChevronRight className="h-4 w-4 text-orange-600 dark:text-orange-400 opacity-60 group-hover:translate-x-0.5 transition-transform" />
             </button>
           )}
 

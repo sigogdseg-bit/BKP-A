@@ -909,12 +909,12 @@ export function CentralSegurancaView() {
 
             <button
               onClick={() => setAbaAtiva("lgpd")}
-              className="p-4 rounded-3xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none space-y-1 text-left hover:shadow-[5px_5px_14px_#b8c6da] hover:border-cyan-500/40 transition-all"
+              className="p-4 rounded-3xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none space-y-1 text-left hover:shadow-[5px_5px_14px_#b8c6da] hover:border-orange-500/40 transition-all"
             >
               <span className="text-xs font-semibold text-slate-500 dark:text-slate-400">
                 LGPD Solicitações Pendentes
               </span>
-              <div className="text-xl font-black font-mono text-cyan-500">
+              <div className="text-xl font-black font-mono text-orange-500">
                 {metricasExec.solicitacoesLgpdPendentes}
               </div>
               <p className="text-[11px] text-slate-500 dark:text-slate-400">

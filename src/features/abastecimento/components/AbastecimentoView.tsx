@@ -636,7 +636,7 @@ export function AbastecimentoView() {
                       }));
                       removerArquivo();
                     }}
-                    className="px-5 py-2.5 rounded-xl font-bold text-xs bg-orange-600 hover:bg-emerald-700 text-white shadow-[2px_2px_5px_#c3cfe2] active:shadow-[inset_2px_2px_4px_#047857] transition cursor-pointer"
+                    className="px-5 py-2.5 rounded-xl font-bold text-xs bg-orange-600 hover:bg-orange-500 text-white shadow-[2px_2px_5px_#c3cfe2] active:shadow-[inset_2px_2px_4px_#c2410c] transition cursor-pointer"
                   >
                     Registrar Outro Abastecimento
                   </button>
@@ -960,7 +960,7 @@ export function AbastecimentoView() {
                 <button
                   type="submit"
                   disabled={salvando || ocrLendo}
-                  className="w-full h-12 rounded-2xl bg-orange-600 hover:bg-emerald-700 text-white font-bold text-sm shadow-[3px_3px_8px_#b8c6da] hover:shadow-[4px_4px_12px_#a6b8d0] active:shadow-[inset_2px_2px_4px_#047857] transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full h-12 rounded-2xl bg-orange-600 hover:bg-orange-500 text-white font-bold text-sm shadow-[3px_3px_8px_#b8c6da] hover:shadow-[4px_4px_12px_#a6b8d0] active:shadow-[inset_2px_2px_4px_#c2410c] transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {salvando ? (
                     <>
