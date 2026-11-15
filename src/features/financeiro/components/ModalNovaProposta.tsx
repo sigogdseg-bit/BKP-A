@@ -398,7 +398,7 @@ export function ModalNovaProposta({
   return (
     <ModalPortal>
       <div className="fixed inset-0 z-[99999] flex items-center justify-center p-2.5 sm:p-4 bg-slate-950/85 backdrop-blur-md overflow-y-auto select-none animate-fadeIn">
-        <div className="bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/70 dark:border-slate-800 rounded-3xl w-full max-w-2xl shadow-[6px_6px_20px_#c3cfe2] dark:shadow-2xl flex flex-col max-h-[calc(100dvh-2.5rem)] sm:max-h-[85vh] overflow-hidden my-auto text-slate-800 dark:text-slate-100 transition-colors">
+        <div className="bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/70 dark:border-slate-800 rounded-3xl w-full max-w-2xl shadow-[6px_6px_20px_#c3cfe2] dark:shadow-2xl flex flex-col max-h-[calc(100dvh-2.5rem)] sm:max-h-[85vh] overflow-hidden my-auto text-slate-800 dark:text-slate-100 transition-colors">
           {/* Cabeçalho Fixo */}
           <div className="p-4 sm:p-5 border-b border-slate-300/60 dark:border-slate-800 flex items-center justify-between shrink-0 bg-white/70 dark:bg-slate-900/80 backdrop-blur-md">
             <div className="flex items-center gap-3">

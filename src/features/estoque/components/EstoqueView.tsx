@@ -324,19 +324,19 @@ export function EstoqueView() {
 
   // Estilos de container e cards por tema
   const pageContainerClass = isNeumorph
-    ? "bg-[#eaf0f8] dark:bg-slate-950 text-slate-800 dark:text-slate-100 p-2.5 sm:p-6 lg:p-8 rounded-3xl min-h-[85vh] transition-all duration-300 border border-slate-300/40 dark:border-slate-800/80"
+    ? "bg-[#fbf2e9] dark:bg-slate-950 text-slate-800 dark:text-slate-100 p-2.5 sm:p-6 lg:p-8 rounded-3xl min-h-[85vh] transition-all duration-300 border border-slate-300/40 dark:border-slate-800/80"
     : "space-y-6 max-w-7xl mx-auto transition-all duration-300";
 
   const cardMetricClass = isNeumorph
-    ? "p-5 rounded-[22px] bg-[#eaf0f8] dark:bg-slate-900 text-slate-800 dark:text-slate-100 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-[4px_4px_12px_rgba(0,0,0,0.5)] border border-slate-300/60 dark:border-slate-800 transition-transform hover:-translate-y-0.5"
+    ? "p-5 rounded-[22px] bg-[#fbf2e9] dark:bg-slate-900 text-slate-800 dark:text-slate-100 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-[4px_4px_12px_rgba(0,0,0,0.5)] border border-slate-300/60 dark:border-slate-800 transition-transform hover:-translate-y-0.5"
     : "p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm transition-transform hover:-translate-y-0.5";
 
   const cardTableClass = isNeumorph
-    ? "rounded-[24px] bg-[#eaf0f8] dark:bg-slate-900 text-slate-800 dark:text-slate-100 shadow-[6px_6px_14px_#c3cfe2] dark:shadow-[4px_4px_14px_rgba(0,0,0,0.5)] border border-slate-300/60 dark:border-slate-800 overflow-hidden"
+    ? "rounded-[24px] bg-[#fbf2e9] dark:bg-slate-900 text-slate-800 dark:text-slate-100 shadow-[6px_6px_14px_#c3cfe2] dark:shadow-[4px_4px_14px_rgba(0,0,0,0.5)] border border-slate-300/60 dark:border-slate-800 overflow-hidden"
     : "rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden";
 
   const inputSearchClass = isNeumorph
-    ? "w-full pl-10 pr-4 py-2.5 rounded-full bg-[#eaf0f8] dark:bg-slate-950 text-slate-800 dark:text-slate-100 text-sm shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6)] border border-slate-300/50 dark:border-slate-800 outline-none focus:ring-2 focus:ring-[#00CFCC] transition"
+    ? "w-full pl-10 pr-4 py-2.5 rounded-full bg-[#fbf2e9] dark:bg-slate-950 text-slate-800 dark:text-slate-100 text-sm shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6)] border border-slate-300/50 dark:border-slate-800 outline-none focus:ring-2 focus:ring-[#00CFCC] transition"
     : "w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-950 text-slate-900 dark:text-slate-100 text-sm border border-slate-300 dark:border-slate-800 focus:border-emerald-500 outline-none transition";
 
   // Regra Inegociável DJR-NEW: Instalador não cadastra nada no estoque, não vê fornecedor, não cadastra fornecedor e não compra material
@@ -367,7 +367,7 @@ export function EstoqueView() {
             <div
               className={`p-2.5 rounded-2xl shrink-0 ${
                 isNeumorph
-                  ? "bg-[#eaf0f8] dark:bg-slate-900 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none border border-slate-300/40 dark:border-slate-800 text-teal-600 dark:text-teal-400"
+                  ? "bg-[#fbf2e9] dark:bg-slate-900 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none border border-slate-300/40 dark:border-slate-800 text-teal-600 dark:text-teal-400"
                   : "bg-emerald-500/20 text-emerald-500 dark:text-emerald-400 border border-emerald-500/30"
               }`}
             >
@@ -406,7 +406,7 @@ export function EstoqueView() {
             }}
             className={`min-h-[44px] px-3.5 py-2 rounded-2xl sm:rounded-full text-xs font-bold transition flex items-center justify-center gap-1.5 w-full sm:w-auto ${
               isNeumorph
-                ? "bg-[#eaf0f8] dark:bg-slate-900 text-slate-700 dark:text-slate-200 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-[2px_2px_6px_rgba(0,0,0,0.4)] border border-slate-300/50 dark:border-slate-800 hover:text-slate-950 dark:hover:text-white"
+                ? "bg-[#fbf2e9] dark:bg-slate-900 text-slate-700 dark:text-slate-200 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-[2px_2px_6px_rgba(0,0,0,0.4)] border border-slate-300/50 dark:border-slate-800 hover:text-slate-950 dark:hover:text-white"
                 : isStyleguide
                   ? "bg-[#F1F5F9] text-slate-700 hover:bg-[#E2E8F0] border border-[#CBD5E1] shadow-[0_2px_4px_rgba(0,0,0,0.04)]"
                   : "bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-300 dark:hover:bg-slate-700"
@@ -424,7 +424,7 @@ export function EstoqueView() {
             }}
             className={`min-h-[44px] px-3.5 py-2 rounded-2xl sm:rounded-full text-xs font-bold transition flex items-center justify-center gap-1.5 w-full sm:w-auto ${
               isNeumorph
-                ? "bg-[#eaf0f8] dark:bg-slate-900 text-teal-700 dark:text-teal-400 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-[2px_2px_6px_rgba(0,0,0,0.4)] border border-teal-300/50 dark:border-teal-800 hover:text-teal-950 dark:hover:text-teal-300"
+                ? "bg-[#fbf2e9] dark:bg-slate-900 text-teal-700 dark:text-teal-400 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-[2px_2px_6px_rgba(0,0,0,0.4)] border border-teal-300/50 dark:border-teal-800 hover:text-teal-950 dark:hover:text-teal-300"
                 : isStyleguide
                   ? "bg-[#F1F5F9] text-teal-700 hover:bg-[#E2E8F0] border border-teal-300 shadow-[0_2px_4px_rgba(0,0,0,0.04)]"
                   : "bg-teal-500/15 dark:bg-teal-950/40 text-teal-600 dark:text-teal-400 hover:bg-teal-500/25 border border-teal-500/30"
@@ -445,7 +445,7 @@ export function EstoqueView() {
                 }}
                 className={`min-h-[44px] px-3.5 py-2 rounded-2xl sm:rounded-full text-xs font-bold transition flex items-center justify-center gap-1.5 w-full sm:w-auto ${
                   isNeumorph
-                    ? "bg-[#eaf0f8] dark:bg-slate-900 text-slate-700 dark:text-slate-200 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-[2px_2px_6px_rgba(0,0,0,0.4)] border border-slate-300/50 dark:border-slate-800 hover:text-slate-950 dark:hover:text-white"
+                    ? "bg-[#fbf2e9] dark:bg-slate-900 text-slate-700 dark:text-slate-200 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-[2px_2px_6px_rgba(0,0,0,0.4)] border border-slate-300/50 dark:border-slate-800 hover:text-slate-950 dark:hover:text-white"
                     : isStyleguide
                       ? "bg-[#F1F5F9] text-slate-700 hover:bg-[#E2E8F0] border border-[#CBD5E1] shadow-[0_2px_4px_rgba(0,0,0,0.04)]"
                       : "bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-300 dark:hover:bg-slate-700"
@@ -463,7 +463,7 @@ export function EstoqueView() {
                 }}
                 className={`min-h-[44px] px-3.5 py-2 rounded-2xl sm:rounded-full text-xs font-bold transition flex items-center justify-center gap-1.5 w-full sm:w-auto ${
                   isNeumorph
-                    ? "bg-[#eaf0f8] dark:bg-slate-900 text-slate-700 dark:text-slate-200 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-[2px_2px_6px_rgba(0,0,0,0.4)] border border-slate-300/50 dark:border-slate-800 hover:text-slate-950 dark:hover:text-white"
+                    ? "bg-[#fbf2e9] dark:bg-slate-900 text-slate-700 dark:text-slate-200 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-[2px_2px_6px_rgba(0,0,0,0.4)] border border-slate-300/50 dark:border-slate-800 hover:text-slate-950 dark:hover:text-white"
                     : isStyleguide
                       ? "bg-[#F1F5F9] text-slate-700 hover:bg-[#E2E8F0] border border-[#CBD5E1] shadow-[0_2px_4px_rgba(0,0,0,0.04)]"
                       : "bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-300 dark:hover:bg-slate-700"
@@ -478,7 +478,7 @@ export function EstoqueView() {
                 onClick={() => setModalLeitorPdfAberto(true)}
                 className={`col-span-2 sm:col-span-1 min-h-[44px] px-3.5 py-2 rounded-2xl sm:rounded-full text-xs font-bold transition flex items-center justify-center gap-1.5 w-full sm:w-auto ${
                   isNeumorph
-                    ? "bg-[#eaf0f8] dark:bg-slate-900 text-teal-700 dark:text-teal-400 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-[2px_2px_6px_rgba(0,0,0,0.4)] border border-teal-300/60 dark:border-teal-800 hover:text-teal-950 dark:hover:text-teal-300"
+                    ? "bg-[#fbf2e9] dark:bg-slate-900 text-teal-700 dark:text-teal-400 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-[2px_2px_6px_rgba(0,0,0,0.4)] border border-teal-300/60 dark:border-teal-800 hover:text-teal-950 dark:hover:text-teal-300"
                     : isStyleguide
                       ? "bg-[#F1F5F9] text-teal-700 hover:bg-[#E2E8F0] border border-teal-300 shadow-[0_2px_4px_rgba(0,0,0,0.04)]"
                       : "bg-teal-500/10 dark:bg-teal-950/40 text-teal-600 dark:text-teal-400 hover:bg-teal-500/20 border border-teal-500/30"
@@ -765,7 +765,7 @@ export function EstoqueView() {
               <div
                 className={`p-1 rounded-full flex items-center shrink-0 ${
                   isNeumorph
-                    ? "bg-[#eaf0f8] dark:bg-slate-900 shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.5)] border border-slate-300/40 dark:border-slate-800"
+                    ? "bg-[#fbf2e9] dark:bg-slate-900 shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.5)] border border-slate-300/40 dark:border-slate-800"
                     : isStyleguide
                       ? "bg-[#F1F5F9] border border-[#CBD5E1]"
                       : "bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700"
@@ -857,7 +857,7 @@ export function EstoqueView() {
             <div
               className={`p-12 text-center rounded-[28px] ${
                 isNeumorph
-                  ? "bg-[#eaf0f8] dark:bg-slate-900 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none border border-slate-300/60 dark:border-slate-800"
+                  ? "bg-[#fbf2e9] dark:bg-slate-900 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none border border-slate-300/60 dark:border-slate-800"
                   : isStyleguide
                     ? "bg-white border border-[#CBD5E1] shadow-[0_4px_16px_rgba(0,0,0,0.04)]"
                     : "bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800"
@@ -866,7 +866,7 @@ export function EstoqueView() {
               <div
                 className={`w-16 h-16 mx-auto rounded-3xl flex items-center justify-center mb-4 ${
                   isNeumorph
-                    ? "bg-[#eaf0f8] dark:bg-slate-950 shadow-[2px_2px_6px_#c3cfe2] dark:shadow-none text-teal-600 dark:text-teal-400 border border-slate-300/40 dark:border-slate-800"
+                    ? "bg-[#fbf2e9] dark:bg-slate-950 shadow-[2px_2px_6px_#c3cfe2] dark:shadow-none text-teal-600 dark:text-teal-400 border border-slate-300/40 dark:border-slate-800"
                     : isStyleguide
                       ? "bg-[#9EE5D4]/40 text-[#064E3B] border border-[#9EE5D4]"
                       : "bg-emerald-500/20 text-emerald-500 border border-emerald-500/30"
@@ -922,7 +922,7 @@ export function EstoqueView() {
                     }
                     className={`p-5 flex flex-col justify-between ${
                       isNeumorph
-                        ? "rounded-[22px] bg-[#eaf0f8] dark:bg-slate-900 text-slate-800 dark:text-slate-100 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-[4px_4px_12px_rgba(0,0,0,0.5)] border border-slate-300/60 dark:border-slate-800"
+                        ? "rounded-[22px] bg-[#fbf2e9] dark:bg-slate-900 text-slate-800 dark:text-slate-100 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-[4px_4px_12px_rgba(0,0,0,0.5)] border border-slate-300/60 dark:border-slate-800"
                         : isStyleguide
                           ? "rounded-[26px] bg-white border border-[#E2E8F0] shadow-[0_4px_16px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_24px_rgba(0,0,0,0.08)] transition-all"
                           : "rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm"

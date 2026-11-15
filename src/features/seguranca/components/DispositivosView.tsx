@@ -246,7 +246,7 @@ export function DispositivosView() {
   return (
     <div className="space-y-6 max-w-7xl mx-auto p-2.5 sm:p-5 lg:p-6 select-none transition-all duration-300">
       {/* 1. Cabeçalho Canônico Neumorphic Hunter */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 p-5 sm:p-6 rounded-3xl shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 p-5 sm:p-6 rounded-3xl shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl">
         <div className="flex items-center gap-3.5">
           <div className="h-12 w-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shrink-0 shadow-xs">
             <Smartphone className="h-6 w-6 stroke-[2.2]" />
@@ -270,7 +270,7 @@ export function DispositivosView() {
         <button
           onClick={carregar}
           disabled={carregando}
-          className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-2xl text-xs font-bold text-slate-700 dark:text-slate-300 bg-[#eaf0f8] hover:bg-[#dfe8f5] dark:bg-slate-800 dark:hover:bg-slate-700/80 border border-slate-300/60 dark:border-slate-700 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none transition min-h-[44px]"
+          className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-2xl text-xs font-bold text-slate-700 dark:text-slate-300 bg-[#fbf2e9] hover:bg-[#dfe8f5] dark:bg-slate-800 dark:hover:bg-slate-700/80 border border-slate-300/60 dark:border-slate-700 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none transition min-h-[44px]"
           title="Recarregar Lista"
         >
           <RefreshCw className={`h-4 w-4 ${carregando ? "animate-spin text-emerald-500" : ""}`} />
@@ -286,7 +286,7 @@ export function DispositivosView() {
           className={`p-4 rounded-2xl cursor-pointer text-left transition-all ${
             filtroDispositivo === "todos"
               ? "ring-2 ring-emerald-500 bg-[#dfe9f5] dark:bg-slate-800/90 shadow-[4px_4px_12px_#b8c7db]"
-              : "bg-[#eaf0f8] dark:bg-slate-900/80 border border-slate-300/50 dark:border-slate-800/80 shadow-[3px_3px_8px_#c3cfe2]"
+              : "bg-[#fbf2e9] dark:bg-slate-900/80 border border-slate-300/50 dark:border-slate-800/80 shadow-[3px_3px_8px_#c3cfe2]"
           }`}
         >
           <span className="text-[11px] font-medium text-slate-500 dark:text-slate-400 block">
@@ -310,7 +310,7 @@ export function DispositivosView() {
           className={`p-4 rounded-2xl cursor-pointer text-left transition-all ${
             filtroDispositivo === "este_aparelho"
               ? "ring-2 ring-emerald-500 bg-[#dfe9f5] dark:bg-slate-800/90 shadow-[4px_4px_12px_#b8c7db]"
-              : "bg-[#eaf0f8] dark:bg-slate-900/80 border border-slate-300/50 dark:border-slate-800/80 shadow-[3px_3px_8px_#c3cfe2]"
+              : "bg-[#fbf2e9] dark:bg-slate-900/80 border border-slate-300/50 dark:border-slate-800/80 shadow-[3px_3px_8px_#c3cfe2]"
           }`}
         >
           <span className="text-[11px] font-medium text-slate-500 dark:text-slate-400 block">
@@ -344,7 +344,7 @@ export function DispositivosView() {
           className={`p-4 rounded-2xl cursor-pointer text-left transition-all ${
             filtroDispositivo === "desktop"
               ? "ring-2 ring-sky-500 bg-[#dfe9f5] dark:bg-slate-800/90 shadow-[4px_4px_12px_#b8c7db]"
-              : "bg-[#eaf0f8] dark:bg-slate-900/80 border border-slate-300/50 dark:border-slate-800/80 shadow-[3px_3px_8px_#c3cfe2]"
+              : "bg-[#fbf2e9] dark:bg-slate-900/80 border border-slate-300/50 dark:border-slate-800/80 shadow-[3px_3px_8px_#c3cfe2]"
           }`}
         >
           <span className="text-[11px] font-medium text-slate-500 dark:text-slate-400 block">
@@ -364,7 +364,7 @@ export function DispositivosView() {
           className={`p-4 rounded-2xl cursor-pointer text-left transition-all ${
             filtroDispositivo === "mobile"
               ? "ring-2 ring-purple-500 bg-[#dfe9f5] dark:bg-slate-800/90 shadow-[4px_4px_12px_#b8c7db]"
-              : "bg-[#eaf0f8] dark:bg-slate-900/80 border border-slate-300/50 dark:border-slate-800/80 shadow-[3px_3px_8px_#c3cfe2]"
+              : "bg-[#fbf2e9] dark:bg-slate-900/80 border border-slate-300/50 dark:border-slate-800/80 shadow-[3px_3px_8px_#c3cfe2]"
           }`}
         >
           <span className="text-[11px] font-medium text-slate-500 dark:text-slate-400 block">
@@ -382,7 +382,7 @@ export function DispositivosView() {
       {/* 3. Card do Dispositivo Atual com Ação de Alta Finalidade */}
       <TiltCard
         spotlightColor="rgba(16, 185, 129, 0.22)"
-        className="p-5 sm:p-6 rounded-3xl bg-[#eaf0f8] dark:bg-slate-900 border-2 border-emerald-500/30 dark:border-emerald-500/20 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl relative overflow-hidden"
+        className="p-5 sm:p-6 rounded-3xl bg-[#fbf2e9] dark:bg-slate-900 border-2 border-emerald-500/30 dark:border-emerald-500/20 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl relative overflow-hidden"
       >
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-5">
           <div className="flex items-start gap-3.5">
@@ -446,7 +446,7 @@ export function DispositivosView() {
                   value={apelidoCustomizado}
                   onChange={(e) => setApelidoCustomizado(e.target.value)}
                   placeholder="Nome do Dispositivo (ex: Meu Computador)"
-                  className="px-3.5 py-2.5 rounded-xl text-xs bg-[#eaf0f8] dark:bg-slate-950 border border-slate-300/50 dark:border-slate-800 text-slate-900 dark:text-slate-100 shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6)] outline-none focus:ring-2 focus:ring-[#00CFCC] font-medium"
+                  className="px-3.5 py-2.5 rounded-xl text-xs bg-[#fbf2e9] dark:bg-slate-950 border border-slate-300/50 dark:border-slate-800 text-slate-900 dark:text-slate-100 shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6)] outline-none focus:ring-2 focus:ring-[#00CFCC] font-medium"
                 />
                 <button
                   onClick={autorizarDispositivoAtual}
@@ -492,11 +492,11 @@ export function DispositivosView() {
         </div>
 
         {carregando ? (
-          <div className="py-16 text-center text-slate-500 dark:text-slate-400 text-xs font-mono bg-[#eaf0f8] dark:bg-slate-900 rounded-3xl border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-xl">
+          <div className="py-16 text-center text-slate-500 dark:text-slate-400 text-xs font-mono bg-[#fbf2e9] dark:bg-slate-900 rounded-3xl border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-xl">
             Sincronizando dispositivos com o cluster Supabase...
           </div>
         ) : dispositivosFiltrados.length === 0 ? (
-          <div className="p-8 sm:p-10 rounded-3xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl text-center space-y-4">
+          <div className="p-8 sm:p-10 rounded-3xl bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl text-center space-y-4">
             <div className="h-16 w-16 mx-auto rounded-3xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
               <FingerprintIcon className="h-8 w-8 stroke-[1.8]" />
             </div>
@@ -556,7 +556,7 @@ export function DispositivosView() {
                   className={`p-4 sm:p-5 rounded-3xl border transition-all duration-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-xl ${
                     isEsteDispositivo
                       ? "border-emerald-500/40 bg-emerald-500/[0.04] dark:bg-emerald-500/[0.04]"
-                      : "bg-[#eaf0f8] dark:bg-slate-900/80 border-slate-300/60 dark:border-slate-800"
+                      : "bg-[#fbf2e9] dark:bg-slate-900/80 border-slate-300/60 dark:border-slate-800"
                   }`}
                 >
                   <div className="flex items-start gap-3.5 min-w-0">

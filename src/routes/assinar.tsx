@@ -577,7 +577,7 @@ function PaginaAssinaturaCliente() {
                     <p className="text-slate-400">
                       Plataforma Oficial:{" "}
                       <span className="text-emerald-400 font-mono">
-                        GD Rastreamento (https://sigoguardiao.oficial.tec.br)
+                        GD Rastreamento (https://gd.oficial.tec.br)
                       </span>
                     </p>
                   </div>
@@ -837,7 +837,7 @@ function PaginaAssinaturaCliente() {
                     executividade deste contrato formalizado eletronicamente por meio digital (Art.
                     10, § 2º da MP nº 2.200-2/2001 e Art. 784, III do CPC), gerando hash
                     criptográfico SHA-256 e selo de autenticidade imutável conferível em
-                    https://sigoguardiao.oficial.tec.br/verificar.
+                    https://gd.oficial.tec.br/verificar.
                   </p>
 
                   <p>

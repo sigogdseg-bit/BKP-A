@@ -719,7 +719,7 @@ export function NovoClienteModal({ clienteEdicao, onFechar, onSucesso }: NovoCli
     return (
       <ModalPortal>
         <div className="fixed inset-0 z-[99999] flex items-center justify-center p-2.5 sm:p-4 bg-slate-950/85 backdrop-blur-md overflow-y-auto select-none">
-          <div className="bg-[#eaf0f8] dark:bg-slate-900 border border-emerald-500/40 rounded-3xl w-full max-w-md shadow-2xl p-6 space-y-5 text-center text-slate-800 dark:text-slate-100 max-h-[calc(100dvh-2.5rem)] sm:max-h-[85vh] overflow-y-auto my-auto">
+          <div className="bg-[#fbf2e9] dark:bg-slate-900 border border-emerald-500/40 rounded-3xl w-full max-w-md shadow-2xl p-6 space-y-5 text-center text-slate-800 dark:text-slate-100 max-h-[calc(100dvh-2.5rem)] sm:max-h-[85vh] overflow-y-auto my-auto">
             <div className="h-14 w-14 rounded-2xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-600 dark:text-emerald-400 mx-auto">
               <ShieldCheck className="h-8 w-8 animate-pulse" />
             </div>
@@ -798,9 +798,9 @@ export function NovoClienteModal({ clienteEdicao, onFechar, onSucesso }: NovoCli
   return (
     <ModalPortal>
       <div className="fixed inset-0 z-[99999] flex items-center justify-center p-2.5 sm:p-4 bg-slate-950/85 backdrop-blur-md overflow-y-auto select-none animate-fadeIn">
-        <div className="bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 rounded-3xl w-full max-w-lg shadow-2xl overflow-hidden max-h-[calc(100dvh-2.5rem)] sm:max-h-[85vh] my-auto flex flex-col text-slate-800 dark:text-slate-100">
+        <div className="bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 rounded-3xl w-full max-w-lg shadow-2xl overflow-hidden max-h-[calc(100dvh-2.5rem)] sm:max-h-[85vh] my-auto flex flex-col text-slate-800 dark:text-slate-100">
           {/* Cabeçalho Fixo */}
-          <div className="p-4 sm:p-5 border-b border-slate-300/60 dark:border-slate-800 bg-[#eaf0f8]/80 dark:bg-slate-950/60 flex items-center justify-between shrink-0">
+          <div className="p-4 sm:p-5 border-b border-slate-300/60 dark:border-slate-800 bg-[#fbf2e9]/80 dark:bg-slate-950/60 flex items-center justify-between shrink-0">
             <div className="flex items-center gap-2.5">
               <div className="h-9 w-9 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
                 <Users className="h-5 w-5" />
@@ -1274,7 +1274,7 @@ export function NovoClienteModal({ clienteEdicao, onFechar, onSucesso }: NovoCli
 
                               {/* Formulário Inline de Edição do Veículo */}
                               {veiculoEmEdicao?.id === vex.id ? (
-                                <div className="p-3 rounded-xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/70 dark:border-slate-700 space-y-2 animate-fadeIn mt-2 shadow-xs">
+                                <div className="p-3 rounded-xl bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/70 dark:border-slate-700 space-y-2 animate-fadeIn mt-2 shadow-xs">
                                   <div className="text-[11px] font-bold text-emerald-600 dark:text-emerald-400 flex items-center justify-between">
                                     <div className="flex items-center gap-1.5">
                                       <Edit3 className="h-3.5 w-3.5" />
@@ -2268,7 +2268,7 @@ export function NovoClienteModal({ clienteEdicao, onFechar, onSucesso }: NovoCli
             </div>
 
             {/* Ações do Rodapé Fixo na Base */}
-            <div className="p-3.5 sm:p-4 border-t border-slate-300/60 dark:border-slate-800 shrink-0 bg-[#eaf0f8]/95 dark:bg-slate-900/95 backdrop-blur-md flex flex-col-reverse sm:flex-row items-stretch sm:items-center justify-between gap-2">
+            <div className="p-3.5 sm:p-4 border-t border-slate-300/60 dark:border-slate-800 shrink-0 bg-[#fbf2e9]/95 dark:bg-slate-900/95 backdrop-blur-md flex flex-col-reverse sm:flex-row items-stretch sm:items-center justify-between gap-2">
               <div>
                 {isEdicao && clienteEdicao && session?.isAdmin && (
                   <button
@@ -2327,8 +2327,8 @@ export function NovoClienteModal({ clienteEdicao, onFechar, onSucesso }: NovoCli
         {modalExclusaoAberto && clienteEdicao && (
           <ModalPortal>
             <div className="fixed inset-0 z-[99999] flex items-center justify-center p-2.5 sm:p-4 bg-slate-950/85 backdrop-blur-md overflow-y-auto select-none">
-              <div className="bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 rounded-3xl w-full max-w-md shadow-2xl flex flex-col max-h-[calc(100dvh-2.5rem)] sm:max-h-[85vh] my-auto overflow-hidden animate-in fade-in zoom-in-95 duration-150 text-slate-800 dark:text-slate-100">
-                <div className="p-4 border-b border-slate-300/60 dark:border-slate-800 flex items-center justify-between bg-[#eaf0f8]/80 dark:bg-slate-950/60 shrink-0">
+              <div className="bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 rounded-3xl w-full max-w-md shadow-2xl flex flex-col max-h-[calc(100dvh-2.5rem)] sm:max-h-[85vh] my-auto overflow-hidden animate-in fade-in zoom-in-95 duration-150 text-slate-800 dark:text-slate-100">
+                <div className="p-4 border-b border-slate-300/60 dark:border-slate-800 flex items-center justify-between bg-[#fbf2e9]/80 dark:bg-slate-950/60 shrink-0">
                   <div className="flex items-center gap-2">
                     <div className="h-8 w-8 rounded-xl bg-rose-500/15 border border-rose-500/30 flex items-center justify-center text-rose-600 dark:text-rose-400">
                       <Trash2 className="h-4 w-4" />
@@ -2372,7 +2372,7 @@ export function NovoClienteModal({ clienteEdicao, onFechar, onSucesso }: NovoCli
                   </div>
                 </div>
 
-                <div className="p-3.5 sm:p-4 border-t border-slate-300/60 dark:border-slate-800 flex justify-end gap-2 bg-[#eaf0f8]/80 dark:bg-slate-950/60 shrink-0">
+                <div className="p-3.5 sm:p-4 border-t border-slate-300/60 dark:border-slate-800 flex justify-end gap-2 bg-[#fbf2e9]/80 dark:bg-slate-950/60 shrink-0">
                   <button
                     type="button"
                     onClick={() => setModalExclusaoAberto(false)}

@@ -300,7 +300,7 @@ export function TelaClienteAguardandoInstalacao({
   return (
     <div className="space-y-4 max-w-6xl mx-auto select-none pb-28">
       {/* 1. Header Canônico GD Rastreamento */}
-      <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 bg-[#eaf0f8] dark:bg-slate-900/80 border border-slate-300/60 dark:border-slate-800 p-4 sm:p-5 rounded-2xl shadow-[4px_4px_10px_#c3cfe2] dark:shadow-xl">
+      <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 bg-[#fbf2e9] dark:bg-slate-900/80 border border-slate-300/60 dark:border-slate-800 p-4 sm:p-5 rounded-2xl shadow-[4px_4px_10px_#c3cfe2] dark:shadow-xl">
         <div className="flex items-center gap-3">
           <div className="h-12 w-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-600 dark:text-amber-400 shadow-xs shrink-0">
             <Wrench className="h-6 w-6" />
@@ -359,7 +359,7 @@ export function TelaClienteAguardandoInstalacao({
           maxTilt={4}
           spotlightColor="rgba(245, 158, 11, 0.25)"
           onClick={() => setFiltroStatus("todos")}
-          className={`bg-[#eaf0f8] dark:bg-slate-900/70 border rounded-2xl p-3.5 flex flex-col justify-between shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_12px_#b8c6da] transition cursor-pointer active:scale-95 ${
+          className={`bg-[#fbf2e9] dark:bg-slate-900/70 border rounded-2xl p-3.5 flex flex-col justify-between shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_12px_#b8c6da] transition cursor-pointer active:scale-95 ${
             filtroStatus === "todos"
               ? "border-amber-500 ring-2 ring-amber-500/20"
               : "border-slate-300/60 dark:border-slate-800"
@@ -385,7 +385,7 @@ export function TelaClienteAguardandoInstalacao({
           maxTilt={4}
           spotlightColor="rgba(59, 130, 246, 0.25)"
           onClick={() => setFiltroStatus(filtroStatus === "agendados" ? "todos" : "agendados")}
-          className={`bg-[#eaf0f8] dark:bg-slate-900/70 border rounded-2xl p-3.5 flex flex-col justify-between shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_12px_#b8c6da] transition cursor-pointer active:scale-95 ${
+          className={`bg-[#fbf2e9] dark:bg-slate-900/70 border rounded-2xl p-3.5 flex flex-col justify-between shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_12px_#b8c6da] transition cursor-pointer active:scale-95 ${
             filtroStatus === "agendados"
               ? "border-blue-500 ring-2 ring-blue-500/20"
               : "border-slate-300/60 dark:border-slate-800"
@@ -411,7 +411,7 @@ export function TelaClienteAguardandoInstalacao({
           maxTilt={4}
           spotlightColor="rgba(234, 88, 12, 0.25)"
           onClick={() => setFiltroStatus(filtroStatus === "pendentes" ? "todos" : "pendentes")}
-          className={`bg-[#eaf0f8] dark:bg-slate-900/70 border rounded-2xl p-3.5 flex flex-col justify-between shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_12px_#b8c6da] transition cursor-pointer active:scale-95 ${
+          className={`bg-[#fbf2e9] dark:bg-slate-900/70 border rounded-2xl p-3.5 flex flex-col justify-between shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_12px_#b8c6da] transition cursor-pointer active:scale-95 ${
             filtroStatus === "pendentes"
               ? "border-orange-500 ring-2 ring-orange-500/20"
               : "border-slate-300/60 dark:border-slate-800"
@@ -439,7 +439,7 @@ export function TelaClienteAguardandoInstalacao({
           maxTilt={4}
           spotlightColor="rgba(16, 185, 129, 0.25)"
           onClick={() => setFiltroStatus(filtroStatus === "concluidos" ? "todos" : "concluidos")}
-          className={`bg-[#eaf0f8] dark:bg-slate-900/70 border rounded-2xl p-3.5 flex flex-col justify-between shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_12px_#b8c6da] transition cursor-pointer active:scale-95 ${
+          className={`bg-[#fbf2e9] dark:bg-slate-900/70 border rounded-2xl p-3.5 flex flex-col justify-between shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_12px_#b8c6da] transition cursor-pointer active:scale-95 ${
             filtroStatus === "concluidos"
               ? "border-emerald-500 ring-2 ring-emerald-500/20"
               : "border-slate-300/60 dark:border-slate-800"
@@ -503,7 +503,7 @@ export function TelaClienteAguardandoInstalacao({
         <TiltCard
           maxTilt={2}
           glowRgb="16, 185, 129"
-          className="rounded-3xl bg-[#eaf0f8] dark:bg-slate-900/80 border border-slate-300/60 dark:border-slate-800 p-6 sm:p-10 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl text-center space-y-6"
+          className="rounded-3xl bg-[#fbf2e9] dark:bg-slate-900/80 border border-slate-300/60 dark:border-slate-800 p-6 sm:p-10 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl text-center space-y-6"
         >
           <div className="h-16 w-16 mx-auto rounded-3xl bg-gradient-to-br from-amber-500/20 to-emerald-500/20 border border-amber-500/30 flex items-center justify-center text-amber-500 shadow-md">
             <Car className="h-8 w-8 text-amber-500" />
@@ -570,7 +570,7 @@ export function TelaClienteAguardandoInstalacao({
           </div>
         </TiltCard>
       ) : veiculosExibidos.length === 0 ? (
-        <div className="p-8 rounded-3xl bg-[#eaf0f8] dark:bg-slate-900/80 border border-slate-300/60 dark:border-slate-800 text-center space-y-3 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-xl">
+        <div className="p-8 rounded-3xl bg-[#fbf2e9] dark:bg-slate-900/80 border border-slate-300/60 dark:border-slate-800 text-center space-y-3 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-xl">
           <Filter className="h-8 w-8 mx-auto text-slate-400" />
           <h4 className="text-sm font-bold text-slate-900 dark:text-slate-100">
             Nenhum veículo encontrado para o filtro selecionado
@@ -727,7 +727,7 @@ export function TelaClienteAguardandoInstalacao({
                 {/* Grade de 3 Cards Táticos de Informação para este Veículo */}
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                   {/* Card 1: Técnico Responsável */}
-                  <div className="p-3.5 rounded-2xl bg-[#eaf0f8]/60 dark:bg-slate-950/80 border border-slate-300/60 dark:border-slate-800/80 flex flex-col justify-between space-y-2">
+                  <div className="p-3.5 rounded-2xl bg-[#fbf2e9]/60 dark:bg-slate-950/80 border border-slate-300/60 dark:border-slate-800/80 flex flex-col justify-between space-y-2">
                     <span className="text-[10px] uppercase font-bold tracking-wider text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
                       <Wrench className="h-3.5 w-3.5 text-amber-500 dark:text-amber-400" />
                       <span>Técnico Responsável</span>
@@ -749,7 +749,7 @@ export function TelaClienteAguardandoInstalacao({
                   </div>
 
                   {/* Card 2: Data e Horário */}
-                  <div className="p-3.5 rounded-2xl bg-[#eaf0f8]/60 dark:bg-slate-950/80 border border-slate-300/60 dark:border-slate-800/80 flex flex-col justify-between space-y-2">
+                  <div className="p-3.5 rounded-2xl bg-[#fbf2e9]/60 dark:bg-slate-950/80 border border-slate-300/60 dark:border-slate-800/80 flex flex-col justify-between space-y-2">
                     <span className="text-[10px] uppercase font-bold tracking-wider text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
                       <Calendar className="h-3.5 w-3.5 text-amber-500 dark:text-amber-400" />
                       <span>Data e Horário</span>
@@ -777,7 +777,7 @@ export function TelaClienteAguardandoInstalacao({
                   </div>
 
                   {/* Card 3: Local de Atendimento */}
-                  <div className="p-3.5 rounded-2xl bg-[#eaf0f8]/60 dark:bg-slate-950/80 border border-slate-300/60 dark:border-slate-800/80 flex flex-col justify-between space-y-2">
+                  <div className="p-3.5 rounded-2xl bg-[#fbf2e9]/60 dark:bg-slate-950/80 border border-slate-300/60 dark:border-slate-800/80 flex flex-col justify-between space-y-2">
                     <span className="text-[10px] uppercase font-bold tracking-wider text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
                       <MapPin className="h-3.5 w-3.5 text-amber-500 dark:text-amber-400" />
                       <span>Local do Atendimento</span>

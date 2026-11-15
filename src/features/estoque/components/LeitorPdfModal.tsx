@@ -75,13 +75,13 @@ export function LeitorPdfModal({
   const isStyleguide = tema === "product_styleguide";
 
   const modalContainerClass = isNeumorph
-    ? "bg-[#eaf0f8] dark:bg-slate-900 text-slate-800 dark:text-slate-100 shadow-[6px_6px_24px_#c3cfe2] dark:shadow-2xl border border-slate-300/70 dark:border-slate-800 rounded-[28px]"
+    ? "bg-[#fbf2e9] dark:bg-slate-900 text-slate-800 dark:text-slate-100 shadow-[6px_6px_24px_#c3cfe2] dark:shadow-2xl border border-slate-300/70 dark:border-slate-800 rounded-[28px]"
     : isStyleguide
       ? "bg-[#FAFBFD] dark:bg-slate-900 text-slate-800 dark:text-slate-100 border border-[#CBD5E1] dark:border-slate-800 shadow-[0_25px_60px_rgba(0,0,0,0.18)] rounded-[28px]"
-      : "bg-[#eaf0f8] dark:bg-slate-900 text-slate-800 dark:text-slate-100 border border-slate-300/60 dark:border-slate-800 shadow-[6px_6px_20px_#c3cfe2] dark:shadow-2xl rounded-3xl";
+      : "bg-[#fbf2e9] dark:bg-slate-900 text-slate-800 dark:text-slate-100 border border-slate-300/60 dark:border-slate-800 shadow-[6px_6px_20px_#c3cfe2] dark:shadow-2xl rounded-3xl";
 
   const cardSectionClass = isNeumorph
-    ? "p-4 rounded-2xl bg-[#eaf0f8] dark:bg-slate-950/70 border border-slate-300/70 dark:border-slate-800 shadow-[3px_3px_8px_#c3cfe2] dark:shadow-xs space-y-3"
+    ? "p-4 rounded-2xl bg-[#fbf2e9] dark:bg-slate-950/70 border border-slate-300/70 dark:border-slate-800 shadow-[3px_3px_8px_#c3cfe2] dark:shadow-xs space-y-3"
     : isStyleguide
       ? "p-4 rounded-2xl bg-[#F8FAFC] dark:bg-slate-950/80 border border-[#CBD5E1] dark:border-slate-800 shadow-xs space-y-3"
       : "p-4 rounded-2xl bg-white dark:bg-slate-950/80 border border-slate-300/70 dark:border-slate-800 shadow-xs space-y-3";
@@ -336,7 +336,7 @@ export function LeitorPdfModal({
               <div
                 className={`p-2.5 rounded-2xl ${
                   isNeumorph
-                    ? "bg-[#eaf0f8] shadow-[2px_2px_5px_#c3cfe2] border border-slate-300/40 text-teal-600"
+                    ? "bg-[#fbf2e9] shadow-[2px_2px_5px_#c3cfe2] border border-slate-300/40 text-teal-600"
                     : isStyleguide
                       ? "bg-[#9EE5D4]/40 text-[#064E3B] border border-[#9EE5D4]"
                       : "bg-emerald-500/20 text-emerald-400 border border-emerald-500/30"
@@ -380,7 +380,7 @@ export function LeitorPdfModal({
                   onClick={() => fileInputRef.current?.click()}
                   className={`border-2 border-dashed rounded-3xl p-8 sm:p-12 text-center cursor-pointer transition-all hover:border-[#00CFCC] ${
                     isNeumorph
-                      ? "bg-[#eaf0f8] border-slate-300/80 shadow-[inset_2px_2px_6px_#c3cfe2]"
+                      ? "bg-[#fbf2e9] border-slate-300/80 shadow-[inset_2px_2px_6px_#c3cfe2]"
                       : "bg-slate-500/5 border-slate-400/30 hover:bg-slate-500/10"
                   }`}
                 >

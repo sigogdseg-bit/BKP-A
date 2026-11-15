@@ -13,7 +13,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
 
   return (
     <div
-      className={`bg-[#eaf0f8] text-slate-800 dark:bg-[#0c121c] dark:text-slate-100 flex flex-col font-sans antialiased relative transition-colors duration-200 ${
+      className={`bg-[#fbf2e9] text-slate-800 dark:bg-[#110e0c] dark:text-slate-100 flex flex-col font-sans antialiased relative transition-colors duration-200 ${
         isFullViewport ? "h-[100dvh] max-h-[100dvh] overflow-hidden" : "min-h-screen"
       }`}
     >

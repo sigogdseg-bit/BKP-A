@@ -16,10 +16,10 @@ import { gerarMarcador3DHtml } from "../../features/monitor-gps/utils/vehicle3dI
 describe("GD Segurança — Domínio Oficial e Compartilhamento Seguro", () => {
   test("Identidade Canônica: Nome e Domínio Oficial", () => {
     assert.equal(APP_NOME, "GD Segurança");
-    assert.equal(APP_PUBLIC_URL, "https://sigoguardiao.oficial.tec.br");
-    assert.equal(APP_DOMINIO, "sigoguardiao.oficial.tec.br");
+    assert.equal(APP_PUBLIC_URL, "https://gd.oficial.tec.br");
+    assert.equal(APP_DOMINIO, "gd.oficial.tec.br");
     assert.equal(APP_CHAVE_PIX_PADRAO, "pix@oficial.tec.br");
-    assert.equal(APP_VERSION_NUMERO, "1.0.0.1");
+    assert.equal(APP_VERSION_NUMERO, "1.0.0.2");
   });
 
   test("Compartilhamento Sem Tempo Estipulado (Encerramento Manual)", () => {
@@ -28,7 +28,7 @@ describe("GD Segurança — Domínio Oficial e Compartilhamento Seguro", () => {
 
     const link = formatarLinkCompartilhamento(token);
     assert.ok(link.includes(APP_DOMINIO));
-    assert.ok(link.startsWith("https://sigoguardiao.oficial.tec.br/compartilhar/"));
+    assert.ok(link.startsWith("https://gd.oficial.tec.br/compartilhar/"));
   });
 
   test("Cálculo de Validade: Sem Expiração não deve expirar automaticamente", () => {

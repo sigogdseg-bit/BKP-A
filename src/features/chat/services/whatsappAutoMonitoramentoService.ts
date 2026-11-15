@@ -86,7 +86,7 @@ export async function despacharMensagemWhatsappBaileys(
       `${gwBase}/api/whatsapp/send`,
       "https://gps.oficial.tec.br/api/v1/messages/send",
       "https://gps.oficial.tec.br/api/send",
-      "https://sigoguardiao.oficial.tec.br/api/whatsapp/send",
+      "https://gd.oficial.tec.br/api/whatsapp/send",
     ]),
   );
 
@@ -277,7 +277,7 @@ async function despacharAlertaEquipeBot(
 
   if (isAmbienteTeste) return;
 
-  const appUrl = "https://sigoguardiao.oficial.tec.br";
+  const appUrl = "https://gd.oficial.tec.br";
   const hunterToken = "hunter-guardiao-whatsapp-secret-key-2026";
 
   for (const uid of usersApp) {
@@ -1506,7 +1506,7 @@ function obterTextoAjudaMotorista(nome?: string): string {
     "🚚 *GD Rastreamento — Perfil Motorista*\n\n" +
     `${saudacaoNome} Seu perfil está vinculado à operação de rotas, viagens e registros atribuídos no aplicativo web.\n\n` +
     "🌐 *Acesso ao Sistema Web:*\n" +
-    "• https://sigoguardiao.oficial.tec.br\n\n" +
+    "• https://gd.oficial.tec.br\n\n" +
     "🤖 *Atendimento por este WhatsApp:*\n" +
     "• Envie *MENU* para abrir o *Guardião Virtual* (informações gerais e suporte)\n" +
     "• Comandos veiculares diretos (*LOCALIZACAO*, *BLOQUEIO*, *DESBLOQUEIO*) são exclusivos do cliente titular da frota e da administração."
@@ -1670,7 +1670,7 @@ async function executarFluxoRevalidaPorEmail(params: {
       `🔁 *Degustação de ${nomeCliente} Revalidada com Sucesso!*\n\n` +
       "A conta no *Plano Master* recebeu mais 24 horas contadas a partir do 1º acesso.\n\n" +
       `• *Login:* ${emailLimpo}\n` +
-      "• *Link:* https://sigoguardiao.oficial.tec.br\n" +
+      "• *Link:* https://gd.oficial.tec.br\n" +
       "• *Observação:* Não havia WhatsApp distinto do cliente registrado para disparo automático.",
   };
 }
@@ -2067,7 +2067,7 @@ export async function notificarInstaladorNovoServicoWhatsapp(
       `• *Local de Atendimento:* ${localLabel}\n\n` +
       "Os dados completos do veículo (placa, chassi, marca, modelo, ano e cor) devem ser preenchidos por você na execução do serviço.\n\n" +
       "Acesse o sistema para definir a data, horário e endereço do agendamento com o cliente:\n" +
-      "https://sigoguardiao.oficial.tec.br/instalacao";
+      "https://gd.oficial.tec.br/instalacao";
 
     const enviado = await despacharMensagemWhatsappBaileys(telInst, msg, gatewayUrl);
     return { enviado, telefone: telInst };
@@ -2617,7 +2617,7 @@ async function obterDreRevendedorFormatado(
     `• 👥 *Equipe de Vendedores:* ${veiculosVend.length} veículos (Margem Franquia: R$ ${margemGestaoVend.toFixed(2).replace(".", ",")}/mês)\n\n` +
     `Para consultar inadimplência e cobranças, envie *PAGAMENTOS*.\n` +
     `Para consultar contratos, envie *CONTRATOS*.\n` +
-    `Painel web detalhado: https://sigoguardiao.oficial.tec.br`
+    `Painel web detalhado: https://gd.oficial.tec.br`
   );
 }
 
@@ -4755,7 +4755,7 @@ export async function processarMensagemWhatsappRecebida(
               acaoExecutada: "degustacao_email_ja_cadastrado",
               resposta:
                 "⚠️ Este e-mail já possui cadastro no GD Rastreamento.\n\n" +
-                "Por favor, informe outro *E-mail* para criar a conta de teste ou acesse diretamente https://sigoguardiao.oficial.tec.br:\n\n" +
+                "Por favor, informe outro *E-mail* para criar a conta de teste ou acesse diretamente https://gd.oficial.tec.br:\n\n" +
                 "_(Envie *CANCELAR* para abortar o cadastro)_",
             };
           }
@@ -4859,7 +4859,7 @@ export async function processarMensagemWhatsappRecebida(
             `🔄 *Acesso de ${nomeCliente} Reativado por +24h com Sucesso!*\n\n` +
             "A conta de degustação no *Plano Master* foi renovada por mais 24 horas contadas a partir do 1º acesso.\n" +
             `• *Login:* ${emailReativar}\n` +
-            "• *Link:* https://sigoguardiao.oficial.tec.br",
+            "• *Link:* https://gd.oficial.tec.br",
         };
       }
 
@@ -4884,7 +4884,7 @@ export async function processarMensagemWhatsappRecebida(
             `Olá, *${nomeCliente}*! 🚗🔄\n\n` +
             "Seu acesso de demonstração ao *GD Rastreamento — Auto-Monitoramento Veicular* foi *reativado por mais 24 horas* (contadas a partir do seu 1º acesso)!\n\n" +
             "Você pode continuar testando todos os recursos do Plano Master no seu celular:\n\n" +
-            "🌐 *Link de Acesso:* https://sigoguardiao.oficial.tec.br\n" +
+            "🌐 *Link de Acesso:* https://gd.oficial.tec.br\n" +
             `👤 *Login / E-mail:* ${emailCliente}\n\n` +
             '_(Caso tenha esquecido sua senha, utilize a opção "Recuperar Senha" na tela inicial de login)_';
 
@@ -4903,7 +4903,7 @@ export async function processarMensagemWhatsappRecebida(
                 "⚠️ *A conta foi reativada, mas NÃO foi possível enviar o aviso pelo WhatsApp ao cliente.*\n\n" +
                 `O gateway não confirmou entrega para *${formatarTelefoneWhatsapp(telCliente)}*. Você pode avisar o cliente manualmente:\n\n` +
                 `• *Login:* ${emailCliente}\n` +
-                "• *Link:* https://sigoguardiao.oficial.tec.br\n" +
+                "• *Link:* https://gd.oficial.tec.br\n" +
                 "• *Validade:* mais 24 horas contadas a partir do 1º acesso.",
             };
           }
@@ -4927,7 +4927,7 @@ export async function processarMensagemWhatsappRecebida(
             `✅ *Entendido! O aviso NÃO foi enviado para o cliente.*\n\n` +
             `A conta de *${nomeCliente}* recebeu mais 24 horas no Plano Master contadas a partir do 1º acesso.\n` +
             `• *Login:* ${emailCliente}\n` +
-            "• *Link:* https://sigoguardiao.oficial.tec.br",
+            "• *Link:* https://gd.oficial.tec.br",
         };
       }
 
@@ -5059,7 +5059,7 @@ export async function processarMensagemWhatsappRecebida(
             remetenteLimpo,
           );
         }
-        const linkSistema = "https://sigoguardiao.oficial.tec.br";
+        const linkSistema = "https://gd.oficial.tec.br";
 
         await excluirSessaoAtiva();
 
@@ -5196,7 +5196,7 @@ export async function processarMensagemWhatsappRecebida(
             `Olá, *${nomeCliente}*! 🚗🔁\n\n` +
             "Seu acesso de degustação ao *GD Rastreamento — Auto-Monitoramento Veicular* foi *revalidado por mais 24 horas*!\n\n" +
             "As novas 24 horas no *Plano Master* começam a contar a partir do seu próximo *1º acesso* na plataforma:\n\n" +
-            "🌐 *Link de Acesso:* https://sigoguardiao.oficial.tec.br\n" +
+            "🌐 *Link de Acesso:* https://gd.oficial.tec.br\n" +
             `👤 *Login / E-mail:* ${emailCliente}\n\n` +
             '_(Caso tenha esquecido sua senha, utilize a opção "Recuperar Senha" na tela inicial de login)_';
 
@@ -5215,7 +5215,7 @@ export async function processarMensagemWhatsappRecebida(
                 "⚠️ *A revalidação foi gravada (+24h após 1º acesso), mas NÃO foi possível enviar o WhatsApp ao cliente.*\n\n" +
                 `O gateway não confirmou envio para *${formatarTelefoneWhatsapp(telCliente)}*. Você pode avisar o cliente manualmente:\n\n` +
                 `• *Login:* ${emailCliente}\n` +
-                "• *Link:* https://sigoguardiao.oficial.tec.br",
+                "• *Link:* https://gd.oficial.tec.br",
             };
           }
 
@@ -5238,7 +5238,7 @@ export async function processarMensagemWhatsappRecebida(
             `✅ *Entendido! O aviso NÃO foi enviado ao cliente.*\n\n` +
             `A conta de *${nomeCliente}* foi revalidada por mais 24 horas (contadas a partir do 1º acesso).\n` +
             `• *Login:* ${emailCliente}\n` +
-            "• *Link:* https://sigoguardiao.oficial.tec.br",
+            "• *Link:* https://gd.oficial.tec.br",
         };
       }
     }
@@ -6165,7 +6165,7 @@ export async function processarMensagemWhatsappRecebida(
           "Um de nossos representantes comerciais entrará em contato em breve para apresentar os planos ideais para proteger e monitorar seu veículo com tecnologia de ponta e economia.\n\n" +
           "Por favor, aguarde o contato de nossa equipe!\n\n" +
           "Enquanto isso, você também pode conhecer nossa plataforma em:\n" +
-          "🌐 https://sigoguardiao.oficial.tec.br",
+          "🌐 https://gd.oficial.tec.br",
       };
     }
 
@@ -6215,7 +6215,7 @@ export async function processarMensagemWhatsappRecebida(
           "Um de nossos representantes comerciais entrará em contato em breve para apresentar os planos ideais para proteger e monitorar seu veículo com tecnologia de ponta e economia.\n\n" +
           "Por favor, aguarde o contato de nossa equipe!\n\n" +
           "Enquanto isso, você também pode conhecer nossa plataforma em:\n" +
-          "🌐 https://sigoguardiao.oficial.tec.br",
+          "🌐 https://gd.oficial.tec.br",
       };
     }
 
@@ -6315,7 +6315,7 @@ export async function processarMensagemWhatsappRecebida(
           "• Gateway GPS: Oracle Cloud Always Free (IP 167.234.233.82) 🟢\n" +
           "• Caddy SSL: https://gps.oficial.tec.br (Let's Encrypt HTTP/2) 🟢\n" +
           "• WhatsApp Gateway: Baileys Oracle Cloud Always Free 🟢\n" +
-          "• Cloudflare Edge Workers: Ativo (sigoguardiao.oficial.tec.br) 🟢\n" +
+          "• Cloudflare Edge Workers: Ativo (gd.oficial.tec.br) 🟢\n" +
           "• Supabase Database: Operacional 🟢\n" +
           "• Custo Operacional: R$ 0,00 (100% Free Tier)",
       };
@@ -7063,7 +7063,7 @@ export async function processarMensagemWhatsappRecebida(
           `Para consultar os pagamentos e mensalidades dos seus clientes, envie *PAGAMENTOS*.\n` +
           `Para consultar seus contratos ativos e pendentes de assinatura, envie *CONTRATOS*.\n` +
           `Para emitir uma nova proposta com sua margem de lucro, envie *PROPOSTA*.\n` +
-          `Para acessar o DRE completo e relatórios detalhados, acesse o painel em https://sigoguardiao.oficial.tec.br.`,
+          `Para acessar o DRE completo e relatórios detalhados, acesse o painel em https://gd.oficial.tec.br.`,
       };
     }
 
@@ -8029,7 +8029,7 @@ export async function processarMensagemWhatsappRecebida(
         "🎯 *GD Rastreamento — Perfil Cliente Degustação (Plano Master 24h)*\n\n" +
         `Olá, *${perfilNome || "Visitante"}*! Sua conta está configurada no ambiente de degustação do *Plano Master*, com validade de *24 horas contadas a partir do seu 1º acesso*.\n\n` +
         "🌐 *Acesso aos 11 Módulos na Plataforma Web:*\n" +
-        "• https://sigoguardiao.oficial.tec.br\n\n" +
+        "• https://gd.oficial.tec.br\n\n" +
         "📱 *Atendimento por este WhatsApp:*\n" +
         "• Comandos operacionais via WhatsApp (bloqueio, desbloqueio e localização) não ficam habilitados durante o período de degustação.\n" +
         "• Para dúvidas comerciais ou solicitação de renovação (*REVALIDA*), fale com o consultor responsável ou utilize o *Guardião Virtual*.",
@@ -8048,7 +8048,7 @@ export async function processarMensagemWhatsappRecebida(
         "🔍 *GD Rastreamento — Perfil SuperADM Auditor (Somente Leitura)*\n\n" +
         `Olá, *${perfilNome || "Auditor"}*! Seu acesso possui permissão global de inspeção e auditoria em modo somente leitura na plataforma web.\n\n` +
         "🌐 *Acesso Web de Auditoria:*\n" +
-        "• https://sigoguardiao.oficial.tec.br\n\n" +
+        "• https://gd.oficial.tec.br\n\n" +
         "🛡️ *Regras deste Canal WhatsApp:*\n" +
         "• Por integridade e menor privilégio, comandos de escrita, cobrança e acionamento de hardware pelo WhatsApp não são habilitados para o perfil auditor.",
     };
@@ -8066,7 +8066,7 @@ export async function processarMensagemWhatsappRecebida(
         "🔧 *GD Rastreamento — Perfil Instalador Credenciado*\n\n" +
         `Olá, *${perfilNome || "Instalador"}*! Suas ordens de instalação, agendamentos técnicos e check-lists estão disponíveis no módulo *Instalação* da plataforma web.\n\n` +
         "🌐 *Acesso ao Sistema Web:*\n" +
-        "• https://sigoguardiao.oficial.tec.br\n\n" +
+        "• https://gd.oficial.tec.br\n\n" +
         "🤖 *Observação sobre este WhatsApp:*\n" +
         "• Comandos veiculares de clientes (*LOCALIZACAO*, *BLOQUEIO*, *DESBLOQUEIO*) e relatórios comerciais são restritos à administração e aos titulares dos veículos.",
     };
@@ -8084,7 +8084,7 @@ export async function processarMensagemWhatsappRecebida(
         "👷 *GD Rastreamento — Perfil Funcionário*\n\n" +
         `Olá, *${perfilNome || "Colaborador"}*! Seu acesso está habilitado para os módulos operacionais *Monitor GPS* e *Manutenção* na plataforma web.\n\n` +
         "🌐 *Acesso ao Sistema Web:*\n" +
-        "• https://sigoguardiao.oficial.tec.br\n\n" +
+        "• https://gd.oficial.tec.br\n\n" +
         "🤖 *Observação sobre este WhatsApp:*\n" +
         "• Ações comerciais, financeiras e comandos diretos de bloqueio pelo WhatsApp ficam reservados aos titulares cadastrados e à administração.",
     };

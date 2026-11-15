@@ -54,17 +54,17 @@ export function ContatosOnlineList({
   });
 
   return (
-    <div className="flex flex-col h-full min-h-0 bg-[#eaf0f8] dark:bg-slate-900 select-none overflow-hidden">
+    <div className="flex flex-col h-full min-h-0 bg-[#fbf2e9] dark:bg-slate-900 select-none overflow-hidden">
       {/* Topo com Abas e Controle de Busca */}
       <div className="p-3 sm:p-4 space-y-3 shrink-0">
         {/* Abas Superiores Idênticas ao Padrão de Referência */}
-        <div className="bg-[#eaf0f8] dark:bg-slate-800/80 p-1 rounded-full flex items-center justify-between border border-slate-300/50 dark:border-slate-700/50 shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6)]">
+        <div className="bg-[#fbf2e9] dark:bg-slate-800/80 p-1 rounded-full flex items-center justify-between border border-slate-300/50 dark:border-slate-700/50 shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6)]">
           <button
             type="button"
             onClick={() => setAbaAtiva("todas")}
             className={`flex-1 py-1.5 text-xs font-bold rounded-full transition-all duration-200 cursor-pointer text-center ${
               abaAtiva === "todas"
-                ? "bg-[#eaf0f8] dark:bg-slate-700 text-slate-800 dark:text-slate-100 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-[2px_2px_6px_rgba(0,0,0,0.4)]"
+                ? "bg-[#fbf2e9] dark:bg-slate-700 text-slate-800 dark:text-slate-100 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-[2px_2px_6px_rgba(0,0,0,0.4)]"
                 : "text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200"
             }`}
           >
@@ -76,7 +76,7 @@ export function ContatosOnlineList({
             onClick={() => setAbaAtiva("nao_lidas")}
             className={`flex-1 py-1.5 text-xs font-bold rounded-full transition-all duration-200 cursor-pointer text-center ${
               abaAtiva === "nao_lidas"
-                ? "bg-[#eaf0f8] dark:bg-slate-700 text-slate-800 dark:text-slate-100 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-[2px_2px_6px_rgba(0,0,0,0.4)]"
+                ? "bg-[#fbf2e9] dark:bg-slate-700 text-slate-800 dark:text-slate-100 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-[2px_2px_6px_rgba(0,0,0,0.4)]"
                 : "text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200"
             }`}
           >
@@ -88,7 +88,7 @@ export function ContatosOnlineList({
             onClick={() => setAbaAtiva("mencoes")}
             className={`flex-1 py-1.5 text-xs font-bold rounded-full transition-all duration-200 cursor-pointer flex items-center justify-center gap-1.5 ${
               abaAtiva === "mencoes"
-                ? "bg-[#eaf0f8] dark:bg-slate-700 text-slate-800 dark:text-slate-100 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-[2px_2px_6px_rgba(0,0,0,0.4)]"
+                ? "bg-[#fbf2e9] dark:bg-slate-700 text-slate-800 dark:text-slate-100 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-[2px_2px_6px_rgba(0,0,0,0.4)]"
                 : "text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200"
             }`}
           >
@@ -103,7 +103,7 @@ export function ContatosOnlineList({
 
         {/* Controle Exclusivo do ADM: Visibilidade no Chat */}
         {isAdmin && onToggleVisibilidade && (
-          <div className="p-2.5 rounded-2xl bg-[#eaf0f8] dark:bg-slate-800/60 border border-slate-300/60 dark:border-slate-700/60 flex items-center justify-between gap-2 shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none">
+          <div className="p-2.5 rounded-2xl bg-[#fbf2e9] dark:bg-slate-800/60 border border-slate-300/60 dark:border-slate-700/60 flex items-center justify-between gap-2 shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none">
             <div className="min-w-0 flex items-center gap-2">
               <div
                 className={`p-1.5 rounded-xl shrink-0 ${
@@ -155,7 +155,7 @@ export function ContatosOnlineList({
             placeholder="Buscar contato..."
             value={buscaTexto}
             onChange={(e) => onBuscaChange(e.target.value)}
-            className="w-full pl-8 pr-3 py-2 text-xs rounded-xl bg-[#eaf0f8] dark:bg-slate-800/80 border border-slate-300/60 dark:border-slate-700/60 text-slate-800 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#007AFF]/40 shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6)] transition"
+            className="w-full pl-8 pr-3 py-2 text-xs rounded-xl bg-[#fbf2e9] dark:bg-slate-800/80 border border-slate-300/60 dark:border-slate-700/60 text-slate-800 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#007AFF]/40 shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6)] transition"
           />
         </div>
       </div>
@@ -187,7 +187,7 @@ export function ContatosOnlineList({
                 onClick={() => onSelecionarContato(contato.userId)}
                 className={`w-full flex items-center gap-3 p-3 rounded-2xl text-left transition-all duration-200 cursor-pointer group ${
                   isAtivo
-                    ? "bg-[#eaf0f8] dark:bg-slate-800/90 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none border border-slate-300/60 dark:border-slate-700/80 transform scale-[1.01]"
+                    ? "bg-[#fbf2e9] dark:bg-slate-800/90 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none border border-slate-300/60 dark:border-slate-700/80 transform scale-[1.01]"
                     : "hover:bg-slate-200/50 dark:hover:bg-slate-800/50 border border-transparent"
                 }`}
               >

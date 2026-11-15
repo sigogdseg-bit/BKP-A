@@ -25,7 +25,7 @@ const CSP_DIRECTIVES = [
   "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
   "font-src 'self' data: https://fonts.gstatic.com",
   "img-src 'self' data: blob: https:",
-  `connect-src 'self' ${SUPABASE_ORIGIN ? `${SUPABASE_ORIGIN} wss://${SUPABASE_HOST}` : ""} https://*.supabase.co https://*.cloudflareinsights.com https://cloudflareinsights.com https://*.openstreetmap.org https://*.project-osrm.org https://router.project-osrm.org https://routing.openstreetmap.de https://*.arcgisonline.com https://*.maptiler.com https://sigoguardiao.oficial.tec.br https://*.z-api.io https://*.evolution-api.com https://gps.oficial.tec.br:* http://gps.oficial.tec.br:* http://167.234.233.82:* https://167.234.233.82:* http://137.66.4.11:* https://137.66.4.11:* https://gps.sigoguardiao.oficial.tec.br:* http://gps.sigoguardiao.oficial.tec.br:* https://hunter-gps-gateway.fly.dev http://hunter-gps-gateway.fly.dev:* https://hunter-whatsapp-gateway.fly.dev https://generativelanguage.googleapis.com https://trigger.macrodroid.com https://*.macrodroid.com`,
+  `connect-src 'self' ${SUPABASE_ORIGIN ? `${SUPABASE_ORIGIN} wss://${SUPABASE_HOST}` : ""} https://*.supabase.co https://*.cloudflareinsights.com https://cloudflareinsights.com https://*.openstreetmap.org https://*.project-osrm.org https://router.project-osrm.org https://routing.openstreetmap.de https://*.arcgisonline.com https://*.maptiler.com https://gd.oficial.tec.br https://sigoguardiao.oficial.tec.br https://*.z-api.io https://*.evolution-api.com https://gps.oficial.tec.br:* http://gps.oficial.tec.br:* http://167.234.233.82:* https://167.234.233.82:* http://137.66.4.11:* https://137.66.4.11:* https://gps.sigoguardiao.oficial.tec.br:* http://gps.sigoguardiao.oficial.tec.br:* https://hunter-gps-gateway.fly.dev http://hunter-gps-gateway.fly.dev:* https://hunter-whatsapp-gateway.fly.dev https://generativelanguage.googleapis.com https://trigger.macrodroid.com https://*.macrodroid.com`,
   "worker-src 'self' blob:",
   "frame-ancestors 'none'",
   "base-uri 'self'",
@@ -975,7 +975,7 @@ async function handleApiConvites(request: Request, env: unknown): Promise<Respon
           `🔒 *Mão de Obra (Com Bloqueador):* R$ ${valorComBloqFmt}`,
           "",
           "⚡ *Ação Necessária:* Habilite o credenciamento no painel em:",
-          "🌐 https://sigoguardiao.oficial.tec.br/usuarios",
+          "🌐 https://gd.oficial.tec.br/usuarios",
         ].join("\n");
 
         despacharNotificacaoWhatsappSuperAdm(
@@ -1501,7 +1501,7 @@ async function handleApiConvites(request: Request, env: unknown): Promise<Respon
           listaVeiculosResumo,
           "",
           "⚡ *Ação Necessária:* Defina o plano e atribua os instaladores em:",
-          "🌐 https://sigoguardiao.oficial.tec.br/clientes",
+          "🌐 https://gd.oficial.tec.br/clientes",
         ].join("\n");
 
         despacharNotificacaoWhatsappSuperAdm(
@@ -1775,7 +1775,7 @@ async function handleApiConvites(request: Request, env: unknown): Promise<Respon
             `💵 *Cota Base da Matriz:* R$ ${valorBaseFmt} / mês`,
             "",
             "⚡ *Ação Necessária:* Acesse a gestão de franquias e parceiros em:",
-            "🌐 https://sigoguardiao.oficial.tec.br/revendedores",
+            "🌐 https://gd.oficial.tec.br/revendedores",
           ].join("\n");
 
           despacharNotificacaoWhatsappSuperAdm(
@@ -1811,7 +1811,7 @@ async function handleApiConvites(request: Request, env: unknown): Promise<Respon
               : "🏢 *Vínculo:* Venda Direta da Central",
             "",
             "⚡ *Ação Necessária:* Acesse a equipe comercial em:",
-            "🌐 https://sigoguardiao.oficial.tec.br/revendedores",
+            "🌐 https://gd.oficial.tec.br/revendedores",
           ].join("\n");
 
           despacharNotificacaoWhatsappSuperAdm(
@@ -2086,7 +2086,7 @@ async function handleApiCliente(request: Request, env: unknown): Promise<Respons
         `📝 *Observações:* ${veiculo.observacoes?.trim() || "Nenhuma"}`,
         "",
         "⚡ *Ação Necessária:* Nova ordem gerada. Atribua o instalador em:",
-        "🌐 https://sigoguardiao.oficial.tec.br/instalacao",
+        "🌐 https://gd.oficial.tec.br/instalacao",
       ].join("\n");
 
       despacharNotificacaoWhatsappSuperAdm(
@@ -9719,7 +9719,7 @@ async function reconciliarAlertasSegurancaServidor(
 
           // 4. Dispara também o Web Push via endpoint interno com destinatarioUserId e destinatarioClienteId
           try {
-            const reqPush = new Request("https://sigoguardiao.oficial.tec.br/api/push/disparar", {
+            const reqPush = new Request("https://gd.oficial.tec.br/api/push/disparar", {
               method: "POST",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify({

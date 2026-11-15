@@ -83,9 +83,9 @@ export function ListaConversasRealizadas({
   const gradienteContato = obterGradienteAvatar(contato.nome);
 
   return (
-    <div className="relative flex flex-col h-full min-h-0 w-full bg-[#eaf0f8] dark:bg-slate-900 overflow-hidden">
+    <div className="relative flex flex-col h-full min-h-0 w-full bg-[#fbf2e9] dark:bg-slate-900 overflow-hidden">
       {/* Cabeçalho do Perfil Selecionado */}
-      <div className="p-3.5 sm:p-4 border-b border-slate-300/60 dark:border-slate-800/70 bg-[#eaf0f8] dark:bg-slate-900 shrink-0 flex flex-col gap-2">
+      <div className="p-3.5 sm:p-4 border-b border-slate-300/60 dark:border-slate-800/70 bg-[#fbf2e9] dark:bg-slate-900 shrink-0 flex flex-col gap-2">
         {/* Linha 1: Atalho de Voltar (Acima dos dados) */}
         <div className="flex items-center justify-between">
           <button
@@ -156,7 +156,7 @@ export function ListaConversasRealizadas({
               <MessageCircle className="h-4 w-4 text-[#007AFF]" />
               Conversas Realizadas ({conversas.length})
             </h3>
-            <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#eaf0f8] dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-300/60 dark:border-slate-700/60 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none">
+            <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#fbf2e9] dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-300/60 dark:border-slate-700/60 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none">
               Supervisão de Diálogos
             </span>
           </div>
@@ -172,7 +172,7 @@ export function ListaConversasRealizadas({
             </div>
           </div>
         ) : conversas.length === 0 ? (
-          <div className="p-8 text-center bg-[#eaf0f8] dark:bg-slate-800/80 rounded-2xl shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none border border-slate-300/60 dark:border-slate-700/80">
+          <div className="p-8 text-center bg-[#fbf2e9] dark:bg-slate-800/80 rounded-2xl shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none border border-slate-300/60 dark:border-slate-700/80">
             <MessageCircle className="h-10 w-10 mx-auto text-slate-300 dark:text-slate-600 mb-3" />
             <h4 className="text-sm font-bold text-slate-900 dark:text-slate-100 mb-1">
               Nenhuma conversa registrada
@@ -202,7 +202,7 @@ export function ListaConversasRealizadas({
                   onClick={() =>
                     onSelecionarConversa(c.interlocutorId, c.interlocutorNome, c.interlocutorRole)
                   }
-                  className="group p-3.5 bg-[#eaf0f8] dark:bg-slate-800 rounded-2xl shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_14px_#b8c6da] border border-slate-300/60 dark:border-slate-700/80 transition-all duration-200 cursor-pointer flex items-center justify-between gap-3 transform hover:scale-[1.005]"
+                  className="group p-3.5 bg-[#fbf2e9] dark:bg-slate-800 rounded-2xl shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_14px_#b8c6da] border border-slate-300/60 dark:border-slate-700/80 transition-all duration-200 cursor-pointer flex items-center justify-between gap-3 transform hover:scale-[1.005]"
                 >
                   <div className="flex items-center gap-3 min-w-0">
                     <div

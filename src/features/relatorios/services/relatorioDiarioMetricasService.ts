@@ -1457,7 +1457,7 @@ export async function enviarRelatorioDiarioSuperAdm(
     envObj.APP_URL ||
     envObj.VITE_APP_URL ||
     process.env.APP_URL ||
-    "https://sigoguardiao.oficial.tec.br"
+    "https://gd.oficial.tec.br"
   ).replace(/\/+$/, "");
 
   const token =

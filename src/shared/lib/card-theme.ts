@@ -232,21 +232,21 @@ export function useCardTheme(explicitUserId?: string | null): CardThemeConfig {
 export const NEUMORPHIC_STYLES = {
   pageContainer:
     "max-w-7xl mx-auto p-3 sm:p-5 lg:p-6 space-y-6 select-none transition-all duration-300",
-  card: "rounded-3xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl transition-all duration-200",
+  card: "rounded-3xl bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl transition-all duration-200",
   cardHeader:
-    "p-5 sm:p-6 rounded-3xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-4",
+    "p-5 sm:p-6 rounded-3xl bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-4",
   subcard:
-    "p-4 sm:p-5 rounded-2xl bg-[#eaf0f8] dark:bg-slate-900/80 border border-slate-300/50 dark:border-slate-800/80 shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none transition-all duration-200",
+    "p-4 sm:p-5 rounded-2xl bg-[#fbf2e9] dark:bg-slate-900/80 border border-slate-300/50 dark:border-slate-800/80 shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none transition-all duration-200",
   input:
-    "w-full py-2.5 px-3.5 rounded-xl bg-[#eaf0f8] dark:bg-slate-950 border border-slate-300/50 dark:border-slate-800 text-slate-800 dark:text-slate-100 text-xs shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6)] outline-none focus:ring-2 focus:ring-[#00CFCC] transition",
+    "w-full py-2.5 px-3.5 rounded-xl bg-[#fbf2e9] dark:bg-slate-950 border border-slate-300/50 dark:border-slate-800 text-slate-800 dark:text-slate-100 text-xs shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6)] outline-none focus:ring-2 focus:ring-orange-500 transition",
   inputSearch:
-    "w-full pl-9 pr-3.5 py-2 rounded-xl bg-[#eaf0f8] dark:bg-slate-950 border border-slate-300/50 dark:border-slate-800 text-slate-800 dark:text-slate-100 text-xs shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6)] outline-none focus:ring-2 focus:ring-[#00CFCC] transition",
+    "w-full pl-9 pr-3.5 py-2 rounded-xl bg-[#fbf2e9] dark:bg-slate-950 border border-slate-300/50 dark:border-slate-800 text-slate-800 dark:text-slate-100 text-xs shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6)] outline-none focus:ring-2 focus:ring-orange-500 transition",
   btnTactile:
-    "inline-flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-xl font-bold text-xs bg-[#eaf0f8] dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-300/50 dark:border-slate-700 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none hover:shadow-[3px_3px_8px_#b8c6da] active:shadow-[inset_2px_2px_4px_#c8d4e4] transition",
-  chip: "inline-flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-bold bg-[#eaf0f8] dark:bg-slate-800/80 border border-slate-300/50 dark:border-slate-700 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none text-slate-700 dark:text-slate-300 transition",
+    "inline-flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-xl font-bold text-xs bg-[#fbf2e9] dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-300/50 dark:border-slate-700 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none hover:shadow-[3px_3px_8px_#b8c6da] active:shadow-[inset_2px_2px_4px_#c8d4e4] transition",
+  chip: "inline-flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-bold bg-[#fbf2e9] dark:bg-slate-800/80 border border-slate-300/50 dark:border-slate-700 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none text-slate-700 dark:text-slate-300 transition",
   tabBtn:
     "flex items-center justify-center gap-1.5 px-3 py-2 rounded-2xl text-xs font-bold transition flex-1 min-w-[140px] sm:min-w-fit text-center min-h-[40px]",
-  tabBtnActive: "bg-emerald-600 text-white shadow-[2px_2px_8px_rgba(5,150,105,0.35)]",
+  tabBtnActive: "bg-orange-600 text-white shadow-[2px_2px_8px_rgba(234,88,12,0.35)]",
   tabBtnInactive:
-    "bg-[#eaf0f8] dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 border border-slate-300/50 dark:border-slate-700 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none hover:shadow-[3px_3px_8px_#b8c6da]",
+    "bg-[#fbf2e9] dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 border border-slate-300/50 dark:border-slate-700 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none hover:shadow-[3px_3px_8px_#b8c6da]",
 };

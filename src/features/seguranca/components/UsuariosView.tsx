@@ -383,7 +383,7 @@ export function UsuariosView() {
             ? "bg-white/80 dark:bg-slate-950/70 border-slate-300/50 dark:border-slate-800/80 shadow-[2px_2px_8px_#c3cfe2] dark:shadow-md hover:border-emerald-500/40"
             : isNovaes
               ? "bg-emerald-500/10 dark:bg-emerald-950/20 border-emerald-500/40 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-md"
-              : "bg-[#eaf0f8] dark:bg-slate-900/80 border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none hover:shadow-[6px_6px_14px_#b8c6da] dark:hover:border-slate-700"
+              : "bg-[#fbf2e9] dark:bg-slate-900/80 border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none hover:shadow-[6px_6px_14px_#b8c6da] dark:hover:border-slate-700"
         }`}
       >
         {/* Dados Principais */}
@@ -600,7 +600,7 @@ export function UsuariosView() {
               {/* Botão Editar */}
               <button
                 onClick={() => handleEditarUsuario(u)}
-                className="p-2.5 rounded-xl bg-[#eaf0f8] dark:bg-slate-800 hover:bg-[#dfe8f5] dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 border border-slate-300/50 dark:border-slate-700 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none hover:shadow-[3px_3px_8px_#b8c6da] active:shadow-[inset_2px_2px_4px_#c8d4e4] transition min-h-[38px] min-w-[38px] flex items-center justify-center"
+                className="p-2.5 rounded-xl bg-[#fbf2e9] dark:bg-slate-800 hover:bg-[#dfe8f5] dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 border border-slate-300/50 dark:border-slate-700 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none hover:shadow-[3px_3px_8px_#b8c6da] active:shadow-[inset_2px_2px_4px_#c8d4e4] transition min-h-[38px] min-w-[38px] flex items-center justify-center"
                 title={
                   u.role === "cliente"
                     ? "Editar Ficha e Acesso do Cliente"
@@ -614,7 +614,7 @@ export function UsuariosView() {
               {/* Botão Redefinir Senha */}
               <button
                 onClick={() => setUsuarioSenha(u)}
-                className="p-2.5 rounded-xl bg-[#eaf0f8] dark:bg-slate-800 hover:bg-amber-500/20 hover:text-amber-500 text-slate-700 dark:text-slate-300 border border-slate-300/50 dark:border-slate-700 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none hover:shadow-[3px_3px_8px_#b8c6da] active:shadow-[inset_2px_2px_4px_#c8d4e4] transition min-h-[38px] min-w-[38px] flex items-center justify-center"
+                className="p-2.5 rounded-xl bg-[#fbf2e9] dark:bg-slate-800 hover:bg-amber-500/20 hover:text-amber-500 text-slate-700 dark:text-slate-300 border border-slate-300/50 dark:border-slate-700 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none hover:shadow-[3px_3px_8px_#b8c6da] active:shadow-[inset_2px_2px_4px_#c8d4e4] transition min-h-[38px] min-w-[38px] flex items-center justify-center"
                 title="Redefinir Senha"
                 aria-label="Redefinir Senha"
               >
@@ -625,7 +625,7 @@ export function UsuariosView() {
               <button
                 onClick={() => handleDeslogar(u)}
                 disabled={isNovaes}
-                className="p-2.5 rounded-xl bg-[#eaf0f8] dark:bg-slate-800 hover:bg-rose-500/20 hover:text-rose-500 text-slate-700 dark:text-slate-300 border border-slate-300/50 dark:border-slate-700 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none hover:shadow-[3px_3px_8px_#b8c6da] active:shadow-[inset_2px_2px_4px_#c8d4e4] transition disabled:opacity-30 disabled:cursor-not-allowed min-h-[38px] min-w-[38px] flex items-center justify-center"
+                className="p-2.5 rounded-xl bg-[#fbf2e9] dark:bg-slate-800 hover:bg-rose-500/20 hover:text-rose-500 text-slate-700 dark:text-slate-300 border border-slate-300/50 dark:border-slate-700 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none hover:shadow-[3px_3px_8px_#b8c6da] active:shadow-[inset_2px_2px_4px_#c8d4e4] transition disabled:opacity-30 disabled:cursor-not-allowed min-h-[38px] min-w-[38px] flex items-center justify-center"
                 title={
                   isNovaes
                     ? "Conta de governança blindada contra desconexão forçada"
@@ -642,7 +642,7 @@ export function UsuariosView() {
               <button
                 onClick={() => handleExcluir(u)}
                 disabled={isNovaes || excluindoId === u.id}
-                className="p-2.5 rounded-xl bg-[#eaf0f8] dark:bg-slate-800 hover:bg-rose-500/20 text-rose-500 border border-slate-300/50 dark:border-slate-700 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none hover:shadow-[3px_3px_8px_#b8c6da] active:shadow-[inset_2px_2px_4px_#c8d4e4] transition disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer min-h-[38px] min-w-[38px] flex items-center justify-center"
+                className="p-2.5 rounded-xl bg-[#fbf2e9] dark:bg-slate-800 hover:bg-rose-500/20 text-rose-500 border border-slate-300/50 dark:border-slate-700 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none hover:shadow-[3px_3px_8px_#b8c6da] active:shadow-[inset_2px_2px_4px_#c8d4e4] transition disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer min-h-[38px] min-w-[38px] flex items-center justify-center"
                 title={isNovaes ? "Conta de governança não pode ser excluída" : "Excluir Usuário"}
                 aria-label="Excluir Usuário"
               >
@@ -662,7 +662,7 @@ export function UsuariosView() {
   return (
     <div className="space-y-6 max-w-7xl mx-auto p-2.5 sm:p-5 lg:p-6 select-none transition-all duration-300">
       {/* Cabeçalho da Página */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 p-5 sm:p-6 rounded-3xl shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 p-5 sm:p-6 rounded-3xl shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl">
         <div className="flex items-center gap-3.5">
           <div className="h-12 w-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shadow-xs">
             <Users className="h-6 w-6 stroke-[2.2]" />
@@ -681,7 +681,7 @@ export function UsuariosView() {
           {(session?.isAdmin || session?.isOperador) && (
             <button
               onClick={() => setModalConviteInstaladorAberto(true)}
-              className="flex items-center justify-center gap-2 px-3.5 py-2.5 rounded-2xl text-xs font-bold text-sky-600 dark:text-sky-400 bg-[#eaf0f8] dark:bg-slate-800/80 hover:bg-sky-500/10 border border-sky-500/30 transition shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none min-h-[44px]"
+              className="flex items-center justify-center gap-2 px-3.5 py-2.5 rounded-2xl text-xs font-bold text-sky-600 dark:text-sky-400 bg-[#fbf2e9] dark:bg-slate-800/80 hover:bg-sky-500/10 border border-sky-500/30 transition shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none min-h-[44px]"
               title="Gerar link de uso único para auto-cadastro do instalador"
             >
               <Link2 className="h-4 w-4 stroke-[2.5]" />
@@ -712,7 +712,7 @@ export function UsuariosView() {
           className={`cursor-pointer p-4 rounded-2xl border transition ${
             filtroRole === "todos"
               ? "bg-slate-300/40 dark:bg-slate-800 border-slate-400/80 dark:border-slate-700 shadow-[inset_2px_2px_4px_#c8d4e4]"
-              : "bg-[#eaf0f8] dark:bg-slate-900/80 border border-slate-300/50 dark:border-slate-800/80 shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none hover:border-slate-400"
+              : "bg-[#fbf2e9] dark:bg-slate-900/80 border border-slate-300/50 dark:border-slate-800/80 shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none hover:border-slate-400"
           }`}
           title="Clique para alternar filtro de todos os usuários"
         >
@@ -730,7 +730,7 @@ export function UsuariosView() {
           className={`cursor-pointer p-4 rounded-2xl border transition ${
             filtroRole === "cliente"
               ? "bg-emerald-500/20 border-emerald-500/60 shadow-[inset_2px_2px_4px_#c8d4e4]"
-              : "bg-[#eaf0f8] dark:bg-slate-900/80 border border-slate-300/50 dark:border-slate-800/80 shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none hover:border-emerald-400"
+              : "bg-[#fbf2e9] dark:bg-slate-900/80 border border-slate-300/50 dark:border-slate-800/80 shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none hover:border-emerald-400"
           }`}
           title="Filtrar clientes titulares"
         >
@@ -748,7 +748,7 @@ export function UsuariosView() {
           className={`cursor-pointer p-4 rounded-2xl border transition ${
             filtroRole === "motorista"
               ? "bg-blue-500/20 border-blue-500/60 shadow-[inset_2px_2px_4px_#c8d4e4]"
-              : "bg-[#eaf0f8] dark:bg-slate-900/80 border border-slate-300/50 dark:border-slate-800/80 shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none hover:border-blue-400"
+              : "bg-[#fbf2e9] dark:bg-slate-900/80 border border-slate-300/50 dark:border-slate-800/80 shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none hover:border-blue-400"
           }`}
           title="Filtrar motoristas"
         >
@@ -766,7 +766,7 @@ export function UsuariosView() {
           className={`cursor-pointer p-4 rounded-2xl border transition ${
             filtroRole === "funcionario"
               ? "bg-indigo-500/20 border-indigo-500/60 shadow-[inset_2px_2px_4px_#c8d4e4]"
-              : "bg-[#eaf0f8] dark:bg-slate-900/80 border border-slate-300/50 dark:border-slate-800/80 shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none hover:border-indigo-400"
+              : "bg-[#fbf2e9] dark:bg-slate-900/80 border border-slate-300/50 dark:border-slate-800/80 shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none hover:border-indigo-400"
           }`}
           title="Filtrar funcionários de clientes"
         >
@@ -784,7 +784,7 @@ export function UsuariosView() {
           className={`cursor-pointer p-4 rounded-2xl border transition ${
             filtroRole === "adm"
               ? "bg-amber-500/20 border-amber-500/60 shadow-[inset_2px_2px_4px_#c8d4e4]"
-              : "bg-[#eaf0f8] dark:bg-slate-900/80 border border-slate-300/50 dark:border-slate-800/80 shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none hover:border-amber-400"
+              : "bg-[#fbf2e9] dark:bg-slate-900/80 border border-slate-300/50 dark:border-slate-800/80 shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none hover:border-amber-400"
           }`}
           title="Filtrar administradores"
         >
@@ -802,7 +802,7 @@ export function UsuariosView() {
           className={`cursor-pointer p-4 rounded-2xl border transition ${
             filtroRole === "instalador"
               ? "bg-sky-500/20 border-sky-500/60 shadow-[inset_2px_2px_4px_#c8d4e4]"
-              : "bg-[#eaf0f8] dark:bg-slate-900/80 border border-slate-300/50 dark:border-slate-800/80 shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none hover:border-sky-400"
+              : "bg-[#fbf2e9] dark:bg-slate-900/80 border border-slate-300/50 dark:border-slate-800/80 shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none hover:border-sky-400"
           }`}
           title="Filtrar instaladores"
         >
@@ -816,7 +816,7 @@ export function UsuariosView() {
       </div>
 
       {/* Barra de Filtros e Busca */}
-      <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 bg-[#eaf0f8] dark:bg-slate-900/80 border border-slate-300/50 dark:border-slate-800 p-3.5 rounded-2xl shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none">
+      <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 bg-[#fbf2e9] dark:bg-slate-900/80 border border-slate-300/50 dark:border-slate-800 p-3.5 rounded-2xl shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none">
         <div className="relative flex-1">
           <Search className="absolute left-3 top-3 h-4 w-4 text-slate-400" />
           <input
@@ -824,7 +824,7 @@ export function UsuariosView() {
             value={busca}
             onChange={(e) => setBusca(e.target.value)}
             placeholder="Buscar por nome, e-mail, cliente ou cargo..."
-            className="w-full pl-9 pr-3.5 py-2.5 rounded-xl bg-[#eaf0f8] dark:bg-slate-950 border border-slate-300/50 dark:border-slate-800 text-xs text-slate-900 dark:text-slate-100 shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6)] outline-none focus:ring-2 focus:ring-[#00CFCC] transition"
+            className="w-full pl-9 pr-3.5 py-2.5 rounded-xl bg-[#fbf2e9] dark:bg-slate-950 border border-slate-300/50 dark:border-slate-800 text-xs text-slate-900 dark:text-slate-100 shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6)] outline-none focus:ring-2 focus:ring-[#00CFCC] transition"
           />
         </div>
 
@@ -844,7 +844,7 @@ export function UsuariosView() {
               className={`px-3 py-1.5 rounded-xl font-semibold transition min-h-[38px] ${
                 filtroRole === f.id
                   ? "bg-emerald-500 text-slate-950 shadow-[1px_1px_4px_rgba(5,150,105,0.4)]"
-                  : "bg-[#eaf0f8] dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-300/50 dark:border-slate-700 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none hover:shadow-[3px_3px_8px_#b8c6da]"
+                  : "bg-[#fbf2e9] dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-300/50 dark:border-slate-700 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none hover:shadow-[3px_3px_8px_#b8c6da]"
               }`}
             >
               {f.label}

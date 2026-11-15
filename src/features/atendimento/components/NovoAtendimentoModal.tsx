@@ -104,9 +104,9 @@ export function NovoAtendimentoModal({ onFechar, onSucesso }: NovoAtendimentoMod
   return (
     <ModalPortal>
       <div className="fixed inset-0 z-[99999] flex items-center justify-center p-2.5 sm:p-4 bg-slate-950/85 backdrop-blur-md overflow-y-auto select-none animate-fadeIn">
-        <div className="bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 rounded-3xl w-full max-w-lg shadow-[6px_6px_20px_#c3cfe2] dark:shadow-2xl overflow-hidden max-h-[calc(100dvh-2.5rem)] sm:max-h-[85vh] my-auto flex flex-col transition-colors">
+        <div className="bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 rounded-3xl w-full max-w-lg shadow-[6px_6px_20px_#c3cfe2] dark:shadow-2xl overflow-hidden max-h-[calc(100dvh-2.5rem)] sm:max-h-[85vh] my-auto flex flex-col transition-colors">
           {/* Cabeçalho Fixo */}
-          <div className="p-4 sm:p-5 border-b border-slate-300/60 dark:border-slate-800 bg-[#eaf0f8]/90 dark:bg-slate-950/80 backdrop-blur-md flex items-center justify-between shrink-0">
+          <div className="p-4 sm:p-5 border-b border-slate-300/60 dark:border-slate-800 bg-[#fbf2e9]/90 dark:bg-slate-950/80 backdrop-blur-md flex items-center justify-between shrink-0">
             <div className="flex items-center gap-2.5">
               <div className="h-9 w-9 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shadow-xs shrink-0">
                 <Headphones className="h-5 w-5" />

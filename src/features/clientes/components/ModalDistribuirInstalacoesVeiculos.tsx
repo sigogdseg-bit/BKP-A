@@ -463,7 +463,7 @@ export function ModalDistribuirInstalacoesVeiculos({
   return (
     <ModalPortal>
       <div className="fixed inset-0 z-[99999] flex items-center justify-center p-2.5 sm:p-4 bg-slate-950/85 backdrop-blur-md overflow-y-auto select-none animate-fadeIn">
-        <div className="bg-[#eaf0f8] dark:bg-slate-950 border border-slate-300/80 dark:border-slate-800 rounded-3xl w-full max-w-4xl shadow-2xl flex flex-col max-h-[calc(100dvh-2.5rem)] sm:max-h-[85vh] my-auto overflow-hidden text-slate-800 dark:text-slate-100">
+        <div className="bg-[#fbf2e9] dark:bg-slate-950 border border-slate-300/80 dark:border-slate-800 rounded-3xl w-full max-w-4xl shadow-2xl flex flex-col max-h-[calc(100dvh-2.5rem)] sm:max-h-[85vh] my-auto overflow-hidden text-slate-800 dark:text-slate-100">
           {/* Cabeçalho Fixo Cockpit */}
           <div className="p-4 sm:p-5 border-b border-slate-200/80 dark:border-slate-800/80 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md flex items-center justify-between shrink-0">
             <div className="flex items-center gap-3 min-w-0">

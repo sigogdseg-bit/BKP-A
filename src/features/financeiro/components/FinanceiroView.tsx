@@ -545,7 +545,7 @@ export function FinanceiroView() {
   return (
     <div className="space-y-4 max-w-7xl mx-auto select-none">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 bg-[#eaf0f8] dark:bg-slate-900/80 border border-slate-300/60 dark:border-slate-800 p-4 sm:p-5 rounded-2xl shadow-[4px_4px_10px_#c3cfe2] dark:shadow-xl">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 bg-[#fbf2e9] dark:bg-slate-900/80 border border-slate-300/60 dark:border-slate-800 p-4 sm:p-5 rounded-2xl shadow-[4px_4px_10px_#c3cfe2] dark:shadow-xl">
         <div className="flex items-center gap-3">
           <div className="h-12 w-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shadow-xs">
             <Wallet className="h-6 w-6" />
@@ -614,7 +614,7 @@ export function FinanceiroView() {
       <div
         className={`grid ${
           isOperador ? "grid-cols-2" : "grid-cols-2 lg:grid-cols-4"
-        } gap-2 p-1.5 rounded-2xl bg-[#eaf0f8] dark:bg-slate-900/60 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none w-full`}
+        } gap-2 p-1.5 rounded-2xl bg-[#fbf2e9] dark:bg-slate-900/60 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none w-full`}
       >
         {!isOperador && (
           <button
@@ -727,7 +727,7 @@ export function FinanceiroView() {
               className={`p-4 rounded-2xl border flex flex-col justify-between cursor-pointer transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg ${
                 filtros.tipo === "todos" && filtros.status === "todos"
                   ? "bg-emerald-500/10 border-emerald-500/80 ring-2 ring-emerald-500/30 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none"
-                  : "bg-[#eaf0f8] dark:bg-slate-900/60 border-slate-300/60 dark:border-slate-800/80 hover:border-slate-400 dark:hover:border-slate-700 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none"
+                  : "bg-[#fbf2e9] dark:bg-slate-900/60 border-slate-300/60 dark:border-slate-800/80 hover:border-slate-400 dark:hover:border-slate-700 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none"
               }`}
             >
               <div className="flex items-center justify-between text-slate-600 dark:text-slate-400 text-xs mb-1">
@@ -809,7 +809,7 @@ export function FinanceiroView() {
               className={`p-4 rounded-2xl border flex flex-col justify-between cursor-pointer transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg ${
                 filtros.tipo === "entrada"
                   ? "bg-emerald-500/15 border-emerald-500/80 ring-2 ring-emerald-500/30 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none"
-                  : "bg-[#eaf0f8] dark:bg-slate-900/60 border-slate-300/60 dark:border-slate-800/80 hover:border-emerald-500/40 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none"
+                  : "bg-[#fbf2e9] dark:bg-slate-900/60 border-slate-300/60 dark:border-slate-800/80 hover:border-emerald-500/40 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none"
               }`}
             >
               <div className="flex items-center justify-between text-emerald-600 dark:text-emerald-400 text-xs mb-1">
@@ -853,7 +853,7 @@ export function FinanceiroView() {
                   className={`p-4 rounded-2xl border flex flex-col justify-between cursor-pointer transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg ${
                     filtros.tipo === "saida"
                       ? "bg-rose-500/15 border-rose-500/80 ring-2 ring-rose-500/30 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none"
-                      : "bg-[#eaf0f8] dark:bg-slate-900/60 border-slate-300/60 dark:border-slate-800/80 hover:border-rose-500/40 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none"
+                      : "bg-[#fbf2e9] dark:bg-slate-900/60 border-slate-300/60 dark:border-slate-800/80 hover:border-rose-500/40 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none"
                   }`}
                 >
                   <div className="flex items-center justify-between text-rose-600 dark:text-rose-400 text-xs mb-1">
@@ -900,7 +900,7 @@ export function FinanceiroView() {
                   className={`p-4 rounded-2xl border flex flex-col justify-between cursor-pointer transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg ${
                     filtros.status === "concluido"
                       ? "bg-sky-500/15 border-sky-500/80 ring-2 ring-sky-500/30 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none"
-                      : "bg-[#eaf0f8] dark:bg-slate-900/60 border-slate-300/60 dark:border-slate-800/80 hover:border-sky-500/40 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none"
+                      : "bg-[#fbf2e9] dark:bg-slate-900/60 border-slate-300/60 dark:border-slate-800/80 hover:border-sky-500/40 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none"
                   }`}
                 >
                   <div className="flex items-center justify-between text-sky-600 dark:text-sky-400 text-xs mb-1">
@@ -972,7 +972,7 @@ export function FinanceiroView() {
                     filtros.fonte_pagamento === "operador_adm" &&
                     filtros.status_ressarcimento === "pendente"
                       ? "bg-amber-500/15 border-amber-500/80 ring-2 ring-amber-500/30 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none"
-                      : "bg-[#eaf0f8] dark:bg-slate-900/60 border-slate-300/60 dark:border-slate-800/80 hover:border-amber-500/40 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none"
+                      : "bg-[#fbf2e9] dark:bg-slate-900/60 border-slate-300/60 dark:border-slate-800/80 hover:border-amber-500/40 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none"
                   }`}
                 >
                   <div className="flex items-center justify-between text-amber-600 dark:text-amber-400 text-xs mb-1">
@@ -1005,7 +1005,7 @@ export function FinanceiroView() {
 
           {/* DRE Operacional Simplificado (Restrito à Administração) */}
           {podeVerCustosEFornecedores && (
-            <div className="p-4 rounded-2xl bg-[#eaf0f8] dark:bg-slate-900/40 border border-slate-300/60 dark:border-slate-800/80 space-y-3 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none">
+            <div className="p-4 rounded-2xl bg-[#fbf2e9] dark:bg-slate-900/40 border border-slate-300/60 dark:border-slate-800/80 space-y-3 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2 text-xs font-bold text-slate-800 dark:text-slate-200">
                   <PieChart className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
@@ -1054,7 +1054,7 @@ export function FinanceiroView() {
           )}
 
           {/* Barra de Filtros e Busca */}
-          <div className="flex flex-col xl:flex-row items-center justify-between gap-3 bg-[#eaf0f8] dark:bg-slate-900/40 border border-slate-300/60 dark:border-slate-800/80 p-3 rounded-2xl shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none">
+          <div className="flex flex-col xl:flex-row items-center justify-between gap-3 bg-[#fbf2e9] dark:bg-slate-900/40 border border-slate-300/60 dark:border-slate-800/80 p-3 rounded-2xl shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none">
             <div className="relative w-full xl:w-72">
               <Search className="absolute left-3 top-2.5 h-4 w-4 text-slate-400" />
               <input
@@ -1243,7 +1243,7 @@ export function FinanceiroView() {
                 Carregando livro-caixa...
               </div>
             ) : filtradas.length === 0 ? (
-              <div className="py-12 text-center text-slate-500 text-xs bg-[#eaf0f8] dark:bg-slate-900/30 rounded-2xl border border-slate-300/60 dark:border-slate-800 p-6 space-y-2 shadow-[2px_2px_6px_#c3cfe2] dark:shadow-none">
+              <div className="py-12 text-center text-slate-500 text-xs bg-[#fbf2e9] dark:bg-slate-900/30 rounded-2xl border border-slate-300/60 dark:border-slate-800 p-6 space-y-2 shadow-[2px_2px_6px_#c3cfe2] dark:shadow-none">
                 <div>Nenhuma movimentação financeira encontrada para o filtro selecionado.</div>
                 <div className="text-[11px] text-slate-500 dark:text-slate-400">
                   Cadastre lançamentos avulsos, parcelados ou recorrentes para alimentar o fluxo de
@@ -1258,7 +1258,7 @@ export function FinanceiroView() {
                 return (
                   <div
                     key={t.id}
-                    className="p-4 rounded-2xl bg-[#eaf0f8] dark:bg-slate-900/60 border border-slate-300/60 dark:border-slate-800/80 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_12px_#b8c6da] dark:hover:border-slate-700 transition"
+                    className="p-4 rounded-2xl bg-[#fbf2e9] dark:bg-slate-900/60 border border-slate-300/60 dark:border-slate-800/80 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_12px_#b8c6da] dark:hover:border-slate-700 transition"
                   >
                     <div className="flex items-start gap-3">
                       <div

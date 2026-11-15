@@ -1891,9 +1891,9 @@ export function RefazerTrajetoModal({
   return (
     <ModalPortal>
       <div className="fixed inset-0 z-[99999] flex items-center justify-center p-2 sm:p-4 md:p-5 bg-slate-950/85 backdrop-blur-md select-none animate-fadeIn overflow-y-auto">
-        <div className="bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 rounded-2xl sm:rounded-3xl w-full max-w-6xl h-[calc(100dvh-1.5rem)] sm:h-[calc(100dvh-2.5rem)] max-h-[calc(100dvh-1.5rem)] sm:max-h-[calc(100dvh-2.5rem)] flex flex-col shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl overflow-hidden pb-safe my-auto">
+        <div className="bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 rounded-2xl sm:rounded-3xl w-full max-w-6xl h-[calc(100dvh-1.5rem)] sm:h-[calc(100dvh-2.5rem)] max-h-[calc(100dvh-1.5rem)] sm:max-h-[calc(100dvh-2.5rem)] flex flex-col shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl overflow-hidden pb-safe my-auto">
           {/* Header Superior */}
-          <header className="shrink-0 px-4 py-3 sm:px-6 sm:py-3.5 border-b border-slate-300/60 dark:border-slate-800 flex items-center justify-between gap-3 bg-[#eaf0f8]/80 dark:bg-slate-950/50">
+          <header className="shrink-0 px-4 py-3 sm:px-6 sm:py-3.5 border-b border-slate-300/60 dark:border-slate-800 flex items-center justify-between gap-3 bg-[#fbf2e9]/80 dark:bg-slate-950/50">
             <div className="flex items-center gap-3">
               {/* Placa Mercosul */}
               <div className="bg-white border border-slate-800 rounded shadow-md overflow-hidden font-mono text-center">

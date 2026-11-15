@@ -24,25 +24,19 @@ describe("Hunter — Auditoria de Integridade de Invocação de Chaves e Rotas d
 
   it("Rotas de Relatório Gerencial: GET e POST /api/relatorios/gerencial/config devem responder com segurança", async () => {
     // 1. Sem autenticação deve retornar 401
-    const reqSemAuth = new Request(
-      "https://sigoguardiao.oficial.tec.br/api/relatorios/gerencial/config",
-      {
-        method: "GET",
-      },
-    );
+    const reqSemAuth = new Request("https://gd.oficial.tec.br/api/relatorios/gerencial/config", {
+      method: "GET",
+    });
     const resSemAuth = await serverHandler.fetch(reqSemAuth, {}, {});
     assert.strictEqual(resSemAuth.status, 401, "Requisição sem token deve retornar 401");
 
     // 2. Com CRON_SECRET válido deve permitir acesso às rotas
-    const reqComCron = new Request(
-      "https://sigoguardiao.oficial.tec.br/api/relatorios/gerencial/config",
-      {
-        method: "GET",
-        headers: {
-          Authorization: "Bearer hunter-cron-jammer-2026",
-        },
+    const reqComCron = new Request("https://gd.oficial.tec.br/api/relatorios/gerencial/config", {
+      method: "GET",
+      headers: {
+        Authorization: "Bearer hunter-cron-jammer-2026",
       },
-    );
+    });
     const resComCron = await serverHandler.fetch(reqComCron, {}, {});
     assert.strictEqual(
       resComCron.status,
@@ -54,7 +48,7 @@ describe("Hunter — Auditoria de Integridade de Invocação de Chaves e Rotas d
 
     // 3. Disparo manual via rota /api/relatorios/metricas-diarias/enviar (com dryRun para não contactar gateway real em testes)
     const reqDisparo = new Request(
-      "https://sigoguardiao.oficial.tec.br/api/relatorios/metricas-diarias/enviar",
+      "https://gd.oficial.tec.br/api/relatorios/metricas-diarias/enviar",
       {
         method: "POST",
         headers: {
@@ -75,7 +69,7 @@ describe("Hunter — Auditoria de Integridade de Invocação de Chaves e Rotas d
   });
 
   it("Rota /api/convite/validar deve validar ausência de token sem estourar 500", async () => {
-    const req = new Request("https://sigoguardiao.oficial.tec.br/api/convite/validar", {
+    const req = new Request("https://gd.oficial.tec.br/api/convite/validar", {
       method: "GET",
     });
     const res = await serverHandler.fetch(req, {}, {});
@@ -85,7 +79,7 @@ describe("Hunter — Auditoria de Integridade de Invocação de Chaves e Rotas d
   });
 
   it("Rota /api/cliente/solicitar-veiculo deve responder validação sem quebra de chaves", async () => {
-    const req = new Request("https://sigoguardiao.oficial.tec.br/api/cliente/solicitar-veiculo", {
+    const req = new Request("https://gd.oficial.tec.br/api/cliente/solicitar-veiculo", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({}),
@@ -99,7 +93,7 @@ describe("Hunter — Auditoria de Integridade de Invocação de Chaves e Rotas d
   });
 
   it("Rota /api/propostas/listar deve responder adequadamente com 200", async () => {
-    const req = new Request("https://sigoguardiao.oficial.tec.br/api/propostas/listar", {
+    const req = new Request("https://gd.oficial.tec.br/api/propostas/listar", {
       method: "GET",
     });
     const res = await serverHandler.fetch(req, {}, {});
@@ -109,7 +103,7 @@ describe("Hunter — Auditoria de Integridade de Invocação de Chaves e Rotas d
   });
 
   it("Rota /api/push/status deve retornar status das chaves VAPID sem erro", async () => {
-    const req = new Request("https://sigoguardiao.oficial.tec.br/api/push/status", {
+    const req = new Request("https://gd.oficial.tec.br/api/push/status", {
       method: "GET",
     });
     const res = await serverHandler.fetch(req, {}, {});
@@ -120,7 +114,7 @@ describe("Hunter — Auditoria de Integridade de Invocação de Chaves e Rotas d
   });
 
   it("Rota /api/chat/contatos deve barrar requisição anônima com 401 sem quebra de runtime", async () => {
-    const req = new Request("https://sigoguardiao.oficial.tec.br/api/chat/contatos", {
+    const req = new Request("https://gd.oficial.tec.br/api/chat/contatos", {
       method: "GET",
     });
     const res = await serverHandler.fetch(req, {}, {});
@@ -128,7 +122,7 @@ describe("Hunter — Auditoria de Integridade de Invocação de Chaves e Rotas d
   });
 
   it("Rota /api/ocr-cnh deve responder adequadamente sem erro de ausência de chaves de IA", async () => {
-    const req = new Request("https://sigoguardiao.oficial.tec.br/api/ocr-cnh", {
+    const req = new Request("https://gd.oficial.tec.br/api/ocr-cnh", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({}),
@@ -140,7 +134,7 @@ describe("Hunter — Auditoria de Integridade de Invocação de Chaves e Rotas d
   });
 
   it("Rota /api/ocr-nf deve responder adequadamente sem erro de ausência de chaves de IA", async () => {
-    const req = new Request("https://sigoguardiao.oficial.tec.br/api/ocr-nf", {
+    const req = new Request("https://gd.oficial.tec.br/api/ocr-nf", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({}),
@@ -152,7 +146,7 @@ describe("Hunter — Auditoria de Integridade de Invocação de Chaves e Rotas d
   });
 
   it("Rota /api/upload-nf deve validar payload sem falha de conexão de chaves", async () => {
-    const req = new Request("https://sigoguardiao.oficial.tec.br/api/upload-nf", {
+    const req = new Request("https://gd.oficial.tec.br/api/upload-nf", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({}),
@@ -164,7 +158,7 @@ describe("Hunter — Auditoria de Integridade de Invocação de Chaves e Rotas d
   });
 
   it("Rota /api/compartilhamento/acessos deve validar parâmetros sem crash", async () => {
-    const req = new Request("https://sigoguardiao.oficial.tec.br/api/compartilhamento/acessos", {
+    const req = new Request("https://gd.oficial.tec.br/api/compartilhamento/acessos", {
       method: "GET",
     });
     const res = await serverHandler.fetch(req, {}, {});

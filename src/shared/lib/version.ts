@@ -7,12 +7,12 @@
 // D = Correções / Refinamentos
 // ─────────────────────────────────────────────────────────────────────────────
 
-export const APP_VERSION_NUMERO = "1.0.0.1";
+export const APP_VERSION_NUMERO = "1.0.0.2";
 export const APP_BUILD_DATE = "13/11/2026";
 export const APP_NOME = "GD Segurança";
 export const APP_SLOGAN = "Locação de Rastreadores e Automonitoramento Veicular";
-export const APP_PUBLIC_URL = "https://sigoguardiao.oficial.tec.br";
-export const APP_DOMINIO = "sigoguardiao.oficial.tec.br";
+export const APP_PUBLIC_URL = "https://gd.oficial.tec.br";
+export const APP_DOMINIO = "gd.oficial.tec.br";
 export const APP_CHAVE_PIX_PADRAO = "pix@oficial.tec.br";
 export const APP_EMPRESA = "26.581.175 DARIO DE NOVAES GONCALVES JUNIOR - ME";
 export const APP_CNPJ = "26.581.175/0001-23";

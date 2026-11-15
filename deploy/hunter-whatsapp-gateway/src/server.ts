@@ -366,7 +366,7 @@ async function sincronizarLidsComWhatsApp(telefones?: string[]) {
   try {
     let listaTelefones = telefones || [];
     if (listaTelefones.length === 0) {
-      const backendUrl = process.env.SIGO_BACKEND_URL || "https://sigoguardiao.oficial.tec.br";
+      const backendUrl = process.env.SIGO_BACKEND_URL || "https://gd.oficial.tec.br";
       try {
         const resp = await fetch(`${backendUrl}/api/whatsapp/telefones-cadastrados`, {
           headers: {
@@ -496,7 +496,7 @@ async function despacharWebhookAutoMonitoramento(payload: {
 } | null> {
   try {
     const webhookUrl =
-      process.env.SIGO_WEBHOOK_URL || "https://sigoguardiao.oficial.tec.br/api/whatsapp/webhook";
+      process.env.SIGO_WEBHOOK_URL || "https://gd.oficial.tec.br/api/whatsapp/webhook";
     const token = "hunter-guardiao-whatsapp-secret-key-2026";
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), 20000);
@@ -1166,7 +1166,7 @@ async function verificarDisparoRelatorioDiario() {
       ultimoDiaDisparoBrt = hojeBrt;
 
       const endpoint =
-        "https://sigoguardiao.oficial.tec.br/api/relatorios/metricas-diarias/enviar?token=hunter-cron-jammer-2026";
+        "https://gd.oficial.tec.br/api/relatorios/metricas-diarias/enviar?token=hunter-cron-jammer-2026";
       const res = await fetch(endpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json" },

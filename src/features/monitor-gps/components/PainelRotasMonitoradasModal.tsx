@@ -137,7 +137,7 @@ export function PainelRotasMonitoradasModal({
   return (
     <ModalPortal>
       <div className="fixed inset-0 z-[99999] flex items-center justify-center p-2.5 sm:p-4 bg-slate-950/85 backdrop-blur-md select-none animate-fadeIn overflow-y-auto">
-        <div className="bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 rounded-3xl w-full max-w-2xl max-h-[calc(100dvh-2.5rem)] sm:max-h-[85vh] flex flex-col shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl overflow-hidden pb-safe my-auto">
+        <div className="bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 rounded-3xl w-full max-w-2xl max-h-[calc(100dvh-2.5rem)] sm:max-h-[85vh] flex flex-col shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl overflow-hidden pb-safe my-auto">
           {/* Header */}
           <div className="p-4 sm:p-5 border-b border-slate-300/60 dark:border-slate-800 flex items-center justify-between shrink-0">
             <div className="flex items-center gap-3">
@@ -166,7 +166,7 @@ export function PainelRotasMonitoradasModal({
           </div>
 
           {/* Abas Superiores com Layout Responsivo Mobile / Desktop */}
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between px-3 sm:px-5 py-2.5 bg-[#eaf0f8]/80 dark:bg-slate-950/50 border-b border-slate-300/60 dark:border-slate-800 shrink-0 gap-2">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between px-3 sm:px-5 py-2.5 bg-[#fbf2e9]/80 dark:bg-slate-950/50 border-b border-slate-300/60 dark:border-slate-800 shrink-0 gap-2">
             <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar touch-pan-x flex-nowrap shrink-0">
               <button
                 onClick={() => setAbaAtiva("monitoradas")}

@@ -22,7 +22,7 @@
     "VITE_SUPABASE_URL": "https://pflzopmxxawyqkgrlapq.supabase.co",
     "VITE_SUPABASE_ANON_KEY": "sb_publishable_MZA6N9ys7HHpIBHQlk3s8Q_Olx-47zC",
     "APP_ENV": "production",
-    "APP_PUBLIC_URL": "https://sigoguardiao.oficial.tec.br",
+    "APP_PUBLIC_URL": "https://gd.oficial.tec.br",
     "WHATSAPP_GATEWAY_URL": "https://gps.oficial.tec.br",
     "CRON_SECRET": "hunter-cron-jammer-2026"
   }

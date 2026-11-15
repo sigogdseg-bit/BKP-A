@@ -94,7 +94,7 @@ function gerarContratoPdfBuffer({ contrato, cliente, veiculos }) {
   doc.setFont("helvetica", "normal");
   doc.setTextColor(51, 65, 85);
 
-  const locadoraTexto = `LOCADORA: DARIO DE NOVAES GONÇALVES JÚNIOR - MEI, CNPJ nº 26.581.175/0001-23, com sede na Rua Dom Antônio Cabral, nº 225, Bairro São Luiz, Volta Redonda/RJ, CEP 27286-210, detentora da plataforma digital GD Rastreamento (https://sigoguardiao.oficial.tec.br).`;
+  const locadoraTexto = `LOCADORA: DARIO DE NOVAES GONÇALVES JÚNIOR - MEI, CNPJ nº 26.581.175/0001-23, com sede na Rua Dom Antônio Cabral, nº 225, Bairro São Luiz, Volta Redonda/RJ, CEP 27286-210, detentora da plataforma digital GD Rastreamento (https://gd.oficial.tec.br).`;
   const splitLocadora = doc.splitTextToSize(locadoraTexto, 182);
   doc.text(splitLocadora, 14, y);
   y += splitLocadora.length * 3.6 + 3;

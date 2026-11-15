@@ -326,7 +326,7 @@ export function ClientesView() {
         maxTilt={emModal ? 2 : 5}
         spotlightColor={corSpotlight}
         enableTilt={!emModal}
-        className={`bg-[#eaf0f8] dark:bg-slate-900/70 border border-slate-300/60 dark:border-slate-800 rounded-2xl p-4 flex flex-col justify-between space-y-3 ${
+        className={`bg-[#fbf2e9] dark:bg-slate-900/70 border border-slate-300/60 dark:border-slate-800 rounded-2xl p-4 flex flex-col justify-between space-y-3 ${
           emModal
             ? "shadow-none"
             : "shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_12px_#b8c6da] dark:hover:border-slate-700"
@@ -695,7 +695,7 @@ export function ClientesView() {
   return (
     <div className="space-y-4 max-w-7xl mx-auto select-none pb-28">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 bg-[#eaf0f8] dark:bg-slate-900/80 border border-slate-300/60 dark:border-slate-800 p-4 sm:p-5 rounded-2xl shadow-[4px_4px_10px_#c3cfe2] dark:shadow-xl">
+      <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 bg-[#fbf2e9] dark:bg-slate-900/80 border border-slate-300/60 dark:border-slate-800 p-4 sm:p-5 rounded-2xl shadow-[4px_4px_10px_#c3cfe2] dark:shadow-xl">
         <div className="flex items-center gap-3">
           <div className="h-12 w-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shadow-xs shrink-0">
             <Users className="h-6 w-6" />
@@ -734,7 +734,7 @@ export function ClientesView() {
       </div>
 
       {/* Barra de Filtros com Ergonomia Mobile e Tablet */}
-      <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-3 bg-[#eaf0f8]/80 dark:bg-slate-900/50 p-2.5 sm:p-3 rounded-2xl border border-slate-300/60 dark:border-slate-800 shadow-xs">
+      <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-3 bg-[#fbf2e9]/80 dark:bg-slate-900/50 p-2.5 sm:p-3 rounded-2xl border border-slate-300/60 dark:border-slate-800 shadow-xs">
         <div className="flex items-center gap-2 w-full lg:w-auto flex-1 min-w-0">
           <div className="relative w-full min-w-0 flex-1">
             <Search className="absolute left-3 top-2.5 h-4 w-4 text-slate-500 dark:text-slate-400" />
@@ -823,11 +823,11 @@ export function ClientesView() {
       </div>
 
       {carregando ? (
-        <div className="py-12 text-center text-slate-500 text-xs bg-[#eaf0f8] dark:bg-slate-900/30 rounded-2xl border border-slate-300/60 dark:border-slate-800 p-8 shadow-[2px_2px_6px_#c3cfe2] dark:shadow-none">
+        <div className="py-12 text-center text-slate-500 text-xs bg-[#fbf2e9] dark:bg-slate-900/30 rounded-2xl border border-slate-300/60 dark:border-slate-800 p-8 shadow-[2px_2px_6px_#c3cfe2] dark:shadow-none">
           Carregando clientes...
         </div>
       ) : filtrados.length === 0 ? (
-        <div className="py-12 text-center text-slate-500 text-xs bg-[#eaf0f8] dark:bg-slate-900/30 rounded-2xl border border-slate-300/60 dark:border-slate-800 p-8 space-y-1.5 shadow-[2px_2px_6px_#c3cfe2] dark:shadow-none">
+        <div className="py-12 text-center text-slate-500 text-xs bg-[#fbf2e9] dark:bg-slate-900/30 rounded-2xl border border-slate-300/60 dark:border-slate-800 p-8 space-y-1.5 shadow-[2px_2px_6px_#c3cfe2] dark:shadow-none">
           <div className="text-slate-800 dark:text-slate-300 font-semibold text-sm">
             {busca
               ? `Nenhum cliente encontrado para "${busca}".`
@@ -850,7 +850,7 @@ export function ClientesView() {
           {filtrados.map((cliente) => renderCardCliente(cliente, false))}
         </div>
       ) : (
-        <div className="bg-[#eaf0f8] dark:bg-slate-900/70 border border-slate-300/60 dark:border-slate-800 rounded-2xl shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none overflow-hidden">
+        <div className="bg-[#fbf2e9] dark:bg-slate-900/70 border border-slate-300/60 dark:border-slate-800 rounded-2xl shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none overflow-hidden">
           <div className="overflow-x-auto custom-scrollbar">
             <table className="w-full text-left border-collapse min-w-[760px]">
               <thead>
@@ -1089,8 +1089,8 @@ export function ClientesView() {
       {clienteRenovacao && (
         <ModalPortal>
           <div className="fixed inset-0 z-[99999] flex items-center justify-center p-2.5 sm:p-4 bg-slate-950/85 backdrop-blur-md overflow-y-auto select-none">
-            <div className="bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 rounded-3xl w-full max-w-md shadow-2xl flex flex-col max-h-[calc(100dvh-2.5rem)] sm:max-h-[85vh] my-auto overflow-hidden animate-in fade-in zoom-in-95 duration-150 text-slate-800 dark:text-slate-100">
-              <div className="p-4 border-b border-slate-300/60 dark:border-slate-800 flex items-center justify-between bg-[#eaf0f8]/80 dark:bg-slate-950/60 shrink-0">
+            <div className="bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 rounded-3xl w-full max-w-md shadow-2xl flex flex-col max-h-[calc(100dvh-2.5rem)] sm:max-h-[85vh] my-auto overflow-hidden animate-in fade-in zoom-in-95 duration-150 text-slate-800 dark:text-slate-100">
+              <div className="p-4 border-b border-slate-300/60 dark:border-slate-800 flex items-center justify-between bg-[#fbf2e9]/80 dark:bg-slate-950/60 shrink-0">
                 <div className="flex items-center gap-2">
                   <div className="h-8 w-8 rounded-xl bg-sky-500/15 border border-sky-500/30 flex items-center justify-center text-sky-600 dark:text-sky-400">
                     <RefreshCw className="h-4 w-4" />
@@ -1239,8 +1239,8 @@ export function ClientesView() {
       {clienteParaExcluir && (
         <ModalPortal>
           <div className="fixed inset-0 z-[99999] flex items-center justify-center p-2.5 sm:p-4 bg-slate-950/85 backdrop-blur-md overflow-y-auto select-none">
-            <div className="bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 rounded-3xl w-full max-w-md shadow-2xl flex flex-col max-h-[calc(100dvh-2.5rem)] sm:max-h-[85vh] my-auto overflow-hidden animate-in fade-in zoom-in-95 duration-150 text-slate-800 dark:text-slate-100">
-              <div className="p-4 border-b border-slate-300/60 dark:border-slate-800 flex items-center justify-between bg-[#eaf0f8]/80 dark:bg-slate-950/60 shrink-0">
+            <div className="bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 rounded-3xl w-full max-w-md shadow-2xl flex flex-col max-h-[calc(100dvh-2.5rem)] sm:max-h-[85vh] my-auto overflow-hidden animate-in fade-in zoom-in-95 duration-150 text-slate-800 dark:text-slate-100">
+              <div className="p-4 border-b border-slate-300/60 dark:border-slate-800 flex items-center justify-between bg-[#fbf2e9]/80 dark:bg-slate-950/60 shrink-0">
                 <div className="flex items-center gap-2">
                   <div className="h-8 w-8 rounded-xl bg-rose-500/15 border border-rose-500/30 flex items-center justify-center text-rose-600 dark:text-rose-400">
                     <Trash2 className="h-4 w-4" />
@@ -1284,7 +1284,7 @@ export function ClientesView() {
                 </div>
               </div>
 
-              <div className="p-3.5 sm:p-4 border-t border-slate-300/60 dark:border-slate-800 flex justify-end gap-2 bg-[#eaf0f8]/80 dark:bg-slate-950/60 shrink-0">
+              <div className="p-3.5 sm:p-4 border-t border-slate-300/60 dark:border-slate-800 flex justify-end gap-2 bg-[#fbf2e9]/80 dark:bg-slate-950/60 shrink-0">
                 <button
                   type="button"
                   onClick={() => setClienteParaExcluir(null)}
@@ -1393,7 +1393,7 @@ export function ClientesView() {
             onClick={() => setClienteCardModal(null)}
           >
             <div
-              className="relative w-full max-w-xl max-h-[calc(100dvh-2.5rem)] sm:max-h-[85vh] overflow-y-auto my-auto rounded-3xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 p-4 sm:p-5 shadow-2xl space-y-3.5 text-slate-800 dark:text-slate-100"
+              className="relative w-full max-w-xl max-h-[calc(100dvh-2.5rem)] sm:max-h-[85vh] overflow-y-auto my-auto rounded-3xl bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 p-4 sm:p-5 shadow-2xl space-y-3.5 text-slate-800 dark:text-slate-100"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="flex items-center justify-between pb-2.5 border-b border-slate-300/60 dark:border-slate-800">

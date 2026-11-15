@@ -71,7 +71,7 @@ export async function gerarLaudoPericialForensePdf(
   const sufixoSelo = gerarHexAleatorio(8);
   const seloSgd = params.isSimulacao ? `SGD-SIM-${sufixoSelo}` : `SGD-${sufixoSelo}`;
   const codigoVerificacao = gerarHexAleatorio(6);
-  const linkVerificacao = `https://sigoguardiao.oficial.tec.br/verificar?selo=${seloSgd}`;
+  const linkVerificacao = `https://gd.oficial.tec.br/verificar?selo=${seloSgd}`;
 
   let qrCodeDataUrl: string | null = null;
   try {
@@ -351,7 +351,7 @@ export async function gerarLaudoPericialForensePdf(
   } else {
     doc.setTextColor(100, 116, 139);
     doc.text(
-      `Conferivel publicamente em: https://sigoguardiao.oficial.tec.br/verificar`,
+      `Conferivel publicamente em: https://gd.oficial.tec.br/verificar`,
       18,
       finalTabelaY + 32,
     );

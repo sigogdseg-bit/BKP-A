@@ -27,8 +27,8 @@ export function TelaBloqueioMotoristaFrota({
   };
 
   return (
-    <div className="min-h-screen bg-[#eaf0f8] dark:bg-slate-950 text-slate-800 dark:text-slate-100 flex flex-col items-center justify-center p-4 sm:p-6 select-none animate-fadeIn">
-      <div className="w-full max-w-md bg-[#eaf0f8] dark:bg-slate-900/90 border border-amber-500/40 rounded-3xl p-6 sm:p-8 shadow-[6px_6px_20px_#c3cfe2] dark:shadow-2xl space-y-6 text-slate-800 dark:text-slate-100 text-center">
+    <div className="min-h-screen bg-[#fbf2e9] dark:bg-slate-950 text-slate-800 dark:text-slate-100 flex flex-col items-center justify-center p-4 sm:p-6 select-none animate-fadeIn">
+      <div className="w-full max-w-md bg-[#fbf2e9] dark:bg-slate-900/90 border border-amber-500/40 rounded-3xl p-6 sm:p-8 shadow-[6px_6px_20px_#c3cfe2] dark:shadow-2xl space-y-6 text-slate-800 dark:text-slate-100 text-center">
         {/* Ícone de Alerta */}
         <div className="h-16 w-16 mx-auto rounded-3xl bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/30 flex items-center justify-center shadow-lg shadow-amber-500/10">
           <ShieldAlert className="h-8 w-8" />

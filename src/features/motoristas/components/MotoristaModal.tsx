@@ -265,10 +265,10 @@ export function MotoristaModal({
       >
         <div
           id="modal-motorista"
-          className="relative w-full max-w-2xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 rounded-3xl shadow-[6px_6px_20px_#c3cfe2] dark:shadow-2xl my-auto overflow-hidden flex flex-col text-slate-800 dark:text-slate-100 max-h-[calc(100dvh-2.5rem)] sm:max-h-[88vh] transition-colors"
+          className="relative w-full max-w-2xl bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 rounded-3xl shadow-[6px_6px_20px_#c3cfe2] dark:shadow-2xl my-auto overflow-hidden flex flex-col text-slate-800 dark:text-slate-100 max-h-[calc(100dvh-2.5rem)] sm:max-h-[88vh] transition-colors"
         >
           {/* Cabeçalho Fixo */}
-          <div className="flex items-center justify-between px-4 sm:px-6 py-4 border-b border-slate-300/60 dark:border-slate-800 bg-[#eaf0f8]/90 dark:bg-slate-950/60 backdrop-blur-md shrink-0">
+          <div className="flex items-center justify-between px-4 sm:px-6 py-4 border-b border-slate-300/60 dark:border-slate-800 bg-[#fbf2e9]/90 dark:bg-slate-950/60 backdrop-blur-md shrink-0">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-2xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-600 dark:text-blue-400 shrink-0">
                 <Car className="h-5 w-5" />
@@ -712,7 +712,7 @@ export function MotoristaModal({
             </div>
 
             {/* Rodapé de Ações Fixo e Sempre Visível (Zero Corte de Viewport) */}
-            <div className="p-3.5 sm:p-5 border-t border-slate-300/60 dark:border-slate-800 bg-[#eaf0f8]/95 dark:bg-slate-950/80 backdrop-blur-md flex flex-col-reverse sm:flex-row items-stretch sm:items-center justify-end gap-2.5 shrink-0">
+            <div className="p-3.5 sm:p-5 border-t border-slate-300/60 dark:border-slate-800 bg-[#fbf2e9]/95 dark:bg-slate-950/80 backdrop-blur-md flex flex-col-reverse sm:flex-row items-stretch sm:items-center justify-end gap-2.5 shrink-0">
               <button
                 type="button"
                 onClick={onFechar}

@@ -108,8 +108,8 @@ export function TelaBloqueioMensalidadeVencida({
   };
 
   return (
-    <div className="min-h-screen bg-[#eaf0f8] dark:bg-slate-950 text-slate-800 dark:text-slate-100 flex flex-col items-center justify-center p-4 sm:p-6 select-none animate-fadeIn">
-      <div className="w-full max-w-lg bg-[#eaf0f8] dark:bg-slate-900/90 border border-rose-500/40 rounded-3xl p-5 sm:p-8 shadow-[6px_6px_20px_#c3cfe2] dark:shadow-2xl space-y-5 text-slate-800 dark:text-slate-100">
+    <div className="min-h-screen bg-[#fbf2e9] dark:bg-slate-950 text-slate-800 dark:text-slate-100 flex flex-col items-center justify-center p-4 sm:p-6 select-none animate-fadeIn">
+      <div className="w-full max-w-lg bg-[#fbf2e9] dark:bg-slate-900/90 border border-rose-500/40 rounded-3xl p-5 sm:p-8 shadow-[6px_6px_20px_#c3cfe2] dark:shadow-2xl space-y-5 text-slate-800 dark:text-slate-100">
         {/* Header do Bloqueio */}
         <div className="text-center space-y-2">
           <div className="h-14 w-14 mx-auto rounded-2xl bg-rose-500/10 text-rose-600 dark:text-rose-400 border border-rose-500/30 flex items-center justify-center shadow-lg shadow-rose-500/10">

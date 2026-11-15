@@ -131,7 +131,7 @@ export function ClientesInadimplentesTab({
       {/* Cards de Indicadores de Inadimplência */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
         {/* Total Inadimplente */}
-        <div className="p-4 rounded-2xl bg-[#eaf0f8] dark:bg-slate-900/70 border border-rose-500/20 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-lg flex flex-col justify-between">
+        <div className="p-4 rounded-2xl bg-[#fbf2e9] dark:bg-slate-900/70 border border-rose-500/20 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-lg flex flex-col justify-between">
           <div className="flex items-center justify-between text-rose-600 dark:text-rose-400 text-xs mb-1">
             <span className="font-semibold">Total em Atraso</span>
             <AlertTriangle className="h-4 w-4 text-rose-600 dark:text-rose-400" />
@@ -147,7 +147,7 @@ export function ClientesInadimplentesTab({
         </div>
 
         {/* Total Clientes Inadimplentes */}
-        <div className="p-4 rounded-2xl bg-[#eaf0f8] dark:bg-slate-900/70 border border-amber-500/20 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-lg flex flex-col justify-between">
+        <div className="p-4 rounded-2xl bg-[#fbf2e9] dark:bg-slate-900/70 border border-amber-500/20 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-lg flex flex-col justify-between">
           <div className="flex items-center justify-between text-amber-600 dark:text-amber-400 text-xs mb-1">
             <span className="font-semibold">Clientes Inadimplentes</span>
             <UserX className="h-4 w-4 text-amber-600 dark:text-amber-400" />
@@ -163,7 +163,7 @@ export function ClientesInadimplentesTab({
         </div>
 
         {/* Faturas Vencidas */}
-        <div className="p-4 rounded-2xl bg-[#eaf0f8] dark:bg-slate-900/70 border border-slate-300/60 dark:border-slate-800/80 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-lg flex flex-col justify-between">
+        <div className="p-4 rounded-2xl bg-[#fbf2e9] dark:bg-slate-900/70 border border-slate-300/60 dark:border-slate-800/80 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-lg flex flex-col justify-between">
           <div className="flex items-center justify-between text-sky-600 dark:text-sky-400 text-xs mb-1">
             <span className="font-semibold">Faturas em Aberto</span>
             <FileText className="h-4 w-4 text-sky-600 dark:text-sky-400" />
@@ -179,7 +179,7 @@ export function ClientesInadimplentesTab({
         </div>
 
         {/* Maior Atraso */}
-        <div className="p-4 rounded-2xl bg-[#eaf0f8] dark:bg-slate-900/70 border border-purple-500/20 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-lg flex flex-col justify-between">
+        <div className="p-4 rounded-2xl bg-[#fbf2e9] dark:bg-slate-900/70 border border-purple-500/20 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-lg flex flex-col justify-between">
           <div className="flex items-center justify-between text-purple-600 dark:text-purple-400 text-xs mb-1">
             <span className="font-semibold">Maior Atraso</span>
             <Clock className="h-4 w-4 text-purple-600 dark:text-purple-400" />
@@ -196,7 +196,7 @@ export function ClientesInadimplentesTab({
       </div>
 
       {/* Barra de Filtros e Busca */}
-      <div className="flex flex-col lg:flex-row items-center justify-between gap-3 bg-[#eaf0f8] dark:bg-slate-900/40 border border-slate-300/60 dark:border-slate-800/80 p-3 rounded-2xl shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none">
+      <div className="flex flex-col lg:flex-row items-center justify-between gap-3 bg-[#fbf2e9] dark:bg-slate-900/40 border border-slate-300/60 dark:border-slate-800/80 p-3 rounded-2xl shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none">
         <div className="relative w-full lg:w-80">
           <Search className="absolute left-3 top-2.5 h-4 w-4 text-slate-400" />
           <input
@@ -241,7 +241,7 @@ export function ClientesInadimplentesTab({
             Localizando mensalidades vencidas no sistema...
           </div>
         ) : filtrados.length === 0 ? (
-          <div className="py-12 text-center text-slate-500 text-xs bg-[#eaf0f8] dark:bg-slate-900/30 rounded-2xl border border-slate-300/60 dark:border-slate-800 p-8 space-y-2 shadow-[2px_2px_6px_#c3cfe2] dark:shadow-none">
+          <div className="py-12 text-center text-slate-500 text-xs bg-[#fbf2e9] dark:bg-slate-900/30 rounded-2xl border border-slate-300/60 dark:border-slate-800 p-8 space-y-2 shadow-[2px_2px_6px_#c3cfe2] dark:shadow-none">
             <div className="h-10 w-10 mx-auto rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
               <CheckCircle2 className="h-5 w-5" />
             </div>
@@ -264,10 +264,10 @@ export function ClientesInadimplentesTab({
                 key={c.cliente_id}
                 className={`rounded-2xl border transition-all ${
                   atrasoCritico
-                    ? "bg-[#eaf0f8] dark:bg-slate-900/80 border-rose-500/40 shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_12px_#b8c6da]"
+                    ? "bg-[#fbf2e9] dark:bg-slate-900/80 border-rose-500/40 shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_12px_#b8c6da]"
                     : atrasoModerado
-                      ? "bg-[#eaf0f8] dark:bg-slate-900/70 border-amber-500/40 shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_12px_#b8c6da]"
-                      : "bg-[#eaf0f8] dark:bg-slate-900/60 border-slate-300/60 dark:border-slate-800/90 shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_12px_#b8c6da]"
+                      ? "bg-[#fbf2e9] dark:bg-slate-900/70 border-amber-500/40 shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_12px_#b8c6da]"
+                      : "bg-[#fbf2e9] dark:bg-slate-900/60 border-slate-300/60 dark:border-slate-800/90 shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_12px_#b8c6da]"
                 }`}
               >
                 {/* Cabeçalho do Card */}

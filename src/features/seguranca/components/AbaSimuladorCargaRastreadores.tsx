@@ -674,7 +674,7 @@ export function AbaSimuladorCargaRastreadores() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       {/* CABEÇALHO TÁTICO DA BANCADA VIRTUAL (NEUMORPHISM SUAVE E DARK HUNTER) */}
       {/* ─────────────────────────────────────────────────────────────────── */}
-      <div className="p-4 sm:p-5 rounded-2xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[6px_6px_14px_#c3cfe2] dark:shadow-xl flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+      <div className="p-4 sm:p-5 rounded-2xl bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[6px_6px_14px_#c3cfe2] dark:shadow-xl flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
         <div>
           <div className="flex items-center gap-2">
             <span className="p-2 rounded-xl bg-purple-500/10 dark:bg-purple-500/20 text-purple-600 dark:text-purple-400 border border-purple-500/20 shadow-inner">
@@ -724,7 +724,7 @@ export function AbaSimuladorCargaRastreadores() {
           <button
             type="button"
             onClick={handleReiniciarSimulacao}
-            className="px-3 py-2 rounded-xl text-xs font-black uppercase tracking-wider bg-[#eaf0f8] dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-300/70 dark:border-slate-700 hover:bg-slate-200/60 dark:hover:bg-slate-700 transition active:scale-95 cursor-pointer flex items-center gap-1.5 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-sm"
+            className="px-3 py-2 rounded-xl text-xs font-black uppercase tracking-wider bg-[#fbf2e9] dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-300/70 dark:border-slate-700 hover:bg-slate-200/60 dark:hover:bg-slate-700 transition active:scale-95 cursor-pointer flex items-center gap-1.5 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-sm"
             title="Resetar todos os odômetros e veículos da bancada"
           >
             <RotateCcw className="h-3.5 w-3.5" />
@@ -734,7 +734,7 @@ export function AbaSimuladorCargaRastreadores() {
           <button
             type="button"
             onClick={handleExportarRelatorio}
-            className="px-3 py-2 rounded-xl text-xs font-black uppercase tracking-wider bg-[#eaf0f8] dark:bg-slate-800 text-purple-700 dark:text-purple-300 border border-purple-500/30 hover:bg-purple-500/10 transition active:scale-95 cursor-pointer flex items-center gap-1.5 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-sm"
+            className="px-3 py-2 rounded-xl text-xs font-black uppercase tracking-wider bg-[#fbf2e9] dark:bg-slate-800 text-purple-700 dark:text-purple-300 border border-purple-500/30 hover:bg-purple-500/10 transition active:scale-95 cursor-pointer flex items-center gap-1.5 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-sm"
             title="Exportar dados analíticos do teste em JSON"
           >
             <Download className="h-3.5 w-3.5" />
@@ -750,7 +750,7 @@ export function AbaSimuladorCargaRastreadores() {
         {/* 1. Quantidade de Veículos na Frota */}
         <TiltCard
           spotlightColor="rgba(168, 85, 247, 0.16)"
-          className="p-3.5 rounded-2xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-md flex flex-col justify-between"
+          className="p-3.5 rounded-2xl bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-md flex flex-col justify-between"
         >
           <div className="flex items-center justify-between text-xs font-mono font-bold text-slate-600 dark:text-slate-400">
             <span className="flex items-center gap-1.5">
@@ -785,7 +785,7 @@ export function AbaSimuladorCargaRastreadores() {
         {/* 2. Cenário de Condução e Física */}
         <TiltCard
           spotlightColor="rgba(59, 130, 246, 0.16)"
-          className="p-3.5 rounded-2xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-md flex flex-col justify-between"
+          className="p-3.5 rounded-2xl bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-md flex flex-col justify-between"
         >
           <div className="flex items-center justify-between text-xs font-mono font-bold text-slate-600 dark:text-slate-400">
             <span className="flex items-center gap-1.5">
@@ -824,7 +824,7 @@ export function AbaSimuladorCargaRastreadores() {
         {/* 3. Frequência de Transmissão (CONTADOR NÚMERO POR NÚMERO) */}
         <TiltCard
           spotlightColor="rgba(16, 185, 129, 0.16)"
-          className="p-3.5 rounded-2xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-md flex flex-col justify-between"
+          className="p-3.5 rounded-2xl bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-md flex flex-col justify-between"
         >
           <div className="flex items-center justify-between text-xs font-mono font-bold text-slate-600 dark:text-slate-400">
             <span className="flex items-center gap-1.5">
@@ -888,7 +888,7 @@ export function AbaSimuladorCargaRastreadores() {
         {/* 4. Aceleração do Tempo (SIM SPEED / CLOCK SCALING) */}
         <TiltCard
           spotlightColor="rgba(245, 158, 11, 0.16)"
-          className="p-3.5 rounded-2xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-md flex flex-col justify-between"
+          className="p-3.5 rounded-2xl bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-md flex flex-col justify-between"
         >
           <div className="flex items-center justify-between text-xs font-mono font-bold text-slate-600 dark:text-slate-400">
             <span className="flex items-center gap-1.5">
@@ -926,7 +926,7 @@ export function AbaSimuladorCargaRastreadores() {
         {/* 5. Rendimento e Métricas em Tempo Real */}
         <TiltCard
           spotlightColor="rgba(236, 72, 153, 0.16)"
-          className="p-3.5 rounded-2xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-md flex flex-col justify-between"
+          className="p-3.5 rounded-2xl bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-md flex flex-col justify-between"
         >
           <div className="flex items-center justify-between text-xs font-mono font-bold text-slate-600 dark:text-slate-400">
             <span className="flex items-center gap-1.5">
@@ -958,7 +958,7 @@ export function AbaSimuladorCargaRastreadores() {
       {/* DETALHAMENTO DO VEÍCULO EM FOCO COM CONFRONTAÇÃO DOS 7 MOTORES */}
       {/* ─────────────────────────────────────────────────────────────────── */}
       {veiculoFoco && (
-        <div className="p-4 sm:p-5 rounded-2xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[6px_6px_14px_#c3cfe2] dark:shadow-xl space-y-4">
+        <div className="p-4 sm:p-5 rounded-2xl bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[6px_6px_14px_#c3cfe2] dark:shadow-xl space-y-4">
           <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-300/60 dark:border-slate-800 pb-3">
             <div className="flex items-center gap-3">
               <div
@@ -1120,7 +1120,7 @@ export function AbaSimuladorCargaRastreadores() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Painel de Comandos da Bancada */}
-        <div className="p-4 sm:p-5 rounded-2xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-xl space-y-4">
+        <div className="p-4 sm:p-5 rounded-2xl bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-xl space-y-4">
           <div className="flex items-center gap-2 border-b border-slate-300/60 dark:border-slate-800 pb-2">
             <Terminal className="h-4 w-4 text-purple-600 dark:text-purple-400" />
             <h4 className="text-xs font-mono font-black uppercase tracking-wider text-slate-900 dark:text-slate-100">
@@ -1204,7 +1204,7 @@ export function AbaSimuladorCargaRastreadores() {
         </div>
 
         {/* Console de Pacotes GT06 em Tempo Real */}
-        <div className="lg:col-span-2 p-4 sm:p-5 rounded-2xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-xl flex flex-col justify-between">
+        <div className="lg:col-span-2 p-4 sm:p-5 rounded-2xl bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-xl flex flex-col justify-between">
           <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-300/60 dark:border-slate-800 pb-2">
             <div className="flex items-center gap-2">
               <Radio className="h-4 w-4 text-emerald-500 animate-pulse" />

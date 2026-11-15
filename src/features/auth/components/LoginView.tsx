@@ -84,17 +84,17 @@ export function LoginView() {
   };
 
   return (
-    <div className="min-h-screen w-full flex items-center justify-center p-4 bg-[#eaf0f8] dark:bg-[#0c121c] text-slate-800 dark:text-slate-100 relative overflow-hidden font-sans select-none transition-colors duration-200">
+    <div className="min-h-screen w-full flex items-center justify-center p-4 bg-[#fbf2e9] dark:bg-[#110e0c] text-slate-800 dark:text-slate-100 relative overflow-hidden font-sans select-none transition-colors duration-200">
       {/* Botão de Alternância de Tema Flutuante no Canto Superior */}
       <div className="absolute top-4 right-4 z-20">
         <ThemeToggle />
       </div>
 
-      {/* Luz ambiente de fundo Neumorphic */}
-      <div className="absolute top-1/4 -left-20 w-96 h-96 bg-emerald-500/10 dark:bg-emerald-500/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-sky-500/10 dark:bg-sky-500/5 rounded-full blur-3xl pointer-events-none" />
+      {/* Luz ambiente de fundo Neumorphic Laranja */}
+      <div className="absolute top-1/4 -left-20 w-96 h-96 bg-orange-500/15 dark:bg-orange-500/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-amber-500/10 dark:bg-amber-500/5 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="relative z-10 w-full max-w-md bg-[#f0f4f9] dark:bg-slate-900 border border-slate-300/80 dark:border-slate-800 rounded-3xl p-6 sm:p-8 shadow-[12px_12px_28px_#c3cfe2,-12px_-12px_28px_#ffffff] dark:shadow-2xl backdrop-blur-xl transition-all duration-200">
+      <div className="relative z-10 w-full max-w-md bg-[#fdf7f2] dark:bg-slate-900 border border-slate-300/80 dark:border-slate-800 rounded-3xl p-6 sm:p-8 shadow-[12px_12px_28px_#c3cfe2,-12px_-12px_28px_#ffffff] dark:shadow-2xl backdrop-blur-xl transition-all duration-200">
         {/* Header com Logo Hunter Oficial */}
         <div className="text-center space-y-2 mb-6">
           <div className="mx-auto flex items-center justify-center">
@@ -129,8 +129,8 @@ export function LoginView() {
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="seu.email@sigoguardiao.oficial.tec.br"
-                className="w-full pl-10 pr-3.5 py-2.5 bg-white dark:bg-slate-950 border border-slate-300/80 dark:border-slate-700 rounded-xl text-xs font-medium text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-emerald-500 shadow-[inset_2px_2px_4px_rgba(0,0,0,0.04)] transition"
+                placeholder="seu.email@gd.oficial.tec.br"
+                className="w-full pl-10 pr-3.5 py-2.5 bg-white dark:bg-slate-950 border border-slate-300/80 dark:border-slate-700 rounded-xl text-xs font-medium text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500 shadow-[inset_2px_2px_4px_rgba(0,0,0,0.04)] transition"
               />
             </div>
           </div>
@@ -147,7 +147,7 @@ export function LoginView() {
                 value={senha}
                 onChange={(e) => setSenha(e.target.value)}
                 placeholder="••••••••"
-                className="w-full pl-10 pr-10 py-2.5 bg-white dark:bg-slate-950 border border-slate-300/80 dark:border-slate-700 rounded-xl text-xs font-medium text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-emerald-500 shadow-[inset_2px_2px_4px_rgba(0,0,0,0.04)] transition"
+                className="w-full pl-10 pr-10 py-2.5 bg-white dark:bg-slate-950 border border-slate-300/80 dark:border-slate-700 rounded-xl text-xs font-medium text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500 shadow-[inset_2px_2px_4px_rgba(0,0,0,0.04)] transition"
               />
               <button
                 type="button"
@@ -164,7 +164,7 @@ export function LoginView() {
           <button
             type="submit"
             disabled={carregando}
-            className="w-full py-3 px-4 rounded-xl font-bold text-xs uppercase tracking-wider bg-emerald-600 hover:bg-emerald-500 text-white transition shadow-md shadow-emerald-600/25 flex items-center justify-center gap-2 disabled:opacity-50 active:scale-[0.99]"
+            className="w-full py-3 px-4 rounded-xl font-bold text-xs uppercase tracking-wider bg-orange-600 hover:bg-orange-500 text-white transition shadow-md shadow-orange-600/25 flex items-center justify-center gap-2 disabled:opacity-50 active:scale-[0.99] cursor-pointer"
           >
             <span>{carregando ? "Autenticando..." : "Entrar no Sistema"}</span>
             <ArrowRight className="h-4 w-4" />

@@ -173,9 +173,9 @@ export function ModalParcelasContratoCliente({
   return (
     <ModalPortal>
       <div className="fixed inset-0 z-[99999] bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-2.5 sm:p-4 overflow-y-auto animate-fadeIn select-none">
-        <div className="bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 rounded-3xl max-w-3xl w-full max-h-[calc(100dvh-2.5rem)] sm:max-h-[85vh] my-auto flex flex-col shadow-2xl overflow-hidden text-slate-800 dark:text-slate-100">
+        <div className="bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 rounded-3xl max-w-3xl w-full max-h-[calc(100dvh-2.5rem)] sm:max-h-[85vh] my-auto flex flex-col shadow-2xl overflow-hidden text-slate-800 dark:text-slate-100">
           {/* Header */}
-          <div className="p-4 sm:p-5 border-b border-slate-300/60 dark:border-slate-800 flex items-center justify-between bg-[#eaf0f8]/80 dark:bg-slate-950/40">
+          <div className="p-4 sm:p-5 border-b border-slate-300/60 dark:border-slate-800 flex items-center justify-between bg-[#fbf2e9]/80 dark:bg-slate-950/40">
             <div className="flex items-center gap-3">
               <div className="h-10 w-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
                 <CreditCard className="h-5 w-5" />
@@ -471,7 +471,7 @@ export function ModalParcelasContratoCliente({
           </div>
 
           {/* Rodapé Informativo */}
-          <div className="p-3 bg-[#eaf0f8]/80 dark:bg-slate-950/60 border-t border-slate-300/60 dark:border-slate-800 text-[11px] text-slate-500 dark:text-slate-400 flex items-center justify-between">
+          <div className="p-3 bg-[#fbf2e9]/80 dark:bg-slate-950/60 border-t border-slate-300/60 dark:border-slate-800 text-[11px] text-slate-500 dark:text-slate-400 flex items-center justify-between">
             <div className="flex items-center gap-1.5">
               <Sparkles className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400 shrink-0" />
               <span>
@@ -490,7 +490,7 @@ export function ModalParcelasContratoCliente({
         {/* Modal QR Code PIX */}
         {modalPix && (
           <div className="fixed inset-0 z-[999999] bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-2.5 sm:p-4 overflow-y-auto select-none">
-            <div className="bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 rounded-3xl p-5 max-w-sm w-full space-y-3 shadow-[6px_6px_20px_#c3cfe2] dark:shadow-2xl text-center text-slate-800 dark:text-slate-100">
+            <div className="bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 rounded-3xl p-5 max-w-sm w-full space-y-3 shadow-[6px_6px_20px_#c3cfe2] dark:shadow-2xl text-center text-slate-800 dark:text-slate-100">
               <div className="flex items-center justify-between border-b border-slate-300/60 dark:border-slate-800 pb-2">
                 <span className="text-xs font-bold text-slate-700 dark:text-slate-300">
                   QR Code PIX
@@ -536,7 +536,7 @@ export function ModalParcelasContratoCliente({
         {/* Modal Alterar Vencimento com Pergunta de Escopo */}
         {modalEditarVencimento && (
           <div className="fixed inset-0 z-[999999] bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-2.5 sm:p-4 overflow-y-auto select-none">
-            <div className="bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 rounded-3xl max-w-md w-full shadow-2xl text-slate-800 dark:text-slate-100 max-h-[calc(100dvh-2.5rem)] sm:max-h-[85vh] overflow-hidden my-auto flex flex-col transition-colors">
+            <div className="bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 rounded-3xl max-w-md w-full shadow-2xl text-slate-800 dark:text-slate-100 max-h-[calc(100dvh-2.5rem)] sm:max-h-[85vh] overflow-hidden my-auto flex flex-col transition-colors">
               {/* Header */}
               <div className="p-4 sm:p-5 border-b border-slate-300/60 dark:border-slate-800 flex items-center justify-between shrink-0 bg-white/70 dark:bg-slate-900/80 backdrop-blur-md">
                 <div className="flex items-center gap-3">

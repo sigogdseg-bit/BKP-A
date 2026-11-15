@@ -2283,9 +2283,10 @@ export async function despacharNotificacaoWhatsappSuperAdmGateway(
       /\/$/,
       "",
     );
-    const appPublicUrl = (
-      process.env.HUNTER_APP_URL || "https://sigoguardiao.oficial.tec.br"
-    ).replace(/\/$/, "");
+    const appPublicUrl = (process.env.HUNTER_APP_URL || "https://gd.oficial.tec.br").replace(
+      /\/$/,
+      "",
+    );
     const token = "hunter-guardiao-whatsapp-secret-key-2026";
 
     for (const fone of fonesWhatsapp) {

@@ -600,12 +600,12 @@ export function VehicleTelemetryDrawer({
   // =========================================================================
   if (recolhido) {
     return (
-      <div className="z-20 p-2 sm:p-2.5 bg-[#eaf0f8]/95 dark:bg-slate-950/95 backdrop-blur-md border-t border-slate-300/60 dark:border-slate-800 shadow-[0_-4px_14px_#c3cfe2] dark:shadow-2xl transition-all select-none relative">
+      <div className="z-20 p-2 sm:p-2.5 bg-[#fbf2e9]/95 dark:bg-slate-950/95 backdrop-blur-md border-t border-slate-300/60 dark:border-slate-800 shadow-[0_-4px_14px_#c3cfe2] dark:shadow-2xl transition-all select-none relative">
         <div className="flex items-center justify-between gap-2 max-w-full overflow-hidden">
           {/* Lado Esquerdo: Mini Placa Mercosul + Modelo, Status e Coordenadas */}
           <div className="flex items-center gap-2 min-w-0 flex-1 overflow-hidden">
             {/* Símbolo 3D Moderno do Veículo */}
-            <div className="shrink-0 p-1 rounded-xl bg-[#eaf0f8] dark:bg-slate-800/80 border border-slate-300/60 dark:border-slate-700/60 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-xs flex items-center justify-center">
+            <div className="shrink-0 p-1 rounded-xl bg-[#fbf2e9] dark:bg-slate-800/80 border border-slate-300/60 dark:border-slate-700/60 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-xs flex items-center justify-center">
               <Vehicle3DGraphic tipo={veiculo.tipo_veiculo} corStatus={corStatus} size={34} />
             </div>
 
@@ -987,9 +987,9 @@ export function VehicleTelemetryDrawer({
   // MODO EXPANDIDO: TELA DEDICADA DO COCKPIT E TELEMETRIA 3D (TELA CHEIA)
   // =========================================================================
   return (
-    <div className="w-full h-full flex flex-col gap-4 p-3 sm:p-5 overflow-y-auto bg-[#eaf0f8] dark:bg-slate-950 text-slate-900 dark:text-slate-100 select-none">
+    <div className="w-full h-full flex flex-col gap-4 p-3 sm:p-5 overflow-y-auto bg-[#fbf2e9] dark:bg-slate-950 text-slate-900 dark:text-slate-100 select-none">
       {/* 1. Barra de Navegação Tática da Tela do Cockpit */}
-      <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-3 p-3 rounded-2xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-md">
+      <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-3 p-3 rounded-2xl bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-md">
         {/* Lado Esquerdo: Botão Voltar ao Mapa + Identificação Mercosul e Veículo */}
         <div className="flex items-center gap-3 min-w-0 flex-wrap">
           {/* Botão de Retorno ao Mapa */}
@@ -1011,7 +1011,7 @@ export function VehicleTelemetryDrawer({
                   const v = veiculos.find((x) => x.id === e.target.value);
                   if (v) onSelectVeiculo(v);
                 }}
-                className="px-2.5 py-1.5 rounded-xl bg-[#eaf0f8] dark:bg-slate-800 border border-slate-300/60 dark:border-slate-700 text-xs font-bold text-slate-800 dark:text-slate-200 shadow-[inset_1px_1px_3px_#c8d4e4,inset_-1px_-1px_3px_#ffffff] dark:shadow-none focus:outline-none focus:border-emerald-500 transition cursor-pointer"
+                className="px-2.5 py-1.5 rounded-xl bg-[#fbf2e9] dark:bg-slate-800 border border-slate-300/60 dark:border-slate-700 text-xs font-bold text-slate-800 dark:text-slate-200 shadow-[inset_1px_1px_3px_#c8d4e4,inset_-1px_-1px_3px_#ffffff] dark:shadow-none focus:outline-none focus:border-emerald-500 transition cursor-pointer"
                 title="Trocar de veículo no Cockpit"
               >
                 {veiculos.map((v) => (
@@ -1894,7 +1894,7 @@ function MostradoresCockpit3D({
       <TiltCard
         maxTilt={10}
         spotlightColor="rgba(16, 185, 129, 0.25)"
-        className="rounded-2xl p-3.5 bg-[#eaf0f8] dark:bg-gradient-to-b dark:from-slate-900/90 dark:to-slate-950/95 border border-slate-300/70 dark:border-emerald-500/40 shadow-[4px_4px_14px_#c3cfe2] dark:shadow-xl dark:shadow-emerald-950/20 flex flex-col justify-between"
+        className="rounded-2xl p-3.5 bg-[#fbf2e9] dark:bg-gradient-to-b dark:from-slate-900/90 dark:to-slate-950/95 border border-slate-300/70 dark:border-emerald-500/40 shadow-[4px_4px_14px_#c3cfe2] dark:shadow-xl dark:shadow-emerald-950/20 flex flex-col justify-between"
       >
         <div className="flex items-center justify-between text-[11px] font-mono font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">
           <span className="flex items-center gap-1.5 whitespace-nowrap">
@@ -1962,7 +1962,7 @@ function MostradoresCockpit3D({
         <TiltCard
           maxTilt={10}
           spotlightColor="rgba(56, 189, 248, 0.25)"
-          className="rounded-2xl p-3.5 bg-[#eaf0f8] dark:bg-gradient-to-b dark:from-slate-900/90 dark:to-slate-950/95 border border-slate-300/70 dark:border-sky-500/40 shadow-[4px_4px_14px_#c3cfe2] dark:shadow-xl dark:shadow-sky-950/20 flex flex-col justify-between"
+          className="rounded-2xl p-3.5 bg-[#fbf2e9] dark:bg-gradient-to-b dark:from-slate-900/90 dark:to-slate-950/95 border border-slate-300/70 dark:border-sky-500/40 shadow-[4px_4px_14px_#c3cfe2] dark:shadow-xl dark:shadow-sky-950/20 flex flex-col justify-between"
         >
           <div className="flex items-center justify-between text-[11px] font-mono font-bold text-sky-600 dark:text-sky-400 uppercase tracking-wider">
             <span className="flex items-center gap-1.5 whitespace-nowrap">
@@ -2059,7 +2059,7 @@ function MostradoresCockpit3D({
         <TiltCard
           maxTilt={10}
           spotlightColor="rgba(245, 158, 11, 0.25)"
-          className="rounded-2xl p-3.5 bg-[#eaf0f8] dark:bg-gradient-to-b dark:from-slate-900/90 dark:to-slate-950/95 border border-slate-300/70 dark:border-amber-500/40 shadow-[4px_4px_14px_#c3cfe2] dark:shadow-xl dark:shadow-amber-950/20 flex flex-col justify-between"
+          className="rounded-2xl p-3.5 bg-[#fbf2e9] dark:bg-gradient-to-b dark:from-slate-900/90 dark:to-slate-950/95 border border-slate-300/70 dark:border-amber-500/40 shadow-[4px_4px_14px_#c3cfe2] dark:shadow-xl dark:shadow-amber-950/20 flex flex-col justify-between"
         >
           <div className="flex items-center justify-between text-[11px] font-mono font-bold text-amber-600 dark:text-amber-400 uppercase tracking-wider">
             <span className="flex items-center gap-1.5 whitespace-nowrap">
@@ -2168,7 +2168,7 @@ function MostradoresCockpit3D({
                     ? "rgba(245, 158, 11, 0.25)"
                     : "rgba(16, 185, 129, 0.20)"
               }
-              className={`rounded-2xl p-3.5 bg-[#eaf0f8] dark:bg-gradient-to-b dark:from-slate-900/90 dark:to-slate-950/95 border shadow-[4px_4px_14px_#c3cfe2] flex flex-col justify-between ${
+              className={`rounded-2xl p-3.5 bg-[#fbf2e9] dark:bg-gradient-to-b dark:from-slate-900/90 dark:to-slate-950/95 border shadow-[4px_4px_14px_#c3cfe2] flex flex-col justify-between ${
                 isSevero
                   ? "border-rose-400 dark:border-rose-500/50 dark:shadow-xl dark:shadow-rose-950/30"
                   : isModerado
@@ -2318,7 +2318,7 @@ function MostradoresCockpit3D({
         <TiltCard
           maxTilt={10}
           spotlightColor="rgba(20, 184, 166, 0.25)"
-          className="rounded-2xl p-3.5 bg-[#eaf0f8] dark:bg-gradient-to-b dark:from-slate-900/90 dark:to-slate-950/95 border border-slate-300/70 dark:border-teal-500/40 shadow-[4px_4px_14px_#c3cfe2] dark:shadow-xl dark:shadow-teal-950/20 flex flex-col justify-between col-span-1 sm:col-span-2 xl:col-span-2"
+          className="rounded-2xl p-3.5 bg-[#fbf2e9] dark:bg-gradient-to-b dark:from-slate-900/90 dark:to-slate-950/95 border border-slate-300/70 dark:border-teal-500/40 shadow-[4px_4px_14px_#c3cfe2] dark:shadow-xl dark:shadow-teal-950/20 flex flex-col justify-between col-span-1 sm:col-span-2 xl:col-span-2"
         >
           {(() => {
             const emRepousoIgnicao = !veiculo.ignicao;
@@ -2515,7 +2515,7 @@ function MostradoresCockpit3D({
             <TiltCard
               maxTilt={10}
               spotlightColor="rgba(245, 158, 11, 0.25)"
-              className="rounded-2xl p-3.5 bg-[#eaf0f8] dark:bg-gradient-to-b dark:from-slate-900/90 dark:to-slate-950/95 border border-amber-400/50 dark:border-amber-500/40 shadow-[4px_4px_14px_#c3cfe2] dark:shadow-amber-950/20 flex flex-col justify-between col-span-1 sm:col-span-2 xl:col-span-2"
+              className="rounded-2xl p-3.5 bg-[#fbf2e9] dark:bg-gradient-to-b dark:from-slate-900/90 dark:to-slate-950/95 border border-amber-400/50 dark:border-amber-500/40 shadow-[4px_4px_14px_#c3cfe2] dark:shadow-amber-950/20 flex flex-col justify-between col-span-1 sm:col-span-2 xl:col-span-2"
             >
               <div className="flex items-center justify-between text-[11px] font-mono font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">
                 <span className="flex items-center gap-1.5 whitespace-nowrap">
@@ -2656,7 +2656,7 @@ function MostradoresCockpit3D({
             <TiltCard
               maxTilt={10}
               spotlightColor="rgba(16, 185, 129, 0.25)"
-              className="rounded-2xl p-3.5 bg-[#eaf0f8] dark:bg-gradient-to-b dark:from-slate-900/90 dark:to-slate-950/95 border border-slate-300/70 dark:border-emerald-500/40 shadow-[4px_4px_14px_#c3cfe2] dark:shadow-xl dark:shadow-emerald-950/20 flex flex-col justify-between col-span-1 sm:col-span-2 xl:col-span-2"
+              className="rounded-2xl p-3.5 bg-[#fbf2e9] dark:bg-gradient-to-b dark:from-slate-900/90 dark:to-slate-950/95 border border-slate-300/70 dark:border-emerald-500/40 shadow-[4px_4px_14px_#c3cfe2] dark:shadow-xl dark:shadow-emerald-950/20 flex flex-col justify-between col-span-1 sm:col-span-2 xl:col-span-2"
             >
               <div className="flex items-center justify-between text-[11px] font-mono font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">
                 <span className="flex items-center gap-1.5 whitespace-nowrap">
@@ -2756,7 +2756,7 @@ function MostradoresCockpit3D({
             <TiltCard
               maxTilt={10}
               spotlightColor="rgba(16, 185, 129, 0.25)"
-              className="rounded-2xl p-3.5 bg-[#eaf0f8] dark:bg-gradient-to-b dark:from-slate-900/90 dark:to-slate-950/95 border border-slate-300/70 dark:border-emerald-500/40 shadow-[4px_4px_14px_#c3cfe2] dark:shadow-xl dark:shadow-emerald-950/20 flex flex-col justify-between col-span-1 sm:col-span-2 xl:col-span-2"
+              className="rounded-2xl p-3.5 bg-[#fbf2e9] dark:bg-gradient-to-b dark:from-slate-900/90 dark:to-slate-950/95 border border-slate-300/70 dark:border-emerald-500/40 shadow-[4px_4px_14px_#c3cfe2] dark:shadow-xl dark:shadow-emerald-950/20 flex flex-col justify-between col-span-1 sm:col-span-2 xl:col-span-2"
             >
               <div className="flex items-center justify-between text-[11px] font-mono font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">
                 <span className="flex items-center gap-1.5 whitespace-nowrap">
@@ -2879,7 +2879,7 @@ function MostradoresCockpit3D({
             <TiltCard
               maxTilt={10}
               spotlightColor="rgba(16, 185, 129, 0.25)"
-              className="rounded-2xl p-3.5 bg-[#eaf0f8] dark:bg-gradient-to-b dark:from-slate-900/90 dark:to-slate-950/95 border border-slate-300/70 dark:border-emerald-500/40 shadow-[4px_4px_14px_#c3cfe2] dark:shadow-xl dark:shadow-emerald-950/20 flex flex-col justify-between"
+              className="rounded-2xl p-3.5 bg-[#fbf2e9] dark:bg-gradient-to-b dark:from-slate-900/90 dark:to-slate-950/95 border border-slate-300/70 dark:border-emerald-500/40 shadow-[4px_4px_14px_#c3cfe2] dark:shadow-xl dark:shadow-emerald-950/20 flex flex-col justify-between"
             >
               <div className="flex items-center justify-between text-[11px] font-mono font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">
                 <span className="flex items-center gap-1.5 whitespace-nowrap">
@@ -2954,7 +2954,7 @@ function MostradoresCockpit3D({
             <TiltCard
               maxTilt={10}
               spotlightColor="rgba(139, 92, 246, 0.25)"
-              className="rounded-2xl p-3.5 bg-[#eaf0f8] dark:bg-gradient-to-b dark:from-slate-900/90 dark:to-slate-950/95 border border-slate-300/70 dark:border-violet-500/40 shadow-[4px_4px_14px_#c3cfe2] dark:shadow-xl dark:shadow-violet-950/20 flex flex-col justify-between"
+              className="rounded-2xl p-3.5 bg-[#fbf2e9] dark:bg-gradient-to-b dark:from-slate-900/90 dark:to-slate-950/95 border border-slate-300/70 dark:border-violet-500/40 shadow-[4px_4px_14px_#c3cfe2] dark:shadow-xl dark:shadow-violet-950/20 flex flex-col justify-between"
             >
               <div className="flex items-center justify-between text-[11px] font-mono font-bold text-violet-600 dark:text-violet-400 uppercase tracking-wider">
                 <span className="flex items-center gap-1.5 whitespace-nowrap">
@@ -3027,7 +3027,7 @@ function MostradoresCockpit3D({
             <TiltCard
               maxTilt={10}
               spotlightColor="rgba(14, 165, 233, 0.25)"
-              className="rounded-2xl p-3.5 bg-[#eaf0f8] dark:bg-gradient-to-b dark:from-slate-900/90 dark:to-slate-950/95 border border-slate-300/70 dark:border-sky-500/40 shadow-[4px_4px_14px_#c3cfe2] dark:shadow-xl dark:shadow-sky-950/20 flex flex-col justify-between"
+              className="rounded-2xl p-3.5 bg-[#fbf2e9] dark:bg-gradient-to-b dark:from-slate-900/90 dark:to-slate-950/95 border border-slate-300/70 dark:border-sky-500/40 shadow-[4px_4px_14px_#c3cfe2] dark:shadow-xl dark:shadow-sky-950/20 flex flex-col justify-between"
             >
               <div className="flex items-center justify-between text-[11px] font-mono font-bold text-sky-600 dark:text-sky-400 uppercase tracking-wider">
                 <span className="flex items-center gap-1.5 whitespace-nowrap">
@@ -3136,7 +3136,7 @@ function MostradoresCockpit3D({
             <TiltCard
               maxTilt={10}
               spotlightColor="rgba(99, 102, 241, 0.25)"
-              className="rounded-2xl p-3.5 bg-[#eaf0f8] dark:bg-gradient-to-b dark:from-slate-900/90 dark:to-slate-950/95 border border-slate-300/70 dark:border-indigo-500/40 shadow-[4px_4px_14px_#c3cfe2] dark:shadow-xl dark:shadow-indigo-950/20 flex flex-col justify-between"
+              className="rounded-2xl p-3.5 bg-[#fbf2e9] dark:bg-gradient-to-b dark:from-slate-900/90 dark:to-slate-950/95 border border-slate-300/70 dark:border-indigo-500/40 shadow-[4px_4px_14px_#c3cfe2] dark:shadow-xl dark:shadow-indigo-950/20 flex flex-col justify-between"
             >
               <div className="flex items-center justify-between text-[11px] font-mono font-bold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider">
                 <span className="flex items-center gap-1.5 whitespace-nowrap">
@@ -3199,7 +3199,7 @@ function MostradoresCockpit3D({
             <TiltCard
               maxTilt={10}
               spotlightColor="rgba(245, 158, 11, 0.25)"
-              className="rounded-2xl p-3.5 bg-[#eaf0f8] dark:bg-gradient-to-b dark:from-slate-900/90 dark:to-slate-950/95 border border-slate-300/70 dark:border-amber-500/40 shadow-[4px_4px_14px_#c3cfe2] dark:shadow-xl dark:shadow-amber-950/20 flex flex-col justify-between"
+              className="rounded-2xl p-3.5 bg-[#fbf2e9] dark:bg-gradient-to-b dark:from-slate-900/90 dark:to-slate-950/95 border border-slate-300/70 dark:border-amber-500/40 shadow-[4px_4px_14px_#c3cfe2] dark:shadow-xl dark:shadow-amber-950/20 flex flex-col justify-between"
             >
               <div className="flex items-center justify-between text-[11px] font-mono font-bold text-amber-600 dark:text-amber-400 uppercase tracking-wider">
                 <span className="flex items-center gap-1.5 whitespace-nowrap">
@@ -3262,7 +3262,7 @@ function MostradoresCockpit3D({
             <TiltCard
               maxTilt={10}
               spotlightColor="rgba(20, 184, 166, 0.25)"
-              className="rounded-2xl p-3.5 bg-[#eaf0f8] dark:bg-gradient-to-b dark:from-slate-900/90 dark:to-slate-950/95 border border-slate-300/70 dark:border-teal-500/40 shadow-[4px_4px_14px_#c3cfe2] dark:shadow-xl dark:shadow-teal-950/20 flex flex-col justify-between"
+              className="rounded-2xl p-3.5 bg-[#fbf2e9] dark:bg-gradient-to-b dark:from-slate-900/90 dark:to-slate-950/95 border border-slate-300/70 dark:border-teal-500/40 shadow-[4px_4px_14px_#c3cfe2] dark:shadow-xl dark:shadow-teal-950/20 flex flex-col justify-between"
             >
               <div className="flex items-center justify-between text-[11px] font-mono font-bold text-teal-600 dark:text-teal-400 uppercase tracking-wider">
                 <span className="flex items-center gap-1.5 whitespace-nowrap">
@@ -3325,7 +3325,7 @@ function MostradoresCockpit3D({
             <TiltCard
               maxTilt={10}
               spotlightColor="rgba(236, 72, 153, 0.25)"
-              className="rounded-2xl p-3.5 bg-[#eaf0f8] dark:bg-gradient-to-b dark:from-slate-900/90 dark:to-slate-950/95 border border-slate-300/70 dark:border-pink-500/40 shadow-[4px_4px_14px_#c3cfe2] dark:shadow-xl dark:shadow-pink-950/20 flex flex-col justify-between"
+              className="rounded-2xl p-3.5 bg-[#fbf2e9] dark:bg-gradient-to-b dark:from-slate-900/90 dark:to-slate-950/95 border border-slate-300/70 dark:border-pink-500/40 shadow-[4px_4px_14px_#c3cfe2] dark:shadow-xl dark:shadow-pink-950/20 flex flex-col justify-between"
             >
               <div className="flex items-center justify-between text-[11px] font-mono font-bold text-pink-600 dark:text-pink-400 uppercase tracking-wider">
                 <span className="flex items-center gap-1.5 whitespace-nowrap">
@@ -3390,7 +3390,7 @@ function MostradoresCockpit3D({
             <TiltCard
               maxTilt={10}
               spotlightColor="rgba(59, 130, 246, 0.25)"
-              className="rounded-2xl p-3.5 bg-[#eaf0f8] dark:bg-gradient-to-b dark:from-slate-900/90 dark:to-slate-950/95 border border-slate-300/70 dark:border-blue-500/40 shadow-[4px_4px_14px_#c3cfe2] dark:shadow-xl dark:shadow-blue-950/20 flex flex-col justify-between"
+              className="rounded-2xl p-3.5 bg-[#fbf2e9] dark:bg-gradient-to-b dark:from-slate-900/90 dark:to-slate-950/95 border border-slate-300/70 dark:border-blue-500/40 shadow-[4px_4px_14px_#c3cfe2] dark:shadow-xl dark:shadow-blue-950/20 flex flex-col justify-between"
             >
               <div className="flex items-center justify-between text-[11px] font-mono font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider">
                 <span className="flex items-center gap-1.5 whitespace-nowrap">

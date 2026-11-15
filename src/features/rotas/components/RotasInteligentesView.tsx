@@ -65,7 +65,7 @@ export function RotasInteligentesView() {
   return (
     <div className="space-y-6 max-w-5xl mx-auto select-none pb-12">
       {/* Banner Superior com Padrão Canônico Claro e Escuro */}
-      <div className="relative overflow-hidden rounded-3xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 p-4 sm:p-6 sm:p-8 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl transition-all duration-300">
+      <div className="relative overflow-hidden rounded-3xl bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 p-4 sm:p-6 sm:p-8 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl transition-all duration-300">
         <div className="absolute top-0 right-0 w-80 h-80 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
         <div className="relative z-10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div className="space-y-1">
@@ -94,7 +94,7 @@ export function RotasInteligentesView() {
             <button
               type="button"
               onClick={() => navigate({ to: "/inicio" })}
-              className="flex items-center gap-2 px-3.5 py-2.5 rounded-xl text-xs font-bold bg-[#eaf0f8] dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-300/60 dark:border-slate-700 shadow-[2px_2px_5px_#c3cfe2] hover:shadow-[3px_3px_8px_#b8c6da] dark:shadow-none active:shadow-[inset_2px_2px_4px_#c8d4e4] transition cursor-pointer"
+              className="flex items-center gap-2 px-3.5 py-2.5 rounded-xl text-xs font-bold bg-[#fbf2e9] dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-300/60 dark:border-slate-700 shadow-[2px_2px_5px_#c3cfe2] hover:shadow-[3px_3px_8px_#b8c6da] dark:shadow-none active:shadow-[inset_2px_2px_4px_#c8d4e4] transition cursor-pointer"
             >
               <ArrowLeft className="h-4 w-4" />
               <span>Voltar</span>
@@ -105,8 +105,8 @@ export function RotasInteligentesView() {
 
       {/* Conteúdo Informativo quando o modal for fechado */}
       {!modalAberto && (
-        <div className="bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 rounded-3xl p-8 sm:p-12 text-center shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl space-y-4">
-          <div className="w-16 h-16 mx-auto rounded-2xl bg-[#eaf0f8] dark:bg-slate-800 border border-slate-300/60 dark:border-slate-700 shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none flex items-center justify-center text-emerald-600 dark:text-emerald-400">
+        <div className="bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 rounded-3xl p-8 sm:p-12 text-center shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl space-y-4">
+          <div className="w-16 h-16 mx-auto rounded-2xl bg-[#fbf2e9] dark:bg-slate-800 border border-slate-300/60 dark:border-slate-700 shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none flex items-center justify-center text-emerald-600 dark:text-emerald-400">
             <RouteIcon className="w-8 h-8" />
           </div>
           <div className="space-y-1">

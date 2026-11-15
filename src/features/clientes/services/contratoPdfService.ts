@@ -392,7 +392,7 @@ export async function emitirContratoPrestacaoServicosPdf(
   const partesRows = [
     [
       "LOCADORA DO EQUIPAMENTO:",
-      `DARIO DE NOVAES GONÇALVES JÚNIOR, empresário individual optante pelo Microempreendedor Individual (MEI), inscrito no CNPJ sob o nº 26.581.175/0001-23, com sede na Rua Dom Antônio Cabral, nº 225, Bairro São Luiz, Volta Redonda/RJ, CEP 27286-210, titular dos direitos e da plataforma digital ${APP_NOME.toUpperCase()} (https://sigoguardiao.oficial.tec.br).`,
+      `DARIO DE NOVAES GONÇALVES JÚNIOR, empresário individual optante pelo Microempreendedor Individual (MEI), inscrito no CNPJ sob o nº 26.581.175/0001-23, com sede na Rua Dom Antônio Cabral, nº 225, Bairro São Luiz, Volta Redonda/RJ, CEP 27286-210, titular dos direitos e da plataforma digital ${APP_NOME.toUpperCase()} (https://gd.oficial.tec.br).`,
     ],
     [
       "LOCATÁRIO E USUÁRIO (CLIENTE):",
@@ -628,7 +628,7 @@ PARÁGRAFO TERCEIRO — DA ÚLTIMA LOCALIZAÇÃO CONHECIDA E ISENÇÃO DE RESPON
     `CLÁUSULA DÉCIMA - DA LICENÇA DE USO DE SOFTWARE E PROPRIEDADE INTELECTUAL: A plataforma ${APP_NOME.toUpperCase()}, seus módulos, marcas, logotipos, interfaces e códigos constituem propriedade intelectual exclusiva de Dario de Novaes Gonçalves Junior, protegidos pela Lei nº 9.609/1998 (Lei do Software) e pela Lei nº 9.279/1996 (Propriedade Industrial). É concedida ao LOCATÁRIO licença de uso pessoal, temporária, intransferível e não exclusiva, sendo expressamente vedada qualquer engenharia reversa, cópia, sublicenciamento ou desvio de finalidade.`,
 
     // CLÁUSULA 11 — Assinatura Eletrônica, Autenticidade e Força Probatória
-    `CLÁUSULA DÉCIMA PRIMEIRA - DA ASSINATURA ELETRÔNICA, AUTENTICIDADE E FORÇA EXECUTIVA: As partes reconhecem a plena validade jurídica, eficácia probatória e executividade deste contrato formalizado por meio eletrônico (art. 10, § 2º, da MP nº 2.200-2/2001 e art. 784, III, do CPC), gerando hash criptográfico SHA-256 e selo de autenticidade SGD gravados imutavelmente no banco de dados. Qualquer via impressa ou digital emitida conterá o selo e código de verificação para conferência pública de integridade em https://sigoguardiao.oficial.tec.br/verificar.`,
+    `CLÁUSULA DÉCIMA PRIMEIRA - DA ASSINATURA ELETRÔNICA, AUTENTICIDADE E FORÇA EXECUTIVA: As partes reconhecem a plena validade jurídica, eficácia probatória e executividade deste contrato formalizado por meio eletrônico (art. 10, § 2º, da MP nº 2.200-2/2001 e art. 784, III, do CPC), gerando hash criptográfico SHA-256 e selo de autenticidade SGD gravados imutavelmente no banco de dados. Qualquer via impressa ou digital emitida conterá o selo e código de verificação para conferência pública de integridade em https://gd.oficial.tec.br/verificar.`,
 
     // CLÁUSULA 12 — Foro de Eleição
     `CLÁUSULA DÉCIMA SEGUNDA - DO FORO DE ELEIÇÃO: Para dirimir quaisquer controvérsias oriundas da interpretação ou execução do presente instrumento, as partes elegem, com renúncia expressa a qualquer outro por mais privilegiado que seja, o Foro da Comarca de ${APP_CIDADE_FORO.toUpperCase()}.`,

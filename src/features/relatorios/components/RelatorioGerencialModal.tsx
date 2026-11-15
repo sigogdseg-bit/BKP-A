@@ -1,6 +1,6 @@
 // RelatorioGerencialModal.tsx — GD Rastreamento
 // Configuração do Relatório Gerencial Diário (Métricas, Destinatários, Horário e Canais)
-// Design Canônico: Modos Claro (#eaf0f8 / Neumórfico) e Escuro (Slate-900)
+// Design Canônico: Modos Claro (#fbf2e9 / Neumórfico) e Escuro (Slate-900)
 
 import { useState, useEffect } from "react";
 import {
@@ -166,19 +166,19 @@ export function RelatorioGerencialModal({ aberto, onClose }: RelatorioGerencialM
 
   // Classes de layout canônico claro/escuro
   const modalBoxClass = isNeumorph
-    ? "bg-[#eaf0f8] dark:bg-slate-900 text-slate-800 dark:text-slate-100 shadow-[8px_8px_24px_#c3cfe2] dark:shadow-[8px_8px_30px_rgba(0,0,0,0.8)] border border-slate-300/60 dark:border-slate-800"
+    ? "bg-[#fbf2e9] dark:bg-slate-900 text-slate-800 dark:text-slate-100 shadow-[8px_8px_24px_#c3cfe2] dark:shadow-[8px_8px_30px_rgba(0,0,0,0.8)] border border-slate-300/60 dark:border-slate-800"
     : "bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-800 shadow-2xl";
 
   const cardSectionClass = isNeumorph
-    ? "p-4 rounded-2xl bg-[#eaf0f8] dark:bg-slate-950/60 border border-slate-300/50 dark:border-slate-800/80 shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.4)]"
+    ? "p-4 rounded-2xl bg-[#fbf2e9] dark:bg-slate-950/60 border border-slate-300/50 dark:border-slate-800/80 shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.4)]"
     : "p-4 rounded-2xl bg-slate-50 dark:bg-slate-950/50 border border-slate-200 dark:border-slate-800";
 
   const inputClass = isNeumorph
-    ? "py-2 px-3 rounded-xl bg-[#eaf0f8] dark:bg-slate-900 text-slate-800 dark:text-slate-100 text-xs shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.5)] border border-slate-300/50 dark:border-slate-800 outline-none focus:ring-2 focus:ring-[#00CFCC] transition"
+    ? "py-2 px-3 rounded-xl bg-[#fbf2e9] dark:bg-slate-900 text-slate-800 dark:text-slate-100 text-xs shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.5)] border border-slate-300/50 dark:border-slate-800 outline-none focus:ring-2 focus:ring-[#00CFCC] transition"
     : "py-2 px-3 rounded-xl bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 text-xs border border-slate-200 dark:border-slate-800 outline-none focus:ring-2 focus:ring-emerald-500/50 transition";
 
   const btnSecondaryClass = isNeumorph
-    ? "px-3 py-2 rounded-xl text-xs font-bold bg-[#eaf0f8] dark:bg-slate-800 text-slate-700 dark:text-slate-200 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none border border-slate-300/60 dark:border-slate-700 hover:shadow-[3px_3px_6px_#c3cfe2] active:shadow-[inset_2px_2px_4px_#c8d4e4] transition flex items-center justify-center gap-1.5 cursor-pointer"
+    ? "px-3 py-2 rounded-xl text-xs font-bold bg-[#fbf2e9] dark:bg-slate-800 text-slate-700 dark:text-slate-200 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none border border-slate-300/60 dark:border-slate-700 hover:shadow-[3px_3px_6px_#c3cfe2] active:shadow-[inset_2px_2px_4px_#c8d4e4] transition flex items-center justify-center gap-1.5 cursor-pointer"
     : "px-3 py-2 rounded-xl text-xs font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition flex items-center justify-center gap-1.5 cursor-pointer";
 
   return (
@@ -193,7 +193,7 @@ export function RelatorioGerencialModal({ aberto, onClose }: RelatorioGerencialM
               <div
                 className={`p-2.5 rounded-2xl ${
                   isNeumorph
-                    ? "bg-[#eaf0f8] dark:bg-slate-800 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none text-indigo-600 dark:text-indigo-400"
+                    ? "bg-[#fbf2e9] dark:bg-slate-800 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none text-indigo-600 dark:text-indigo-400"
                     : "bg-indigo-500/10 text-indigo-600 dark:text-indigo-400"
                 }`}
               >
@@ -306,7 +306,7 @@ export function RelatorioGerencialModal({ aberto, onClose }: RelatorioGerencialM
                             ? "bg-emerald-500/10 dark:bg-emerald-950/30 border-emerald-400/50 text-emerald-800 dark:text-emerald-300 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none"
                             : "bg-emerald-500/10 border-emerald-500/30 text-emerald-700 dark:text-emerald-300"
                           : isNeumorph
-                            ? "bg-[#eaf0f8] dark:bg-slate-900 border-slate-300/40 dark:border-slate-800 opacity-60"
+                            ? "bg-[#fbf2e9] dark:bg-slate-900 border-slate-300/40 dark:border-slate-800 opacity-60"
                             : "bg-slate-50 dark:bg-slate-900 border-slate-200 dark:border-slate-800 opacity-60"
                       }`}
                     >
@@ -343,7 +343,7 @@ export function RelatorioGerencialModal({ aberto, onClose }: RelatorioGerencialM
                             ? "bg-indigo-500/10 dark:bg-indigo-950/30 border-indigo-400/50 text-indigo-800 dark:text-indigo-300 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none"
                             : "bg-indigo-500/10 border-indigo-500/30 text-indigo-700 dark:text-indigo-300"
                           : isNeumorph
-                            ? "bg-[#eaf0f8] dark:bg-slate-900 border-slate-300/40 dark:border-slate-800 opacity-60"
+                            ? "bg-[#fbf2e9] dark:bg-slate-900 border-slate-300/40 dark:border-slate-800 opacity-60"
                             : "bg-slate-50 dark:bg-slate-900 border-slate-200 dark:border-slate-800 opacity-60"
                       }`}
                     >
@@ -378,7 +378,7 @@ export function RelatorioGerencialModal({ aberto, onClose }: RelatorioGerencialM
                             ? "bg-blue-500/10 dark:bg-blue-950/30 border-blue-400/50 text-blue-800 dark:text-blue-300 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none"
                             : "bg-blue-500/10 border-blue-500/30 text-blue-700 dark:text-blue-300"
                           : isNeumorph
-                            ? "bg-[#eaf0f8] dark:bg-slate-900 border-slate-300/40 dark:border-slate-800 opacity-60"
+                            ? "bg-[#fbf2e9] dark:bg-slate-900 border-slate-300/40 dark:border-slate-800 opacity-60"
                             : "bg-slate-50 dark:bg-slate-900 border-slate-200 dark:border-slate-800 opacity-60"
                       }`}
                     >
@@ -425,7 +425,7 @@ export function RelatorioGerencialModal({ aberto, onClose }: RelatorioGerencialM
                               ? "bg-indigo-500/5 border-indigo-300/40 dark:border-indigo-800/60"
                               : "bg-indigo-50/50 dark:bg-indigo-950/20 border-indigo-200 dark:border-indigo-800"
                             : isNeumorph
-                              ? "bg-[#eaf0f8] dark:bg-slate-900 border-slate-300/50 dark:border-slate-800"
+                              ? "bg-[#fbf2e9] dark:bg-slate-900 border-slate-300/50 dark:border-slate-800"
                               : "bg-slate-50 dark:bg-slate-900 border-slate-200 dark:border-slate-800"
                         }`}
                       >
@@ -544,7 +544,7 @@ export function RelatorioGerencialModal({ aberto, onClose }: RelatorioGerencialM
                       className={`p-3 rounded-xl border flex items-center justify-between cursor-pointer transition ${
                         config.secoes_ativas.frota
                           ? isNeumorph
-                            ? "bg-[#eaf0f8] dark:bg-slate-900 border-indigo-400/50 shadow-[2px_2px_4px_#c3cfe2] dark:shadow-none"
+                            ? "bg-[#fbf2e9] dark:bg-slate-900 border-indigo-400/50 shadow-[2px_2px_4px_#c3cfe2] dark:shadow-none"
                             : "bg-indigo-50/40 dark:bg-slate-900 border-indigo-300 dark:border-indigo-800"
                           : "opacity-50 border-slate-300/40 dark:border-slate-800"
                       }`}
@@ -579,7 +579,7 @@ export function RelatorioGerencialModal({ aberto, onClose }: RelatorioGerencialM
                       className={`p-3 rounded-xl border flex items-center justify-between cursor-pointer transition ${
                         config.secoes_ativas.alertas
                           ? isNeumorph
-                            ? "bg-[#eaf0f8] dark:bg-slate-900 border-indigo-400/50 shadow-[2px_2px_4px_#c3cfe2] dark:shadow-none"
+                            ? "bg-[#fbf2e9] dark:bg-slate-900 border-indigo-400/50 shadow-[2px_2px_4px_#c3cfe2] dark:shadow-none"
                             : "bg-indigo-50/40 dark:bg-slate-900 border-indigo-300 dark:border-indigo-800"
                           : "opacity-50 border-slate-300/40 dark:border-slate-800"
                       }`}
@@ -614,7 +614,7 @@ export function RelatorioGerencialModal({ aberto, onClose }: RelatorioGerencialM
                       className={`p-3 rounded-xl border flex items-center justify-between cursor-pointer transition ${
                         config.secoes_ativas.financeiro
                           ? isNeumorph
-                            ? "bg-[#eaf0f8] dark:bg-slate-900 border-indigo-400/50 shadow-[2px_2px_4px_#c3cfe2] dark:shadow-none"
+                            ? "bg-[#fbf2e9] dark:bg-slate-900 border-indigo-400/50 shadow-[2px_2px_4px_#c3cfe2] dark:shadow-none"
                             : "bg-indigo-50/40 dark:bg-slate-900 border-indigo-300 dark:border-indigo-800"
                           : "opacity-50 border-slate-300/40 dark:border-slate-800"
                       }`}
@@ -649,7 +649,7 @@ export function RelatorioGerencialModal({ aberto, onClose }: RelatorioGerencialM
                       className={`p-3 rounded-xl border flex items-center justify-between cursor-pointer transition ${
                         config.secoes_ativas.infraestrutura
                           ? isNeumorph
-                            ? "bg-[#eaf0f8] dark:bg-slate-900 border-indigo-400/50 shadow-[2px_2px_4px_#c3cfe2] dark:shadow-none"
+                            ? "bg-[#fbf2e9] dark:bg-slate-900 border-indigo-400/50 shadow-[2px_2px_4px_#c3cfe2] dark:shadow-none"
                             : "bg-indigo-50/40 dark:bg-slate-900 border-indigo-300 dark:border-indigo-800"
                           : "opacity-50 border-slate-300/40 dark:border-slate-800"
                       }`}
@@ -684,7 +684,7 @@ export function RelatorioGerencialModal({ aberto, onClose }: RelatorioGerencialM
                       className={`p-3 rounded-xl border flex items-center justify-between cursor-pointer transition ${
                         config.secoes_ativas.chips
                           ? isNeumorph
-                            ? "bg-[#eaf0f8] dark:bg-slate-900 border-indigo-400/50 shadow-[2px_2px_4px_#c3cfe2] dark:shadow-none"
+                            ? "bg-[#fbf2e9] dark:bg-slate-900 border-indigo-400/50 shadow-[2px_2px_4px_#c3cfe2] dark:shadow-none"
                             : "bg-indigo-50/40 dark:bg-slate-900 border-indigo-300 dark:border-indigo-800"
                           : "opacity-50 border-slate-300/40 dark:border-slate-800"
                       }`}
@@ -719,7 +719,7 @@ export function RelatorioGerencialModal({ aberto, onClose }: RelatorioGerencialM
                       className={`p-3 rounded-xl border flex items-center justify-between cursor-pointer transition ${
                         config.secoes_ativas.gateways
                           ? isNeumorph
-                            ? "bg-[#eaf0f8] dark:bg-slate-900 border-indigo-400/50 shadow-[2px_2px_4px_#c3cfe2] dark:shadow-none"
+                            ? "bg-[#fbf2e9] dark:bg-slate-900 border-indigo-400/50 shadow-[2px_2px_4px_#c3cfe2] dark:shadow-none"
                             : "bg-indigo-50/40 dark:bg-slate-900 border-indigo-300 dark:border-indigo-800"
                           : "opacity-50 border-slate-300/40 dark:border-slate-800"
                       }`}
@@ -754,7 +754,7 @@ export function RelatorioGerencialModal({ aberto, onClose }: RelatorioGerencialM
                       className={`p-3 rounded-xl border flex items-center justify-between cursor-pointer transition ${
                         config.secoes_ativas.dre
                           ? isNeumorph
-                            ? "bg-[#eaf0f8] dark:bg-slate-900 border-indigo-400/50 shadow-[2px_2px_4px_#c3cfe2] dark:shadow-none"
+                            ? "bg-[#fbf2e9] dark:bg-slate-900 border-indigo-400/50 shadow-[2px_2px_4px_#c3cfe2] dark:shadow-none"
                             : "bg-indigo-50/40 dark:bg-slate-900 border-indigo-300 dark:border-indigo-800"
                           : "opacity-50 border-slate-300/40 dark:border-slate-800"
                       }`}

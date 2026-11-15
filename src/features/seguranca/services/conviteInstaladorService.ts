@@ -89,9 +89,7 @@ export async function gerarLinkConviteInstalador(observacoes?: string): Promise<
 
     if (tokenGerado) {
       const baseUrl =
-        typeof window !== "undefined"
-          ? window.location.origin
-          : "https://sigoguardiao.oficial.tec.br";
+        typeof window !== "undefined" ? window.location.origin : "https://gd.oficial.tec.br";
       const linkCompleto = `${baseUrl}/cadastro-instalador?token=${tokenGerado}`;
 
       return {

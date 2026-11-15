@@ -34,12 +34,12 @@ export const Route = createRootRouteWithContext<{
       { name: "description", content: APP_SLOGAN },
       {
         name: "theme-color",
-        content: "#eaf0f8",
+        content: "#fbf2e9",
         media: "(prefers-color-scheme: light)",
       },
       {
         name: "theme-color",
-        content: "#0c121c",
+        content: "#110e0c",
         media: "(prefers-color-scheme: dark)",
       },
       { name: "mobile-web-app-capable", content: "yes" },
@@ -94,7 +94,7 @@ function RootComponent() {
       </head>
       <body
         suppressHydrationWarning
-        className="min-h-screen bg-[#eaf0f8] dark:bg-slate-950 text-slate-800 dark:text-slate-100 antialiased selection:bg-emerald-500/30 selection:text-emerald-300 transition-colors duration-200"
+        className="min-h-screen bg-[#fbf2e9] dark:bg-slate-950 text-slate-800 dark:text-slate-100 antialiased selection:bg-orange-500/30 selection:text-orange-600 dark:selection:text-orange-300 transition-colors duration-200"
       >
         <QueryClientProvider client={queryClient}>
           <ThemeProvider>
@@ -113,7 +113,7 @@ function RootComponent() {
 
 function NotFoundComponent() {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center p-4 bg-[#eaf0f8] dark:bg-slate-950 text-slate-800 dark:text-slate-100 select-none transition-colors">
+    <div className="min-h-screen flex flex-col items-center justify-center p-4 bg-[#fbf2e9] dark:bg-slate-950 text-slate-800 dark:text-slate-100 select-none transition-colors">
       <div className="text-center max-w-md space-y-4 p-8 bg-white/80 dark:bg-slate-900/80 rounded-3xl border border-slate-300/60 dark:border-slate-800 shadow-[6px_6px_20px_#c3cfe2] dark:shadow-2xl">
         <div className="text-6xl font-black font-mono text-emerald-600 dark:text-emerald-400">
           404
@@ -157,7 +157,7 @@ function RootErrorComponent({ error, reset }: { error: any; reset: () => void })
   }, [isChunkError]);
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center p-4 bg-[#eaf0f8] dark:bg-slate-950 text-slate-800 dark:text-slate-100 select-none transition-colors">
+    <div className="min-h-screen flex flex-col items-center justify-center p-4 bg-[#fbf2e9] dark:bg-slate-950 text-slate-800 dark:text-slate-100 select-none transition-colors">
       <div className="text-center max-w-md space-y-4 p-8 bg-white/80 dark:bg-slate-900/80 rounded-3xl border border-slate-300/60 dark:border-slate-800 shadow-[6px_6px_20px_#c3cfe2] dark:shadow-2xl">
         <div className="w-12 h-12 rounded-2xl bg-amber-500/10 text-amber-500 flex items-center justify-center mx-auto">
           <AlertTriangle className="w-6 h-6" />

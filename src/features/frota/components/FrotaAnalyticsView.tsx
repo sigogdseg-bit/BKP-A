@@ -1864,7 +1864,7 @@ export function FrotaAnalyticsView() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       {/* 1. CABEÇALHO EXECUTIVO E CONTROLES DE FILTRO                        */}
       {/* ─────────────────────────────────────────────────────────────────── */}
-      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 p-5 sm:p-6 rounded-3xl shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl">
+      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 p-5 sm:p-6 rounded-3xl shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl">
         <div>
           <div className="flex items-center gap-2">
             <h1 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-slate-100 tracking-tight">
@@ -1884,7 +1884,7 @@ export function FrotaAnalyticsView() {
         <div className="flex flex-wrap items-center gap-2.5">
           {/* Seletor de Cliente (Administrador) */}
           {ehAdminOuOperador && (
-            <div className="flex items-center gap-2 bg-[#eaf0f8] dark:bg-slate-950 border border-slate-300/60 dark:border-slate-800 rounded-xl px-3 py-1.5 shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6)]">
+            <div className="flex items-center gap-2 bg-[#fbf2e9] dark:bg-slate-950 border border-slate-300/60 dark:border-slate-800 rounded-xl px-3 py-1.5 shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6)]">
               <Search className="h-3.5 w-3.5 text-slate-400" />
               <select
                 value={clienteSelecionadoId}
@@ -1915,7 +1915,7 @@ export function FrotaAnalyticsView() {
           <select
             value={placaFiltro}
             onChange={(e) => setPlacaFiltro(e.target.value)}
-            className="bg-[#eaf0f8] dark:bg-slate-950 border border-slate-300/60 dark:border-slate-800 text-xs font-bold rounded-xl px-3 py-2 text-slate-700 dark:text-slate-200 outline-none shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6)] uppercase"
+            className="bg-[#fbf2e9] dark:bg-slate-950 border border-slate-300/60 dark:border-slate-800 text-xs font-bold rounded-xl px-3 py-2 text-slate-700 dark:text-slate-200 outline-none shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6)] uppercase"
           >
             <option value="todos">
               {veiculosDisponiveis.length > 0
@@ -1933,7 +1933,7 @@ export function FrotaAnalyticsView() {
           </select>
 
           {/* Seletor de Período Dinâmico (Rápido, Dia Específico, Mês/Ano) */}
-          <div className="flex flex-wrap items-center gap-1.5 p-1 rounded-2xl bg-[#eaf0f8] dark:bg-slate-950 border border-slate-300/60 dark:border-slate-800 text-xs font-bold shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6)]">
+          <div className="flex flex-wrap items-center gap-1.5 p-1 rounded-2xl bg-[#fbf2e9] dark:bg-slate-950 border border-slate-300/60 dark:border-slate-800 text-xs font-bold shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6)]">
             {/* Atalhos Rápidos */}
             <button
               onClick={() => {
@@ -2026,7 +2026,7 @@ export function FrotaAnalyticsView() {
                   type="date"
                   value={dataDiaFiltro}
                   onChange={(e) => setDataDiaFiltro(e.target.value)}
-                  className="px-2 py-1 text-xs rounded-lg bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-700 text-slate-800 dark:text-slate-100 font-mono outline-none shadow-[inset_1px_1px_3px_#c8d4e4,inset_-1px_-1px_3px_#ffffff] focus:ring-1 focus:ring-blue-500 cursor-pointer"
+                  className="px-2 py-1 text-xs rounded-lg bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-700 text-slate-800 dark:text-slate-100 font-mono outline-none shadow-[inset_1px_1px_3px_#c8d4e4,inset_-1px_-1px_3px_#ffffff] focus:ring-1 focus:ring-blue-500 cursor-pointer"
                 />
               </div>
             )}
@@ -2036,7 +2036,7 @@ export function FrotaAnalyticsView() {
                 <select
                   value={mesFiltro}
                   onChange={(e) => setMesFiltro(Number(e.target.value))}
-                  className="px-2 py-1 text-xs rounded-lg bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-700 text-slate-800 dark:text-slate-100 font-semibold outline-none shadow-[inset_1px_1px_3px_#c8d4e4,inset_-1px_-1px_3px_#ffffff] focus:ring-1 focus:ring-blue-500 cursor-pointer"
+                  className="px-2 py-1 text-xs rounded-lg bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-700 text-slate-800 dark:text-slate-100 font-semibold outline-none shadow-[inset_1px_1px_3px_#c8d4e4,inset_-1px_-1px_3px_#ffffff] focus:ring-1 focus:ring-blue-500 cursor-pointer"
                 >
                   {NOMES_MESES.map((m) => (
                     <option key={m.valor} value={m.valor}>
@@ -2047,7 +2047,7 @@ export function FrotaAnalyticsView() {
                 <select
                   value={anoFiltro}
                   onChange={(e) => setAnoFiltro(Number(e.target.value))}
-                  className="px-2 py-1 text-xs rounded-lg bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-700 text-slate-800 dark:text-slate-100 font-mono outline-none shadow-[inset_1px_1px_3px_#c8d4e4,inset_-1px_-1px_3px_#ffffff] focus:ring-1 focus:ring-blue-500 cursor-pointer"
+                  className="px-2 py-1 text-xs rounded-lg bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-700 text-slate-800 dark:text-slate-100 font-mono outline-none shadow-[inset_1px_1px_3px_#c8d4e4,inset_-1px_-1px_3px_#ffffff] focus:ring-1 focus:ring-blue-500 cursor-pointer"
                 >
                   {ANOS_FILTRO.map((a) => (
                     <option key={a} value={a}>
@@ -2074,7 +2074,7 @@ export function FrotaAnalyticsView() {
           <button
             onClick={carregarDados}
             disabled={loading}
-            className="p-2 rounded-xl border border-slate-300/60 dark:border-slate-700 bg-[#eaf0f8] dark:bg-slate-800 hover:bg-[#dfe7f2] dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 transition shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none active:shadow-[inset_2px_2px_4px_#c8d4e4] cursor-pointer"
+            className="p-2 rounded-xl border border-slate-300/60 dark:border-slate-700 bg-[#fbf2e9] dark:bg-slate-800 hover:bg-[#dfe7f2] dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 transition shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none active:shadow-[inset_2px_2px_4px_#c8d4e4] cursor-pointer"
             title="Atualizar dados de telemetria"
           >
             <RefreshCw className={`h-3.5 w-3.5 ${loading ? "animate-spin" : ""}`} />
@@ -2085,13 +2085,13 @@ export function FrotaAnalyticsView() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       {/* 2. BARRA DE ABAS ANALÍTICAS EXECUTIVAS                               */}
       {/* ─────────────────────────────────────────────────────────────────── */}
-      <div className="flex flex-wrap items-center justify-between gap-3 bg-[#eaf0f8] dark:bg-slate-950 p-1.5 rounded-2xl border border-slate-300/60 dark:border-slate-800 shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6)]">
+      <div className="flex flex-wrap items-center justify-between gap-3 bg-[#fbf2e9] dark:bg-slate-950 p-1.5 rounded-2xl border border-slate-300/60 dark:border-slate-800 shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6)]">
         <div className="flex flex-wrap items-center gap-1.5">
           <button
             onClick={() => setAbaAtiva("operacional")}
             className={`px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2 whitespace-nowrap cursor-pointer ${
               abaAtiva === "operacional"
-                ? "bg-[#eaf0f8] dark:bg-slate-900 text-blue-600 dark:text-blue-400 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none border border-slate-300/60 dark:border-slate-700"
+                ? "bg-[#fbf2e9] dark:bg-slate-900 text-blue-600 dark:text-blue-400 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none border border-slate-300/60 dark:border-slate-700"
                 : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
             }`}
           >
@@ -2103,7 +2103,7 @@ export function FrotaAnalyticsView() {
             onClick={() => setAbaAtiva("financeiro")}
             className={`px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2 whitespace-nowrap cursor-pointer ${
               abaAtiva === "financeiro"
-                ? "bg-[#eaf0f8] dark:bg-slate-900 text-emerald-600 dark:text-emerald-400 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none border border-slate-300/60 dark:border-slate-700"
+                ? "bg-[#fbf2e9] dark:bg-slate-900 text-emerald-600 dark:text-emerald-400 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none border border-slate-300/60 dark:border-slate-700"
                 : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
             }`}
           >
@@ -2115,7 +2115,7 @@ export function FrotaAnalyticsView() {
             onClick={() => setAbaAtiva("seguranca")}
             className={`px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2 whitespace-nowrap cursor-pointer ${
               abaAtiva === "seguranca"
-                ? "bg-[#eaf0f8] dark:bg-slate-900 text-amber-600 dark:text-amber-400 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none border border-slate-300/60 dark:border-slate-700"
+                ? "bg-[#fbf2e9] dark:bg-slate-900 text-amber-600 dark:text-amber-400 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none border border-slate-300/60 dark:border-slate-700"
                 : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
             }`}
           >
@@ -2127,7 +2127,7 @@ export function FrotaAnalyticsView() {
             onClick={() => setAbaAtiva("manutencao")}
             className={`px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2 whitespace-nowrap cursor-pointer ${
               abaAtiva === "manutencao"
-                ? "bg-[#eaf0f8] dark:bg-slate-900 text-purple-600 dark:text-purple-400 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none border border-slate-300/60 dark:border-slate-700"
+                ? "bg-[#fbf2e9] dark:bg-slate-900 text-purple-600 dark:text-purple-400 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none border border-slate-300/60 dark:border-slate-700"
                 : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
             }`}
           >
@@ -2149,7 +2149,7 @@ export function FrotaAnalyticsView() {
 
         {/* Toggle Anti-Ruído: Ocultar dias sem deslocamento */}
         {abaAtiva === "operacional" && (
-          <label className="flex items-center gap-2 cursor-pointer px-3 py-1 bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-700 rounded-xl text-xs font-bold text-slate-700 dark:text-slate-300 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none">
+          <label className="flex items-center gap-2 cursor-pointer px-3 py-1 bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-700 rounded-xl text-xs font-bold text-slate-700 dark:text-slate-300 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none">
             <input
               type="checkbox"
               checked={ocultarSemDeslocamento}
@@ -2199,7 +2199,7 @@ export function FrotaAnalyticsView() {
                     filtroOperacionalKpi === "score_critico" ||
                     filtroOperacionalKpi === "score_excelente"
                       ? "bg-blue-50/80 dark:bg-blue-950/30 border-blue-500 ring-2 ring-blue-500/50 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none"
-                      : "bg-[#eaf0f8] dark:bg-slate-900 border-slate-300/60 dark:border-slate-800 hover:border-blue-300 dark:hover:border-blue-700 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_14px_#b8c6da]"
+                      : "bg-[#fbf2e9] dark:bg-slate-900 border-slate-300/60 dark:border-slate-800 hover:border-blue-300 dark:hover:border-blue-700 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_14px_#b8c6da]"
                   }`}
                   title="Clique para alternar filtro entre Condução Crítica (<75) e Excelente (>=90)"
                 >
@@ -2247,7 +2247,7 @@ export function FrotaAnalyticsView() {
                   className={`p-5 rounded-3xl border transition-all cursor-pointer relative group hover:scale-[1.01] ${
                     ocultarSemDeslocamento
                       ? "bg-emerald-50/80 dark:bg-emerald-950/30 border-emerald-500 ring-2 ring-emerald-500/50 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none"
-                      : "bg-[#eaf0f8] dark:bg-slate-900 border-slate-300/60 dark:border-slate-800 hover:border-emerald-300 dark:hover:border-emerald-700 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_14px_#b8c6da]"
+                      : "bg-[#fbf2e9] dark:bg-slate-900 border-slate-300/60 dark:border-slate-800 hover:border-emerald-300 dark:hover:border-emerald-700 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_14px_#b8c6da]"
                   }`}
                   title="Clique para alternar entre exibir apenas dias com circulação ou todos os dias"
                 >
@@ -2289,7 +2289,7 @@ export function FrotaAnalyticsView() {
                   className={`p-5 rounded-3xl border transition-all cursor-pointer relative group hover:scale-[1.01] ${
                     filtroOperacionalKpi === "com_direcao"
                       ? "bg-blue-50/80 dark:bg-blue-950/30 border-blue-500 ring-2 ring-blue-500/50 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none"
-                      : "bg-[#eaf0f8] dark:bg-slate-900 border-slate-300/60 dark:border-slate-800 hover:border-blue-300 dark:hover:border-blue-700 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_14px_#b8c6da]"
+                      : "bg-[#fbf2e9] dark:bg-slate-900 border-slate-300/60 dark:border-slate-800 hover:border-blue-300 dark:hover:border-blue-700 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_14px_#b8c6da]"
                   }`}
                   title="Clique para filtrar dias com tempo de direção registrado (soma de todos os ciclos de condução)"
                 >
@@ -2329,7 +2329,7 @@ export function FrotaAnalyticsView() {
                   className={`p-5 rounded-3xl border transition-all cursor-pointer relative group hover:scale-[1.01] ${
                     filtroOperacionalKpi === "excesso_velocidade"
                       ? "bg-amber-50/80 dark:bg-amber-950/30 border-amber-500 ring-2 ring-amber-500/50 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none"
-                      : "bg-[#eaf0f8] dark:bg-slate-900 border-slate-300/60 dark:border-slate-800 hover:border-amber-300 dark:hover:border-amber-700 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_14px_#b8c6da]"
+                      : "bg-[#fbf2e9] dark:bg-slate-900 border-slate-300/60 dark:border-slate-800 hover:border-amber-300 dark:hover:border-amber-700 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_14px_#b8c6da]"
                   }`}
                   title="Clique para filtrar dias com excesso de velocidade (> 90 km/h)"
                 >
@@ -2370,7 +2370,7 @@ export function FrotaAnalyticsView() {
                   className={`p-5 rounded-3xl border transition-all cursor-pointer relative group hover:scale-[1.01] ${
                     filtroOperacionalKpi === "com_ociosidade"
                       ? "bg-purple-50/80 dark:bg-purple-950/30 border-purple-500 ring-2 ring-purple-500/50 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none"
-                      : "bg-[#eaf0f8] dark:bg-slate-900 border-slate-300/60 dark:border-slate-800 hover:border-purple-300 dark:hover:border-purple-700 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_14px_#b8c6da]"
+                      : "bg-[#fbf2e9] dark:bg-slate-900 border-slate-300/60 dark:border-slate-800 hover:border-purple-300 dark:hover:border-purple-700 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_14px_#b8c6da]"
                   }`}
                   title="Clique para filtrar dias com tempo ocioso registrado (motor ligado sem deslocar)"
                 >
@@ -2433,7 +2433,7 @@ export function FrotaAnalyticsView() {
               {/* GRÁFICOS OPERACIONAIS */}
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 {/* GRÁFICO 1: EVOLUÇÃO DE KM DIÁRIO */}
-                <div className="bg-[#eaf0f8] dark:bg-slate-900 p-5 rounded-3xl border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl">
+                <div className="bg-[#fbf2e9] dark:bg-slate-900 p-5 rounded-3xl border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl">
                   <h3 className="font-bold text-slate-800 dark:text-slate-100 text-sm flex items-center gap-2 mb-4">
                     <TrendingUp className="h-4 w-4 text-blue-500" />
                     Quilometragem Diária Percorrida (KM)
@@ -2477,7 +2477,7 @@ export function FrotaAnalyticsView() {
                 </div>
 
                 {/* GRÁFICO 2: SCORE VS VELOCIDADE */}
-                <div className="bg-[#eaf0f8] dark:bg-slate-900 p-5 rounded-3xl border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl">
+                <div className="bg-[#fbf2e9] dark:bg-slate-900 p-5 rounded-3xl border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl">
                   <h3 className="font-bold text-slate-800 dark:text-slate-100 text-sm flex items-center gap-2 mb-4">
                     <Activity className="h-4 w-4 text-emerald-500" />
                     Score de Condução e Velocidade Máxima
@@ -2526,7 +2526,7 @@ export function FrotaAnalyticsView() {
               </div>
 
               {/* TABELA DE REGISTROS DIÁRIOS OPERACIONAIS COM ORDENAÇÃO BIDIRECIONAL */}
-              <div className="bg-[#eaf0f8] dark:bg-slate-900 rounded-3xl border border-slate-300/60 dark:border-slate-800 overflow-hidden shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl">
+              <div className="bg-[#fbf2e9] dark:bg-slate-900 rounded-3xl border border-slate-300/60 dark:border-slate-800 overflow-hidden shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl">
                 <div className="p-4 sm:p-5 border-b border-slate-300/40 dark:border-slate-800 flex flex-wrap items-center justify-between gap-2">
                   <h3 className="font-bold text-slate-800 dark:text-slate-100 text-sm flex items-center gap-2">
                     <Car className="h-4 w-4 text-blue-500" />
@@ -2540,7 +2540,7 @@ export function FrotaAnalyticsView() {
 
                 <div className="overflow-x-auto">
                   <table className="w-full text-left text-xs">
-                    <thead className="bg-[#eaf0f8] dark:bg-slate-950/50 text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider border-b border-slate-300/60 dark:border-slate-800">
+                    <thead className="bg-[#fbf2e9] dark:bg-slate-950/50 text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider border-b border-slate-300/60 dark:border-slate-800">
                       <tr>
                         <CabecalhoOrdenavel
                           titulo="Veículo / Placa"
@@ -2739,7 +2739,7 @@ export function FrotaAnalyticsView() {
                   className={`p-5 rounded-3xl border transition-all cursor-pointer relative group hover:scale-[1.01] ${
                     filtroFinanceiroCategoria === "todas"
                       ? "bg-emerald-50/80 dark:bg-emerald-950/30 border-emerald-500 ring-2 ring-emerald-500/50 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none"
-                      : "bg-[#eaf0f8] dark:bg-slate-900 border-slate-300/60 dark:border-slate-800 hover:border-emerald-300 dark:hover:border-emerald-700 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_14px_#b8c6da]"
+                      : "bg-[#fbf2e9] dark:bg-slate-900 border-slate-300/60 dark:border-slate-800 hover:border-emerald-300 dark:hover:border-emerald-700 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_14px_#b8c6da]"
                   }`}
                   title="Clique para exibir todos os lançamentos de custos"
                 >
@@ -2769,7 +2769,7 @@ export function FrotaAnalyticsView() {
                 <TiltCard
                   maxTilt={6}
                   spotlightColor="rgba(59, 130, 246, 0.35)"
-                  className="bg-[#eaf0f8] dark:bg-slate-900 p-5 rounded-3xl border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none"
+                  className="bg-[#fbf2e9] dark:bg-slate-900 p-5 rounded-3xl border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none"
                   title="Custo unitário real apurado sobre quilometragem rodada"
                 >
                   <div className="flex items-center justify-between text-slate-500 dark:text-slate-400 mb-2">
@@ -2801,7 +2801,7 @@ export function FrotaAnalyticsView() {
                   className={`p-5 rounded-3xl border transition-all cursor-pointer relative group hover:scale-[1.01] ${
                     filtroFinanceiroCategoria === "combustivel"
                       ? "bg-amber-50/80 dark:bg-amber-950/30 border-amber-500 ring-2 ring-amber-500/50 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none"
-                      : "bg-[#eaf0f8] dark:bg-slate-900 border-slate-300/60 dark:border-slate-800 hover:border-amber-300 dark:hover:border-amber-700 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_14px_#b8c6da]"
+                      : "bg-[#fbf2e9] dark:bg-slate-900 border-slate-300/60 dark:border-slate-800 hover:border-amber-300 dark:hover:border-amber-700 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_14px_#b8c6da]"
                   }`}
                   title="Clique para filtrar apenas lançamentos de Combustível"
                 >
@@ -2839,7 +2839,7 @@ export function FrotaAnalyticsView() {
                   className={`p-5 rounded-3xl border transition-all cursor-pointer relative group hover:scale-[1.01] ${
                     filtroFinanceiroCategoria === "manutencao"
                       ? "bg-purple-50/80 dark:bg-purple-950/30 border-purple-500 ring-2 ring-purple-500/50 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none"
-                      : "bg-[#eaf0f8] dark:bg-slate-900 border-slate-300/60 dark:border-slate-800 hover:border-purple-300 dark:hover:border-purple-700 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_14px_#b8c6da]"
+                      : "bg-[#fbf2e9] dark:bg-slate-900 border-slate-300/60 dark:border-slate-800 hover:border-purple-300 dark:hover:border-purple-700 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_14px_#b8c6da]"
                   }`}
                   title="Clique para filtrar apenas lançamentos de Manutenção"
                 >
@@ -2890,7 +2890,7 @@ export function FrotaAnalyticsView() {
               {/* GRÁFICOS FINANCEIROS */}
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 {/* EVOLUÇÃO DIÁRIA DE CUSTOS */}
-                <div className="lg:col-span-2 bg-[#eaf0f8] dark:bg-slate-900 p-5 rounded-3xl border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl">
+                <div className="lg:col-span-2 bg-[#fbf2e9] dark:bg-slate-900 p-5 rounded-3xl border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl">
                   <h3 className="font-bold text-slate-800 dark:text-slate-100 text-sm flex items-center gap-2 mb-4">
                     <BarChart3 className="h-4 w-4 text-emerald-500" />
                     Evolução Diária de Despesas da Frota (R$)
@@ -2945,7 +2945,7 @@ export function FrotaAnalyticsView() {
                 </div>
 
                 {/* COMPOSIÇÃO DE CUSTOS (DONUT INTERATIVO COMO FILTRO) */}
-                <div className="bg-[#eaf0f8] dark:bg-slate-900 p-5 rounded-3xl border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl flex flex-col justify-between">
+                <div className="bg-[#fbf2e9] dark:bg-slate-900 p-5 rounded-3xl border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl flex flex-col justify-between">
                   <div className="flex items-center justify-between mb-2">
                     <h3 className="font-bold text-slate-800 dark:text-slate-100 text-sm flex items-center gap-2">
                       <PieIcon className="h-4 w-4 text-blue-500" />
@@ -3041,7 +3041,7 @@ export function FrotaAnalyticsView() {
               </div>
 
               {/* TABELA DE LANÇAMENTOS FINANCEIROS COM ORDENAÇÃO BIDIRECIONAL */}
-              <div className="bg-[#eaf0f8] dark:bg-slate-900 rounded-3xl border border-slate-300/60 dark:border-slate-800 overflow-hidden shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl">
+              <div className="bg-[#fbf2e9] dark:bg-slate-900 rounded-3xl border border-slate-300/60 dark:border-slate-800 overflow-hidden shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl">
                 <div className="p-4 sm:p-5 border-b border-slate-300/40 dark:border-slate-800 flex flex-wrap items-center justify-between gap-3">
                   <div className="flex items-center gap-2">
                     <DollarSign className="h-4 w-4 text-emerald-500" />
@@ -3209,7 +3209,7 @@ export function FrotaAnalyticsView() {
                   className={`p-5 rounded-3xl border transition-all cursor-pointer relative group hover:scale-[1.01] ${
                     filtroSegurancaTipo === "todos"
                       ? "bg-amber-50/80 dark:bg-amber-950/30 border-amber-500 ring-2 ring-amber-500/50 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none"
-                      : "bg-[#eaf0f8] dark:bg-slate-900 border-slate-300/60 dark:border-slate-800 hover:border-amber-300 dark:hover:border-amber-700 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_14px_#b8c6da]"
+                      : "bg-[#fbf2e9] dark:bg-slate-900 border-slate-300/60 dark:border-slate-800 hover:border-amber-300 dark:hover:border-amber-700 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_14px_#b8c6da]"
                   }`}
                   title="Clique para exibir todos os alertas"
                 >
@@ -3246,7 +3246,7 @@ export function FrotaAnalyticsView() {
                   className={`p-5 rounded-3xl border transition-all cursor-pointer relative group hover:scale-[1.01] ${
                     filtroSegurancaTipo === "velocidade"
                       ? "bg-rose-50/80 dark:bg-rose-950/30 border-rose-500 ring-2 ring-rose-500/50 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none"
-                      : "bg-[#eaf0f8] dark:bg-slate-900 border-slate-300/60 dark:border-slate-800 hover:border-rose-300 dark:hover:border-rose-700 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_14px_#b8c6da]"
+                      : "bg-[#fbf2e9] dark:bg-slate-900 border-slate-300/60 dark:border-slate-800 hover:border-rose-300 dark:hover:border-rose-700 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_14px_#b8c6da]"
                   }`}
                   title="Clique para filtrar apenas excessos de velocidade (> 90 km/h)"
                 >
@@ -3281,7 +3281,7 @@ export function FrotaAnalyticsView() {
                   className={`p-5 rounded-3xl border transition-all cursor-pointer relative group hover:scale-[1.01] ${
                     filtroSegurancaTipo === "critica"
                       ? "bg-rose-50/80 dark:bg-rose-950/30 border-rose-500 ring-2 ring-rose-500/50 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none"
-                      : "bg-[#eaf0f8] dark:bg-slate-900 border-slate-300/60 dark:border-slate-800 hover:border-rose-300 dark:hover:border-rose-700 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_14px_#b8c6da]"
+                      : "bg-[#fbf2e9] dark:bg-slate-900 border-slate-300/60 dark:border-slate-800 hover:border-rose-300 dark:hover:border-rose-700 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_14px_#b8c6da]"
                   }`}
                   title="Clique para filtrar apenas alertas com gravidade Crítica"
                 >
@@ -3316,7 +3316,7 @@ export function FrotaAnalyticsView() {
                   className={`p-5 rounded-3xl border transition-all cursor-pointer relative group hover:scale-[1.01] ${
                     filtroSegurancaTipo === "alta"
                       ? "bg-amber-50/80 dark:bg-amber-950/30 border-amber-500 ring-2 ring-amber-500/50 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none"
-                      : "bg-[#eaf0f8] dark:bg-slate-900 border-slate-300/60 dark:border-slate-800 hover:border-amber-300 dark:hover:border-amber-700 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_14px_#b8c6da]"
+                      : "bg-[#fbf2e9] dark:bg-slate-900 border-slate-300/60 dark:border-slate-800 hover:border-amber-300 dark:hover:border-amber-700 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_14px_#b8c6da]"
                   }`}
                   title="Clique para filtrar apenas alertas com gravidade Alta"
                 >
@@ -3365,7 +3365,7 @@ export function FrotaAnalyticsView() {
               )}
 
               {/* TABELA DE OCORRÊNCIAS DE SEGURANÇA COM ORDENAÇÃO BIDIRECIONAL */}
-              <div className="bg-[#eaf0f8] dark:bg-slate-900 rounded-3xl border border-slate-300/60 dark:border-slate-800 overflow-hidden shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl">
+              <div className="bg-[#fbf2e9] dark:bg-slate-900 rounded-3xl border border-slate-300/60 dark:border-slate-800 overflow-hidden shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl">
                 <div className="p-4 sm:p-5 border-b border-slate-300/40 dark:border-slate-800 flex flex-wrap items-center justify-between gap-2">
                   <h3 className="font-bold text-slate-800 dark:text-slate-100 text-sm flex items-center gap-2">
                     <ShieldAlert className="h-4 w-4 text-amber-500" />
@@ -3503,7 +3503,7 @@ export function FrotaAnalyticsView() {
                   className={`p-5 rounded-3xl border transition-all cursor-pointer relative group hover:scale-[1.01] ${
                     filtroManutencaoStatus === "todos"
                       ? "bg-purple-50/80 dark:bg-purple-950/30 border-purple-500 ring-2 ring-purple-500/50 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none"
-                      : "bg-[#eaf0f8] dark:bg-slate-900 border-slate-300/60 dark:border-slate-800 hover:border-purple-300 dark:hover:border-purple-700 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_14px_#b8c6da]"
+                      : "bg-[#fbf2e9] dark:bg-slate-900 border-slate-300/60 dark:border-slate-800 hover:border-purple-300 dark:hover:border-purple-700 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_14px_#b8c6da]"
                   }`}
                   title="Clique para exibir todos os itens de manutenção"
                 >
@@ -3538,7 +3538,7 @@ export function FrotaAnalyticsView() {
                   className={`p-5 rounded-3xl border transition-all cursor-pointer relative group hover:scale-[1.01] ${
                     filtroManutencaoStatus === "em_dia"
                       ? "bg-emerald-50/80 dark:bg-emerald-950/30 border-emerald-500 ring-2 ring-emerald-500/50 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none"
-                      : "bg-[#eaf0f8] dark:bg-slate-900 border-slate-300/60 dark:border-slate-800 hover:border-emerald-300 dark:hover:border-emerald-700 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_14px_#b8c6da]"
+                      : "bg-[#fbf2e9] dark:bg-slate-900 border-slate-300/60 dark:border-slate-800 hover:border-emerald-300 dark:hover:border-emerald-700 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_14px_#b8c6da]"
                   }`}
                   title="Clique para filtrar apenas itens rigorosamente Em Dia"
                 >
@@ -3573,7 +3573,7 @@ export function FrotaAnalyticsView() {
                   className={`p-5 rounded-3xl border transition-all cursor-pointer relative group hover:scale-[1.01] ${
                     filtroManutencaoStatus === "proxima"
                       ? "bg-amber-50/80 dark:bg-amber-950/30 border-amber-500 ring-2 ring-amber-500/50 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none"
-                      : "bg-[#eaf0f8] dark:bg-slate-900 border-slate-300/60 dark:border-slate-800 hover:border-amber-300 dark:hover:border-amber-700 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_14px_#b8c6da]"
+                      : "bg-[#fbf2e9] dark:bg-slate-900 border-slate-300/60 dark:border-slate-800 hover:border-amber-300 dark:hover:border-amber-700 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_14px_#b8c6da]"
                   }`}
                   title="Clique para filtrar itens Próximos da Revisão (< 1.000 km)"
                 >
@@ -3608,7 +3608,7 @@ export function FrotaAnalyticsView() {
                   className={`p-5 rounded-3xl border transition-all cursor-pointer relative group hover:scale-[1.01] ${
                     filtroManutencaoStatus === "vencida"
                       ? "bg-rose-50/80 dark:bg-rose-950/30 border-rose-500 ring-2 ring-rose-500/50 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none"
-                      : "bg-[#eaf0f8] dark:bg-slate-900 border-slate-300/60 dark:border-slate-800 hover:border-rose-300 dark:hover:border-rose-700 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_14px_#b8c6da]"
+                      : "bg-[#fbf2e9] dark:bg-slate-900 border-slate-300/60 dark:border-slate-800 hover:border-rose-300 dark:hover:border-rose-700 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_14px_#b8c6da]"
                   }`}
                   title="Clique para filtrar apenas Manutenções Vencidas (ação imediata)"
                 >
@@ -3657,7 +3657,7 @@ export function FrotaAnalyticsView() {
               )}
 
               {/* TABELA DE PLANO PREVENTIVO COM ORDENAÇÃO BIDIRECIONAL */}
-              <div className="bg-[#eaf0f8] dark:bg-slate-900 rounded-3xl border border-slate-300/60 dark:border-slate-800 overflow-hidden shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl">
+              <div className="bg-[#fbf2e9] dark:bg-slate-900 rounded-3xl border border-slate-300/60 dark:border-slate-800 overflow-hidden shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl">
                 <div className="p-4 sm:p-5 border-b border-slate-300/40 dark:border-slate-800 flex flex-wrap items-center justify-between gap-2">
                   <h3 className="font-bold text-slate-800 dark:text-slate-100 text-sm flex items-center gap-2">
                     <Wrench className="h-4 w-4 text-purple-500" />
@@ -3670,7 +3670,7 @@ export function FrotaAnalyticsView() {
                 </div>
                 <div className="overflow-x-auto">
                   <table className="w-full text-left text-xs">
-                    <thead className="bg-[#eaf0f8] dark:bg-slate-950/50 text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider border-b border-slate-300/60 dark:border-slate-800">
+                    <thead className="bg-[#fbf2e9] dark:bg-slate-950/50 text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider border-b border-slate-300/60 dark:border-slate-800">
                       <tr>
                         <CabecalhoOrdenavel
                           titulo="Veículo"

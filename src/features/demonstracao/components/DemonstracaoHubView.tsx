@@ -56,7 +56,7 @@ export function DemonstracaoHubView() {
   };
 
   return (
-    <div className="min-h-screen bg-[#eaf0f8] dark:bg-slate-950 p-4 sm:p-6 lg:p-8 flex flex-col gap-6 select-none">
+    <div className="min-h-screen bg-[#fbf2e9] dark:bg-slate-950 p-4 sm:p-6 lg:p-8 flex flex-col gap-6 select-none">
       {/* 1. Cabeçalho Executivo do Módulo */}
       <div className="w-full bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 rounded-3xl border border-indigo-500/30 p-6 sm:p-8 text-white shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none" />
@@ -99,10 +99,10 @@ export function DemonstracaoHubView() {
       {/* 2. Seleção das Duas Jornadas Principais */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* CARD 1: Jornada do Cliente */}
-        <div className="rounded-3xl p-6 sm:p-7 bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl flex flex-col justify-between hover:border-sky-500/50 transition duration-300 relative group overflow-hidden">
+        <div className="rounded-3xl p-6 sm:p-7 bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl flex flex-col justify-between hover:border-sky-500/50 transition duration-300 relative group overflow-hidden">
           <div className="space-y-4">
             <div className="flex items-center justify-between">
-              <div className="p-3 rounded-2xl bg-[#eaf0f8] dark:bg-slate-800 border border-slate-300/60 dark:border-slate-700 text-sky-600 dark:text-sky-400 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none">
+              <div className="p-3 rounded-2xl bg-[#fbf2e9] dark:bg-slate-800 border border-slate-300/60 dark:border-slate-700 text-sky-600 dark:text-sky-400 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none">
                 <User className="h-7 w-7" />
               </div>
               <span className="px-3 py-1 rounded-full bg-sky-500/10 text-sky-700 dark:text-sky-300 text-xs font-bold font-mono">
@@ -152,7 +152,7 @@ export function DemonstracaoHubView() {
             </div>
 
             {/* Badge de Registro Fantasma */}
-            <div className="p-3 rounded-2xl bg-[#eaf0f8] dark:bg-slate-950 border border-slate-300/60 dark:border-slate-800/40 text-xs text-slate-700 dark:text-slate-300 flex items-center justify-between font-mono shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6)]">
+            <div className="p-3 rounded-2xl bg-[#fbf2e9] dark:bg-slate-950 border border-slate-300/60 dark:border-slate-800/40 text-xs text-slate-700 dark:text-slate-300 flex items-center justify-between font-mono shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6)]">
               <div>
                 <span className="text-slate-500 text-[10px] block">CLIENTE FANTASMA BASE:</span>
                 <strong>{CLIENTE_FANTASMA_PADRAO.nome_razao_social}</strong>
@@ -181,10 +181,10 @@ export function DemonstracaoHubView() {
         </div>
 
         {/* CARD 2: Jornada do Instalador */}
-        <div className="rounded-3xl p-6 sm:p-7 bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl flex flex-col justify-between hover:border-emerald-500/50 transition duration-300 relative group overflow-hidden">
+        <div className="rounded-3xl p-6 sm:p-7 bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl flex flex-col justify-between hover:border-emerald-500/50 transition duration-300 relative group overflow-hidden">
           <div className="space-y-4">
             <div className="flex items-center justify-between">
-              <div className="p-3 rounded-2xl bg-[#eaf0f8] dark:bg-slate-800 border border-slate-300/60 dark:border-slate-700 text-emerald-600 dark:text-emerald-400 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none">
+              <div className="p-3 rounded-2xl bg-[#fbf2e9] dark:bg-slate-800 border border-slate-300/60 dark:border-slate-700 text-emerald-600 dark:text-emerald-400 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none">
                 <Wrench className="h-7 w-7" />
               </div>
               <span className="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 text-xs font-bold font-mono">
@@ -233,7 +233,7 @@ export function DemonstracaoHubView() {
             </div>
 
             {/* Badge de Registro Fantasma */}
-            <div className="p-3 rounded-2xl bg-[#eaf0f8] dark:bg-slate-950 border border-slate-300/60 dark:border-slate-800/40 text-xs text-slate-700 dark:text-slate-300 flex items-center justify-between font-mono shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6)]">
+            <div className="p-3 rounded-2xl bg-[#fbf2e9] dark:bg-slate-950 border border-slate-300/60 dark:border-slate-800/40 text-xs text-slate-700 dark:text-slate-300 flex items-center justify-between font-mono shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6)]">
               <div>
                 <span className="text-slate-500 text-[10px] block">KIT FANTASMA ATRIBUÍDO:</span>
                 <strong>IMEI {KIT_FANTASMA_PADRAO.imei}</strong>
@@ -263,7 +263,7 @@ export function DemonstracaoHubView() {
               type="button"
               onClick={irDiretoParaInstalacaoSimulada}
               disabled={iniciando === "instalacao_direta"}
-              className="py-3 px-3 rounded-2xl bg-[#eaf0f8] hover:bg-[#dfe7f2] dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-bold text-xs flex items-center justify-center gap-1.5 transition active:shadow-[inset_2px_2px_4px_#c8d4e4] cursor-pointer border border-slate-300/60 dark:border-slate-700 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none"
+              className="py-3 px-3 rounded-2xl bg-[#fbf2e9] hover:bg-[#dfe7f2] dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-bold text-xs flex items-center justify-center gap-1.5 transition active:shadow-[inset_2px_2px_4px_#c8d4e4] cursor-pointer border border-slate-300/60 dark:border-slate-700 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none"
               title="Pular para o módulo de Instalações Técnicas com a OS fantasma já agendada"
             >
               <Wrench className="h-3.5 w-3.5" />
@@ -274,7 +274,7 @@ export function DemonstracaoHubView() {
       </div>
 
       {/* 3. Rodapé Explicativo e Garantia de Isolamento */}
-      <div className="p-4 rounded-2xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 text-xs text-slate-600 dark:text-slate-400 flex flex-col sm:flex-row items-center justify-between gap-3 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none">
+      <div className="p-4 rounded-2xl bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 text-xs text-slate-600 dark:text-slate-400 flex flex-col sm:flex-row items-center justify-between gap-3 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none">
         <div className="flex items-center gap-2">
           <HelpCircle className="h-4 w-4 text-indigo-500 shrink-0" />
           <span>
@@ -290,7 +290,7 @@ export function DemonstracaoHubView() {
             reiniciarDemonstracao();
             alert("Sandbox reinicializado para o estado inicial com sucesso.");
           }}
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#eaf0f8] dark:bg-slate-800 hover:bg-[#dfe7f2] dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-mono text-[11px] font-semibold transition shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none active:shadow-[inset_2px_2px_4px_#c8d4e4] cursor-pointer shrink-0 border border-slate-300/60 dark:border-slate-700"
+          className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#fbf2e9] dark:bg-slate-800 hover:bg-[#dfe7f2] dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-mono text-[11px] font-semibold transition shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none active:shadow-[inset_2px_2px_4px_#c8d4e4] cursor-pointer shrink-0 border border-slate-300/60 dark:border-slate-700"
         >
           <RotateCcw className="h-3.5 w-3.5" />
           <span>Restaurar Sandbox Base</span>

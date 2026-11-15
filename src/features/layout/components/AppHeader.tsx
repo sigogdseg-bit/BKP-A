@@ -65,7 +65,7 @@ export function AppHeader() {
   return (
     <>
       <header
-        className="sticky top-0 z-50 w-full px-2.5 sm:px-6 select-none transition-colors duration-200 bg-[#eaf0f8] dark:bg-[#0c121c] border-b border-slate-300/60 dark:border-slate-800 shadow-[0_3px_10px_rgba(195,207,226,0.35)] dark:shadow-none"
+        className="sticky top-0 z-50 w-full px-2.5 sm:px-6 select-none transition-colors duration-200 bg-[#fbf2e9] dark:bg-[#110e0c] border-b border-slate-300/60 dark:border-slate-800 shadow-[0_3px_10px_rgba(195,207,226,0.35)] dark:shadow-none"
         style={{
           paddingTop: "calc(env(safe-area-inset-top, 0px) + 0.5rem)",
           paddingBottom: "0.25rem",
@@ -81,7 +81,7 @@ export function AppHeader() {
               aria-label="Abrir menu de navegação vertical"
               title="Abrir Menu de Navegação Vertical"
             >
-              <Menu className="h-5 w-5 text-emerald-600 dark:text-emerald-400" />
+              <Menu className="h-5 w-5 text-orange-600 dark:text-orange-400" />
               <span className="text-xs font-bold hidden sm:inline">Menu</span>
             </button>
 

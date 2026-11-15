@@ -636,10 +636,10 @@ export function ChatView() {
         </div>
       )}
 
-      <div className="flex-1 bg-[#eaf0f8] dark:bg-slate-900 border-0 sm:border border-slate-300/60 dark:border-slate-800 rounded-none sm:rounded-3xl shadow-[5px_5px_14px_#c3cfe2] dark:shadow-none overflow-hidden flex flex-col md:flex-row min-h-0 h-full">
+      <div className="flex-1 bg-[#fbf2e9] dark:bg-slate-900 border-0 sm:border border-slate-300/60 dark:border-slate-800 rounded-none sm:rounded-3xl shadow-[5px_5px_14px_#c3cfe2] dark:shadow-none overflow-hidden flex flex-col md:flex-row min-h-0 h-full">
         {/* Painel Lateral: Catálogo de Contatos (No mobile, esconde se houver conversa ativa) */}
         <div
-          className={`w-full md:w-80 lg:w-96 border-b md:border-b-0 md:border-r border-slate-300/60 dark:border-slate-800/70 shrink-0 bg-[#eaf0f8] dark:bg-slate-900 ${
+          className={`w-full md:w-80 lg:w-96 border-b md:border-b-0 md:border-r border-slate-300/60 dark:border-slate-800/70 shrink-0 bg-[#fbf2e9] dark:bg-slate-900 ${
             contatoAtivo ? "hidden md:flex flex-col" : "flex flex-col"
           } h-full min-h-0 overflow-hidden`}
         >
@@ -658,7 +658,7 @@ export function ChatView() {
 
         {/* Área Central: Conversa Ativa ou Lista de Conversas Realizadas */}
         <div
-          className={`flex-1 flex flex-col h-full min-h-0 overflow-hidden bg-[#eaf0f8] dark:bg-slate-900 ${
+          className={`flex-1 flex flex-col h-full min-h-0 overflow-hidden bg-[#fbf2e9] dark:bg-slate-900 ${
             !contatoAtivo ? "hidden md:flex" : "flex"
           }`}
         >
@@ -734,7 +734,7 @@ export function ChatView() {
             )
           ) : (
             <div className="flex-1 flex flex-col items-center justify-center p-6 text-center">
-              <div className="p-5 rounded-full bg-[#eaf0f8] dark:bg-slate-800 border border-slate-300/60 dark:border-slate-700/60 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none text-[#007AFF] mb-4">
+              <div className="p-5 rounded-full bg-[#fbf2e9] dark:bg-slate-800 border border-slate-300/60 dark:border-slate-700/60 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none text-[#007AFF] mb-4">
                 <MessageCircle className="h-10 w-10 sm:h-12 sm:w-12" />
               </div>
               <h3 className="text-base sm:text-lg font-bold text-slate-800 dark:text-slate-100 mb-1">

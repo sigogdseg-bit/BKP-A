@@ -350,7 +350,7 @@ export function MensalidadesView() {
   return (
     <div className="space-y-4 max-w-7xl mx-auto select-none">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 bg-[#eaf0f8] dark:bg-slate-900/80 border border-slate-300/60 dark:border-slate-800 p-4 sm:p-5 rounded-2xl shadow-[4px_4px_10px_#c3cfe2] dark:shadow-xl">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 bg-[#fbf2e9] dark:bg-slate-900/80 border border-slate-300/60 dark:border-slate-800 p-4 sm:p-5 rounded-2xl shadow-[4px_4px_10px_#c3cfe2] dark:shadow-xl">
         <div className="flex items-center gap-3">
           <div className="h-12 w-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shadow-xs">
             <CreditCard className="h-6 w-6" />
@@ -404,7 +404,7 @@ export function MensalidadesView() {
               className={`p-4 rounded-2xl border shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none flex flex-col justify-between cursor-pointer transition ${
                 filtroStatus === "todos"
                   ? "border-blue-500/60 ring-2 ring-blue-500/20 bg-blue-500/5 dark:bg-blue-900/20"
-                  : "bg-[#eaf0f8] dark:bg-slate-900/60 border-slate-300/60 dark:border-slate-800/80 hover:border-blue-400/50"
+                  : "bg-[#fbf2e9] dark:bg-slate-900/60 border-slate-300/60 dark:border-slate-800/80 hover:border-blue-400/50"
               }`}
             >
               <div className="flex items-center justify-between text-slate-600 dark:text-slate-400 text-xs mb-1">
@@ -428,7 +428,7 @@ export function MensalidadesView() {
               className={`p-4 rounded-2xl border shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none flex flex-col justify-between cursor-pointer transition ${
                 filtroStatus === "pago"
                   ? "border-emerald-500/60 ring-2 ring-emerald-500/20 bg-emerald-500/5 dark:bg-emerald-900/20"
-                  : "bg-[#eaf0f8] dark:bg-slate-900/60 border-slate-300/60 dark:border-slate-800/80 hover:border-emerald-400/50"
+                  : "bg-[#fbf2e9] dark:bg-slate-900/60 border-slate-300/60 dark:border-slate-800/80 hover:border-emerald-400/50"
               }`}
             >
               <div className="flex items-center justify-between text-emerald-600 dark:text-emerald-400 text-xs mb-1">
@@ -451,7 +451,7 @@ export function MensalidadesView() {
               className={`p-4 rounded-2xl border shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none flex flex-col justify-between cursor-pointer transition ${
                 filtroStatus === "pendente"
                   ? "border-amber-500/60 ring-2 ring-amber-500/20 bg-amber-500/5 dark:bg-amber-900/20"
-                  : "bg-[#eaf0f8] dark:bg-slate-900/60 border-slate-300/60 dark:border-slate-800/80 hover:border-amber-400/50"
+                  : "bg-[#fbf2e9] dark:bg-slate-900/60 border-slate-300/60 dark:border-slate-800/80 hover:border-amber-400/50"
               }`}
             >
               <div className="flex items-center justify-between text-amber-600 dark:text-amber-400 text-xs mb-1">
@@ -494,7 +494,7 @@ export function MensalidadesView() {
                       : isAtrasado
                         ? "border-amber-500/60 ring-2 ring-amber-500/20 bg-amber-500/5 dark:bg-amber-900/20"
                         : "border-emerald-500/60 ring-2 ring-emerald-500/20 bg-emerald-500/5 dark:bg-emerald-900/20"
-                    : "bg-[#eaf0f8] dark:bg-slate-900/60 border-slate-300/60 dark:border-slate-800/80 hover:border-slate-400/60"
+                    : "bg-[#fbf2e9] dark:bg-slate-900/60 border-slate-300/60 dark:border-slate-800/80 hover:border-slate-400/60"
                 }`}
               >
                 <div
@@ -550,7 +550,7 @@ export function MensalidadesView() {
           className={`p-4 rounded-2xl border shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none flex flex-col justify-between cursor-pointer transition ${
             filtroStatus === "vencido"
               ? "border-rose-500/60 ring-2 ring-rose-500/20 bg-rose-500/5 dark:bg-rose-900/20"
-              : "bg-[#eaf0f8] dark:bg-slate-900/60 border-slate-300/60 dark:border-slate-800/80 hover:border-rose-400/50"
+              : "bg-[#fbf2e9] dark:bg-slate-900/60 border-slate-300/60 dark:border-slate-800/80 hover:border-rose-400/50"
           }`}
         >
           <div className="flex items-center justify-between text-rose-600 dark:text-rose-400 text-xs mb-1">
@@ -569,7 +569,7 @@ export function MensalidadesView() {
       </div>
 
       {/* Busca e Filtros com Consulta por Mês e Ano */}
-      <div className="flex flex-col gap-3 bg-[#eaf0f8] dark:bg-slate-900/40 border border-slate-300/60 dark:border-slate-800/80 p-3.5 rounded-2xl shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none">
+      <div className="flex flex-col gap-3 bg-[#fbf2e9] dark:bg-slate-900/40 border border-slate-300/60 dark:border-slate-800/80 p-3.5 rounded-2xl shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
           <div className="relative w-full sm:w-80">
             <Search className="absolute left-3 top-2.5 h-4 w-4 text-slate-500 dark:text-slate-400" />
@@ -658,7 +658,7 @@ export function MensalidadesView() {
         {carregando ? (
           <div className="py-12 text-center text-slate-500 text-xs">Carregando mensalidades...</div>
         ) : filtrados.length === 0 ? (
-          <div className="py-12 text-center text-slate-500 text-xs bg-[#eaf0f8] dark:bg-slate-900/30 rounded-2xl border border-slate-300/60 dark:border-slate-800 p-6 space-y-2 shadow-[2px_2px_6px_#c3cfe2] dark:shadow-none">
+          <div className="py-12 text-center text-slate-500 text-xs bg-[#fbf2e9] dark:bg-slate-900/30 rounded-2xl border border-slate-300/60 dark:border-slate-800 p-6 space-y-2 shadow-[2px_2px_6px_#c3cfe2] dark:shadow-none">
             <div>Nenhuma cobrança encontrada para os filtros selecionados.</div>
             {isAdm && (
               <div className="text-[11px] text-slate-600 dark:text-slate-400">
@@ -687,7 +687,7 @@ export function MensalidadesView() {
             return (
               <div
                 key={m.id}
-                className={`p-4 rounded-2xl border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 transition bg-[#eaf0f8] dark:bg-slate-900/60 border-slate-300/60 dark:border-slate-800/80 shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_12px_#b8c6da] dark:hover:border-slate-700 ${
+                className={`p-4 rounded-2xl border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 transition bg-[#fbf2e9] dark:bg-slate-900/60 border-slate-300/60 dark:border-slate-800/80 shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_12px_#b8c6da] dark:hover:border-slate-700 ${
                   isAdesao ? "border-purple-500/40" : ""
                 }`}
               >
@@ -891,7 +891,7 @@ export function MensalidadesView() {
       {modalPixItem && (
         <ModalPortal>
           <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-xs flex items-center justify-center p-4">
-            <div className="bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 rounded-3xl p-5 max-w-sm w-full space-y-4 shadow-2xl text-center max-h-[90vh] overflow-y-auto my-auto">
+            <div className="bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 rounded-3xl p-5 max-w-sm w-full space-y-4 shadow-2xl text-center max-h-[90vh] overflow-y-auto my-auto">
               <div className="flex items-center justify-between border-b border-slate-300/60 dark:border-slate-800 pb-2">
                 <span className="text-xs font-bold text-slate-700 dark:text-slate-300">
                   Pagamento PIX
@@ -1018,7 +1018,7 @@ export function MensalidadesView() {
       {modalEditarVencimento && (
         <ModalPortal>
           <div className="fixed inset-0 z-[99999] bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-2.5 sm:p-4 overflow-y-auto animate-fadeIn select-none">
-            <div className="bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 rounded-3xl max-w-md w-full shadow-2xl text-slate-800 dark:text-slate-100 max-h-[calc(100dvh-2.5rem)] sm:max-h-[85vh] overflow-hidden my-auto flex flex-col transition-colors">
+            <div className="bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 rounded-3xl max-w-md w-full shadow-2xl text-slate-800 dark:text-slate-100 max-h-[calc(100dvh-2.5rem)] sm:max-h-[85vh] overflow-hidden my-auto flex flex-col transition-colors">
               {/* Header */}
               <div className="p-4 sm:p-5 border-b border-slate-300/60 dark:border-slate-800 flex items-center justify-between shrink-0 bg-white/70 dark:bg-slate-900/80 backdrop-blur-md">
                 <div className="flex items-center gap-3">

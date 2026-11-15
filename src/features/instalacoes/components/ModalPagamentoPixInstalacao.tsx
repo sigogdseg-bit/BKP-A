@@ -163,7 +163,7 @@ export function ModalPagamentoPixInstalacao({
   return (
     <ModalPortal>
       <div className="fixed inset-0 z-[99999] flex items-center justify-center p-2.5 sm:p-4 bg-slate-950/85 backdrop-blur-md overflow-y-auto select-none animate-fadeIn">
-        <div className="relative w-full max-w-xl max-h-[calc(100dvh-2.5rem)] sm:max-h-[85vh] overflow-hidden rounded-3xl bg-[#eaf0f8] dark:bg-slate-950 border border-slate-300/60 dark:border-slate-800 shadow-[6px_6px_20px_#c3cfe2] dark:shadow-2xl my-auto flex flex-col transition-colors">
+        <div className="relative w-full max-w-xl max-h-[calc(100dvh-2.5rem)] sm:max-h-[85vh] overflow-hidden rounded-3xl bg-[#fbf2e9] dark:bg-slate-950 border border-slate-300/60 dark:border-slate-800 shadow-[6px_6px_20px_#c3cfe2] dark:shadow-2xl my-auto flex flex-col transition-colors">
           {/* Header Fixo */}
           <div className="flex items-center justify-between p-4 sm:p-5 border-b border-slate-200 dark:border-slate-800 shrink-0 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md">
             <div className="flex items-center gap-2.5">

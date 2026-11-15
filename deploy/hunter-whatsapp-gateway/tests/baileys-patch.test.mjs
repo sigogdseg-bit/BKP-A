@@ -90,7 +90,7 @@ describe("Gateway helpers e verificação estrutural", () => {
   it("linkPreview: null gera extendedTextMessage sem disparar getUrlInfo/link-preview-js", async () => {
     let urlLookupChamado = false;
     const content = await generateWAMessageContent(
-      { text: "Alerta https://sigoguardiao.oficial.tec.br/painel", linkPreview: null },
+      { text: "Alerta https://gd.oficial.tec.br/painel", linkPreview: null },
       {
         logger: undefined,
         userJid: "5524992501512:2@s.whatsapp.net",
@@ -102,10 +102,7 @@ describe("Gateway helpers e verificação estrutural", () => {
       },
     );
     assert.equal(urlLookupChamado, false);
-    assert.equal(
-      content.extendedTextMessage?.text,
-      "Alerta https://sigoguardiao.oficial.tec.br/painel",
-    );
+    assert.equal(content.extendedTextMessage?.text, "Alerta https://gd.oficial.tec.br/painel");
     const serialized = JSON.stringify(content, BufferJSON.replacer);
     const parsed = JSON.parse(serialized, BufferJSON.reviver);
     const encoded = proto.Message.encode(parsed).finish();

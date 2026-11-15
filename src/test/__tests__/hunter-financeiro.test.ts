@@ -291,7 +291,7 @@ describe("Hunter — Gestao Financeira Integrada e Fluxo de Caixa", () => {
     const msg = gerarMensagemWhatsAppInadimplente(cliente, "pix@oficial.tec.br");
     assert.ok(msg.includes("PIX COPIA E COLA"));
     assert.ok(msg.includes("00020126")); // Padrão BR Code EMV BACEN
-    assert.ok(msg.includes("https://sigoguardiao.oficial.tec.br/cliente/financeiro"));
+    assert.ok(msg.includes("https://gd.oficial.tec.br/cliente/financeiro"));
     assert.ok(msg.includes("pix@oficial.tec.br"));
     assert.ok(msg.includes("79,90"));
     assert.ok(!msg.includes(String.fromCharCode(38))); // Proibição de caractere comercial

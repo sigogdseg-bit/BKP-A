@@ -383,7 +383,7 @@ export function ClienteVeiculosAnalyticsModal({
       onClick={onFechar}
     >
       <div
-        className="bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 rounded-3xl w-full max-w-5xl max-h-[calc(100dvh-2.5rem)] sm:max-h-[85vh] my-auto shadow-2xl flex flex-col overflow-hidden animate-in fade-in zoom-in-95 duration-200 text-slate-800 dark:text-slate-100"
+        className="bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 rounded-3xl w-full max-w-5xl max-h-[calc(100dvh-2.5rem)] sm:max-h-[85vh] my-auto shadow-2xl flex flex-col overflow-hidden animate-in fade-in zoom-in-95 duration-200 text-slate-800 dark:text-slate-100"
         onClick={(e) => e.stopPropagation()}
       >
         {/* CABEÇALHO */}

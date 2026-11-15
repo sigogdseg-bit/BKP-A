@@ -21,7 +21,7 @@ describe("Hunter — Chave PIX Oficial do Sistema e Lembrete Leve de Vencimento 
   });
 
   test("2. Deve salvar e recuperar a Chave PIX do Sistema de forma síncrona", async () => {
-    const novaChave = "financeiro@sigoguardiao.oficial.tec.br";
+    const novaChave = "financeiro@gd.oficial.tec.br";
     const novoTitular = "GD Rastreamento Tecnologia Ltda";
     const novaCidade = "Volta Redonda";
 

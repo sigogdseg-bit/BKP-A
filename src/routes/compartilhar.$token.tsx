@@ -345,7 +345,7 @@ function CompartilharVeiculoPage() {
 
   if (carregando) {
     return (
-      <div className="min-h-screen bg-[#eaf0f8] dark:bg-slate-950 flex flex-col items-center justify-center p-4 text-slate-800 dark:text-slate-100 font-sans transition-colors">
+      <div className="min-h-screen bg-[#fbf2e9] dark:bg-slate-950 flex flex-col items-center justify-center p-4 text-slate-800 dark:text-slate-100 font-sans transition-colors">
         <div className="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 font-bold text-sm">
           <Radio className="h-5 w-5 animate-pulse" />
           <span>Localizando veículo...</span>
@@ -356,7 +356,7 @@ function CompartilharVeiculoPage() {
 
   if (erro || !veiculo) {
     return (
-      <div className="min-h-screen bg-[#eaf0f8] dark:bg-slate-950 flex flex-col items-center justify-center p-4 text-slate-800 dark:text-slate-100 font-sans transition-colors">
+      <div className="min-h-screen bg-[#fbf2e9] dark:bg-slate-950 flex flex-col items-center justify-center p-4 text-slate-800 dark:text-slate-100 font-sans transition-colors">
         <div className="bg-white dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 rounded-3xl p-6 sm:p-8 max-w-sm text-center shadow-[6px_6px_20px_#c3cfe2] dark:shadow-2xl space-y-4">
           <div className="h-12 w-12 rounded-2xl bg-rose-500/10 border border-rose-500/20 text-rose-500 flex items-center justify-center mx-auto">
             <AlertTriangle className="h-6 w-6" />
@@ -377,7 +377,7 @@ function CompartilharVeiculoPage() {
   const isOfflineAtual = !statusComAtual.ativo;
 
   return (
-    <div className="min-h-screen h-screen flex flex-col bg-[#eaf0f8] dark:bg-slate-950 text-slate-800 dark:text-slate-100 select-none overflow-hidden relative transition-colors">
+    <div className="min-h-screen h-screen flex flex-col bg-[#fbf2e9] dark:bg-slate-950 text-slate-800 dark:text-slate-100 select-none overflow-hidden relative transition-colors">
       {/* Barra de Topo */}
       <header className="h-16 px-4 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-300/60 dark:border-slate-800 flex items-center justify-between z-10 shrink-0 shadow-xs">
         <div className="flex items-center gap-2.5 h-full py-1">

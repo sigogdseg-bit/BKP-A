@@ -47,7 +47,7 @@ describe("Hunter — Chat: Visibilidade do ADM, Não Lidas e Ergonomia Mobile (D
       "AppHeader não deve conter backdrop-blur-md gerando névoa no topo da tela do iOS",
     );
     assert.ok(
-      appHeaderCode.includes("bg-[#eaf0f8] dark:bg-[#0c121c]"),
+      appHeaderCode.includes("bg-[#fbf2e9] dark:bg-[#110e0c]"),
       "AppHeader deve usar background 100% sólido",
     );
   });

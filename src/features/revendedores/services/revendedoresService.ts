@@ -632,9 +632,7 @@ export async function gerarLinkConviteComercial(params: {
     }
 
     const host =
-      typeof window !== "undefined"
-        ? window.location.origin
-        : "https://sigoguardiao.oficial.tec.br";
+      typeof window !== "undefined" ? window.location.origin : "https://gd.oficial.tec.br";
     let rotaDestino = "/cadastro-cliente";
     if (params.tipoConvite === "instalador") rotaDestino = "/cadastro-instalador";
     else if (params.tipoConvite === "vendedor" || params.tipoConvite === "revendedor") {
@@ -645,9 +643,7 @@ export async function gerarLinkConviteComercial(params: {
     return { sucesso: true, link, token: tokenFinal };
   } catch {
     const host =
-      typeof window !== "undefined"
-        ? window.location.origin
-        : "https://sigoguardiao.oficial.tec.br";
+      typeof window !== "undefined" ? window.location.origin : "https://gd.oficial.tec.br";
     const tokenResiliente = crypto.randomUUID();
     let rotaDestino = "/cadastro-cliente";
     if (params.tipoConvite === "instalador") rotaDestino = "/cadastro-instalador";

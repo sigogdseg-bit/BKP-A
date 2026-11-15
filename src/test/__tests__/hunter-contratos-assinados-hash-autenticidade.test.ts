@@ -362,8 +362,8 @@ describe("Hunter — Contratos Assinados, Hashes Forenses SHA-256 e Selo de Aute
     const codigoVerificacao = "CTR777";
     const numeroContrato = "CTR-2026/001";
 
-    const linkAssinatura = `https://sigoguardiao.oficial.tec.br/assinar?codigo=${codigoVerificacao}`;
-    const linkDownload = `https://sigoguardiao.oficial.tec.br/api/contratos/download/${codigoVerificacao}`;
+    const linkAssinatura = `https://gd.oficial.tec.br/assinar?codigo=${codigoVerificacao}`;
+    const linkDownload = `https://gd.oficial.tec.br/api/contratos/download/${codigoVerificacao}`;
 
     const textoMensagem =
       `Olá, *${mockCliente.nome_razao_social}*!\n\n` +

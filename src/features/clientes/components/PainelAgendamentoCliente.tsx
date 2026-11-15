@@ -133,7 +133,7 @@ export function PainelAgendamentoCliente() {
   // Modo minimizado: Pill discreto superior
   if (minimizado) {
     return (
-      <div className="flex items-center justify-between gap-3 p-3 rounded-2xl bg-[#eaf0f8] dark:bg-slate-950/90 border border-amber-500/40 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-xl select-none animate-fadeIn text-slate-800 dark:text-slate-100">
+      <div className="flex items-center justify-between gap-3 p-3 rounded-2xl bg-[#fbf2e9] dark:bg-slate-950/90 border border-amber-500/40 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-xl select-none animate-fadeIn text-slate-800 dark:text-slate-100">
         <div className="flex items-center gap-2 text-xs">
           <Wrench className="h-4 w-4 text-amber-600 dark:text-amber-400" />
           <span className="font-bold text-slate-900 dark:text-slate-200">Novo Agendamento:</span>
@@ -167,7 +167,7 @@ export function PainelAgendamentoCliente() {
   }
 
   return (
-    <div className="p-4 sm:p-5 rounded-3xl bg-[#eaf0f8] dark:bg-gradient-to-br dark:from-slate-900 dark:via-slate-950 dark:to-slate-950 border border-amber-500/40 shadow-[6px_6px_20px_#c3cfe2] dark:shadow-2xl space-y-4 select-none animate-fadeIn text-slate-800 dark:text-slate-100">
+    <div className="p-4 sm:p-5 rounded-3xl bg-[#fbf2e9] dark:bg-gradient-to-br dark:from-slate-900 dark:via-slate-950 dark:to-slate-950 border border-amber-500/40 shadow-[6px_6px_20px_#c3cfe2] dark:shadow-2xl space-y-4 select-none animate-fadeIn text-slate-800 dark:text-slate-100">
       {/* Topo do Card com Status e Botoes de Controle */}
       <div className="flex items-start justify-between gap-3 pb-3 border-b border-slate-300/60 dark:border-slate-800">
         <div className="flex items-center gap-3">

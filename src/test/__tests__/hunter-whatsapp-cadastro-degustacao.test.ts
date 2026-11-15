@@ -511,7 +511,7 @@ describe("GD Rastreamento — Auto-Cadastro de Usuário Degustação via WhatsAp
       /Dados de acesso e boas-vindas enviados com sucesso para o cliente/,
     );
     assert.match(resEnviado.resposta, /24 horas contadas a partir do 1º acesso/);
-    assert.match(resEnviado.resposta, /https:\/\/sigoguardiao\.oficial\.tec\.br/);
+    assert.match(resEnviado.resposta, /https:\/\/gd\.oficial\.tec\.br/);
     assert.match(resEnviado.resposta, /carlos\.degustacao@teste\.com/);
     assert.match(resEnviado.resposta, /SigoMaster2026/);
 

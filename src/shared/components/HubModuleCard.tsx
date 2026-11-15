@@ -102,7 +102,7 @@ export const HubModuleCard = React.memo(function HubModuleCard({
         transition: transformStyle ? "transform 0.1s ease-out" : "transform 0.35s ease-out",
         transformStyle: "preserve-3d",
       }}
-      className={`group relative flex flex-col justify-between overflow-hidden rounded-[24px] bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 p-5 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-[5px_5px_14px_#090d14] hover:shadow-[7px_7px_22px_#b5c4d9] dark:hover:shadow-[0_16px_35px_rgba(0,0,0,0.65)] hover:-translate-y-1.5 transition-all duration-300 ease-out focus:outline-hidden focus:ring-2 focus:ring-[#00CFCC]/40 cursor-pointer select-none active:scale-[0.99] ${tema.borderHover} ${className}`}
+      className={`group relative flex flex-col justify-between overflow-hidden rounded-[24px] bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 p-5 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-[5px_5px_14px_#090d14] hover:shadow-[7px_7px_22px_#b5c4d9] dark:hover:shadow-[0_16px_35px_rgba(0,0,0,0.65)] hover:-translate-y-1.5 transition-all duration-300 ease-out focus:outline-hidden focus:ring-2 focus:ring-[#00CFCC]/40 cursor-pointer select-none active:scale-[0.99] ${tema.borderHover} ${className}`}
     >
       {/* Faixa superior com degradê temático que se expande e ganha brilho no hover */}
       <div
@@ -143,13 +143,13 @@ export const HubModuleCard = React.memo(function HubModuleCard({
       <div className="relative z-10 space-y-3.5">
         <div className="flex items-start justify-between gap-3">
           <div
-            className={`flex h-11 w-11 items-center justify-center rounded-2xl bg-[#eaf0f8] dark:bg-slate-800/80 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-[2px_2px_5px_#0a0f18] border border-slate-300/40 dark:border-slate-700/50 text-slate-700 dark:text-slate-300 transition-all duration-300 group-hover:scale-110 shrink-0 ${tema.iconHoverText}`}
+            className={`flex h-11 w-11 items-center justify-center rounded-2xl bg-[#fbf2e9] dark:bg-slate-800/80 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-[2px_2px_5px_#0a0f18] border border-slate-300/40 dark:border-slate-700/50 text-slate-700 dark:text-slate-300 transition-all duration-300 group-hover:scale-110 shrink-0 ${tema.iconHoverText}`}
           >
             <IconComponent className="h-5 w-5 transition-transform duration-300 group-hover:scale-110" />
           </div>
 
           <span
-            className={`inline-flex items-center gap-1 rounded-full bg-[#eaf0f8] dark:bg-slate-800/80 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-[2px_2px_5px_#0a0f18] border border-slate-300/40 dark:border-slate-700/50 px-3 py-1 text-[11px] font-bold text-slate-700 dark:text-slate-300 group-hover:text-teal-600 dark:group-hover:text-[#00CFCC] transition-all duration-200 ${tema.badgeHoverText}`}
+            className={`inline-flex items-center gap-1 rounded-full bg-[#fbf2e9] dark:bg-slate-800/80 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-[2px_2px_5px_#0a0f18] border border-slate-300/40 dark:border-slate-700/50 px-3 py-1 text-[11px] font-bold text-slate-700 dark:text-slate-300 group-hover:text-teal-600 dark:group-hover:text-[#00CFCC] transition-all duration-200 ${tema.badgeHoverText}`}
           >
             Acessar
             <ChevronRight className="h-3 w-3 transition-transform duration-200 group-hover:translate-x-0.5" />

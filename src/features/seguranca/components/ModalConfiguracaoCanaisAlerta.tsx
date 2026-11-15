@@ -246,7 +246,7 @@ export function ModalConfiguracaoCanaisAlerta({
         aria-labelledby="titulo-canais-comandos"
         className="fixed inset-0 z-[10000] flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-sm overflow-y-auto animate-in fade-in duration-200"
       >
-        <div className="bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300 dark:border-slate-800 rounded-3xl max-w-lg w-full max-h-[90vh] overflow-y-auto my-auto p-5 sm:p-6 shadow-2xl space-y-5 text-slate-800 dark:text-slate-100">
+        <div className="bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300 dark:border-slate-800 rounded-3xl max-w-lg w-full max-h-[90vh] overflow-y-auto my-auto p-5 sm:p-6 shadow-2xl space-y-5 text-slate-800 dark:text-slate-100">
           {/* Header do Modal */}
           <div className="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-slate-800">
             <div className="flex items-center gap-2.5">

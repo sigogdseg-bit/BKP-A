@@ -605,15 +605,15 @@ export function ConfiguracoesView() {
 
   // Estilos de container e cards fiéis ao padrão de Estoque e Suprimentos com suporte total a tema escuro
   const pageContainerClass = isNeumorph
-    ? "bg-[#eaf0f8] dark:bg-slate-950 text-slate-800 dark:text-slate-100 p-3 sm:p-6 lg:p-8 rounded-3xl min-h-[85vh] transition-all duration-300 space-y-6 max-w-7xl mx-auto border border-slate-300/40 dark:border-slate-800/80"
+    ? "bg-[#fbf2e9] dark:bg-slate-950 text-slate-800 dark:text-slate-100 p-3 sm:p-6 lg:p-8 rounded-3xl min-h-[85vh] transition-all duration-300 space-y-6 max-w-7xl mx-auto border border-slate-300/40 dark:border-slate-800/80"
     : "space-y-6 max-w-7xl mx-auto p-3 sm:p-6 lg:p-8 transition-all duration-300";
 
   const cardMetricClass = isNeumorph
-    ? "p-5 rounded-[22px] bg-[#eaf0f8] dark:bg-slate-900 text-slate-800 dark:text-slate-100 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-[4px_4px_12px_rgba(0,0,0,0.5)] border border-slate-300/60 dark:border-slate-800/80 transition-transform"
+    ? "p-5 rounded-[22px] bg-[#fbf2e9] dark:bg-slate-900 text-slate-800 dark:text-slate-100 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-[4px_4px_12px_rgba(0,0,0,0.5)] border border-slate-300/60 dark:border-slate-800/80 transition-transform"
     : "p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm transition-transform";
 
   const inputInsetClass = isNeumorph
-    ? "w-full py-2.5 px-4 rounded-xl bg-[#eaf0f8] dark:bg-slate-950 text-slate-800 dark:text-slate-100 text-sm shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6)] border border-slate-300/50 dark:border-slate-800 outline-none focus:ring-2 focus:ring-[#00CFCC] transition"
+    ? "w-full py-2.5 px-4 rounded-xl bg-[#fbf2e9] dark:bg-slate-950 text-slate-800 dark:text-slate-100 text-sm shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6)] border border-slate-300/50 dark:border-slate-800 outline-none focus:ring-2 focus:ring-[#00CFCC] transition"
     : "w-full py-2.5 px-4 rounded-xl bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 text-sm border border-slate-200 dark:border-slate-800 outline-none focus:ring-2 focus:ring-emerald-500/50 transition";
 
   return (
@@ -625,7 +625,7 @@ export function ConfiguracoesView() {
             <div
               className={`p-2.5 rounded-2xl shrink-0 ${
                 isNeumorph
-                  ? "bg-[#eaf0f8] dark:bg-slate-900 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none border border-slate-300/40 dark:border-slate-800 text-teal-600 dark:text-teal-400"
+                  ? "bg-[#fbf2e9] dark:bg-slate-900 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none border border-slate-300/40 dark:border-slate-800 text-teal-600 dark:text-teal-400"
                   : isInstalador
                     ? "bg-indigo-500/20 text-indigo-500 dark:text-indigo-400 border border-indigo-500/30"
                     : "bg-emerald-500/20 text-emerald-500 dark:text-emerald-400 border border-emerald-500/30"
@@ -695,7 +695,7 @@ export function ConfiguracoesView() {
                           ? "bg-[#9EBCEE]/30 dark:bg-teal-500/20 border-teal-500/70 dark:border-teal-400/50 shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-none text-slate-900 dark:text-slate-100"
                           : "border-emerald-500 bg-emerald-500/10 shadow-xs"
                         : isNeumorph
-                          ? "bg-[#eaf0f8] dark:bg-slate-900/80 border-slate-300/50 dark:border-slate-800 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none hover:border-teal-400/50 text-slate-700 dark:text-slate-300"
+                          ? "bg-[#fbf2e9] dark:bg-slate-900/80 border-slate-300/50 dark:border-slate-800 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none hover:border-teal-400/50 text-slate-700 dark:text-slate-300"
                           : "border-slate-200 dark:border-slate-700 hover:border-emerald-400/50"
                     }`}
                   >
@@ -719,7 +719,7 @@ export function ConfiguracoesView() {
                           ? "bg-[#9EBCEE]/30 dark:bg-teal-500/20 border-teal-500/70 dark:border-teal-400/50 shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-none text-slate-900 dark:text-slate-100"
                           : "border-emerald-500 bg-emerald-500/10 shadow-xs"
                         : isNeumorph
-                          ? "bg-[#eaf0f8] dark:bg-slate-900/80 border-slate-300/50 dark:border-slate-800 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none hover:border-teal-400/50 text-slate-700 dark:text-slate-300"
+                          ? "bg-[#fbf2e9] dark:bg-slate-900/80 border-slate-300/50 dark:border-slate-800 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none hover:border-teal-400/50 text-slate-700 dark:text-slate-300"
                           : "border-slate-200 dark:border-slate-700 hover:border-emerald-400/50"
                     }`}
                   >
@@ -764,7 +764,7 @@ export function ConfiguracoesView() {
                                 ? "bg-[#9EBCEE] dark:bg-teal-600 text-slate-900 dark:text-white shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none font-black border border-slate-300/40 dark:border-teal-500"
                                 : "bg-emerald-500 text-slate-950 font-black shadow"
                               : isNeumorph
-                                ? "bg-[#eaf0f8] dark:bg-slate-800 text-slate-700 dark:text-slate-300 shadow-[2px_2px_4px_#c3cfe2] dark:shadow-none border border-slate-300/40 dark:border-slate-700 hover:text-slate-950 dark:hover:text-white"
+                                ? "bg-[#fbf2e9] dark:bg-slate-800 text-slate-700 dark:text-slate-300 shadow-[2px_2px_4px_#c3cfe2] dark:shadow-none border border-slate-300/40 dark:border-slate-700 hover:text-slate-950 dark:hover:text-white"
                                 : "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700"
                           }`}
                         >
@@ -871,7 +871,7 @@ export function ConfiguracoesView() {
                             ? "bg-[#9EBCEE]/25 dark:bg-emerald-950/40 border-emerald-500/70 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none"
                             : "border-emerald-500 bg-emerald-500/10 shadow-xs"
                           : isNeumorph
-                            ? "bg-[#eaf0f8] dark:bg-slate-900/60 border-slate-300/40 dark:border-slate-800 shadow-[inset_1px_1px_3px_#c8d4e4] opacity-70 hover:opacity-100"
+                            ? "bg-[#fbf2e9] dark:bg-slate-900/60 border-slate-300/40 dark:border-slate-800 shadow-[inset_1px_1px_3px_#c8d4e4] opacity-70 hover:opacity-100"
                             : "border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 opacity-70 hover:opacity-100"
                       }`}
                     >
@@ -911,7 +911,7 @@ export function ConfiguracoesView() {
                             ? "bg-amber-500/15 dark:bg-amber-950/40 border-amber-500/70 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none"
                             : "border-amber-500 bg-amber-500/10 shadow-xs"
                           : isNeumorph
-                            ? "bg-[#eaf0f8] dark:bg-slate-900/60 border-slate-300/40 dark:border-slate-800 shadow-[inset_1px_1px_3px_#c8d4e4] opacity-70 hover:opacity-100"
+                            ? "bg-[#fbf2e9] dark:bg-slate-900/60 border-slate-300/40 dark:border-slate-800 shadow-[inset_1px_1px_3px_#c8d4e4] opacity-70 hover:opacity-100"
                             : "border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 opacity-70 hover:opacity-100"
                       }`}
                     >
@@ -1000,7 +1000,7 @@ export function ConfiguracoesView() {
                                   isAtivo
                                     ? "border-amber-500 bg-amber-500/15 text-amber-950 dark:text-amber-100 shadow-xs"
                                     : isNeumorph
-                                      ? "bg-[#eaf0f8] dark:bg-slate-900/60 border-slate-300/40 dark:border-slate-800 hover:border-amber-500/50 hover:bg-amber-500/5"
+                                      ? "bg-[#fbf2e9] dark:bg-slate-900/60 border-slate-300/40 dark:border-slate-800 hover:border-amber-500/50 hover:bg-amber-500/5"
                                       : "border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/40 hover:border-amber-500/50 hover:bg-amber-500/5"
                                 }`}
                               >
@@ -1056,7 +1056,7 @@ export function ConfiguracoesView() {
                       onClick={handleToggleTodosVeiculosFiltro}
                       className={`text-xs font-bold px-3 py-1.5 rounded-full transition flex items-center gap-1 cursor-pointer shrink-0 self-start sm:self-auto ${
                         isNeumorph
-                          ? "bg-[#eaf0f8] dark:bg-slate-800 text-teal-700 dark:text-teal-300 shadow-[2px_2px_4px_#c3cfe2] dark:shadow-none border border-teal-300/50 dark:border-teal-700 hover:text-teal-950 dark:hover:text-white"
+                          ? "bg-[#fbf2e9] dark:bg-slate-800 text-teal-700 dark:text-teal-300 shadow-[2px_2px_4px_#c3cfe2] dark:shadow-none border border-teal-300/50 dark:border-teal-700 hover:text-teal-950 dark:hover:text-white"
                           : "text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 hover:bg-emerald-500/20"
                       }`}
                     >
@@ -1087,7 +1087,7 @@ export function ConfiguracoesView() {
                                 ? "bg-[#9EBCEE]/25 dark:bg-emerald-950/40 border-emerald-500/60 dark:border-emerald-500/50 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none text-slate-900 dark:text-slate-100"
                                 : "border-emerald-500/50 bg-emerald-500/5 dark:bg-emerald-500/10 text-slate-900 dark:text-slate-100"
                               : isNeumorph
-                                ? "bg-[#eaf0f8] dark:bg-slate-900/60 border-slate-300/40 dark:border-slate-800 shadow-[inset_1px_1px_3px_#c8d4e4] dark:shadow-none text-slate-700 dark:text-slate-400 opacity-60"
+                                ? "bg-[#fbf2e9] dark:bg-slate-900/60 border-slate-300/40 dark:border-slate-800 shadow-[inset_1px_1px_3px_#c8d4e4] dark:shadow-none text-slate-700 dark:text-slate-400 opacity-60"
                                 : "border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 opacity-60 text-slate-700 dark:text-slate-400"
                           }`}
                         >
@@ -1143,7 +1143,7 @@ export function ConfiguracoesView() {
                                 ? "bg-[#9EBCEE] dark:bg-teal-600 text-slate-900 dark:text-white shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none font-black border border-slate-300/40 dark:border-teal-500"
                                 : "bg-emerald-500 text-slate-950 shadow"
                               : isNeumorph
-                                ? "bg-[#eaf0f8] dark:bg-slate-800 text-slate-700 dark:text-slate-300 shadow-[2px_2px_4px_#c3cfe2] dark:shadow-none border border-slate-300/40 dark:border-slate-700 hover:text-slate-950 dark:hover:text-white"
+                                ? "bg-[#fbf2e9] dark:bg-slate-800 text-slate-700 dark:text-slate-300 shadow-[2px_2px_4px_#c3cfe2] dark:shadow-none border border-slate-300/40 dark:border-slate-700 hover:text-slate-950 dark:hover:text-white"
                                 : "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700"
                           }`}
                         >
@@ -1185,7 +1185,7 @@ export function ConfiguracoesView() {
                                 ? "bg-[#9EBCEE] dark:bg-teal-600 text-slate-900 dark:text-white shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none font-black border border-slate-300/40 dark:border-teal-500"
                                 : "bg-emerald-500 text-slate-950 shadow"
                               : isNeumorph
-                                ? "bg-[#eaf0f8] dark:bg-slate-800 text-slate-700 dark:text-slate-300 shadow-[2px_2px_4px_#c3cfe2] dark:shadow-none border border-slate-300/40 dark:border-slate-700 hover:text-slate-950 dark:hover:text-white"
+                                ? "bg-[#fbf2e9] dark:bg-slate-800 text-slate-700 dark:text-slate-300 shadow-[2px_2px_4px_#c3cfe2] dark:shadow-none border border-slate-300/40 dark:border-slate-700 hover:text-slate-950 dark:hover:text-white"
                                 : "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700"
                           }`}
                         >
@@ -1245,14 +1245,14 @@ export function ConfiguracoesView() {
                       onClick={() => setModalAjusteOdometroAberto(true)}
                       className={`flex flex-col items-center justify-center gap-2 p-4 rounded-2xl border transition group cursor-pointer ${
                         isNeumorph
-                          ? "bg-[#eaf0f8] dark:bg-slate-900 border-slate-300/50 dark:border-slate-800 text-slate-800 dark:text-slate-200 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none hover:text-teal-900 dark:hover:text-teal-300 hover:shadow-[4px_4px_10px_#c3cfe2] active:shadow-[inset_2px_2px_4px_#c8d4e4]"
+                          ? "bg-[#fbf2e9] dark:bg-slate-900 border-slate-300/50 dark:border-slate-800 text-slate-800 dark:text-slate-200 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none hover:text-teal-900 dark:hover:text-teal-300 hover:shadow-[4px_4px_10px_#c3cfe2] active:shadow-[inset_2px_2px_4px_#c8d4e4]"
                           : "bg-slate-50 dark:bg-slate-950 border-slate-200 dark:border-slate-800 hover:border-emerald-500/50 hover:bg-emerald-500/5 text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400"
                       }`}
                     >
                       <div
                         className={`p-2.5 rounded-xl ${
                           isNeumorph
-                            ? "bg-[#eaf0f8] dark:bg-slate-800 shadow-[2px_2px_4px_#c3cfe2] dark:shadow-none"
+                            ? "bg-[#fbf2e9] dark:bg-slate-800 shadow-[2px_2px_4px_#c3cfe2] dark:shadow-none"
                             : "bg-emerald-500/10"
                         }`}
                       >
@@ -1276,14 +1276,14 @@ export function ConfiguracoesView() {
                               ? "bg-amber-500/15 dark:bg-amber-950/40 border-amber-400/60 dark:border-amber-500/40 text-amber-900 dark:text-amber-300 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none"
                               : "bg-amber-500/10 border-amber-500/30 text-amber-700 dark:text-amber-400 hover:bg-amber-500/20"
                             : isNeumorph
-                              ? "bg-[#eaf0f8] dark:bg-slate-900 border-slate-300/50 dark:border-slate-800 text-slate-800 dark:text-slate-200 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none hover:shadow-[4px_4px_10px_#c3cfe2] active:shadow-[inset_2px_2px_4px_#c8d4e4]"
+                              ? "bg-[#fbf2e9] dark:bg-slate-900 border-slate-300/50 dark:border-slate-800 text-slate-800 dark:text-slate-200 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none hover:shadow-[4px_4px_10px_#c3cfe2] active:shadow-[inset_2px_2px_4px_#c8d4e4]"
                               : "bg-slate-50 dark:bg-slate-950 border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:border-emerald-500/50 hover:text-emerald-600"
                         }`}
                       >
                         <div
                           className={`p-2.5 rounded-xl ${
                             isNeumorph
-                              ? "bg-[#eaf0f8] dark:bg-slate-800 shadow-[2px_2px_4px_#c3cfe2] dark:shadow-none"
+                              ? "bg-[#fbf2e9] dark:bg-slate-800 shadow-[2px_2px_4px_#c3cfe2] dark:shadow-none"
                               : "bg-amber-500/10"
                           }`}
                         >
@@ -1350,7 +1350,7 @@ export function ConfiguracoesView() {
                     disabled={disparandoRelatorio}
                     className={`shrink-0 flex items-center gap-2 px-4 py-2.5 rounded-2xl text-xs font-bold transition cursor-pointer justify-center flex-1 sm:flex-initial ${
                       isNeumorph
-                        ? "bg-[#eaf0f8] dark:bg-slate-800 text-emerald-800 dark:text-emerald-300 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none border border-emerald-300/50 dark:border-emerald-700 hover:text-emerald-950 dark:hover:text-white active:shadow-[inset_2px_2px_4px_#c8d4e4]"
+                        ? "bg-[#fbf2e9] dark:bg-slate-800 text-emerald-800 dark:text-emerald-300 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none border border-emerald-300/50 dark:border-emerald-700 hover:text-emerald-950 dark:hover:text-white active:shadow-[inset_2px_2px_4px_#c8d4e4]"
                         : "text-emerald-700 dark:text-emerald-300 bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/20"
                     }`}
                   >
@@ -1363,7 +1363,7 @@ export function ConfiguracoesView() {
                     onClick={() => setModalRelatorioAberto(true)}
                     className={`shrink-0 flex items-center gap-2 px-4 py-2.5 rounded-2xl text-xs font-bold transition cursor-pointer justify-center flex-1 sm:flex-initial ${
                       isNeumorph
-                        ? "bg-[#eaf0f8] dark:bg-slate-800 text-indigo-800 dark:text-indigo-300 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none border border-indigo-300/50 dark:border-indigo-700 hover:text-indigo-950 dark:hover:text-white active:shadow-[inset_2px_2px_4px_#c8d4e4]"
+                        ? "bg-[#fbf2e9] dark:bg-slate-800 text-indigo-800 dark:text-indigo-300 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none border border-indigo-300/50 dark:border-indigo-700 hover:text-indigo-950 dark:hover:text-white active:shadow-[inset_2px_2px_4px_#c8d4e4]"
                         : "text-indigo-700 dark:text-indigo-300 bg-indigo-500/10 hover:bg-indigo-500/20 border border-indigo-500/20"
                     }`}
                   >
@@ -1409,7 +1409,7 @@ export function ConfiguracoesView() {
                     onClick={() => setModalEnvioWhatsappAberto(true)}
                     className={`flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold transition cursor-pointer flex-1 sm:flex-none ${
                       isNeumorph
-                        ? "bg-[#eaf0f8] dark:bg-slate-800 text-teal-800 dark:text-teal-300 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none border border-teal-300/50 dark:border-teal-700 hover:text-teal-950"
+                        ? "bg-[#fbf2e9] dark:bg-slate-800 text-teal-800 dark:text-teal-300 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none border border-teal-300/50 dark:border-teal-700 hover:text-teal-950"
                         : "text-emerald-700 dark:text-emerald-300 bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30"
                     }`}
                     title="Abrir WhatsApp com atalho para envio de cobrança ou lembrete Pix"
@@ -1422,7 +1422,7 @@ export function ConfiguracoesView() {
                     onClick={handleCopiarChavePix}
                     className={`flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold transition cursor-pointer flex-1 sm:flex-none ${
                       isNeumorph
-                        ? "bg-[#eaf0f8] dark:bg-slate-800 text-slate-700 dark:text-slate-200 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none border border-slate-300/50 dark:border-slate-700"
+                        ? "bg-[#fbf2e9] dark:bg-slate-800 text-slate-700 dark:text-slate-200 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none border border-slate-300/50 dark:border-slate-700"
                         : "text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 border border-slate-300 dark:border-slate-700"
                     }`}
                   >
@@ -1596,10 +1596,10 @@ export function ConfiguracoesView() {
                   className={`shrink-0 flex items-center gap-2 px-4 py-2.5 rounded-2xl text-xs font-bold transition cursor-pointer w-full sm:w-auto justify-center ${
                     notificarNf
                       ? isNeumorph
-                        ? "bg-[#eaf0f8] dark:bg-slate-800 text-rose-700 dark:text-rose-300 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none border border-rose-300/50 dark:border-rose-700 hover:text-rose-900"
+                        ? "bg-[#fbf2e9] dark:bg-slate-800 text-rose-700 dark:text-rose-300 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none border border-rose-300/50 dark:border-rose-700 hover:text-rose-900"
                         : "text-rose-600 dark:text-rose-400 bg-rose-500/10 hover:bg-rose-500/20 border border-rose-500/20"
                       : isNeumorph
-                        ? "bg-[#eaf0f8] dark:bg-slate-800 text-emerald-800 dark:text-emerald-300 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none border border-emerald-300/50 dark:border-emerald-700 hover:text-emerald-950"
+                        ? "bg-[#fbf2e9] dark:bg-slate-800 text-emerald-800 dark:text-emerald-300 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none border border-emerald-300/50 dark:border-emerald-700 hover:text-emerald-950"
                         : "text-emerald-700 dark:text-emerald-300 bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/20"
                   }`}
                 >
@@ -1613,7 +1613,7 @@ export function ConfiguracoesView() {
                 <div
                   className={`p-3.5 rounded-2xl border flex items-center justify-between gap-3 ${
                     isNeumorph
-                      ? "bg-[#eaf0f8] dark:bg-slate-900 border-slate-300/60 dark:border-slate-800 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none"
+                      ? "bg-[#fbf2e9] dark:bg-slate-900 border-slate-300/60 dark:border-slate-800 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none"
                       : "bg-slate-50 dark:bg-slate-950/60 border-slate-200 dark:border-slate-800"
                   }`}
                 >
@@ -1655,7 +1655,7 @@ export function ConfiguracoesView() {
                 <div
                   className={`p-3.5 rounded-2xl border flex items-center justify-between gap-3 ${
                     isNeumorph
-                      ? "bg-[#eaf0f8] dark:bg-slate-900 border-slate-300/60 dark:border-slate-800 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none"
+                      ? "bg-[#fbf2e9] dark:bg-slate-900 border-slate-300/60 dark:border-slate-800 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none"
                       : "bg-slate-50 dark:bg-slate-950/60 border-slate-200 dark:border-slate-800"
                   }`}
                 >
@@ -1733,7 +1733,7 @@ export function ConfiguracoesView() {
                   onClick={() => setModalCentralAlertasAberto(true)}
                   className={`shrink-0 flex items-center gap-2 px-4 py-2.5 min-h-[44px] rounded-2xl text-xs font-bold transition cursor-pointer w-full sm:w-auto justify-center ${
                     isNeumorph
-                      ? "bg-[#eaf0f8] dark:bg-slate-800 text-emerald-800 dark:text-emerald-300 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none border border-emerald-300/50 dark:border-emerald-700 hover:text-emerald-950 dark:hover:text-white active:shadow-[inset_2px_2px_4px_#c8d4e4]"
+                      ? "bg-[#fbf2e9] dark:bg-slate-800 text-emerald-800 dark:text-emerald-300 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none border border-emerald-300/50 dark:border-emerald-700 hover:text-emerald-950 dark:hover:text-white active:shadow-[inset_2px_2px_4px_#c8d4e4]"
                       : "text-emerald-700 dark:text-emerald-300 bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/20"
                   }`}
                 >
@@ -1767,7 +1767,7 @@ export function ConfiguracoesView() {
                 onClick={() => setModalSenhaAberto(true)}
                 className={`shrink-0 flex items-center gap-2 px-4 py-2.5 rounded-2xl text-xs font-bold transition cursor-pointer w-full sm:w-auto justify-center ${
                   isNeumorph
-                    ? "bg-[#eaf0f8] dark:bg-slate-800 text-indigo-800 dark:text-indigo-300 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none border border-indigo-300/50 dark:border-indigo-700 hover:text-indigo-950 dark:hover:text-white"
+                    ? "bg-[#fbf2e9] dark:bg-slate-800 text-indigo-800 dark:text-indigo-300 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none border border-indigo-300/50 dark:border-indigo-700 hover:text-indigo-950 dark:hover:text-white"
                     : "text-indigo-700 dark:text-indigo-300 bg-indigo-500/10 hover:bg-indigo-500/20 border border-indigo-500/20"
                 }`}
               >

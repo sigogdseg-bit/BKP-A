@@ -117,7 +117,7 @@ export function ModalBloqueioLocalizacaoRastreador({
 
   return createPortal(
     <div className="fixed inset-0 z-[99999] flex items-center justify-center p-2.5 sm:p-4 overflow-y-auto bg-slate-950/85 backdrop-blur-md animate-fadeIn select-none">
-      <div className="w-full max-w-md bg-[#eaf0f8] dark:bg-slate-900 border border-rose-500/40 rounded-3xl p-5 sm:p-7 shadow-2xl max-h-[calc(100dvh-2.5rem)] sm:max-h-[85vh] my-auto flex flex-col overflow-y-auto text-slate-800 dark:text-slate-100 space-y-4">
+      <div className="w-full max-w-md bg-[#fbf2e9] dark:bg-slate-900 border border-rose-500/40 rounded-3xl p-5 sm:p-7 shadow-2xl max-h-[calc(100dvh-2.5rem)] sm:max-h-[85vh] my-auto flex flex-col overflow-y-auto text-slate-800 dark:text-slate-100 space-y-4">
         {/* Header */}
         <div className="flex items-start justify-between">
           <div className="flex items-center gap-3">

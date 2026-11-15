@@ -67,7 +67,7 @@ export function ModalGerenciarBloqueioAdmin({
 
   return createPortal(
     <div className="fixed inset-0 z-[99999] flex items-center justify-center p-2.5 sm:p-4 overflow-y-auto bg-slate-950/85 backdrop-blur-md select-none animate-fadeIn">
-      <div className="w-full max-w-lg bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/80 dark:border-slate-800 rounded-3xl p-5 sm:p-6 shadow-2xl max-h-[calc(100dvh-2.5rem)] sm:max-h-[85vh] my-auto flex flex-col overflow-y-auto text-slate-800 dark:text-slate-100 space-y-4">
+      <div className="w-full max-w-lg bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/80 dark:border-slate-800 rounded-3xl p-5 sm:p-6 shadow-2xl max-h-[calc(100dvh-2.5rem)] sm:max-h-[85vh] my-auto flex flex-col overflow-y-auto text-slate-800 dark:text-slate-100 space-y-4">
         {/* Header */}
         <div className="flex items-start justify-between pb-3 border-b border-slate-300/60 dark:border-slate-800">
           <div className="flex items-center gap-3">

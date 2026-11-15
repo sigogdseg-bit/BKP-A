@@ -1378,7 +1378,7 @@ export function ModalContratosCliente({
           }}
         >
           <div
-            className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto rounded-3xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/80 dark:border-slate-800 p-5 shadow-2xl space-y-4 text-slate-800 dark:text-slate-100 my-auto"
+            className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto rounded-3xl bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/80 dark:border-slate-800 p-5 shadow-2xl space-y-4 text-slate-800 dark:text-slate-100 my-auto"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-slate-800">

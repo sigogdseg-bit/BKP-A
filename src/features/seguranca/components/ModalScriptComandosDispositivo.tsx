@@ -81,9 +81,9 @@ export function ModalScriptComandosDispositivo({
   return (
     <ModalPortal>
       <div className="fixed inset-0 z-[99999] flex items-center justify-center p-3 sm:p-4 bg-slate-950/80 backdrop-blur-md overflow-y-auto select-none">
-        <div className="bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 rounded-3xl max-w-2xl w-full max-h-[90vh] sm:max-h-[85vh] my-auto flex flex-col overflow-hidden shadow-[6px_6px_16px_#c3cfe2] dark:shadow-2xl">
+        <div className="bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 rounded-3xl max-w-2xl w-full max-h-[90vh] sm:max-h-[85vh] my-auto flex flex-col overflow-hidden shadow-[6px_6px_16px_#c3cfe2] dark:shadow-2xl">
           {/* Cabeçalho */}
-          <div className="p-4 sm:p-5 border-b border-slate-300/60 dark:border-slate-800 flex items-center justify-between bg-[#eaf0f8]/95 dark:bg-slate-950/60 shrink-0">
+          <div className="p-4 sm:p-5 border-b border-slate-300/60 dark:border-slate-800 flex items-center justify-between bg-[#fbf2e9]/95 dark:bg-slate-950/60 shrink-0">
             <div className="flex items-center gap-3">
               <span className="p-2.5 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-600 dark:text-cyan-400">
                 <Terminal className="h-5 w-5" />
@@ -187,7 +187,7 @@ export function ModalScriptComandosDispositivo({
           </div>
 
           {/* Rodapé com Botões de Ação */}
-          <div className="p-4 sm:p-5 border-t border-slate-300/60 dark:border-slate-800 bg-[#eaf0f8]/95 dark:bg-slate-950/60 flex flex-col sm:flex-row items-center justify-between gap-3 shrink-0">
+          <div className="p-4 sm:p-5 border-t border-slate-300/60 dark:border-slate-800 bg-[#fbf2e9]/95 dark:bg-slate-950/60 flex flex-col sm:flex-row items-center justify-between gap-3 shrink-0">
             <div className="flex items-center gap-2 w-full sm:w-auto">
               {onAplicarParametrosCanonicos && (
                 <button

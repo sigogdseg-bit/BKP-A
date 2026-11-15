@@ -442,10 +442,10 @@ export function InstalacoesView() {
   return (
     <div className="space-y-5 p-4 sm:p-6 select-none animate-fadeIn">
       {/* 1. Header do Módulo de Instalação */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-5 sm:p-6 rounded-3xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-5 sm:p-6 rounded-3xl bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl">
         <div>
           <div className="flex items-center gap-2">
-            <div className="p-2 rounded-2xl bg-[#eaf0f8] dark:bg-slate-800 text-amber-600 dark:text-amber-400 border border-slate-300/60 dark:border-slate-700 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none">
+            <div className="p-2 rounded-2xl bg-[#fbf2e9] dark:bg-slate-800 text-amber-600 dark:text-amber-400 border border-slate-300/60 dark:border-slate-700 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none">
               <Wrench className="h-5 w-5" />
             </div>
             <div>
@@ -473,7 +473,7 @@ export function InstalacoesView() {
           {isInstalador && session?.userId && (
             <button
               onClick={() => setModalDadosInstaladorAberto(true)}
-              className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#eaf0f8] dark:bg-slate-800 hover:bg-[#dfe7f2] dark:hover:bg-slate-700 text-amber-600 dark:text-amber-400 font-bold text-xs border border-slate-300/60 dark:border-slate-700 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none active:shadow-[inset_2px_2px_4px_#c8d4e4] transition cursor-pointer"
+              className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#fbf2e9] dark:bg-slate-800 hover:bg-[#dfe7f2] dark:hover:bg-slate-700 text-amber-600 dark:text-amber-400 font-bold text-xs border border-slate-300/60 dark:border-slate-700 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none active:shadow-[inset_2px_2px_4px_#c8d4e4] transition cursor-pointer"
             >
               <CreditCard className="h-4 w-4" />
               <span>Meus Dados e PIX</span>
@@ -484,7 +484,7 @@ export function InstalacoesView() {
             <>
               <button
                 onClick={() => setModalRemanejamentoAberto(true)}
-                className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#eaf0f8] dark:bg-slate-800 hover:bg-[#dfe7f2] dark:hover:bg-slate-700 text-amber-600 dark:text-amber-400 font-bold text-xs border border-slate-300/60 dark:border-slate-700 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none active:shadow-[inset_2px_2px_4px_#c8d4e4] transition cursor-pointer"
+                className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#fbf2e9] dark:bg-slate-800 hover:bg-[#dfe7f2] dark:hover:bg-slate-700 text-amber-600 dark:text-amber-400 font-bold text-xs border border-slate-300/60 dark:border-slate-700 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none active:shadow-[inset_2px_2px_4px_#c8d4e4] transition cursor-pointer"
                 title="Emitir ordem de retirada de equipamento ou remanejamento com 2 chamadas"
               >
                 <RotateCcw className="h-4 w-4" />
@@ -534,7 +534,7 @@ export function InstalacoesView() {
       )}
 
       {/* 2. Alternador de Abas Canônico Tático (Padrão de Alto Contraste Hunter-Guardian) */}
-      <div className="flex flex-wrap items-center gap-2 p-1.5 bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 rounded-2xl shadow-[4px_4px_10px_#c3cfe2] dark:shadow-xl w-full sm:w-fit">
+      <div className="flex flex-wrap items-center gap-2 p-1.5 bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 rounded-2xl shadow-[4px_4px_10px_#c3cfe2] dark:shadow-xl w-full sm:w-fit">
         {isInstalador ? (
           <>
             <button
@@ -682,7 +682,7 @@ export function InstalacoesView() {
             className={`p-3.5 rounded-2xl border cursor-pointer transition-all duration-200 hover:-translate-y-0.5 ${
               abaAtiva === "ordens" && filtroPagamento === "pendente"
                 ? "bg-amber-500/15 border-amber-500/80 ring-2 ring-amber-500/30 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none"
-                : "bg-[#eaf0f8] dark:bg-slate-900 border-slate-300/60 dark:border-slate-800 hover:border-amber-500/40 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_14px_#b8c6da]"
+                : "bg-[#fbf2e9] dark:bg-slate-900 border-slate-300/60 dark:border-slate-800 hover:border-amber-500/40 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_14px_#b8c6da]"
             }`}
           >
             <div className="flex items-center justify-between">
@@ -710,7 +710,7 @@ export function InstalacoesView() {
             className={`p-3.5 rounded-2xl border cursor-pointer transition-all duration-200 hover:-translate-y-0.5 ${
               abaAtiva === "ordens" && filtroPagamento === "pago"
                 ? "bg-emerald-500/15 border-emerald-500/80 ring-2 ring-emerald-500/30 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none"
-                : "bg-[#eaf0f8] dark:bg-slate-900 border-slate-300/60 dark:border-slate-800 hover:border-emerald-500/40 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_14px_#b8c6da]"
+                : "bg-[#fbf2e9] dark:bg-slate-900 border-slate-300/60 dark:border-slate-800 hover:border-emerald-500/40 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_14px_#b8c6da]"
             }`}
           >
             <div className="flex items-center justify-between">
@@ -735,7 +735,7 @@ export function InstalacoesView() {
             className={`p-3.5 rounded-2xl border cursor-pointer transition-all duration-200 hover:-translate-y-0.5 ${
               abaAtiva === "a_instalar"
                 ? "bg-sky-500/15 border-sky-500/80 ring-2 ring-sky-500/30 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none"
-                : "bg-[#eaf0f8] dark:bg-slate-900 border-slate-300/60 dark:border-slate-800 hover:border-sky-500/40 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_14px_#b8c6da]"
+                : "bg-[#fbf2e9] dark:bg-slate-900 border-slate-300/60 dark:border-slate-800 hover:border-sky-500/40 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_14px_#b8c6da]"
             }`}
           >
             <div className="flex items-center justify-between">
@@ -760,7 +760,7 @@ export function InstalacoesView() {
             className={`p-3.5 rounded-2xl border cursor-pointer transition-all duration-200 hover:-translate-y-0.5 ${
               abaAtiva === "a_agendar"
                 ? "bg-rose-500/15 border-rose-500/80 ring-2 ring-rose-500/30 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none"
-                : "bg-[#eaf0f8] dark:bg-slate-900 border-slate-300/60 dark:border-slate-800 hover:border-rose-500/40 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_14px_#b8c6da]"
+                : "bg-[#fbf2e9] dark:bg-slate-900 border-slate-300/60 dark:border-slate-800 hover:border-rose-500/40 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_14px_#b8c6da]"
             }`}
           >
             <div className="flex items-center justify-between">
@@ -794,7 +794,7 @@ export function InstalacoesView() {
             className={`p-3.5 rounded-2xl border cursor-pointer transition-all duration-200 hover:-translate-y-0.5 ${
               filtroStatus === "todos" && filtroPagamento === "todos" && abaAtiva === "ordens"
                 ? "bg-emerald-500/10 border-emerald-500/80 ring-2 ring-emerald-500/30 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none"
-                : "bg-[#eaf0f8] dark:bg-slate-900 border-slate-300/60 dark:border-slate-800 hover:border-slate-400 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_14px_#b8c6da]"
+                : "bg-[#fbf2e9] dark:bg-slate-900 border-slate-300/60 dark:border-slate-800 hover:border-slate-400 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_14px_#b8c6da]"
             }`}
           >
             <div className="flex items-center justify-between">
@@ -825,7 +825,7 @@ export function InstalacoesView() {
             className={`p-3.5 rounded-2xl border cursor-pointer transition-all duration-200 hover:-translate-y-0.5 ${
               filtroStatus === "concluida" && abaAtiva === "ordens"
                 ? "bg-emerald-500/15 border-emerald-500/80 ring-2 ring-emerald-500/30 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none"
-                : "bg-[#eaf0f8] dark:bg-slate-900 border-slate-300/60 dark:border-slate-800 hover:border-emerald-500/40 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_14px_#b8c6da]"
+                : "bg-[#fbf2e9] dark:bg-slate-900 border-slate-300/60 dark:border-slate-800 hover:border-emerald-500/40 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_14px_#b8c6da]"
             }`}
           >
             <div className="flex items-center justify-between">
@@ -856,7 +856,7 @@ export function InstalacoesView() {
             className={`p-3.5 rounded-2xl border cursor-pointer transition-all duration-200 hover:-translate-y-0.5 ${
               filtroStatus === "com_pendencia" && abaAtiva === "ordens"
                 ? "bg-amber-500/15 border-amber-500/80 ring-2 ring-amber-500/30 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none"
-                : "bg-[#eaf0f8] dark:bg-slate-900 border-slate-300/60 dark:border-slate-800 hover:border-amber-500/40 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_14px_#b8c6da]"
+                : "bg-[#fbf2e9] dark:bg-slate-900 border-slate-300/60 dark:border-slate-800 hover:border-amber-500/40 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_14px_#b8c6da]"
             }`}
           >
             <div className="flex items-center justify-between">
@@ -884,7 +884,7 @@ export function InstalacoesView() {
             className={`p-3.5 rounded-2xl border cursor-pointer transition-all duration-200 hover:-translate-y-0.5 ${
               abaAtiva === "financeiro"
                 ? "bg-sky-500/15 border-sky-500/80 ring-2 ring-sky-500/30 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none"
-                : "bg-[#eaf0f8] dark:bg-slate-900 border-slate-300/60 dark:border-slate-800 hover:border-sky-500/40 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_14px_#b8c6da]"
+                : "bg-[#fbf2e9] dark:bg-slate-900 border-slate-300/60 dark:border-slate-800 hover:border-sky-500/40 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_14px_#b8c6da]"
             }`}
           >
             <div className="flex items-center justify-between">
@@ -908,7 +908,7 @@ export function InstalacoesView() {
       )}
 
       {/* 4. Barra de Filtros e Busca */}
-      <div className="flex flex-col md:flex-row items-center justify-between gap-3 p-3 rounded-2xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none">
+      <div className="flex flex-col md:flex-row items-center justify-between gap-3 p-3 rounded-2xl bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none">
         <div className="relative w-full md:w-80">
           <Search className="absolute left-3 top-2.5 h-4 w-4 text-slate-400" />
           <input
@@ -916,7 +916,7 @@ export function InstalacoesView() {
             value={busca}
             onChange={(e) => setBusca(e.target.value)}
             placeholder="Buscar por placa, modelo, cliente ou IMEI..."
-            className="w-full pl-9 pr-3 py-1.5 rounded-xl bg-[#eaf0f8] dark:bg-slate-950 border border-slate-300/60 dark:border-slate-800 shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6)] text-xs text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-1 focus:ring-emerald-500"
+            className="w-full pl-9 pr-3 py-1.5 rounded-xl bg-[#fbf2e9] dark:bg-slate-950 border border-slate-300/60 dark:border-slate-800 shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6)] text-xs text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-1 focus:ring-emerald-500"
           />
         </div>
 
@@ -925,7 +925,7 @@ export function InstalacoesView() {
           <select
             value={filtroStatus}
             onChange={(e) => setFiltroStatus(e.target.value)}
-            className="px-3 py-1.5 rounded-xl bg-[#eaf0f8] dark:bg-slate-950 border border-slate-300/60 dark:border-slate-800 shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6)] text-xs font-semibold text-slate-700 dark:text-slate-300 focus:outline-none"
+            className="px-3 py-1.5 rounded-xl bg-[#fbf2e9] dark:bg-slate-950 border border-slate-300/60 dark:border-slate-800 shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6)] text-xs font-semibold text-slate-700 dark:text-slate-300 focus:outline-none"
           >
             <option value="todos">Todos os Status</option>
             <option value="concluida">Concluída</option>
@@ -939,7 +939,7 @@ export function InstalacoesView() {
           <select
             value={filtroPagamento}
             onChange={(e) => setFiltroPagamento(e.target.value)}
-            className="px-3 py-1.5 rounded-xl bg-[#eaf0f8] dark:bg-slate-950 border border-slate-300/60 dark:border-slate-800 shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6)] text-xs font-semibold text-slate-700 dark:text-slate-300 focus:outline-none"
+            className="px-3 py-1.5 rounded-xl bg-[#fbf2e9] dark:bg-slate-950 border border-slate-300/60 dark:border-slate-800 shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6)] text-xs font-semibold text-slate-700 dark:text-slate-300 focus:outline-none"
           >
             <option value="todos">Todos os Pagamentos</option>
             <option value="pendente">Pendente de Pagamento</option>
@@ -951,7 +951,7 @@ export function InstalacoesView() {
             <select
               value={filtroInstaladorId}
               onChange={(e) => setFiltroInstaladorId(e.target.value)}
-              className="px-3 py-1.5 rounded-xl bg-[#eaf0f8] dark:bg-slate-950 border border-slate-300/60 dark:border-slate-800 shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6)] text-xs font-semibold text-slate-700 dark:text-slate-300 focus:outline-none"
+              className="px-3 py-1.5 rounded-xl bg-[#fbf2e9] dark:bg-slate-950 border border-slate-300/60 dark:border-slate-800 shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6)] text-xs font-semibold text-slate-700 dark:text-slate-300 focus:outline-none"
             >
               <option value="todos">Todos os Instaladores</option>
               {listaInstaladores.map((inst) => (
@@ -1539,7 +1539,7 @@ export function InstalacoesView() {
                               setInstalacaoEdicao(inst);
                               setModalNovaAberto(true);
                             }}
-                            className="px-3 py-1.5 rounded-xl bg-[#eaf0f8] hover:bg-[#dfe7f2] dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 text-[11px] font-bold border border-slate-300/60 dark:border-slate-700 transition flex items-center gap-1 shadow-xs cursor-pointer"
+                            className="px-3 py-1.5 rounded-xl bg-[#fbf2e9] hover:bg-[#dfe7f2] dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 text-[11px] font-bold border border-slate-300/60 dark:border-slate-700 transition flex items-center gap-1 shadow-xs cursor-pointer"
                             title="Editar insumos e materiais do estoque (Acesso restrito ao Operador/Administrador)"
                           >
                             <Boxes className="h-3 w-3 text-amber-500" />
@@ -1553,7 +1553,7 @@ export function InstalacoesView() {
               })}
             </div>
           ) : (
-            <div className="bg-[#eaf0f8] dark:bg-slate-900/70 border border-slate-300/60 dark:border-slate-800 rounded-2xl shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none overflow-hidden">
+            <div className="bg-[#fbf2e9] dark:bg-slate-900/70 border border-slate-300/60 dark:border-slate-800 rounded-2xl shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none overflow-hidden">
               <div className="overflow-x-auto custom-scrollbar">
                 <table className="w-full text-left border-collapse min-w-[900px]">
                   <thead>

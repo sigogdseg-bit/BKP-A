@@ -214,7 +214,7 @@ describe("Hunter — Perfil Degustação Master, Sandbox 24h e Laudo Pericial SG
       "Código curto deve conter 6 caracteres hex",
     );
     assert.equal(resultado.hashSha256.length, 64, "Hash SHA-256 deve ter 64 caracteres");
-    assert.ok(resultado.linkVerificacao.includes("https://sigoguardiao.oficial.tec.br/verificar"));
+    assert.ok(resultado.linkVerificacao.includes("https://gd.oficial.tec.br/verificar"));
   });
 
   it("7. Geração do Laudo Pericial no Modo Simulação incorpora Selo SGD-SIM e Chancela de Simulação", async () => {
