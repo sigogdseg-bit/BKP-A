@@ -57,7 +57,7 @@ export function RedefinirSenhaModal({ usuario, onConcluido, onFechar }: Redefini
   return (
     <ModalPortal>
       <div className="fixed inset-0 z-[99999] flex items-center justify-center p-2.5 sm:p-4 bg-slate-950/85 backdrop-blur-md overflow-y-auto select-none">
-        <div className="relative w-full max-w-md max-h-[calc(100dvh-2.5rem)] sm:max-h-[85vh] overflow-y-auto my-auto rounded-3xl bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 p-5 sm:p-6 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl space-y-4 sm:space-y-5">
+        <div className="relative w-full max-w-md max-h-[calc(100dvh-2.5rem)] sm:max-h-[85vh] overflow-y-auto my-auto rounded-3xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 p-5 sm:p-6 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl space-y-4 sm:space-y-5">
           <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
             <div className="flex items-center gap-2.5">
               <div className="h-9 w-9 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-500">

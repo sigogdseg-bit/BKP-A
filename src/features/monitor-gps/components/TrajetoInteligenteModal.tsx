@@ -1079,9 +1079,9 @@ export function TrajetoInteligenteModal({
   return (
     <ModalPortal>
       <div className="fixed inset-0 z-[99999] flex items-center justify-center p-2 sm:p-4 bg-slate-950/85 backdrop-blur-md select-none animate-in fade-in duration-200 overflow-y-auto">
-        <div className="bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 rounded-3xl w-full max-w-5xl h-[calc(100dvh-2rem)] sm:h-[calc(100dvh-2.5rem)] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-2.5rem)] flex flex-col overflow-hidden shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl pb-safe my-auto">
+        <div className="bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 rounded-3xl w-full max-w-5xl h-[calc(100dvh-2rem)] sm:h-[calc(100dvh-2.5rem)] max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-2.5rem)] flex flex-col overflow-hidden shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl pb-safe my-auto">
           {/* Topo do Modal */}
-          <div className="p-3.5 sm:p-4 border-b border-slate-300/60 dark:border-slate-800 flex items-center justify-between bg-[#fbf2e9]/90 dark:bg-slate-950/60 shrink-0">
+          <div className="p-3.5 sm:p-4 border-b border-slate-300/60 dark:border-slate-800 flex items-center justify-between bg-[#eaf0f8]/90 dark:bg-slate-950/60 shrink-0">
             <div className="flex items-center gap-3">
               <div className="h-10 w-10 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
                 <Navigation className="h-5 w-5" />

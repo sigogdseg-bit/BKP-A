@@ -65,7 +65,7 @@ export function AppHeader() {
   return (
     <>
       <header
-        className="sticky top-0 z-50 w-full px-2.5 sm:px-6 select-none transition-colors duration-200 bg-[#fbf2e9] dark:bg-[#110e0c] border-b border-slate-300/60 dark:border-slate-800 shadow-[0_3px_10px_rgba(195,207,226,0.35)] dark:shadow-none"
+        className="sticky top-0 z-50 w-full px-2.5 sm:px-6 select-none transition-colors duration-200 bg-[#eaf0f8] dark:bg-[#0a0a0c] border-b border-slate-300/60 dark:border-orange-500/20 shadow-[0_3px_10px_rgba(195,207,226,0.35)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.8)]"
         style={{
           paddingTop: "calc(env(safe-area-inset-top, 0px) + 0.5rem)",
           paddingBottom: "0.25rem",

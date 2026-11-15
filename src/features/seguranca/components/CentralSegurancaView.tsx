@@ -382,7 +382,7 @@ export function CentralSegurancaView() {
   return (
     <div className="space-y-6 max-w-7xl mx-auto p-2.5 sm:p-5 lg:p-6 select-none transition-all duration-300 pb-28">
       {/* Cabeçalho Executivo */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 p-4 sm:p-6 rounded-3xl shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl overflow-hidden mt-1 sm:mt-0">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 p-4 sm:p-6 rounded-3xl shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl overflow-hidden mt-1 sm:mt-0">
         <div className="flex items-center gap-3.5">
           <div className="h-12 w-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shadow-xs shrink-0">
             <ShieldCheck className="h-6 w-6 stroke-[2.2]" />
@@ -417,7 +417,7 @@ export function CentralSegurancaView() {
 
           <button
             onClick={carregarTodosDados}
-            className="flex-1 sm:flex-none flex items-center justify-center gap-1.5 px-3.5 py-2.5 rounded-2xl text-xs font-bold bg-[#fbf2e9] dark:bg-slate-800 hover:bg-[#dfe8f5] dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 border border-slate-300/50 dark:border-slate-700 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none transition min-h-[44px] cursor-pointer"
+            className="flex-1 sm:flex-none flex items-center justify-center gap-1.5 px-3.5 py-2.5 rounded-2xl text-xs font-bold bg-[#eaf0f8] dark:bg-slate-800 hover:bg-[#dfe8f5] dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 border border-slate-300/50 dark:border-slate-700 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none transition min-h-[44px] cursor-pointer"
           >
             <RefreshCw
               className={`h-3.5 w-3.5 shrink-0 ${carregando ? "animate-spin text-emerald-600" : ""}`}
@@ -439,7 +439,7 @@ export function CentralSegurancaView() {
               className={`flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-2xl text-xs font-bold transition flex-1 min-w-[140px] sm:min-w-fit text-center min-h-[44px] ${
                 ativa
                   ? "bg-emerald-600 text-white shadow-[2px_2px_8px_rgba(5,150,105,0.35)]"
-                  : "bg-[#fbf2e9] dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 border border-slate-300/50 dark:border-slate-700 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none hover:shadow-[3px_3px_8px_#b8c6da]"
+                  : "bg-[#eaf0f8] dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 border border-slate-300/50 dark:border-slate-700 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none hover:shadow-[3px_3px_8px_#b8c6da]"
               }`}
             >
               <Icone className="h-4 w-4 shrink-0" />
@@ -455,7 +455,7 @@ export function CentralSegurancaView() {
       {abaAtiva === "semaforo" && (
         <div className="space-y-6">
           {/* Banner de Status Geral */}
-          <div className="flex items-center justify-between p-4 sm:p-5 rounded-3xl bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl">
+          <div className="flex items-center justify-between p-4 sm:p-5 rounded-3xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl">
             <div className="flex items-center gap-3">
               <span className="flex h-3.5 w-3.5 relative">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
@@ -557,7 +557,7 @@ export function CentralSegurancaView() {
             {indicadoresFiltrados.map((ind, idx) => (
               <div
                 key={idx}
-                className="bg-[#fbf2e9] dark:bg-slate-900/80 border border-slate-300/60 dark:border-slate-800 rounded-3xl p-4 space-y-2 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none hover:border-emerald-500/40 transition-colors"
+                className="bg-[#eaf0f8] dark:bg-slate-900/80 border border-slate-300/60 dark:border-slate-800 rounded-3xl p-4 space-y-2 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none hover:border-emerald-500/40 transition-colors"
               >
                 <div className="flex items-center justify-between">
                   <span className="text-[10px] font-mono uppercase tracking-wide text-slate-400">
@@ -592,7 +592,7 @@ export function CentralSegurancaView() {
 
           {/* Radar de Ataques Monitorados (Detecta) */}
           {ataquesDetectadosRadar.length > 0 && (
-            <div className="p-5 rounded-3xl bg-[#fbf2e9] dark:bg-slate-900/80 border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl space-y-3">
+            <div className="p-5 rounded-3xl bg-[#eaf0f8] dark:bg-slate-900/80 border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl space-y-3">
               <div className="flex items-center gap-3">
                 <div className="h-9 w-9 rounded-xl bg-sky-500/10 text-sky-500 flex items-center justify-center">
                   <Radar className="h-5 w-5" />
@@ -612,7 +612,7 @@ export function CentralSegurancaView() {
                 {ataquesDetectadosRadar.slice(0, 6).map((d, i) => (
                   <div
                     key={i}
-                    className="p-3.5 rounded-2xl bg-[#fbf2e9] dark:bg-slate-950 border border-slate-300/50 dark:border-slate-800 shadow-[2px_2px_6px_#c3cfe2] dark:shadow-none space-y-1 text-xs"
+                    className="p-3.5 rounded-2xl bg-[#eaf0f8] dark:bg-slate-950 border border-slate-300/50 dark:border-slate-800 shadow-[2px_2px_6px_#c3cfe2] dark:shadow-none space-y-1 text-xs"
                   >
                     <div className="flex items-center justify-between">
                       <span className="text-[10px] font-mono text-slate-400">{d.categoria}</span>
@@ -629,7 +629,7 @@ export function CentralSegurancaView() {
           )}
 
           {/* Matriz Integrada: Eficiência Global da Defesa (Ponderada) */}
-          <div className="p-5 rounded-3xl bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl space-y-4">
+          <div className="p-5 rounded-3xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl space-y-4">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-300/50 dark:border-slate-800/80 pb-3">
               <div>
                 <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100">
@@ -703,7 +703,7 @@ export function CentralSegurancaView() {
           </div>
 
           {/* Catálogo Canônico dos 51 Vetores de Ataque com Filtro Bidirecional */}
-          <div className="p-5 rounded-3xl bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl space-y-4">
+          <div className="p-5 rounded-3xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl space-y-4">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
               <div>
                 <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100">
@@ -718,7 +718,7 @@ export function CentralSegurancaView() {
                 <button
                   type="button"
                   onClick={() => setFiltroNivelAtaque(null)}
-                  className="px-2.5 py-1 rounded-xl text-[11px] font-bold bg-[#fbf2e9] dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-300/60 dark:border-slate-700 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none hover:shadow-[3px_3px_8px_#b8c6da] transition"
+                  className="px-2.5 py-1 rounded-xl text-[11px] font-bold bg-[#eaf0f8] dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-300/60 dark:border-slate-700 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none hover:shadow-[3px_3px_8px_#b8c6da] transition"
                 >
                   Limpar filtro de ataques
                 </button>
@@ -773,7 +773,7 @@ export function CentralSegurancaView() {
                   </h4>
                   <div className="overflow-hidden rounded-2xl border border-slate-300/50 dark:border-slate-800">
                     <table className="w-full text-xs">
-                      <thead className="bg-[#fbf2e9] dark:bg-slate-950 text-slate-500 dark:text-slate-400 uppercase text-[10px]">
+                      <thead className="bg-[#eaf0f8] dark:bg-slate-950 text-slate-500 dark:text-slate-400 uppercase text-[10px]">
                         <tr className="text-left">
                           <th className="px-3 py-2 font-semibold">Ataque</th>
                           <th className="px-3 py-2 font-semibold">Nível</th>
@@ -818,7 +818,7 @@ export function CentralSegurancaView() {
             <TiltCard
               onClick={() => setAbaAtiva("logs")}
               spotlightColor="rgba(59, 130, 246, 0.18)"
-              className="p-4 rounded-3xl bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none text-left hover:shadow-[5px_5px_14px_#b8c6da] hover:border-emerald-500/40 transition-all cursor-pointer"
+              className="p-4 rounded-3xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none text-left hover:shadow-[5px_5px_14px_#b8c6da] hover:border-emerald-500/40 transition-all cursor-pointer"
             >
               <span className="text-xs font-semibold text-slate-500 dark:text-slate-400">
                 Total de Logins
@@ -832,7 +832,7 @@ export function CentralSegurancaView() {
             <TiltCard
               onClick={() => setAbaAtiva("anomalias")}
               spotlightColor="rgba(244, 63, 94, 0.18)"
-              className="p-4 rounded-3xl bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none text-left hover:shadow-[5px_5px_14px_#b8c6da] hover:border-rose-500/40 transition-all cursor-pointer"
+              className="p-4 rounded-3xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none text-left hover:shadow-[5px_5px_14px_#b8c6da] hover:border-rose-500/40 transition-all cursor-pointer"
             >
               <span className="text-xs font-semibold text-slate-500 dark:text-slate-400">
                 Falhas e Anomalias
@@ -848,7 +848,7 @@ export function CentralSegurancaView() {
             <TiltCard
               onClick={() => setAbaAtiva("dispositivos")}
               spotlightColor="rgba(6, 182, 212, 0.18)"
-              className="p-4 rounded-3xl bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none text-left hover:shadow-[5px_5px_14px_#b8c6da] hover:border-sky-500/40 transition-all cursor-pointer"
+              className="p-4 rounded-3xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none text-left hover:shadow-[5px_5px_14px_#b8c6da] hover:border-sky-500/40 transition-all cursor-pointer"
             >
               <span className="text-xs font-semibold text-slate-500 dark:text-slate-400">
                 Aparelhos TOFU
@@ -862,7 +862,7 @@ export function CentralSegurancaView() {
             <TiltCard
               onClick={() => setAbaAtiva("auditoria")}
               spotlightColor="rgba(16, 185, 129, 0.18)"
-              className="p-4 rounded-3xl bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none text-left hover:shadow-[5px_5px_14px_#b8c6da] hover:border-emerald-500/40 transition-all cursor-pointer"
+              className="p-4 rounded-3xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none text-left hover:shadow-[5px_5px_14px_#b8c6da] hover:border-emerald-500/40 transition-all cursor-pointer"
             >
               <span className="text-xs font-semibold text-slate-500 dark:text-slate-400">
                 Tabelas com RLS
@@ -879,7 +879,7 @@ export function CentralSegurancaView() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
             <button
               onClick={() => setAbaAtiva("lockout")}
-              className="p-4 rounded-3xl bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none space-y-1 text-left hover:shadow-[5px_5px_14px_#b8c6da] hover:border-amber-500/40 transition-all"
+              className="p-4 rounded-3xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none space-y-1 text-left hover:shadow-[5px_5px_14px_#b8c6da] hover:border-amber-500/40 transition-all"
             >
               <span className="text-xs font-semibold text-slate-500 dark:text-slate-400">
                 Bloqueios Lockout Ativos
@@ -894,7 +894,7 @@ export function CentralSegurancaView() {
 
             <button
               onClick={() => setAbaAtiva("honeytokens")}
-              className="p-4 rounded-3xl bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none space-y-1 text-left hover:shadow-[5px_5px_14px_#b8c6da] hover:border-indigo-500/40 transition-all"
+              className="p-4 rounded-3xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none space-y-1 text-left hover:shadow-[5px_5px_14px_#b8c6da] hover:border-indigo-500/40 transition-all"
             >
               <span className="text-xs font-semibold text-slate-500 dark:text-slate-400">
                 Honeytokens Armados
@@ -909,7 +909,7 @@ export function CentralSegurancaView() {
 
             <button
               onClick={() => setAbaAtiva("lgpd")}
-              className="p-4 rounded-3xl bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none space-y-1 text-left hover:shadow-[5px_5px_14px_#b8c6da] hover:border-cyan-500/40 transition-all"
+              className="p-4 rounded-3xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none space-y-1 text-left hover:shadow-[5px_5px_14px_#b8c6da] hover:border-cyan-500/40 transition-all"
             >
               <span className="text-xs font-semibold text-slate-500 dark:text-slate-400">
                 LGPD Solicitações Pendentes
@@ -930,7 +930,7 @@ export function CentralSegurancaView() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       {abaAtiva === "ueba" && (
         <div className="space-y-4">
-          <div className="p-4 rounded-3xl bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl space-y-1">
+          <div className="p-4 rounded-3xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl space-y-1">
             <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100">
               User and Entity Behavior Analytics (UEBA)
             </h3>
@@ -983,7 +983,7 @@ export function CentralSegurancaView() {
                   className={`p-3 rounded-2xl border text-left transition cursor-pointer shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none ${
                     ativo
                       ? "bg-emerald-500/10 border-emerald-500/40 ring-2 ring-emerald-500 shadow-md"
-                      : "bg-[#fbf2e9] dark:bg-slate-900/80 border-slate-300/60 dark:border-slate-800 hover:shadow-[3px_3px_8px_#b8c6da]"
+                      : "bg-[#eaf0f8] dark:bg-slate-900/80 border-slate-300/60 dark:border-slate-800 hover:shadow-[3px_3px_8px_#b8c6da]"
                   }`}
                 >
                   <div className={`text-xs font-bold ${f.cor}`}>{f.label}</div>
@@ -996,7 +996,7 @@ export function CentralSegurancaView() {
           </div>
 
           {uebaEventosFiltrados.length === 0 ? (
-            <div className="py-12 text-center text-xs text-slate-500 bg-[#fbf2e9] dark:bg-slate-900/60 rounded-3xl border border-slate-300/60 dark:border-slate-800 shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none">
+            <div className="py-12 text-center text-xs text-slate-500 bg-[#eaf0f8] dark:bg-slate-900/60 rounded-3xl border border-slate-300/60 dark:border-slate-800 shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none">
               Nenhuma atividade correspondente nos parâmetros selecionados.
             </div>
           ) : (
@@ -1016,7 +1016,7 @@ export function CentralSegurancaView() {
                 return (
                   <div
                     key={i}
-                    className="p-4 rounded-2xl bg-[#fbf2e9] dark:bg-slate-900/80 border border-slate-300/50 dark:border-slate-800/80 shadow-[2px_2px_6px_#c3cfe2] dark:shadow-none flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs"
+                    className="p-4 rounded-2xl bg-[#eaf0f8] dark:bg-slate-900/80 border border-slate-300/50 dark:border-slate-800/80 shadow-[2px_2px_6px_#c3cfe2] dark:shadow-none flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs"
                   >
                     <div className="flex items-start gap-3">
                       {/* Avatar com Iniciais ou Ícone de Sistema */}
@@ -1121,7 +1121,7 @@ export function CentralSegurancaView() {
               className={`p-4 rounded-3xl border text-left transition shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none ${
                 filtroCategoriaAnomalia === "Credential Stuffing"
                   ? "bg-rose-500/10 border-rose-500/40 ring-2 ring-rose-500 shadow-md"
-                  : "bg-[#fbf2e9] dark:bg-slate-900/80 border-slate-300/60 dark:border-slate-800 hover:shadow-[4px_4px_10px_#b8c6da] hover:border-rose-400"
+                  : "bg-[#eaf0f8] dark:bg-slate-900/80 border-slate-300/60 dark:border-slate-800 hover:shadow-[4px_4px_10px_#b8c6da] hover:border-rose-400"
               }`}
             >
               <span className="text-xs font-semibold text-slate-500 dark:text-slate-400">
@@ -1146,7 +1146,7 @@ export function CentralSegurancaView() {
               className={`p-4 rounded-3xl border text-left transition shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none ${
                 filtroCategoriaAnomalia === "Força Bruta"
                   ? "bg-amber-500/10 border-amber-500/40 ring-2 ring-amber-500 shadow-md"
-                  : "bg-[#fbf2e9] dark:bg-slate-900/80 border-slate-300/60 dark:border-slate-800 hover:shadow-[4px_4px_10px_#b8c6da] hover:border-amber-400"
+                  : "bg-[#eaf0f8] dark:bg-slate-900/80 border-slate-300/60 dark:border-slate-800 hover:shadow-[4px_4px_10px_#b8c6da] hover:border-amber-400"
               }`}
             >
               <span className="text-xs font-semibold text-slate-500 dark:text-slate-400">
@@ -1169,7 +1169,7 @@ export function CentralSegurancaView() {
               className={`p-4 rounded-3xl border text-left transition shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none ${
                 filtroCategoriaAnomalia === "Rajada"
                   ? "bg-indigo-500/10 border-indigo-500/40 ring-2 ring-indigo-500 shadow-md"
-                  : "bg-[#fbf2e9] dark:bg-slate-900/80 border-slate-300/60 dark:border-slate-800 hover:shadow-[4px_4px_10px_#b8c6da] hover:border-indigo-400"
+                  : "bg-[#eaf0f8] dark:bg-slate-900/80 border-slate-300/60 dark:border-slate-800 hover:shadow-[4px_4px_10px_#b8c6da] hover:border-indigo-400"
               }`}
             >
               <span className="text-xs font-semibold text-slate-500 dark:text-slate-400">
@@ -1186,7 +1186,7 @@ export function CentralSegurancaView() {
             </button>
           </div>
 
-          <div className="p-4 rounded-3xl bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl space-y-3">
+          <div className="p-4 rounded-3xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl space-y-3">
             <div className="flex items-center justify-between">
               <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100">
                 Trilha Forense de Incidentes de Autenticação (Últimos 7 dias)
@@ -1211,7 +1211,7 @@ export function CentralSegurancaView() {
                 {incidentesAnomaliasFiltrados.map((inc, i) => (
                   <div
                     key={i}
-                    className="p-3 rounded-2xl bg-[#fbf2e9] dark:bg-slate-950 border border-slate-300/50 dark:border-slate-800 shadow-[inset_1px_1px_3px_#c8d4e4] dark:shadow-none text-xs flex items-center justify-between font-mono"
+                    className="p-3 rounded-2xl bg-[#eaf0f8] dark:bg-slate-950 border border-slate-300/50 dark:border-slate-800 shadow-[inset_1px_1px_3px_#c8d4e4] dark:shadow-none text-xs flex items-center justify-between font-mono"
                   >
                     <div>
                       <div className="flex items-center gap-2">
@@ -1239,7 +1239,7 @@ export function CentralSegurancaView() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       {abaAtiva === "auditoria" && (
         <div className="space-y-4">
-          <div className="p-4 rounded-3xl bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl flex items-center justify-between">
+          <div className="p-4 rounded-3xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl flex items-center justify-between">
             <div>
               <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100">
                 Auditoria Estrutural de Isolamento e RLS (PostgreSQL)
@@ -1257,7 +1257,7 @@ export function CentralSegurancaView() {
             {auditoriaBanco.tabelas.map((tab, idx) => (
               <div
                 key={idx}
-                className="p-3.5 rounded-2xl bg-[#fbf2e9] dark:bg-slate-900/80 border border-slate-300/50 dark:border-slate-800/80 shadow-[2px_2px_6px_#c3cfe2] dark:shadow-none flex items-center justify-between text-xs font-mono"
+                className="p-3.5 rounded-2xl bg-[#eaf0f8] dark:bg-slate-900/80 border border-slate-300/50 dark:border-slate-800/80 shadow-[2px_2px_6px_#c3cfe2] dark:shadow-none flex items-center justify-between text-xs font-mono"
               >
                 <div>
                   <div className="font-bold text-slate-900 dark:text-slate-100">{tab.nome}</div>
@@ -1277,7 +1277,7 @@ export function CentralSegurancaView() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       {abaAtiva === "lockout" && (
         <div className="space-y-4">
-          <div className="p-4 rounded-3xl bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl space-y-1">
+          <div className="p-4 rounded-3xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl space-y-1">
             <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100">
               Lockout Escalonado Progressivo (5 falhas = 15m, 10 falhas = 1h, 20 falhas = 24h)
             </h3>
@@ -1301,7 +1301,7 @@ export function CentralSegurancaView() {
                 className={`px-3 py-1.5 rounded-xl text-xs font-bold transition shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none ${
                   filtroStatusBloqueio === f.id
                     ? "bg-emerald-600 text-white shadow-sm"
-                    : "bg-[#fbf2e9] dark:bg-slate-900/80 text-slate-700 dark:text-slate-300 border border-slate-300/60 dark:border-slate-800 hover:shadow-[3px_3px_8px_#b8c6da]"
+                    : "bg-[#eaf0f8] dark:bg-slate-900/80 text-slate-700 dark:text-slate-300 border border-slate-300/60 dark:border-slate-800 hover:shadow-[3px_3px_8px_#b8c6da]"
                 }`}
               >
                 {f.label}
@@ -1310,7 +1310,7 @@ export function CentralSegurancaView() {
           </div>
 
           {bloqueiosFiltrados.length === 0 ? (
-            <div className="py-12 text-center text-xs text-slate-500 bg-[#fbf2e9] dark:bg-slate-900/60 rounded-3xl border border-slate-300/60 dark:border-slate-800 shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none">
+            <div className="py-12 text-center text-xs text-slate-500 bg-[#eaf0f8] dark:bg-slate-900/60 rounded-3xl border border-slate-300/60 dark:border-slate-800 shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none">
               Nenhum IP ou conta sob lockout no filtro selecionado.
             </div>
           ) : (
@@ -1318,7 +1318,7 @@ export function CentralSegurancaView() {
               {bloqueiosFiltrados.map((b) => (
                 <div
                   key={b.id}
-                  className="p-4 rounded-2xl bg-[#fbf2e9] dark:bg-slate-900/80 border border-slate-300/50 dark:border-slate-800/80 shadow-[2px_2px_6px_#c3cfe2] dark:shadow-none flex items-center justify-between gap-3 text-xs"
+                  className="p-4 rounded-2xl bg-[#eaf0f8] dark:bg-slate-900/80 border border-slate-300/50 dark:border-slate-800/80 shadow-[2px_2px_6px_#c3cfe2] dark:shadow-none flex items-center justify-between gap-3 text-xs"
                 >
                   <div className="space-y-1">
                     <div className="flex items-center gap-2">
@@ -1363,7 +1363,7 @@ export function CentralSegurancaView() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       {abaAtiva === "honeytokens" && (
         <div className="space-y-4">
-          <div className="p-4 rounded-3xl bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl space-y-1">
+          <div className="p-4 rounded-3xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl space-y-1">
             <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100">
               Cyber Deception: Armadilhas e Contas Isca
             </h3>
@@ -1377,7 +1377,7 @@ export function CentralSegurancaView() {
             {honeytokens.map((ht) => (
               <div
                 key={ht.id}
-                className="p-4 rounded-3xl bg-[#fbf2e9] dark:bg-slate-900/80 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none space-y-2 hover:border-indigo-500/40 transition-all"
+                className="p-4 rounded-3xl bg-[#eaf0f8] dark:bg-slate-900/80 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none space-y-2 hover:border-indigo-500/40 transition-all"
               >
                 <div className="flex items-center justify-between">
                   <span className="font-bold text-xs text-slate-900 dark:text-slate-100">
@@ -1410,7 +1410,7 @@ export function CentralSegurancaView() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       {abaAtiva === "dispositivos" && (
         <div className="space-y-4">
-          <div className="p-4 rounded-3xl bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl flex items-center justify-between">
+          <div className="p-4 rounded-3xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl flex items-center justify-between">
             <div>
               <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100">
                 Aparelhos Conectados com Política Trust-On-First-Use (TOFU)
@@ -1438,7 +1438,7 @@ export function CentralSegurancaView() {
                   className={`px-3 py-1 rounded-xl text-xs font-bold transition shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none ${
                     filtroStatusDisp === f.id
                       ? "bg-emerald-600 text-white shadow-sm"
-                      : "bg-[#fbf2e9] dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-300/60 dark:border-slate-700 hover:shadow-[3px_3px_8px_#b8c6da]"
+                      : "bg-[#eaf0f8] dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-300/60 dark:border-slate-700 hover:shadow-[3px_3px_8px_#b8c6da]"
                   }`}
                 >
                   {f.label}
@@ -1448,7 +1448,7 @@ export function CentralSegurancaView() {
           </div>
 
           {dispositivosFiltrados.length === 0 ? (
-            <div className="py-12 text-center text-xs text-slate-500 bg-[#fbf2e9] dark:bg-slate-900/60 rounded-3xl border border-slate-300/60 dark:border-slate-800 shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none">
+            <div className="py-12 text-center text-xs text-slate-500 bg-[#eaf0f8] dark:bg-slate-900/60 rounded-3xl border border-slate-300/60 dark:border-slate-800 shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none">
               Nenhum dispositivo encontrado para o filtro selecionado.
             </div>
           ) : (
@@ -1456,7 +1456,7 @@ export function CentralSegurancaView() {
               {dispositivosFiltrados.map((d) => (
                 <div
                   key={d.id}
-                  className="p-4 rounded-2xl bg-[#fbf2e9] dark:bg-slate-900/80 border border-slate-300/50 dark:border-slate-800/80 shadow-[2px_2px_6px_#c3cfe2] dark:shadow-none space-y-1.5"
+                  className="p-4 rounded-2xl bg-[#eaf0f8] dark:bg-slate-900/80 border border-slate-300/50 dark:border-slate-800/80 shadow-[2px_2px_6px_#c3cfe2] dark:shadow-none space-y-1.5"
                 >
                   <div className="flex items-center justify-between">
                     <span className="font-bold text-xs text-slate-900 dark:text-slate-100">
@@ -1498,7 +1498,7 @@ export function CentralSegurancaView() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       {abaAtiva === "dlp" && (
         <div className="space-y-4">
-          <div className="p-4 rounded-3xl bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl space-y-1">
+          <div className="p-4 rounded-3xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl space-y-1">
             <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100">
               Data Loss Prevention (DLP) e Proteção de Exfiltração em Tela
             </h3>
@@ -1508,7 +1508,7 @@ export function CentralSegurancaView() {
             </p>
           </div>
 
-          <div className="p-5 rounded-3xl bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl space-y-4">
+          <div className="p-5 rounded-3xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl space-y-4">
             <div className="space-y-3">
               <label className="flex items-center gap-3 cursor-pointer">
                 <input
@@ -1572,7 +1572,7 @@ export function CentralSegurancaView() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       {abaAtiva === "fim" && (
         <div className="space-y-4">
-          <div className="p-4 rounded-3xl bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl space-y-1">
+          <div className="p-4 rounded-3xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl space-y-1">
             <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100">
               File e Schema Integrity Monitoring (FIM)
             </h3>
@@ -1586,7 +1586,7 @@ export function CentralSegurancaView() {
             {componentesFim.map((m, i) => (
               <div
                 key={i}
-                className="p-4 rounded-2xl bg-[#fbf2e9] dark:bg-slate-900/80 border border-slate-300/50 dark:border-slate-800/80 shadow-[2px_2px_6px_#c3cfe2] dark:shadow-none flex items-center justify-between gap-3 text-xs"
+                className="p-4 rounded-2xl bg-[#eaf0f8] dark:bg-slate-900/80 border border-slate-300/50 dark:border-slate-800/80 shadow-[2px_2px_6px_#c3cfe2] dark:shadow-none flex items-center justify-between gap-3 text-xs"
               >
                 <div className="space-y-0.5">
                   <div className="font-bold text-slate-900 dark:text-slate-100">{m.componente}</div>
@@ -1609,7 +1609,7 @@ export function CentralSegurancaView() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       {abaAtiva === "lgpd" && (
         <div className="space-y-4">
-          <div className="p-4 rounded-3xl bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div className="p-4 rounded-3xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-3">
             <div>
               <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100">
                 LGPD — Gestão de Solicitações de Titulares de Dados (Art. 18)
@@ -1643,7 +1643,7 @@ export function CentralSegurancaView() {
                   className={`px-3 py-1 rounded-xl text-xs font-bold transition shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none ${
                     filtroStatusLgpd === f.id
                       ? "bg-emerald-600 text-white shadow-sm"
-                      : "bg-[#fbf2e9] dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-300/60 dark:border-slate-700 hover:shadow-[3px_3px_8px_#b8c6da]"
+                      : "bg-[#eaf0f8] dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-300/60 dark:border-slate-700 hover:shadow-[3px_3px_8px_#b8c6da]"
                   }`}
                 >
                   {f.label}
@@ -1653,7 +1653,7 @@ export function CentralSegurancaView() {
           </div>
 
           {lgpdSolicitacoesFiltradas.length === 0 ? (
-            <div className="py-12 text-center text-xs text-slate-500 bg-[#fbf2e9] dark:bg-slate-900/60 rounded-3xl border border-slate-300/60 dark:border-slate-800 shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none">
+            <div className="py-12 text-center text-xs text-slate-500 bg-[#eaf0f8] dark:bg-slate-900/60 rounded-3xl border border-slate-300/60 dark:border-slate-800 shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none">
               Nenhuma solicitação encontrada no filtro selecionado.
             </div>
           ) : (
@@ -1661,7 +1661,7 @@ export function CentralSegurancaView() {
               {lgpdSolicitacoesFiltradas.map((item) => (
                 <div
                   key={item.id}
-                  className="p-4 rounded-2xl bg-[#fbf2e9] dark:bg-slate-900/80 border border-slate-300/50 dark:border-slate-800/80 shadow-[2px_2px_6px_#c3cfe2] dark:shadow-none space-y-2 text-xs"
+                  className="p-4 rounded-2xl bg-[#eaf0f8] dark:bg-slate-900/80 border border-slate-300/50 dark:border-slate-800/80 shadow-[2px_2px_6px_#c3cfe2] dark:shadow-none space-y-2 text-xs"
                 >
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
@@ -1703,7 +1703,7 @@ export function CentralSegurancaView() {
                       </button>
                       <button
                         onClick={() => handleTramitarLgpd(item.id, "rejeitado")}
-                        className="px-3 py-1 rounded-xl text-[11px] font-bold text-rose-500 bg-[#fbf2e9] dark:bg-slate-800 border border-rose-500/30 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none hover:bg-rose-500/10 transition"
+                        className="px-3 py-1 rounded-xl text-[11px] font-bold text-rose-500 bg-[#eaf0f8] dark:bg-slate-800 border border-rose-500/30 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none hover:bg-rose-500/10 transition"
                       >
                         Rejeitar (Improcedente)
                       </button>
@@ -1721,14 +1721,14 @@ export function CentralSegurancaView() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       {abaAtiva === "logs" && (
         <div className="space-y-3">
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 p-3 rounded-2xl shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 p-3 rounded-2xl shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none">
             <div className="flex items-center gap-1.5">
               <button
                 onClick={() => setTipoLog("login")}
                 className={`px-3 py-1.5 rounded-xl text-xs font-bold transition shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none ${
                   tipoLog === "login"
                     ? "bg-emerald-500 text-slate-950 font-black shadow-sm"
-                    : "bg-[#fbf2e9] dark:bg-slate-800 text-slate-700 dark:text-slate-400 border border-slate-300/60 dark:border-slate-700"
+                    : "bg-[#eaf0f8] dark:bg-slate-800 text-slate-700 dark:text-slate-400 border border-slate-300/60 dark:border-slate-700"
                 }`}
               >
                 Logins ({logsLogin.length})
@@ -1738,7 +1738,7 @@ export function CentralSegurancaView() {
                 className={`px-3 py-1.5 rounded-xl text-xs font-bold transition shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none ${
                   tipoLog === "atividade"
                     ? "bg-emerald-500 text-slate-950 font-black shadow-sm"
-                    : "bg-[#fbf2e9] dark:bg-slate-800 text-slate-700 dark:text-slate-400 border border-slate-300/60 dark:border-slate-700"
+                    : "bg-[#eaf0f8] dark:bg-slate-800 text-slate-700 dark:text-slate-400 border border-slate-300/60 dark:border-slate-700"
                 }`}
               >
                 Atividades Operacionais ({logsAtividade.length})
@@ -1752,7 +1752,7 @@ export function CentralSegurancaView() {
                 value={filtroLog}
                 onChange={(e) => setFiltroLog(e.target.value)}
                 placeholder="Filtrar por texto, email ou ação..."
-                className="w-full pl-8 pr-3 py-1.5 rounded-xl bg-[#fbf2e9] dark:bg-slate-950 border border-slate-300/50 dark:border-slate-800 text-xs text-slate-900 dark:text-slate-100 shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6)] outline-none focus:ring-2 focus:ring-[#00CFCC] transition"
+                className="w-full pl-8 pr-3 py-1.5 rounded-xl bg-[#eaf0f8] dark:bg-slate-950 border border-slate-300/50 dark:border-slate-800 text-xs text-slate-900 dark:text-slate-100 shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6)] outline-none focus:ring-2 focus:ring-[#00CFCC] transition"
               />
             </div>
           </div>
@@ -1769,7 +1769,7 @@ export function CentralSegurancaView() {
                   .map((l) => (
                     <div
                       key={l.id}
-                      className="p-3 rounded-2xl bg-[#fbf2e9] dark:bg-slate-900/80 border border-slate-300/50 dark:border-slate-800/80 shadow-[2px_2px_6px_#c3cfe2] dark:shadow-none text-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 font-mono"
+                      className="p-3 rounded-2xl bg-[#eaf0f8] dark:bg-slate-900/80 border border-slate-300/50 dark:border-slate-800/80 shadow-[2px_2px_6px_#c3cfe2] dark:shadow-none text-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 font-mono"
                     >
                       <div className="space-y-0.5">
                         <div className="flex items-center gap-2">
@@ -1803,7 +1803,7 @@ export function CentralSegurancaView() {
                   .map((a) => (
                     <div
                       key={a.id}
-                      className="p-3 rounded-2xl bg-[#fbf2e9] dark:bg-slate-900/80 border border-slate-300/50 dark:border-slate-800/80 shadow-[2px_2px_6px_#c3cfe2] dark:shadow-none text-xs space-y-1"
+                      className="p-3 rounded-2xl bg-[#eaf0f8] dark:bg-slate-900/80 border border-slate-300/50 dark:border-slate-800/80 shadow-[2px_2px_6px_#c3cfe2] dark:shadow-none text-xs space-y-1"
                     >
                       <div className="flex items-center justify-between">
                         <span className="font-bold font-mono text-emerald-600 dark:text-emerald-400">

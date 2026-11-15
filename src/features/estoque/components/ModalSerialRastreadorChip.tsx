@@ -248,7 +248,7 @@ export function ModalSerialRastreadorChip({
   return (
     <ModalPortal>
       <div className="fixed inset-0 z-[99999] flex items-center justify-center p-2.5 sm:p-4 bg-slate-950/85 backdrop-blur-md overflow-y-auto select-none animate-in fade-in duration-200">
-        <div className="relative w-full max-w-lg bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 rounded-3xl shadow-[6px_6px_20px_#c3cfe2] dark:shadow-2xl overflow-hidden flex flex-col max-h-[calc(100dvh-2.5rem)] sm:max-h-[85vh] my-auto transition-colors">
+        <div className="relative w-full max-w-lg bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 rounded-3xl shadow-[6px_6px_20px_#c3cfe2] dark:shadow-2xl overflow-hidden flex flex-col max-h-[calc(100dvh-2.5rem)] sm:max-h-[85vh] my-auto transition-colors">
           {/* Cabeçalho */}
           <div className="p-4 sm:p-5 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between gap-3 bg-slate-50/50 dark:bg-slate-950/50 shrink-0">
             <div className="flex items-center gap-2.5">
@@ -567,7 +567,7 @@ export function ModalSerialRastreadorChip({
             </div>
 
             {/* Rodapé de Ações */}
-            <div className="p-3.5 sm:p-4 border-t border-slate-300/60 dark:border-slate-800 flex flex-col-reverse sm:flex-row items-stretch sm:items-center justify-between gap-2.5 bg-[#fbf2e9]/90 dark:bg-slate-950/60 shrink-0">
+            <div className="p-3.5 sm:p-4 border-t border-slate-300/60 dark:border-slate-800 flex flex-col-reverse sm:flex-row items-stretch sm:items-center justify-between gap-2.5 bg-[#eaf0f8]/90 dark:bg-slate-950/60 shrink-0">
               <div>
                 {isEdicao && (
                   <button

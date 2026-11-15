@@ -320,7 +320,7 @@ export function InicioHubView() {
       <TiltCard
         maxTilt={2}
         glowRgb="16, 185, 129"
-        className="rounded-3xl bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 p-4 sm:p-6 sm:p-8 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl transition-all duration-300"
+        className="rounded-3xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 p-4 sm:p-6 sm:p-8 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl transition-all duration-300"
       >
         <div className="absolute top-0 right-0 w-80 h-80 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 left-1/3 w-60 h-60 bg-teal-500/10 rounded-full blur-2xl pointer-events-none" />
@@ -359,7 +359,7 @@ export function InicioHubView() {
               </span>
             ) : (
               <>
-                <span className="px-2 py-0.5 rounded-full text-[10px] font-bold uppercase bg-[#fbf2e9] dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-300/50 dark:border-slate-700 shadow-[1px_1px_3px_#c3cfe2] dark:shadow-none">
+                <span className="px-2 py-0.5 rounded-full text-[10px] font-bold uppercase bg-[#eaf0f8] dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-300/50 dark:border-slate-700 shadow-[1px_1px_3px_#c3cfe2] dark:shadow-none">
                   {session?.role}
                 </span>
                 {session?.isCliente && session?.plano && (
@@ -375,7 +375,7 @@ export function InicioHubView() {
 
       {/* Grid de Cards Raiz com Sincronização em Tempo Real do Tema Ativo */}
       {cardsFiltrados.length === 0 ? (
-        <div className="rounded-3xl p-8 sm:p-12 text-center bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl space-y-4">
+        <div className="rounded-3xl p-8 sm:p-12 text-center bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl space-y-4">
           <div className="w-16 h-16 mx-auto rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-500">
             <Shield className="w-8 h-8" />
           </div>

@@ -157,7 +157,7 @@ export function FuncionarioModal({
   return (
     <ModalPortal>
       <div className="fixed inset-0 z-[99999] flex items-center justify-center p-2.5 sm:p-4 bg-slate-950/85 backdrop-blur-md overflow-y-auto select-none animate-fadeIn">
-        <div className="relative w-full max-w-xl max-h-[90vh] overflow-y-auto my-auto rounded-3xl bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 p-5 sm:p-6 shadow-[6px_6px_20px_#c3cfe2] dark:shadow-2xl transition-all">
+        <div className="relative w-full max-w-xl max-h-[90vh] overflow-y-auto my-auto rounded-3xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 p-5 sm:p-6 shadow-[6px_6px_20px_#c3cfe2] dark:shadow-2xl transition-all">
           {/* Cabeçalho */}
           <div className="flex items-center justify-between pb-4 border-b border-slate-200/80 dark:border-slate-800">
             <div className="flex items-center gap-3">

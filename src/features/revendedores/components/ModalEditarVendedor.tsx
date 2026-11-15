@@ -170,7 +170,7 @@ export function ModalEditarVendedor({
 
   return createPortal(
     <div className="fixed inset-0 z-[9999] flex items-center justify-center p-3 sm:p-4 bg-slate-950/70 backdrop-blur-xs overflow-y-auto">
-      <div className="bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/80 dark:border-slate-800 rounded-2xl w-full max-w-lg max-h-[90vh] my-auto flex flex-col shadow-[8px_8px_24px_#b8c6da] dark:shadow-2xl overflow-hidden animate-in fade-in zoom-in-95">
+      <div className="bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/80 dark:border-slate-800 rounded-2xl w-full max-w-lg max-h-[90vh] my-auto flex flex-col shadow-[8px_8px_24px_#b8c6da] dark:shadow-2xl overflow-hidden animate-in fade-in zoom-in-95">
         {/* Cabeçalho */}
         <div className="flex items-center justify-between p-4 border-b border-slate-300/60 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50">
           <div className="flex items-center gap-2.5">

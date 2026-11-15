@@ -377,7 +377,7 @@ export function ManutencaoView() {
   return (
     <div className="space-y-6 max-w-6xl mx-auto select-none">
       {/* Cabeçalho Geral da Página */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 p-5 sm:p-6 rounded-3xl shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 p-5 sm:p-6 rounded-3xl shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl">
         <div className="flex items-center gap-3.5">
           <div className="h-12 w-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none">
             <Wrench className="h-6 w-6 stroke-[2.2]" />
@@ -401,7 +401,7 @@ export function ManutencaoView() {
                 className={`px-3 py-1.5 rounded-xl transition ${
                   etapa === 1
                     ? "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 shadow-[inset_1px_1px_3px_#c8d4e4] dark:shadow-none"
-                    : "bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/50 dark:border-slate-800 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none hover:shadow-[3px_3px_8px_#b8c6da] text-slate-600 dark:text-slate-400"
+                    : "bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/50 dark:border-slate-800 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none hover:shadow-[3px_3px_8px_#b8c6da] text-slate-600 dark:text-slate-400"
                 }`}
               >
                 1. Clientes
@@ -418,7 +418,7 @@ export function ManutencaoView() {
                   etapa === 2
                     ? "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 shadow-[inset_1px_1px_3px_#c8d4e4] dark:shadow-none"
                     : etapa === 3
-                      ? "bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/50 dark:border-slate-800 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none hover:shadow-[3px_3px_8px_#b8c6da] text-slate-700 dark:text-slate-200"
+                      ? "bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/50 dark:border-slate-800 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none hover:shadow-[3px_3px_8px_#b8c6da] text-slate-700 dark:text-slate-200"
                       : "opacity-40 cursor-not-allowed text-slate-400"
                 }`}
               >
@@ -446,7 +446,7 @@ export function ManutencaoView() {
                     className={`px-3 py-1.5 rounded-xl transition ${
                       etapa === 2
                         ? "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 shadow-[inset_1px_1px_3px_#c8d4e4] dark:shadow-none"
-                        : "bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/50 dark:border-slate-800 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none hover:shadow-[3px_3px_8px_#b8c6da] text-slate-600 dark:text-slate-400"
+                        : "bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/50 dark:border-slate-800 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none hover:shadow-[3px_3px_8px_#b8c6da] text-slate-600 dark:text-slate-400"
                     }`}
                   >
                     Meus Veículos ({veiculos.length})
@@ -493,7 +493,7 @@ export function ManutencaoView() {
                 placeholder="Buscar cliente por nome, documento ou telefone..."
                 value={busca}
                 onChange={(e) => setBusca(e.target.value)}
-                className="w-full pl-10 pr-3.5 py-2 bg-[#fbf2e9] dark:bg-slate-950 border border-slate-300/60 dark:border-slate-800 rounded-2xl text-xs text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500 shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6)]"
+                className="w-full pl-10 pr-3.5 py-2 bg-[#eaf0f8] dark:bg-slate-950 border border-slate-300/60 dark:border-slate-800 rounded-2xl text-xs text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500 shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6)]"
               />
             </div>
           </div>
@@ -503,7 +503,7 @@ export function ManutencaoView() {
               Carregando carteira de clientes...
             </div>
           ) : clientesFiltrados.length === 0 ? (
-            <div className="py-16 text-center text-xs text-slate-500 bg-[#fbf2e9] dark:bg-slate-900/30 rounded-3xl border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-none">
+            <div className="py-16 text-center text-xs text-slate-500 bg-[#eaf0f8] dark:bg-slate-900/30 rounded-3xl border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-none">
               Nenhum cliente encontrado com os filtros informados.
             </div>
           ) : (
@@ -513,11 +513,11 @@ export function ManutencaoView() {
                   key={cliente.id}
                   onClick={() => handleSelecionarCliente(cliente)}
                   spotlightColor="rgba(16, 185, 129, 0.16)"
-                  className="group p-5 rounded-3xl bg-[#fbf2e9] dark:bg-slate-900/70 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_12px_#c3cfe2] dark:shadow-lg hover:border-emerald-500/50 dark:hover:border-emerald-500/50 transition-all duration-200 cursor-pointer flex flex-col justify-between space-y-3"
+                  className="group p-5 rounded-3xl bg-[#eaf0f8] dark:bg-slate-900/70 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_12px_#c3cfe2] dark:shadow-lg hover:border-emerald-500/50 dark:hover:border-emerald-500/50 transition-all duration-200 cursor-pointer flex flex-col justify-between space-y-3"
                 >
                   <div className="space-y-1.5">
                     <div className="flex items-center justify-between gap-2">
-                      <span className="px-2 py-0.5 rounded-md text-[10px] font-black uppercase tracking-wider bg-[#fbf2e9] dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-300/50 dark:border-slate-700 shadow-[1px_1px_3px_#c3cfe2] dark:shadow-none">
+                      <span className="px-2 py-0.5 rounded-md text-[10px] font-black uppercase tracking-wider bg-[#eaf0f8] dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-300/50 dark:border-slate-700 shadow-[1px_1px_3px_#c3cfe2] dark:shadow-none">
                         Plano {cliente.plano}
                       </span>
                       <span className="text-[11px] font-bold text-emerald-600 dark:text-emerald-400">
@@ -562,7 +562,7 @@ export function ManutencaoView() {
                 {!isCliente && (
                   <button
                     onClick={handleVoltarParaClientes}
-                    className="p-2 rounded-xl text-slate-600 dark:text-slate-300 bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/50 dark:border-slate-800 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none hover:shadow-[3px_3px_8px_#b8c6da] active:shadow-[inset_2px_2px_4px_#c8d4e4] transition"
+                    className="p-2 rounded-xl text-slate-600 dark:text-slate-300 bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/50 dark:border-slate-800 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none hover:shadow-[3px_3px_8px_#b8c6da] active:shadow-[inset_2px_2px_4px_#c8d4e4] transition"
                     title="Voltar aos Clientes"
                   >
                     <ArrowLeft className="h-4 w-4" />
@@ -586,7 +586,7 @@ export function ManutencaoView() {
                 placeholder="Filtrar veículos por placa ou modelo..."
                 value={busca}
                 onChange={(e) => setBusca(e.target.value)}
-                className="w-full pl-10 pr-3.5 py-2 bg-[#fbf2e9] dark:bg-slate-950 border border-slate-300/60 dark:border-slate-800 rounded-2xl text-xs text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500 shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6)]"
+                className="w-full pl-10 pr-3.5 py-2 bg-[#eaf0f8] dark:bg-slate-950 border border-slate-300/60 dark:border-slate-800 rounded-2xl text-xs text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500 shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6)]"
               />
             </div>
           </div>
@@ -596,7 +596,7 @@ export function ManutencaoView() {
               Carregando veículos e odômetros...
             </div>
           ) : veiculosFiltrados.length === 0 ? (
-            <div className="py-16 text-center text-xs text-slate-500 bg-[#fbf2e9] dark:bg-slate-900/30 rounded-3xl border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-none">
+            <div className="py-16 text-center text-xs text-slate-500 bg-[#eaf0f8] dark:bg-slate-900/30 rounded-3xl border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-none">
               {busca
                 ? "Nenhum veículo corresponde ao filtro pesquisado."
                 : "Nenhum veículo cadastrado ou ativo para este cliente."}
@@ -618,11 +618,11 @@ export function ManutencaoView() {
                           ? "rgba(245, 158, 11, 0.18)"
                           : "rgba(16, 185, 129, 0.16)"
                     }
-                    className="group p-5 rounded-3xl bg-[#fbf2e9] dark:bg-slate-900/70 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_12px_#c3cfe2] dark:shadow-lg hover:shadow-[6px_6px_16px_#b8c6da] hover:border-emerald-500/50 dark:hover:border-emerald-500/50 transition-all duration-200 cursor-pointer flex flex-col justify-between space-y-3.5"
+                    className="group p-5 rounded-3xl bg-[#eaf0f8] dark:bg-slate-900/70 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_12px_#c3cfe2] dark:shadow-lg hover:shadow-[6px_6px_16px_#b8c6da] hover:border-emerald-500/50 dark:hover:border-emerald-500/50 transition-all duration-200 cursor-pointer flex flex-col justify-between space-y-3.5"
                   >
                     <div className="space-y-2">
                       <div className="flex items-center justify-between gap-2">
-                        <span className="font-mono font-black text-sm text-slate-900 dark:text-slate-100 px-2.5 py-1 bg-[#fbf2e9] dark:bg-slate-800 border border-slate-300/50 dark:border-slate-700 shadow-[1px_1px_3px_#c3cfe2] dark:shadow-none rounded-xl">
+                        <span className="font-mono font-black text-sm text-slate-900 dark:text-slate-100 px-2.5 py-1 bg-[#eaf0f8] dark:bg-slate-800 border border-slate-300/50 dark:border-slate-700 shadow-[1px_1px_3px_#c3cfe2] dark:shadow-none rounded-xl">
                           {v.placa}
                         </span>
 
@@ -664,7 +664,7 @@ export function ManutencaoView() {
                           v.tipo_veiculo === "trator" ||
                           v.tipo_veiculo === "equipamento";
                         return (
-                          <div className="p-3 rounded-2xl bg-[#fbf2e9] dark:bg-slate-950/60 border border-slate-300/50 dark:border-slate-800/80 shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-none flex items-center justify-between text-xs">
+                          <div className="p-3 rounded-2xl bg-[#eaf0f8] dark:bg-slate-950/60 border border-slate-300/50 dark:border-slate-800/80 shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-none flex items-center justify-between text-xs">
                             <span className="text-slate-500 dark:text-slate-400">
                               {isMaquina ? "Horímetro Atual:" : "Odômetro Atual:"}
                             </span>
@@ -703,11 +703,11 @@ export function ManutencaoView() {
       {etapa === 3 && veiculoSelecionado && (
         <div className="space-y-6 animate-in fade-in duration-200">
           {/* Barra Superior do Veículo Ativo */}
-          <div className="p-4 sm:p-5 rounded-3xl bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div className="p-4 sm:p-5 rounded-3xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div className="flex items-center gap-3">
               <button
                 onClick={handleVoltarParaVeiculos}
-                className="p-2 rounded-xl text-slate-600 dark:text-slate-300 bg-[#fbf2e9] dark:bg-slate-800 border border-slate-300/60 dark:border-slate-700 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none hover:shadow-[3px_3px_8px_#b8c6da] active:shadow-[inset_2px_2px_4px_#c8d4e4] transition"
+                className="p-2 rounded-xl text-slate-600 dark:text-slate-300 bg-[#eaf0f8] dark:bg-slate-800 border border-slate-300/60 dark:border-slate-700 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none hover:shadow-[3px_3px_8px_#b8c6da] active:shadow-[inset_2px_2px_4px_#c8d4e4] transition"
                 title="Trocar Veículo"
               >
                 <ArrowLeft className="h-4 w-4" />
@@ -715,7 +715,7 @@ export function ManutencaoView() {
 
               <div>
                 <div className="flex items-center gap-2">
-                  <span className="font-mono font-black text-sm text-slate-900 dark:text-slate-100 px-2.5 py-0.5 bg-[#fbf2e9] dark:bg-slate-800 border border-slate-300/50 dark:border-slate-700 shadow-[1px_1px_3px_#c3cfe2] dark:shadow-none rounded-lg">
+                  <span className="font-mono font-black text-sm text-slate-900 dark:text-slate-100 px-2.5 py-0.5 bg-[#eaf0f8] dark:bg-slate-800 border border-slate-300/50 dark:border-slate-700 shadow-[1px_1px_3px_#c3cfe2] dark:shadow-none rounded-lg">
                     {veiculoSelecionado.placa}
                   </span>
                   <span className="text-sm font-black text-slate-900 dark:text-slate-100">
@@ -773,7 +773,7 @@ export function ManutencaoView() {
                   setItemParaEdicao(null);
                   setModalItemAberto(true);
                 }}
-                className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold text-slate-700 dark:text-slate-200 bg-[#fbf2e9] dark:bg-slate-800 border border-slate-300/60 dark:border-slate-700 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none hover:shadow-[3px_3px_8px_#b8c6da] active:shadow-[inset_2px_2px_4px_#c8d4e4] transition cursor-pointer"
+                className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold text-slate-700 dark:text-slate-200 bg-[#eaf0f8] dark:bg-slate-800 border border-slate-300/60 dark:border-slate-700 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none hover:shadow-[3px_3px_8px_#b8c6da] active:shadow-[inset_2px_2px_4px_#c8d4e4] transition cursor-pointer"
               >
                 <Plus className="h-3.5 w-3.5 stroke-[3]" />
                 <span>Novo Item</span>
@@ -797,7 +797,7 @@ export function ManutencaoView() {
             <TiltCard
               onClick={() => setFiltroStatusItem("todos")}
               spotlightColor="rgba(59, 130, 246, 0.16)"
-              className={`p-3.5 rounded-2xl bg-[#fbf2e9] dark:bg-slate-900/60 border shadow-[2px_2px_6px_#c3cfe2] dark:shadow-none cursor-pointer transition text-left ${
+              className={`p-3.5 rounded-2xl bg-[#eaf0f8] dark:bg-slate-900/60 border shadow-[2px_2px_6px_#c3cfe2] dark:shadow-none cursor-pointer transition text-left ${
                 filtroStatusItem === "todos"
                   ? "border-blue-500/60 ring-2 ring-blue-500/20 bg-blue-500/5 dark:bg-blue-900/20"
                   : "border-slate-300/50 dark:border-slate-800 hover:border-blue-400/50"
@@ -823,7 +823,7 @@ export function ManutencaoView() {
                 setFiltroStatusItem(filtroStatusItem === "vencida" ? "todos" : "vencida")
               }
               spotlightColor="rgba(244, 63, 94, 0.18)"
-              className={`p-3.5 rounded-2xl bg-[#fbf2e9] dark:bg-slate-900/60 border shadow-[2px_2px_6px_#c3cfe2] dark:shadow-none cursor-pointer transition text-left ${
+              className={`p-3.5 rounded-2xl bg-[#eaf0f8] dark:bg-slate-900/60 border shadow-[2px_2px_6px_#c3cfe2] dark:shadow-none cursor-pointer transition text-left ${
                 filtroStatusItem === "vencida"
                   ? "border-rose-500/60 ring-2 ring-rose-500/20 bg-rose-500/5 dark:bg-rose-900/20"
                   : "border-slate-300/50 dark:border-slate-800 hover:border-rose-400/50"
@@ -849,7 +849,7 @@ export function ManutencaoView() {
                 setFiltroStatusItem(filtroStatusItem === "proxima" ? "todos" : "proxima")
               }
               spotlightColor="rgba(245, 158, 11, 0.18)"
-              className={`p-3.5 rounded-2xl bg-[#fbf2e9] dark:bg-slate-900/60 border shadow-[2px_2px_6px_#c3cfe2] dark:shadow-none cursor-pointer transition text-left ${
+              className={`p-3.5 rounded-2xl bg-[#eaf0f8] dark:bg-slate-900/60 border shadow-[2px_2px_6px_#c3cfe2] dark:shadow-none cursor-pointer transition text-left ${
                 filtroStatusItem === "proxima"
                   ? "border-amber-500/60 ring-2 ring-amber-500/20 bg-amber-500/5 dark:bg-amber-900/20"
                   : "border-slate-300/50 dark:border-slate-800 hover:border-amber-400/50"
@@ -875,7 +875,7 @@ export function ManutencaoView() {
                 setFiltroStatusItem(filtroStatusItem === "em_dia" ? "todos" : "em_dia")
               }
               spotlightColor="rgba(16, 185, 129, 0.16)"
-              className={`p-3.5 rounded-2xl bg-[#fbf2e9] dark:bg-slate-900/60 border shadow-[2px_2px_6px_#c3cfe2] dark:shadow-none cursor-pointer transition text-left ${
+              className={`p-3.5 rounded-2xl bg-[#eaf0f8] dark:bg-slate-900/60 border shadow-[2px_2px_6px_#c3cfe2] dark:shadow-none cursor-pointer transition text-left ${
                 filtroStatusItem === "em_dia"
                   ? "border-emerald-500/60 ring-2 ring-emerald-500/20 bg-emerald-500/5 dark:bg-emerald-900/20"
                   : "border-slate-300/50 dark:border-slate-800 hover:border-emerald-400/50"
@@ -898,12 +898,12 @@ export function ManutencaoView() {
           </div>
 
           {/* Abas: Planos, Agendamentos e Histórico de Gastos */}
-          <div className="flex flex-wrap items-center gap-1.5 p-1 rounded-2xl bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6)] w-fit">
+          <div className="flex flex-wrap items-center gap-1.5 p-1 rounded-2xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6)] w-fit">
             <button
               onClick={() => setAbaAtiva("planos")}
               className={`px-4 py-1.5 rounded-xl text-xs font-bold transition cursor-pointer ${
                 abaAtiva === "planos"
-                  ? "bg-[#fbf2e9] dark:bg-slate-800 text-slate-900 dark:text-slate-100 border border-slate-300/50 dark:border-slate-700 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none"
+                  ? "bg-[#eaf0f8] dark:bg-slate-800 text-slate-900 dark:text-slate-100 border border-slate-300/50 dark:border-slate-700 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none"
                   : "text-slate-500 hover:text-slate-900 dark:hover:text-slate-100"
               }`}
             >
@@ -913,7 +913,7 @@ export function ManutencaoView() {
               onClick={() => setAbaAtiva("agendamentos")}
               className={`px-4 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 cursor-pointer ${
                 abaAtiva === "agendamentos"
-                  ? "bg-[#fbf2e9] dark:bg-slate-800 text-slate-900 dark:text-slate-100 border border-slate-300/50 dark:border-slate-700 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none"
+                  ? "bg-[#eaf0f8] dark:bg-slate-800 text-slate-900 dark:text-slate-100 border border-slate-300/50 dark:border-slate-700 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none"
                   : "text-slate-500 hover:text-slate-900 dark:hover:text-slate-100"
               }`}
             >
@@ -928,7 +928,7 @@ export function ManutencaoView() {
               onClick={() => setAbaAtiva("historico")}
               className={`px-4 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 cursor-pointer ${
                 abaAtiva === "historico"
-                  ? "bg-[#fbf2e9] dark:bg-slate-800 text-slate-900 dark:text-slate-100 border border-slate-300/50 dark:border-slate-700 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none"
+                  ? "bg-[#eaf0f8] dark:bg-slate-800 text-slate-900 dark:text-slate-100 border border-slate-300/50 dark:border-slate-700 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none"
                   : "text-slate-500 hover:text-slate-900 dark:hover:text-slate-100"
               }`}
             >
@@ -950,7 +950,7 @@ export function ManutencaoView() {
                   Carregando manutenções preventivas do veículo...
                 </div>
               ) : itens.length === 0 ? (
-                <div className="py-14 text-center text-xs text-slate-500 bg-[#fbf2e9] dark:bg-slate-900/30 rounded-3xl border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-none flex flex-col items-center justify-center gap-3.5 p-6">
+                <div className="py-14 text-center text-xs text-slate-500 bg-[#eaf0f8] dark:bg-slate-900/30 rounded-3xl border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-none flex flex-col items-center justify-center gap-3.5 p-6">
                   <Wrench className="h-8 w-8 text-slate-400 stroke-[1.5]" />
                   <div>
                     <p className="font-bold text-slate-700 dark:text-slate-300">
@@ -987,14 +987,14 @@ export function ManutencaoView() {
                         await carregarDadosDoVeiculo(veiculoSelecionado.id);
                         toast.success("Itens recomendados adicionados ao veículo!");
                       }}
-                      className="px-4 py-2 rounded-xl text-xs font-bold bg-[#fbf2e9] dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-300/60 dark:border-slate-700 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none hover:shadow-[3px_3px_8px_#b8c6da] active:shadow-[inset_2px_2px_4px_#c8d4e4] transition cursor-pointer"
+                      className="px-4 py-2 rounded-xl text-xs font-bold bg-[#eaf0f8] dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-300/60 dark:border-slate-700 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none hover:shadow-[3px_3px_8px_#b8c6da] active:shadow-[inset_2px_2px_4px_#c8d4e4] transition cursor-pointer"
                     >
                       Carregar Sugestões Padrão
                     </button>
                   </div>
                 </div>
               ) : itensFiltrados.length === 0 ? (
-                <div className="py-12 text-center text-xs text-slate-500 bg-[#fbf2e9] dark:bg-slate-900/30 rounded-3xl border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-none p-6 space-y-3">
+                <div className="py-12 text-center text-xs text-slate-500 bg-[#eaf0f8] dark:bg-slate-900/30 rounded-3xl border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-none p-6 space-y-3">
                   <p className="font-bold text-slate-700 dark:text-slate-300">
                     Nenhum item encontrado para o filtro ativo ({filtroStatusItem.replace("_", " ")}
                     ).
@@ -1041,7 +1041,7 @@ export function ManutencaoView() {
                       <TiltCard
                         key={item.id}
                         spotlightColor={spotlight}
-                        className="p-5 rounded-3xl bg-[#fbf2e9] dark:bg-slate-900/70 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_12px_#c3cfe2] dark:shadow-sm hover:shadow-[6px_6px_16px_#b8c6da] transition space-y-3.5"
+                        className="p-5 rounded-3xl bg-[#eaf0f8] dark:bg-slate-900/70 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_12px_#c3cfe2] dark:shadow-sm hover:shadow-[6px_6px_16px_#b8c6da] transition space-y-3.5"
                       >
                         <div className="flex items-start justify-between gap-2">
                           <div>
@@ -1077,7 +1077,7 @@ export function ManutencaoView() {
                                 setItemParaEdicao(item);
                                 setModalItemAberto(true);
                               }}
-                              className="p-1.5 rounded-lg text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 bg-[#fbf2e9] dark:bg-slate-800 border border-slate-300/50 dark:border-slate-700 shadow-[1px_1px_3px_#c3cfe2] dark:shadow-none hover:shadow-[2px_2px_5px_#b8c6da] transition cursor-pointer"
+                              className="p-1.5 rounded-lg text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 bg-[#eaf0f8] dark:bg-slate-800 border border-slate-300/50 dark:border-slate-700 shadow-[1px_1px_3px_#c3cfe2] dark:shadow-none hover:shadow-[2px_2px_5px_#b8c6da] transition cursor-pointer"
                               title={
                                 isMaquina
                                   ? "Configurar Metas de Horímetro"
@@ -1147,7 +1147,7 @@ export function ManutencaoView() {
                                 setItemSelecionadoParaAgendar(item);
                                 setModalAgendarAberto(true);
                               }}
-                              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold text-slate-700 dark:text-slate-200 bg-[#fbf2e9] dark:bg-slate-800 border border-slate-300/60 dark:border-slate-700 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none hover:shadow-[3px_3px_8px_#b8c6da] active:shadow-[inset_2px_2px_4px_#c8d4e4] transition cursor-pointer"
+                              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold text-slate-700 dark:text-slate-200 bg-[#eaf0f8] dark:bg-slate-800 border border-slate-300/60 dark:border-slate-700 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none hover:shadow-[3px_3px_8px_#b8c6da] active:shadow-[inset_2px_2px_4px_#c8d4e4] transition cursor-pointer"
                             >
                               <Calendar className="h-3.5 w-3.5 text-emerald-500" />
                               <span>Agendar</span>
@@ -1199,7 +1199,7 @@ export function ManutencaoView() {
                   Carregando agendamentos...
                 </div>
               ) : agendamentos.length === 0 ? (
-                <div className="py-16 text-center text-xs text-slate-500 bg-[#fbf2e9] dark:bg-slate-900/30 rounded-3xl border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-none">
+                <div className="py-16 text-center text-xs text-slate-500 bg-[#eaf0f8] dark:bg-slate-900/30 rounded-3xl border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-none">
                   Nenhum agendamento registrado para este veículo.
                 </div>
               ) : (
@@ -1207,11 +1207,11 @@ export function ManutencaoView() {
                   {agendamentos.map((agendamento) => (
                     <div
                       key={agendamento.id}
-                      className="p-5 rounded-3xl bg-[#fbf2e9] dark:bg-slate-900/70 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_12px_#c3cfe2] dark:shadow-sm hover:shadow-[6px_6px_16px_#b8c6da] transition flex flex-col justify-between space-y-3.5"
+                      className="p-5 rounded-3xl bg-[#eaf0f8] dark:bg-slate-900/70 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_12px_#c3cfe2] dark:shadow-sm hover:shadow-[6px_6px_16px_#b8c6da] transition flex flex-col justify-between space-y-3.5"
                     >
                       <div className="space-y-2">
                         <div className="flex items-center justify-between gap-2">
-                          <span className="font-mono font-bold text-xs text-slate-900 dark:text-slate-100 px-2 py-0.5 bg-[#fbf2e9] dark:bg-slate-800 border border-slate-300/50 dark:border-slate-700 shadow-[1px_1px_3px_#c3cfe2] dark:shadow-none rounded-lg">
+                          <span className="font-mono font-bold text-xs text-slate-900 dark:text-slate-100 px-2 py-0.5 bg-[#eaf0f8] dark:bg-slate-800 border border-slate-300/50 dark:border-slate-700 shadow-[1px_1px_3px_#c3cfe2] dark:shadow-none rounded-lg">
                             {agendamento.placa || veiculoSelecionado.placa}
                           </span>
                           <span
@@ -1243,7 +1243,7 @@ export function ManutencaoView() {
                           </p>
                         </div>
 
-                        <div className="p-3 rounded-2xl bg-[#fbf2e9] dark:bg-slate-950/60 border border-slate-300/50 dark:border-slate-800/80 shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-none space-y-1 text-xs">
+                        <div className="p-3 rounded-2xl bg-[#eaf0f8] dark:bg-slate-950/60 border border-slate-300/50 dark:border-slate-800/80 shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-none space-y-1 text-xs">
                           <div className="flex items-center gap-2 text-slate-600 dark:text-slate-300">
                             <Calendar className="h-3.5 w-3.5 text-emerald-500" />
                             <span>
@@ -1309,7 +1309,7 @@ export function ManutencaoView() {
           {abaAtiva === "historico" && (
             <div className="space-y-4">
               {/* Barra de Resumo Financeiro do Veículo */}
-              <div className="p-4 sm:p-5 rounded-3xl bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div className="p-4 sm:p-5 rounded-3xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div className="flex items-center gap-3">
                   <div className="h-10 w-10 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none">
                     <Receipt className="h-5 w-5" />
@@ -1348,7 +1348,7 @@ export function ManutencaoView() {
                   Carregando histórico de despesas e notas fiscais...
                 </div>
               ) : historicoDespesas.length === 0 ? (
-                <div className="py-14 text-center text-xs text-slate-500 bg-[#fbf2e9] dark:bg-slate-900/30 rounded-3xl border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-none flex flex-col items-center justify-center gap-3.5 p-6">
+                <div className="py-14 text-center text-xs text-slate-500 bg-[#eaf0f8] dark:bg-slate-900/30 rounded-3xl border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-none flex flex-col items-center justify-center gap-3.5 p-6">
                   <Receipt className="h-8 w-8 text-slate-400 stroke-[1.5]" />
                   <div>
                     <p className="font-bold text-slate-700 dark:text-slate-300">
@@ -1382,7 +1382,7 @@ export function ManutencaoView() {
                     return (
                       <div
                         key={desp.id}
-                        className="p-4 sm:p-5 rounded-3xl bg-[#fbf2e9] dark:bg-slate-900/70 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_12px_#c3cfe2] dark:shadow-sm flex flex-col justify-between gap-4"
+                        className="p-4 sm:p-5 rounded-3xl bg-[#eaf0f8] dark:bg-slate-900/70 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_12px_#c3cfe2] dark:shadow-sm flex flex-col justify-between gap-4"
                       >
                         <div className="space-y-3">
                           {/* Cabeçalho do Card */}
@@ -1415,7 +1415,7 @@ export function ManutencaoView() {
                           </div>
 
                           {/* Detalhes: Forma de Pagamento e Estabelecimento */}
-                          <div className="grid grid-cols-2 gap-2 text-xs bg-[#fbf2e9] dark:bg-slate-800/40 p-2.5 rounded-2xl border border-slate-300/50 dark:border-slate-800/80 shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-none">
+                          <div className="grid grid-cols-2 gap-2 text-xs bg-[#eaf0f8] dark:bg-slate-800/40 p-2.5 rounded-2xl border border-slate-300/50 dark:border-slate-800/80 shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-none">
                             <div>
                               <span className="text-[10px] text-slate-400 font-medium block">
                                 Como foi pago
@@ -1480,7 +1480,7 @@ export function ManutencaoView() {
                               <>
                                 <button
                                   onClick={() => handleVisualizarNf(desp.comprovante_url!)}
-                                  className="flex items-center gap-1 px-2.5 py-1.5 rounded-xl text-xs font-semibold text-slate-700 dark:text-slate-200 bg-[#fbf2e9] dark:bg-slate-800 border border-slate-300/60 dark:border-slate-700 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none hover:shadow-[3px_3px_8px_#b8c6da] active:shadow-[inset_2px_2px_4px_#c8d4e4] transition cursor-pointer"
+                                  className="flex items-center gap-1 px-2.5 py-1.5 rounded-xl text-xs font-semibold text-slate-700 dark:text-slate-200 bg-[#eaf0f8] dark:bg-slate-800 border border-slate-300/60 dark:border-slate-700 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none hover:shadow-[3px_3px_8px_#b8c6da] active:shadow-[inset_2px_2px_4px_#c8d4e4] transition cursor-pointer"
                                   title="Visualizar documento em nova aba"
                                 >
                                   <Eye className="h-3.5 w-3.5" />

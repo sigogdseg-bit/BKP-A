@@ -5,14 +5,14 @@
 
 :root {
   color-scheme: light;
-  --background: #fbf2e9;
+  --background: #eaf0f8;
   --foreground: #1e293b;
 }
 
 :root.dark,
 html.dark {
   color-scheme: dark;
-  --background: #110e0c;
+  --background: #0a0a0c;
   --foreground: #f8fafc;
 }
 

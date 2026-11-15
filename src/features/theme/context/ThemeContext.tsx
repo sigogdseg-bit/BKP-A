@@ -62,7 +62,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     }
 
     try {
-      const corTemaHeader = effective === "dark" ? "#110e0c" : "#fbf2e9";
+      const corTemaHeader = effective === "dark" ? "#0a0a0c" : "#eaf0f8";
       const metas = document.querySelectorAll('meta[name="theme-color"]');
       metas.forEach((m) => m.setAttribute("content", corTemaHeader));
     } catch {

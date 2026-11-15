@@ -298,7 +298,7 @@ export function ModalBloqueioSeguroVeiculo({
   return (
     <ModalPortal>
       <div className="fixed inset-0 z-[99999] flex items-center justify-center p-2.5 sm:p-4 bg-slate-950/85 backdrop-blur-md overflow-y-auto select-none animate-in fade-in duration-150">
-        <div className="relative w-full max-w-lg max-h-[calc(100dvh-2.5rem)] sm:max-h-[85vh] my-auto flex flex-col bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 rounded-3xl shadow-[5px_5px_14px_#c3cfe2] dark:shadow-[0_25px_60px_rgba(0,0,0,0.5)] overflow-hidden">
+        <div className="relative w-full max-w-lg max-h-[calc(100dvh-2.5rem)] sm:max-h-[85vh] my-auto flex flex-col bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 rounded-3xl shadow-[5px_5px_14px_#c3cfe2] dark:shadow-[0_25px_60px_rgba(0,0,0,0.5)] overflow-hidden">
           {/* Barra superior de alerta */}
           <div className="h-1.5 w-full bg-gradient-to-r from-amber-500 via-rose-500 to-rose-600 shrink-0" />
 
@@ -390,7 +390,7 @@ export function ModalBloqueioSeguroVeiculo({
                 </div>
 
                 {/* Painel com velocidade e telemetria atual */}
-                <div className="grid grid-cols-2 gap-3 p-3.5 rounded-2xl bg-[#fbf2e9] dark:bg-slate-800/60 border border-slate-300/60 dark:border-slate-800 shadow-[inset_1px_1px_3px_#c8d4e4,inset_-1px_-1px_3px_#ffffff] dark:shadow-none">
+                <div className="grid grid-cols-2 gap-3 p-3.5 rounded-2xl bg-[#eaf0f8] dark:bg-slate-800/60 border border-slate-300/60 dark:border-slate-800 shadow-[inset_1px_1px_3px_#c8d4e4,inset_-1px_-1px_3px_#ffffff] dark:shadow-none">
                   <div>
                     <span className="text-[11px] text-slate-500 dark:text-slate-400 block font-medium">
                       Velocidade Atual Detectada
@@ -425,7 +425,7 @@ export function ModalBloqueioSeguroVeiculo({
                     </div>
                   </div>
                 ) : podeVerTipoBloqueador ? (
-                  <div className="p-3 rounded-xl bg-[#fbf2e9] dark:bg-slate-800/40 border border-slate-300/60 dark:border-slate-700/60 text-slate-700 dark:text-slate-300 text-xs flex items-center justify-between">
+                  <div className="p-3 rounded-xl bg-[#eaf0f8] dark:bg-slate-800/40 border border-slate-300/60 dark:border-slate-700/60 text-slate-700 dark:text-slate-300 text-xs flex items-center justify-between">
                     <span className="font-medium text-slate-500 dark:text-slate-400">
                       Dispositivo Instalado:
                     </span>

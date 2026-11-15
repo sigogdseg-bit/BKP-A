@@ -1861,7 +1861,7 @@ export function AbaConfiguracaoUsb() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       {/* CARD 1: BARRA DE CONTROLE E CONEXÃO SERIAL USB */}
       {/* ─────────────────────────────────────────────────────────────────── */}
-      <div className="bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 p-5 rounded-3xl shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl space-y-4">
+      <div className="bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 p-5 rounded-3xl shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl space-y-4">
         <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4">
           <div className="flex items-center gap-3.5">
             <div
@@ -2156,7 +2156,7 @@ export function AbaConfiguracaoUsb() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         {/* COLUNA ESQUERDA (7 COLS): TERMINAL SERIAL EM TEMPO REAL */}
         <div className="lg:col-span-7 space-y-3">
-          <div className="bg-[#110e0c] border border-slate-800 rounded-3xl p-4 sm:p-5 shadow-2xl flex flex-col h-[580px]">
+          <div className="bg-[#0a0a0c] border border-slate-800 rounded-3xl p-4 sm:p-5 shadow-2xl flex flex-col h-[580px]">
             {/* Header do Terminal */}
             <div className="flex items-center justify-between border-b border-slate-800/80 pb-3 mb-3">
               <div className="flex items-center gap-2.5">
@@ -2340,7 +2340,7 @@ export function AbaConfiguracaoUsb() {
         {/* COLUNA DIREITA (5 COLS): PRESETS RÁPIDOS E FORMULÁRIOS DE APONTAMENTO */}
         <div className="lg:col-span-5 space-y-4">
           {/* CARD MASTER: GRAVAÇÃO EM 1-CLIQUE DO PADRÃO CANÔNICO */}
-          <div className="bg-gradient-to-br from-emerald-500/10 via-[#fbf2e9] to-teal-500/10 dark:from-emerald-950/30 dark:via-slate-900 dark:to-teal-950/30 border-2 border-emerald-500/40 p-4 sm:p-5 rounded-3xl shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl space-y-3.5">
+          <div className="bg-gradient-to-br from-emerald-500/10 via-[#eaf0f8] to-teal-500/10 dark:from-emerald-950/30 dark:via-slate-900 dark:to-teal-950/30 border-2 border-emerald-500/40 p-4 sm:p-5 rounded-3xl shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl space-y-3.5">
             <div className="flex items-start justify-between gap-3">
               <div className="flex items-center gap-2.5">
                 <span className="p-2 rounded-2xl bg-emerald-500 text-slate-950 shadow-md shadow-emerald-500/30 shrink-0">
@@ -2463,7 +2463,7 @@ export function AbaConfiguracaoUsb() {
           </div>
 
           {/* GRUPO 1: RESGATE E APONTAMENTO PARA O SERVIDOR GD RASTREAMENTO */}
-          <div className="bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 p-4 sm:p-5 rounded-3xl shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl space-y-3">
+          <div className="bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 p-4 sm:p-5 rounded-3xl shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl space-y-3">
             <div className="flex items-center gap-2">
               <span className="p-1.5 rounded-lg bg-emerald-500/10 text-emerald-500">
                 <Wifi className="h-4 w-4" />
@@ -2548,7 +2548,7 @@ export function AbaConfiguracaoUsb() {
           </div>
 
           {/* GRUPO 2: CONFIGURAR APN DO CHIP M2M */}
-          <div className="bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 p-4 sm:p-5 rounded-3xl shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl space-y-3">
+          <div className="bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 p-4 sm:p-5 rounded-3xl shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl space-y-3">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <span className="p-1.5 rounded-lg bg-sky-500/10 text-sky-500">
@@ -2665,7 +2665,7 @@ export function AbaConfiguracaoUsb() {
           </div>
 
           {/* GRUPO 3: TIMERS OU GERENCIAMENTO DE ENERGIA */}
-          <div className="bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 p-4 sm:p-5 rounded-3xl shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl space-y-3">
+          <div className="bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 p-4 sm:p-5 rounded-3xl shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl space-y-3">
             <div className="flex items-center gap-2">
               <span className="p-1.5 rounded-lg bg-purple-500/10 text-purple-500">
                 <SlidersHorizontal className="h-4 w-4" />
@@ -2754,7 +2754,7 @@ export function AbaConfiguracaoUsb() {
           </div>
 
           {/* GRUPO 4: COMANDOS DE 1 TOQUE (CONSULTAS, DIAGNÓSTICO E RESET) */}
-          <div className="bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 p-4 sm:p-5 rounded-3xl shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl space-y-3">
+          <div className="bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 p-4 sm:p-5 rounded-3xl shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl space-y-3">
             <div className="flex items-center justify-between gap-2 flex-wrap">
               <div className="flex items-center gap-2">
                 <span className="p-1.5 rounded-lg bg-amber-500/10 text-amber-500">

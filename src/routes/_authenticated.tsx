@@ -29,7 +29,7 @@ export const Route = createFileRoute("/_authenticated")({
 
 function AuthenticatedLoadingFallback() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#fbf2e9] dark:bg-slate-950 text-slate-900 dark:text-slate-100 p-4">
+    <div className="min-h-screen flex items-center justify-center bg-[#eaf0f8] dark:bg-slate-950 text-slate-900 dark:text-slate-100 p-4">
       <div className="flex flex-col items-center gap-3">
         <div className="h-8 w-8 rounded-full border-2 border-emerald-500 border-t-transparent animate-spin" />
         <span className="text-xs text-slate-500 dark:text-slate-400 font-mono">
@@ -202,7 +202,7 @@ function AuthenticatedLayout() {
   // Se o usuário NÃO tem sessão e ainda está carregando no primeiro boot
   if (!session && carregando && !limiteTempoAtingido) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#fbf2e9] dark:bg-slate-950 text-slate-900 dark:text-slate-100 p-4">
+      <div className="min-h-screen flex items-center justify-center bg-[#eaf0f8] dark:bg-slate-950 text-slate-900 dark:text-slate-100 p-4">
         <div className="flex flex-col items-center gap-3">
           <div className="h-8 w-8 rounded-full border-2 border-emerald-500 border-t-transparent animate-spin" />
           <span className="text-xs text-slate-500 dark:text-slate-400 font-mono">
@@ -231,7 +231,7 @@ function AuthenticatedLayout() {
       window.location.replace("/login");
     }
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#fbf2e9] dark:bg-slate-950 text-slate-900 dark:text-slate-100 p-4 select-none">
+      <div className="min-h-screen flex items-center justify-center bg-[#eaf0f8] dark:bg-slate-950 text-slate-900 dark:text-slate-100 p-4 select-none">
         <div className="flex flex-col items-center gap-3">
           <div className="h-8 w-8 rounded-full border-2 border-emerald-500 border-t-transparent animate-spin" />
           <span className="text-xs text-slate-500 dark:text-slate-400 font-mono">

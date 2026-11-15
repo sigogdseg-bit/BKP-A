@@ -111,9 +111,9 @@ export function HistoricoClienteModal({ cliente, onFechar }: HistoricoClienteMod
   return (
     <ModalPortal>
       <div className="fixed inset-0 z-[99999] bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-2.5 sm:p-4 overflow-y-auto animate-in fade-in duration-200 select-none">
-        <div className="bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 rounded-3xl w-full max-w-5xl max-h-[calc(100dvh-2.5rem)] sm:max-h-[85vh] my-auto flex flex-col shadow-2xl overflow-hidden text-slate-800 dark:text-slate-100">
+        <div className="bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 rounded-3xl w-full max-w-5xl max-h-[calc(100dvh-2.5rem)] sm:max-h-[85vh] my-auto flex flex-col shadow-2xl overflow-hidden text-slate-800 dark:text-slate-100">
           {/* Header */}
-          <div className="p-4 sm:p-5 border-b border-slate-300/60 dark:border-slate-800 bg-[#fbf2e9]/80 dark:bg-slate-950/50 flex items-start justify-between gap-3 shrink-0">
+          <div className="p-4 sm:p-5 border-b border-slate-300/60 dark:border-slate-800 bg-[#eaf0f8]/80 dark:bg-slate-950/50 flex items-start justify-between gap-3 shrink-0">
             <div className="flex items-center gap-3">
               <div className="h-11 w-11 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shrink-0">
                 <History className="h-6 w-6" />
@@ -610,7 +610,7 @@ export function HistoricoClienteModal({ cliente, onFechar }: HistoricoClienteMod
           </div>
 
           {/* Rodapé Informativo */}
-          <div className="p-3 sm:p-4 border-t border-slate-300/60 dark:border-slate-800 bg-[#fbf2e9]/80 dark:bg-slate-950/50 flex flex-col sm:flex-row items-center justify-between gap-2 text-[11px] text-slate-500 dark:text-slate-400 shrink-0">
+          <div className="p-3 sm:p-4 border-t border-slate-300/60 dark:border-slate-800 bg-[#eaf0f8]/80 dark:bg-slate-950/50 flex flex-col sm:flex-row items-center justify-between gap-2 text-[11px] text-slate-500 dark:text-slate-400 shrink-0">
             <div>Total de {itensFiltrados.length} evento(s) listado(s) no histórico.</div>
             <button
               onClick={onFechar}

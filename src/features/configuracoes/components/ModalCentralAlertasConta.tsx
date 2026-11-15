@@ -682,7 +682,7 @@ export function ModalCentralAlertasConta({
               key={`${escopo}-${item.chave}`}
               className={`p-3 rounded-2xl border transition space-y-2.5 ${
                 ativoItem
-                  ? "bg-[#fbf2e9] dark:bg-slate-950/60 border-slate-300/60 dark:border-slate-800 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none"
+                  ? "bg-[#eaf0f8] dark:bg-slate-950/60 border-slate-300/60 dark:border-slate-800 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none"
                   : "bg-slate-100/50 dark:bg-slate-950/30 border-slate-200/50 dark:border-slate-800/40 opacity-80"
               }`}
             >
@@ -868,7 +868,7 @@ export function ModalCentralAlertasConta({
         <div
           className={`w-full max-w-2xl max-h-[90vh] my-auto flex flex-col overflow-hidden rounded-3xl border animate-in fade-in zoom-in-95 duration-150 ${
             isNeumorph
-              ? "bg-[#fbf2e9] dark:bg-slate-900 border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl"
+              ? "bg-[#eaf0f8] dark:bg-slate-900 border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl"
               : "bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 shadow-2xl"
           }`}
         >
@@ -915,11 +915,11 @@ export function ModalCentralAlertasConta({
           </div>
 
           {/* Abas */}
-          <div className="p-2 sm:p-2.5 border-b border-slate-300/60 dark:border-slate-800 bg-[#fbf2e9] dark:bg-slate-950/60 shrink-0">
+          <div className="p-2 sm:p-2.5 border-b border-slate-300/60 dark:border-slate-800 bg-[#eaf0f8] dark:bg-slate-950/60 shrink-0">
             <div
               role="tablist"
               aria-label="Seções da Central de Alertas"
-              className={`grid gap-2 p-1 bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 rounded-2xl ${
+              className={`grid gap-2 p-1 bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 rounded-2xl ${
                 modoEquipe ? "grid-cols-3" : "grid-cols-2"
               }`}
             >
@@ -1146,7 +1146,7 @@ export function ModalCentralAlertasConta({
           </div>
 
           {/* Rodapé */}
-          <div className="p-3.5 sm:p-5 border-t border-slate-300/60 dark:border-slate-800 flex flex-col-reverse sm:flex-row items-stretch sm:items-center justify-end gap-2 bg-[#fbf2e9]/95 dark:bg-slate-950/90 shrink-0">
+          <div className="p-3.5 sm:p-5 border-t border-slate-300/60 dark:border-slate-800 flex flex-col-reverse sm:flex-row items-stretch sm:items-center justify-end gap-2 bg-[#eaf0f8]/95 dark:bg-slate-950/90 shrink-0">
             <button
               type="button"
               onClick={onClose}

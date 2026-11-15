@@ -84,17 +84,17 @@ export function LoginView() {
   };
 
   return (
-    <div className="min-h-screen w-full flex items-center justify-center p-4 bg-[#fbf2e9] dark:bg-[#110e0c] text-slate-800 dark:text-slate-100 relative overflow-hidden font-sans select-none transition-colors duration-200">
+    <div className="min-h-screen w-full flex items-center justify-center p-4 bg-[#eaf0f8] dark:bg-[#0a0a0c] text-slate-800 dark:text-slate-100 relative overflow-hidden font-sans select-none transition-colors duration-200">
       {/* Botão de Alternância de Tema Flutuante no Canto Superior */}
       <div className="absolute top-4 right-4 z-20">
         <ThemeToggle />
       </div>
 
       {/* Luz ambiente de fundo Neumorphic Laranja */}
-      <div className="absolute top-1/4 -left-20 w-96 h-96 bg-orange-500/15 dark:bg-orange-500/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-amber-500/10 dark:bg-amber-500/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/4 -left-20 w-96 h-96 bg-orange-500/15 dark:bg-orange-500/20 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-amber-500/10 dark:bg-amber-500/15 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="relative z-10 w-full max-w-md bg-[#fdf7f2] dark:bg-slate-900 border border-slate-300/80 dark:border-slate-800 rounded-3xl p-6 sm:p-8 shadow-[12px_12px_28px_#c3cfe2,-12px_-12px_28px_#ffffff] dark:shadow-2xl backdrop-blur-xl transition-all duration-200">
+      <div className="relative z-10 w-full max-w-md bg-[#f0f4f9] dark:bg-[#121215] border border-slate-300/80 dark:border-orange-500/25 rounded-3xl p-6 sm:p-8 shadow-[12px_12px_28px_#c3cfe2,-12px_-12px_28px_#ffffff] dark:shadow-[0_0_40px_rgba(234,88,12,0.14)] backdrop-blur-xl transition-all duration-200">
         {/* Header com Logo Hunter Oficial */}
         <div className="text-center space-y-2 mb-6">
           <div className="mx-auto flex items-center justify-center">

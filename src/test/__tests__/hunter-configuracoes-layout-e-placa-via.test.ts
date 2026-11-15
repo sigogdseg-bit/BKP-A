@@ -129,7 +129,7 @@ describe("Hunter — Layout Canônico de Configurações, Placa Alinhada à Via 
     // Deve consumir useCardTheme para suporte canônico neumorphic/light mode
     assert.ok(configCode.includes("useCardTheme"), "ConfiguracoesView deve consumir useCardTheme");
     assert.ok(
-      configCode.includes("bg-[#fbf2e9]"),
+      configCode.includes("bg-[#eaf0f8]"),
       "ConfiguracoesView deve aplicar o fundo neumórfico padrão de Estoque e Suprimentos",
     );
     assert.ok(

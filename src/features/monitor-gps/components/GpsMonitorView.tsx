@@ -1370,10 +1370,10 @@ export function GpsMonitorView({
           ? "h-screen rounded-none"
           : alturaCustomizada ||
             "h-[calc(100dvh-5rem)] sm:h-[calc(100dvh-5.5rem)] md:min-h-[550px] rounded-2xl sm:rounded-3xl"
-      } flex flex-col overflow-hidden bg-[#fbf2e9] dark:bg-slate-950 border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-none select-none transition-all duration-200`}
+      } flex flex-col overflow-hidden bg-[#eaf0f8] dark:bg-slate-950 border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-none select-none transition-all duration-200`}
     >
       {/* 1. Barra de Ferramentas Superior */}
-      <header className="z-20 px-3 py-2 sm:px-4 sm:py-2.5 bg-[#fbf2e9]/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-300/60 dark:border-slate-800 text-slate-900 dark:text-slate-100 shadow-sm">
+      <header className="z-20 px-3 py-2 sm:px-4 sm:py-2.5 bg-[#eaf0f8]/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-300/60 dark:border-slate-800 text-slate-900 dark:text-slate-100 shadow-sm">
         {/* Visão Mobile Despoluída (md:hidden): Sem competição de espaço */}
         <div className="flex md:hidden items-center justify-between w-full gap-2">
           {/* Lado Esquerdo: Botão Voltar (se fornecido) + Botão Frota + Status do Veículo Selecionado */}
@@ -1969,7 +1969,7 @@ export function GpsMonitorView({
 
         {/* Sidebar de Veículos */}
         {sidebarAberta && (
-          <aside className="absolute md:relative z-10 w-72 sm:w-80 h-full bg-[#fbf2e9]/95 dark:bg-slate-900/95 md:bg-[#fbf2e9] md:dark:bg-slate-900 border-r border-slate-300/60 dark:border-slate-800 flex flex-col backdrop-blur-md md:backdrop-blur-none transition-all shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none">
+          <aside className="absolute md:relative z-10 w-72 sm:w-80 h-full bg-[#eaf0f8]/95 dark:bg-slate-900/95 md:bg-[#eaf0f8] md:dark:bg-slate-900 border-r border-slate-300/60 dark:border-slate-800 flex flex-col backdrop-blur-md md:backdrop-blur-none transition-all shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none">
             {/* Campo de Busca e Filtros Rápidos */}
             <div className="p-3 border-b border-slate-300/60 dark:border-slate-800 space-y-2">
               <div className="flex items-center gap-1.5">
@@ -1980,7 +1980,7 @@ export function GpsMonitorView({
                     placeholder="Buscar placa, modelo, cliente..."
                     value={busca}
                     onChange={(e) => setBusca(e.target.value)}
-                    className="w-full pl-9 pr-3 py-1.5 bg-[#fbf2e9] dark:bg-slate-950 border border-slate-300/60 dark:border-slate-800 rounded-xl text-xs text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-emerald-500 shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6)] transition"
+                    className="w-full pl-9 pr-3 py-1.5 bg-[#eaf0f8] dark:bg-slate-950 border border-slate-300/60 dark:border-slate-800 rounded-xl text-xs text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-emerald-500 shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6)] transition"
                   />
                 </div>
                 <button
@@ -2592,7 +2592,7 @@ export function GpsMonitorView({
       )}
 
       {/* 3.5. Barra de Navegação Tática Inferior no Mobile (md:hidden) */}
-      <nav className="md:hidden z-30 px-2 py-1.5 pb-safe bg-[#fbf2e9]/95 dark:bg-slate-900/95 backdrop-blur-md border-t border-slate-300/60 dark:border-slate-800 flex items-center justify-around text-slate-600 dark:text-slate-400 shadow-lg shrink-0">
+      <nav className="md:hidden z-30 px-2 py-1.5 pb-safe bg-[#eaf0f8]/95 dark:bg-slate-900/95 backdrop-blur-md border-t border-slate-300/60 dark:border-slate-800 flex items-center justify-around text-slate-600 dark:text-slate-400 shadow-lg shrink-0">
         {/* Aba 1: Mapa */}
         <button
           onClick={() => alternarVisaoAtiva("mapa")}

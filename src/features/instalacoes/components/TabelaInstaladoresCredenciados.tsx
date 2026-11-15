@@ -125,7 +125,7 @@ export function TabelaInstaladoresCredenciados() {
   return (
     <div className="space-y-4">
       {/* Barra de Topo com Busca e Atualização */}
-      <div className="bg-[#fbf2e9] dark:bg-slate-900/80 rounded-2xl border border-slate-300/60 dark:border-slate-800 p-4 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-xl">
+      <div className="bg-[#eaf0f8] dark:bg-slate-900/80 rounded-2xl border border-slate-300/60 dark:border-slate-800 p-4 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-xl">
         <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
           <div className="flex items-center gap-3">
             <div className="h-10 w-10 rounded-xl bg-amber-500/10 dark:bg-amber-500/20 text-amber-600 dark:text-amber-400 flex items-center justify-center shrink-0 border border-amber-500/30">
@@ -169,12 +169,12 @@ export function TabelaInstaladoresCredenciados() {
 
       {/* Lista de Instaladores */}
       {carregando ? (
-        <div className="p-8 text-center text-xs text-slate-500 dark:text-slate-400 bg-[#fbf2e9]/60 dark:bg-slate-900/40 rounded-2xl border border-slate-300/60 dark:border-slate-800">
+        <div className="p-8 text-center text-xs text-slate-500 dark:text-slate-400 bg-[#eaf0f8]/60 dark:bg-slate-900/40 rounded-2xl border border-slate-300/60 dark:border-slate-800">
           <RefreshCw className="h-6 w-6 animate-spin mx-auto mb-2 text-amber-500" />
           <span>Carregando instaladores credenciados...</span>
         </div>
       ) : instaladoresFiltrados.length === 0 ? (
-        <div className="p-8 text-center text-xs text-slate-500 dark:text-slate-400 bg-[#fbf2e9]/60 dark:bg-slate-900/40 rounded-2xl border border-slate-300/60 dark:border-slate-800">
+        <div className="p-8 text-center text-xs text-slate-500 dark:text-slate-400 bg-[#eaf0f8]/60 dark:bg-slate-900/40 rounded-2xl border border-slate-300/60 dark:border-slate-800">
           <Wrench className="h-8 w-8 mx-auto mb-2 text-slate-400 opacity-60" />
           <p className="font-bold text-slate-700 dark:text-slate-300">
             Nenhum instalador encontrado
@@ -196,7 +196,7 @@ export function TabelaInstaladoresCredenciados() {
                 key={inst.id}
                 maxTilt={3}
                 spotlightColor="rgba(245, 158, 11, 0.2)"
-                className="bg-[#fbf2e9] dark:bg-slate-900/80 rounded-2xl border border-slate-300/60 dark:border-slate-800 p-4 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-xl flex flex-col justify-between gap-3 hover:border-amber-500/40 transition"
+                className="bg-[#eaf0f8] dark:bg-slate-900/80 rounded-2xl border border-slate-300/60 dark:border-slate-800 p-4 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-xl flex flex-col justify-between gap-3 hover:border-amber-500/40 transition"
               >
                 <div>
                   {/* Cabeçalho do Card */}

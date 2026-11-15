@@ -517,7 +517,7 @@ export function RevendedoresView() {
   return (
     <div className="space-y-4 max-w-7xl mx-auto select-none pb-28">
       {/* 1. Header Canônico GD Rastreamento */}
-      <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 bg-[#fbf2e9] dark:bg-slate-900/80 border border-slate-300/60 dark:border-slate-800 p-4 sm:p-5 rounded-2xl shadow-[4px_4px_10px_#c3cfe2] dark:shadow-xl">
+      <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 bg-[#eaf0f8] dark:bg-slate-900/80 border border-slate-300/60 dark:border-slate-800 p-4 sm:p-5 rounded-2xl shadow-[4px_4px_10px_#c3cfe2] dark:shadow-xl">
         <div className="flex items-center gap-3">
           <div className="h-12 w-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-600 dark:text-amber-400 shadow-xs shrink-0">
             <Building className="h-6 w-6" />
@@ -570,7 +570,7 @@ export function RevendedoresView() {
               prev === "todos" ? "ativos" : prev === "ativos" ? "inativos" : "todos",
             )
           }
-          className={`bg-[#fbf2e9] dark:bg-slate-900/70 border rounded-2xl p-3.5 flex flex-col justify-between transition cursor-pointer active:scale-95 ${
+          className={`bg-[#eaf0f8] dark:bg-slate-900/70 border rounded-2xl p-3.5 flex flex-col justify-between transition cursor-pointer active:scale-95 ${
             filtroRede === "todos" || filtroRede === "ativos" || filtroRede === "inativos"
               ? "border-amber-500/60 ring-2 ring-amber-500/40 shadow-[4px_4px_12px_#c3cfe2] dark:shadow-none"
               : "border-slate-300/60 dark:border-slate-800 shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_12px_#b8c6da]"
@@ -604,7 +604,7 @@ export function RevendedoresView() {
           onClick={() =>
             setFiltroRede((prev) => (prev === "com_vendedores" ? "todos" : "com_vendedores"))
           }
-          className={`bg-[#fbf2e9] dark:bg-slate-900/70 border rounded-2xl p-3.5 flex flex-col justify-between transition cursor-pointer active:scale-95 ${
+          className={`bg-[#eaf0f8] dark:bg-slate-900/70 border rounded-2xl p-3.5 flex flex-col justify-between transition cursor-pointer active:scale-95 ${
             filtroRede === "com_vendedores"
               ? "border-blue-500/60 ring-2 ring-blue-500/40 shadow-[4px_4px_12px_#c3cfe2] dark:shadow-none"
               : "border-slate-300/60 dark:border-slate-800 shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_12px_#b8c6da]"
@@ -632,7 +632,7 @@ export function RevendedoresView() {
           onClick={() =>
             setFiltroRede((prev) => (prev === "com_clientes" ? "todos" : "com_clientes"))
           }
-          className={`bg-[#fbf2e9] dark:bg-slate-900/70 border rounded-2xl p-3.5 flex flex-col justify-between transition cursor-pointer active:scale-95 ${
+          className={`bg-[#eaf0f8] dark:bg-slate-900/70 border rounded-2xl p-3.5 flex flex-col justify-between transition cursor-pointer active:scale-95 ${
             filtroRede === "com_clientes"
               ? "border-emerald-500/60 ring-2 ring-emerald-500/40 shadow-[4px_4px_12px_#c3cfe2] dark:shadow-none"
               : "border-slate-300/60 dark:border-slate-800 shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_12px_#b8c6da]"
@@ -662,7 +662,7 @@ export function RevendedoresView() {
           onClick={() =>
             setFiltroRede((prev) => (prev === "com_faturamento" ? "todos" : "com_faturamento"))
           }
-          className={`bg-[#fbf2e9] dark:bg-slate-900/70 border rounded-2xl p-3.5 flex flex-col justify-between transition cursor-pointer active:scale-95 ${
+          className={`bg-[#eaf0f8] dark:bg-slate-900/70 border rounded-2xl p-3.5 flex flex-col justify-between transition cursor-pointer active:scale-95 ${
             filtroRede === "com_faturamento"
               ? "border-indigo-500/60 ring-2 ring-indigo-500/40 shadow-[4px_4px_12px_#c3cfe2] dark:shadow-none"
               : "border-slate-300/60 dark:border-slate-800 shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_12px_#b8c6da]"
@@ -690,7 +690,7 @@ export function RevendedoresView() {
           maxTilt={4}
           spotlightColor="rgba(16, 185, 129, 0.35)"
           onClick={() => setFiltroRede((prev) => (prev === "com_cota" ? "todos" : "com_cota"))}
-          className={`bg-[#fbf2e9] dark:bg-slate-900/70 border rounded-2xl p-3.5 flex flex-col justify-between transition cursor-pointer active:scale-95 ${
+          className={`bg-[#eaf0f8] dark:bg-slate-900/70 border rounded-2xl p-3.5 flex flex-col justify-between transition cursor-pointer active:scale-95 ${
             filtroRede === "com_cota"
               ? "border-emerald-500/60 ring-2 ring-emerald-500/40 shadow-[4px_4px_12px_#c3cfe2] dark:shadow-none"
               : "border-emerald-500/30 shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_12px_#b8c6da]"
@@ -718,7 +718,7 @@ export function RevendedoresView() {
           onClick={() =>
             setFiltroRede((prev) => (prev === "com_comissao" ? "todos" : "com_comissao"))
           }
-          className={`bg-[#fbf2e9] dark:bg-slate-900/70 border rounded-2xl p-3.5 flex flex-col justify-between transition cursor-pointer active:scale-95 ${
+          className={`bg-[#eaf0f8] dark:bg-slate-900/70 border rounded-2xl p-3.5 flex flex-col justify-between transition cursor-pointer active:scale-95 ${
             filtroRede === "com_comissao"
               ? "border-amber-500/60 ring-2 ring-amber-500/40 shadow-[4px_4px_12px_#c3cfe2] dark:shadow-none"
               : "border-amber-500/30 shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_12px_#b8c6da]"
@@ -742,7 +742,7 @@ export function RevendedoresView() {
       </div>
 
       {/* 3. Barra de Busca, Alternador de Exibição e Filtros de Status */}
-      <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-3 bg-[#fbf2e9]/80 dark:bg-slate-900/50 p-2.5 sm:p-3 rounded-2xl border border-slate-300/60 dark:border-slate-800 shadow-xs">
+      <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-3 bg-[#eaf0f8]/80 dark:bg-slate-900/50 p-2.5 sm:p-3 rounded-2xl border border-slate-300/60 dark:border-slate-800 shadow-xs">
         <div className="flex items-center gap-2 w-full lg:w-auto flex-1 min-w-0">
           <div className="relative w-full min-w-0 flex-1">
             <Search className="absolute left-3 top-2.5 h-4 w-4 text-slate-500 dark:text-slate-400" />
@@ -841,11 +841,11 @@ export function RevendedoresView() {
 
       {/* 4. Conteúdo: Visualização em Cards Táticos ou Tabela */}
       {carregando ? (
-        <div className="py-12 text-center text-slate-500 text-xs bg-[#fbf2e9] dark:bg-slate-900/30 rounded-2xl border border-slate-300/60 dark:border-slate-800 p-8 shadow-[2px_2px_6px_#c3cfe2] dark:shadow-none">
+        <div className="py-12 text-center text-slate-500 text-xs bg-[#eaf0f8] dark:bg-slate-900/30 rounded-2xl border border-slate-300/60 dark:border-slate-800 p-8 shadow-[2px_2px_6px_#c3cfe2] dark:shadow-none">
           Carregando rede de parceiros comerciais...
         </div>
       ) : revendedoresFiltrados.length === 0 ? (
-        <div className="py-12 text-center text-slate-500 text-xs bg-[#fbf2e9] dark:bg-slate-900/30 rounded-2xl border border-slate-300/60 dark:border-slate-800 p-8 shadow-[2px_2px_6px_#c3cfe2] dark:shadow-none">
+        <div className="py-12 text-center text-slate-500 text-xs bg-[#eaf0f8] dark:bg-slate-900/30 rounded-2xl border border-slate-300/60 dark:border-slate-800 p-8 shadow-[2px_2px_6px_#c3cfe2] dark:shadow-none">
           Nenhum revendedor localizado para os critérios selecionados.
         </div>
       ) : modoExibicao === "cards" ? (
@@ -860,7 +860,7 @@ export function RevendedoresView() {
                 key={rev.id}
                 maxTilt={3}
                 spotlightColor="rgba(245, 158, 11, 0.2)"
-                className="bg-[#fbf2e9] dark:bg-slate-900/70 border border-slate-300/60 dark:border-slate-800 rounded-2xl p-4 flex flex-col justify-between space-y-3.5 shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_12px_#b8c6da] transition"
+                className="bg-[#eaf0f8] dark:bg-slate-900/70 border border-slate-300/60 dark:border-slate-800 rounded-2xl p-4 flex flex-col justify-between space-y-3.5 shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_12px_#b8c6da] transition"
               >
                 <div>
                   {/* Topo do Card */}
@@ -1106,7 +1106,7 @@ export function RevendedoresView() {
         </div>
       ) : (
         /* MODO TABELA CONSOLIDADA */
-        <div className="bg-[#fbf2e9] dark:bg-slate-900/80 rounded-2xl border border-slate-300/60 dark:border-slate-800 overflow-hidden shadow-[4px_4px_10px_#c3cfe2] dark:shadow-xl">
+        <div className="bg-[#eaf0f8] dark:bg-slate-900/80 rounded-2xl border border-slate-300/60 dark:border-slate-800 overflow-hidden shadow-[4px_4px_10px_#c3cfe2] dark:shadow-xl">
           <div className="overflow-x-auto">
             <table className="w-full text-left text-xs text-slate-600 dark:text-slate-300">
               <thead className="bg-slate-200/60 dark:bg-slate-800/60 uppercase font-black tracking-wider text-[10px] text-slate-700 dark:text-slate-400 border-b border-slate-300/60 dark:border-slate-800">
@@ -1325,7 +1325,7 @@ export function RevendedoresView() {
         typeof document !== "undefined" &&
         createPortal(
           <div className="fixed inset-0 z-[9999] flex items-center justify-center p-3 sm:p-4 bg-slate-950/70 backdrop-blur-xs overflow-y-auto">
-            <div className="bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/80 dark:border-slate-800 rounded-2xl w-full max-w-lg max-h-[90vh] my-auto flex flex-col shadow-[8px_8px_24px_#b8c6da] dark:shadow-2xl overflow-hidden animate-in fade-in zoom-in-95">
+            <div className="bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/80 dark:border-slate-800 rounded-2xl w-full max-w-lg max-h-[90vh] my-auto flex flex-col shadow-[8px_8px_24px_#b8c6da] dark:shadow-2xl overflow-hidden animate-in fade-in zoom-in-95">
               <div className="flex items-center justify-between p-4 border-b border-slate-300/60 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50">
                 <div className="flex items-center gap-2.5">
                   <div className="h-9 w-9 rounded-xl bg-amber-500/20 text-amber-600 dark:text-amber-400 flex items-center justify-center border border-amber-500/30">
@@ -1464,7 +1464,7 @@ export function RevendedoresView() {
         typeof document !== "undefined" &&
         createPortal(
           <div className="fixed inset-0 z-[9999] flex items-center justify-center p-3 sm:p-4 bg-slate-950/70 backdrop-blur-xs overflow-y-auto">
-            <div className="bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/80 dark:border-slate-800 rounded-2xl w-full max-w-lg max-h-[90vh] my-auto flex flex-col shadow-[8px_8px_24px_#b8c6da] dark:shadow-2xl overflow-hidden animate-in fade-in zoom-in-95">
+            <div className="bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/80 dark:border-slate-800 rounded-2xl w-full max-w-lg max-h-[90vh] my-auto flex flex-col shadow-[8px_8px_24px_#b8c6da] dark:shadow-2xl overflow-hidden animate-in fade-in zoom-in-95">
               <div className="flex items-center justify-between p-4 border-b border-slate-300/60 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50">
                 <div className="flex items-center gap-2.5">
                   <div className="h-9 w-9 rounded-xl bg-blue-500/20 text-blue-600 dark:text-blue-400 flex items-center justify-center border border-blue-500/30">
@@ -1606,7 +1606,7 @@ export function RevendedoresView() {
         typeof document !== "undefined" &&
         createPortal(
           <div className="fixed inset-0 z-[9999] flex items-center justify-center p-3 sm:p-4 bg-slate-950/70 backdrop-blur-xs overflow-y-auto">
-            <div className="bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/80 dark:border-slate-800 rounded-2xl w-full max-w-lg max-h-[90vh] my-auto flex flex-col shadow-[8px_8px_24px_#b8c6da] dark:shadow-2xl overflow-hidden animate-in fade-in zoom-in-95">
+            <div className="bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/80 dark:border-slate-800 rounded-2xl w-full max-w-lg max-h-[90vh] my-auto flex flex-col shadow-[8px_8px_24px_#b8c6da] dark:shadow-2xl overflow-hidden animate-in fade-in zoom-in-95">
               <div className="flex items-center justify-between p-4 border-b border-slate-300/60 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50">
                 <div className="flex items-center gap-2.5">
                   <div className="h-9 w-9 rounded-xl bg-sky-500/20 text-sky-600 dark:text-sky-400 flex items-center justify-center border border-sky-500/30">
@@ -1950,7 +1950,7 @@ export function RevendedoresView() {
         typeof document !== "undefined" &&
         createPortal(
           <div className="fixed inset-0 z-[9999] flex items-center justify-center p-3 sm:p-4 bg-slate-950/70 backdrop-blur-xs overflow-y-auto">
-            <div className="bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/80 dark:border-slate-800 rounded-2xl w-full max-w-lg max-h-[90vh] my-auto flex flex-col shadow-[8px_8px_24px_#b8c6da] dark:shadow-2xl overflow-hidden animate-in fade-in zoom-in-95">
+            <div className="bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/80 dark:border-slate-800 rounded-2xl w-full max-w-lg max-h-[90vh] my-auto flex flex-col shadow-[8px_8px_24px_#b8c6da] dark:shadow-2xl overflow-hidden animate-in fade-in zoom-in-95">
               <div className="flex items-center justify-between p-4 border-b border-slate-300/60 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50">
                 <div className="flex items-center gap-2.5">
                   <div className="h-9 w-9 rounded-xl bg-amber-500/20 text-amber-600 dark:text-amber-400 flex items-center justify-center border border-amber-500/30">
@@ -2223,7 +2223,7 @@ export function RevendedoresView() {
         typeof document !== "undefined" &&
         createPortal(
           <div className="fixed inset-0 z-[10000] flex items-center justify-center p-3 sm:p-4 bg-slate-950/75 backdrop-blur-xs overflow-y-auto">
-            <div className="bg-[#fbf2e9] dark:bg-slate-900 border border-rose-500/40 rounded-2xl w-full max-w-md p-5 shadow-2xl animate-in fade-in zoom-in-95 space-y-4">
+            <div className="bg-[#eaf0f8] dark:bg-slate-900 border border-rose-500/40 rounded-2xl w-full max-w-md p-5 shadow-2xl animate-in fade-in zoom-in-95 space-y-4">
               <div className="flex items-center gap-3">
                 <div className="h-10 w-10 rounded-xl bg-rose-500/15 border border-rose-500/30 flex items-center justify-center text-rose-600 dark:text-rose-400 shrink-0">
                   <AlertTriangle className="h-5 w-5" />

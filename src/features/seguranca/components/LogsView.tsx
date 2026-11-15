@@ -273,7 +273,7 @@ export function LogsView() {
   return (
     <div className="space-y-5 max-w-6xl mx-auto select-none">
       {/* 1. Cabeçalho Canônico Neumorphic Hunter */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 p-5 sm:p-6 rounded-3xl shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 p-5 sm:p-6 rounded-3xl shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl">
         <div className="flex items-center gap-3.5">
           <div className="h-12 w-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shrink-0">
             <FileText className="h-6 w-6 stroke-[2.2]" />
@@ -296,7 +296,7 @@ export function LogsView() {
 
         {/* Abas e Ações */}
         <div className="flex items-center gap-2 w-full sm:w-auto shrink-0">
-          <div className="flex items-center gap-1 bg-[#fbf2e9] dark:bg-slate-800/80 p-1.5 rounded-2xl border border-slate-300/60 dark:border-slate-700 shadow-[inset_1px_1px_3px_#c8d4e4] dark:shadow-none w-full sm:w-auto overflow-hidden">
+          <div className="flex items-center gap-1 bg-[#eaf0f8] dark:bg-slate-800/80 p-1.5 rounded-2xl border border-slate-300/60 dark:border-slate-700 shadow-[inset_1px_1px_3px_#c8d4e4] dark:shadow-none w-full sm:w-auto overflow-hidden">
             <button
               onClick={() => {
                 setAba("login");
@@ -304,7 +304,7 @@ export function LogsView() {
               }}
               className={`flex-1 sm:flex-none px-3.5 py-1.5 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 whitespace-nowrap ${
                 aba === "login"
-                  ? "bg-[#fbf2e9] dark:bg-slate-900 text-emerald-700 dark:text-emerald-400 shadow-sm border border-slate-300/60 dark:border-slate-700"
+                  ? "bg-[#eaf0f8] dark:bg-slate-900 text-emerald-700 dark:text-emerald-400 shadow-sm border border-slate-300/60 dark:border-slate-700"
                   : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
               }`}
             >
@@ -318,7 +318,7 @@ export function LogsView() {
               }}
               className={`flex-1 sm:flex-none px-3.5 py-1.5 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 whitespace-nowrap ${
                 aba === "atividade"
-                  ? "bg-[#fbf2e9] dark:bg-slate-900 text-emerald-700 dark:text-emerald-400 shadow-sm border border-slate-300/60 dark:border-slate-700"
+                  ? "bg-[#eaf0f8] dark:bg-slate-900 text-emerald-700 dark:text-emerald-400 shadow-sm border border-slate-300/60 dark:border-slate-700"
                   : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
               }`}
             >
@@ -329,7 +329,7 @@ export function LogsView() {
               onClick={() => setAba("documentos")}
               className={`flex-1 sm:flex-none px-3.5 py-1.5 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 whitespace-nowrap ${
                 aba === "documentos"
-                  ? "bg-[#fbf2e9] dark:bg-slate-900 text-emerald-700 dark:text-emerald-400 shadow-sm border border-slate-300/60 dark:border-slate-700"
+                  ? "bg-[#eaf0f8] dark:bg-slate-900 text-emerald-700 dark:text-emerald-400 shadow-sm border border-slate-300/60 dark:border-slate-700"
                   : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
               }`}
             >
@@ -341,7 +341,7 @@ export function LogsView() {
           <button
             onClick={carregar}
             disabled={carregando}
-            className="p-2.5 rounded-2xl bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 shadow-[4px_4px_14px_#c3cfe2] dark:shadow-md transition shrink-0"
+            className="p-2.5 rounded-2xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 shadow-[4px_4px_14px_#c3cfe2] dark:shadow-md transition shrink-0"
             title="Recarregar Registros"
           >
             <RefreshCw className={`h-4 w-4 ${carregando ? "animate-spin text-emerald-500" : ""}`} />
@@ -353,7 +353,7 @@ export function LogsView() {
       {aba === "documentos" ? (
         <div className="space-y-6">
           {/* Card de Upload / Dropzone para Conferência Forense */}
-          <div className="bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 p-6 rounded-3xl shadow-[6px_6px_20px_#c3cfe2] dark:shadow-2xl space-y-4">
+          <div className="bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 p-6 rounded-3xl shadow-[6px_6px_20px_#c3cfe2] dark:shadow-2xl space-y-4">
             <div className="flex items-center justify-between">
               <div>
                 <h2 className="text-base font-black text-slate-900 dark:text-slate-100 flex items-center gap-2">
@@ -443,7 +443,7 @@ export function LogsView() {
 
           {/* Estado de Carregamento da Verificação */}
           {verificandoArquivo && (
-            <div className="p-8 rounded-3xl bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 text-center space-y-3 shadow-[6px_6px_20px_#c3cfe2] dark:shadow-2xl animate-pulse">
+            <div className="p-8 rounded-3xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 text-center space-y-3 shadow-[6px_6px_20px_#c3cfe2] dark:shadow-2xl animate-pulse">
               <RefreshCw className="h-8 w-8 text-emerald-600 dark:text-emerald-400 animate-spin mx-auto" />
               <p className="text-sm font-bold text-slate-800 dark:text-slate-200">
                 Calculando hash criptográfico SHA-256 e conferindo autenticidade forense...
@@ -512,7 +512,7 @@ export function LogsView() {
                     setResultadoVerificacao(null);
                     setHashManual("");
                   }}
-                  className="self-start md:self-auto px-3.5 py-1.5 rounded-xl bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/80 dark:border-slate-700 text-xs font-bold text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition"
+                  className="self-start md:self-auto px-3.5 py-1.5 rounded-xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/80 dark:border-slate-700 text-xs font-bold text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition"
                 >
                   Conferir Outro PDF
                 </button>
@@ -654,7 +654,7 @@ export function LogsView() {
 
           {/* Lista de Documentos Emitidos Oficialmente */}
           <div className="space-y-3">
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 p-3.5 rounded-2xl shadow-[4px_4px_14px_#c3cfe2] dark:shadow-md">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 p-3.5 rounded-2xl shadow-[4px_4px_14px_#c3cfe2] dark:shadow-md">
               <div className="flex items-center gap-2">
                 <FileBadge className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
                 <h3 className="text-xs font-black uppercase tracking-wider text-slate-900 dark:text-slate-100">
@@ -677,7 +677,7 @@ export function LogsView() {
             {/* Itens */}
             <div className="space-y-2">
               {filtradosDocumentos.length === 0 ? (
-                <div className="py-12 text-center text-slate-500 dark:text-slate-400 text-xs bg-[#fbf2e9] dark:bg-slate-900 rounded-3xl border border-slate-300/60 dark:border-slate-800 shadow-[6px_6px_20px_#c3cfe2] dark:shadow-xl">
+                <div className="py-12 text-center text-slate-500 dark:text-slate-400 text-xs bg-[#eaf0f8] dark:bg-slate-900 rounded-3xl border border-slate-300/60 dark:border-slate-800 shadow-[6px_6px_20px_#c3cfe2] dark:shadow-xl">
                   {documentosEmitidos.length === 0
                     ? "Nenhum documento emitido registrado até o momento."
                     : "Nenhum documento encontrado com o filtro informado."}
@@ -688,7 +688,7 @@ export function LogsView() {
                   return (
                     <div
                       key={doc.id}
-                      className="p-4 rounded-2xl bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 text-xs shadow-[4px_4px_14px_#c3cfe2] dark:shadow-md hover:border-emerald-500/40 transition"
+                      className="p-4 rounded-2xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 text-xs shadow-[4px_4px_14px_#c3cfe2] dark:shadow-md hover:border-emerald-500/40 transition"
                     >
                       <div className="space-y-1 min-w-0 flex-1">
                         <div className="flex flex-wrap items-center gap-2">
@@ -750,7 +750,7 @@ export function LogsView() {
         /* ABAS TRADICIONAIS: LOGIN E ATIVIDADE */
         <>
           {/* 2. Barra de Busca e Filtro */}
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 p-3 rounded-2xl shadow-[4px_4px_14px_#c3cfe2] dark:shadow-md">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 p-3 rounded-2xl shadow-[4px_4px_14px_#c3cfe2] dark:shadow-md">
             <div className="relative flex-1">
               <Search className="absolute left-3 top-2.5 h-4 w-4 text-slate-400" />
               <input
@@ -802,19 +802,19 @@ export function LogsView() {
           {/* 3. Tabela / Lista de Registros */}
           <div className="space-y-2.5">
             {carregando ? (
-              <div className="py-16 text-center text-slate-500 dark:text-slate-400 text-xs font-mono bg-[#fbf2e9] dark:bg-slate-900 rounded-3xl border border-slate-300/60 dark:border-slate-800 shadow-[6px_6px_20px_#c3cfe2] dark:shadow-xl">
+              <div className="py-16 text-center text-slate-500 dark:text-slate-400 text-xs font-mono bg-[#eaf0f8] dark:bg-slate-900 rounded-3xl border border-slate-300/60 dark:border-slate-800 shadow-[6px_6px_20px_#c3cfe2] dark:shadow-xl">
                 Carregando trilha de auditoria forense...
               </div>
             ) : aba === "login" ? (
               filtradosLogin.length === 0 ? (
-                <div className="py-16 text-center text-slate-500 dark:text-slate-400 text-xs bg-[#fbf2e9] dark:bg-slate-900 rounded-3xl border border-slate-300/60 dark:border-slate-800 shadow-[6px_6px_20px_#c3cfe2] dark:shadow-xl">
+                <div className="py-16 text-center text-slate-500 dark:text-slate-400 text-xs bg-[#eaf0f8] dark:bg-slate-900 rounded-3xl border border-slate-300/60 dark:border-slate-800 shadow-[6px_6px_20px_#c3cfe2] dark:shadow-xl">
                   Nenhum registro de login encontrado.
                 </div>
               ) : (
                 filtradosLogin.map((l) => (
                   <div
                     key={l.id}
-                    className="p-4 rounded-2xl bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs shadow-[4px_4px_14px_#c3cfe2] dark:shadow-md"
+                    className="p-4 rounded-2xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs shadow-[4px_4px_14px_#c3cfe2] dark:shadow-md"
                   >
                     <div className="space-y-1 min-w-0">
                       <div className="flex flex-wrap items-center gap-2">
@@ -845,14 +845,14 @@ export function LogsView() {
                 ))
               )
             ) : filtradosAtividade.length === 0 ? (
-              <div className="py-16 text-center text-slate-500 dark:text-slate-400 text-xs bg-[#fbf2e9] dark:bg-slate-900 rounded-3xl border border-slate-300/60 dark:border-slate-800 shadow-[6px_6px_20px_#c3cfe2] dark:shadow-xl">
+              <div className="py-16 text-center text-slate-500 dark:text-slate-400 text-xs bg-[#eaf0f8] dark:bg-slate-900 rounded-3xl border border-slate-300/60 dark:border-slate-800 shadow-[6px_6px_20px_#c3cfe2] dark:shadow-xl">
                 Nenhum registro de atividade operacional encontrado.
               </div>
             ) : (
               filtradosAtividade.map((a) => (
                 <div
                   key={a.id}
-                  className="p-4 rounded-2xl bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs shadow-[4px_4px_14px_#c3cfe2] dark:shadow-md"
+                  className="p-4 rounded-2xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs shadow-[4px_4px_14px_#c3cfe2] dark:shadow-md"
                 >
                   <div className="space-y-1 min-w-0">
                     <div className="flex items-center gap-2">

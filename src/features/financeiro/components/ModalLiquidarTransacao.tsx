@@ -148,7 +148,7 @@ export function ModalLiquidarTransacao({
     <ModalPortal>
       <div className="fixed inset-0 z-50 bg-slate-950/70 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
         <div
-          className="relative w-full max-w-lg bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/80 dark:border-slate-800 rounded-3xl shadow-2xl overflow-hidden my-auto animate-in fade-in zoom-in-95 duration-200"
+          className="relative w-full max-w-lg bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/80 dark:border-slate-800 rounded-3xl shadow-2xl overflow-hidden my-auto animate-in fade-in zoom-in-95 duration-200"
           onClick={(e) => e.stopPropagation()}
         >
           {/* Cabeçalho do Modal */}

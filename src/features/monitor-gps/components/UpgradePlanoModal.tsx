@@ -22,7 +22,7 @@ export function UpgradePlanoModal({ aberto, onFechar, recursoSolicitado }: Upgra
   return (
     <ModalPortal>
       <div className="fixed inset-0 z-[99999] flex items-center justify-center p-2.5 sm:p-4 bg-slate-950/85 backdrop-blur-md animate-in fade-in duration-200 select-none overflow-y-auto">
-        <div className="relative w-full max-w-3xl bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 rounded-3xl shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl overflow-hidden flex flex-col max-h-[calc(100dvh-2.5rem)] sm:max-h-[85vh] my-auto">
+        <div className="relative w-full max-w-3xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 rounded-3xl shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl overflow-hidden flex flex-col max-h-[calc(100dvh-2.5rem)] sm:max-h-[85vh] my-auto">
           {/* Cabeçalho */}
           <div className="relative p-6 sm:p-8 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 border-b border-slate-800 text-white overflow-hidden">
             <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
@@ -158,7 +158,7 @@ export function UpgradePlanoModal({ aberto, onFechar, recursoSolicitado }: Upgra
           </div>
 
           {/* Rodapé com Central de Suporte */}
-          <div className="p-3.5 sm:p-4 bg-[#fbf2e9]/95 dark:bg-slate-950/80 border-t border-slate-300/60 dark:border-slate-800/80 flex items-center justify-between text-xs text-slate-600 dark:text-slate-400 shrink-0">
+          <div className="p-3.5 sm:p-4 bg-[#eaf0f8]/95 dark:bg-slate-950/80 border-t border-slate-300/60 dark:border-slate-800/80 flex items-center justify-between text-xs text-slate-600 dark:text-slate-400 shrink-0">
             <div className="flex items-center gap-2">
               <Headphones className="h-4 w-4 text-emerald-500" />
               <span className="truncate">

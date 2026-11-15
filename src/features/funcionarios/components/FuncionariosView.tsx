@@ -193,7 +193,7 @@ export function FuncionariosView() {
   return (
     <div className="space-y-6 max-w-7xl mx-auto p-2.5 sm:p-5 lg:p-6 select-none transition-all duration-300">
       {/* Cabeçalho da Página */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 p-5 sm:p-6 rounded-3xl shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 p-5 sm:p-6 rounded-3xl shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl">
         <div className="flex items-center gap-3.5">
           <div className="h-12 w-12 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-600 dark:text-indigo-400 shadow-xs">
             <UserCheck className="h-6 w-6 stroke-[2.2]" />
@@ -224,7 +224,7 @@ export function FuncionariosView() {
 
       {/* Seletor de Cliente para Administrador e SuperADM */}
       {isGestorGlobal && (
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 rounded-3xl bg-[#fbf2e9] dark:bg-slate-900 border border-indigo-500/30 shadow-[3px_3px_10px_#c3cfe2] dark:shadow-xl">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 rounded-3xl bg-[#eaf0f8] dark:bg-slate-900 border border-indigo-500/30 shadow-[3px_3px_10px_#c3cfe2] dark:shadow-xl">
           <div className="flex items-center gap-2.5">
             <Building2 className="h-5 w-5 text-indigo-600 dark:text-indigo-400 shrink-0" />
             <div>
@@ -277,7 +277,7 @@ export function FuncionariosView() {
           className={`cursor-pointer p-4 rounded-2xl border transition-all duration-200 select-none ${
             filtroStatus === "todos"
               ? "bg-indigo-600 text-white border-indigo-700 shadow-[3px_3px_10px_rgba(79,70,229,0.35)] scale-[1.02]"
-              : "bg-[#fbf2e9] dark:bg-slate-900 border-slate-300/60 dark:border-slate-800 text-slate-800 dark:text-slate-200 hover:border-indigo-400 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-md"
+              : "bg-[#eaf0f8] dark:bg-slate-900 border-slate-300/60 dark:border-slate-800 text-slate-800 dark:text-slate-200 hover:border-indigo-400 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-md"
           }`}
         >
           <div className="flex items-center justify-between">
@@ -295,7 +295,7 @@ export function FuncionariosView() {
           className={`cursor-pointer p-4 rounded-2xl border transition-all duration-200 select-none ${
             filtroStatus === "ativos"
               ? "bg-emerald-600 text-white border-emerald-700 shadow-[3px_3px_10px_rgba(16,185,129,0.35)] scale-[1.02]"
-              : "bg-[#fbf2e9] dark:bg-slate-900 border-slate-300/60 dark:border-slate-800 text-slate-800 dark:text-slate-200 hover:border-emerald-400 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-md"
+              : "bg-[#eaf0f8] dark:bg-slate-900 border-slate-300/60 dark:border-slate-800 text-slate-800 dark:text-slate-200 hover:border-emerald-400 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-md"
           }`}
         >
           <div className="flex items-center justify-between">
@@ -321,7 +321,7 @@ export function FuncionariosView() {
           className={`cursor-pointer p-4 rounded-2xl border transition-all duration-200 select-none ${
             filtroStatus === "mapa"
               ? "bg-cyan-600 text-white border-cyan-700 shadow-[3px_3px_10px_rgba(6,182,212,0.35)] scale-[1.02]"
-              : "bg-[#fbf2e9] dark:bg-slate-900 border-slate-300/60 dark:border-slate-800 text-slate-800 dark:text-slate-200 hover:border-cyan-400 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-md"
+              : "bg-[#eaf0f8] dark:bg-slate-900 border-slate-300/60 dark:border-slate-800 text-slate-800 dark:text-slate-200 hover:border-cyan-400 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-md"
           }`}
         >
           <div className="flex items-center justify-between">
@@ -347,7 +347,7 @@ export function FuncionariosView() {
           className={`cursor-pointer p-4 rounded-2xl border transition-all duration-200 select-none ${
             filtroStatus === "inativos"
               ? "bg-rose-600 text-white border-rose-700 shadow-[3px_3px_10px_rgba(244,63,94,0.35)] scale-[1.02]"
-              : "bg-[#fbf2e9] dark:bg-slate-900 border-slate-300/60 dark:border-slate-800 text-slate-800 dark:text-slate-200 hover:border-rose-400 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-md"
+              : "bg-[#eaf0f8] dark:bg-slate-900 border-slate-300/60 dark:border-slate-800 text-slate-800 dark:text-slate-200 hover:border-rose-400 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-md"
           }`}
         >
           <div className="flex items-center justify-between">
@@ -380,20 +380,20 @@ export function FuncionariosView() {
               ? "Buscar por nome, e-mail, cargo ou empresa/cliente..."
               : "Buscar por nome, e-mail ou cargo..."
           }
-          className="w-full h-11 pl-10 pr-4 text-xs sm:text-sm rounded-2xl border border-slate-300/70 dark:border-slate-800 bg-[#fbf2e9] dark:bg-slate-900 text-slate-900 dark:text-slate-100 placeholder-slate-400 shadow-[inset_2px_2px_5px_#c3cfe2] dark:shadow-inner focus:outline-none focus:ring-2 focus:ring-indigo-500/40"
+          className="w-full h-11 pl-10 pr-4 text-xs sm:text-sm rounded-2xl border border-slate-300/70 dark:border-slate-800 bg-[#eaf0f8] dark:bg-slate-900 text-slate-900 dark:text-slate-100 placeholder-slate-400 shadow-[inset_2px_2px_5px_#c3cfe2] dark:shadow-inner focus:outline-none focus:ring-2 focus:ring-indigo-500/40"
         />
       </div>
 
       {/* Listagem de Colaboradores */}
       {carregando ? (
-        <div className="p-12 text-center rounded-3xl bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800">
+        <div className="p-12 text-center rounded-3xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800">
           <Loader2 className="h-8 w-8 animate-spin mx-auto text-indigo-600 dark:text-indigo-400 mb-2" />
           <p className="text-xs text-slate-500 dark:text-slate-400 font-bold">
             Carregando equipe de colaboradores...
           </p>
         </div>
       ) : funcionariosFiltrados.length === 0 ? (
-        <div className="p-12 text-center rounded-3xl bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-sm space-y-3">
+        <div className="p-12 text-center rounded-3xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-sm space-y-3">
           <Users className="h-12 w-12 mx-auto text-slate-300 dark:text-slate-700" />
           <h3 className="text-sm font-bold text-slate-700 dark:text-slate-300">
             Nenhum colaborador encontrado
@@ -424,7 +424,7 @@ export function FuncionariosView() {
               <TiltCard
                 key={f.id}
                 spotlightColor={spotlight}
-                className="p-4 sm:p-5 rounded-3xl bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_12px_#c3cfe2] dark:shadow-xl hover:border-indigo-400/50 transition-all duration-200 flex flex-col justify-between gap-4"
+                className="p-4 sm:p-5 rounded-3xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_12px_#c3cfe2] dark:shadow-xl hover:border-indigo-400/50 transition-all duration-200 flex flex-col justify-between gap-4"
               >
                 <div className="space-y-3">
                   {/* Topo do card: Nome, Status e Cargo */}
@@ -517,7 +517,7 @@ export function FuncionariosView() {
                         setFuncionarioEmEdicao(f);
                         setModalAberto(true);
                       }}
-                      className="p-2 rounded-xl bg-[#fbf2e9] dark:bg-slate-800 hover:bg-indigo-500/10 text-slate-700 dark:text-slate-300 border border-slate-300/50 dark:border-slate-700 transition flex items-center justify-center min-h-[38px] min-w-[38px]"
+                      className="p-2 rounded-xl bg-[#eaf0f8] dark:bg-slate-800 hover:bg-indigo-500/10 text-slate-700 dark:text-slate-300 border border-slate-300/50 dark:border-slate-700 transition flex items-center justify-center min-h-[38px] min-w-[38px]"
                       title="Editar colaborador"
                       aria-label="Editar"
                     >
@@ -526,7 +526,7 @@ export function FuncionariosView() {
                     <button
                       onClick={() => handleExcluir(f)}
                       disabled={excluindoId === f.id}
-                      className="p-2 rounded-xl bg-[#fbf2e9] dark:bg-slate-800 hover:bg-rose-500/10 text-rose-600 border border-slate-300/50 dark:border-slate-700 transition flex items-center justify-center min-h-[38px] min-w-[38px] disabled:opacity-50"
+                      className="p-2 rounded-xl bg-[#eaf0f8] dark:bg-slate-800 hover:bg-rose-500/10 text-rose-600 border border-slate-300/50 dark:border-slate-700 transition flex items-center justify-center min-h-[38px] min-w-[38px] disabled:opacity-50"
                       title="Remover colaborador"
                       aria-label="Excluir"
                     >

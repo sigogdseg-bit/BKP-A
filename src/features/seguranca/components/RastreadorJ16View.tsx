@@ -3623,7 +3623,7 @@ export function RastreadorJ16View() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       {/* HEADER PRINCIPAL */}
       {/* ─────────────────────────────────────────────────────────────────── */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 p-5 rounded-3xl shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 p-5 rounded-3xl shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl">
         <div className="flex items-center gap-3.5">
           <div className="h-12 w-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shrink-0">
             <Radio className="h-6 w-6" />
@@ -3686,7 +3686,7 @@ export function RastreadorJ16View() {
           </button>
 
           {/* Seletores Rápidos de Canais de Alerta (Padrão Central de Alertas) */}
-          <div className="flex items-center gap-1 bg-[#fbf2e9] dark:bg-slate-900 p-1 rounded-2xl border border-slate-300/50 dark:border-slate-800 shadow-2xs">
+          <div className="flex items-center gap-1 bg-[#eaf0f8] dark:bg-slate-900 p-1 rounded-2xl border border-slate-300/50 dark:border-slate-800 shadow-2xs">
             <button
               type="button"
               onClick={() => {
@@ -3754,7 +3754,7 @@ export function RastreadorJ16View() {
           <button
             onClick={carregarDispositivos}
             disabled={carregandoDispositivos}
-            className="px-3.5 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2 bg-[#fbf2e9] dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-300/50 dark:border-slate-700 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none hover:shadow-[3px_3px_8px_#b8c6da] active:shadow-[inset_2px_2px_4px_#c8d4e4] cursor-pointer"
+            className="px-3.5 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2 bg-[#eaf0f8] dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-300/50 dark:border-slate-700 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none hover:shadow-[3px_3px_8px_#b8c6da] active:shadow-[inset_2px_2px_4px_#c8d4e4] cursor-pointer"
             title="Atualizar dados dos dispositivos"
           >
             <RefreshCw
@@ -3783,7 +3783,7 @@ export function RastreadorJ16View() {
       {/* ─────────────────────────────────────────────────────────────────── */}
       {/* SELETOR DE ABAS PRINCIPAIS: REDE GPRS (REMOTO) VS BANCADA SERIAL USB */}
       {/* ─────────────────────────────────────────────────────────────────── */}
-      <div className="flex flex-wrap items-center gap-2 p-1.5 bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 rounded-2xl shadow-[4px_4px_10px_#c3cfe2] dark:shadow-xl w-fit">
+      <div className="flex flex-wrap items-center gap-2 p-1.5 bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 rounded-2xl shadow-[4px_4px_10px_#c3cfe2] dark:shadow-xl w-fit">
         <button
           type="button"
           onClick={() => setAbaPrincipal("remoto")}
@@ -3865,7 +3865,7 @@ export function RastreadorJ16View() {
               className={`p-4 rounded-2xl border text-left transition cursor-pointer shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none ${
                 filtroStatus === "instalados"
                   ? "bg-sky-600 text-white border-sky-600 shadow-md ring-2 ring-sky-500"
-                  : "bg-[#fbf2e9] dark:bg-slate-900/80 border-slate-300/60 dark:border-slate-800 hover:border-sky-500/40 hover:shadow-[4px_4px_10px_#b8c6da]"
+                  : "bg-[#eaf0f8] dark:bg-slate-900/80 border-slate-300/60 dark:border-slate-800 hover:border-sky-500/40 hover:shadow-[4px_4px_10px_#b8c6da]"
               }`}
             >
               <div className="flex items-center justify-between">
@@ -3887,7 +3887,7 @@ export function RastreadorJ16View() {
               className={`p-4 rounded-2xl border text-left transition cursor-pointer shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none ${
                 filtroStatus === "aguardando"
                   ? "bg-purple-600 text-white border-purple-600 shadow-md ring-2 ring-purple-500"
-                  : "bg-[#fbf2e9] dark:bg-slate-900/80 border-slate-300/60 dark:border-slate-800 hover:border-purple-500/40 hover:shadow-[4px_4px_10px_#b8c6da]"
+                  : "bg-[#eaf0f8] dark:bg-slate-900/80 border-slate-300/60 dark:border-slate-800 hover:border-purple-500/40 hover:shadow-[4px_4px_10px_#b8c6da]"
               }`}
             >
               <div className="flex items-center justify-between">
@@ -3907,7 +3907,7 @@ export function RastreadorJ16View() {
               className={`p-4 rounded-2xl border text-left transition cursor-pointer shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none ${
                 filtroStatus === "estoque"
                   ? "bg-amber-600 text-white border-amber-600 shadow-md ring-2 ring-amber-500"
-                  : "bg-[#fbf2e9] dark:bg-slate-900/80 border-slate-300/60 dark:border-slate-800 hover:border-amber-500/40 hover:shadow-[4px_4px_10px_#b8c6da]"
+                  : "bg-[#eaf0f8] dark:bg-slate-900/80 border-slate-300/60 dark:border-slate-800 hover:border-amber-500/40 hover:shadow-[4px_4px_10px_#b8c6da]"
               }`}
             >
               <div className="flex items-center justify-between">
@@ -3927,7 +3927,7 @@ export function RastreadorJ16View() {
               className={`p-4 rounded-2xl border text-left transition cursor-pointer shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none ${
                 filtroStatus === "online"
                   ? "bg-emerald-600 text-white border-emerald-600 shadow-md ring-2 ring-emerald-500"
-                  : "bg-[#fbf2e9] dark:bg-slate-900/80 border-slate-300/60 dark:border-slate-800 hover:border-emerald-500/40 hover:shadow-[4px_4px_10px_#b8c6da]"
+                  : "bg-[#eaf0f8] dark:bg-slate-900/80 border-slate-300/60 dark:border-slate-800 hover:border-emerald-500/40 hover:shadow-[4px_4px_10px_#b8c6da]"
               }`}
             >
               <div className="flex items-center justify-between">
@@ -3947,7 +3947,7 @@ export function RastreadorJ16View() {
               className={`p-4 rounded-2xl border text-left transition cursor-pointer shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none col-span-2 sm:col-span-1 ${
                 filtroStatus === "todos"
                   ? "bg-slate-900 text-white border-slate-900 dark:bg-slate-800 dark:border-slate-600 shadow-md ring-2 ring-slate-500"
-                  : "bg-[#fbf2e9] dark:bg-slate-900/80 border-slate-300/60 dark:border-slate-800 hover:border-slate-400 hover:shadow-[4px_4px_10px_#b8c6da]"
+                  : "bg-[#eaf0f8] dark:bg-slate-900/80 border-slate-300/60 dark:border-slate-800 hover:border-slate-400 hover:shadow-[4px_4px_10px_#b8c6da]"
               }`}
             >
               <div className="flex items-center justify-between">
@@ -3964,7 +3964,7 @@ export function RastreadorJ16View() {
           {/* ─────────────────────────────────────────────────────────────────── */}
           {/* SEÇÃO 1: PARÂMETROS CANÔNICOS DO SISTEMA COM BOTÃO DE DISPARO EM LOTE */}
           {/* ─────────────────────────────────────────────────────────────────── */}
-          <div className="bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 rounded-3xl p-4 sm:p-5 space-y-4 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl overflow-hidden">
+          <div className="bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 rounded-3xl p-4 sm:p-5 space-y-4 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl overflow-hidden">
             <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4 border-b border-slate-100 dark:border-slate-800 pb-4">
               <div className="flex items-center gap-2.5">
                 <div className="h-9 w-9 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shrink-0">
@@ -4774,7 +4774,7 @@ export function RastreadorJ16View() {
           {/* ─────────────────────────────────────────────────────────────────── */}
           {/* SEÇÃO 2: TABELA COMPLETA DE EQUIPAMENTOS COM PARÂMETROS DO SISTEMA */}
           {/* ─────────────────────────────────────────────────────────────────── */}
-          <div className="bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 rounded-3xl p-5 space-y-4 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl">
+          <div className="bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 rounded-3xl p-5 space-y-4 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl">
             {/* Barra superior de controles da tabela */}
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-slate-100 dark:border-slate-800 pb-4">
               <div className="flex items-center gap-3">
@@ -6305,9 +6305,9 @@ export function RastreadorJ16View() {
       {comandoModalConfig && (
         <ModalPortal>
           <div className="fixed inset-0 z-[99999] flex items-center justify-center p-2.5 sm:p-4 bg-slate-950/85 backdrop-blur-md overflow-y-auto select-none">
-            <div className="bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 rounded-3xl max-w-lg w-full max-h-[calc(100dvh-2.5rem)] sm:max-h-[85vh] overflow-hidden flex flex-col shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl my-auto">
+            <div className="bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 rounded-3xl max-w-lg w-full max-h-[calc(100dvh-2.5rem)] sm:max-h-[85vh] overflow-hidden flex flex-col shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl my-auto">
               {/* Cabeçalho */}
-              <div className="p-4 sm:p-5 border-b border-slate-300/60 dark:border-slate-800 flex items-center justify-between bg-[#fbf2e9]/90 dark:bg-slate-950/50">
+              <div className="p-4 sm:p-5 border-b border-slate-300/60 dark:border-slate-800 flex items-center justify-between bg-[#eaf0f8]/90 dark:bg-slate-950/50">
                 <div className="flex items-center gap-3">
                   <span className="h-8 w-8 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-sm font-mono font-bold text-emerald-600 dark:text-emerald-400">
                     {comandoModalConfig.num}
@@ -6459,9 +6459,9 @@ export function RastreadorJ16View() {
       {dispositivoModalComandos && (
         <ModalPortal>
           <div className="fixed inset-0 z-[99999] flex items-center justify-center p-2.5 sm:p-4 bg-slate-950/85 backdrop-blur-md overflow-y-auto select-none">
-            <div className="bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 rounded-3xl max-w-2xl w-full max-h-[calc(100dvh-2.5rem)] sm:max-h-[85vh] overflow-hidden flex flex-col shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl my-auto">
+            <div className="bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 rounded-3xl max-w-2xl w-full max-h-[calc(100dvh-2.5rem)] sm:max-h-[85vh] overflow-hidden flex flex-col shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl my-auto">
               {/* Cabeçalho */}
-              <div className="p-4 sm:p-5 border-b border-slate-300/60 dark:border-slate-800 flex items-center justify-between bg-[#fbf2e9]/90 dark:bg-slate-950/50">
+              <div className="p-4 sm:p-5 border-b border-slate-300/60 dark:border-slate-800 flex items-center justify-between bg-[#eaf0f8]/90 dark:bg-slate-950/50">
                 <div className="flex items-center gap-3">
                   <div className="h-10 w-10 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-500">
                     <SlidersHorizontal className="h-5 w-5" />
@@ -6952,7 +6952,7 @@ export function RastreadorJ16View() {
       {modalAlterarSenhaAberto && (
         <ModalPortal>
           <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
-            <div className="bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300 dark:border-slate-800 rounded-3xl w-full max-w-lg shadow-2xl flex flex-col max-h-[90vh] my-auto overflow-hidden">
+            <div className="bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300 dark:border-slate-800 rounded-3xl w-full max-w-lg shadow-2xl flex flex-col max-h-[90vh] my-auto overflow-hidden">
               {/* Cabeçalho */}
               <div className="p-4 sm:p-5 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between bg-slate-100/80 dark:bg-slate-950/80">
                 <div className="flex items-center gap-3">

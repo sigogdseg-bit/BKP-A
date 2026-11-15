@@ -39,7 +39,7 @@ export function ModalConfirmarDesligarPrivacidade({
           if (e.target === e.currentTarget && !carregando) onFechar();
         }}
       >
-        <div className="relative w-full max-w-md bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-amber-500/30 rounded-3xl p-5 sm:p-6 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl my-auto max-h-[calc(100dvh-2.5rem)] sm:max-h-[85vh] overflow-y-auto flex flex-col space-y-4 sm:space-y-5">
+        <div className="relative w-full max-w-md bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-amber-500/30 rounded-3xl p-5 sm:p-6 shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl my-auto max-h-[calc(100dvh-2.5rem)] sm:max-h-[85vh] overflow-y-auto flex flex-col space-y-4 sm:space-y-5">
           {/* Botão Fechar */}
           <button
             type="button"

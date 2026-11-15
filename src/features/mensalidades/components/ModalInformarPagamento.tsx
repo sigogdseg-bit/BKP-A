@@ -117,7 +117,7 @@ export function ModalInformarPagamento({
   return (
     <ModalPortal>
       <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-xs flex items-center justify-center p-4">
-        <div className="bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 rounded-3xl p-5 sm:p-6 max-w-md w-full space-y-4 shadow-2xl animate-fadeIn max-h-[90vh] overflow-y-auto">
+        <div className="bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 rounded-3xl p-5 sm:p-6 max-w-md w-full space-y-4 shadow-2xl animate-fadeIn max-h-[90vh] overflow-y-auto">
           {/* Cabeçalho */}
           <div className="flex items-center justify-between border-b border-slate-300/60 dark:border-slate-800 pb-3">
             <div className="flex items-center gap-2">

@@ -130,7 +130,7 @@ function CadastroParceiroPage() {
   };
 
   return (
-    <div className="min-h-screen w-full flex items-center justify-center p-4 sm:p-6 bg-[#fbf2e9] dark:bg-[#110e0c] text-slate-800 dark:text-slate-100 relative overflow-hidden font-sans select-none transition-colors duration-200">
+    <div className="min-h-screen w-full flex items-center justify-center p-4 sm:p-6 bg-[#eaf0f8] dark:bg-[#0a0a0c] text-slate-800 dark:text-slate-100 relative overflow-hidden font-sans select-none transition-colors duration-200">
       {/* Botão de Alternância de Tema Flutuante no Canto Superior */}
       <div className="absolute top-4 right-4 z-20">
         <ThemeToggle />

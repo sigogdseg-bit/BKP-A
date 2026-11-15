@@ -282,7 +282,7 @@ export function AjusteOdometroModal({
         <div
           className={`relative w-full ${
             abaAtiva === "comparativo" ? "max-w-4xl" : "max-w-xl"
-          } max-h-[calc(100dvh-2.5rem)] sm:max-h-[85vh] my-auto flex flex-col bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 rounded-3xl shadow-[5px_5px_14px_#c3cfe2] dark:shadow-[0_25px_60px_rgba(0,0,0,0.5)] overflow-hidden transition-all duration-200`}
+          } max-h-[calc(100dvh-2.5rem)] sm:max-h-[85vh] my-auto flex flex-col bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 rounded-3xl shadow-[5px_5px_14px_#c3cfe2] dark:shadow-[0_25px_60px_rgba(0,0,0,0.5)] overflow-hidden transition-all duration-200`}
         >
           {/* Cabeçalho */}
           <div className="flex items-start justify-between gap-3 p-4 sm:p-5 border-b border-slate-300/60 dark:border-slate-800 shrink-0">
@@ -312,7 +312,7 @@ export function AjusteOdometroModal({
 
           {/* Abas com scroll horizontal fluido no mobile (apenas para perfil de engenharia/administração) */}
           {isEngenhariaPermitida && (
-            <div className="flex items-center border-b border-slate-300/60 dark:border-slate-800 bg-[#fbf2e9]/80 dark:bg-slate-950/40 px-3 sm:px-4 shrink-0 overflow-x-auto scrollbar-none gap-1 sm:gap-2">
+            <div className="flex items-center border-b border-slate-300/60 dark:border-slate-800 bg-[#eaf0f8]/80 dark:bg-slate-950/40 px-3 sm:px-4 shrink-0 overflow-x-auto scrollbar-none gap-1 sm:gap-2">
               <button
                 type="button"
                 onClick={() => setAbaAtiva("sincronizacao")}

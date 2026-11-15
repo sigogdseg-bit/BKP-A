@@ -264,9 +264,9 @@ export function ModalLancamentoAbastecimento({
   return (
     <ModalPortal>
       <div className="fixed inset-0 z-[99999] flex items-center justify-center p-2.5 sm:p-4 bg-slate-950/85 backdrop-blur-md overflow-y-auto select-none animate-fadeIn">
-        <div className="bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/70 dark:border-slate-800 rounded-3xl w-full max-w-xl max-h-[calc(100dvh-2.5rem)] sm:max-h-[85vh] my-auto shadow-[6px_6px_20px_#c3cfe2] dark:shadow-2xl transition-colors flex flex-col overflow-hidden">
+        <div className="bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/70 dark:border-slate-800 rounded-3xl w-full max-w-xl max-h-[calc(100dvh-2.5rem)] sm:max-h-[85vh] my-auto shadow-[6px_6px_20px_#c3cfe2] dark:shadow-2xl transition-colors flex flex-col overflow-hidden">
           {/* Header */}
-          <div className="p-4 sm:p-5 border-b border-slate-300/60 dark:border-slate-800 flex items-center justify-between bg-[#fbf2e9]/90 dark:bg-slate-950/60 shrink-0">
+          <div className="p-4 sm:p-5 border-b border-slate-300/60 dark:border-slate-800 flex items-center justify-between bg-[#eaf0f8]/90 dark:bg-slate-950/60 shrink-0">
             <div className="flex items-center gap-3">
               <div className="h-10 w-10 rounded-2xl bg-emerald-500/10 text-emerald-500 dark:text-emerald-400 flex items-center justify-center shadow-xs shrink-0">
                 <Fuel className="h-5 w-5" />

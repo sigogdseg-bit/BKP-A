@@ -117,10 +117,10 @@ export function NfExpiracaoModal({ clienteId }: Props) {
       >
         <div
           id="modal-nf-expiracao"
-          className="relative w-full max-w-2xl bg-[#fbf2e9] dark:bg-slate-900 border border-amber-500/30 rounded-3xl shadow-[6px_6px_20px_#c3cfe2] dark:shadow-2xl my-auto flex flex-col max-h-[calc(100dvh-2.5rem)] sm:max-h-[85vh] overflow-hidden transition-colors"
+          className="relative w-full max-w-2xl bg-[#eaf0f8] dark:bg-slate-900 border border-amber-500/30 rounded-3xl shadow-[6px_6px_20px_#c3cfe2] dark:shadow-2xl my-auto flex flex-col max-h-[calc(100dvh-2.5rem)] sm:max-h-[85vh] overflow-hidden transition-colors"
         >
           {/* Header */}
-          <div className="flex items-start gap-3 sm:gap-4 p-4 sm:p-5 border-b border-slate-300/60 dark:border-slate-800 bg-[#fbf2e9]/90 dark:bg-slate-950/60 backdrop-blur-md shrink-0">
+          <div className="flex items-start gap-3 sm:gap-4 p-4 sm:p-5 border-b border-slate-300/60 dark:border-slate-800 bg-[#eaf0f8]/90 dark:bg-slate-950/60 backdrop-blur-md shrink-0">
             <div className="flex-shrink-0 mt-0.5 rounded-2xl bg-amber-500/10 border border-amber-500/20 p-2.5 sm:p-3">
               <AlertTriangle className="h-5 w-5 sm:h-6 sm:w-6 text-amber-500 dark:text-amber-400" />
             </div>
@@ -265,7 +265,7 @@ export function NfExpiracaoModal({ clienteId }: Props) {
           </div>
 
           {/* Rodapé */}
-          <div className="border-t border-slate-300/60 dark:border-slate-800 p-3.5 sm:p-5 flex flex-col-reverse sm:flex-row items-stretch sm:items-center justify-between gap-3 bg-[#fbf2e9]/90 dark:bg-slate-950/60 shrink-0">
+          <div className="border-t border-slate-300/60 dark:border-slate-800 p-3.5 sm:p-5 flex flex-col-reverse sm:flex-row items-stretch sm:items-center justify-between gap-3 bg-[#eaf0f8]/90 dark:bg-slate-950/60 shrink-0">
             <p className="text-xs text-slate-500 dark:text-slate-400">
               {temSemCiencia
                 ? "Confirme ciência em todos os arquivos para poder fechar este aviso."

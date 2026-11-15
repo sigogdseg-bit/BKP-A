@@ -133,7 +133,7 @@ export function EditarCompraModal({
   return (
     <ModalPortal>
       <div className="fixed inset-0 z-[99999] flex items-center justify-center p-2.5 sm:p-4 bg-slate-950/85 backdrop-blur-md overflow-y-auto select-none animate-in fade-in duration-200">
-        <div className="relative w-full max-w-2xl bg-[#fbf2e9] dark:bg-slate-900 rounded-3xl shadow-[6px_6px_20px_#c3cfe2] dark:shadow-2xl border border-slate-300/60 dark:border-slate-800 overflow-hidden flex flex-col max-h-[calc(100dvh-2.5rem)] sm:max-h-[85vh] my-auto transition-colors">
+        <div className="relative w-full max-w-2xl bg-[#eaf0f8] dark:bg-slate-900 rounded-3xl shadow-[6px_6px_20px_#c3cfe2] dark:shadow-2xl border border-slate-300/60 dark:border-slate-800 overflow-hidden flex flex-col max-h-[calc(100dvh-2.5rem)] sm:max-h-[85vh] my-auto transition-colors">
           {/* Cabeçalho */}
           <div className="flex items-center justify-between px-4 sm:px-6 py-3.5 sm:py-4 border-b border-slate-100 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-900/80 shrink-0">
             <div className="flex items-center gap-3">

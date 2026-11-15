@@ -1252,7 +1252,7 @@ export function AbaComparativoPadroesRastreador({
       {/* ─────────────────────────────────────────────────────────────────── */}
       {/* CABEÇALHO DO MÓDULO COMPARATIVO */}
       {/* ─────────────────────────────────────────────────────────────────── */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 p-5 rounded-2xl bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[6px_6px_14px_#c3cfe2] dark:shadow-xl">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 p-5 rounded-2xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[6px_6px_14px_#c3cfe2] dark:shadow-xl">
         <div>
           <div className="flex items-center gap-2">
             <span className="p-2 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400">
@@ -1321,7 +1321,7 @@ export function AbaComparativoPadroesRastreador({
       {/* ─────────────────────────────────────────────────────────────────── */}
       {/* REGUA DE EXECUÇÃO: OS 5 PASSOS CANÔNICOS EM SEQUÊNCIA ESTABILIZADA */}
       {/* ─────────────────────────────────────────────────────────────────── */}
-      <div className="p-4 rounded-2xl bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-xl">
+      <div className="p-4 rounded-2xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-xl">
         <div className="flex items-center justify-between gap-2 border-b border-slate-300/50 dark:border-slate-800 pb-2.5 mb-3">
           <div className="flex items-center gap-2">
             <span className="p-1.5 rounded-lg bg-blue-500/10 text-blue-600 dark:text-blue-400">
@@ -1397,7 +1397,7 @@ export function AbaComparativoPadroesRastreador({
       {/* AUTO-OTIMIZADOR DE COMBINAÇÕES DE PARÂMETROS                      */}
       {/* Teste automatizado de todas as combinações ±5 por parâmetro       */}
       {/* ─────────────────────────────────────────────────────────────────── */}
-      <div className="p-5 rounded-2xl bg-[#fbf2e9] dark:bg-slate-900 border-2 border-cyan-500/40 dark:border-cyan-500/30 shadow-[6px_6px_14px_#c3cfe2] dark:shadow-xl space-y-4">
+      <div className="p-5 rounded-2xl bg-[#eaf0f8] dark:bg-slate-900 border-2 border-cyan-500/40 dark:border-cyan-500/30 shadow-[6px_6px_14px_#c3cfe2] dark:shadow-xl space-y-4">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-cyan-500/20 pb-3">
           <div className="flex items-center gap-2">
             <span className="p-2 rounded-xl bg-cyan-500/10 text-cyan-600 dark:text-cyan-400">
@@ -1918,7 +1918,7 @@ export function AbaComparativoPadroesRastreador({
       {/* ─────────────────────────────────────────────────────────────────── */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
         {/* COLUNA 1: PADRÃO A (BASELINE OFICIAL) */}
-        <div className="p-5 rounded-2xl bg-[#fbf2e9] dark:bg-slate-900 border-2 border-blue-500/40 dark:border-blue-500/30 shadow-[5px_5px_12px_#c3cfe2] dark:shadow-xl space-y-4">
+        <div className="p-5 rounded-2xl bg-[#eaf0f8] dark:bg-slate-900 border-2 border-blue-500/40 dark:border-blue-500/30 shadow-[5px_5px_12px_#c3cfe2] dark:shadow-xl space-y-4">
           <div className="flex items-center justify-between border-b border-blue-500/20 pb-3">
             <div className="flex items-center gap-2">
               <span className="w-3 h-3 rounded-full bg-blue-500" />
@@ -2209,7 +2209,7 @@ export function AbaComparativoPadroesRastreador({
         </div>
 
         {/* COLUNA 2: PADRÃO B (CANDIDATO / PERSONALIZADO) */}
-        <div className="p-5 rounded-2xl bg-[#fbf2e9] dark:bg-slate-900 border-2 border-purple-500/40 dark:border-purple-500/30 shadow-[5px_5px_12px_#c3cfe2] dark:shadow-xl space-y-4">
+        <div className="p-5 rounded-2xl bg-[#eaf0f8] dark:bg-slate-900 border-2 border-purple-500/40 dark:border-purple-500/30 shadow-[5px_5px_12px_#c3cfe2] dark:shadow-xl space-y-4">
           <div className="flex items-center justify-between border-b border-purple-500/20 pb-3">
             <div className="flex items-center gap-2">
               <span className="w-3 h-3 rounded-full bg-purple-500" />
@@ -2538,7 +2538,7 @@ export function AbaComparativoPadroesRastreador({
       {/* ─────────────────────────────────────────────────────────────────── */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
         {/* GRÁFICO 1: CONSUMO MENSAL PROJETADO vs MARGEM DE 16 MB E TETO DE 20 MB */}
-        <div className="p-5 rounded-2xl bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_12px_#c3cfe2] dark:shadow-xl space-y-4">
+        <div className="p-5 rounded-2xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_12px_#c3cfe2] dark:shadow-xl space-y-4">
           <div className="flex items-center justify-between">
             <h4 className="text-xs font-mono font-black text-slate-900 dark:text-slate-100 flex items-center gap-2">
               <Activity className="h-4 w-4 text-pink-500" />
@@ -2635,7 +2635,7 @@ export function AbaComparativoPadroesRastreador({
         </div>
 
         {/* GRÁFICO 2: FIDELIDADE E QUALIDADE DOS DADOS (SCORE 0 a 100) */}
-        <div className="p-5 rounded-2xl bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_12px_#c3cfe2] dark:shadow-xl space-y-4">
+        <div className="p-5 rounded-2xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_12px_#c3cfe2] dark:shadow-xl space-y-4">
           <div className="flex items-center justify-between">
             <h4 className="text-xs font-mono font-black text-slate-900 dark:text-slate-100 flex items-center gap-2">
               <Trophy className="h-4 w-4 text-amber-500" />
@@ -2728,7 +2728,7 @@ export function AbaComparativoPadroesRastreador({
       {/* ─────────────────────────────────────────────────────────────────── */}
       {/* PREMISSA DE TELECOMUNICAÇÃO M2M: REPOUSO NA GARAGEM vs CONDUÇÃO */}
       {/* ─────────────────────────────────────────────────────────────────── */}
-      <div className="p-5 rounded-2xl bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_12px_#c3cfe2] dark:shadow-xl space-y-4">
+      <div className="p-5 rounded-2xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[5px_5px_12px_#c3cfe2] dark:shadow-xl space-y-4">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-300/60 dark:border-slate-800 pb-3">
           <div className="flex items-center gap-2">
             <span className="p-2 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400">
@@ -2855,7 +2855,7 @@ export function AbaComparativoPadroesRastreador({
       {/* BANCADA DINÂMICA DE TESTE SIMULTÂNEO COM DINÂMICA VEICULAR */}
       {/* POSICIONADA NO TOPO ACIMA DOS PADRÕES A E B COM TELEMETRIA AO VIVO */}
       {/* ─────────────────────────────────────────────────────────────────── */}
-      <div className="p-5 rounded-2xl bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[6px_6px_14px_#c3cfe2] dark:shadow-xl space-y-4">
+      <div className="p-5 rounded-2xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[6px_6px_14px_#c3cfe2] dark:shadow-xl space-y-4">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-300/60 dark:border-slate-800 pb-3">
           <div className="flex items-center gap-2">
             <span className="p-2 rounded-xl bg-purple-500/10 text-purple-600 dark:text-purple-400">
@@ -3224,7 +3224,7 @@ export function AbaComparativoPadroesRastreador({
       {/* GRÁFICOS DE BARRAS VERTICAIS PARAMÉTRICOS (PADRÃO A vs SIMULADO B) */}
       {/* POSICIONADO ACIMA DO PADRÃO A E B COM APONTAMENTO DE ERROS E FALHAS */}
       {/* ─────────────────────────────────────────────────────────────────── */}
-      <div className="p-5 rounded-2xl bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[6px_6px_14px_#c3cfe2] dark:shadow-xl space-y-4">
+      <div className="p-5 rounded-2xl bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 shadow-[6px_6px_14px_#c3cfe2] dark:shadow-xl space-y-4">
         {/* Selo de Estabilização Estatística Invariante com o Tempo */}
         <div className="p-3 rounded-xl bg-white/80 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/80 font-mono text-xs flex flex-col sm:flex-row sm:items-center justify-between gap-2 shadow-xs">
           <div className="flex items-center gap-2">
@@ -3415,7 +3415,7 @@ export function AbaComparativoPadroesRastreador({
       {/* ─────────────────────────────────────────────────────────────────── */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
         {/* BLOCO 1: PROBLEMAS E RISCOS DETECTADOS */}
-        <div className="p-4 sm:p-5 rounded-2xl bg-[#fbf2e9] dark:bg-slate-900 border border-red-500/30 dark:border-red-500/20 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-xl space-y-3">
+        <div className="p-4 sm:p-5 rounded-2xl bg-[#eaf0f8] dark:bg-slate-900 border border-red-500/30 dark:border-red-500/20 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-xl space-y-3">
           <div className="flex items-center gap-2 text-xs font-mono font-black text-red-600 dark:text-red-400">
             <AlertTriangle className="h-4 w-4" />
             <span>PROBLEMAS E RISCOS DETECTADOS</span>
@@ -3457,7 +3457,7 @@ export function AbaComparativoPadroesRastreador({
         </div>
 
         {/* BLOCO 2: VANTAGENS IDENTIFICADAS */}
-        <div className="p-4 sm:p-5 rounded-2xl bg-[#fbf2e9] dark:bg-slate-900 border border-emerald-500/30 dark:border-emerald-500/20 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-xl space-y-3">
+        <div className="p-4 sm:p-5 rounded-2xl bg-[#eaf0f8] dark:bg-slate-900 border border-emerald-500/30 dark:border-emerald-500/20 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-xl space-y-3">
           <div className="flex items-center gap-2 text-xs font-mono font-black text-emerald-600 dark:text-emerald-400">
             <CheckCircle2 className="h-4 w-4" />
             <span>VANTAGENS E PONTOS POSITIVOS</span>
@@ -3491,7 +3491,7 @@ export function AbaComparativoPadroesRastreador({
         </div>
 
         {/* BLOCO 3: VEREDITO OFICIAL COM TRAVA RÍGIDA DE ENGENHARIA */}
-        <div className="p-4 sm:p-5 rounded-2xl bg-[#fbf2e9] dark:bg-slate-900 border-2 border-amber-500/50 dark:border-amber-500/40 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-xl flex flex-col justify-between space-y-3">
+        <div className="p-4 sm:p-5 rounded-2xl bg-[#eaf0f8] dark:bg-slate-900 border-2 border-amber-500/50 dark:border-amber-500/40 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-xl flex flex-col justify-between space-y-3">
           <div>
             <div className="flex items-center gap-2 text-xs font-mono font-black text-amber-600 dark:text-amber-400">
               <Trophy className="h-4 w-4" />

@@ -1328,7 +1328,7 @@ export function ConfiguracaoProtecaoModal({
         aria-labelledby="titulo-protecao-veiculo"
         className="fixed inset-0 z-[99999] flex items-center justify-center p-2.5 sm:p-4 bg-slate-950/85 backdrop-blur-md select-none overflow-y-auto"
       >
-        <div className="bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 rounded-3xl w-full max-w-xl sm:max-w-2xl max-h-[calc(100dvh-2.5rem)] sm:max-h-[85vh] my-auto flex flex-col shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-150">
+        <div className="bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 rounded-3xl w-full max-w-xl sm:max-w-2xl max-h-[calc(100dvh-2.5rem)] sm:max-h-[85vh] my-auto flex flex-col shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-150">
           {/* Header */}
           <div className="p-3.5 sm:p-5 border-b border-slate-300/60 dark:border-slate-800 flex items-center justify-between shrink-0">
             <div className="flex items-center gap-3">
@@ -1341,7 +1341,7 @@ export function ConfiguracaoProtecaoModal({
                   className="text-sm sm:text-base font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2"
                 >
                   Proteção do Veículo
-                  <span className="text-[11px] font-mono font-bold px-2 py-0.5 rounded bg-[#fbf2e9] dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-300/60 dark:border-slate-700">
+                  <span className="text-[11px] font-mono font-bold px-2 py-0.5 rounded bg-[#eaf0f8] dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-300/60 dark:border-slate-700">
                     {veiculo.placa}
                   </span>
                 </h3>
@@ -1363,11 +1363,11 @@ export function ConfiguracaoProtecaoModal({
           {/* ─────────────────────────────────────────────────────────────────── */}
           {/* SELETOR DE ABAS PRINCIPAIS (PADRÃO CANÔNICO DJR-TELA) */}
           {/* ─────────────────────────────────────────────────────────────────── */}
-          <div className="p-2 sm:p-2.5 border-b border-slate-300/60 dark:border-slate-800 bg-[#fbf2e9] dark:bg-slate-950/60 shrink-0">
+          <div className="p-2 sm:p-2.5 border-b border-slate-300/60 dark:border-slate-800 bg-[#eaf0f8] dark:bg-slate-950/60 shrink-0">
             <div
               role="tablist"
               aria-label="Seções de proteção e alertas"
-              className="grid grid-cols-2 sm:grid-cols-4 gap-2 p-1 bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 rounded-2xl shadow-[4px_4px_10px_#c3cfe2] dark:shadow-xl w-full"
+              className="grid grid-cols-2 sm:grid-cols-4 gap-2 p-1 bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 rounded-2xl shadow-[4px_4px_10px_#c3cfe2] dark:shadow-xl w-full"
             >
               <button
                 type="button"
@@ -1751,7 +1751,7 @@ export function ConfiguracaoProtecaoModal({
                                   key={item.chave}
                                   className={`p-3 rounded-2xl border transition space-y-2.5 ${
                                     algumAtivo
-                                      ? "bg-[#fbf2e9] dark:bg-slate-950/60 border-slate-300/60 dark:border-slate-800 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none"
+                                      ? "bg-[#eaf0f8] dark:bg-slate-950/60 border-slate-300/60 dark:border-slate-800 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none"
                                       : "bg-slate-100/50 dark:bg-slate-950/30 border-slate-200/50 dark:border-slate-800/40 opacity-80"
                                   }`}
                                 >
@@ -1925,7 +1925,7 @@ export function ConfiguracaoProtecaoModal({
                                 key={item.chave}
                                 className={`p-3 rounded-2xl border transition space-y-2.5 ${
                                   ativoConta
-                                    ? "bg-[#fbf2e9] dark:bg-slate-950/60 border-slate-300/60 dark:border-slate-800 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none"
+                                    ? "bg-[#eaf0f8] dark:bg-slate-950/60 border-slate-300/60 dark:border-slate-800 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none"
                                     : "bg-slate-100/50 dark:bg-slate-950/30 border-slate-200/50 dark:border-slate-800/40 opacity-80"
                                 }`}
                               >
@@ -2212,7 +2212,7 @@ export function ConfiguracaoProtecaoModal({
           </div>
 
           {/* Rodapé */}
-          <div className="p-3.5 sm:p-5 border-t border-slate-300/60 dark:border-slate-800 flex flex-col-reverse sm:flex-row items-stretch sm:items-center justify-end gap-2 bg-[#fbf2e9]/95 dark:bg-slate-950/90 shrink-0">
+          <div className="p-3.5 sm:p-5 border-t border-slate-300/60 dark:border-slate-800 flex flex-col-reverse sm:flex-row items-stretch sm:items-center justify-end gap-2 bg-[#eaf0f8]/95 dark:bg-slate-950/90 shrink-0">
             <button
               type="button"
               onClick={onFechar}

@@ -127,7 +127,7 @@ export function CentralAlertasModal({
   return (
     <ModalPortal>
       <div className="fixed inset-0 z-[99999] flex items-center justify-center p-2.5 sm:p-4 bg-slate-950/85 backdrop-blur-md overflow-y-auto select-none animate-in fade-in duration-150">
-        <div className="bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 rounded-3xl w-full max-w-2xl max-h-[calc(100dvh-2.5rem)] sm:max-h-[85vh] my-auto flex flex-col shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl overflow-hidden animate-in zoom-in-95 duration-150">
+        <div className="bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 rounded-3xl w-full max-w-2xl max-h-[calc(100dvh-2.5rem)] sm:max-h-[85vh] my-auto flex flex-col shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl overflow-hidden animate-in zoom-in-95 duration-150">
           {/* Header */}
           <div className="p-4 sm:p-5 border-b border-slate-300/60 dark:border-slate-800 flex items-center justify-between">
             <div className="flex items-center gap-3">
@@ -138,7 +138,7 @@ export function CentralAlertasModal({
                 <h3 className="text-sm sm:text-base font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2">
                   Central de Alertas e Segurança
                   {veiculo && (
-                    <span className="text-[11px] font-mono font-bold px-2 py-0.5 rounded bg-[#fbf2e9] dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-300/60 dark:border-slate-700">
+                    <span className="text-[11px] font-mono font-bold px-2 py-0.5 rounded bg-[#eaf0f8] dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-300/60 dark:border-slate-700">
                       {veiculo.placa}
                     </span>
                   )}
@@ -157,12 +157,12 @@ export function CentralAlertasModal({
           </div>
 
           {/* Barra de Filtros e Ações */}
-          <div className="p-3 bg-[#fbf2e9]/80 dark:bg-slate-950/40 border-b border-slate-300/60 dark:border-slate-800 flex items-center justify-between gap-2 flex-wrap">
+          <div className="p-3 bg-[#eaf0f8]/80 dark:bg-slate-950/40 border-b border-slate-300/60 dark:border-slate-800 flex items-center justify-between gap-2 flex-wrap">
             <div className="flex items-center gap-2 flex-wrap">
               <select
                 value={filtroTipo}
                 onChange={(e) => setFiltroTipo(e.target.value)}
-                className="bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 rounded-xl px-2.5 py-1 text-xs text-slate-800 dark:text-slate-200 font-medium shadow-[inset_1px_1px_3px_#c8d4e4,inset_-1px_-1px_3px_#ffffff] dark:shadow-none"
+                className="bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 rounded-xl px-2.5 py-1 text-xs text-slate-800 dark:text-slate-200 font-medium shadow-[inset_1px_1px_3px_#c8d4e4,inset_-1px_-1px_3px_#ffffff] dark:shadow-none"
               >
                 <option value="todos">Todos os Tipos</option>
                 <option value="suspeita_jammer">🛑 Suspeita de Jammer / Silenciamento</option>
@@ -189,7 +189,7 @@ export function CentralAlertasModal({
                       if (v) onSelectVeiculo(v);
                     }
                   }}
-                  className="bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 rounded-xl px-2.5 py-1 text-xs text-slate-800 dark:text-slate-200 font-medium shadow-[inset_1px_1px_3px_#c8d4e4,inset_-1px_-1px_3px_#ffffff] dark:shadow-none"
+                  className="bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 rounded-xl px-2.5 py-1 text-xs text-slate-800 dark:text-slate-200 font-medium shadow-[inset_1px_1px_3px_#c8d4e4,inset_-1px_-1px_3px_#ffffff] dark:shadow-none"
                 >
                   <option value="todos">Toda a Frota ({veiculos.length})</option>
                   {veiculos.map((v) => (
@@ -205,7 +205,7 @@ export function CentralAlertasModal({
                   onClick={() => setFiltroStatus("todos")}
                   className={`px-2.5 py-1 rounded-lg font-bold transition ${
                     filtroStatus === "todos"
-                      ? "bg-[#fbf2e9] dark:bg-slate-900 text-slate-900 dark:text-slate-100 shadow-[1px_1px_3px_#c3cfe2] dark:shadow-xs"
+                      ? "bg-[#eaf0f8] dark:bg-slate-900 text-slate-900 dark:text-slate-100 shadow-[1px_1px_3px_#c3cfe2] dark:shadow-xs"
                       : "text-slate-500 hover:text-slate-800 dark:hover:text-slate-200"
                   }`}
                 >
@@ -215,7 +215,7 @@ export function CentralAlertasModal({
                   onClick={() => setFiltroStatus("pendentes")}
                   className={`px-2.5 py-1 rounded-lg font-bold transition ${
                     filtroStatus === "pendentes"
-                      ? "bg-[#fbf2e9] dark:bg-slate-900 text-slate-900 dark:text-slate-100 shadow-[1px_1px_3px_#c3cfe2] dark:shadow-xs"
+                      ? "bg-[#eaf0f8] dark:bg-slate-900 text-slate-900 dark:text-slate-100 shadow-[1px_1px_3px_#c3cfe2] dark:shadow-xs"
                       : "text-slate-500 hover:text-slate-800 dark:hover:text-slate-200"
                   }`}
                 >
@@ -309,8 +309,8 @@ export function CentralAlertasModal({
                       ehJammer
                         ? "bg-rose-950/20 border-rose-500/60 shadow-lg shadow-rose-950/30 ring-1 ring-rose-500/40"
                         : alerta.reconhecido
-                          ? "bg-[#fbf2e9]/60 dark:bg-slate-950/30 border-slate-300/40 dark:border-slate-800/60 opacity-80"
-                          : "bg-[#fbf2e9] dark:bg-slate-950/70 border-slate-300/70 dark:border-slate-700 shadow-[2px_2px_6px_#c3cfe2] dark:shadow-xs"
+                          ? "bg-[#eaf0f8]/60 dark:bg-slate-950/30 border-slate-300/40 dark:border-slate-800/60 opacity-80"
+                          : "bg-[#eaf0f8] dark:bg-slate-950/70 border-slate-300/70 dark:border-slate-700 shadow-[2px_2px_6px_#c3cfe2] dark:shadow-xs"
                     }`}
                   >
                     <div className="flex items-center justify-between gap-2">

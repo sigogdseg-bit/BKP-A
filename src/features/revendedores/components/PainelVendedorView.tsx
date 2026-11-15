@@ -382,7 +382,7 @@ Total de Clientes Ativos: ${meusClientes.length}`;
   return (
     <div className="space-y-4 max-w-7xl mx-auto select-none pb-28">
       {/* 1. Header Canônico GD Rastreamento */}
-      <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 bg-[#fbf2e9] dark:bg-slate-900/80 border border-slate-300/60 dark:border-slate-800 p-4 sm:p-5 rounded-2xl shadow-[4px_4px_10px_#c3cfe2] dark:shadow-xl">
+      <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 bg-[#eaf0f8] dark:bg-slate-900/80 border border-slate-300/60 dark:border-slate-800 p-4 sm:p-5 rounded-2xl shadow-[4px_4px_10px_#c3cfe2] dark:shadow-xl">
         <div className="flex items-center gap-3">
           <div className="h-12 w-12 rounded-2xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-600 dark:text-blue-400 shadow-xs shrink-0">
             <Briefcase className="h-6 w-6" />
@@ -418,7 +418,7 @@ Total de Clientes Ativos: ${meusClientes.length}`;
         <TiltCard
           maxTilt={4}
           spotlightColor="rgba(100, 116, 139, 0.25)"
-          className="bg-[#fbf2e9] dark:bg-slate-900/70 border border-slate-300/60 dark:border-slate-800 rounded-2xl p-3.5 flex flex-col justify-between shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_12px_#b8c6da] transition"
+          className="bg-[#eaf0f8] dark:bg-slate-900/70 border border-slate-300/60 dark:border-slate-800 rounded-2xl p-3.5 flex flex-col justify-between shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_12px_#b8c6da] transition"
         >
           <div className="flex items-center justify-between text-slate-500 dark:text-slate-400">
             <span className="text-[10.5px] font-bold uppercase tracking-wider">
@@ -442,7 +442,7 @@ Total de Clientes Ativos: ${meusClientes.length}`;
           maxTilt={4}
           spotlightColor="rgba(59, 130, 246, 0.25)"
           onClick={() => setAbaAtiva("clientes")}
-          className="bg-[#fbf2e9] dark:bg-slate-900/70 border border-slate-300/60 dark:border-slate-800 rounded-2xl p-3.5 flex flex-col justify-between shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_12px_#b8c6da] transition cursor-pointer active:scale-95"
+          className="bg-[#eaf0f8] dark:bg-slate-900/70 border border-slate-300/60 dark:border-slate-800 rounded-2xl p-3.5 flex flex-col justify-between shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_12px_#b8c6da] transition cursor-pointer active:scale-95"
         >
           <div className="flex items-center justify-between text-slate-500 dark:text-slate-400">
             <span className="text-[10.5px] font-bold uppercase tracking-wider">Meus Clientes</span>
@@ -464,7 +464,7 @@ Total de Clientes Ativos: ${meusClientes.length}`;
           maxTilt={4}
           spotlightColor="rgba(16, 185, 129, 0.35)"
           onClick={() => setAbaAtiva("extrato")}
-          className="bg-[#fbf2e9] dark:bg-slate-900/70 border border-emerald-500/30 rounded-2xl p-3.5 flex flex-col justify-between shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_12px_#b8c6da] transition cursor-pointer active:scale-95"
+          className="bg-[#eaf0f8] dark:bg-slate-900/70 border border-emerald-500/30 rounded-2xl p-3.5 flex flex-col justify-between shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_12px_#b8c6da] transition cursor-pointer active:scale-95"
         >
           <div className="flex items-center justify-between text-emerald-600 dark:text-emerald-400">
             <span className="text-[10.5px] font-bold uppercase tracking-wider">Minha Comissão</span>
@@ -486,7 +486,7 @@ Total de Clientes Ativos: ${meusClientes.length}`;
           maxTilt={4}
           spotlightColor="rgba(244, 63, 94, 0.35)"
           onClick={() => setAbaAtiva("repasses")}
-          className="bg-[#fbf2e9] dark:bg-slate-900/70 border border-rose-500/30 rounded-2xl p-3.5 flex flex-col justify-between shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_12px_#b8c6da] transition cursor-pointer active:scale-95"
+          className="bg-[#eaf0f8] dark:bg-slate-900/70 border border-rose-500/30 rounded-2xl p-3.5 flex flex-col justify-between shadow-[3px_3px_8px_#c3cfe2] dark:shadow-none hover:shadow-[5px_5px_12px_#b8c6da] transition cursor-pointer active:scale-95"
         >
           <div className="flex items-center justify-between text-rose-600 dark:text-rose-400">
             <span className="text-[10.5px] font-bold uppercase tracking-wider">
@@ -508,7 +508,7 @@ Total de Clientes Ativos: ${meusClientes.length}`;
       </div>
 
       {/* 3. Abas de Navegação Estilizadas em Pílulas */}
-      <div className="flex items-center gap-1.5 p-1.5 bg-[#fbf2e9]/80 dark:bg-slate-900/50 rounded-2xl border border-slate-300/60 dark:border-slate-800 overflow-x-auto shadow-xs">
+      <div className="flex items-center gap-1.5 p-1.5 bg-[#eaf0f8]/80 dark:bg-slate-900/50 rounded-2xl border border-slate-300/60 dark:border-slate-800 overflow-x-auto shadow-xs">
         <button
           type="button"
           onClick={() => setAbaAtiva("clientes")}
@@ -579,7 +579,7 @@ Total de Clientes Ativos: ${meusClientes.length}`;
 
       {/* ABA 1: Meus Clientes */}
       {abaAtiva === "clientes" && (
-        <div className="bg-[#fbf2e9] dark:bg-slate-900/80 rounded-2xl border border-slate-300/60 dark:border-slate-800 overflow-hidden shadow-[4px_4px_10px_#c3cfe2] dark:shadow-xl">
+        <div className="bg-[#eaf0f8] dark:bg-slate-900/80 rounded-2xl border border-slate-300/60 dark:border-slate-800 overflow-hidden shadow-[4px_4px_10px_#c3cfe2] dark:shadow-xl">
           <div className="overflow-x-auto">
             <table className="w-full text-left text-xs text-slate-600 dark:text-slate-300">
               <thead className="bg-slate-200/60 dark:bg-slate-800/60 uppercase font-black tracking-wider text-[10px] text-slate-700 dark:text-slate-400 border-b border-slate-300/60 dark:border-slate-800">
@@ -655,7 +655,7 @@ Total de Clientes Ativos: ${meusClientes.length}`;
 
       {/* ABA 2: Repasse a Instaladores */}
       {abaAtiva === "repasses" && (
-        <div className="bg-[#fbf2e9] dark:bg-slate-900/80 rounded-2xl border border-slate-300/60 dark:border-slate-800 overflow-hidden shadow-[4px_4px_10px_#c3cfe2] dark:shadow-xl">
+        <div className="bg-[#eaf0f8] dark:bg-slate-900/80 rounded-2xl border border-slate-300/60 dark:border-slate-800 overflow-hidden shadow-[4px_4px_10px_#c3cfe2] dark:shadow-xl">
           <div className="p-4 border-b border-slate-300/60 dark:border-slate-800 bg-white/40 dark:bg-slate-900/40">
             <h3 className="text-sm font-bold text-slate-800 dark:text-slate-100 uppercase tracking-wider">
               Repasse da Mão de Obra do Instalador
@@ -750,7 +750,7 @@ Total de Clientes Ativos: ${meusClientes.length}`;
       {/* ABA 3: Extrato Financeiro */}
       {abaAtiva === "extrato" && (
         <div className="space-y-4">
-          <div className="bg-[#fbf2e9] dark:bg-slate-900/80 rounded-2xl border border-slate-300/60 dark:border-slate-800 p-4 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-xl flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+          <div className="bg-[#eaf0f8] dark:bg-slate-900/80 rounded-2xl border border-slate-300/60 dark:border-slate-800 p-4 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-xl flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
             <div className="flex items-center gap-3">
               <div className="h-10 w-10 rounded-xl bg-blue-500/20 text-blue-600 dark:text-blue-400 flex items-center justify-center border border-blue-500/30">
                 <Receipt className="h-5 w-5" />
@@ -776,7 +776,7 @@ Total de Clientes Ativos: ${meusClientes.length}`;
             </button>
           </div>
 
-          <div className="bg-[#fbf2e9] dark:bg-slate-900/80 rounded-2xl border border-slate-300/60 dark:border-slate-800 overflow-hidden shadow-[4px_4px_10px_#c3cfe2] dark:shadow-xl">
+          <div className="bg-[#eaf0f8] dark:bg-slate-900/80 rounded-2xl border border-slate-300/60 dark:border-slate-800 overflow-hidden shadow-[4px_4px_10px_#c3cfe2] dark:shadow-xl">
             <div className="overflow-x-auto">
               <table className="w-full text-left text-xs text-slate-600 dark:text-slate-300">
                 <thead className="bg-slate-200/60 dark:bg-slate-800/60 uppercase font-black tracking-wider text-[10px] text-slate-700 dark:text-slate-400 border-b border-slate-300/60 dark:border-slate-800">
@@ -879,7 +879,7 @@ Total de Clientes Ativos: ${meusClientes.length}`;
         typeof document !== "undefined" &&
         createPortal(
           <div className="fixed inset-0 z-[9999] flex items-center justify-center p-3 sm:p-4 bg-slate-950/70 backdrop-blur-xs overflow-y-auto">
-            <div className="bg-[#fbf2e9] dark:bg-slate-900 border border-slate-300/80 dark:border-slate-800 rounded-2xl w-full max-w-lg max-h-[90vh] my-auto flex flex-col shadow-[8px_8px_24px_#b8c6da] dark:shadow-2xl overflow-hidden animate-in fade-in zoom-in-95">
+            <div className="bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/80 dark:border-slate-800 rounded-2xl w-full max-w-lg max-h-[90vh] my-auto flex flex-col shadow-[8px_8px_24px_#b8c6da] dark:shadow-2xl overflow-hidden animate-in fade-in zoom-in-95">
               <div className="flex items-center justify-between p-4 border-b border-slate-300/60 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50">
                 <div className="flex items-center gap-2.5">
                   <div className="h-9 w-9 rounded-xl bg-blue-500/20 text-blue-600 dark:text-blue-400 flex items-center justify-center border border-blue-500/30">

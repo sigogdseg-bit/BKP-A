@@ -117,7 +117,7 @@ export function EstatisticasFinanceirasTab({
   return (
     <div className="space-y-4 select-none">
       {/* Cabeçalho do Módulo de Inteligência Financeira */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 p-4 rounded-2xl bg-[#fbf2e9] dark:bg-slate-900/70 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 p-4 rounded-2xl bg-[#eaf0f8] dark:bg-slate-900/70 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none">
         <div className="flex items-center gap-3">
           <div className="h-10 w-10 rounded-xl bg-sky-500/10 border border-sky-500/20 flex items-center justify-center text-sky-600 dark:text-sky-400 shadow-xs">
             <TrendingUp className="h-5 w-5" />
@@ -164,7 +164,7 @@ export function EstatisticasFinanceirasTab({
       {/* Cards de Métricas Executivas (KPIs) */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
         {/* MRR Atual */}
-        <div className="p-4 rounded-2xl bg-[#fbf2e9] dark:bg-slate-900/60 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none flex flex-col justify-between">
+        <div className="p-4 rounded-2xl bg-[#eaf0f8] dark:bg-slate-900/60 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none flex flex-col justify-between">
           <div className="flex items-center justify-between text-slate-600 dark:text-slate-400 text-xs mb-1">
             <span className="font-semibold text-emerald-600 dark:text-emerald-400 flex items-center gap-1">
               <span>MRR (Receita Recorrente)</span>
@@ -182,7 +182,7 @@ export function EstatisticasFinanceirasTab({
         </div>
 
         {/* ARR Projetado */}
-        <div className="p-4 rounded-2xl bg-[#fbf2e9] dark:bg-slate-900/60 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none flex flex-col justify-between">
+        <div className="p-4 rounded-2xl bg-[#eaf0f8] dark:bg-slate-900/60 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none flex flex-col justify-between">
           <div className="flex items-center justify-between text-slate-600 dark:text-slate-400 text-xs mb-1">
             <span className="font-semibold text-sky-600 dark:text-sky-400 flex items-center gap-1">
               <span>ARR (Projeção Anual)</span>
@@ -200,7 +200,7 @@ export function EstatisticasFinanceirasTab({
         </div>
 
         {/* Despesas Fixas Recorrentes */}
-        <div className="p-4 rounded-2xl bg-[#fbf2e9] dark:bg-slate-900/60 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none flex flex-col justify-between">
+        <div className="p-4 rounded-2xl bg-[#eaf0f8] dark:bg-slate-900/60 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none flex flex-col justify-between">
           <div className="flex items-center justify-between text-slate-600 dark:text-slate-400 text-xs mb-1">
             <span className="font-semibold text-rose-600 dark:text-rose-400 flex items-center gap-1">
               <span>Despesas Fixas Recorrentes</span>
@@ -218,7 +218,7 @@ export function EstatisticasFinanceirasTab({
         </div>
 
         {/* Lucro Operacional Projetado */}
-        <div className="p-4 rounded-2xl bg-[#fbf2e9] dark:bg-slate-900/60 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none flex flex-col justify-between">
+        <div className="p-4 rounded-2xl bg-[#eaf0f8] dark:bg-slate-900/60 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none flex flex-col justify-between">
           <div className="flex items-center justify-between text-slate-600 dark:text-slate-400 text-xs mb-1">
             <span className="font-semibold text-purple-600 dark:text-purple-400 flex items-center gap-1">
               <span>Margem Operacional</span>
@@ -245,7 +245,7 @@ export function EstatisticasFinanceirasTab({
       {/* Gráficos Ativos: Bloco 1 (Evolução de Receitas) e Bloco 2 (Composição) */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-3">
         {/* Gráfico 1: Evolução e Projeção de Receitas Mês a Mês */}
-        <div className="lg:col-span-2 p-4 sm:p-5 rounded-2xl bg-[#fbf2e9] dark:bg-slate-900/60 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none flex flex-col justify-between space-y-4">
+        <div className="lg:col-span-2 p-4 sm:p-5 rounded-2xl bg-[#eaf0f8] dark:bg-slate-900/60 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none flex flex-col justify-between space-y-4">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
             <div>
               <h3 className="text-sm font-bold text-slate-900 dark:text-slate-200 flex items-center gap-2">
@@ -353,7 +353,7 @@ export function EstatisticasFinanceirasTab({
         </div>
 
         {/* Gráfico 2: Composição das Receitas (Donut) */}
-        <div className="p-4 sm:p-5 rounded-2xl bg-[#fbf2e9] dark:bg-slate-900/60 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none flex flex-col justify-between space-y-4">
+        <div className="p-4 sm:p-5 rounded-2xl bg-[#eaf0f8] dark:bg-slate-900/60 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none flex flex-col justify-between space-y-4">
           <div>
             <h3 className="text-sm font-bold text-slate-900 dark:text-slate-200 flex items-center gap-2">
               <PieChart className="h-4 w-4 text-purple-600 dark:text-purple-400" />
@@ -466,7 +466,7 @@ export function EstatisticasFinanceirasTab({
       </div>
 
       {/* Gráfico 3: Curva de Fluxo de Caixa e Saldo Acumulado Projetado (Caixa Transportado) */}
-      <div className="p-4 sm:p-5 rounded-2xl bg-[#fbf2e9] dark:bg-slate-900/60 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none space-y-3">
+      <div className="p-4 sm:p-5 rounded-2xl bg-[#eaf0f8] dark:bg-slate-900/60 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none space-y-3">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
           <div>
             <h3 className="text-sm font-bold text-slate-900 dark:text-slate-200 flex items-center gap-2">
@@ -593,7 +593,7 @@ export function EstatisticasFinanceirasTab({
       </div>
 
       {/* Tabela de Detalhamento Mês a Mês das Projeções */}
-      <div className="p-4 rounded-2xl bg-[#fbf2e9] dark:bg-slate-900/60 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none space-y-3">
+      <div className="p-4 rounded-2xl bg-[#eaf0f8] dark:bg-slate-900/60 border border-slate-300/60 dark:border-slate-800 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none space-y-3">
         <div className="flex items-center justify-between">
           <h3 className="text-xs font-bold text-slate-900 dark:text-slate-200 flex items-center gap-1.5 uppercase tracking-wider">
             <Layers className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />

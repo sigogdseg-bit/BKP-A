@@ -18,17 +18,17 @@ Projetado para operar em tempo real com tolerância zero a falhas e zero invenç
 
 ## 2. Arquitetura e Stack Tecnológica
 
-| Camada                  | Tecnologia Adotada                       | Finalidade no Sistema                                                                                               |
-| :---------------------- | :--------------------------------------- | :------------------------------------------------------------------------------------------------------------------ |
-| **Apresentação / PWA**  | React 19.2 + Vite 8.0 + TypeScript 5.8.3 | Single Page Application (SPA) e Progressive Web App de alta performance                                             |
-| **Roteamento**          | TanStack Router (Start) 1.170            | Roteamento baseado em arquivos com árvore de rotas tipadas (`src/routeTree.gen.ts`)                                 |
-| **Design System**       | Tailwind CSS 4.2 + Lucide Icons          | Modos Claro (Neumórfico suave levemente alaranjado #fbf2e9) e Noturno Tático (#110e0c / Slate-900 / Laranja Tático) |
-| **Cartografia Dual**    | MapLibre GL 6.10 + Leaflet Engine        | Mapas híbridos 2D ultrarrápidos e 3D vetoriais com rotação de rumo                                                  |
-| **Computação de Borda** | Servidor Nitro nativo (`src/server.ts`)  | Proxy reverso de mensageria, endpoints com `service_role` e Web Push VAPID                                          |
-| **Banco de Dados**      | Supabase PostgreSQL 15                   | 60 tabelas públicas, 217 migrations SQL e reatividade contínua                                                      |
-| **Segurança no Banco**  | Row Level Security (RLS) + 98 RPCs       | Políticas de linha e funções atômicas `SECURITY DEFINER`                                                            |
-| **Mensageria Externa**  | Gateway Baileys (Fly.io) + Webhooks      | Envio de alertas de 1 toque e automonitoramento via WhatsApp sem custos de API                                      |
-| **Qualidade e Testes**  | Node Test Runner (`node:test`) + `tsx`   | **1.275 testes automatizados (206 suítes) com 100% de aprovação**                                                   |
+| Camada                  | Tecnologia Adotada                       | Finalidade no Sistema                                                                                                      |
+| :---------------------- | :--------------------------------------- | :------------------------------------------------------------------------------------------------------------------------- |
+| **Apresentação / PWA**  | React 19.2 + Vite 8.0 + TypeScript 5.8.3 | Single Page Application (SPA) e Progressive Web App de alta performance                                                    |
+| **Roteamento**          | TanStack Router (Start) 1.170            | Roteamento baseado em arquivos com árvore de rotas tipadas (`src/routeTree.gen.ts`)                                        |
+| **Design System**       | Tailwind CSS 4.2 + Lucide Icons          | Modos Claro (Neumórfico suave canônico #eaf0f8) e Noturno Tático (Perfil Laranja Escuro da Marca #0a0a0c / Laranja Tático) |
+| **Cartografia Dual**    | MapLibre GL 6.10 + Leaflet Engine        | Mapas híbridos 2D ultrarrápidos e 3D vetoriais com rotação de rumo                                                         |
+| **Computação de Borda** | Servidor Nitro nativo (`src/server.ts`)  | Proxy reverso de mensageria, endpoints com `service_role` e Web Push VAPID                                                 |
+| **Banco de Dados**      | Supabase PostgreSQL 15                   | 60 tabelas públicas, 217 migrations SQL e reatividade contínua                                                             |
+| **Segurança no Banco**  | Row Level Security (RLS) + 98 RPCs       | Políticas de linha e funções atômicas `SECURITY DEFINER`                                                                   |
+| **Mensageria Externa**  | Gateway Baileys (Fly.io) + Webhooks      | Envio de alertas de 1 toque e automonitoramento via WhatsApp sem custos de API                                             |
+| **Qualidade e Testes**  | Node Test Runner (`node:test`) + `tsx`   | **1.275 testes automatizados (206 suítes) com 100% de aprovação**                                                          |
 
 ---
 
@@ -132,7 +132,7 @@ O sistema segrega estritamente o acesso em 10 perfis distintos, protegidos por g
 ### 4.9. Configurações Globais, Temas e Gestão de Usuários (`/configuracoes`, `/configuracao/temas`, `/usuarios`, `/login`, `/inicio`)
 
 - **Painel Geral de Configurações (`/configuracoes`):** Ajustes de parâmetros do sistema, prazos de alerta e tolerâncias de velocidade. `[IMPLEMENTADA]`
-- **Personalização de Temas e Design System (`/configuracao/temas`):** Alternância e calibração de modos Claro (#fbf2e9 - levemente alaranjado) e Noturno Tático (#110e0c / Laranja Tático), com persistência em camada tripla. `[IMPLEMENTADA]`
+- **Personalização de Temas e Design System (`/configuracao/temas`):** Alternância e calibração de modos Claro (#eaf0f8 - Neumórfico suave) e Noturno Tático (#0a0a0c / Perfil Laranja Escuro da Marca), com persistência em camada tripla. `[IMPLEMENTADA]`
 - **Gestão Global de Usuários e Perfis (`/usuarios`):** Controle de contas, redefinição de acessos e concessão de privilégios RBAC. `[IMPLEMENTADA]`
 - **Fluxos de Autenticação e Entrada Segura (`/login`, `/inicio`):** Validação de credenciais, controle de sessão ativa e redirecionamento por perfil. `[IMPLEMENTADA]`
 
@@ -215,7 +215,7 @@ O sistema segrega estritamente o acesso em 10 perfis distintos, protegidos por g
 - **Modernização do Auto-Cadastro de Clientes e Micro-Gateway WhatsApp (`ModalConviteCliente`):** `[RESOLVIDO]` Integrado o despachador oficial de mensagens WhatsApp (`enviarMensagemWhatsappOperador`) com suporte ao nome dinâmico da plataforma (`APP_NOME`), input com máscara de telefone formatada e estado de carregamento com feedback de transmissão.
 - **Conexão e Migração de Infraestrutura para Nova Instância Supabase (`pflzopmxxawyqkgrlapq`):** `[CONFIGURADO E GERADO SCRIPT MESTRE]` Atualizados todos os arquivos de ambiente e runtime (`wrangler.json`, `.env.production`, `.env.local`, `scripts/fix-nitro-chunks.mjs`, `deploy/hunter-gateway/fly.toml` e gateways de telemetria) para a nova instância Supabase (`https://pflzopmxxawyqkgrlapq.supabase.co`, chaves `sb_publishable_...` e `sb_secret_...`). Compilado o script mestre de migração completa `supabase/CRIAR_BANCO_COMPLETO_NOVO_SUPABASE.sql` com todas as 225 migrações em ordem cronológica (1.85 MB) para provisionamento do banco de dados do zero.
 - **Migração do Domínio Oficial para `gd.oficial.tec.br` (`v1.0.0.2`):** `[RESOLVIDO]` Atualizado o domínio canônico e URL pública da plataforma de `sigoguardiao.oficial.tec.br` para **`gd.oficial.tec.br`** em toda a base de código, incluindo `APP_PUBLIC_URL`, `APP_DOMINIO`, `wrangler.json`, `.env.production`, headers de CSP no servidor, geradores de contratos e laudos em PDF, links de compartilhamento e validação de autenticidade (`/verificar`), além dos micro-gateways de telemetria e WhatsApp.
-- **Identidade Visual Laranja e Emblema Oficial GD (`v1.0.0.2`):** `[RESOLVIDO]` Integrado o novo logotipo com o brasão oficial GD Segurança Privada (escudo chanfrado cromado com letras 3D metálicas alaranjadas, cursor tratado e fundo transparente de alta definição nos formatos web, PDF e favicon). O sistema recebeu o novo design system com fundo suavemente alaranjado (`#fbf2e9` no modo Claro e `#110e0c` com nuance âmbar/carbono no modo Noturno Tático), seleção de texto em laranja tático, botões de ação e abas em laranja vibrante (`#ea580c` / `#f97316`) e configuração padrão de cartões harmonizada com a identidade visual da marca.
+- **Identidade Visual da Marca GD e Calibração de Modos Claro e Escuro (`v1.0.0.3`):** `[RESOLVIDO]` Integrado o novo logotipo com o brasão oficial GD Segurança Privada (escudo chanfrado cromado com letras 3D metálicas alaranjadas, cursor tratado e fundo transparente nos formatos web, PDF e favicon). O modo Claro foi mantido/revertido no padrão visual Neumórfico suave canônico (`#eaf0f8`) a pedido do usuário, enquanto o modo Noturno Tático foi calibrado estritamente para o perfil laranja escuro da marca (`#0a0a0c`, halos e contornos de neon laranja `#ff6a00` / `#ea580c`, botões de ação e abas em laranja tático vibrante e contraste com tipografia branca/laranja).
 
 ---
 

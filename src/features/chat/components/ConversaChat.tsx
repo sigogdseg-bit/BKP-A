@@ -195,9 +195,9 @@ export function ConversaChat({
   const gradienteContato = obterGradienteAvatar(contatoNome);
 
   return (
-    <div className="relative flex flex-col w-full h-full min-h-0 bg-[#fbf2e9] dark:bg-slate-900 overflow-hidden">
+    <div className="relative flex flex-col w-full h-full min-h-0 bg-[#eaf0f8] dark:bg-slate-900 overflow-hidden">
       {/* Cabeçalho da Conversa Neumórfico com Atalho de Voltar Superior */}
-      <div className="px-3.5 py-2.5 sm:px-5 sm:py-3 border-b border-slate-300/60 dark:border-slate-800/70 bg-[#fbf2e9] dark:bg-slate-900 shrink-0 flex flex-col gap-2">
+      <div className="px-3.5 py-2.5 sm:px-5 sm:py-3 border-b border-slate-300/60 dark:border-slate-800/70 bg-[#eaf0f8] dark:bg-slate-900 shrink-0 flex flex-col gap-2">
         {/* Linha 1: Atalho de Voltar (Acima dos dados do contato) */}
         <div className="flex items-center justify-between">
           {modoSupervisao && onVoltarParaListaConversas ? (
@@ -294,7 +294,7 @@ export function ConversaChat({
       {/* Área de Mensagens com Fundo Neumórfico Limpo */}
       <div
         ref={scrollRef}
-        className="flex-1 min-h-0 overflow-y-auto p-4 sm:p-6 bg-[#fbf2e9] dark:bg-slate-900 flex flex-col"
+        className="flex-1 min-h-0 overflow-y-auto p-4 sm:p-6 bg-[#eaf0f8] dark:bg-slate-900 flex flex-col"
       >
         {carregando ? (
           <div className="flex items-center justify-center my-auto h-full">
@@ -304,7 +304,7 @@ export function ConversaChat({
           </div>
         ) : mensagens.length === 0 ? (
           <div className="flex flex-col items-center justify-center my-auto h-full gap-2">
-            <div className="h-14 w-14 rounded-full bg-[#fbf2e9] dark:bg-slate-800 border border-slate-300/60 dark:border-slate-700/60 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none flex items-center justify-center text-[#007AFF]">
+            <div className="h-14 w-14 rounded-full bg-[#eaf0f8] dark:bg-slate-800 border border-slate-300/60 dark:border-slate-700/60 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none flex items-center justify-center text-[#007AFF]">
               <Send className="h-6 w-6" />
             </div>
             <p className="text-xs text-slate-500 dark:text-slate-400 text-center max-w-[260px] font-medium leading-relaxed">
@@ -348,7 +348,7 @@ export function ConversaChat({
                     {/* Separador de Data Neumórfico */}
                     {mostrarSeparadorData && (
                       <div className="flex justify-center my-4">
-                        <span className="px-3.5 py-1 text-[10px] font-bold rounded-full bg-[#fbf2e9] dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-300/60 dark:border-slate-700/60 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none">
+                        <span className="px-3.5 py-1 text-[10px] font-bold rounded-full bg-[#eaf0f8] dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-300/60 dark:border-slate-700/60 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none">
                           {dataMensagem}
                         </span>
                       </div>
@@ -384,7 +384,7 @@ export function ConversaChat({
                         className={`relative max-w-[85%] sm:max-w-[70%] px-4 py-3 rounded-2xl sm:rounded-[20px] text-sm leading-relaxed break-words transition-all ${
                           alinhamentoDireita
                             ? "bg-gradient-to-r from-[#007AFF] to-[#0056D2] text-white shadow-[0_10px_24px_-4px_rgba(0,122,255,0.42),0_4px_8px_-2px_rgba(0,122,255,0.25)] rounded-tr-sm"
-                            : "bg-[#fbf2e9] dark:bg-slate-800 text-slate-800 dark:text-slate-100 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none border border-slate-300/60 dark:border-slate-700/60 rounded-tl-sm"
+                            : "bg-[#eaf0f8] dark:bg-slate-800 text-slate-800 dark:text-slate-100 shadow-[4px_4px_10px_#c3cfe2] dark:shadow-none border border-slate-300/60 dark:border-slate-700/60 rounded-tl-sm"
                         }`}
                       >
                         <span className="whitespace-pre-wrap">{msg.mensagem}</span>
@@ -433,7 +433,7 @@ export function ConversaChat({
 
       {/* Barra de Digitação Neumórfica */}
       <div
-        className={`px-3 py-2.5 sm:px-5 sm:py-3.5 border-t border-slate-300/60 dark:border-slate-800/70 bg-[#fbf2e9] dark:bg-slate-900 shrink-0 z-20 transition-all ${
+        className={`px-3 py-2.5 sm:px-5 sm:py-3.5 border-t border-slate-300/60 dark:border-slate-800/70 bg-[#eaf0f8] dark:bg-slate-900 shrink-0 z-20 transition-all ${
           tecladoAberto ? "pb-2" : "pb-[max(0.75rem,env(safe-area-inset-bottom))]"
         }`}
       >
@@ -447,7 +447,7 @@ export function ConversaChat({
             placeholder="Digite uma mensagem..."
             rows={1}
             maxLength={4000}
-            className="flex-1 resize-none px-4 py-2.5 text-sm rounded-2xl bg-[#fbf2e9] dark:bg-slate-800 border border-slate-300/60 dark:border-slate-700/80 text-slate-800 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#007AFF]/40 shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6)] transition max-h-[100px] overflow-y-auto"
+            className="flex-1 resize-none px-4 py-2.5 text-sm rounded-2xl bg-[#eaf0f8] dark:bg-slate-800 border border-slate-300/60 dark:border-slate-700/80 text-slate-800 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#007AFF]/40 shadow-[inset_2px_2px_4px_#c8d4e4,inset_-2px_-2px_4px_#ffffff] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6)] transition max-h-[100px] overflow-y-auto"
             style={{
               height: "auto",
               minHeight: "42px",
