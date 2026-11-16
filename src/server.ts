@@ -2431,6 +2431,139 @@ async function handleApiAdminUsuarios(request: Request, env: unknown): Promise<R
   });
 }
 
+async function handleApiClientes(request: Request, env: unknown): Promise<Response | null> {
+  const url = new URL(request.url);
+  if (url.pathname !== "/api/clientes" && url.pathname !== "/api/clientes/listar") {
+    return null;
+  }
+
+  if (request.method === "OPTIONS") {
+    return new Response(null, {
+      status: 204,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET, OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type, Authorization",
+        ...SECURITY_HEADERS,
+      },
+    });
+  }
+
+  if (request.method !== "GET") {
+    return new Response(JSON.stringify({ success: false, message: "Método não permitido." }), {
+      status: 405,
+      headers: { "Content-Type": "application/json", ...SECURITY_HEADERS },
+    });
+  }
+
+  const { supabaseUrl, supabaseAnonKey, serviceRoleKey } = getSupabaseServerParams(env);
+
+  const authHeader = request.headers.get("Authorization") || "";
+  const token = authHeader.replace(/^Bearer\s+/i, "").trim();
+  if (!token) {
+    return new Response(
+      JSON.stringify({ success: false, message: "Não autorizado: Token de sessão ausente." }),
+      {
+        status: 401,
+        headers: { "Content-Type": "application/json", ...SECURITY_HEADERS },
+      },
+    );
+  }
+
+  const userClient = createClient(supabaseUrl, supabaseAnonKey, {
+    auth: { persistSession: false },
+  });
+  const { data: userData, error: userError } = await userClient.auth.getUser(token);
+
+  if (userError || !userData?.user) {
+    return new Response(
+      JSON.stringify({ success: false, message: "Sessão inválida ou expirada." }),
+      {
+        status: 401,
+        headers: { "Content-Type": "application/json", ...SECURITY_HEADERS },
+      },
+    );
+  }
+
+  const adminClient = createClient(supabaseUrl, serviceRoleKey, {
+    auth: { persistSession: false },
+  });
+
+  const { data: profile } = await adminClient
+    .from("profiles")
+    .select("role")
+    .eq("id", userData.user.id)
+    .single();
+
+  const role = profile?.role;
+  const rolesPermitidas = [
+    "superadmin",
+    "adm",
+    "operador",
+    "financeiro",
+    "superadmin_auditor",
+    "revendedor",
+    "vendedor",
+    "instalador",
+    "cliente",
+  ];
+
+  if (!role || !rolesPermitidas.includes(role)) {
+    return new Response(
+      JSON.stringify({ success: false, message: "Acesso não autorizado aos clientes." }),
+      {
+        status: 403,
+        headers: { "Content-Type": "application/json", ...SECURITY_HEADERS },
+      },
+    );
+  }
+
+  try {
+    let query = adminClient
+      .from("clientes")
+      .select(
+        `
+        *,
+        veiculos (id, placa, marca_modelo, tipo_veiculo, bloqueado, pendente_aprovacao_operador),
+        instalador:instalador_id (id, nome, telefone, endereco_instalacao),
+        instalacoes (id, valor_instalacao, status_pagamento, pago_direto_cliente, pago_em, status)
+      `,
+      )
+      .order("nome_razao_social", { ascending: true });
+
+    if (role === "revendedor") {
+      query = query.eq("revendedor_id", userData.user.id);
+    } else if (role === "vendedor") {
+      query = query.eq("vendedor_id", userData.user.id);
+    } else if (role === "instalador") {
+      query = query.eq("instalador_id", userData.user.id);
+    } else if (role === "cliente") {
+      query = query.eq("user_id", userData.user.id);
+    }
+
+    const { data, error } = await query;
+    if (error) {
+      return new Response(JSON.stringify({ success: false, message: error.message }), {
+        status: 500,
+        headers: { "Content-Type": "application/json", ...SECURITY_HEADERS },
+      });
+    }
+
+    return new Response(JSON.stringify({ success: true, clientes: data || [] }), {
+      status: 200,
+      headers: { "Content-Type": "application/json", ...SECURITY_HEADERS },
+    });
+  } catch (err: any) {
+    return new Response(
+      JSON.stringify({ success: false, message: err?.message || "Erro ao consultar clientes." }),
+      {
+        status: 500,
+        headers: { "Content-Type": "application/json", ...SECURITY_HEADERS },
+      },
+    );
+  }
+}
+
 async function handleApiEstoque(request: Request, env: unknown): Promise<Response | null> {
   const url = new URL(request.url);
   if (!url.pathname.startsWith("/api/estoque")) {
@@ -9275,6 +9408,12 @@ export default {
     const estoqueResponse = await handleApiEstoque(request, env);
     if (estoqueResponse) {
       return estoqueResponse;
+    }
+
+    // Intercepta rota segura de listagem de clientes (com Service Role, imune a recursão RLS)
+    const clientesResponse = await handleApiClientes(request, env);
+    if (clientesResponse) {
+      return clientesResponse;
     }
 
     // Intercepta rotas seguras de redefinição de senha de parceiros (revendedor e vendedor)

@@ -165,9 +165,10 @@ async function main() {
   }
 
   // 7. Push Sincronizado da Branch e da Tag (Sem --tags genérico)
+  // Conforme AGENTS.md 28.10: bkp-a e bkp-b são Marcos de Segurança IMUTÁVEIS e NUNCA são alterados em releases rotineiras.
   executarComando(
-    `git push origin main && git push origin ${tagName} && git push bkp-a main && git push bkp-b main`,
-    `Gate 6 — Push da Branch main e da Tag ${tagName} (com espelhamento seguro em bkp-a e bkp-b)`,
+    `git push origin main && git push origin ${tagName}`,
+    `Gate 6 — Push da Branch main e da Tag ${tagName} no repositório oficial origin`,
   );
 
   // 8. Gate 7 — Declaração Formal de Encerramento

@@ -80,8 +80,90 @@ export async function carregarInstaladoresAtivos(): Promise<InstaladorResumo[]> 
   }
 }
 
+function normalizarClienteRetorno(c: any): Cliente {
+  const instalacaoRealizada =
+    c.status === "ativo" ||
+    c.status_agendamento === "concluido" ||
+    (Array.isArray(c.veiculos) &&
+      c.veiculos.length > 0 &&
+      c.veiculos.every((v: any) => !v.pendente_aprovacao_operador));
+
+  const statusAgendamentoNormalizado =
+    instalacaoRealizada && c.status_agendamento === "aguardando_agendamento"
+      ? "concluido"
+      : c.status_agendamento;
+
+  const instList = Array.isArray(c.instalacoes) ? c.instalacoes : [];
+  const totalInstalacao = instList.reduce(
+    (acc: number, cur: any) => acc + (Number(cur.valor_instalacao) || 0),
+    0,
+  );
+  const pagoDiretoInstalador = instList.some((i: any) => i.pago_direto_cliente);
+  const allInstPagas =
+    instList.length > 0 && instList.every((i: any) => i.status_pagamento === "pago");
+  const statusTaxaInstalacao = allInstPagas
+    ? "pago"
+    : instList.some((i: any) => i.status_pagamento === "pago")
+      ? "parcial"
+      : "pendente";
+  const dataPagamentoInstalacao = instList.find((i: any) => i.pago_em)?.pago_em || null;
+
+  return {
+    ...c,
+    status_agendamento: statusAgendamentoNormalizado,
+    privacidade_localizacao: c.privacidade_localizacao ?? true,
+    veiculos_count: Array.isArray(c.veiculos) ? c.veiculos.length : 0,
+    veiculos_resumo: Array.isArray(c.veiculos)
+      ? c.veiculos.map((v: any) => ({
+          id: v.id,
+          placa: v.placa || "SEM PLACA",
+          modelo: v.marca_modelo || v.modelo || "Veículo",
+          tipo_veiculo: v.tipo_veiculo || "carro",
+          status_bloqueio: v.bloqueado ? "bloqueado" : "desbloqueado",
+          pendente_aprovacao_operador: !!v.pendente_aprovacao_operador,
+        }))
+      : [],
+    instalador_nome: c.instalador?.nome || null,
+    instalador_endereco: c.instalador?.endereco_instalacao || null,
+    instalador_telefone: c.instalador?.telefone || null,
+    taxa_instalacao:
+      totalInstalacao > 0
+        ? totalInstalacao
+        : c.taxa_instalacao !== undefined
+          ? Number(c.taxa_instalacao)
+          : 0,
+    pago_direto_instalador: pagoDiretoInstalador,
+    status_taxa_instalacao: statusTaxaInstalacao,
+    data_pagamento_instalacao: dataPagamentoInstalacao,
+  } as Cliente;
+}
+
 export async function carregarClientes(): Promise<Cliente[]> {
   try {
+    // 1. Tenta carregar via rota segura de backend (/api/clientes) com Service Role
+    // Isso evita completamente o erro 42P17 "infinite recursion detected in policy for relation clientes"
+    try {
+      const sess = await supabase.auth.getSession();
+      const token = sess.data.session?.access_token;
+      if (token) {
+        const res = await fetch("/api/clientes", {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        if (res.ok) {
+          const json = await res.json();
+          if (json.success && Array.isArray(json.clientes)) {
+            return json.clientes.map(normalizarClienteRetorno);
+          }
+        }
+      }
+    } catch {
+      /* fallback */
+    }
+
+    // 2. Consulta direta via Supabase SDK
     const { data, error } = await supabase
       .from("clientes")
       .select(
@@ -95,63 +177,7 @@ export async function carregarClientes(): Promise<Cliente[]> {
       .order("nome_razao_social", { ascending: true });
 
     if (!error && data) {
-      return data.map((c: any) => {
-        const instalacaoRealizada =
-          c.status === "ativo" ||
-          c.status_agendamento === "concluido" ||
-          (Array.isArray(c.veiculos) &&
-            c.veiculos.length > 0 &&
-            c.veiculos.every((v: any) => !v.pendente_aprovacao_operador));
-
-        const statusAgendamentoNormalizado =
-          instalacaoRealizada && c.status_agendamento === "aguardando_agendamento"
-            ? "concluido"
-            : c.status_agendamento;
-
-        const instList = Array.isArray(c.instalacoes) ? c.instalacoes : [];
-        const totalInstalacao = instList.reduce(
-          (acc: number, cur: any) => acc + (Number(cur.valor_instalacao) || 0),
-          0,
-        );
-        const pagoDiretoInstalador = instList.some((i: any) => i.pago_direto_cliente);
-        const allInstPagas =
-          instList.length > 0 && instList.every((i: any) => i.status_pagamento === "pago");
-        const statusTaxaInstalacao = allInstPagas
-          ? "pago"
-          : instList.some((i: any) => i.status_pagamento === "pago")
-            ? "parcial"
-            : "pendente";
-        const dataPagamentoInstalacao = instList.find((i: any) => i.pago_em)?.pago_em || null;
-
-        return {
-          ...c,
-          status_agendamento: statusAgendamentoNormalizado,
-          privacidade_localizacao: c.privacidade_localizacao ?? true,
-          veiculos_count: Array.isArray(c.veiculos) ? c.veiculos.length : 0,
-          veiculos_resumo: Array.isArray(c.veiculos)
-            ? c.veiculos.map((v: any) => ({
-                id: v.id,
-                placa: v.placa || "SEM PLACA",
-                modelo: v.marca_modelo || v.modelo || "Veículo",
-                tipo_veiculo: v.tipo_veiculo || "carro",
-                status_bloqueio: v.bloqueado ? "bloqueado" : "desbloqueado",
-                pendente_aprovacao_operador: !!v.pendente_aprovacao_operador,
-              }))
-            : [],
-          instalador_nome: c.instalador?.nome || null,
-          instalador_endereco: c.instalador?.endereco_instalacao || null,
-          instalador_telefone: c.instalador?.telefone || null,
-          taxa_instalacao:
-            totalInstalacao > 0
-              ? totalInstalacao
-              : c.taxa_instalacao !== undefined
-                ? Number(c.taxa_instalacao)
-                : 0,
-          pago_direto_instalador: pagoDiretoInstalador,
-          status_taxa_instalacao: statusTaxaInstalacao,
-          data_pagamento_instalacao: dataPagamentoInstalacao,
-        };
-      }) as Cliente[];
+      return data.map(normalizarClienteRetorno);
     }
 
     // Fallback resiliente
