@@ -68,7 +68,12 @@ export function EstoqueView() {
   const isStyleguide = false;
   const tema: TemaEstoque = isNeumorph ? "neumorphism_soft" : "hunter_padrao";
 
-  const podeVerCustosEFornecedores = Boolean(session?.isSuperAdmin || session?.isAdmin);
+  const podeVerCustosEFornecedores = Boolean(
+    session?.isSuperAdmin ||
+    session?.isAdmin ||
+    session?.isFinanceiro ||
+    session?.role === "financeiro",
+  );
 
   const [abaAtiva, setAbaAtiva] = useState<
     "itens" | "kits" | "rastreadores" | "fornecedores" | "movimentacoes"

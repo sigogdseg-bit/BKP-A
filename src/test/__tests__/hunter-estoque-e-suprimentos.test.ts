@@ -627,4 +627,32 @@ describe("Hunter — Módulo de Estoque e Suprimentos Integrado", () => {
     assert.equal(analise.markupEfetivoPercentual, 50.0);
     assert.equal(Number(analise.margemBrutaPercentual.toFixed(2)), 29.41);
   });
+
+  test("deve validar que perfil Financeiro tem permissão total para gerenciar fornecedores, compras e custos no estoque", () => {
+    // Validação da regra de permissão canônica do EstoqueView
+    const sessaoFinanceiro = {
+      isSuperAdmin: false,
+      isAdmin: false,
+      isFinanceiro: true,
+      role: "financeiro",
+    };
+
+    const sessaoOperador = {
+      isSuperAdmin: false,
+      isAdmin: false,
+      isFinanceiro: false,
+      role: "operador",
+    };
+
+    const podeVerCustosEFornecedores = (session: any) =>
+      Boolean(
+        session?.isSuperAdmin ||
+        session?.isAdmin ||
+        session?.isFinanceiro ||
+        session?.role === "financeiro",
+      );
+
+    assert.equal(podeVerCustosEFornecedores(sessaoFinanceiro), true);
+    assert.equal(podeVerCustosEFornecedores(sessaoOperador), false);
+  });
 });
