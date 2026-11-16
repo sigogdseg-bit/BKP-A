@@ -227,9 +227,9 @@ export function AbaConfiguracaoUsb() {
         consultarImeiNoSistema(imeiDetectado);
       }
 
-      // Detecção de ICCID do Chip M2M (+CCID: 8955... ou ICCID: ...)
+      // Detecção de ICCID do Chip M2M (+CICCID: 8955... ou +CCID: 8955... ou ICCID: ...)
       const matchIccid =
-        limpo.match(/\+?I?CCID[:=\s]+(\d{18,22})/i) || limpo.match(/\b(89\d{16,20})\b/);
+        limpo.match(/\+?[A-Z]*CCID[:=\s]+(\d{18,22})/i) || limpo.match(/\b(89\d{16,20})\b/);
       if (matchIccid && matchIccid[1]) {
         setDadosBancada((prev) => ({
           ...prev,
@@ -1229,13 +1229,17 @@ export function AbaConfiguracaoUsb() {
             enviarComandoSerial("AT+CGSN", "CRLF", true);
           }, 300);
           setTimeout(() => {
+            adicionarLog("SISTEMA", "Consultando ICCID do chip M2M (AT+CICCID)...");
+            enviarComandoSerial("AT+CICCID", "CRLF", true);
+          }, 600);
+          setTimeout(() => {
             adicionarLog("SISTEMA", "Consultando nível de sinal celular (AT+CSQ)...");
             enviarComandoSerial("AT+CSQ", "CRLF", true);
-          }, 700);
+          }, 950);
           setTimeout(() => {
             adicionarLog("SISTEMA", "Consultando status do chip SIM (AT+CPIN?)...");
             enviarComandoSerial("AT+CPIN?", "CRLF", true);
-          }, 1200);
+          }, 1350);
         } else if (sonda.comando.includes("123456")) {
           alternarFamiliaProtocolo("coban_tk", true);
           setTimeout(() => {
@@ -1330,13 +1334,17 @@ export function AbaConfiguracaoUsb() {
           enviarComandoSerial("AT+CGSN", "CRLF", true);
         }, 300);
         setTimeout(() => {
+          adicionarLog("SISTEMA", "Consultando ICCID do chip M2M (AT+CICCID)...");
+          enviarComandoSerial("AT+CICCID", "CRLF", true);
+        }, 600);
+        setTimeout(() => {
           adicionarLog("SISTEMA", "Consultando nível de sinal celular (AT+CSQ)...");
           enviarComandoSerial("AT+CSQ", "CRLF", true);
-        }, 700);
+        }, 950);
         setTimeout(() => {
           adicionarLog("SISTEMA", "Consultando status do chip SIM (AT+CPIN?)...");
           enviarComandoSerial("AT+CPIN?", "CRLF", true);
-        }, 1200);
+        }, 1350);
 
         if (autoGravarAoConectarRef.current && gravarPadraoCanonicoCompletoRef.current) {
           setTimeout(() => {

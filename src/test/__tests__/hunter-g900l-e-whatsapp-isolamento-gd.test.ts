@@ -28,7 +28,7 @@ describe("HUNTER-GUARDIAN — Homologação do Rastreador G900L 4G e Isolamento 
     assert.equal(srvCmd.terminador, "CRLF");
   });
 
-  it("G900L: Deve gerar fila canônica com 18 comandos AT diretos via USB sem forçar Gateway TCP", () => {
+  it("G900L: Deve gerar fila canônica com 20 comandos AT diretos via USB com autenticação APN e socket", () => {
     const g900l = PROTOCOLOS_BANCADA.g900l;
     const fila = g900l.gerarFilaPadraoCanonico({
       srv: "167.234.233.82",
@@ -43,17 +43,23 @@ describe("HUNTER-GUARDIAN — Homologação do Rastreador G900L 4G e Isolamento 
     });
 
     assert.ok(Array.isArray(fila));
-    assert.equal(fila.length, 18);
+    assert.equal(fila.length, 20);
     // 1. Sincronismo
     assert.equal(fila[0].cmd, "AT");
+    // 5. ICCID SIMCom A76XX
+    assert.equal(fila[4].cmd, "AT+CICCID");
     // 9. APN
     assert.equal(fila[8].cmd, 'AT+CGDCONT=1,"IP","voxter.br"');
-    // 14. Ativação PDP
-    assert.equal(fila[13].cmd, "AT+CGACT=1,1");
-    // 16. Iniciar Stack TCP/IP
-    assert.equal(fila[15].cmd, "AT+NETOPEN");
-    // 17. Socket TCP GD Porta 7003
-    assert.equal(fila[16].cmd, 'AT+CIPOPEN=0,"TCP","167.234.233.82",7003');
+    // 10. Autenticação APN (PAP/Algar)
+    assert.equal(fila[9].cmd, 'AT+CGAUTH=1,1,"algar","1212"');
+    // 15. Configurar Socket no Contexto 1
+    assert.equal(fila[14].cmd, "AT+CSOCKSETPN=1");
+    // 16. Ativação PDP
+    assert.equal(fila[15].cmd, "AT+CGACT=1,1");
+    // 18. Iniciar Stack TCP/IP
+    assert.equal(fila[17].cmd, "AT+NETOPEN");
+    // 19. Socket TCP GD Porta 7003
+    assert.equal(fila[18].cmd, 'AT+CIPOPEN=0,"TCP","167.234.233.82",7003');
     // Todos comandos devem usar terminação CRLF
     for (const item of fila) {
       assert.equal(item.tipo, "CRLF");
@@ -65,6 +71,7 @@ describe("HUNTER-GUARDIAN — Homologação do Rastreador G900L 4G e Isolamento 
     const cmdsAtalhos = g900l.atalhos.map((a) => a.cmd);
     assert.ok(cmdsAtalhos.includes("AT"));
     assert.ok(cmdsAtalhos.includes("AT+CGSN"));
+    assert.ok(cmdsAtalhos.includes("AT+CICCID"));
     assert.ok(cmdsAtalhos.includes("AT+CCID"));
     assert.ok(cmdsAtalhos.includes("AT+CPIN?"));
     assert.ok(cmdsAtalhos.includes("AT+CSQ"));

@@ -735,10 +735,16 @@ export const PROTOCOLOS_BANCADA: Record<FamiliaProtocolo, ProtocoloHardwareDef> 
         cor: "text-purple-400",
       },
       {
-        label: "ICCID (AT+CCID)",
-        cmd: "AT+CCID",
-        desc: "Consultar ICCID do chip SIM M2M",
+        label: "ICCID (AT+CICCID)",
+        cmd: "AT+CICCID",
+        desc: "Consultar ICCID do chip SIM M2M (SIMCom)",
         cor: "text-amber-400",
+      },
+      {
+        label: "ICCID Legado (AT+CCID)",
+        cmd: "AT+CCID",
+        desc: "Consultar serial ICCID em modems genéricos",
+        cor: "text-amber-300",
       },
       {
         label: "Chip SIM (AT+CPIN?)",
@@ -777,33 +783,69 @@ export const PROTOCOLOS_BANCADA: Record<FamiliaProtocolo, ProtocoloHardwareDef> 
         cor: "text-emerald-400",
       },
       {
-        label: "Auditoria (check123456)",
+        label: "Auth APN (AT+CGAUTH)",
+        cmd: 'AT+CGAUTH=1,1,"algar","1212"',
+        desc: "Gravar credenciais PAP da APN M2M",
+        cor: "text-indigo-400",
+      },
+      {
+        label: "Ativar Dados (AT+CGACT=1,1)",
+        cmd: "AT+CGACT=1,1",
+        desc: "Ativar contexto de dados PDP 4G",
+        cor: "text-emerald-400",
+      },
+      {
+        label: "Pilha TCP (AT+NETOPEN)",
+        cmd: "AT+NETOPEN",
+        desc: "Abrir stack TCP/IP SIMCom",
+        cor: "text-cyan-400",
+      },
+      {
+        label: "Conectar GD 7003 (CIPOPEN)",
+        cmd: 'AT+CIPOPEN=0,"TCP","167.234.233.82",7003',
+        desc: "Conectar socket TCP GD Segurança",
+        cor: "text-sky-300",
+      },
+      {
+        label: "Status Sockets (AT+CIPOPEN?)",
+        cmd: "AT+CIPOPEN?",
+        desc: "Listar conexões ativas no modem",
+        cor: "text-sky-400",
+      },
+      {
+        label: "Status Stack (AT+NETOPEN?)",
+        cmd: "AT+NETOPEN?",
+        desc: "Consultar se a pilha de rede está aberta",
+        cor: "text-cyan-300",
+      },
+      {
+        label: "Auditoria MCU (check123456)",
         cmd: "check123456",
-        desc: "Consultar parâmetros salvos na MCU",
+        desc: "Consultar parâmetros salvos na MCU (via TTL ou SMS)",
         cor: "text-amber-300",
       },
       {
-        label: "Status (status123456)",
+        label: "Status MCU (status123456)",
         cmd: "status123456",
-        desc: "Consultar status geral da placa G900L",
+        desc: "Consultar status geral da placa G900L (via TTL ou SMS)",
         cor: "text-emerald-300",
       },
       {
         label: "Servidor GT06 (SERVER#)",
         cmd: "SERVER#",
-        desc: "Consultar servidor GT06 gravado",
+        desc: "Consultar servidor GT06 na MCU (via TTL ou SMS)",
         cor: "text-orange-300",
       },
       {
-        label: "Parâmetros (PARAM#)",
+        label: "Parâmetros GT06 (PARAM#)",
         cmd: "PARAM#",
-        desc: "Consultar IP, porta e timers GT06",
+        desc: "Consultar IP, porta e timers GT06 na MCU (via TTL ou SMS)",
         cor: "text-purple-300",
       },
       {
         label: "Status GT06 (STATUS#)",
         cmd: "STATUS#",
-        desc: "Consultar bateria, GPS e status GT06",
+        desc: "Consultar status GT06 na MCU (via TTL ou SMS)",
         cor: "text-sky-200",
       },
       {
@@ -833,9 +875,9 @@ export const PROTOCOLOS_BANCADA: Record<FamiliaProtocolo, ProtocoloHardwareDef> 
         categoria: "consulta",
       },
       {
-        titulo: "Ler ICCID do Chip",
-        cmd: "AT+CCID",
-        desc: "Número serial do chip SIM impresso no cartão",
+        titulo: "Ler ICCID do Chip (SIMCom)",
+        cmd: "AT+CICCID",
+        desc: "Número serial ICCID do chip M2M via comando SIMCom",
         categoria: "consulta",
       },
       {
@@ -927,41 +969,85 @@ export const PROTOCOLOS_BANCADA: Record<FamiliaProtocolo, ProtocoloHardwareDef> 
         estilo: "bg-rose-500/10 text-rose-500 border-rose-500/30",
       },
     ],
-    gerarFilaPadraoCanonico: ({ srv, porta, apn }) => [
-      { nome: "1. Sincronismo Inicial (AT)", cmd: "AT", tipo: "CRLF" },
-      { nome: "2. Desativação de Eco Local (ATE0)", cmd: "ATE0", tipo: "CRLF" },
-      { nome: "3. Identificação do Módulo G900L (ATI)", cmd: "ATI", tipo: "CRLF" },
-      { nome: "4. Leitura do IMEI (AT+CGSN)", cmd: "AT+CGSN", tipo: "CRLF" },
-      { nome: "5. Leitura do ICCID do Chip M2M (AT+CCID)", cmd: "AT+CCID", tipo: "CRLF" },
-      { nome: "6. Checagem do Chip SIM (AT+CPIN?)", cmd: "AT+CPIN?", tipo: "CRLF" },
-      { nome: "7. Nível de Sinal Celular (AT+CSQ)", cmd: "AT+CSQ", tipo: "CRLF" },
-      { nome: "8. Operadora Celular (AT+COPS?)", cmd: "AT+COPS?", tipo: "CRLF" },
-      {
-        nome: "9. Gravar APN M2M (AT+CGDCONT)",
-        cmd: `AT+CGDCONT=1,"IP","${apn}"`,
-        tipo: "CRLF",
-      },
-      { nome: "10. Auditoria de APN Gravada (AT+CGDCONT?)", cmd: "AT+CGDCONT?", tipo: "CRLF" },
-      {
-        nome: "11. Manter Conexão Online 24h sem Repouso (AT+CPSMS)",
-        cmd: "AT+CPSMS=0",
-        tipo: "CRLF",
-      },
-      { nome: "12. Registro na Rede 4G LTE (AT+CEREG?)", cmd: "AT+CEREG?", tipo: "CRLF" },
-      { nome: "13. Anexo aos Pacotes de Dados (AT+CGATT=1)", cmd: "AT+CGATT=1", tipo: "CRLF" },
-      { nome: "14. Ativação da Sessão de Dados (AT+CGACT=1,1)", cmd: "AT+CGACT=1,1", tipo: "CRLF" },
-      {
-        nome: "15. Consulta IP Celular da Sessão (AT+CGPADDR=1)",
-        cmd: "AT+CGPADDR=1",
-        tipo: "CRLF",
-      },
-      { nome: "16. Iniciar Stack TCP/IP (AT+NETOPEN)", cmd: "AT+NETOPEN", tipo: "CRLF" },
-      {
-        nome: "17. Conectar Socket TCP GD Segurança (AT+CIPOPEN)",
-        cmd: `AT+CIPOPEN=0,"TCP","${srv}",${porta}`,
-        tipo: "CRLF",
-      },
-      { nome: "18. Reinicialização para Aplicar (AT+CFUN=1,1)", cmd: "AT+CFUN=1,1", tipo: "CRLF" },
-    ],
+    gerarFilaPadraoCanonico: ({ srv, porta, apn, user, pass }) => {
+      const fila = [
+        { nome: "1. Sincronismo Inicial (AT)", cmd: "AT", tipo: "CRLF" as const },
+        { nome: "2. Desativação de Eco Local (ATE0)", cmd: "ATE0", tipo: "CRLF" as const },
+        { nome: "3. Identificação do Módulo G900L (ATI)", cmd: "ATI", tipo: "CRLF" as const },
+        { nome: "4. Leitura do IMEI (AT+CGSN)", cmd: "AT+CGSN", tipo: "CRLF" as const },
+        {
+          nome: "5. Leitura do ICCID do Chip M2M (AT+CICCID)",
+          cmd: "AT+CICCID",
+          tipo: "CRLF" as const,
+        },
+        { nome: "6. Checagem do Chip SIM (AT+CPIN?)", cmd: "AT+CPIN?", tipo: "CRLF" as const },
+        { nome: "7. Nível de Sinal Celular (AT+CSQ)", cmd: "AT+CSQ", tipo: "CRLF" as const },
+        { nome: "8. Operadora Celular (AT+COPS?)", cmd: "AT+COPS?", tipo: "CRLF" as const },
+        {
+          nome: "9. Gravar APN M2M (AT+CGDCONT)",
+          cmd: `AT+CGDCONT=1,"IP","${apn}"`,
+          tipo: "CRLF" as const,
+        },
+      ];
+
+      if (user && pass) {
+        fila.push({
+          nome: "10. Autenticação APN M2M (AT+CGAUTH)",
+          cmd: `AT+CGAUTH=1,1,"${user}","${pass}"`,
+          tipo: "CRLF" as const,
+        });
+      }
+
+      fila.push(
+        {
+          nome: "11. Auditoria de APN Gravada (AT+CGDCONT?)",
+          cmd: "AT+CGDCONT?",
+          tipo: "CRLF" as const,
+        },
+        {
+          nome: "12. Manter Conexão Online 24h sem Repouso (AT+CPSMS)",
+          cmd: "AT+CPSMS=0",
+          tipo: "CRLF" as const,
+        },
+        {
+          nome: "13. Registro na Rede 4G LTE (AT+CEREG?)",
+          cmd: "AT+CEREG?",
+          tipo: "CRLF" as const,
+        },
+        {
+          nome: "14. Anexo aos Pacotes de Dados (AT+CGATT=1)",
+          cmd: "AT+CGATT=1",
+          tipo: "CRLF" as const,
+        },
+        {
+          nome: "15. Configurar Socket para Contexto PDP 1 (AT+CSOCKSETPN)",
+          cmd: "AT+CSOCKSETPN=1",
+          tipo: "CRLF" as const,
+        },
+        {
+          nome: "16. Ativação da Sessão de Dados (AT+CGACT=1,1)",
+          cmd: "AT+CGACT=1,1",
+          tipo: "CRLF" as const,
+        },
+        {
+          nome: "17. Consulta IP Celular da Sessão (AT+CGPADDR=1)",
+          cmd: "AT+CGPADDR=1",
+          tipo: "CRLF" as const,
+        },
+        { nome: "18. Iniciar Stack TCP/IP (AT+NETOPEN)", cmd: "AT+NETOPEN", tipo: "CRLF" as const },
+        {
+          nome: "19. Conectar Socket TCP GD Segurança (AT+CIPOPEN)",
+          cmd: `AT+CIPOPEN=0,"TCP","${srv}",${porta}`,
+          tipo: "CRLF" as const,
+        },
+        {
+          nome: "20. Reinicialização para Aplicar (AT+CFUN=1,1)",
+          cmd: "AT+CFUN=1,1",
+          tipo: "CRLF" as const,
+        },
+      );
+
+      return fila;
+    },
   },
 };
