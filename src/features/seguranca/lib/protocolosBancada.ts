@@ -777,6 +777,18 @@ export const PROTOCOLOS_BANCADA: Record<FamiliaProtocolo, ProtocoloHardwareDef> 
         cor: "text-cyan-400",
       },
       {
+        label: "Registro Linha (AT+CREG?)",
+        cmd: "AT+CREG?",
+        desc: "Status de registro de rede celular voz e SMS",
+        cor: "text-cyan-300",
+      },
+      {
+        label: "Centro SMSC (AT+CSCA?)",
+        cmd: "AT+CSCA?",
+        desc: "Número do centro de mensagens SMS da operadora",
+        cor: "text-purple-300",
+      },
+      {
         label: "IP Dados (AT+CGPADDR=1)",
         cmd: "AT+CGPADDR=1",
         desc: "Consultar IP atribuído pela operadora",
@@ -787,6 +799,24 @@ export const PROTOCOLOS_BANCADA: Record<FamiliaProtocolo, ProtocoloHardwareDef> 
         cmd: 'AT+CGAUTH=1,1,"algar","1212"',
         desc: "Gravar credenciais PAP da APN M2M",
         cor: "text-indigo-400",
+      },
+      {
+        label: "Gravar NVRAM (AT&W)",
+        cmd: "AT&W",
+        desc: "Salvar configurações ativas na memória permanente do modem",
+        cor: "text-amber-400",
+      },
+      {
+        label: "Modo Texto SMS (AT+CMGF=1)",
+        cmd: "AT+CMGF=1",
+        desc: "Configurar formato de texto para mensagens SMS",
+        cor: "text-emerald-400",
+      },
+      {
+        label: "Ler SMS (AT+CMGL)",
+        cmd: 'AT+CMGL="ALL"',
+        desc: "Listar todas as mensagens SMS na caixa de entrada",
+        cor: "text-sky-300",
       },
       {
         label: "Ativar Dados (AT+CGACT=1,1)",
@@ -1020,34 +1050,82 @@ export const PROTOCOLOS_BANCADA: Record<FamiliaProtocolo, ProtocoloHardwareDef> 
           tipo: "CRLF" as const,
         },
         {
-          nome: "15. Configurar Socket para Contexto PDP 1 (AT+CSOCKSETPN)",
-          cmd: "AT+CSOCKSETPN=1",
-          tipo: "CRLF" as const,
-        },
-        {
-          nome: "16. Ativação da Sessão de Dados (AT+CGACT=1,1)",
+          nome: "15. Ativação da Sessão de Dados (AT+CGACT=1,1)",
           cmd: "AT+CGACT=1,1",
           tipo: "CRLF" as const,
         },
         {
-          nome: "17. Consulta IP Celular da Sessão (AT+CGPADDR=1)",
+          nome: "16. Consulta IP Celular da Sessão (AT+CGPADDR=1)",
           cmd: "AT+CGPADDR=1",
           tipo: "CRLF" as const,
         },
-        { nome: "18. Iniciar Stack TCP/IP (AT+NETOPEN)", cmd: "AT+NETOPEN", tipo: "CRLF" as const },
+        { nome: "17. Iniciar Stack TCP/IP (AT+NETOPEN)", cmd: "AT+NETOPEN", tipo: "CRLF" as const },
         {
-          nome: "19. Conectar Socket TCP GD Segurança (AT+CIPOPEN)",
+          nome: "18. Conectar Socket TCP GD Segurança (AT+CIPOPEN)",
           cmd: `AT+CIPOPEN=0,"TCP","${srv}",${porta}`,
           tipo: "CRLF" as const,
         },
         {
-          nome: "20. Reinicialização para Aplicar (AT+CFUN=1,1)",
-          cmd: "AT+CFUN=1,1",
+          nome: "19. Persistir Perfil na Memória NVRAM do Modem (AT&W)",
+          cmd: "AT&W",
+          tipo: "CRLF" as const,
+        },
+        {
+          nome: "20. Auditoria de SMS Recebidos na Caixa de Entrada (AT+CMGL)",
+          cmd: 'AT+CMGL="ALL"',
           tipo: "CRLF" as const,
         },
       );
 
       return fila;
     },
+  },
+};
+
+/**
+ * Parâmetros Canônicos do GD Rastreamento (Padrão em uso no sistema)
+ * Usado pelo Modo B do terminal e pelo painel de gravação via SMS / MCU
+ */
+export const PARAMETROS_CANONICOS_SISTEMA_GD = {
+  servidor: "167.234.233.82",
+  porta: "7003",
+  apn: "voxter.br",
+  usuarioApn: "algar",
+  senhaApn: "1212",
+  timerMovimento: "30",
+  timerParado: "3600",
+  heartbeat: "300",
+  fusoGmt: "0",
+  // Padrão G900L / Cantrack / Coban (Padrão para hardware G900L)
+  g900l: {
+    servidor: "adminip123456 167.234.233.82 7003",
+    apn: "apn123456 voxter.br algar 1212",
+    timerMovimento: "fix030s***n123456",
+    heartbeat: "hbt123456 300",
+    fuso: "time zone123456 0",
+    check: "check123456",
+    status: "status123456",
+    reset: "reset123456",
+  },
+  // Padrão GT06 / WanWay / Concox (J16)
+  gt06: {
+    servidor: "SERVER,0,167.234.233.82,7003,0#",
+    apn: "APN,voxter.br,algar,1212#",
+    timers: "TIMER,30,3600#",
+    heartbeat: "HBT,300,300#",
+    fuso: "GMT,W,0,0#",
+    check: "PARAM#",
+    status: "STATUS#",
+    reset: "RESET#",
+  },
+  // Padrão Micodus / Cantrack Hash
+  cantrackHash: {
+    servidor: "SERVER#167.234.233.82#7003#",
+    apn: "APN#voxter.br#algar#1212#",
+    timerMovimento: "FREQ#30#",
+    heartbeat: "HBT#300#",
+    fuso: "TIMEZONE#0#",
+    check: "CXZT#",
+    status: "STATUS#",
   },
 };

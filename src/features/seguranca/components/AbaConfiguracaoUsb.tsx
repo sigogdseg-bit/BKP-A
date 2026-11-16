@@ -16,6 +16,14 @@ import {
   Radio,
   Radar,
   Zap,
+  MessageSquare,
+  Smartphone,
+  ExternalLink,
+  ShieldCheck,
+  Database,
+  Inbox,
+  PhoneCall,
+  CheckCheck,
 } from "lucide-react";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
@@ -30,6 +38,7 @@ import {
   type FamiliaProtocolo,
   type ProtocoloHardwareDef,
   PROTOCOLOS_BANCADA,
+  PARAMETROS_CANONICOS_SISTEMA_GD,
 } from "../lib/protocolosBancada";
 
 interface LogLinhaSerial {
@@ -52,6 +61,7 @@ interface DadosDispositivoBancada {
   cadastradoNoSistema?: boolean;
   veiculoVinculado?: string | null;
   statusEstoque?: string | null;
+  linha?: string | null;
 }
 
 export function AbaConfiguracaoUsb() {
@@ -63,6 +73,22 @@ export function AbaConfiguracaoUsb() {
   const [infoPorta, setInfoPorta] = useState<string>("");
   const [interfaceAtivaUsb, setInterfaceAtivaUsb] = useState<number | null>(null);
   const [interfacesDisponiveisUsb, setInterfacesDisponiveisUsb] = useState<number[]>([]);
+
+  // Modo de Operação da Bancada:
+  // "modo_a" = Conexão física direta (cabo USB / modem AT / leitura de hardware)
+  // "modo_b" = Gravação de todos os parâmetros canônicos do sistema (SMS / MCU / Padrão GD)
+  const [modoOperacaoBancada, setModoOperacaoBancada] = useState<"modo_a" | "modo_b">("modo_a");
+  const [telefoneChipModoB, setTelefoneChipModoB] = useState<string>("5516999407571");
+  const [padraoComandosModoB, setPadraoComandosModoB] = useState<
+    "g900l" | "gt06" | "cantrack_hash" | "todos"
+  >("g900l");
+  const [gravandoModoB, setGravandoModoB] = useState<boolean>(false);
+  const [progressoModoB, setProgressoModoB] = useState<{
+    passo: number;
+    total: number;
+    descricao: string;
+  } | null>(null);
+  const [copiadoComandoId, setCopiadoComandoId] = useState<string | null>(null);
 
   // Família de Protocolo Homologado (WanWay/Concox GT06, Modem Celular AT, Coban/TK)
   const [familiaProtocolo, setFamiliaProtocolo] = useState<FamiliaProtocolo>("concox_wanway");
@@ -231,10 +257,25 @@ export function AbaConfiguracaoUsb() {
       const matchIccid =
         limpo.match(/\+?[A-Z]*CCID[:=\s]+(\d{18,22})/i) || limpo.match(/\b(89\d{16,20})\b/);
       if (matchIccid && matchIccid[1]) {
+        const iccidDetectado = matchIccid[1];
         setDadosBancada((prev) => ({
           ...prev,
-          iccid: matchIccid[1],
+          iccid: iccidDetectado,
         }));
+
+        // Consulta linha cadastrada no estoque para preenchimento automático do Modo B
+        supabase
+          .from("chips")
+          .select("linha, operadora")
+          .eq("iccid", iccidDetectado)
+          .maybeSingle()
+          .then(({ data: chipInfo }) => {
+            if (chipInfo?.linha) {
+              setDadosBancada((prev) => ({ ...prev, linha: chipInfo.linha }));
+              setTelefoneChipModoB(chipInfo.linha);
+            }
+          })
+          .catch((errChip) => console.debug("Consulta de chip por ICCID:", errChip));
       }
 
       // Detecção de Operadora (+COPS: 0,0,"Vivo",7)
@@ -1822,8 +1863,11 @@ export function AbaConfiguracaoUsb() {
           `📡 [CANÔNICO ${i + 1}/${filaComandos.length}] Transmitindo: ${item.nome} -> TX: "${item.cmd}"`,
         );
 
-        // Envia aguardando a resposta do hardware por até 1000ms de forma síncrona
-        const rx = await enviarComandoComResposta(item.cmd, item.tipo, 1000);
+        // Envia aguardando a resposta do hardware (timeout estendido de 2500ms para comandos de rede 4G)
+        const timeoutSincrono = /(?:CGACT|NETOPEN|CIPOPEN|COPS|CGATT)/i.test(item.cmd)
+          ? 2500
+          : 1000;
+        const rx = await enviarComandoComResposta(item.cmd, item.tipo, timeoutSincrono);
         if (rx && /(?:\bERROR\b|\+CME ERROR|\+CMS ERROR)/i.test(rx)) {
           errosHardware++;
         }
@@ -1881,6 +1925,254 @@ export function AbaConfiguracaoUsb() {
     }
   };
   gravarPadraoCanonicoCompletoRef.current = gravarPadraoCanonicoCompleto;
+
+  // Copiar comando com feedback visual
+  const copiarComandoTexto = (id: string, texto: string) => {
+    try {
+      navigator.clipboard.writeText(texto);
+      setCopiadoComandoId(id);
+      toast.success("Comando copiado para a área de transferência!");
+      setTimeout(() => setCopiadoComandoId(null), 2000);
+    } catch (errCopy) {
+      console.warn("Falha ao copiar:", errCopy);
+    }
+  };
+
+  // Disparo de SMS individual diretamente pelo modem USB conectado
+  const dispararSmsViaModemUsb = async (
+    numeroDestino: string,
+    textoComando: string,
+  ): Promise<boolean> => {
+    if (!conectado || (!portaSerialRef.current && !usbDeviceRef.current)) {
+      toast.error("Conecte o cabo USB antes de disparar comandos via modem.");
+      return false;
+    }
+
+    const numLimpo = numeroDestino.trim().replace(/[^\d+]/g, "");
+    if (!numLimpo) {
+      toast.error("Informe o número de telefone da linha do chip.");
+      return false;
+    }
+
+    try {
+      adicionarLog("SISTEMA", "📤 [SMS INTERNO] Configurando modem para modo texto...");
+      await enviarComandoComResposta("AT+CMGF=1", "CRLF", 1000);
+      await enviarComandoComResposta('AT+CSCS="GSM"', "CRLF", 1000);
+
+      adicionarLog("SISTEMA", `📤 [SMS INTERNO] Disparando para ${numLimpo}: "${textoComando}"...`);
+
+      // Envia comando AT+CMGS="..."
+      const cmdCmgs = `AT+CMGS="${numLimpo}"`;
+      await enviarComandoSerial(cmdCmgs, "CRLF", true);
+
+      // Aguarda 600ms para o modem retornar o prompt '>'
+      await new Promise((r) => setTimeout(r, 600));
+
+      // Transmite corpo da mensagem finalizado com Ctrl+Z (0x1A)
+      const payloadComCtrlZ = `${textoComando}\x1A`;
+      const encoder = new TextEncoder();
+      const dados = encoder.encode(payloadComCtrlZ);
+
+      if (tipoConexao === "webusb" && usbDeviceRef.current && epOutRef.current !== null) {
+        await usbDeviceRef.current.transferOut(epOutRef.current, dados);
+        adicionarLog("TX", `${textoComando} [Ctrl+Z]`);
+      } else if (tipoConexao === "webserial" && portaSerialRef.current) {
+        const writer = portaSerialRef.current.writable.getWriter();
+        await writer.write(dados);
+        writer.releaseLock();
+        adicionarLog("TX", `${textoComando} [Ctrl+Z]`);
+      }
+
+      // Aguarda resposta do modem (+CMGS: xx e OK) por até 2.5 segundos
+      await new Promise((r) => setTimeout(r, 2500));
+      return true;
+    } catch (err: any) {
+      adicionarLog("ERRO", `Falha ao transmitir SMS pelo modem: ${err.message || String(err)}`);
+      return false;
+    }
+  };
+
+  // Gravação permanente da APN na memória NVRAM do modem (sem reiniciar)
+  const gravarApnNvramModem = async () => {
+    if (!conectado) {
+      toast.error("Conecte o cabo USB antes de gravar na NVRAM.");
+      return;
+    }
+
+    adicionarLog(
+      "SISTEMA",
+      "💾 Gravando APN voxter.br e credenciais na NVRAM permanente do modem...",
+    );
+    await enviarComandoComResposta('AT+CGDCONT=1,"IP","voxter.br"', "CRLF", 1500);
+    await enviarComandoComResposta('AT+CGAUTH=1,1,"algar","1212"', "CRLF", 1500);
+    await enviarComandoComResposta("AT+CPSMS=0", "CRLF", 1000);
+    const rxNvram = await enviarComandoComResposta("AT&W", "CRLF", 2000);
+
+    if (rxNvram && rxNvram.includes("OK")) {
+      adicionarLog("SISTEMA", "✅ Perfil e APN voxter.br salvos na NVRAM (AT&W) com sucesso!");
+      toast.success("APN voxter.br gravada na memória permanente (NVRAM)!");
+    } else {
+      adicionarLog("SISTEMA", "Comando de persistência AT&W executado no modem.");
+      toast.info("Comando de persistência NVRAM executado.");
+    }
+  };
+
+  // Diagnóstico completo de registro da linha celular e rede móvel
+  const executarDiagnosticoLinhaOperadora = async () => {
+    if (!conectado) {
+      toast.error("Conecte o cabo USB antes de executar o diagnóstico.");
+      return;
+    }
+
+    adicionarLog("SISTEMA", "🔍 Iniciando diagnóstico de registro celular da linha M2M...");
+    await enviarComandoComResposta("AT+CPIN?", "CRLF", 1000);
+    await enviarComandoComResposta("AT+CSQ", "CRLF", 1000);
+    await enviarComandoComResposta("AT+COPS?", "CRLF", 1500);
+    await enviarComandoComResposta("AT+CREG?", "CRLF", 1500);
+    await enviarComandoComResposta("AT+CEREG?", "CRLF", 1500);
+    await enviarComandoComResposta("AT+CGREG?", "CRLF", 1500);
+    await enviarComandoComResposta("AT+CSCA?", "CRLF", 1500);
+    await enviarComandoComResposta("AT+CGDCONT?", "CRLF", 1500);
+    await enviarComandoComResposta("AT+CGPADDR=1", "CRLF", 1500);
+
+    adicionarLog(
+      "SISTEMA",
+      "📋 Diagnóstico concluído! Verifique os códigos no console: CREG (Voz/SMS), CEREG (Dados 4G), CSCA (Centro SMS da Operadora).",
+    );
+    toast.success("Diagnóstico da linha celular concluído. Verifique o console.");
+  };
+
+  // Consulta e leitura das mensagens SMS armazenadas no chip M2M
+  const lerSmsRecebidosModem = async () => {
+    if (!conectado) {
+      toast.error("Conecte o cabo USB antes de ler SMS.");
+      return;
+    }
+
+    adicionarLog("SISTEMA", "📬 Consultando mensagens SMS na caixa de entrada do chip M2M...");
+    await enviarComandoComResposta("AT+CMGF=1", "CRLF", 1000);
+    await enviarComandoComResposta('AT+CPMS="SM","SM","SM"', "CRLF", 1200);
+    await enviarComandoComResposta('AT+CMGL="ALL"', "CRLF", 3000);
+    toast.info("Consulta de mensagens SMS finalizada.");
+  };
+
+  // Execução completa em lote do Modo B (Parâmetros Canônicos GD)
+  const executarGravacaoModoB = async () => {
+    if (!conectado) {
+      toast.error("Conecte o cabo USB antes de executar a gravação.");
+      return;
+    }
+
+    const num = telefoneChipModoB.trim().replace(/[^\d+]/g, "");
+    if (!num) {
+      toast.error("Informe o número de telefone da linha do chip para disparo dos parâmetros.");
+      return;
+    }
+
+    setGravandoModoB(true);
+    adicionarLog(
+      "SISTEMA",
+      `🚀 [MODO B] Iniciando gravação completa dos parâmetros canônicos GD para a linha ${num}...`,
+    );
+
+    const comandosParaEnviar: { nome: string; cmd: string }[] = [];
+
+    if (padraoComandosModoB === "g900l" || padraoComandosModoB === "todos") {
+      comandosParaEnviar.push(
+        {
+          nome: "1. Servidor Primário G900L (Porta 7003)",
+          cmd: PARAMETROS_CANONICOS_SISTEMA_GD.g900l.servidor,
+        },
+        {
+          nome: "2. APN M2M voxter.br G900L",
+          cmd: PARAMETROS_CANONICOS_SISTEMA_GD.g900l.apn,
+        },
+        {
+          nome: "3. Timers Movimento 30s G900L",
+          cmd: PARAMETROS_CANONICOS_SISTEMA_GD.g900l.timerMovimento,
+        },
+        {
+          nome: "4. Heartbeat 300s G900L",
+          cmd: PARAMETROS_CANONICOS_SISTEMA_GD.g900l.heartbeat,
+        },
+        {
+          nome: "5. Fuso Horário GMT Zero G900L",
+          cmd: PARAMETROS_CANONICOS_SISTEMA_GD.g900l.fuso,
+        },
+        {
+          nome: "6. Auditoria de Parâmetros G900L",
+          cmd: PARAMETROS_CANONICOS_SISTEMA_GD.g900l.check,
+        },
+      );
+    }
+
+    if (padraoComandosModoB === "gt06" || padraoComandosModoB === "todos") {
+      comandosParaEnviar.push(
+        {
+          nome: "Servidor GT06 (167.234.233.82:7003)",
+          cmd: PARAMETROS_CANONICOS_SISTEMA_GD.gt06.servidor,
+        },
+        {
+          nome: "APN GT06 (voxter.br)",
+          cmd: PARAMETROS_CANONICOS_SISTEMA_GD.gt06.apn,
+        },
+        {
+          nome: "Timers GT06 (30s/3600s)",
+          cmd: PARAMETROS_CANONICOS_SISTEMA_GD.gt06.timers,
+        },
+        {
+          nome: "Heartbeat GT06 (300s)",
+          cmd: PARAMETROS_CANONICOS_SISTEMA_GD.gt06.heartbeat,
+        },
+        {
+          nome: "Fuso Horário GT06 (GMT 0)",
+          cmd: PARAMETROS_CANONICOS_SISTEMA_GD.gt06.fuso,
+        },
+        {
+          nome: "Consulta GT06 (PARAM#)",
+          cmd: PARAMETROS_CANONICOS_SISTEMA_GD.gt06.check,
+        },
+      );
+    }
+
+    try {
+      // 1. Grava NVRAM no modem
+      adicionarLog("SISTEMA", "💾 [MODO B] Etapa 1/2: Gravando APN voxter.br na NVRAM do modem...");
+      await gravarApnNvramModem();
+
+      // 2. Dispara SMSs
+      adicionarLog(
+        "SISTEMA",
+        `📡 [MODO B] Etapa 2/2: Disparando ${comandosParaEnviar.length} comando(s) via SMS para a MCU...`,
+      );
+
+      for (let i = 0; i < comandosParaEnviar.length; i++) {
+        if (!conectado) break;
+        const item = comandosParaEnviar[i];
+        setProgressoModoB({
+          passo: i + 1,
+          total: comandosParaEnviar.length,
+          descricao: item.nome,
+        });
+
+        await dispararSmsViaModemUsb(num, item.cmd);
+        // Intervalo entre SMSs para evitar sobrecarga no chip
+        await new Promise((r) => setTimeout(r, 1500));
+      }
+
+      adicionarLog(
+        "SISTEMA",
+        `✅ [MODO B] Gravação concluída! Parâmetros gravados no modem e transmitidos via SMS para ${num}.`,
+      );
+      toast.success("Gravação Modo B concluída com sucesso!");
+    } catch (err: any) {
+      adicionarLog("ERRO", `Erro na gravação Modo B: ${err.message || String(err)}`);
+      toast.error(`Falha no Modo B: ${err.message}`);
+    } finally {
+      setGravandoModoB(false);
+      setProgressoModoB(null);
+    }
+  };
 
   return (
     <div className="space-y-6">
@@ -2217,6 +2509,50 @@ export function AbaConfiguracaoUsb() {
       </div>
 
       {/* ─────────────────────────────────────────────────────────────────── */}
+      {/* SELETOR DE MODO DE OPERAÇÃO: MODO A (CABO USB DIRETO) vs MODO B (SMS E MCU) */}
+      {/* ─────────────────────────────────────────────────────────────────── */}
+      <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 p-2 bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/80 dark:border-slate-800 rounded-3xl shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl">
+        <div className="flex items-center gap-2 flex-wrap">
+          <button
+            type="button"
+            onClick={() => setModoOperacaoBancada("modo_a")}
+            className={`px-4 py-2.5 rounded-2xl text-xs font-black uppercase tracking-wider transition flex items-center gap-2 cursor-pointer active:scale-95 ${
+              modoOperacaoBancada === "modo_a"
+                ? "bg-slate-900 dark:bg-orange-500 text-white dark:text-slate-950 shadow-md shadow-orange-500/20"
+                : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-200/50 dark:hover:bg-slate-800"
+            }`}
+          >
+            <Usb className="h-4 w-4" />
+            <span>Modo A: Cabo USB Direto (Modem AT / Leitura Hardware)</span>
+          </button>
+
+          <button
+            type="button"
+            onClick={() => setModoOperacaoBancada("modo_b")}
+            className={`px-4 py-2.5 rounded-2xl text-xs font-black uppercase tracking-wider transition flex items-center gap-2 cursor-pointer active:scale-95 ${
+              modoOperacaoBancada === "modo_b"
+                ? "bg-gradient-to-r from-emerald-500 via-orange-500 to-emerald-600 text-slate-950 shadow-lg shadow-emerald-500/25 ring-2 ring-emerald-400/50"
+                : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-200/50 dark:hover:bg-slate-800"
+            }`}
+          >
+            <Zap
+              className={`h-4 w-4 ${modoOperacaoBancada === "modo_b" ? "fill-slate-950" : ""}`}
+            />
+            <span>Modo B: Gravação dos Parâmetros Canônicos (SMS e MCU Padrão GD)</span>
+            <span className="px-1.5 py-0.5 rounded text-[9px] font-mono font-bold bg-black/20 text-slate-950">
+              OFICIAL
+            </span>
+          </button>
+        </div>
+
+        <div className="text-[11px] font-mono font-bold text-slate-500 dark:text-slate-400 px-3 hidden lg:block">
+          {modoOperacaoBancada === "modo_a"
+            ? "Conexão física direta (Hayes AT e Leitura de Hardware)"
+            : "Gravação completa: 167.234.233.82:7003, voxter.br, Timers 30s/3600s"}
+        </div>
+      </div>
+
+      {/* ─────────────────────────────────────────────────────────────────── */}
       {/* GRID COM TERMINAL SERIAL E PAINEL DE PRESETS RÁPIDOS */}
       {/* ─────────────────────────────────────────────────────────────────── */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
@@ -2405,598 +2741,1073 @@ export function AbaConfiguracaoUsb() {
 
         {/* COLUNA DIREITA (5 COLS): PRESETS RÁPIDOS E FORMULÁRIOS DE APONTAMENTO */}
         <div className="lg:col-span-5 space-y-4">
-          {/* CARD MASTER: GRAVAÇÃO EM 1-CLIQUE DO PADRÃO CANÔNICO */}
-          <div className="bg-gradient-to-br from-emerald-500/10 via-[#eaf0f8] to-orange-500/10 dark:from-emerald-950/30 dark:via-slate-900 dark:to-orange-950/30 border-2 border-emerald-500/40 p-4 sm:p-5 rounded-3xl shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl space-y-3.5">
-            <div className="flex items-start justify-between gap-3">
-              <div className="flex items-center gap-2.5">
-                <span className="p-2 rounded-2xl bg-emerald-500 text-slate-950 shadow-md shadow-emerald-500/30 shrink-0">
-                  <Zap className="h-5 w-5 fill-slate-950" />
-                </span>
-                <div>
-                  <div className="flex items-center gap-1.5 flex-wrap">
-                    <h3 className="text-xs font-black uppercase tracking-wider text-slate-900 dark:text-slate-100">
-                      Gravar Padrão Canônico (1-Clique)
-                    </h3>
-                    <span className="px-1.5 py-0.5 rounded text-[9px] font-mono font-bold bg-orange-500/20 text-orange-700 dark:text-orange-300 border border-orange-500/40">
-                      HOMOLOGADO
+          {modoOperacaoBancada === "modo_b" ? (
+            <div className="space-y-4">
+              {/* CARD 1: PAINEL MASTER MODO B - PARÂMETROS CANÔNICOS GD */}
+              <div className="bg-gradient-to-br from-emerald-500/15 via-[#eaf0f8] to-orange-500/15 dark:from-emerald-950/40 dark:via-slate-900 dark:to-orange-950/40 border-2 border-emerald-500/50 p-5 rounded-3xl shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl space-y-4">
+                {/* Header */}
+                <div className="flex items-start justify-between gap-3">
+                  <div className="flex items-center gap-3">
+                    <span className="p-2.5 rounded-2xl bg-gradient-to-br from-emerald-500 to-orange-500 text-slate-950 shadow-md shadow-emerald-500/30 shrink-0">
+                      <Zap className="h-6 w-6 fill-slate-950" />
+                    </span>
+                    <div>
+                      <div className="flex items-center gap-2 flex-wrap">
+                        <h3 className="text-sm font-black uppercase tracking-wider text-slate-900 dark:text-slate-100">
+                          Modo B: Gravação dos Parâmetros Canônicos
+                        </h3>
+                        <span className="px-2 py-0.5 rounded text-[9px] font-mono font-bold bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 border border-emerald-500/40">
+                          PADRÃO GD OFICIAL
+                        </span>
+                      </div>
+                      <p className="text-xs text-slate-600 dark:text-slate-400 mt-1">
+                        Grava persistentemente no rastreador todos os parâmetros oficiais do GD
+                        Rastreamento via modem NVRAM e comandos de telemetria / SMS.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Tabela dos 8 Parâmetros Oficiais em Uso no Sistema */}
+                <div className="grid grid-cols-2 gap-2 bg-white/90 dark:bg-slate-950/90 p-3.5 rounded-2xl border border-orange-500/30 text-xs font-mono">
+                  <div className="space-y-0.5">
+                    <span className="text-[10px] font-bold uppercase text-slate-400 block">
+                      Servidor Primário:
+                    </span>
+                    <span className="font-bold text-orange-600 dark:text-orange-400">
+                      167.234.233.82
                     </span>
                   </div>
-                  <p className="text-[11px] text-slate-600 dark:text-slate-400 mt-0.5">
-                    Aplica em lote toda a parametrização oficial: Servidor {portaTcp}, APN {apnNome}
-                    , Timers {timerMovimento}s/{timerParado}s adaptados ao protocolo ativo.
-                  </p>
+                  <div className="space-y-0.5">
+                    <span className="text-[10px] font-bold uppercase text-slate-400 block">
+                      Porta TCP:
+                    </span>
+                    <span className="font-bold text-orange-600 dark:text-orange-400">
+                      7003 (Traccar / GD)
+                    </span>
+                  </div>
+                  <div className="space-y-0.5">
+                    <span className="text-[10px] font-bold uppercase text-slate-400 block">
+                      APN M2M:
+                    </span>
+                    <span className="font-bold text-sky-600 dark:text-sky-400">voxter.br</span>
+                  </div>
+                  <div className="space-y-0.5">
+                    <span className="text-[10px] font-bold uppercase text-slate-400 block">
+                      Autenticação APN:
+                    </span>
+                    <span className="font-bold text-sky-600 dark:text-sky-400">algar / 1212</span>
+                  </div>
+                  <div className="space-y-0.5">
+                    <span className="text-[10px] font-bold uppercase text-slate-400 block">
+                      Timer Movimento:
+                    </span>
+                    <span className="font-bold text-purple-600 dark:text-purple-400">
+                      30 segundos
+                    </span>
+                  </div>
+                  <div className="space-y-0.5">
+                    <span className="text-[10px] font-bold uppercase text-slate-400 block">
+                      Timer Parado:
+                    </span>
+                    <span className="font-bold text-purple-600 dark:text-purple-400">
+                      3600s (1 hora)
+                    </span>
+                  </div>
+                  <div className="space-y-0.5">
+                    <span className="text-[10px] font-bold uppercase text-slate-400 block">
+                      Heartbeat (HBT):
+                    </span>
+                    <span className="font-bold text-emerald-600 dark:text-emerald-400">
+                      300 segundos
+                    </span>
+                  </div>
+                  <div className="space-y-0.5">
+                    <span className="text-[10px] font-bold uppercase text-slate-400 block">
+                      Fuso Horário:
+                    </span>
+                    <span className="font-bold text-amber-600 dark:text-amber-400">
+                      GMT 0 (Zero / UTC)
+                    </span>
+                  </div>
                 </div>
-              </div>
 
-              <button
-                type="button"
-                onClick={restaurarCamposPadraoCanonico}
-                className="px-2 py-1 rounded-xl text-[10px] font-bold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 bg-white/80 dark:bg-slate-800 border border-slate-300/80 dark:border-slate-700 transition cursor-pointer active:scale-95 shrink-0"
-                title="Restaura todos os campos abaixo para os valores canônicos oficiais"
-              >
-                Restaurar Padrão
-              </button>
-            </div>
-
-            {/* Seletor Manual e Governança da Família de Protocolo */}
-            <div className="p-2.5 rounded-2xl bg-white/80 dark:bg-slate-950/80 border border-orange-500/30 space-y-2">
-              <div className="flex items-center justify-between gap-2 flex-wrap">
-                <div className="flex items-center gap-2">
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400">
-                    Protocolo em Uso:
-                  </span>
-                  <select
-                    value={familiaProtocolo}
-                    onChange={(e) => alternarFamiliaProtocolo(e.target.value as FamiliaProtocolo)}
-                    className="bg-transparent text-xs font-bold text-orange-700 dark:text-orange-300 focus:outline-hidden cursor-pointer"
-                  >
-                    <option value="concox_wanway">WanWay / Concox (GT06 - Hash #)</option>
-                    <option value="g900l">G900L / A76XX (Secumore / Cantrack 4G LTE)</option>
-                    <option value="modem_at">Modem Celular AT (Hayes - CRLF)</option>
-                    <option value="coban_tk">Coban / TK (TK103 - CRLF)</option>
-                  </select>
-                </div>
-                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-orange-500/20 text-orange-700 dark:text-orange-300 font-bold border border-orange-500/30 shrink-0">
-                  {protocoloAtivoDef.badge}
-                </span>
-              </div>
-
-              {/* Botões Rápidos de Troca de Modelo de Rastreador */}
-              <div className="flex items-center gap-1.5 flex-wrap pt-1 border-t border-slate-200/60 dark:border-slate-800">
-                <span className="text-[9px] font-bold uppercase text-slate-400 mr-0.5">
-                  Modelo:
-                </span>
-                <button
-                  type="button"
-                  onClick={() => alternarFamiliaProtocolo("concox_wanway")}
-                  className={`px-2 py-0.5 rounded-lg text-[10px] font-bold transition cursor-pointer ${
-                    familiaProtocolo === "concox_wanway"
-                      ? "bg-orange-500 text-slate-950 shadow-xs"
-                      : "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200"
-                  }`}
-                >
-                  J16 4G (GT06)
-                </button>
-                <button
-                  type="button"
-                  onClick={() => alternarFamiliaProtocolo("g900l")}
-                  className={`px-2 py-0.5 rounded-lg text-[10px] font-bold transition cursor-pointer ${
-                    familiaProtocolo === "g900l"
-                      ? "bg-orange-500 text-slate-950 shadow-xs"
-                      : "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200"
-                  }`}
-                >
-                  G900L 4G LTE
-                </button>
-                <button
-                  type="button"
-                  onClick={() => alternarFamiliaProtocolo("modem_at")}
-                  className={`px-2 py-0.5 rounded-lg text-[10px] font-bold transition cursor-pointer ${
-                    familiaProtocolo === "modem_at"
-                      ? "bg-orange-500 text-slate-950 shadow-xs"
-                      : "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200"
-                  }`}
-                >
-                  Modem AT
-                </button>
-                <button
-                  type="button"
-                  onClick={() => alternarFamiliaProtocolo("coban_tk")}
-                  className={`px-2 py-0.5 rounded-lg text-[10px] font-bold transition cursor-pointer ${
-                    familiaProtocolo === "coban_tk"
-                      ? "bg-orange-500 text-slate-950 shadow-xs"
-                      : "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200"
-                  }`}
-                >
-                  Coban / TK
-                </button>
-              </div>
-            </div>
-
-            {/* Barra de Progresso durante a gravação */}
-            {gravandoPadraoCanonico && progressoCanonico && (
-              <div className="space-y-1.5 bg-white/90 dark:bg-slate-950/80 p-3 rounded-2xl border border-orange-500/30">
-                <div className="flex items-center justify-between text-[11px] font-mono">
-                  <span className="text-orange-700 dark:text-orange-400 font-bold flex items-center gap-1.5">
-                    <RefreshCw className="h-3 w-3 animate-spin text-orange-500" />
-                    <span>{progressoCanonico.descricao}</span>
-                  </span>
-                  <span className="text-slate-500">
-                    {progressoCanonico.passo} / {progressoCanonico.total}
-                  </span>
-                </div>
-                <div className="w-full bg-slate-200 dark:bg-slate-800 h-2 rounded-full overflow-hidden">
-                  <div
-                    className="bg-orange-500 h-full transition-all duration-300"
-                    style={{
-                      width: `${(progressoCanonico.passo / progressoCanonico.total) * 100}%`,
-                    }}
-                  />
-                </div>
-              </div>
-            )}
-
-            <button
-              type="button"
-              onClick={gravarPadraoCanonicoCompleto}
-              disabled={!conectado || gravandoPadraoCanonico}
-              className="w-full py-3 rounded-2xl bg-gradient-to-r from-emerald-500 via-orange-500 to-emerald-600 hover:from-emerald-400 hover:to-orange-400 text-slate-950 font-black text-xs uppercase tracking-wider transition flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 active:scale-95 shadow-lg shadow-emerald-500/25"
-            >
-              <Zap className="h-4 w-4 fill-slate-950" />
-              <span>
-                {gravandoPadraoCanonico
-                  ? `Gravando ${protocoloAtivoDef.nome}...`
-                  : protocoloAtivoDef.suportaServidorViaSerial === false
-                    ? "Configurar Modem LTE via USB AT (APN e Energia)"
-                    : `Gravar Padrão ${protocoloAtivoDef.nome} via USB (1-Clique)`}
-              </span>
-            </button>
-
-            {protocoloAtivoDef.suportaServidorViaSerial === false && (
-              <div className="p-3 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-[11px] text-amber-900 dark:text-amber-200 space-y-2">
-                <p className="leading-snug">
-                  <strong>Aviso de Arquitetura J16 4G:</strong> O cabo USB direto acessa apenas a
-                  interface AT do modem SIMCom (APN, IMEI, ICCID e sinal 4G). Parâmetros da placa
-                  MCU (Servidor, Timers, Curva, Sono e Ignição) devem ser gravados via{" "}
-                  <strong>Gateway TCP</strong> (com 12V ligado) ou adaptador{" "}
-                  <strong>USB-TTL</strong>.
-                </p>
-                {dadosBancada.imei && (
-                  <div className="flex gap-2">
-                    <button
-                      type="button"
-                      onClick={gravarPadraoCanonicoViaGatewayTcp}
-                      disabled={gravandoViaGatewayTcp}
-                      className="flex-1 py-2 px-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-[11px] uppercase tracking-wider transition flex items-center justify-center gap-1.5 cursor-pointer disabled:opacity-50 active:scale-95"
-                    >
-                      <Radio
-                        className={`h-3.5 w-3.5 ${gravandoViaGatewayTcp ? "animate-spin" : ""}`}
-                      />
-                      <span>
-                        {gravandoViaGatewayTcp
-                          ? `Enviando Lote GT06 para ${dadosBancada.imei}...`
-                          : `Gravar Padrão GT06 Completo via Gateway TCP (IMEI ${dadosBancada.imei})`}
-                      </span>
-                    </button>
-                    {gravandoViaGatewayTcp && (
+                {/* Campo Telefone do Chip M2M */}
+                <div className="p-3 bg-white/80 dark:bg-slate-950/80 rounded-2xl border border-slate-300/80 dark:border-slate-800 space-y-2">
+                  <div className="flex items-center justify-between gap-2 flex-wrap">
+                    <label className="text-xs font-bold text-slate-800 dark:text-slate-200 flex items-center gap-1.5">
+                      <Smartphone className="h-4 w-4 text-orange-500" />
+                      <span>Número da Linha do Chip M2M de Bancada:</span>
+                    </label>
+                    {dadosBancada.linha && dadosBancada.linha !== telefoneChipModoB && (
                       <button
                         type="button"
-                        onClick={() => {
-                          abortGatewayTcpRef.current = true;
-                          adicionarLog("SISTEMA", "Solicitado cancelamento do Gateway TCP...");
-                        }}
-                        className="py-2 px-3 rounded-xl bg-rose-500 hover:bg-rose-400 text-white font-bold text-[11px] uppercase transition cursor-pointer"
+                        onClick={() => setTelefoneChipModoB(dadosBancada.linha!)}
+                        className="text-[10px] font-bold text-orange-600 dark:text-orange-400 hover:underline cursor-pointer"
                       >
-                        Cancelar
+                        Usar {dadosBancada.linha} (do Estoque)
                       </button>
+                    )}
+                  </div>
+
+                  <div className="flex items-center gap-2">
+                    <input
+                      type="text"
+                      value={telefoneChipModoB}
+                      onChange={(e) => setTelefoneChipModoB(e.target.value)}
+                      placeholder="Ex: 5516999407571"
+                      className="flex-1 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-xl px-3 py-2 text-xs font-mono font-bold text-slate-800 dark:text-slate-100 focus:outline-hidden focus:border-orange-500"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setTelefoneChipModoB("5516999407571")}
+                      className="px-2.5 py-2 rounded-xl text-[10px] font-bold bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 text-slate-700 dark:text-slate-300 transition cursor-pointer"
+                      title="Preencher linha de bancada homologada"
+                    >
+                      Padrão
+                    </button>
+                  </div>
+                </div>
+
+                {/* Seletor de Dialeto */}
+                <div className="p-3 bg-white/80 dark:bg-slate-950/80 rounded-2xl border border-slate-300/80 dark:border-slate-800 space-y-1.5">
+                  <label className="text-[10px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 block">
+                    Dialeto de Comandos do Rastreador:
+                  </label>
+                  <div className="grid grid-cols-2 gap-1.5">
+                    <button
+                      type="button"
+                      onClick={() => setPadraoComandosModoB("g900l")}
+                      className={`px-2.5 py-2 rounded-xl text-[11px] font-bold text-left transition cursor-pointer border ${
+                        padraoComandosModoB === "g900l"
+                          ? "bg-orange-500/20 text-orange-700 dark:text-orange-300 border-orange-500/50 shadow-xs"
+                          : "bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 border-transparent hover:bg-slate-200"
+                      }`}
+                    >
+                      <div className="font-mono font-black">G900L / Cantrack</div>
+                      <div className="text-[9px] opacity-75">adminip123456 / check123456</div>
+                    </button>
+
+                    <button
+                      type="button"
+                      onClick={() => setPadraoComandosModoB("gt06")}
+                      className={`px-2.5 py-2 rounded-xl text-[11px] font-bold text-left transition cursor-pointer border ${
+                        padraoComandosModoB === "gt06"
+                          ? "bg-orange-500/20 text-orange-700 dark:text-orange-300 border-orange-500/50 shadow-xs"
+                          : "bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 border-transparent hover:bg-slate-200"
+                      }`}
+                    >
+                      <div className="font-mono font-black">WanWay / Concox (GT06)</div>
+                      <div className="text-[9px] opacity-75">SERVER,0,...# / PARAM#</div>
+                    </button>
+                  </div>
+                </div>
+
+                {/* Barra de Progresso durante gravação Modo B */}
+                {gravandoModoB && progressoModoB && (
+                  <div className="space-y-1.5 bg-white/95 dark:bg-slate-950 p-3 rounded-2xl border border-orange-500/40">
+                    <div className="flex items-center justify-between text-[11px] font-mono">
+                      <span className="text-orange-600 dark:text-orange-400 font-bold flex items-center gap-1.5">
+                        <RefreshCw className="h-3.5 w-3.5 animate-spin text-orange-500" />
+                        <span>{progressoModoB.descricao}</span>
+                      </span>
+                      <span className="text-slate-500">
+                        {progressoModoB.passo} / {progressoModoB.total}
+                      </span>
+                    </div>
+                    <div className="w-full bg-slate-200 dark:bg-slate-800 h-2 rounded-full overflow-hidden">
+                      <div
+                        className="bg-gradient-to-r from-emerald-500 to-orange-500 h-full transition-all duration-300"
+                        style={{
+                          width: `${(progressoModoB.passo / progressoModoB.total) * 100}%`,
+                        }}
+                      />
+                    </div>
+                  </div>
+                )}
+
+                {/* Botão Mestre Modo B */}
+                <button
+                  type="button"
+                  onClick={executarGravacaoModoB}
+                  disabled={!conectado || gravandoModoB}
+                  className="w-full py-3.5 rounded-2xl bg-gradient-to-r from-emerald-500 via-orange-500 to-emerald-600 hover:from-emerald-400 hover:to-orange-400 text-slate-950 font-black text-xs uppercase tracking-wider transition flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 active:scale-95 shadow-lg shadow-emerald-500/25"
+                >
+                  <Zap className="h-4 w-4 fill-slate-950" />
+                  <span>
+                    {gravandoModoB
+                      ? "Transmitindo Parâmetros GD via Modo B..."
+                      : "Gravar Padrão GD Completo no Rastreador (Modo B - 1-Clique)"}
+                  </span>
+                </button>
+
+                {/* Ações Auxiliares: NVRAM, Diagnóstico de Rede e Leitura SMS */}
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 pt-1 border-t border-slate-300/60 dark:border-slate-800">
+                  <button
+                    type="button"
+                    onClick={gravarApnNvramModem}
+                    disabled={!conectado}
+                    className="py-2 px-2.5 rounded-xl text-[10px] font-bold bg-sky-500/10 hover:bg-sky-500/20 text-sky-700 dark:text-sky-300 border border-sky-500/30 transition flex items-center justify-center gap-1 cursor-pointer disabled:opacity-50 active:scale-95"
+                    title="Grava a APN voxter.br na memória não-volátil do modem sem reiniciar o módulo"
+                  >
+                    <Database className="h-3.5 w-3.5" />
+                    <span>Salvar NVRAM (AT&W)</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={executarDiagnosticoLinhaOperadora}
+                    disabled={!conectado}
+                    className="py-2 px-2.5 rounded-xl text-[10px] font-bold bg-amber-500/10 hover:bg-amber-500/20 text-amber-700 dark:text-amber-300 border border-amber-500/30 transition flex items-center justify-center gap-1 cursor-pointer disabled:opacity-50 active:scale-95"
+                    title="Consulta status de registro celular (CREG, CEREG, sinal e centro SMSC)"
+                  >
+                    <Radio className="h-3.5 w-3.5" />
+                    <span>Diagnosticar Linha</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={lerSmsRecebidosModem}
+                    disabled={!conectado}
+                    className="py-2 px-2.5 rounded-xl text-[10px] font-bold bg-purple-500/10 hover:bg-purple-500/20 text-purple-700 dark:text-purple-300 border border-purple-500/30 transition flex items-center justify-center gap-1 cursor-pointer disabled:opacity-50 active:scale-95"
+                    title="Lê mensagens SMS na caixa de entrada do chip SIM"
+                  >
+                    <Inbox className="h-3.5 w-3.5" />
+                    <span>Ler SMS Recebidos</span>
+                  </button>
+                </div>
+              </div>
+
+              {/* CARD 2: DISPARO MOBILE 1-CLIQUE E WHATSAPP */}
+              <div className="bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 p-5 rounded-3xl shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl space-y-3.5">
+                <div className="flex items-center justify-between gap-2 flex-wrap">
+                  <div className="flex items-center gap-2">
+                    <span className="p-1.5 rounded-xl bg-orange-500/10 text-orange-500">
+                      <Smartphone className="h-4 w-4" />
+                    </span>
+                    <div>
+                      <h3 className="text-xs font-black uppercase tracking-wider text-slate-900 dark:text-slate-100">
+                        Comandos Canônicos para Disparo via Celular
+                      </h3>
+                      <p className="text-[11px] text-slate-500 dark:text-slate-400">
+                        Links com a sintaxe exata prontos para envio de qualquer smartphone
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-1.5">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        const pacote =
+                          padraoComandosModoB === "g900l"
+                            ? [
+                                PARAMETROS_CANONICOS_SISTEMA_GD.g900l.servidor,
+                                PARAMETROS_CANONICOS_SISTEMA_GD.g900l.apn,
+                                PARAMETROS_CANONICOS_SISTEMA_GD.g900l.timerMovimento,
+                                PARAMETROS_CANONICOS_SISTEMA_GD.g900l.heartbeat,
+                                PARAMETROS_CANONICOS_SISTEMA_GD.g900l.fuso,
+                                PARAMETROS_CANONICOS_SISTEMA_GD.g900l.check,
+                              ].join("\n")
+                            : [
+                                PARAMETROS_CANONICOS_SISTEMA_GD.gt06.servidor,
+                                PARAMETROS_CANONICOS_SISTEMA_GD.gt06.apn,
+                                PARAMETROS_CANONICOS_SISTEMA_GD.gt06.timers,
+                                PARAMETROS_CANONICOS_SISTEMA_GD.gt06.heartbeat,
+                                PARAMETROS_CANONICOS_SISTEMA_GD.gt06.fuso,
+                                PARAMETROS_CANONICOS_SISTEMA_GD.gt06.check,
+                              ].join("\n");
+                        copiarComandoTexto("pacote_completo", pacote);
+                      }}
+                      className="px-2.5 py-1.5 rounded-xl text-[10px] font-bold bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:bg-slate-100 transition flex items-center gap-1 cursor-pointer active:scale-95"
+                    >
+                      {copiadoComandoId === "pacote_completo" ? (
+                        <Check className="h-3 w-3 text-emerald-500" />
+                      ) : (
+                        <Copy className="h-3 w-3" />
+                      )}
+                      <span>Copiar Lote</span>
+                    </button>
+
+                    <a
+                      href={`https://wa.me/?text=${encodeURIComponent(
+                        `*Comandos Canônicos GD Rastreamento (Linha: ${telefoneChipModoB})*\n\n` +
+                          (padraoComandosModoB === "g900l"
+                            ? [
+                                `1. Servidor:\n${PARAMETROS_CANONICOS_SISTEMA_GD.g900l.servidor}`,
+                                `2. APN:\n${PARAMETROS_CANONICOS_SISTEMA_GD.g900l.apn}`,
+                                `3. Timers:\n${PARAMETROS_CANONICOS_SISTEMA_GD.g900l.timerMovimento}`,
+                                `4. Heartbeat:\n${PARAMETROS_CANONICOS_SISTEMA_GD.g900l.heartbeat}`,
+                                `5. Consulta:\n${PARAMETROS_CANONICOS_SISTEMA_GD.g900l.check}`,
+                              ].join("\n\n")
+                            : [
+                                `1. Servidor:\n${PARAMETROS_CANONICOS_SISTEMA_GD.gt06.servidor}`,
+                                `2. APN:\n${PARAMETROS_CANONICOS_SISTEMA_GD.gt06.apn}`,
+                                `3. Timers:\n${PARAMETROS_CANONICOS_SISTEMA_GD.gt06.timers}`,
+                                `4. Heartbeat:\n${PARAMETROS_CANONICOS_SISTEMA_GD.gt06.heartbeat}`,
+                                `5. Consulta:\n${PARAMETROS_CANONICOS_SISTEMA_GD.gt06.check}`,
+                              ].join("\n\n")),
+                      )}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-2.5 py-1.5 rounded-xl text-[10px] font-bold bg-emerald-500 hover:bg-emerald-400 text-slate-950 transition flex items-center gap-1 cursor-pointer active:scale-95 shadow-xs"
+                    >
+                      <MessageSquare className="h-3 w-3" />
+                      <span>WhatsApp</span>
+                    </a>
+                  </div>
+                </div>
+
+                {/* Lista de Comandos com Botão de 1 Toque */}
+                <div className="space-y-2">
+                  {(padraoComandosModoB === "g900l"
+                    ? [
+                        {
+                          id: "srv",
+                          label: "1. Servidor Primário",
+                          cmd: PARAMETROS_CANONICOS_SISTEMA_GD.g900l.servidor,
+                          desc: "Aponta IP 167.234.233.82 e porta 7003",
+                        },
+                        {
+                          id: "apn",
+                          label: "2. APN M2M",
+                          cmd: PARAMETROS_CANONICOS_SISTEMA_GD.g900l.apn,
+                          desc: "voxter.br com usuário algar e senha 1212",
+                        },
+                        {
+                          id: "tim",
+                          label: "3. Timers Movimento",
+                          cmd: PARAMETROS_CANONICOS_SISTEMA_GD.g900l.timerMovimento,
+                          desc: "Transmissão a cada 30 segundos em movimento",
+                        },
+                        {
+                          id: "hbt",
+                          label: "4. Heartbeat",
+                          cmd: PARAMETROS_CANONICOS_SISTEMA_GD.g900l.heartbeat,
+                          desc: "Sinal de vida a cada 300 segundos (5 min)",
+                        },
+                        {
+                          id: "chk",
+                          label: "5. Auditoria de Parâmetros",
+                          cmd: PARAMETROS_CANONICOS_SISTEMA_GD.g900l.check,
+                          desc: "Retorna IP, porta, APN e status salvos",
+                        },
+                      ]
+                    : [
+                        {
+                          id: "srv_gt",
+                          label: "1. Servidor GT06",
+                          cmd: PARAMETROS_CANONICOS_SISTEMA_GD.gt06.servidor,
+                          desc: "Aponta IP 167.234.233.82 e porta 7003",
+                        },
+                        {
+                          id: "apn_gt",
+                          label: "2. APN GT06",
+                          cmd: PARAMETROS_CANONICOS_SISTEMA_GD.gt06.apn,
+                          desc: "APN,voxter.br,algar,1212#",
+                        },
+                        {
+                          id: "tim_gt",
+                          label: "3. Timers GT06",
+                          cmd: PARAMETROS_CANONICOS_SISTEMA_GD.gt06.timers,
+                          desc: "TIMER,30,3600# (30s andando / 1h parado)",
+                        },
+                        {
+                          id: "hbt_gt",
+                          label: "4. Heartbeat GT06",
+                          cmd: PARAMETROS_CANONICOS_SISTEMA_GD.gt06.heartbeat,
+                          desc: "HBT,300,300#",
+                        },
+                        {
+                          id: "chk_gt",
+                          label: "5. Auditoria GT06",
+                          cmd: PARAMETROS_CANONICOS_SISTEMA_GD.gt06.check,
+                          desc: "PARAM# (Consulta parâmetros da placa)",
+                        },
+                      ]
+                  ).map((item) => {
+                    const numLimpo = telefoneChipModoB.replace(/\D/g, "");
+                    const linkSms = `sms:${numLimpo}?body=${encodeURIComponent(item.cmd)}`;
+
+                    return (
+                      <div
+                        key={item.id}
+                        className="p-2.5 rounded-2xl bg-white/90 dark:bg-slate-950/90 border border-slate-200 dark:border-slate-800 flex items-center justify-between gap-2"
+                      >
+                        <div className="min-w-0 flex-1">
+                          <div className="flex items-center gap-1.5">
+                            <span className="text-[11px] font-black text-slate-800 dark:text-slate-200 truncate">
+                              {item.label}
+                            </span>
+                          </div>
+                          <code className="text-xs font-mono font-bold text-orange-600 dark:text-orange-400 block truncate mt-0.5">
+                            {item.cmd}
+                          </code>
+                        </div>
+
+                        <div className="flex items-center gap-1 shrink-0">
+                          <button
+                            type="button"
+                            onClick={() => copiarComandoTexto(item.id, item.cmd)}
+                            className="p-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 text-slate-600 dark:text-slate-300 transition cursor-pointer"
+                            title="Copiar comando"
+                          >
+                            {copiadoComandoId === item.id ? (
+                              <Check className="h-3.5 w-3.5 text-emerald-500" />
+                            ) : (
+                              <Copy className="h-3.5 w-3.5" />
+                            )}
+                          </button>
+
+                          <a
+                            href={linkSms}
+                            className="px-2.5 py-1.5 rounded-xl text-[10px] font-bold bg-orange-500 hover:bg-orange-400 text-slate-950 transition flex items-center gap-1 cursor-pointer active:scale-95 shadow-xs"
+                            title="Disparar SMS pelo aplicativo nativo de mensagens"
+                          >
+                            <Send className="h-3 w-3" />
+                            <span>Enviar SMS</span>
+                          </a>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* CARD 3: ORIENTAÇÃO TÉCNICA E CAUSA RAIZ */}
+              <div className="p-4 rounded-3xl bg-amber-500/10 border border-amber-500/30 text-amber-900 dark:text-amber-200 text-xs space-y-2">
+                <div className="flex items-center gap-2 font-bold uppercase tracking-wider text-[11px]">
+                  <AlertTriangle className="h-4 w-4 text-amber-600 dark:text-amber-400 shrink-0" />
+                  <span>Esclarecimento Técnico: Registro da Linha e Dialeto G900L</span>
+                </div>
+                <p className="leading-relaxed opacity-95">
+                  <strong>1. Registro na Operadora:</strong> Se o suporte da operadora informou que
+                  as linhas estão sem registro de rede, o chip M2M ainda não tem provisionamento
+                  ativo no HLR/HSS. Nessa condição, o chip não recebe nem responde SMS. Use o botão{" "}
+                  <strong>Diagnosticar Linha</strong> para acompanhar quando o registro passar para
+                  ativo.
+                </p>
+                <p className="leading-relaxed opacity-95">
+                  <strong>2. Sintaxe da Placa G900L:</strong> O G900L utiliza o firmware
+                  Secumore/Cantrack com senha de fábrica <strong>123456</strong> (
+                  <code className="text-amber-700 dark:text-amber-300 font-bold">
+                    adminip123456 167.234.233.82 7003
+                  </code>
+                  ). O envio de comandos no formato Concox (
+                  <code className="opacity-80">SERVER,0,...#</code>) é descartado pelo firmware do
+                  G900L.
+                </p>
+              </div>
+            </div>
+          ) : (
+            <>
+              {/* CARD MASTER: GRAVAÇÃO EM 1-CLIQUE DO PADRÃO CANÔNICO */}
+              <div className="bg-gradient-to-br from-emerald-500/10 via-[#eaf0f8] to-orange-500/10 dark:from-emerald-950/30 dark:via-slate-900 dark:to-orange-950/30 border-2 border-emerald-500/40 p-4 sm:p-5 rounded-3xl shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl space-y-3.5">
+                <div className="flex items-start justify-between gap-3">
+                  <div className="flex items-center gap-2.5">
+                    <span className="p-2 rounded-2xl bg-emerald-500 text-slate-950 shadow-md shadow-emerald-500/30 shrink-0">
+                      <Zap className="h-5 w-5 fill-slate-950" />
+                    </span>
+                    <div>
+                      <div className="flex items-center gap-1.5 flex-wrap">
+                        <h3 className="text-xs font-black uppercase tracking-wider text-slate-900 dark:text-slate-100">
+                          Gravar Padrão Canônico (1-Clique)
+                        </h3>
+                        <span className="px-1.5 py-0.5 rounded text-[9px] font-mono font-bold bg-orange-500/20 text-orange-700 dark:text-orange-300 border border-orange-500/40">
+                          HOMOLOGADO
+                        </span>
+                      </div>
+                      <p className="text-[11px] text-slate-600 dark:text-slate-400 mt-0.5">
+                        Aplica em lote toda a parametrização oficial: Servidor {portaTcp}, APN{" "}
+                        {apnNome}, Timers {timerMovimento}s/{timerParado}s adaptados ao protocolo
+                        ativo.
+                      </p>
+                    </div>
+                  </div>
+
+                  <button
+                    type="button"
+                    onClick={restaurarCamposPadraoCanonico}
+                    className="px-2 py-1 rounded-xl text-[10px] font-bold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 bg-white/80 dark:bg-slate-800 border border-slate-300/80 dark:border-slate-700 transition cursor-pointer active:scale-95 shrink-0"
+                    title="Restaura todos os campos abaixo para os valores canônicos oficiais"
+                  >
+                    Restaurar Padrão
+                  </button>
+                </div>
+
+                {/* Seletor Manual e Governança da Família de Protocolo */}
+                <div className="p-2.5 rounded-2xl bg-white/80 dark:bg-slate-950/80 border border-orange-500/30 space-y-2">
+                  <div className="flex items-center justify-between gap-2 flex-wrap">
+                    <div className="flex items-center gap-2">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400">
+                        Protocolo em Uso:
+                      </span>
+                      <select
+                        value={familiaProtocolo}
+                        onChange={(e) =>
+                          alternarFamiliaProtocolo(e.target.value as FamiliaProtocolo)
+                        }
+                        className="bg-transparent text-xs font-bold text-orange-700 dark:text-orange-300 focus:outline-hidden cursor-pointer"
+                      >
+                        <option value="concox_wanway">WanWay / Concox (GT06 - Hash #)</option>
+                        <option value="g900l">G900L / A76XX (Secumore / Cantrack 4G LTE)</option>
+                        <option value="modem_at">Modem Celular AT (Hayes - CRLF)</option>
+                        <option value="coban_tk">Coban / TK (TK103 - CRLF)</option>
+                      </select>
+                    </div>
+                    <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-orange-500/20 text-orange-700 dark:text-orange-300 font-bold border border-orange-500/30 shrink-0">
+                      {protocoloAtivoDef.badge}
+                    </span>
+                  </div>
+
+                  {/* Botões Rápidos de Troca de Modelo de Rastreador */}
+                  <div className="flex items-center gap-1.5 flex-wrap pt-1 border-t border-slate-200/60 dark:border-slate-800">
+                    <span className="text-[9px] font-bold uppercase text-slate-400 mr-0.5">
+                      Modelo:
+                    </span>
+                    <button
+                      type="button"
+                      onClick={() => alternarFamiliaProtocolo("concox_wanway")}
+                      className={`px-2 py-0.5 rounded-lg text-[10px] font-bold transition cursor-pointer ${
+                        familiaProtocolo === "concox_wanway"
+                          ? "bg-orange-500 text-slate-950 shadow-xs"
+                          : "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200"
+                      }`}
+                    >
+                      J16 4G (GT06)
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => alternarFamiliaProtocolo("g900l")}
+                      className={`px-2 py-0.5 rounded-lg text-[10px] font-bold transition cursor-pointer ${
+                        familiaProtocolo === "g900l"
+                          ? "bg-orange-500 text-slate-950 shadow-xs"
+                          : "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200"
+                      }`}
+                    >
+                      G900L 4G LTE
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => alternarFamiliaProtocolo("modem_at")}
+                      className={`px-2 py-0.5 rounded-lg text-[10px] font-bold transition cursor-pointer ${
+                        familiaProtocolo === "modem_at"
+                          ? "bg-orange-500 text-slate-950 shadow-xs"
+                          : "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200"
+                      }`}
+                    >
+                      Modem AT
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => alternarFamiliaProtocolo("coban_tk")}
+                      className={`px-2 py-0.5 rounded-lg text-[10px] font-bold transition cursor-pointer ${
+                        familiaProtocolo === "coban_tk"
+                          ? "bg-orange-500 text-slate-950 shadow-xs"
+                          : "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200"
+                      }`}
+                    >
+                      Coban / TK
+                    </button>
+                  </div>
+                </div>
+
+                {/* Barra de Progresso durante a gravação */}
+                {gravandoPadraoCanonico && progressoCanonico && (
+                  <div className="space-y-1.5 bg-white/90 dark:bg-slate-950/80 p-3 rounded-2xl border border-orange-500/30">
+                    <div className="flex items-center justify-between text-[11px] font-mono">
+                      <span className="text-orange-700 dark:text-orange-400 font-bold flex items-center gap-1.5">
+                        <RefreshCw className="h-3 w-3 animate-spin text-orange-500" />
+                        <span>{progressoCanonico.descricao}</span>
+                      </span>
+                      <span className="text-slate-500">
+                        {progressoCanonico.passo} / {progressoCanonico.total}
+                      </span>
+                    </div>
+                    <div className="w-full bg-slate-200 dark:bg-slate-800 h-2 rounded-full overflow-hidden">
+                      <div
+                        className="bg-orange-500 h-full transition-all duration-300"
+                        style={{
+                          width: `${(progressoCanonico.passo / progressoCanonico.total) * 100}%`,
+                        }}
+                      />
+                    </div>
+                  </div>
+                )}
+
+                <button
+                  type="button"
+                  onClick={gravarPadraoCanonicoCompleto}
+                  disabled={!conectado || gravandoPadraoCanonico}
+                  className="w-full py-3 rounded-2xl bg-gradient-to-r from-emerald-500 via-orange-500 to-emerald-600 hover:from-emerald-400 hover:to-orange-400 text-slate-950 font-black text-xs uppercase tracking-wider transition flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 active:scale-95 shadow-lg shadow-emerald-500/25"
+                >
+                  <Zap className="h-4 w-4 fill-slate-950" />
+                  <span>
+                    {gravandoPadraoCanonico
+                      ? `Gravando ${protocoloAtivoDef.nome}...`
+                      : protocoloAtivoDef.suportaServidorViaSerial === false
+                        ? "Configurar Modem LTE via USB AT (APN e Energia)"
+                        : `Gravar Padrão ${protocoloAtivoDef.nome} via USB (1-Clique)`}
+                  </span>
+                </button>
+
+                {protocoloAtivoDef.suportaServidorViaSerial === false && (
+                  <div className="p-3 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-[11px] text-amber-900 dark:text-amber-200 space-y-2">
+                    <p className="leading-snug">
+                      <strong>Aviso de Arquitetura J16 4G:</strong> O cabo USB direto acessa apenas
+                      a interface AT do modem SIMCom (APN, IMEI, ICCID e sinal 4G). Parâmetros da
+                      placa MCU (Servidor, Timers, Curva, Sono e Ignição) devem ser gravados via{" "}
+                      <strong>Gateway TCP</strong> (com 12V ligado) ou adaptador{" "}
+                      <strong>USB-TTL</strong>.
+                    </p>
+                    {dadosBancada.imei && (
+                      <div className="flex gap-2">
+                        <button
+                          type="button"
+                          onClick={gravarPadraoCanonicoViaGatewayTcp}
+                          disabled={gravandoViaGatewayTcp}
+                          className="flex-1 py-2 px-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-[11px] uppercase tracking-wider transition flex items-center justify-center gap-1.5 cursor-pointer disabled:opacity-50 active:scale-95"
+                        >
+                          <Radio
+                            className={`h-3.5 w-3.5 ${gravandoViaGatewayTcp ? "animate-spin" : ""}`}
+                          />
+                          <span>
+                            {gravandoViaGatewayTcp
+                              ? `Enviando Lote GT06 para ${dadosBancada.imei}...`
+                              : `Gravar Padrão GT06 Completo via Gateway TCP (IMEI ${dadosBancada.imei})`}
+                          </span>
+                        </button>
+                        {gravandoViaGatewayTcp && (
+                          <button
+                            type="button"
+                            onClick={() => {
+                              abortGatewayTcpRef.current = true;
+                              adicionarLog("SISTEMA", "Solicitado cancelamento do Gateway TCP...");
+                            }}
+                            className="py-2 px-3 rounded-xl bg-rose-500 hover:bg-rose-400 text-white font-bold text-[11px] uppercase transition cursor-pointer"
+                          >
+                            Cancelar
+                          </button>
+                        )}
+                      </div>
                     )}
                   </div>
                 )}
               </div>
-            )}
-          </div>
 
-          {/* GRUPO 1: RESGATE E APONTAMENTO PARA O SERVIDOR GD RASTREAMENTO */}
-          <div className="bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 p-4 sm:p-5 rounded-3xl shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl space-y-3">
-            <div className="flex items-center gap-2">
-              <span className="p-1.5 rounded-lg bg-orange-500/10 text-orange-500">
-                <Wifi className="h-4 w-4" />
-              </span>
-              <div>
-                <h3 className="text-xs font-black uppercase tracking-wider text-slate-900 dark:text-slate-100">
-                  1. Apontar Servidor do GD Rastreamento
-                </h3>
-                <p className="text-[11px] text-slate-500 dark:text-slate-400">
-                  Direciona o rastreador de outro servidor para a infraestrutura do GD Rastreamento
-                </p>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-2 gap-2">
-              <div className="col-span-2">
-                <label className="text-[10px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 block mb-1">
-                  Servidor DNS / Domínio
-                </label>
-                <input
-                  type="text"
-                  value={servidorDns}
-                  onChange={(e) => setServidorDns(e.target.value)}
-                  className="w-full bg-white dark:bg-slate-950 border border-slate-300/80 dark:border-slate-800 rounded-xl px-3 py-1.5 text-xs font-mono font-bold text-slate-800 dark:text-slate-200 focus:outline-hidden focus:border-orange-500"
-                />
-              </div>
-
-              <div>
-                <label className="text-[10px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 block mb-1">
-                  Porta TCP
-                </label>
-                <input
-                  type="text"
-                  value={portaTcp}
-                  onChange={(e) => setPortaTcp(e.target.value)}
-                  className="w-full bg-white dark:bg-slate-950 border border-slate-300/80 dark:border-slate-800 rounded-xl px-3 py-1.5 text-xs font-mono font-bold text-slate-800 dark:text-slate-200 focus:outline-hidden focus:border-orange-500"
-                />
-              </div>
-
-              <div>
-                <label className="text-[10px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 block mb-1">
-                  Modo Conexão
-                </label>
-                <select
-                  value={modoIpDns}
-                  onChange={(e) => setModoIpDns(e.target.value)}
-                  className="w-full bg-white dark:bg-slate-950 border border-slate-300/80 dark:border-slate-800 rounded-xl px-2 py-1.5 text-xs font-mono font-bold text-slate-800 dark:text-slate-200 focus:outline-hidden focus:border-orange-500 cursor-pointer"
-                >
-                  <option value="1">1 = DNS (Nome)</option>
-                  <option value="0">0 = IP Direto</option>
-                </select>
-              </div>
-            </div>
-
-            {/* Preview do comando que será transmitido */}
-            <div className="p-2 rounded-xl bg-white/70 dark:bg-slate-950/70 border border-slate-200 dark:border-slate-800 flex items-center justify-between text-[11px] font-mono">
-              <span className="text-[10px] font-bold text-slate-500 uppercase">
-                {protocoloAtivoDef.suportaServidorViaSerial === false
-                  ? "Comando GT06 (MCU):"
-                  : `Comando TX (${protocoloAtivoDef.nome}):`}
-              </span>
-              <span className="font-bold text-orange-600 dark:text-orange-400 truncate max-w-[240px]">
-                {protocoloAtivoDef.gerarComandoServidor(servidorDns, portaTcp, modoIpDns).cmd}
-              </span>
-            </div>
-
-            <button
-              type="button"
-              onClick={gravarServidor}
-              disabled={!conectado}
-              className="w-full py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-orange-600 hover:from-emerald-400 hover:to-orange-500 text-slate-950 font-black text-xs uppercase tracking-wider transition flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 active:scale-95 shadow-md shadow-orange-500/20"
-            >
-              <Play className="h-3.5 w-3.5 fill-slate-950" />
-              <span>
-                {protocoloAtivoDef.suportaServidorViaSerial === false
-                  ? dadosBancada.imei
-                    ? "Enviar Servidor via Gateway TCP ou Copiar"
-                    : "Copiar Comando SERVER GT06 (MCU)"
-                  : "Gravar Servidor no Rastreador"}
-              </span>
-            </button>
-          </div>
-
-          {/* GRUPO 2: CONFIGURAR APN DO CHIP M2M */}
-          <div className="bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 p-4 sm:p-5 rounded-3xl shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl space-y-3">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <span className="p-1.5 rounded-lg bg-sky-500/10 text-sky-500">
-                  <Radio className="h-4 w-4" />
-                </span>
-                <div>
-                  <h3 className="text-xs font-black uppercase tracking-wider text-slate-900 dark:text-slate-100">
-                    2. Configurar APN do Chip M2M
-                  </h3>
-                  <p className="text-[11px] text-slate-500 dark:text-slate-400">
-                    Dados de conexão celular GPRS / 4G
-                  </p>
+              {/* GRUPO 1: RESGATE E APONTAMENTO PARA O SERVIDOR GD RASTREAMENTO */}
+              <div className="bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 p-4 sm:p-5 rounded-3xl shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl space-y-3">
+                <div className="flex items-center gap-2">
+                  <span className="p-1.5 rounded-lg bg-orange-500/10 text-orange-500">
+                    <Wifi className="h-4 w-4" />
+                  </span>
+                  <div>
+                    <h3 className="text-xs font-black uppercase tracking-wider text-slate-900 dark:text-slate-100">
+                      1. Apontar Servidor do GD Rastreamento
+                    </h3>
+                    <p className="text-[11px] text-slate-500 dark:text-slate-400">
+                      Direciona o rastreador de outro servidor para a infraestrutura do GD
+                      Rastreamento
+                    </p>
+                  </div>
                 </div>
-              </div>
 
-              {/* Botões rápidos de APN comum */}
-              <div className="flex items-center gap-1">
+                <div className="grid grid-cols-2 gap-2">
+                  <div className="col-span-2">
+                    <label className="text-[10px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 block mb-1">
+                      Servidor DNS / Domínio
+                    </label>
+                    <input
+                      type="text"
+                      value={servidorDns}
+                      onChange={(e) => setServidorDns(e.target.value)}
+                      className="w-full bg-white dark:bg-slate-950 border border-slate-300/80 dark:border-slate-800 rounded-xl px-3 py-1.5 text-xs font-mono font-bold text-slate-800 dark:text-slate-200 focus:outline-hidden focus:border-orange-500"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="text-[10px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 block mb-1">
+                      Porta TCP
+                    </label>
+                    <input
+                      type="text"
+                      value={portaTcp}
+                      onChange={(e) => setPortaTcp(e.target.value)}
+                      className="w-full bg-white dark:bg-slate-950 border border-slate-300/80 dark:border-slate-800 rounded-xl px-3 py-1.5 text-xs font-mono font-bold text-slate-800 dark:text-slate-200 focus:outline-hidden focus:border-orange-500"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="text-[10px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 block mb-1">
+                      Modo Conexão
+                    </label>
+                    <select
+                      value={modoIpDns}
+                      onChange={(e) => setModoIpDns(e.target.value)}
+                      className="w-full bg-white dark:bg-slate-950 border border-slate-300/80 dark:border-slate-800 rounded-xl px-2 py-1.5 text-xs font-mono font-bold text-slate-800 dark:text-slate-200 focus:outline-hidden focus:border-orange-500 cursor-pointer"
+                    >
+                      <option value="1">1 = DNS (Nome)</option>
+                      <option value="0">0 = IP Direto</option>
+                    </select>
+                  </div>
+                </div>
+
+                {/* Preview do comando que será transmitido */}
+                <div className="p-2 rounded-xl bg-white/70 dark:bg-slate-950/70 border border-slate-200 dark:border-slate-800 flex items-center justify-between text-[11px] font-mono">
+                  <span className="text-[10px] font-bold text-slate-500 uppercase">
+                    {protocoloAtivoDef.suportaServidorViaSerial === false
+                      ? "Comando GT06 (MCU):"
+                      : `Comando TX (${protocoloAtivoDef.nome}):`}
+                  </span>
+                  <span className="font-bold text-orange-600 dark:text-orange-400 truncate max-w-[240px]">
+                    {protocoloAtivoDef.gerarComandoServidor(servidorDns, portaTcp, modoIpDns).cmd}
+                  </span>
+                </div>
+
                 <button
                   type="button"
-                  onClick={() => {
-                    setApnNome("voxter.br");
-                    setApnUser("algar");
-                    setApnPass("1212");
-                  }}
-                  className="px-2 py-0.5 rounded text-[9px] font-mono font-bold bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 text-slate-700 dark:text-slate-300 transition cursor-pointer"
-                  title="Algar / Voxter"
+                  onClick={gravarServidor}
+                  disabled={!conectado}
+                  className="w-full py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-orange-600 hover:from-emerald-400 hover:to-orange-500 text-slate-950 font-black text-xs uppercase tracking-wider transition flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 active:scale-95 shadow-md shadow-orange-500/20"
                 >
-                  Algar
-                </button>
-                <button
-                  type="button"
-                  onClick={() => {
-                    setApnNome("claro.com.br");
-                    setApnUser("claro");
-                    setApnPass("claro");
-                  }}
-                  className="px-2 py-0.5 rounded text-[9px] font-mono font-bold bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 text-slate-700 dark:text-slate-300 transition cursor-pointer"
-                  title="Claro M2M"
-                >
-                  Claro
-                </button>
-                <button
-                  type="button"
-                  onClick={() => {
-                    setApnNome("zap.vivo.com.br");
-                    setApnUser("vivo");
-                    setApnPass("vivo");
-                  }}
-                  className="px-2 py-0.5 rounded text-[9px] font-mono font-bold bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 text-slate-700 dark:text-slate-300 transition cursor-pointer"
-                  title="Vivo M2M"
-                >
-                  Vivo
+                  <Play className="h-3.5 w-3.5 fill-slate-950" />
+                  <span>
+                    {protocoloAtivoDef.suportaServidorViaSerial === false
+                      ? dadosBancada.imei
+                        ? "Enviar Servidor via Gateway TCP ou Copiar"
+                        : "Copiar Comando SERVER GT06 (MCU)"
+                      : "Gravar Servidor no Rastreador"}
+                  </span>
                 </button>
               </div>
-            </div>
 
-            <div className="grid grid-cols-3 gap-2">
-              <div>
-                <label className="text-[10px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 block mb-1">
-                  APN
-                </label>
-                <input
-                  type="text"
-                  value={apnNome}
-                  onChange={(e) => setApnNome(e.target.value)}
-                  className="w-full bg-white dark:bg-slate-950 border border-slate-300/80 dark:border-slate-800 rounded-xl px-2 py-1.5 text-xs font-mono font-bold text-slate-800 dark:text-slate-200 focus:outline-hidden focus:border-sky-500"
-                />
-              </div>
-
-              <div>
-                <label className="text-[10px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 block mb-1">
-                  Usuário
-                </label>
-                <input
-                  type="text"
-                  value={apnUser}
-                  onChange={(e) => setApnUser(e.target.value)}
-                  className="w-full bg-white dark:bg-slate-950 border border-slate-300/80 dark:border-slate-800 rounded-xl px-2 py-1.5 text-xs font-mono font-bold text-slate-800 dark:text-slate-200 focus:outline-hidden focus:border-sky-500"
-                />
-              </div>
-
-              <div>
-                <label className="text-[10px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 block mb-1">
-                  Senha
-                </label>
-                <input
-                  type="text"
-                  value={apnPass}
-                  onChange={(e) => setApnPass(e.target.value)}
-                  className="w-full bg-white dark:bg-slate-950 border border-slate-300/80 dark:border-slate-800 rounded-xl px-2 py-1.5 text-xs font-mono font-bold text-slate-800 dark:text-slate-200 focus:outline-hidden focus:border-sky-500"
-                />
-              </div>
-            </div>
-
-            {/* Preview do comando que será transmitido */}
-            <div className="p-2 rounded-xl bg-white/70 dark:bg-slate-950/70 border border-slate-200 dark:border-slate-800 flex items-center justify-between text-[11px] font-mono">
-              <span className="text-[10px] font-bold text-slate-500 uppercase">
-                Comando TX ({protocoloAtivoDef.nome}):
-              </span>
-              <span className="font-bold text-sky-600 dark:text-sky-400 truncate max-w-[240px]">
-                {protocoloAtivoDef.gerarComandoApn(apnNome, apnUser, apnPass).cmd}
-              </span>
-            </div>
-
-            <button
-              type="button"
-              onClick={gravarApn}
-              disabled={!conectado}
-              className="w-full py-2.5 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-black text-xs uppercase tracking-wider transition flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 active:scale-95 shadow-md shadow-sky-500/20"
-            >
-              <Play className="h-3.5 w-3.5 fill-white" />
-              <span>Gravar APN no Rastreador</span>
-            </button>
-          </div>
-
-          {/* GRUPO 3: TIMERS OU GERENCIAMENTO DE ENERGIA */}
-          <div className="bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 p-4 sm:p-5 rounded-3xl shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl space-y-3">
-            <div className="flex items-center gap-2">
-              <span className="p-1.5 rounded-lg bg-purple-500/10 text-purple-500">
-                <SlidersHorizontal className="h-4 w-4" />
-              </span>
-              <div>
-                <h3 className="text-xs font-black uppercase tracking-wider text-slate-900 dark:text-slate-100">
-                  {protocoloAtivoDef.tituloTimers || "3. Timers e Frequência de Transmissão"}
-                </h3>
-                <p className="text-[11px] text-slate-500 dark:text-slate-400">
-                  {protocoloAtivoDef.descTimers ||
-                    "Intervalos canônicos de rastreamento (segundos)"}
-                </p>
-              </div>
-            </div>
-
-            {protocoloAtivoDef.suportaTimersMovimento !== false ? (
-              <div className="grid grid-cols-3 gap-2">
-                <div>
-                  <label className="text-[10px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 block mb-1">
-                    Movimento (s)
-                  </label>
-                  <input
-                    type="text"
-                    value={timerMovimento}
-                    onChange={(e) => setTimerMovimento(e.target.value)}
-                    className="w-full bg-white dark:bg-slate-950 border border-slate-300/80 dark:border-slate-800 rounded-xl px-2 py-1.5 text-xs font-mono font-bold text-slate-800 dark:text-slate-200 focus:outline-hidden focus:border-purple-500"
-                  />
-                </div>
-
-                <div>
-                  <label className="text-[10px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 block mb-1">
-                    Parado (s)
-                  </label>
-                  <input
-                    type="text"
-                    value={timerParado}
-                    onChange={(e) => setTimerParado(e.target.value)}
-                    className="w-full bg-white dark:bg-slate-950 border border-slate-300/80 dark:border-slate-800 rounded-xl px-2 py-1.5 text-xs font-mono font-bold text-slate-800 dark:text-slate-200 focus:outline-hidden focus:border-purple-500"
-                  />
-                </div>
-
-                <div>
-                  <label className="text-[10px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 block mb-1">
-                    Heartbeat (s)
-                  </label>
-                  <input
-                    type="text"
-                    value={heartbeatTempo}
-                    onChange={(e) => setHeartbeatTempo(e.target.value)}
-                    className="w-full bg-white dark:bg-slate-950 border border-slate-300/80 dark:border-slate-800 rounded-xl px-2 py-1.5 text-xs font-mono font-bold text-slate-800 dark:text-slate-200 focus:outline-hidden focus:border-purple-500"
-                  />
-                </div>
-              </div>
-            ) : (
-              <div className="p-3 rounded-2xl bg-purple-500/10 border border-purple-500/20 text-slate-700 dark:text-slate-300 text-[11px] leading-relaxed">
-                <span className="font-bold text-purple-600 dark:text-purple-400 block mb-0.5">
-                  Conexão Ativa sem Repouso Profundo (PSM)
-                </span>
-                Modems celulares mantêm transmissão via contexto de dados. Este comando desativa a
-                economia de energia para que o modem permaneça 100% online na rede celular.
-              </div>
-            )}
-
-            {/* Preview do comando que será transmitido */}
-            <div className="p-2 rounded-xl bg-white/70 dark:bg-slate-950/70 border border-slate-200 dark:border-slate-800 flex items-center justify-between text-[11px] font-mono">
-              <span className="text-[10px] font-bold text-slate-500 uppercase">
-                Comando TX ({protocoloAtivoDef.nome}):
-              </span>
-              <span className="font-bold text-purple-600 dark:text-purple-400 truncate max-w-[240px]">
-                {
-                  protocoloAtivoDef.gerarComandoTimers(timerMovimento, timerParado, heartbeatTempo)
-                    .cmd
-                }
-              </span>
-            </div>
-
-            <button
-              type="button"
-              onClick={gravarTimers}
-              disabled={!conectado}
-              className="w-full py-2.5 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-black text-xs uppercase tracking-wider transition flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 active:scale-95 shadow-md shadow-purple-500/20"
-            >
-              <Play className="h-3.5 w-3.5 fill-white" />
-              <span>{protocoloAtivoDef.labelBotaoTimers || "Gravar Timers e Heartbeat"}</span>
-            </button>
-          </div>
-
-          {/* GRUPO 4: COMANDOS DE 1 TOQUE (CONSULTAS, DIAGNÓSTICO E RESET) */}
-          <div className="bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 p-4 sm:p-5 rounded-3xl shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl space-y-3">
-            <div className="flex items-center justify-between gap-2 flex-wrap">
-              <div className="flex items-center gap-2">
-                <span className="p-1.5 rounded-lg bg-amber-500/10 text-amber-500">
-                  <Cpu className="h-4 w-4" />
-                </span>
-                <div>
-                  <h3 className="text-xs font-black uppercase tracking-wider text-slate-900 dark:text-slate-100">
-                    4. Comandos de 1 Toque ({protocoloAtivoDef.nome})
-                  </h3>
-                  <p className="text-[11px] text-slate-500 dark:text-slate-400">
-                    Consultas de auditoria, diagnóstico e reinicialização
-                  </p>
-                </div>
-              </div>
-              <div className="flex items-center gap-1.5 flex-wrap">
-                <div className="flex items-center bg-slate-200/70 dark:bg-slate-800 p-0.5 rounded-xl border border-slate-300/60 dark:border-slate-700 text-[10px] font-bold">
-                  <button
-                    type="button"
-                    onClick={() => setFiltroUmToque("todos")}
-                    className={`px-2 py-0.5 rounded-lg transition cursor-pointer ${
-                      filtroUmToque === "todos"
-                        ? "bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 shadow-xs"
-                        : "text-slate-500 hover:text-slate-800 dark:hover:text-slate-200"
-                    }`}
-                  >
-                    Todos ({protocoloAtivoDef.comandosUmToque.length})
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setFiltroUmToque("consulta")}
-                    className={`px-2 py-0.5 rounded-lg transition cursor-pointer ${
-                      filtroUmToque === "consulta"
-                        ? "bg-sky-500 text-white shadow-xs"
-                        : "text-slate-500 hover:text-slate-800 dark:hover:text-slate-200"
-                    }`}
-                  >
-                    Consultas (
-                    {protocoloAtivoDef.comandosUmToque.filter((c) => c.categoria !== "acao").length}
-                    )
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setFiltroUmToque("acao")}
-                    className={`px-2 py-0.5 rounded-lg transition cursor-pointer ${
-                      filtroUmToque === "acao"
-                        ? "bg-amber-500 text-slate-950 shadow-xs"
-                        : "text-slate-500 hover:text-slate-800 dark:hover:text-slate-200"
-                    }`}
-                  >
-                    Ações (
-                    {protocoloAtivoDef.comandosUmToque.filter((c) => c.categoria === "acao").length}
-                    )
-                  </button>
-                </div>
-                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-amber-500/10 text-amber-600 dark:text-amber-400 font-bold border border-amber-500/20">
-                  {protocoloAtivoDef.badge}
-                </span>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 max-h-[430px] overflow-y-auto pr-1">
-              {protocoloAtivoDef.comandosUmToque.map((item) => {
-                const categoriaItem = item.categoria || "consulta";
-                if (filtroUmToque !== "todos" && categoriaItem !== filtroUmToque) {
-                  return null;
-                }
-                return (
-                  <button
-                    key={item.cmd}
-                    type="button"
-                    onClick={() => {
-                      if (
-                        item.cmd === "FACTORY#" ||
-                        item.cmd === "RESET#" ||
-                        item.cmd === "AT+CFUN=1,1" ||
-                        item.cmd === "reset123456"
-                      ) {
-                        if (
-                          !window.confirm(
-                            `Deseja enviar o comando "${item.titulo}" (${item.cmd}) para o rastreador?`,
-                          )
-                        ) {
-                          return;
-                        }
-                      }
-                      dispararComandoRapido(item.cmd, item.desc);
-                    }}
-                    disabled={!conectado}
-                    className={`p-3 rounded-2xl text-left transition flex flex-col justify-between cursor-pointer disabled:opacity-50 border shadow-sm ${
-                      item.estilo ||
-                      "bg-white/80 dark:bg-slate-800/80 hover:bg-slate-100 dark:hover:bg-slate-700/80 text-slate-800 dark:text-slate-100 border-slate-200/80 dark:border-slate-700/80"
-                    }`}
-                    title={`${item.titulo} (${item.cmd}): ${item.desc}`}
-                  >
-                    <div className="flex items-center justify-between w-full gap-1 mb-1">
-                      <span className="text-xs font-black truncate">{item.titulo}</span>
-                      <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-slate-200/60 dark:bg-slate-900/60 font-bold opacity-80 shrink-0">
-                        {item.cmd}
-                      </span>
-                    </div>
-                    <span className="text-[10px] text-slate-500 dark:text-slate-400 line-clamp-2 leading-tight">
-                      {item.desc}
+              {/* GRUPO 2: CONFIGURAR APN DO CHIP M2M */}
+              <div className="bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 p-4 sm:p-5 rounded-3xl shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl space-y-3">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <span className="p-1.5 rounded-lg bg-sky-500/10 text-sky-500">
+                      <Radio className="h-4 w-4" />
                     </span>
-                  </button>
-                );
-              })}
-            </div>
-          </div>
+                    <div>
+                      <h3 className="text-xs font-black uppercase tracking-wider text-slate-900 dark:text-slate-100">
+                        2. Configurar APN do Chip M2M
+                      </h3>
+                      <p className="text-[11px] text-slate-500 dark:text-slate-400">
+                        Dados de conexão celular GPRS / 4G
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Botões rápidos de APN comum */}
+                  <div className="flex items-center gap-1">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setApnNome("voxter.br");
+                        setApnUser("algar");
+                        setApnPass("1212");
+                      }}
+                      className="px-2 py-0.5 rounded text-[9px] font-mono font-bold bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 text-slate-700 dark:text-slate-300 transition cursor-pointer"
+                      title="Algar / Voxter"
+                    >
+                      Algar
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setApnNome("claro.com.br");
+                        setApnUser("claro");
+                        setApnPass("claro");
+                      }}
+                      className="px-2 py-0.5 rounded text-[9px] font-mono font-bold bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 text-slate-700 dark:text-slate-300 transition cursor-pointer"
+                      title="Claro M2M"
+                    >
+                      Claro
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setApnNome("zap.vivo.com.br");
+                        setApnUser("vivo");
+                        setApnPass("vivo");
+                      }}
+                      className="px-2 py-0.5 rounded text-[9px] font-mono font-bold bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 text-slate-700 dark:text-slate-300 transition cursor-pointer"
+                      title="Vivo M2M"
+                    >
+                      Vivo
+                    </button>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-3 gap-2">
+                  <div>
+                    <label className="text-[10px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 block mb-1">
+                      APN
+                    </label>
+                    <input
+                      type="text"
+                      value={apnNome}
+                      onChange={(e) => setApnNome(e.target.value)}
+                      className="w-full bg-white dark:bg-slate-950 border border-slate-300/80 dark:border-slate-800 rounded-xl px-2 py-1.5 text-xs font-mono font-bold text-slate-800 dark:text-slate-200 focus:outline-hidden focus:border-sky-500"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="text-[10px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 block mb-1">
+                      Usuário
+                    </label>
+                    <input
+                      type="text"
+                      value={apnUser}
+                      onChange={(e) => setApnUser(e.target.value)}
+                      className="w-full bg-white dark:bg-slate-950 border border-slate-300/80 dark:border-slate-800 rounded-xl px-2 py-1.5 text-xs font-mono font-bold text-slate-800 dark:text-slate-200 focus:outline-hidden focus:border-sky-500"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="text-[10px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 block mb-1">
+                      Senha
+                    </label>
+                    <input
+                      type="text"
+                      value={apnPass}
+                      onChange={(e) => setApnPass(e.target.value)}
+                      className="w-full bg-white dark:bg-slate-950 border border-slate-300/80 dark:border-slate-800 rounded-xl px-2 py-1.5 text-xs font-mono font-bold text-slate-800 dark:text-slate-200 focus:outline-hidden focus:border-sky-500"
+                    />
+                  </div>
+                </div>
+
+                {/* Preview do comando que será transmitido */}
+                <div className="p-2 rounded-xl bg-white/70 dark:bg-slate-950/70 border border-slate-200 dark:border-slate-800 flex items-center justify-between text-[11px] font-mono">
+                  <span className="text-[10px] font-bold text-slate-500 uppercase">
+                    Comando TX ({protocoloAtivoDef.nome}):
+                  </span>
+                  <span className="font-bold text-sky-600 dark:text-sky-400 truncate max-w-[240px]">
+                    {protocoloAtivoDef.gerarComandoApn(apnNome, apnUser, apnPass).cmd}
+                  </span>
+                </div>
+
+                <button
+                  type="button"
+                  onClick={gravarApn}
+                  disabled={!conectado}
+                  className="w-full py-2.5 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-black text-xs uppercase tracking-wider transition flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 active:scale-95 shadow-md shadow-sky-500/20"
+                >
+                  <Play className="h-3.5 w-3.5 fill-white" />
+                  <span>Gravar APN no Rastreador</span>
+                </button>
+              </div>
+
+              {/* GRUPO 3: TIMERS OU GERENCIAMENTO DE ENERGIA */}
+              <div className="bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 p-4 sm:p-5 rounded-3xl shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl space-y-3">
+                <div className="flex items-center gap-2">
+                  <span className="p-1.5 rounded-lg bg-purple-500/10 text-purple-500">
+                    <SlidersHorizontal className="h-4 w-4" />
+                  </span>
+                  <div>
+                    <h3 className="text-xs font-black uppercase tracking-wider text-slate-900 dark:text-slate-100">
+                      {protocoloAtivoDef.tituloTimers || "3. Timers e Frequência de Transmissão"}
+                    </h3>
+                    <p className="text-[11px] text-slate-500 dark:text-slate-400">
+                      {protocoloAtivoDef.descTimers ||
+                        "Intervalos canônicos de rastreamento (segundos)"}
+                    </p>
+                  </div>
+                </div>
+
+                {protocoloAtivoDef.suportaTimersMovimento !== false ? (
+                  <div className="grid grid-cols-3 gap-2">
+                    <div>
+                      <label className="text-[10px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 block mb-1">
+                        Movimento (s)
+                      </label>
+                      <input
+                        type="text"
+                        value={timerMovimento}
+                        onChange={(e) => setTimerMovimento(e.target.value)}
+                        className="w-full bg-white dark:bg-slate-950 border border-slate-300/80 dark:border-slate-800 rounded-xl px-2 py-1.5 text-xs font-mono font-bold text-slate-800 dark:text-slate-200 focus:outline-hidden focus:border-purple-500"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="text-[10px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 block mb-1">
+                        Parado (s)
+                      </label>
+                      <input
+                        type="text"
+                        value={timerParado}
+                        onChange={(e) => setTimerParado(e.target.value)}
+                        className="w-full bg-white dark:bg-slate-950 border border-slate-300/80 dark:border-slate-800 rounded-xl px-2 py-1.5 text-xs font-mono font-bold text-slate-800 dark:text-slate-200 focus:outline-hidden focus:border-purple-500"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="text-[10px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 block mb-1">
+                        Heartbeat (s)
+                      </label>
+                      <input
+                        type="text"
+                        value={heartbeatTempo}
+                        onChange={(e) => setHeartbeatTempo(e.target.value)}
+                        className="w-full bg-white dark:bg-slate-950 border border-slate-300/80 dark:border-slate-800 rounded-xl px-2 py-1.5 text-xs font-mono font-bold text-slate-800 dark:text-slate-200 focus:outline-hidden focus:border-purple-500"
+                      />
+                    </div>
+                  </div>
+                ) : (
+                  <div className="p-3 rounded-2xl bg-purple-500/10 border border-purple-500/20 text-slate-700 dark:text-slate-300 text-[11px] leading-relaxed">
+                    <span className="font-bold text-purple-600 dark:text-purple-400 block mb-0.5">
+                      Conexão Ativa sem Repouso Profundo (PSM)
+                    </span>
+                    Modems celulares mantêm transmissão via contexto de dados. Este comando desativa
+                    a economia de energia para que o modem permaneça 100% online na rede celular.
+                  </div>
+                )}
+
+                {/* Preview do comando que será transmitido */}
+                <div className="p-2 rounded-xl bg-white/70 dark:bg-slate-950/70 border border-slate-200 dark:border-slate-800 flex items-center justify-between text-[11px] font-mono">
+                  <span className="text-[10px] font-bold text-slate-500 uppercase">
+                    Comando TX ({protocoloAtivoDef.nome}):
+                  </span>
+                  <span className="font-bold text-purple-600 dark:text-purple-400 truncate max-w-[240px]">
+                    {
+                      protocoloAtivoDef.gerarComandoTimers(
+                        timerMovimento,
+                        timerParado,
+                        heartbeatTempo,
+                      ).cmd
+                    }
+                  </span>
+                </div>
+
+                <button
+                  type="button"
+                  onClick={gravarTimers}
+                  disabled={!conectado}
+                  className="w-full py-2.5 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-black text-xs uppercase tracking-wider transition flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 active:scale-95 shadow-md shadow-purple-500/20"
+                >
+                  <Play className="h-3.5 w-3.5 fill-white" />
+                  <span>{protocoloAtivoDef.labelBotaoTimers || "Gravar Timers e Heartbeat"}</span>
+                </button>
+              </div>
+
+              {/* GRUPO 4: COMANDOS DE 1 TOQUE (CONSULTAS, DIAGNÓSTICO E RESET) */}
+              <div className="bg-[#eaf0f8] dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800 p-4 sm:p-5 rounded-3xl shadow-[5px_5px_14px_#c3cfe2] dark:shadow-2xl space-y-3">
+                <div className="flex items-center justify-between gap-2 flex-wrap">
+                  <div className="flex items-center gap-2">
+                    <span className="p-1.5 rounded-lg bg-amber-500/10 text-amber-500">
+                      <Cpu className="h-4 w-4" />
+                    </span>
+                    <div>
+                      <h3 className="text-xs font-black uppercase tracking-wider text-slate-900 dark:text-slate-100">
+                        4. Comandos de 1 Toque ({protocoloAtivoDef.nome})
+                      </h3>
+                      <p className="text-[11px] text-slate-500 dark:text-slate-400">
+                        Consultas de auditoria, diagnóstico e reinicialização
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-1.5 flex-wrap">
+                    <div className="flex items-center bg-slate-200/70 dark:bg-slate-800 p-0.5 rounded-xl border border-slate-300/60 dark:border-slate-700 text-[10px] font-bold">
+                      <button
+                        type="button"
+                        onClick={() => setFiltroUmToque("todos")}
+                        className={`px-2 py-0.5 rounded-lg transition cursor-pointer ${
+                          filtroUmToque === "todos"
+                            ? "bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 shadow-xs"
+                            : "text-slate-500 hover:text-slate-800 dark:hover:text-slate-200"
+                        }`}
+                      >
+                        Todos ({protocoloAtivoDef.comandosUmToque.length})
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setFiltroUmToque("consulta")}
+                        className={`px-2 py-0.5 rounded-lg transition cursor-pointer ${
+                          filtroUmToque === "consulta"
+                            ? "bg-sky-500 text-white shadow-xs"
+                            : "text-slate-500 hover:text-slate-800 dark:hover:text-slate-200"
+                        }`}
+                      >
+                        Consultas (
+                        {
+                          protocoloAtivoDef.comandosUmToque.filter((c) => c.categoria !== "acao")
+                            .length
+                        }
+                        )
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setFiltroUmToque("acao")}
+                        className={`px-2 py-0.5 rounded-lg transition cursor-pointer ${
+                          filtroUmToque === "acao"
+                            ? "bg-amber-500 text-slate-950 shadow-xs"
+                            : "text-slate-500 hover:text-slate-800 dark:hover:text-slate-200"
+                        }`}
+                      >
+                        Ações (
+                        {
+                          protocoloAtivoDef.comandosUmToque.filter((c) => c.categoria === "acao")
+                            .length
+                        }
+                        )
+                      </button>
+                    </div>
+                    <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-amber-500/10 text-amber-600 dark:text-amber-400 font-bold border border-amber-500/20">
+                      {protocoloAtivoDef.badge}
+                    </span>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 max-h-[430px] overflow-y-auto pr-1">
+                  {protocoloAtivoDef.comandosUmToque.map((item) => {
+                    const categoriaItem = item.categoria || "consulta";
+                    if (filtroUmToque !== "todos" && categoriaItem !== filtroUmToque) {
+                      return null;
+                    }
+                    return (
+                      <button
+                        key={item.cmd}
+                        type="button"
+                        onClick={() => {
+                          if (
+                            item.cmd === "FACTORY#" ||
+                            item.cmd === "RESET#" ||
+                            item.cmd === "AT+CFUN=1,1" ||
+                            item.cmd === "reset123456"
+                          ) {
+                            if (
+                              !window.confirm(
+                                `Deseja enviar o comando "${item.titulo}" (${item.cmd}) para o rastreador?`,
+                              )
+                            ) {
+                              return;
+                            }
+                          }
+                          dispararComandoRapido(item.cmd, item.desc);
+                        }}
+                        disabled={!conectado}
+                        className={`p-3 rounded-2xl text-left transition flex flex-col justify-between cursor-pointer disabled:opacity-50 border shadow-sm ${
+                          item.estilo ||
+                          "bg-white/80 dark:bg-slate-800/80 hover:bg-slate-100 dark:hover:bg-slate-700/80 text-slate-800 dark:text-slate-100 border-slate-200/80 dark:border-slate-700/80"
+                        }`}
+                        title={`${item.titulo} (${item.cmd}): ${item.desc}`}
+                      >
+                        <div className="flex items-center justify-between w-full gap-1 mb-1">
+                          <span className="text-xs font-black truncate">{item.titulo}</span>
+                          <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-slate-200/60 dark:bg-slate-900/60 font-bold opacity-80 shrink-0">
+                            {item.cmd}
+                          </span>
+                        </div>
+                        <span className="text-[10px] text-slate-500 dark:text-slate-400 line-clamp-2 leading-tight">
+                          {item.desc}
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            </>
+          )}
         </div>
       </div>
     </div>
