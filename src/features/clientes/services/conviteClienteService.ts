@@ -261,10 +261,26 @@ export async function cadastrarClientePorConvite(
         // Tenta obter ID do perfil existente
         const { data: profExistente } = await supabase
           .from("profiles")
-          .select("id")
+          .select("id, role")
           .eq("email", emailLimpo)
           .maybeSingle();
         userId = profExistente?.id || null;
+
+        // Se o usuário já possui ficha concluída em clientes, bloqueia com mensagem amigável
+        if (userId) {
+          const { data: cliExistente } = await supabase
+            .from("clientes")
+            .select("id")
+            .or(`user_id.eq.${userId},email.eq.${emailLimpo}`)
+            .maybeSingle();
+          if (cliExistente?.id) {
+            return {
+              success: false,
+              message:
+                "Este e-mail já está cadastrado no sistema. Acesse a tela de login ou utilize outro e-mail.",
+            };
+          }
+        }
       } else if (
         msgErr.includes("security purposes") ||
         msgErr.includes("rate limit") ||
@@ -341,9 +357,6 @@ export async function cadastrarClientePorConvite(
         valor_mensalidade: conviteInfo?.valor_mensalidade_proposta
           ? Number(conviteInfo.valor_mensalidade_proposta)
           : 0.0,
-        taxa_instalacao: conviteInfo?.taxa_instalacao_proposta
-          ? Number(conviteInfo.taxa_instalacao_proposta)
-          : 0.0,
         repasse_instalador_status: conviteInfo?.taxa_instalacao_proposta ? "pendente" : "isento",
         revendedor_id: conviteInfo?.revendedor_id || null,
         vendedor_id: conviteInfo?.vendedor_id || null,
@@ -413,6 +426,13 @@ export async function cadastrarClientePorConvite(
         };
       }
       clienteId = novoCliente.id;
+      if (userId && clienteId) {
+        try {
+          await supabase.from("profiles").update({ cliente_id: clienteId }).eq("id", userId);
+        } catch {
+          /* ignorar */
+        }
+      }
 
       // Inicializa a esteira de onboarding do cliente
       try {

@@ -1130,18 +1130,57 @@ async function handleApiConvites(request: Request, env: unknown): Promise<Respon
         },
       });
 
-      const userId = createData?.user?.id;
+      let userId = createData?.user?.id;
       if (createErr) {
         const errMsg = createErr.message || "";
         if (errMsg.includes("already been registered") || errMsg.includes("already exists")) {
-          return new Response(
-            JSON.stringify({
-              success: false,
-              message:
-                "Este e-mail já está cadastrado no sistema. Acesse a tela de login ou utilize outro e-mail.",
-            }),
-            { status: 400, headers: { "Content-Type": "application/json", ...SECURITY_HEADERS } },
-          );
+          // Auto-recuperação resiliente: verifica se o usuário existente é um cliente cujo cadastro foi interrompido (órfão)
+          const { data: existingProf } = await adminClient
+            .from("profiles")
+            .select("id, role")
+            .eq("email", email)
+            .maybeSingle();
+
+          let canRecover = false;
+          if (existingProf?.id) {
+            const { data: existingCli } = await adminClient
+              .from("clientes")
+              .select("id")
+              .or(`user_id.eq.${existingProf.id},email.eq.${email}`)
+              .maybeSingle();
+
+            // Se ainda não possui registro na tabela clientes, é um cadastro interrompido: autoriza auto-cura
+            if (!existingCli?.id) {
+              canRecover = true;
+              userId = existingProf.id;
+              // Atualiza senha se informada e renova metadados
+              try {
+                await adminClient.auth.admin.updateUserById(userId, {
+                  password: senha,
+                  user_metadata: {
+                    nome,
+                    role: "cliente",
+                    convite_token: token,
+                    telefone: telefone || null,
+                    cpf_cnpj: documento || null,
+                  },
+                });
+              } catch {
+                /* fallback se falhar update senha */
+              }
+            }
+          }
+
+          if (!canRecover) {
+            return new Response(
+              JSON.stringify({
+                success: false,
+                message:
+                  "Este e-mail já está cadastrado no sistema. Acesse a tela de login ou utilize outro e-mail.",
+              }),
+              { status: 400, headers: { "Content-Type": "application/json", ...SECURITY_HEADERS } },
+            );
+          }
         } else {
           throw createErr;
         }
@@ -1194,6 +1233,11 @@ async function handleApiConvites(request: Request, env: unknown): Promise<Respon
 
       if (clienteExistente?.id) {
         clienteId = clienteExistente.id;
+        try {
+          await adminClient.from("profiles").update({ cliente_id: clienteId }).eq("id", userId);
+        } catch {
+          /* ignorar */
+        }
       } else {
         const payloadBase: Record<string, any> = {
           nome_razao_social: nome,
@@ -1205,9 +1249,6 @@ async function handleApiConvites(request: Request, env: unknown): Promise<Respon
           valor_mensalidade: conviteData?.valor_mensalidade_proposta
             ? Number(conviteData.valor_mensalidade_proposta)
             : 40.0,
-          taxa_instalacao: conviteData?.taxa_instalacao_proposta
-            ? Number(conviteData.taxa_instalacao_proposta)
-            : 0.0,
           repasse_instalador_status: conviteData?.taxa_instalacao_proposta ? "pendente" : "isento",
           revendedor_id: conviteData?.revendedor_id || null,
           vendedor_id: conviteData?.vendedor_id || null,
@@ -1268,6 +1309,11 @@ async function handleApiConvites(request: Request, env: unknown): Promise<Respon
           throw new Error(errCliente?.message || "Falha ao registrar ficha do cliente.");
         }
         clienteId = novoCliente.id;
+        try {
+          await adminClient.from("profiles").update({ cliente_id: clienteId }).eq("id", userId);
+        } catch {
+          /* ignorar */
+        }
       }
 
       // Cadastra cada veículo e gera ordem individual de instalação

@@ -196,4 +196,40 @@ describe("Hunter - Auto-Cadastro de Cliente Multi-Veículo e Pendências do Oper
       "ModalConviteCliente deve conter botão Enviar no WhatsApp e feedback de Transmitindo...",
     );
   });
+
+  it("deve garantir que o auto-cadastro no servidor e servico nao inclui coluna inexistente taxa_instalacao e possui auto-cura idempotente", async () => {
+    const fs = await import("node:fs");
+    const path = await import("node:path");
+
+    const serverPath = path.join(process.cwd(), "src/server.ts");
+    const serverContent = fs.readFileSync(serverPath, "utf-8");
+
+    // 1. Não deve passar taxa_instalacao no payloadBase de clientes
+    const startIndex = serverContent.indexOf('url.pathname === "/api/convite/cadastrar-cliente"');
+    const endIndex = serverContent.indexOf("CONSUMED_INVITE_TOKENS.add(token)", startIndex);
+    const conviteBlock = serverContent.slice(startIndex, endIndex);
+    assert.ok(
+      !conviteBlock.includes("taxa_instalacao:"),
+      "O servidor nao deve passar taxa_instalacao no payloadBase de clientes pois a coluna nao existe na tabela",
+    );
+
+    // 2. Deve ter auto-cura idempotente para usuários com cadastro interrompido
+    assert.ok(
+      serverContent.includes("existingCli") && serverContent.includes("canRecover"),
+      "O servidor deve verificar existingCli e autorizar canRecover para cadastros interrompidos",
+    );
+
+    // 3. O servico conviteClienteService.ts tambem nao deve passar taxa_instalacao em clientes
+    const servicePath = path.join(
+      process.cwd(),
+      "src/features/clientes/services/conviteClienteService.ts",
+    );
+    const serviceContent = fs.readFileSync(servicePath, "utf-8");
+    const payloadBaseIndex = serviceContent.indexOf("const payloadBase: Record<string, any>");
+    const payloadBaseBlock = serviceContent.slice(payloadBaseIndex, payloadBaseIndex + 600);
+    assert.ok(
+      !payloadBaseBlock.includes("taxa_instalacao:"),
+      "conviteClienteService nao deve passar taxa_instalacao no payloadBase de clientes",
+    );
+  });
 });
