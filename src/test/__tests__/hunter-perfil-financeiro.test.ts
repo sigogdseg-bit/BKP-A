@@ -58,7 +58,7 @@ describe("Hunter — Perfil Financeiro Canônico e Isolamento Estrito (DJR-NEW)"
     assert.ok(conteudo.includes("propostas_comerciais"));
   });
 
-  it("3. Valida que o schema consolidado mestre contém o perfil financeiro", () => {
+  it("3. Valida que o schema consolidado mestre contém o perfil financeiro e o módulo de abastecimento", () => {
     const schemaMestrePath = path.resolve(
       process.cwd(),
       "supabase/CRIAR_BANCO_COMPLETO_NOVO_SUPABASE.sql",
@@ -66,9 +66,10 @@ describe("Hunter — Perfil Financeiro Canônico e Isolamento Estrito (DJR-NEW)"
     const conteudo = fs.readFileSync(schemaMestrePath, "utf-8");
     assert.ok(conteudo.includes("ADD VALUE IF NOT EXISTS 'financeiro'"));
     assert.ok(conteudo.includes("is_financeiro"));
+    assert.ok(conteudo.includes("financeiro_gerencia_abastecimentos"));
   });
 
-  it("4. Verifica os módulos autorizados para o Perfil Financeiro (Princípio do Menor Privilégio)", () => {
+  it("4. Verifica os módulos autorizados para o Perfil Financeiro (incluindo abastecimento e notas fiscais)", () => {
     const modulosLiberados = [
       "financeiro",
       "mensalidades",
@@ -76,6 +77,7 @@ describe("Hunter — Perfil Financeiro Canônico e Isolamento Estrito (DJR-NEW)"
       "clientes",
       "revendedores",
       "instalacao",
+      "abastecimento",
       "chat",
       "atendimento",
       "configuracoes",
@@ -96,10 +98,8 @@ describe("Hunter — Perfil Financeiro Canônico e Isolamento Estrito (DJR-NEW)"
       "monitor-gps",
       "rotas",
       "frota",
-      "abastecimento",
       "manutencao",
       "motoristas",
-      "motorista",
       "funcionarios",
       "estoque",
       "rastreadores",
@@ -119,7 +119,7 @@ describe("Hunter — Perfil Financeiro Canônico e Isolamento Estrito (DJR-NEW)"
     }
   });
 
-  it("6. Valida acesso a rotas permitidas para o Perfil Financeiro", () => {
+  it("6. Valida acesso a rotas permitidas para o Perfil Financeiro (incluindo /abastecimento)", () => {
     const rotasPermitidas = [
       "/inicio",
       "",
@@ -129,6 +129,8 @@ describe("Hunter — Perfil Financeiro Canônico e Isolamento Estrito (DJR-NEW)"
       "/clientes",
       "/revendedores",
       "/instalacao",
+      "/abastecimento",
+      "/motorista",
       "/atendimento",
       "/chat",
       "/configuracoes",
@@ -149,8 +151,6 @@ describe("Hunter — Perfil Financeiro Canônico e Isolamento Estrito (DJR-NEW)"
       "/monitor-gps",
       "/rotas",
       "/frota",
-      "/abastecimento",
-      "/motorista",
       "/manutencao",
       "/motoristas",
       "/funcionarios",
@@ -175,7 +175,7 @@ describe("Hunter — Perfil Financeiro Canônico e Isolamento Estrito (DJR-NEW)"
     }
   });
 
-  it("8. Garante que obterModulosPadraoPorPerfil retorna a lista canônica para 'financeiro'", () => {
+  it("8. Garante que obterModulosPadraoPorPerfil retorna a lista canônica com 'abastecimento' para 'financeiro'", () => {
     const modulosPadrao = obterModulosPadraoPorPerfil("financeiro");
     assert.deepEqual(modulosPadrao, MODULOS_PADRAO_FINANCEIRO);
     assert.ok(modulosPadrao.includes("financeiro"));
@@ -184,6 +184,7 @@ describe("Hunter — Perfil Financeiro Canônico e Isolamento Estrito (DJR-NEW)"
     assert.ok(modulosPadrao.includes("clientes"));
     assert.ok(modulosPadrao.includes("revendedores"));
     assert.ok(modulosPadrao.includes("instalacao"));
+    assert.ok(modulosPadrao.includes("abastecimento"));
     assert.ok(!modulosPadrao.includes("monitor-gps"));
     assert.ok(!modulosPadrao.includes("usuarios"));
     assert.ok(!modulosPadrao.includes("central-seguranca"));
@@ -194,5 +195,17 @@ describe("Hunter — Perfil Financeiro Canônico e Isolamento Estrito (DJR-NEW)"
     assert.equal(sessaoFinanceiro.isOperador, false);
     assert.equal(sessaoFinanceiro.isSuperAdmin, false);
     assert.equal(sessaoFinanceiro.isFinanceiro, true);
+  });
+
+  it("10. Valida que a migration de abastecimento para o perfil financeiro existe e possui RLS", () => {
+    const migPath = path.resolve(
+      process.cwd(),
+      "supabase/migrations/20261115220000_hunter_perfil_financeiro_abastecimento.sql",
+    );
+    assert.equal(fs.existsSync(migPath), true);
+    const content = fs.readFileSync(migPath, "utf-8");
+    assert.ok(content.includes("financeiro_gerencia_abastecimentos"));
+    assert.ok(content.includes("financeiro_gerencia_despesas"));
+    assert.ok(content.includes("'abastecimento'"));
   });
 });

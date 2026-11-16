@@ -178,6 +178,12 @@ export function MobileDrawer({
             icone: Wrench,
             descricao: "Controle de repasses de mão de obra de instalações",
           },
+          {
+            titulo: "Abastecimento e Notas Fiscais",
+            rota: "/abastecimento",
+            icone: Fuel,
+            descricao: "Lançamento de combustível, conferência de NFs e despesas",
+          },
         ],
       },
     ];

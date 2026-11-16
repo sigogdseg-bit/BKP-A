@@ -159,6 +159,7 @@ export function obterModulosPadraoPorPerfil(role: HunterRole): string[] {
       "clientes",
       "revendedores",
       "instalacao",
+      "abastecimento",
       "chat",
       "atendimento",
       "configuracoes",

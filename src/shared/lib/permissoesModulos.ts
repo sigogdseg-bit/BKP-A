@@ -117,6 +117,7 @@ export const MODULOS_PADRAO_FINANCEIRO: string[] = [
   "clientes",
   "revendedores",
   "instalacao",
+  "abastecimento",
   "chat",
   "atendimento",
   "configuracoes",
@@ -251,7 +252,7 @@ export function podeAcessarModulo(session: UserSession | null, moduloId: string)
     return true;
   }
 
-  // Financeiro: acessa ESTRITAMENTE o que compete ao setor financeiro da empresa
+  // Financeiro: acessa ESTRITAMENTE o que compete ao setor financeiro da empresa (incluindo abastecimento e NFs)
   if (session.isFinanceiro || session.role === "financeiro") {
     return [
       "financeiro",
@@ -260,6 +261,7 @@ export function podeAcessarModulo(session: UserSession | null, moduloId: string)
       "clientes",
       "revendedores",
       "instalacao",
+      "abastecimento",
       "chat",
       "atendimento",
       "configuracoes",
@@ -462,8 +464,6 @@ export function podeAcessarRota(session: UserSession | null, rota: string): bool
       rotaNormalizada === "/monitor-gps" ||
       rotaNormalizada === "/rotas" ||
       rotaNormalizada === "/frota" ||
-      rotaNormalizada === "/abastecimento" ||
-      rotaNormalizada === "/motorista" ||
       rotaNormalizada === "/manutencao" ||
       rotaNormalizada === "/motoristas" ||
       rotaNormalizada === "/funcionarios" ||
@@ -481,14 +481,16 @@ export function podeAcessarRota(session: UserSession | null, rota: string): bool
       return false;
     }
 
-    // Rotas permitidas para o Financeiro
+    // Rotas permitidas para o Financeiro (incluindo abastecimento e despesas com NF)
     if (
       rotaNormalizada === "/financeiro" ||
       rotaNormalizada === "/mensalidades" ||
       rotaNormalizada === "/propostas" ||
       rotaNormalizada === "/clientes" ||
       rotaNormalizada === "/revendedores" ||
-      rotaNormalizada === "/instalacao"
+      rotaNormalizada === "/instalacao" ||
+      rotaNormalizada === "/abastecimento" ||
+      rotaNormalizada === "/motorista"
     ) {
       return true;
     }
