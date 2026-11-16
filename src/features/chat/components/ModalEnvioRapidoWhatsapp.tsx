@@ -111,7 +111,7 @@ export function ModalEnvioRapidoWhatsapp({
   // Checa status do Gateway WhatsApp com redundância de endpoints (proxy interno + direto)
   const verificarGateway = async () => {
     setChecandoGateway(true);
-    const endpoints = ["/api/whatsapp/status", "https://gps.oficial.tec.br/status"];
+    const endpoints = ["/api/whatsapp/status", "http://167.234.233.82:8082/status"];
 
     for (const ep of endpoints) {
       try {
@@ -473,18 +473,18 @@ export function ModalEnvioRapidoWhatsapp({
 
                   {!checandoGateway && (
                     <a
-                      href="https://gps.oficial.tec.br/"
+                      href="/api/whatsapp/qrcode"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-600 hover:text-emerald-700 dark:text-emerald-400 underline underline-offset-2 ml-1"
                       title={
                         gatewayOnline
-                          ? "Desconectar e ler novo QR Code para trocar o número da Central"
-                          : "Abrir tela de pareamento e ler QR Code"
+                          ? "Desconectar e ler novo QR Code para trocar a linha GD Segurança"
+                          : "Abrir tela de pareamento e ler QR Code da Linha GD Segurança"
                       }
                     >
                       <ExternalLink className="h-3 w-3" />{" "}
-                      {gatewayOnline ? "Trocar Aparelho / Linha" : "Conectar WhatsApp"}
+                      {gatewayOnline ? "Trocar Linha GD" : "Conectar WhatsApp GD"}
                     </a>
                   )}
                 </div>

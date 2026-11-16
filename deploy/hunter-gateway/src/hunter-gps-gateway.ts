@@ -59,7 +59,7 @@ async function notificarAtualizacaoRealtime(payload: Record<string, unknown>) {
 
 const argPort = Number(process.argv[2]);
 const PORTA_TCP = Number(
-  process.env.PORTA_TCP || (!isNaN(argPort) && argPort > 0 ? argPort : 7002),
+  process.env.PORTA_TCP || (!isNaN(argPort) && argPort > 0 ? argPort : 7003),
 );
 
 // CRC-ITU Oficial (X.25 / GT06 / J16) por Tabela de Lookup

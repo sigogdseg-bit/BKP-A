@@ -35,7 +35,7 @@ export const TETO_SEGURO_ENGENHARIA_MB = 16.0; // 80% de 20 MB
 // Em repouso (veículo desligado na garagem), cada transmissão de rádio (Heartbeat ou
 // posição estática) acorda o rádio 4G LTE do modem e envolve:
 // 1. Sinalização de canal físico LTE (RRC Connection) + contexto PDP / EPS Bearer
-// 2. Pilha de rede TCP/IP completa (SYN/ACK, dados, ACK bidirecional do receptor 7002)
+// 2. Pilha de rede TCP/IP completa (SYN/ACK, dados, ACK bidirecional do receptor 7003)
 // 3. Bilhetagem por bloco de dados (CDR) na tarifação da operadora de telecomunicações
 //
 // Comprovação factual auditada no Lara (veículo parado 100% dos dias 24 e 25/10):

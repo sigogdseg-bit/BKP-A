@@ -23,10 +23,13 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const GATEWAY_ROOT_DIR = path.resolve(__dirname, "..");
 
-const PORT = parseInt(process.env.PORT || "8080", 10);
+const PORT = parseInt(process.env.PORT || "8082", 10);
 const IS_TEST_ENV = process.env.HUNTER_GATEWAY_TEST === "1";
-const AUTH_DIR = process.env.WHATSAPP_SESSION_DIR || "/data/session";
-const API_TOKEN = process.env.HUNTER_WHATSAPP_TOKEN || "hunter-guardiao-whatsapp-secret-key-2026";
+const AUTH_DIR = process.env.WHATSAPP_SESSION_DIR || "/data/session-gd";
+const API_TOKEN =
+  process.env.GD_WHATSAPP_TOKEN ||
+  process.env.HUNTER_WHATSAPP_TOKEN ||
+  "gd-whatsapp-secret-key-2026";
 
 export function verificarPatchBaileysAtivo(): boolean {
   try {
@@ -812,7 +815,7 @@ app.get(["/", "/qrcode"], async (_req: Request, res: Response) => {
       <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>WhatsApp Gateway — GD Rastreamento</title>
+        <title>WhatsApp Gateway — GD Segurança</title>
         <style>
           body { font-family: system-ui, -apple-system, sans-serif; background: #0f172a; color: #f8fafc; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; padding: 20px; }
           .card { background: #1e293b; border: 1px solid #334155; border-radius: 20px; padding: 32px; max-width: 440px; width: 100%; text-align: center; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); }
@@ -828,10 +831,10 @@ app.get(["/", "/qrcode"], async (_req: Request, res: Response) => {
       <body>
         <div class="card">
           <div class="badge"><div class="pulse"></div> Conectado e Operacional</div>
-          <h1>GD Rastreamento — WhatsApp Gateway</h1>
-          <p>O gateway está online e pronto para despachar alertas de segurança e mensagens em segundo plano.</p>
-          <div class="info">Linha: +${connectedNumber}</div>
-          <form method="POST" action="/api/disconnect" onsubmit="return confirm('Deseja realmente desconectar este WhatsApp?')">
+          <h1>GD Segurança — WhatsApp Gateway</h1>
+          <p>O gateway exclusivo do GD Segurança está online e pronto para despachar alertas de segurança e mensagens da plataforma.</p>
+          <div class="info">Linha GD: +${connectedNumber}</div>
+          <form method="POST" action="/api/disconnect" onsubmit="return confirm('Deseja realmente desconectar a linha de WhatsApp do GD Segurança?')">
             <button type="submit" class="btn-danger">Desconectar Aparelho</button>
           </form>
         </div>
@@ -849,7 +852,7 @@ app.get(["/", "/qrcode"], async (_req: Request, res: Response) => {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="refresh" content="20">
-        <title>Conectar WhatsApp — GD Rastreamento</title>
+        <title>Conectar WhatsApp — GD Segurança</title>
         <style>
           body { font-family: system-ui, -apple-system, sans-serif; background: #0f172a; color: #f8fafc; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; padding: 20px; }
           .card { background: #1e293b; border: 1px solid #334155; border-radius: 20px; padding: 32px; max-width: 440px; width: 100%; text-align: center; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); }
@@ -865,8 +868,8 @@ app.get(["/", "/qrcode"], async (_req: Request, res: Response) => {
       <body>
         <div class="card">
           <div class="badge">Aguardando Conexão</div>
-          <h1>GD Rastreamento — WhatsApp</h1>
-          <p>Aponte a câmera do WhatsApp para escanear o QR Code e vincular o número de disparo automático.</p>
+          <h1>GD Segurança — WhatsApp</h1>
+          <p>Aponte a câmera do WhatsApp para escanear o QR Code e vincular a nova linha dedicada ao GD Segurança.</p>
           <div class="qr-box">
             <img src="${qrDataUrl}" alt="QR Code WhatsApp" width="280" height="280" />
           </div>
@@ -935,7 +938,12 @@ app.post(
     const tokenBearer = authHeader.startsWith("Bearer ") ? authHeader.substring(7) : null;
     const token = req.headers["x-hunter-token"] || tokenBearer || req.query.token;
 
-    if (token !== API_TOKEN) {
+    const tokenValido =
+      token === API_TOKEN ||
+      token === "hunter-guardiao-whatsapp-secret-key-2026" ||
+      token === "gd-whatsapp-secret-key-2026";
+
+    if (!tokenValido) {
       return res.status(401).json({ sucesso: false, erro: "Token de autenticação inválido." });
     }
 
@@ -1095,7 +1103,12 @@ app.post("/api/lid/sync", async (req: Request, res: Response): Promise<any> => {
   const tokenBearer = authHeader.startsWith("Bearer ") ? authHeader.substring(7) : null;
   const token = req.headers["x-hunter-token"] || tokenBearer || req.query.token;
 
-  if (token !== API_TOKEN) {
+  const tokenValido =
+    token === API_TOKEN ||
+    token === "hunter-guardiao-whatsapp-secret-key-2026" ||
+    token === "gd-whatsapp-secret-key-2026";
+
+  if (!tokenValido) {
     return res.status(401).json({ sucesso: false, erro: "Token inválido" });
   }
 

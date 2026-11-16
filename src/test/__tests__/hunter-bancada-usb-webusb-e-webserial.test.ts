@@ -191,7 +191,7 @@ describe("Hunter — Bancada de Configuração USB Nativa (WebUSB e Web Serial)"
 
     const filaConcox = PROTOCOLOS_BANCADA.concox_wanway.gerarFilaPadraoCanonico({
       srv: "167.234.233.82",
-      porta: "7002",
+      porta: "7003",
       modo: "0",
       apn: "voxter.br",
       user: "algar",
@@ -219,7 +219,7 @@ describe("Hunter — Bancada de Configuração USB Nativa (WebUSB e Web Serial)"
 
     const filaModem = PROTOCOLOS_BANCADA.modem_at.gerarFilaPadraoCanonico({
       srv: "167.234.233.82",
-      porta: "7002",
+      porta: "7003",
       modo: "0",
       apn: "voxter.br",
       user: "algar",

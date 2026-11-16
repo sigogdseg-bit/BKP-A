@@ -125,7 +125,7 @@
 - **Público:** SuperADM.
 - **Finalidade:** Configuração técnica de hardware, portas de comunicação telemática e comandos SMS/GPRS.
 - **Seções Principais:**
-  1. _Comandos SMS de Inicialização:_ Instruções de APN, IP do servidor, porta TCP 7002 e temporizadores de transmissão.
+  1. _Comandos SMS de Inicialização:_ Instruções de APN, IP do servidor, porta TCP 7003 (exclusiva GD Segurança, isolada da 7002 do Guardião) e temporizadores de transmissão.
 
 ---
 
@@ -218,7 +218,7 @@
 - **Referência Técnica Oficial:** Baseado estritamente no [Manual do Usuário Voxter J16 4G v1.1](file:///Users/djrnovaes/.gemini/antigravity-ide/scratch/hunter/docs/MANUAL-J16-VOXTER.md) (Anatel 00452-24-15524).
 - **Seções Principais:**
   1. _Listagem e Telemetria em Tempo Real:_ Tabela e cards interativos com seleção múltipla (Multi-Select), status do socket TCP, ignição física, tensão real de bateria e parâmetros auditados.
-  2. _Parâmetros Canônicos do Sistema:_ DNS (`gps.oficial.tec.br`), IP (`167.234.233.82`), porta (`7002`), APN M2M (`voxter.br`), credenciais (`algar`/`1212`), timers (`TIMER,30,3600#`), heartbeat (`HBT,300,300#`), timezone (`GMT,W,0,0#`) e detecção de curva inteligente (`SZCS#ANGLE,SEND=1`).
+  2. _Parâmetros Canônicos do Sistema:_ DNS (`gps.oficial.tec.br`), IP (`167.234.233.82`), porta (`7003`), APN M2M (`voxter.br`), credenciais (`algar`/`1212`), timers (`TIMER,30,3600#`), heartbeat (`HBT,300,300#`), timezone (`GMT,W,0,0#`) e detecção de curva inteligente (`SZCS#ANGLE,SEND=1`).
   3. _Carga Total em Lote (Batch Completo):_ Disparo sequencial dos comandos de parametrização homologados com delay de 1.500ms entre comandos para proteção da memória flash e buffer da MCU.
   4. _Console Interativo e Consultas Passivas Seguras:_ Terminal com atalhos de somente-leitura (`STATUS#`, `PARAM#`, `VERSION#`, `SERVER#`, `RELAY#`, `GPRSSET#`, `SCXSZ#`, `WHERE#`), comandos de calibração de engenharia e parser instantâneo de confirmações `0x15` do microcontrolador J16.
   5. _Salvaguardas de Segurança Viária:_ Bloqueio seguro inteligente (`SZCS#SOURCE_OFF_TYPE=0`) para corte condicionado a velocidade inferior a 20 km/h e isolamento rigoroso contra execução acidental de comandos destrutivos de flash.

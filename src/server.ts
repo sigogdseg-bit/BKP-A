@@ -8346,10 +8346,11 @@ async function handleApiWhatsapp(
   }
 
   const gatewayUrl = (
-    (typeof process !== "undefined" && process.env?.WHATSAPP_GATEWAY_URL) ||
-    (env && (env as any).WHATSAPP_GATEWAY_URL) ||
-    "https://gps.oficial.tec.br"
-  ) // Gateway Oracle Always Free HTTPS com Caddy e Let's Encrypt
+    (typeof process !== "undefined" &&
+      (process.env?.GD_WHATSAPP_GATEWAY_URL || process.env?.WHATSAPP_GATEWAY_URL)) ||
+    (env && ((env as any).GD_WHATSAPP_GATEWAY_URL || (env as any).WHATSAPP_GATEWAY_URL)) ||
+    "http://167.234.233.82:8082"
+  ) // Gateway WhatsApp Exclusivo GD Segurança (Porta 8082 na Oracle Cloud Always Free, isolado do SIGO Guardião)
     .replace(/\/$/, "");
 
   // 1. GET / HEAD /api/whatsapp/status
@@ -8357,7 +8358,12 @@ async function handleApiWhatsapp(
     url.pathname === "/api/whatsapp/status" &&
     (request.method === "GET" || request.method === "HEAD")
   ) {
-    const alvos = [gatewayUrl, "https://gps.oficial.tec.br"];
+    const alvos = [
+      gatewayUrl,
+      "http://167.234.233.82:8082",
+      "https://gps.oficial.tec.br:8082",
+      "https://gps.oficial.tec.br",
+    ];
     let ultimoErro = "";
 
     for (const alvo of alvos) {
@@ -8479,6 +8485,23 @@ async function handleApiWhatsapp(
       return new Response(`<h1>Erro ao carregar QR Code: ${err?.message || err}</h1>`, {
         status: 502,
         headers: { "Content-Type": "text/html; charset=utf-8", ...SECURITY_HEADERS },
+      });
+    }
+  }
+
+  // 3b. POST /api/whatsapp/disconnect (Desconectar linha GD para sincronizar novo número)
+  if (url.pathname === "/api/whatsapp/disconnect" && request.method === "POST") {
+    try {
+      const res = await fetch(`${gatewayUrl}/api/disconnect`, { method: "POST" });
+      const htmlOrJson = await res.text();
+      return new Response(htmlOrJson, {
+        status: res.status,
+        headers: { "Content-Type": "text/html; charset=utf-8", ...SECURITY_HEADERS },
+      });
+    } catch (err: any) {
+      return new Response(JSON.stringify({ sucesso: false, erro: err?.message || err }), {
+        status: 502,
+        headers: { "Content-Type": "application/json", ...SECURITY_HEADERS },
       });
     }
   }

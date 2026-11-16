@@ -5,19 +5,19 @@ primary_region = "gru"
   dockerfile = "Dockerfile"
 
 [env]
-  PORTA_TCP = "7002"
+  PORTA_TCP = "7003"
   PORTA_HTTP = "8080"
   SUPABASE_URL = "https://pflzopmxxawyqkgrlapq.supabase.co"
 
 [[services]]
-  internal_port = 7002
+  internal_port = 7003
   protocol = "tcp"
   auto_stop_machines = false
   auto_start_machines = true
   min_machines_running = 1
 
   [[services.ports]]
-    port = 7002
+    port = 7003
 
 [[services]]
   internal_port = 8080

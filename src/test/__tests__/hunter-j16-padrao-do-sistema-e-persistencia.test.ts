@@ -14,7 +14,11 @@ describe("Hunter — Padrão do Sistema J16 e Persistência de Configuração", 
       "gps.oficial.tec.br",
       "DNS canônico deve apontar para o subdomínio oficial do GD Rastreamento",
     );
-    assert.equal(VALORES_PADRAO_CANONICO_J16.portaTcp, "7002", "Porta TCP homologada GT06 é 7002");
+    assert.equal(
+      VALORES_PADRAO_CANONICO_J16.portaTcp,
+      "7003",
+      "Porta TCP homologada GT06 do GD Segurança é 7003 (porta 7002 preservada para o Guardião)",
+    );
     assert.equal(VALORES_PADRAO_CANONICO_J16.apnNome, "voxter.br", "APN M2M padrão é voxter.br");
     assert.equal(VALORES_PADRAO_CANONICO_J16.apnUser, "algar", "Usuário APN padrão é algar");
     assert.equal(VALORES_PADRAO_CANONICO_J16.apnPass, "1212", "Senha APN padrão é 1212");

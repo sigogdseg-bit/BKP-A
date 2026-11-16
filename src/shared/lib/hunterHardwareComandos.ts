@@ -26,7 +26,7 @@
  *      NUNCA levam o terminador '#' no final.
  *    Exemplos comprovados ao vivo no J16:
  *    - TIMER,30,1800#
- *    - SERVER,1,gps.oficial.tec.br,7002,0#
+ *    - SERVER,1,gps.oficial.tec.br,7003,0#
  *    - APN,voxter.br,voxter,voxter#
  *    - HBT,120,300#
  *    - RELAY,1

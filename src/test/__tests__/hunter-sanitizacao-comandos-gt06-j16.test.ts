@@ -156,6 +156,7 @@ describe("Hunter — Sanitização Canônica Universal de Comandos de Hardware G
     assert.equal(ehComandoConsultaSomenteLeitura("G123456#"), true);
 
     // Escritas / Bloqueios / Resets estritamente bloqueados
+    assert.equal(ehComandoConsultaSomenteLeitura("SERVER,0,167.234.233.82,7003,0#"), false);
     assert.equal(ehComandoConsultaSomenteLeitura("SERVER,0,167.234.233.82,7002,0#"), false);
     assert.equal(ehComandoConsultaSomenteLeitura("APN,voxter.br,algar,1212#"), false);
     assert.equal(ehComandoConsultaSomenteLeitura("TIMER,30,3600#"), false);

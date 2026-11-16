@@ -13,24 +13,24 @@ O **Rastreador GPS J16 4G** é um equipamento telemático veicular de alta sensi
 
 ### Especificações Físicas e Rádio
 
-| Parâmetro                         | Especificação Oficial                            |
-| :-------------------------------- | :----------------------------------------------- |
-| **Dimensões**                     | 79 x 38 x 16 mm                                  |
-| **Peso**                          | 43,2 g (incluindo bateria interna)               |
-| **Bateria Interna**               | 300 mAh / 3,7V Li-ion recarregável               |
-| **Faixa de Tensão Externa**       | 9V a 90V DC (suporte pleno a 12V e 24V veicular) |
-| **Módulo Celular 4G**             | SIMCom A7670SA                                   |
-| **Chipset GNSS / GPS**            | AT6558R                                          |
-| **Bandas 4G LTE-FDD**             | B1 / B3 / B5 / B8                                |
-| **Bandas 4G LTE-TDD**             | B34 / B38 / B39 / B40 / B41                      |
-| **Bandas 3G WCDMA**               | B1 / B5 / B8                                     |
-| **Bandas 2G GSM**                 | B3 / B8                                          |
-| **Sensibilidade de Rastreamento** | -162 dBm                                         |
-| **Sensibilidade de Navegação**    | -160 dBm                                         |
-| **TTFF (Cold Start)**             | Média de 32 segundos                             |
-| **Sensor de Movimento**           | Acelerômetro G-Sensor Triaxial                   |
-| **Protocolo de Rede**             | TCP (Binário GT06 na porta 7002)                 |
-| **Temperatura de Operação**       | -20°C a +60°C                                    |
+| Parâmetro                         | Especificação Oficial                                                                       |
+| :-------------------------------- | :------------------------------------------------------------------------------------------ |
+| **Dimensões**                     | 79 x 38 x 16 mm                                                                             |
+| **Peso**                          | 43,2 g (incluindo bateria interna)                                                          |
+| **Bateria Interna**               | 300 mAh / 3,7V Li-ion recarregável                                                          |
+| **Faixa de Tensão Externa**       | 9V a 90V DC (suporte pleno a 12V e 24V veicular)                                            |
+| **Módulo Celular 4G**             | SIMCom A7670SA                                                                              |
+| **Chipset GNSS / GPS**            | AT6558R                                                                                     |
+| **Bandas 4G LTE-FDD**             | B1 / B3 / B5 / B8                                                                           |
+| **Bandas 4G LTE-TDD**             | B34 / B38 / B39 / B40 / B41                                                                 |
+| **Bandas 3G WCDMA**               | B1 / B5 / B8                                                                                |
+| **Bandas 2G GSM**                 | B3 / B8                                                                                     |
+| **Sensibilidade de Rastreamento** | -162 dBm                                                                                    |
+| **Sensibilidade de Navegação**    | -160 dBm                                                                                    |
+| **TTFF (Cold Start)**             | Média de 32 segundos                                                                        |
+| **Sensor de Movimento**           | Acelerômetro G-Sensor Triaxial                                                              |
+| **Protocolo de Rede**             | TCP (Binário GT06 na porta 7003 para GD Segurança; porta 7002 reservada para SIGO Guardião) |
+| **Temperatura de Operação**       | -20°C a +60°C                                                                               |
 
 ---
 
@@ -87,8 +87,8 @@ O J16 possui 3 LEDs SMD visíveis na placa através da carcaça frontal:
 
 |   Nº   | Função                                     | Sintaxe Oficial           | Exemplo Prático                       | Observações do Fabricante                                                          |
 | :----: | :----------------------------------------- | :------------------------ | :------------------------------------ | :--------------------------------------------------------------------------------- |
-| **1**  | Configurar Servidor via DNS                | `SERVER,1,dns,porta,0#`   | `SERVER,1,gps.oficial.tec.br,7002,0#` | Modo TCP com porta 7002 (fallback universal).                                      |
-| **2**  | Configurar Servidor via IP                 | `SERVER,0,ip,porta,0#`    | `SERVER,0,167.234.233.82,7002,0#`     | Padrão Canônico: Conexão direta por IP numérico (Oracle Always Free, zero DNS).    |
+| **1**  | Configurar Servidor via DNS                | `SERVER,1,dns,porta,0#`   | `SERVER,1,gps.oficial.tec.br,7003,0#` | Modo TCP com porta 7003 para GD Segurança (7002 reservada ao SIGO Guardião).       |
+| **2**  | Configurar Servidor via IP                 | `SERVER,0,ip,porta,0#`    | `SERVER,0,167.234.233.82,7003,0#`     | Padrão Canônico GD: Conexão direta por IP numérico (Oracle Always Free, zero DNS). |
 | **3**  | Configuração de APN M2M                    | `APN,nome,user,pass#`     | `APN,voxter.br,algar,1212#`           | APN de telemetria M2M.                                                             |
 | **4**  | **Configurar Tempo de Envio**              | `TIMER,ligado,desligado#` | `TIMER,20,1800#`                      | **1º valor:** ignição ligada (20s). **2º valor:** ignição desligada (1800s / 30m). |
 | **5**  | Configurar Timezone (Fuso)                 | `GMT,W/E,offset,min#`     | `GMT,W,0,0#`                          | Alinhamento com horário universal UTC/GMT-0.                                       |
@@ -173,7 +173,7 @@ Comandos seguros de somente-leitura (`Read-Only`), que não alteram parâmetros 
 | `PARAM#`   | `IMEI:XXXXX; TIMER:15,3600; HBT:120,300; ...`      | Conferência de APN, servidor, timers e heartbeat ativos na flash.               |
 | `STATUS#`  | `Battery:4.2V; GPRS:Online; ACC:OFF; Relay:OFF...` | Nível da bateria interna, status do GPRS, satélites, pino ACC e relé.           |
 | `VERSION#` | `Model:J16; Build:202X...; Firmware:...`           | Versão exata do firmware do chip de comunicação SIMCom A7670.                   |
-| `SERVER#`  | `IP:167.234.233.82; Port:7002; Protocol:TCP...`    | Consulta imediata do servidor e porta TCP ativos no modem.                      |
+| `SERVER#`  | `IP:167.234.233.82; Port:7003; Protocol:TCP...`    | Consulta imediata do servidor e porta TCP ativos no modem (Porta 7003 para GD). |
 | `RELAY#`   | `Relay:CUT` ou `Relay:RESUME`                      | Confirmação do estado físico do relé de bloqueio (se está cortado ou liberado). |
 | `GPRSSET#` | `APN:...; User:...; Pass:...`                      | Consulta detalhada e isolada dos parâmetros de conexão de dados móveis.         |
 | `SCXSZ#`   | Dados estruturados do microcontrolador             | Resumo simplificado da configuração atual gravada de fábrica.                   |

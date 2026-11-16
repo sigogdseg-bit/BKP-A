@@ -158,8 +158,8 @@ O sistema segrega estritamente o acesso em 10 perfis distintos, protegidos por g
 
 ## 6. Integrações Externas e Comunicação
 
-1. **Protocolo Concox / GT06 (Porta 7002):** Ingestão contínua de pacotes binários de telemetria enviados por rastreadores 4G.
-2. **Fly.io + Baileys:** Micro-gateway de mensageria WhatsApp com persistência de sessões e chaves Signal.
+1. **Protocolo Concox / GT06 (Porta 7003 GD / Porta 7002 Guardião):** Ingestão contínua de pacotes binários de telemetria enviados por rastreadores 4G, com separação física de portas e zero conflito de reprogramação com a base do SIGO Guardião.
+2. **Micro-gateway WhatsApp (Porta 8082 / Baileys):** Instância dedicada na porta 8082 com armazenamento de sessão isolado (`/data/session-gd`), pareamento via `/api/whatsapp/qrcode` e linha própria de atendimento/alertas para o GD Segurança (isolado da porta 8081 do Guardião).
 3. **MapTiler / OpenStreetMap:** Servidores de tiles cartográficos de alta definição com chaves seguras.
 4. **Web Push VAPID:** Infraestrutura padronizada IETF para notificações PWA no navegador e Android TWA.
 5. **MacroDroid Gateway:** Integração local via webhook para discagem automática de alertas no celular do operador.

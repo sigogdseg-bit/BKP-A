@@ -97,7 +97,7 @@ export function AbaConfiguracaoUsb() {
       ? configPadrao.valores.ipDedicado
       : configPadrao.valores.servidorDns || "gps.oficial.tec.br",
   );
-  const [portaTcp, setPortaTcp] = useState<string>(configPadrao.valores.portaTcp || "7002");
+  const [portaTcp, setPortaTcp] = useState<string>(configPadrao.valores.portaTcp || "7003");
   const [modoIpDns, setModoIpDns] = useState<string>(configPadrao.valores.usarIpDireto ? "0" : "1"); // 1 = DNS, 0 = IP
   const [apnNome, setApnNome] = useState<string>(configPadrao.valores.apnNome || "voxter.br");
   const [apnUser, setApnUser] = useState<string>(configPadrao.valores.apnUser || "algar");
@@ -1596,7 +1596,7 @@ export function AbaConfiguracaoUsb() {
         ? padrao.valores.ipDedicado
         : padrao.valores.servidorDns || "gps.oficial.tec.br",
     );
-    setPortaTcp(padrao.valores.portaTcp || "7002");
+    setPortaTcp(padrao.valores.portaTcp || "7003");
     setModoIpDns(padrao.valores.usarIpDireto ? "0" : "1");
     setApnNome(padrao.valores.apnNome || "voxter.br");
     setApnUser(padrao.valores.apnUser || "algar");
@@ -1623,7 +1623,7 @@ export function AbaConfiguracaoUsb() {
 
     const imeiAlvo = dadosBancada.imei;
     const srv = servidorDns.trim() || "167.234.233.82";
-    const porta = portaTcp.trim() || "7002";
+    const porta = portaTcp.trim() || "7003";
     const apn = apnNome.trim() || "voxter.br";
     const user = apnUser.trim();
     const pass = apnPass.trim();
@@ -1731,7 +1731,7 @@ export function AbaConfiguracaoUsb() {
     );
 
     const srv = servidorDns.trim() || "167.234.233.82";
-    const porta = portaTcp.trim() || "7002";
+    const porta = portaTcp.trim() || "7003";
     const apn = apnNome.trim() || "voxter.br";
     const user = apnUser.trim();
     const pass = apnPass.trim();
@@ -1852,7 +1852,7 @@ export function AbaConfiguracaoUsb() {
             </div>
             <div>
               3. Digite o comando de apontamento e pressione Enter:{" "}
-              <code className="text-orange-300">SERVER,0,167.234.233.82,7002,0#</code>
+              <code className="text-orange-300">SERVER,0,167.234.233.82,7003,0#</code>
             </div>
           </div>
         </div>

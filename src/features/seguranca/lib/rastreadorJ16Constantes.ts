@@ -5,7 +5,7 @@
 
 export const VALORES_PADRAO_CANONICO_J16 = {
   servidorDns: "gps.oficial.tec.br",
-  portaTcp: "7002",
+  portaTcp: "7003",
   ipDedicado: "167.234.233.82",
   usarIpDireto: true, // Padrão Oficial Canônico: Conexão via IP Dedicado direto sem overhead DNS
   apnNome: "voxter.br",
@@ -85,7 +85,7 @@ export const CHECKBOXES_PADRAO_CANONICO_J16: Record<string, boolean> = {
 };
 
 export const STORAGE_KEY_CONFIG_PADRAO_SISTEMA = "hunter_j16_config_padrao_sistema";
-export const VERSAO_PADRAO_SISTEMA_J16 = "2.1.6.61-oracle-alwaysfree-gps-oficial-tec-br-accalm";
+export const VERSAO_PADRAO_SISTEMA_J16 = "2.1.6.62-gd-seguranca-porta-7003-tcp-isolada";
 
 export const obterConfigPadraoSistemaJ16 = (): {
   valores: typeof VALORES_PADRAO_CANONICO_J16;
@@ -104,6 +104,7 @@ export const obterConfigPadraoSistemaJ16 = (): {
 
           const isLegado =
             parsed.versao !== VERSAO_PADRAO_SISTEMA_J16 ||
+            parsed.valores?.portaTcp !== VALORES_PADRAO_CANONICO_J16.portaTcp ||
             parsed.valores?.servidorDns !== VALORES_PADRAO_CANONICO_J16.servidorDns ||
             parsed.valores?.ipDedicado !== VALORES_PADRAO_CANONICO_J16.ipDedicado ||
             timerParadoNum < 3600 ||

@@ -138,14 +138,14 @@ describe("Hunter — Ciclos de Viagem Consolidados e Modo de Segurança Anti-Fur
   });
 
   describe("4. Parâmetros Canônicos do Rastreador J16 (4G)", () => {
-    test("deve validar o apontamento de servidor com DNS gps.oficial.tec.br e porta 7002", () => {
+    test("deve validar o apontamento de servidor com DNS gps.oficial.tec.br e porta 7003", () => {
       const servidorDns = "gps.oficial.tec.br";
-      const portaTcp = "7002";
+      const portaTcp = "7003";
       const cmdDns = `SERVER,1,${servidorDns},${portaTcp},0#`;
       const cmdIp = `SERVER,0,167.234.233.82,${portaTcp},0#`;
 
-      assert.equal(cmdDns, "SERVER,1,gps.oficial.tec.br,7002,0#");
-      assert.equal(cmdIp, "SERVER,0,167.234.233.82,7002,0#");
+      assert.equal(cmdDns, "SERVER,1,gps.oficial.tec.br,7003,0#");
+      assert.equal(cmdIp, "SERVER,0,167.234.233.82,7003,0#");
     });
 
     test("deve validar os comandos de telemetria fina (Timer 15s, Ângulo 15 graus e ACC Virtual)", () => {

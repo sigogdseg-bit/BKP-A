@@ -835,10 +835,11 @@ export async function coletarMetricasDiarias(
   };
 
   try {
-    const gwUrl = (process.env.WHATSAPP_GATEWAY_URL || "https://gps.oficial.tec.br").replace(
-      /\/$/,
-      "",
-    );
+    const gwUrl = (
+      process.env.GD_WHATSAPP_GATEWAY_URL ||
+      process.env.WHATSAPP_GATEWAY_URL ||
+      "http://167.234.233.82:8082"
+    ).replace(/\/$/, "");
     const resGw = await fetch(`${gwUrl}/status`).catch(() => null);
     if (resGw && resGw.ok) {
       const dataGw = await resGw.json().catch(() => null);
@@ -1466,9 +1467,11 @@ export async function enviarRelatorioDiarioSuperAdm(
     "hunter-guardiao-whatsapp-secret-key-2026";
 
   const gatewayUrl = (
+    envObj.GD_WHATSAPP_GATEWAY_URL ||
     envObj.WHATSAPP_GATEWAY_URL ||
+    process.env.GD_WHATSAPP_GATEWAY_URL ||
     process.env.WHATSAPP_GATEWAY_URL ||
-    "https://gps.oficial.tec.br"
+    "http://167.234.233.82:8082"
   ).replace(/\/$/, "");
 
   // 4.1 Resolve preferências individuais da equipe técnica (SuperADM/ADM/Operador)

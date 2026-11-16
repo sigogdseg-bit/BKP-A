@@ -25,7 +25,8 @@ O GD Rastreamento foi concebido sobre uma arquitetura moderna e distribuída, ot
    - Extensão `pg_net` para despacho automatizado de requisições assíncronas a partir de eventos do banco.
 
 4. **Camada de Hardware e Telemetria Veicular:**
-   - Comunicação TCP na porta 7002 via protocolo padrão Concox/GT06 para rastreadores 4G J16 e Coban.
+   - Comunicação TCP na porta 7003 via protocolo padrão Concox/GT06 para rastreadores 4G J16 e Coban no GD Segurança (a porta 7002 permanece preservada para os rastreadores do SIGO Guardião, garantindo separação física total sem necessidade de reprogramação de aparelhos legados).
+   - Gateway WhatsApp dedicado na porta HTTP 8082 com sessão própria (`/data/session-gd`), garantindo sincronização de linha independente para o GD Segurança e isolamento completo da linha do SIGO Guardião (porta 8081).
    - Recepção e decodificação de pacotes de dados binários: coordenadas GPS, velocidade, rumo, ignição física (ACC), voltagem de bateria e sensores de vibração.
    - Relé automotivo de bloqueio com acionamento seguro mediante comando binário homologado ou SMS de contingência.
 
@@ -36,7 +37,7 @@ O GD Rastreamento foi concebido sobre uma arquitetura moderna e distribuída, ot
 ```
 [Hardware Veicular J16/Coban]
        │
-       │ Pacotes TCP / GT06 (Porta 7002)
+       │ Pacotes TCP / GT06 (Porta 7003 GD / Porta 7002 Guardião)
        ▼
 [Serviço de Ingestão de Rastreamento]
        │

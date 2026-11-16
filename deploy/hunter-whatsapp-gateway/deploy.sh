@@ -2,7 +2,7 @@
 # deploy.sh — Deploy automatizado do Micro-Gateway WhatsApp no Fly.io (Custo Zero)
 set -e
 
-APP_NAME="hunter-whatsapp-gateway"
+APP_NAME="gd-whatsapp-gateway"
 REGION="gru"
 FLYCTL="$HOME/.fly/bin/flyctl"
 
@@ -10,7 +10,7 @@ if ! command -v "$FLYCTL" &> /dev/null; then
   FLYCTL="flyctl"
 fi
 
-echo "🚀 [HUNTER WHATSAPP] Iniciando deploy no Fly.io..."
+echo "🚀 [GD SEGURANÇA WHATSAPP] Iniciando deploy no Fly.io..."
 
 # 1. Verifica ou cria o app no Fly.io
 if ! $FLYCTL status --app "$APP_NAME" &> /dev/null; then
@@ -19,9 +19,9 @@ if ! $FLYCTL status --app "$APP_NAME" &> /dev/null; then
 fi
 
 # 2. Cria o volume persistente de 1 GB se não existir
-if ! $FLYCTL volumes list --app "$APP_NAME" | grep -q "whatsapp_data"; then
-  echo "💾 Criando volume persistente whatsapp_data (1 GB) em $REGION..."
-  $FLYCTL volumes create whatsapp_data --app "$APP_NAME" --region "$REGION" --size 1 --yes
+if ! $FLYCTL volumes list --app "$APP_NAME" | grep -q "gd_whatsapp_data"; then
+  echo "💾 Criando volume persistente gd_whatsapp_data (1 GB) em $REGION..."
+  $FLYCTL volumes create gd_whatsapp_data --app "$APP_NAME" --region "$REGION" --size 1 --yes
 fi
 
 # 3. Executa o deploy da máquina de 256 MB

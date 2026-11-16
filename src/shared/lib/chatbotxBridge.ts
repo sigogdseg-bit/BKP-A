@@ -41,7 +41,7 @@ export function obterUrlChatbotX(): string {
   if (typeof window !== "undefined" && window.location?.origin) {
     return "/api/whatsapp";
   }
-  return "https://gps.oficial.tec.br";
+  return "https://gps.oficial.tec.br:8082";
 }
 
 /**
@@ -293,7 +293,7 @@ export async function enviarMensagemWhatsappOperador(
     ? "/api/whatsapp/send"
     : `${urlBase}/api/v1/messages/send`;
 
-  const fallbackEndpoint = "https://gps.oficial.tec.br/api/v1/messages/send";
+  const fallbackEndpoint = "https://gps.oficial.tec.br:8082/api/v1/messages/send";
 
   const headers: Record<string, string> = {
     "Content-Type": "application/json",

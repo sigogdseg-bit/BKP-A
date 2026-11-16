@@ -59,8 +59,8 @@ describe("Hunter — Blindagem de Segurança, Sigilo de Infraestrutura e Interfa
 
     // Proíbe exposição de portas internas e URLs do servidor na tela
     assert.ok(
-      !content.includes("Porta 7002"),
-      "VehicleTelemetryDrawer.tsx não deve exibir 'Porta 7002' em tela.",
+      !content.includes("Porta 7002") && !content.includes("Porta 7003"),
+      "VehicleTelemetryDrawer.tsx não deve exibir 'Porta 7002' ou 'Porta 7003' em tela.",
     );
     assert.ok(
       !content.includes("gps.sigoguardiao.oficial.tec.br") &&

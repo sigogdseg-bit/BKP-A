@@ -588,7 +588,7 @@ export function AbaSimuladorCargaRastreadores() {
       if (cmdLimpo.startsWith("STATUS#")) {
         respostaSimulada = `Battery:98%;GPRS:Normal;GPS:Tracking(${v.satelites});ACC:${v.ignicao ? "ON" : "OFF"};Relay:${v.bloqueado ? "OFF" : "ON"};Volt:${v.tensaoBateria}V;CSQ:${v.sinalCsq}`;
       } else if (cmdLimpo.startsWith("PARAM#")) {
-        respostaSimulada = `SERVER:1,gps.oficial.tec.br,7002,0;TIMER:15,3600;ANGLE:3,15;APN:voxter.br;HBT:180,900;`;
+        respostaSimulada = `SERVER:1,gps.oficial.tec.br,7003,0;TIMER:15,3600;ANGLE:3,15;APN:voxter.br;HBT:180,900;`;
       } else if (cmdLimpo.startsWith("RELAY,1")) {
         respostaSimulada = "RELAY:CUT FUEL SUCCESS";
         v.bloqueado = true;
@@ -1286,7 +1286,7 @@ export function AbaSimuladorCargaRastreadores() {
           <div className="text-[9.5px] font-mono text-slate-500 dark:text-slate-400 flex items-center justify-between">
             <span>Buffer circular: 80 pacotes retidos na memória</span>
             <span className="text-orange-600 dark:text-orange-400 font-bold">
-              Gateway: gps.oficial.tec.br:7002
+              Gateway: gps.oficial.tec.br:7003
             </span>
           </div>
         </div>

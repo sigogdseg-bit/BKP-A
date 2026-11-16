@@ -181,7 +181,7 @@ function extrairParametrosDeRespostaJ16(
     }
   }
 
-  // 2. SERVER / DNS / IP (ex: "SERVER:1,gps.oficial.tec.br,7002,0;" ou confirmação "SERVER:OK")
+  // 2. SERVER / DNS / IP (ex: "SERVER:1,gps.oficial.tec.br,7003,0;" ou confirmação "SERVER:OK")
   const matchServer =
     resposta.match(/(?:SETOK:\s*)?SERVER[:=,\s](?:[0-1],)?([a-zA-Z0-9._-]+),(\d+)/i) ||
     resposta.match(/(?:SETOK:\s*)?IP[:=,\s]([a-zA-Z0-9._-]+),(\d+)/i) ||
