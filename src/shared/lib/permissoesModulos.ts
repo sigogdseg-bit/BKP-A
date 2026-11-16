@@ -118,6 +118,8 @@ export const MODULOS_PADRAO_FINANCEIRO: string[] = [
   "revendedores",
   "instalacao",
   "abastecimento",
+  "manutencao",
+  "estoque",
   "chat",
   "atendimento",
   "configuracoes",
@@ -252,21 +254,12 @@ export function podeAcessarModulo(session: UserSession | null, moduloId: string)
     return true;
   }
 
-  // Financeiro: acessa ESTRITAMENTE o que compete ao setor financeiro da empresa (incluindo abastecimento e NFs)
+  // Financeiro: acessa os módulos financeiros padrão ou a lista personalizada concedida pelo administrador
   if (session.isFinanceiro || session.role === "financeiro") {
-    return [
-      "financeiro",
-      "mensalidades",
-      "propostas",
-      "clientes",
-      "revendedores",
-      "instalacao",
-      "abastecimento",
-      "chat",
-      "atendimento",
-      "configuracoes",
-      "temas",
-    ].includes(moduloId);
+    const modulosFinanceiro =
+      session.modulos && session.modulos.length > 0 ? session.modulos : MODULOS_PADRAO_FINANCEIRO;
+    const aliases = aliasesModulo(moduloId);
+    return modulosFinanceiro.some((m) => aliases.includes(m));
   }
 
   // Módulo exclusivo de Administrador: operador, instalador, cliente e motorista NÃO acessam
@@ -457,17 +450,10 @@ export function podeAcessarRota(session: UserSession | null, rota: string): bool
     return true;
   }
 
-  // Regra Estrita para Perfil Financeiro: Acessa ESTRITAMENTE o que compete ao setor financeiro da empresa
+  // Regra para Perfil Financeiro: Precedência dos módulos concedidos (com padrão financeiro canônico)
   if (session.isFinanceiro || session.role === "financeiro") {
-    // Rotas estritamente bloqueadas para o Financeiro
+    // Rotas estritamente bloqueadas por governança (exclusivas de SuperADM / Administrador / Franquia)
     if (
-      rotaNormalizada === "/monitor-gps" ||
-      rotaNormalizada === "/rotas" ||
-      rotaNormalizada === "/frota" ||
-      rotaNormalizada === "/manutencao" ||
-      rotaNormalizada === "/motoristas" ||
-      rotaNormalizada === "/funcionarios" ||
-      rotaNormalizada === "/estoque" ||
       rotaNormalizada === "/usuarios" ||
       rotaNormalizada === "/dispositivos" ||
       rotaNormalizada.startsWith("/configuracao/central-seguranca") ||
@@ -481,19 +467,23 @@ export function podeAcessarRota(session: UserSession | null, rota: string): bool
       return false;
     }
 
-    // Rotas permitidas para o Financeiro (incluindo abastecimento e despesas com NF)
-    if (
-      rotaNormalizada === "/financeiro" ||
-      rotaNormalizada === "/mensalidades" ||
-      rotaNormalizada === "/propostas" ||
-      rotaNormalizada === "/clientes" ||
-      rotaNormalizada === "/revendedores" ||
-      rotaNormalizada === "/instalacao" ||
-      rotaNormalizada === "/abastecimento" ||
-      rotaNormalizada === "/motorista"
-    ) {
-      return true;
+    // Rotas operacionais e financeiras: valida permissão pelo módulo correspondente
+    if (rotaNormalizada === "/financeiro") return podeAcessarModulo(session, "financeiro");
+    if (rotaNormalizada === "/mensalidades") return podeAcessarModulo(session, "mensalidades");
+    if (rotaNormalizada === "/propostas") return podeAcessarModulo(session, "propostas");
+    if (rotaNormalizada === "/clientes") return podeAcessarModulo(session, "clientes");
+    if (rotaNormalizada === "/revendedores") return podeAcessarModulo(session, "revendedores");
+    if (rotaNormalizada === "/instalacao") return podeAcessarModulo(session, "instalacao");
+    if (rotaNormalizada === "/abastecimento" || rotaNormalizada === "/motorista") {
+      return podeAcessarModulo(session, "abastecimento");
     }
+    if (rotaNormalizada === "/manutencao") return podeAcessarModulo(session, "manutencao");
+    if (rotaNormalizada === "/estoque") return podeAcessarModulo(session, "estoque");
+    if (rotaNormalizada === "/monitor-gps") return podeAcessarModulo(session, "monitor-gps");
+    if (rotaNormalizada === "/rotas") return podeAcessarModulo(session, "rotas");
+    if (rotaNormalizada === "/frota") return podeAcessarModulo(session, "frota");
+    if (rotaNormalizada === "/motoristas") return podeAcessarModulo(session, "motoristas");
+    if (rotaNormalizada === "/funcionarios") return podeAcessarModulo(session, "funcionarios");
 
     const moduloEncontrado = MODULOS_SISTEMA_REGRAS.find((m) => m.rota === rotaNormalizada);
     if (!moduloEncontrado) return false;
@@ -581,12 +571,13 @@ export function podeAcessarRota(session: UserSession | null, rota: string): bool
       }
       return true;
     }
-    return (
-      session.isMotorista || session.isAdmin || session.isSuperAdmin || session.role === "operador"
-    );
+    if (session.role === "operador") {
+      return podeAcessarModulo(session, "abastecimento");
+    }
+    return session.isMotorista || session.isAdmin || session.isSuperAdmin;
   }
 
-  // Rota de Manutenção Preventiva: acessível por Motoristas, Clientes (Pro, Master ou Trial) e Admins
+  // Rota de Manutenção Preventiva: acessível por Motoristas, Clientes (Pro, Master ou Trial) e Admins/Operadores
   if (rotaNormalizada === "/manutencao") {
     if (session.isCliente) {
       if (session.plano === "basico" && session.isTrialMaster === false) {
@@ -594,9 +585,10 @@ export function podeAcessarRota(session: UserSession | null, rota: string): bool
       }
       return true;
     }
-    return (
-      session.isMotorista || session.isAdmin || session.isSuperAdmin || session.role === "operador"
-    );
+    if (session.role === "operador") {
+      return podeAcessarModulo(session, "manutencao");
+    }
+    return session.isMotorista || session.isAdmin || session.isSuperAdmin;
   }
 
   // Rota de Rotas e Trajetos Inteligentes: permitida para Motorista, Cliente (Pro, Master ou Trial), Operador e Admins (NUNCA instalador, revendedor ou vendedor)
@@ -608,9 +600,10 @@ export function podeAcessarRota(session: UserSession | null, rota: string): bool
       }
       return true;
     }
-    return (
-      session.isMotorista || session.isAdmin || session.isSuperAdmin || session.role === "operador"
-    );
+    if (session.role === "operador") {
+      return podeAcessarModulo(session, "rotas");
+    }
+    return session.isMotorista || session.isAdmin || session.isSuperAdmin;
   }
 
   // Regra Estrita: Revendedores e Vendedores NÃO possuem acesso ao Mapa Operacional, Rotas Inteligentes ou Frota

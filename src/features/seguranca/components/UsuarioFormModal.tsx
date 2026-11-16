@@ -65,21 +65,13 @@ export function UsuarioFormModal({ usuario, onSalvo, onFechar }: UsuarioFormModa
   const [enderecoInstalacao, setEnderecoInstalacao] = useState(usuario?.endereco_instalacao || "");
   const [modulos, setModulos] = useState<string[]>(() => {
     if (!usuario) return obterModulosPadraoPorPerfil("operador");
-    if (isSuperAdm || usuario.role === "superadmin" || usuario.role === "adm") {
+    if (isSuperAdm || usuario.role === "superadmin") {
       return MODULOS_SISTEMA.map((m) => m.id);
     }
-    if (usuario.role === "instalador") {
-      return ["instalacao"];
+    if (usuario.modulos && usuario.modulos.length > 0) {
+      return usuario.modulos;
     }
-    if (usuario.role === "superadmin_auditor") {
-      if (usuario.modulos && usuario.modulos.length > 0) {
-        return usuario.modulos.filter((m) => MODULOS_CLIENTE_PLANO_MASTER.includes(m));
-      }
-      return obterModulosPadraoPorPerfil("superadmin_auditor");
-    }
-    return usuario.modulos && usuario.modulos.length > 0
-      ? usuario.modulos
-      : obterModulosPadraoPorPerfil(usuario.role);
+    return obterModulosPadraoPorPerfil(usuario.role);
   });
 
   const [salvando, setSalvando] = useState(false);
@@ -179,19 +171,15 @@ export function UsuarioFormModal({ usuario, onSalvo, onFechar }: UsuarioFormModa
     setSalvando(true);
     const roleFinal = isSuperAdm ? "superadmin" : role;
     const modulosFinais =
-      roleFinal === "superadmin" || roleFinal === "adm"
+      roleFinal === "superadmin"
         ? MODULOS_SISTEMA.map((m) => m.id)
-        : roleFinal === "instalador"
-          ? ["instalacao"]
-          : roleFinal === "cliente" ||
-              roleFinal === "superadmin_auditor" ||
-              roleFinal === "cliente_degustacao"
-            ? modulos.filter((m) => MODULOS_CLIENTE_PLANO_MASTER.includes(m))
-            : roleFinal === "financeiro"
-              ? modulos.length > 0
-                ? modulos
-                : obterModulosPadraoPorPerfil("financeiro")
-              : modulos;
+        : roleFinal === "cliente" ||
+            roleFinal === "superadmin_auditor" ||
+            roleFinal === "cliente_degustacao"
+          ? modulos.filter((m) => MODULOS_CLIENTE_PLANO_MASTER.includes(m))
+          : modulos && modulos.length > 0
+            ? modulos
+            : obterModulosPadraoPorPerfil(roleFinal);
 
     // Timer defensivo de segurança (máximo 16s) para garantir que a UI nunca trave em "Salvando..."
     let timerSeguranca: ReturnType<typeof setTimeout> | undefined;
@@ -443,7 +431,7 @@ export function UsuarioFormModal({ usuario, onSalvo, onFechar }: UsuarioFormModa
                         );
                       } else if (novaRole === "financeiro") {
                         toast.success(
-                          "Perfil Financeiro selecionado: módulos de gestão financeira e cobrança atribuídos.",
+                          "Perfil Financeiro selecionado: módulos financeiros, abastecimento, manutenção e estoque atribuídos.",
                         );
                       } else if (novaRole === "adm" || novaRole === "superadmin") {
                         toast.success("Perfil Administrador: todos os módulos foram liberados.");
@@ -687,12 +675,12 @@ export function UsuarioFormModal({ usuario, onSalvo, onFechar }: UsuarioFormModa
                   <div className="p-3 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-800 dark:text-emerald-300 text-xs flex items-center gap-2.5 mb-2">
                     <ShieldCheck className="h-5 w-5 text-emerald-500 shrink-0" />
                     <div>
-                      <span className="font-bold">Acesso Estrito ao Setor Financeiro:</span>
+                      <span className="font-bold">Acesso ao Setor Financeiro:</span>
                       <p className="text-[11px] text-emerald-700/90 dark:text-emerald-300/90">
-                        O perfil Financeiro possui acesso restrito e focado em fluxo de caixa, DRE,
-                        mensalidades, cobrança, propostas comerciais, contratos de clientes e
-                        repasses. Módulos operacionais de GPS, bloqueio veicular, rastreadores e
-                        gestão de usuários são estritamente bloqueados por governança.
+                        O perfil Financeiro possui acesso canônico a fluxo de caixa, DRE,
+                        mensalidades, cobrança, propostas comerciais, contratos de clientes,
+                        repasses, abastecimento com notas fiscais, manutenção preventiva e controle
+                        de estoque. Os módulos selecionados prevalecerão integralmente.
                       </p>
                     </div>
                   </div>
@@ -785,7 +773,6 @@ export function UsuarioFormModal({ usuario, onSalvo, onFechar }: UsuarioFormModa
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 max-h-64 sm:max-h-72 overflow-y-auto p-1 border border-slate-100 dark:border-slate-800/80 rounded-2xl">
                   {MODULOS_SISTEMA.filter((mod) => {
-                    if (role === "instalador") return mod.id === "instalacao";
                     if (
                       role === "cliente" ||
                       role === "superadmin_auditor" ||
@@ -800,7 +787,7 @@ export function UsuarioFormModal({ usuario, onSalvo, onFechar }: UsuarioFormModa
                       <button
                         key={mod.id}
                         type="button"
-                        disabled={role === "instalador"}
+                        disabled={isSuperAdm && role === "superadmin"}
                         onClick={() => toggleModulo(mod.id)}
                         className={`text-left p-2.5 rounded-xl border text-xs transition flex items-start justify-between gap-2 ${
                           ativoMod

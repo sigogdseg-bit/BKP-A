@@ -58,7 +58,7 @@ describe("Hunter — Perfil Financeiro Canônico e Isolamento Estrito (DJR-NEW)"
     assert.ok(conteudo.includes("propostas_comerciais"));
   });
 
-  it("3. Valida que o schema consolidado mestre contém o perfil financeiro e o módulo de abastecimento", () => {
+  it("3. Valida que o schema consolidado mestre contém o perfil financeiro, abastecimento, manutenção e estoque", () => {
     const schemaMestrePath = path.resolve(
       process.cwd(),
       "supabase/CRIAR_BANCO_COMPLETO_NOVO_SUPABASE.sql",
@@ -67,9 +67,11 @@ describe("Hunter — Perfil Financeiro Canônico e Isolamento Estrito (DJR-NEW)"
     assert.ok(conteudo.includes("ADD VALUE IF NOT EXISTS 'financeiro'"));
     assert.ok(conteudo.includes("is_financeiro"));
     assert.ok(conteudo.includes("financeiro_gerencia_abastecimentos"));
+    assert.ok(conteudo.includes("pode_gerenciar_estoque"));
+    assert.ok(conteudo.includes("pode_visualizar_estoque"));
   });
 
-  it("4. Verifica os módulos autorizados para o Perfil Financeiro (incluindo abastecimento e notas fiscais)", () => {
+  it("4. Verifica os módulos autorizados para o Perfil Financeiro padrão (incluindo abastecimento, manutenção e estoque)", () => {
     const modulosLiberados = [
       "financeiro",
       "mensalidades",
@@ -78,6 +80,8 @@ describe("Hunter — Perfil Financeiro Canônico e Isolamento Estrito (DJR-NEW)"
       "revendedores",
       "instalacao",
       "abastecimento",
+      "manutencao",
+      "estoque",
       "chat",
       "atendimento",
       "configuracoes",
@@ -93,15 +97,13 @@ describe("Hunter — Perfil Financeiro Canônico e Isolamento Estrito (DJR-NEW)"
     }
   });
 
-  it("5. Bloqueia estritamente módulos operacionais, de rastreamento, estoque e segurança para o Financeiro", () => {
+  it("5. Bloqueia estritamente módulos de rastreamento, frota e governança não concedidos para o Financeiro", () => {
     const modulosBloqueados = [
       "monitor-gps",
       "rotas",
       "frota",
-      "manutencao",
       "motoristas",
       "funcionarios",
-      "estoque",
       "rastreadores",
       "usuarios",
       "central-seguranca",
@@ -114,12 +116,12 @@ describe("Hunter — Perfil Financeiro Canônico e Isolamento Estrito (DJR-NEW)"
       assert.equal(
         podeAcessarModulo(sessaoFinanceiro, mod),
         false,
-        `Módulo ${mod} deveria estar bloqueado para financeiro`,
+        `Módulo ${mod} deveria estar bloqueado para financeiro padrão`,
       );
     }
   });
 
-  it("6. Valida acesso a rotas permitidas para o Perfil Financeiro (incluindo /abastecimento)", () => {
+  it("6. Valida acesso a rotas permitidas para o Perfil Financeiro (incluindo /abastecimento, /manutencao e /estoque)", () => {
     const rotasPermitidas = [
       "/inicio",
       "",
@@ -131,6 +133,8 @@ describe("Hunter — Perfil Financeiro Canônico e Isolamento Estrito (DJR-NEW)"
       "/instalacao",
       "/abastecimento",
       "/motorista",
+      "/manutencao",
+      "/estoque",
       "/atendimento",
       "/chat",
       "/configuracoes",
@@ -141,7 +145,7 @@ describe("Hunter — Perfil Financeiro Canônico e Isolamento Estrito (DJR-NEW)"
       assert.equal(
         podeAcessarRota(sessaoFinanceiro, rota),
         true,
-        `Rota ${rota} deveria estar liberada para financeiro`,
+        `Rota ${rota} deveria estar liberada para financeiro padrão`,
       );
     }
   });
@@ -151,10 +155,8 @@ describe("Hunter — Perfil Financeiro Canônico e Isolamento Estrito (DJR-NEW)"
       "/monitor-gps",
       "/rotas",
       "/frota",
-      "/manutencao",
       "/motoristas",
       "/funcionarios",
-      "/estoque",
       "/usuarios",
       "/dispositivos",
       "/configuracao/central-seguranca",
@@ -170,12 +172,12 @@ describe("Hunter — Perfil Financeiro Canônico e Isolamento Estrito (DJR-NEW)"
       assert.equal(
         podeAcessarRota(sessaoFinanceiro, rota),
         false,
-        `Rota ${rota} deveria estar bloqueada para financeiro`,
+        `Rota ${rota} deveria estar bloqueada para financeiro padrão`,
       );
     }
   });
 
-  it("8. Garante que obterModulosPadraoPorPerfil retorna a lista canônica com 'abastecimento' para 'financeiro'", () => {
+  it("8. Garante que obterModulosPadraoPorPerfil retorna a lista canônica com 'abastecimento', 'manutencao' e 'estoque' para 'financeiro'", () => {
     const modulosPadrao = obterModulosPadraoPorPerfil("financeiro");
     assert.deepEqual(modulosPadrao, MODULOS_PADRAO_FINANCEIRO);
     assert.ok(modulosPadrao.includes("financeiro"));
@@ -185,6 +187,8 @@ describe("Hunter — Perfil Financeiro Canônico e Isolamento Estrito (DJR-NEW)"
     assert.ok(modulosPadrao.includes("revendedores"));
     assert.ok(modulosPadrao.includes("instalacao"));
     assert.ok(modulosPadrao.includes("abastecimento"));
+    assert.ok(modulosPadrao.includes("manutencao"));
+    assert.ok(modulosPadrao.includes("estoque"));
     assert.ok(!modulosPadrao.includes("monitor-gps"));
     assert.ok(!modulosPadrao.includes("usuarios"));
     assert.ok(!modulosPadrao.includes("central-seguranca"));
@@ -207,5 +211,79 @@ describe("Hunter — Perfil Financeiro Canônico e Isolamento Estrito (DJR-NEW)"
     assert.ok(content.includes("financeiro_gerencia_abastecimentos"));
     assert.ok(content.includes("financeiro_gerencia_despesas"));
     assert.ok(content.includes("'abastecimento'"));
+  });
+
+  it("11. Precedência da Escolha do Usuário: módulos customizados adicionais funcionam e módulos removidos são revogados", () => {
+    // Cenário A: Usuário Financeiro com módulo adicional 'rotas' concedido e módulo 'instalacao' revogado pelo admin
+    const sessaoCustomizada: UserSession = {
+      ...sessaoFinanceiro,
+      modulos: [
+        "financeiro",
+        "mensalidades",
+        "propostas",
+        "clientes",
+        "abastecimento",
+        "manutencao",
+        "estoque",
+        "rotas", // ADICIONADO PELO USUÁRIO/ADMIN
+        "chat",
+        "atendimento",
+        "configuracoes",
+        "temas",
+        // 'instalacao' REMOVIDO PELO USUÁRIO/ADMIN
+      ],
+    };
+
+    // Módulo 'rotas' adicionado deve funcionar imediatamente
+    assert.equal(podeAcessarModulo(sessaoCustomizada, "rotas"), true);
+    assert.equal(podeAcessarRota(sessaoCustomizada, "/rotas"), true);
+
+    // Módulo 'instalacao' removido deve ser bloqueado imediatamente
+    assert.equal(podeAcessarModulo(sessaoCustomizada, "instalacao"), false);
+    assert.equal(podeAcessarRota(sessaoCustomizada, "/instalacao"), false);
+
+    // Cenário B: Operador com módulo 'manutencao' adicionado
+    const sessaoOperadorCustomizado: UserSession = {
+      userId: "usr-op-001",
+      email: "operador@gdseguranca.com.br",
+      nome: "Operador Especial",
+      role: "operador" as HunterRole,
+      modulos: ["monitor-gps", "manutencao", "atendimento", "chat", "configuracoes", "temas"],
+      isSuperAdmin: false,
+      isSuperAdminAuditor: false,
+      isAuditor: false,
+      isReadOnly: false,
+      isDegustacao: false,
+      isAdmin: false,
+      isOperador: true,
+      isCliente: false,
+      isInstalador: false,
+      isMotorista: false,
+      isFuncionario: false,
+      isFinanceiro: false,
+      isRevendedor: false,
+      isVendedor: false,
+    };
+
+    assert.equal(podeAcessarModulo(sessaoOperadorCustomizado, "manutencao"), true);
+    assert.equal(podeAcessarRota(sessaoOperadorCustomizado, "/manutencao"), true);
+    assert.equal(podeAcessarModulo(sessaoOperadorCustomizado, "clientes"), false);
+    assert.equal(podeAcessarRota(sessaoOperadorCustomizado, "/clientes"), false);
+  });
+
+  it("12. Valida migration 20261115230000 com precedência total da escolha do usuário e RLS de manutenção e estoque", () => {
+    const migPath = path.resolve(
+      process.cwd(),
+      "supabase/migrations/20261115230000_hunter_modulos_customizados_e_financeiro_manutencao_estoque.sql",
+    );
+    assert.equal(fs.existsSync(migPath), true);
+    const content = fs.readFileSync(migPath, "utf-8");
+    assert.ok(content.includes("planos_manutencao_preventiva"));
+    assert.ok(content.includes("agendamentos_manutencao"));
+    assert.ok(content.includes("pode_gerenciar_estoque"));
+    assert.ok(content.includes("pode_visualizar_estoque"));
+    assert.ok(content.includes("admin_cadastrar_usuario"));
+    assert.ok(content.includes("admin_atualizar_usuario"));
+    assert.ok(content.includes("Precedência total da escolha do usuário"));
   });
 });

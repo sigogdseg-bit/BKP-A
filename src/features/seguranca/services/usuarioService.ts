@@ -1,5 +1,6 @@
 import { supabase } from "@/integrations/supabase/client";
 import type { HunterRole, PlanoCliente } from "@/integrations/supabase/types";
+import { MODULOS_PADRAO_FINANCEIRO } from "@/shared/lib/permissoesModulos";
 import {
   isModoDemonstracaoAtivo,
   obterUsuariosDemonstracaoComoCanonical,
@@ -152,19 +153,7 @@ export function obterModulosPadraoPorPerfil(role: HunterRole): string[] {
     ];
   }
   if (role === "financeiro") {
-    return [
-      "financeiro",
-      "mensalidades",
-      "propostas",
-      "clientes",
-      "revendedores",
-      "instalacao",
-      "abastecimento",
-      "chat",
-      "atendimento",
-      "configuracoes",
-      "temas",
-    ];
+    return [...MODULOS_PADRAO_FINANCEIRO];
   }
   if (role === "instalador") {
     return ["instalacao"];

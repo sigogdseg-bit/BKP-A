@@ -537,6 +537,8 @@ export async function carregarSessaoUsuario(): Promise<UserSession | null> {
         "revendedores",
         "instalacao",
         "abastecimento",
+        "manutencao",
+        "estoque",
         "chat",
         "atendimento",
         "configuracoes",

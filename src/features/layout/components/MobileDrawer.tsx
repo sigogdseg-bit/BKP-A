@@ -184,6 +184,58 @@ export function MobileDrawer({
             icone: Fuel,
             descricao: "Lançamento de combustível, conferência de NFs e despesas",
           },
+          {
+            titulo: "Manutenção Preventiva",
+            rota: "/manutencao",
+            icone: Wrench,
+            descricao: "Revisões, pneus, peças e custos de manutenção",
+          },
+          {
+            titulo: "Estoque e Suprimentos",
+            rota: "/estoque",
+            icone: Boxes,
+            descricao: "Entrada de notas fiscais, rastreadores e insumos",
+          },
+          ...(podeAcessarModulo(session, "monitor-gps")
+            ? [
+                {
+                  titulo: "Mapa Operacional",
+                  rota: "/monitor-gps",
+                  icone: MapPin,
+                  descricao: "Telemetria em tempo real e localização",
+                },
+              ]
+            : []),
+          ...(podeAcessarModulo(session, "rotas")
+            ? [
+                {
+                  titulo: "Rotas Inteligentes",
+                  rota: "/rotas",
+                  icone: Navigation,
+                  descricao: "Planejamento e rotas pelas ruas",
+                },
+              ]
+            : []),
+          ...(podeAcessarModulo(session, "frota")
+            ? [
+                {
+                  titulo: "Desempenho da Frota",
+                  rota: "/frota",
+                  icone: Activity,
+                  descricao: "Telemetria consolidada da frota",
+                },
+              ]
+            : []),
+          ...(podeAcessarModulo(session, "motoristas")
+            ? [
+                {
+                  titulo: "Gestão de Motoristas",
+                  rota: "/motoristas",
+                  icone: Users,
+                  descricao: "Controle de condutores e frotistas",
+                },
+              ]
+            : []),
         ],
       },
     ];
