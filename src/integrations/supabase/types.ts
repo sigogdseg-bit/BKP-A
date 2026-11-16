@@ -11,7 +11,8 @@ export type HunterRole =
   | "revendedor"
   | "vendedor"
   | "superadmin_auditor"
-  | "cliente_degustacao";
+  | "cliente_degustacao"
+  | "financeiro";
 export type PlanoCliente = "basico" | "pro" | "master" | "personalizado";
 export type StatusCliente = "aguardando_instalacao" | "ativo" | "bloqueado" | "cancelado";
 export type StatusMensalidade = "pago" | "pendente" | "vencido";

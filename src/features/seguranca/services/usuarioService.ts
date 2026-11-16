@@ -151,6 +151,20 @@ export function obterModulosPadraoPorPerfil(role: HunterRole): string[] {
       "temas",
     ];
   }
+  if (role === "financeiro") {
+    return [
+      "financeiro",
+      "mensalidades",
+      "propostas",
+      "clientes",
+      "revendedores",
+      "instalacao",
+      "chat",
+      "atendimento",
+      "configuracoes",
+      "temas",
+    ];
+  }
   if (role === "instalador") {
     return ["instalacao"];
   }

@@ -35,6 +35,7 @@ export interface UserSession {
   isInstalador: boolean;
   isMotorista: boolean;
   isFuncionario?: boolean;
+  isFinanceiro?: boolean;
   isRevendedor?: boolean;
   isVendedor?: boolean;
   revendedorId?: string;

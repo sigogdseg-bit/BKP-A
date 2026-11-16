@@ -110,6 +110,19 @@ export const MODULOS_PADRAO_OPERADOR: string[] = [
   "demonstracao",
 ];
 
+export const MODULOS_PADRAO_FINANCEIRO: string[] = [
+  "financeiro",
+  "mensalidades",
+  "propostas",
+  "clientes",
+  "revendedores",
+  "instalacao",
+  "chat",
+  "atendimento",
+  "configuracoes",
+  "temas",
+];
+
 /**
  * Normaliza aliases de IDs de módulos atribuídos
  */
@@ -236,6 +249,22 @@ export function podeAcessarModulo(session: UserSession | null, moduloId: string)
   // Administrador acessa todos os módulos exceto os exclusivos de SuperADM
   if (session.isAdmin) {
     return true;
+  }
+
+  // Financeiro: acessa ESTRITAMENTE o que compete ao setor financeiro da empresa
+  if (session.isFinanceiro || session.role === "financeiro") {
+    return [
+      "financeiro",
+      "mensalidades",
+      "propostas",
+      "clientes",
+      "revendedores",
+      "instalacao",
+      "chat",
+      "atendimento",
+      "configuracoes",
+      "temas",
+    ].includes(moduloId);
   }
 
   // Módulo exclusivo de Administrador: operador, instalador, cliente e motorista NÃO acessam
@@ -424,6 +453,49 @@ export function podeAcessarRota(session: UserSession | null, rota: string): bool
     rotaNormalizada === "/configuracao/temas"
   ) {
     return true;
+  }
+
+  // Regra Estrita para Perfil Financeiro: Acessa ESTRITAMENTE o que compete ao setor financeiro da empresa
+  if (session.isFinanceiro || session.role === "financeiro") {
+    // Rotas estritamente bloqueadas para o Financeiro
+    if (
+      rotaNormalizada === "/monitor-gps" ||
+      rotaNormalizada === "/rotas" ||
+      rotaNormalizada === "/frota" ||
+      rotaNormalizada === "/abastecimento" ||
+      rotaNormalizada === "/motorista" ||
+      rotaNormalizada === "/manutencao" ||
+      rotaNormalizada === "/motoristas" ||
+      rotaNormalizada === "/funcionarios" ||
+      rotaNormalizada === "/estoque" ||
+      rotaNormalizada === "/usuarios" ||
+      rotaNormalizada === "/dispositivos" ||
+      rotaNormalizada.startsWith("/configuracao/central-seguranca") ||
+      rotaNormalizada.startsWith("/configuracao/rastreador-j16") ||
+      rotaNormalizada.startsWith("/configuracao/logs") ||
+      rotaNormalizada === "/minha-franquia" ||
+      rotaNormalizada === "/minhas-vendas" ||
+      rotaNormalizada === "/onboarding/acompanhamento" ||
+      rotaNormalizada === "/demonstracao"
+    ) {
+      return false;
+    }
+
+    // Rotas permitidas para o Financeiro
+    if (
+      rotaNormalizada === "/financeiro" ||
+      rotaNormalizada === "/mensalidades" ||
+      rotaNormalizada === "/propostas" ||
+      rotaNormalizada === "/clientes" ||
+      rotaNormalizada === "/revendedores" ||
+      rotaNormalizada === "/instalacao"
+    ) {
+      return true;
+    }
+
+    const moduloEncontrado = MODULOS_SISTEMA_REGRAS.find((m) => m.rota === rotaNormalizada);
+    if (!moduloEncontrado) return false;
+    return podeAcessarModulo(session, moduloEncontrado.id);
   }
 
   // Rota de Gestão de Funcionários: acessível pelo Cliente Titular (Plano Master ou Trial) e Administradores

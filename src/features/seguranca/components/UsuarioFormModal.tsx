@@ -187,7 +187,11 @@ export function UsuarioFormModal({ usuario, onSalvo, onFechar }: UsuarioFormModa
               roleFinal === "superadmin_auditor" ||
               roleFinal === "cliente_degustacao"
             ? modulos.filter((m) => MODULOS_CLIENTE_PLANO_MASTER.includes(m))
-            : modulos;
+            : roleFinal === "financeiro"
+              ? modulos.length > 0
+                ? modulos
+                : obterModulosPadraoPorPerfil("financeiro")
+              : modulos;
 
     // Timer defensivo de segurança (máximo 16s) para garantir que a UI nunca trave em "Salvando..."
     let timerSeguranca: ReturnType<typeof setTimeout> | undefined;
@@ -437,6 +441,10 @@ export function UsuarioFormModal({ usuario, onSalvo, onFechar }: UsuarioFormModa
                         toast.success(
                           "Perfil Instalador selecionado: módulo Instalações Técnicas atribuído.",
                         );
+                      } else if (novaRole === "financeiro") {
+                        toast.success(
+                          "Perfil Financeiro selecionado: módulos de gestão financeira e cobrança atribuídos.",
+                        );
                       } else if (novaRole === "adm" || novaRole === "superadmin") {
                         toast.success("Perfil Administrador: todos os módulos foram liberados.");
                       } else if (
@@ -459,6 +467,9 @@ export function UsuarioFormModal({ usuario, onSalvo, onFechar }: UsuarioFormModa
                     ) : (
                       <>
                         <option value="operador">Operador de Monitoramento</option>
+                        <option value="financeiro">
+                          Financeiro (Gestão Financeira e Cobrança)
+                        </option>
                         <option value="adm">Administrador Geral</option>
                         <option value="instalador">Instalador Técnico (Apenas Instalação)</option>
                         <option value="cliente">Cliente (Titular)</option>
@@ -667,6 +678,21 @@ export function UsuarioFormModal({ usuario, onSalvo, onFechar }: UsuarioFormModa
                       <p className="text-[11px] text-amber-700/90 dark:text-amber-300/90">
                         O instalador tem acesso exclusivo e restrito ao módulo de Instalações
                         Técnicas. Demais telas administrativas e de rastreamento são bloqueadas.
+                      </p>
+                    </div>
+                  </div>
+                )}
+
+                {role === "financeiro" && (
+                  <div className="p-3 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-800 dark:text-emerald-300 text-xs flex items-center gap-2.5 mb-2">
+                    <ShieldCheck className="h-5 w-5 text-emerald-500 shrink-0" />
+                    <div>
+                      <span className="font-bold">Acesso Estrito ao Setor Financeiro:</span>
+                      <p className="text-[11px] text-emerald-700/90 dark:text-emerald-300/90">
+                        O perfil Financeiro possui acesso restrito e focado em fluxo de caixa, DRE,
+                        mensalidades, cobrança, propostas comerciais, contratos de clientes e
+                        repasses. Módulos operacionais de GPS, bloqueio veicular, rastreadores e
+                        gestão de usuários são estritamente bloqueados por governança.
                       </p>
                     </div>
                   </div>

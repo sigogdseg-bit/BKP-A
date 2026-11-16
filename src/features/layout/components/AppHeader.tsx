@@ -13,6 +13,7 @@ import {
   Building,
   Briefcase,
   Sparkles,
+  DollarSign,
 } from "lucide-react";
 import { toast } from "sonner";
 import { verificarExpiracaoDegustacao } from "@/features/demonstracao/services/degustacaoMasterService";
@@ -157,6 +158,11 @@ export function AppHeader() {
                   <ShieldCheck className="h-3.5 w-3.5 text-orange-500" />
                   <span>Administrador</span>
                 </span>
+              ) : session.isFinanceiro ? (
+                <span className="flex items-center gap-1.5 px-2.5 py-1 text-xs rounded-xl font-bold bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 uppercase tracking-wider shadow-xs">
+                  <DollarSign className="h-3.5 w-3.5 text-emerald-500" />
+                  <span>Financeiro</span>
+                </span>
               ) : session.isInstalador ? (
                 <span className="flex items-center gap-1.5 px-2.5 py-1 text-xs rounded-xl font-bold bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/30 uppercase tracking-wider shadow-xs">
                   <Wrench className="h-3.5 w-3.5 text-amber-500" />
@@ -200,6 +206,7 @@ export function AppHeader() {
             {/* Atalho Canônico: MSG WhatsApp Direta (Fly.io Gateway) */}
             {(session?.isAdmin ||
               session?.isOperador ||
+              session?.isFinanceiro ||
               session?.isRevendedor ||
               session?.isVendedor) && (
               <button
@@ -287,7 +294,11 @@ export function AppHeader() {
           setModalManualAberto(true);
         }}
         onAbrirWhatsapp={
-          session?.isAdmin || session?.isOperador || session?.isRevendedor || session?.isVendedor
+          session?.isAdmin ||
+          session?.isOperador ||
+          session?.isFinanceiro ||
+          session?.isRevendedor ||
+          session?.isVendedor
             ? () => {
                 setMenuMobileAberto(false);
                 setModalWhatsappAberto(true);
@@ -308,6 +319,7 @@ export function AppHeader() {
       {/* Modal de Disparo Direto de Mensagem WhatsApp com Catálogo de Contatos */}
       {(session?.isAdmin ||
         session?.isOperador ||
+        session?.isFinanceiro ||
         session?.isRevendedor ||
         session?.isVendedor) && (
         <ModalEnvioRapidoWhatsapp

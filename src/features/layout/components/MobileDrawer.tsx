@@ -34,6 +34,8 @@ import {
   Briefcase,
   Store,
   CheckCircle2,
+  Building,
+  DollarSign,
 } from "lucide-react";
 import { useAuth } from "@/features/auth/context/AuthContext";
 import { APP_NOME, APP_VERSION_NUMERO } from "@/shared/lib/version";
@@ -125,6 +127,56 @@ export function MobileDrawer({
             rota: "/instalacao",
             icone: Wrench,
             descricao: "Cadastro e checklist de novos rastreadores",
+          },
+        ],
+      },
+    ];
+  } else if (session.isFinanceiro || session.role === "financeiro") {
+    secoesMenu = [
+      {
+        titulo: "Operações Financeiras",
+        itens: [
+          {
+            titulo: "Painel Geral",
+            rota: "/inicio",
+            icone: LayoutDashboard,
+            descricao: "Visão executiva e atalhos rápidos",
+          },
+          {
+            titulo: "Financeiro e Fluxo de Caixa",
+            rota: "/financeiro",
+            icone: DollarSign,
+            descricao: "Demonstrativo DRE, conciliação e despesas",
+          },
+          {
+            titulo: "Mensalidades e Cobrança",
+            rota: "/mensalidades",
+            icone: CreditCard,
+            descricao: "Faturas, baixas manuais e status PIX",
+          },
+          {
+            titulo: "Propostas Comerciais",
+            rota: "/propostas",
+            icone: FileText,
+            descricao: "Emissão de propostas comerciais e contratos",
+          },
+          {
+            titulo: "Clientes e Planos",
+            rota: "/clientes",
+            icone: Users,
+            descricao: "Dados cadastrais, contratos e faturamento",
+          },
+          {
+            titulo: "Revendedores e Parceiros",
+            rota: "/revendedores",
+            icone: Building,
+            descricao: "Repasses, comissões de parceiros e franquias",
+          },
+          {
+            titulo: "Instalações Técnicas",
+            rota: "/instalacao",
+            icone: Wrench,
+            descricao: "Controle de repasses de mão de obra de instalações",
           },
         ],
       },
@@ -635,11 +687,13 @@ export function MobileDrawer({
               <span className="px-2 py-0.5 text-[9px] rounded-md font-bold uppercase tracking-wider bg-orange-500/10 text-orange-700 dark:text-orange-400 border border-orange-500/20">
                 {session.isAdmin
                   ? "Administrador"
-                  : session.isRevendedor
-                    ? "Revendedor"
-                    : session.isVendedor
-                      ? "Vendedor"
-                      : session.role}
+                  : session.isFinanceiro
+                    ? "Financeiro"
+                    : session.isRevendedor
+                      ? "Revendedor"
+                      : session.isVendedor
+                        ? "Vendedor"
+                        : session.role}
               </span>
               {session.isCliente && session.plano && (
                 <span className="px-2 py-0.5 text-[9px] rounded-md font-bold uppercase tracking-wider bg-sky-500/10 text-sky-700 dark:text-sky-400 border border-sky-500/20">
@@ -683,6 +737,7 @@ export function MobileDrawer({
           {onAbrirWhatsapp &&
             (session?.isAdmin ||
               session?.isOperador ||
+              session?.isFinanceiro ||
               session?.isRevendedor ||
               session?.isVendedor) && (
               <button

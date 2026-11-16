@@ -199,6 +199,7 @@ export function UsuariosView() {
       motoristas: usuarios.filter((u) => u.role === "motorista").length,
       funcionarios: usuarios.filter((u) => u.role === "funcionario").length,
       instaladores: usuarios.filter((u) => u.role === "instalador").length,
+      financeiros: usuarios.filter((u) => u.role === "financeiro").length,
     };
   }, [usuarios]);
 
@@ -370,9 +371,11 @@ export function UsuariosView() {
           ? "rgba(59, 130, 246, 0.16)"
           : u.role === "funcionario"
             ? "rgba(79, 70, 229, 0.16)"
-            : u.role === "adm"
-              ? "rgba(245, 158, 11, 0.18)"
-              : "rgba(100, 116, 139, 0.14)";
+            : u.role === "financeiro"
+              ? "rgba(16, 185, 129, 0.20)"
+              : u.role === "adm"
+                ? "rgba(245, 158, 11, 0.18)"
+                : "rgba(100, 116, 139, 0.14)";
 
     return (
       <TiltCard
@@ -409,18 +412,24 @@ export function UsuariosView() {
                   ? "bg-amber-500/15 text-amber-600 dark:text-amber-300 border-amber-500/40"
                   : u.role === "adm"
                     ? "bg-orange-500/15 text-orange-600 dark:text-orange-300 border-orange-500/30"
-                    : u.role === "operador"
-                      ? "bg-sky-500/15 text-sky-600 dark:text-sky-300 border-sky-500/30"
-                      : u.role === "cliente"
-                        ? "bg-orange-500/15 text-orange-700 dark:text-orange-400 border-orange-500/30"
-                        : u.role === "motorista"
-                          ? "bg-blue-500/15 text-blue-600 dark:text-blue-400 border-blue-500/30"
-                          : u.role === "funcionario"
-                            ? "bg-indigo-500/15 text-indigo-600 dark:text-indigo-400 border-indigo-500/30"
-                            : "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border-slate-200 dark:border-slate-700"
+                    : u.role === "financeiro"
+                      ? "bg-emerald-500/15 text-emerald-600 dark:text-emerald-300 border-emerald-500/30"
+                      : u.role === "operador"
+                        ? "bg-sky-500/15 text-sky-600 dark:text-sky-300 border-sky-500/30"
+                        : u.role === "cliente"
+                          ? "bg-orange-500/15 text-orange-700 dark:text-orange-400 border-orange-500/30"
+                          : u.role === "motorista"
+                            ? "bg-blue-500/15 text-blue-600 dark:text-blue-400 border-blue-500/30"
+                            : u.role === "funcionario"
+                              ? "bg-indigo-500/15 text-indigo-600 dark:text-indigo-400 border-indigo-500/30"
+                              : "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border-slate-200 dark:border-slate-700"
               }`}
             >
-              {u.role === "superadmin" ? "SuperADM" : u.role || "usuario"}
+              {u.role === "superadmin"
+                ? "SuperADM"
+                : u.role === "financeiro"
+                  ? "Financeiro"
+                  : u.role || "usuario"}
             </span>
 
             {/* Badge de Vínculo com o Cliente Titular (para Motorista e Funcionário) */}
@@ -832,6 +841,7 @@ export function UsuariosView() {
           {[
             { id: "todos", label: "Todos" },
             { id: "adm", label: "Administrador" },
+            { id: "financeiro", label: "Financeiro" },
             { id: "operador", label: "Operador" },
             { id: "cliente", label: "Cliente" },
             { id: "motorista", label: "Motorista" },

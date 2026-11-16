@@ -23,6 +23,7 @@ import {
   Store,
   TrendingUp,
   CheckCircle2,
+  DollarSign,
 } from "lucide-react";
 import { useAuth } from "@/features/auth/context/AuthContext";
 import { APP_NOME, APP_SLOGAN, APP_VERSION_NUMERO } from "@/shared/lib/version";
@@ -356,6 +357,11 @@ export function InicioHubView() {
               <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-xl text-xs font-bold uppercase tracking-wider bg-orange-500/10 text-orange-600 dark:text-orange-400 border border-orange-500/30 shadow-[1px_1px_3px_#c3cfe2] dark:shadow-none">
                 <ShieldCheck className="h-3.5 w-3.5 text-orange-500" />
                 <span>Administrador</span>
+              </span>
+            ) : session?.isFinanceiro ? (
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-xl text-xs font-bold uppercase tracking-wider bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 shadow-[1px_1px_3px_#c3cfe2] dark:shadow-none">
+                <DollarSign className="h-3.5 w-3.5 text-emerald-500" />
+                <span>Financeiro</span>
               </span>
             ) : (
               <>

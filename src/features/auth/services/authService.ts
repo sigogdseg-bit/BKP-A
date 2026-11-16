@@ -528,6 +528,21 @@ export async function carregarSessaoUsuario(): Promise<UserSession | null> {
       ];
     }
 
+    if (role === "financeiro" && (!modulos || modulos.length === 0)) {
+      modulos = [
+        "financeiro",
+        "mensalidades",
+        "propostas",
+        "clientes",
+        "revendedores",
+        "instalacao",
+        "chat",
+        "atendimento",
+        "configuracoes",
+        "temas",
+      ];
+    }
+
     const userSession: UserSession = {
       userId: user.id,
       email: user.email || "",
@@ -554,6 +569,7 @@ export async function carregarSessaoUsuario(): Promise<UserSession | null> {
       isInstalador: role === "instalador",
       isMotorista: role === "motorista",
       isFuncionario: role === "funcionario",
+      isFinanceiro: role === "financeiro",
       isRevendedor: role === "revendedor",
       isVendedor: role === "vendedor",
       revendedorId,
