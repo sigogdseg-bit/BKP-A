@@ -2385,6 +2385,218 @@ async function handleApiAdminUsuarios(request: Request, env: unknown): Promise<R
   });
 }
 
+async function handleApiEstoque(request: Request, env: unknown): Promise<Response | null> {
+  const url = new URL(request.url);
+  if (!url.pathname.startsWith("/api/estoque")) {
+    return null;
+  }
+
+  if (request.method === "OPTIONS") {
+    return new Response(null, {
+      status: 204,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET, POST, DELETE, OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type, Authorization",
+        ...SECURITY_HEADERS,
+      },
+    });
+  }
+
+  const { supabaseUrl, supabaseAnonKey, serviceRoleKey } = getSupabaseServerParams(env);
+
+  const authHeader = request.headers.get("Authorization") || "";
+  const token = authHeader.replace(/^Bearer\s+/i, "").trim();
+
+  if (!token) {
+    return new Response(
+      JSON.stringify({ success: false, message: "Token de autenticação ausente." }),
+      {
+        status: 401,
+        headers: { "Content-Type": "application/json", ...SECURITY_HEADERS },
+      },
+    );
+  }
+
+  // 1. Valida solicitante autenticado via token JWT
+  const userClient = createClient(supabaseUrl, supabaseAnonKey, {
+    auth: { persistSession: false },
+  });
+  const { data: userData, error: userError } = await userClient.auth.getUser(token);
+
+  if (userError || !userData?.user) {
+    return new Response(
+      JSON.stringify({ success: false, message: "Sessão inválida ou expirada." }),
+      {
+        status: 401,
+        headers: { "Content-Type": "application/json", ...SECURITY_HEADERS },
+      },
+    );
+  }
+
+  // 2. Valida papel administrativo ou operador via serviceRoleKey
+  const adminClient = createClient(supabaseUrl, serviceRoleKey, {
+    auth: { persistSession: false },
+  });
+
+  const { data: profile } = await adminClient
+    .from("profiles")
+    .select("role")
+    .eq("id", userData.user.id)
+    .single();
+
+  const role = profile?.role;
+  if (!role || !["superadmin", "adm", "operador"].includes(role)) {
+    return new Response(
+      JSON.stringify({
+        success: false,
+        message: "Ação não autorizada: Apenas administradores e operadores podem gerenciar chips.",
+      }),
+      {
+        status: 403,
+        headers: { "Content-Type": "application/json", ...SECURITY_HEADERS },
+      },
+    );
+  }
+
+  // POST /api/estoque/chip
+  if (url.pathname === "/api/estoque/chip" && request.method === "POST") {
+    try {
+      const body = await request.json();
+      const iccidLimpo = String(body.iccid || "").replace(/\D/g, "");
+      const operadora = String(body.operadora || "Vivo").trim();
+      const linha = body.linha ? String(body.linha).trim() : null;
+
+      if (!iccidLimpo || iccidLimpo.length < 10) {
+        return new Response(
+          JSON.stringify({
+            success: false,
+            message: "ICCID inválido. Informe o número serial numérico do chip.",
+          }),
+          { status: 400, headers: { "Content-Type": "application/json", ...SECURITY_HEADERS } },
+        );
+      }
+
+      // Checa duplicidade no estoque
+      const { data: chipExistente } = await adminClient
+        .from("chips")
+        .select("id, iccid")
+        .eq("iccid", iccidLimpo)
+        .maybeSingle();
+
+      if (chipExistente) {
+        return new Response(
+          JSON.stringify({
+            success: false,
+            message: "Este ICCID já está cadastrado no estoque.",
+          }),
+          { status: 400, headers: { "Content-Type": "application/json", ...SECURITY_HEADERS } },
+        );
+      }
+
+      const { data: novoChip, error: errInsert } = await adminClient
+        .from("chips")
+        .insert({
+          iccid: iccidLimpo,
+          operadora: operadora || "Vivo",
+          linha,
+          status: "ativo",
+        })
+        .select("id, iccid, operadora, linha, status, created_at")
+        .single();
+
+      if (errInsert) {
+        return new Response(
+          JSON.stringify({
+            success: false,
+            message: `Falha ao cadastrar chip no estoque: ${errInsert.message}`,
+          }),
+          { status: 500, headers: { "Content-Type": "application/json", ...SECURITY_HEADERS } },
+        );
+      }
+
+      return new Response(
+        JSON.stringify({
+          success: true,
+          message: `Chip M2M (ICCID ${iccidLimpo}) cadastrado com sucesso no estoque!`,
+          chip: novoChip,
+        }),
+        { status: 200, headers: { "Content-Type": "application/json", ...SECURITY_HEADERS } },
+      );
+    } catch (err: any) {
+      return new Response(
+        JSON.stringify({
+          success: false,
+          message: err?.message || "Erro interno ao cadastrar chip M2M.",
+        }),
+        { status: 500, headers: { "Content-Type": "application/json", ...SECURITY_HEADERS } },
+      );
+    }
+  }
+
+  // DELETE /api/estoque/chip
+  if (url.pathname === "/api/estoque/chip" && request.method === "DELETE") {
+    try {
+      const chipId = url.searchParams.get("id");
+      if (!chipId) {
+        return new Response(
+          JSON.stringify({ success: false, message: "ID do chip não informado." }),
+          { status: 400, headers: { "Content-Type": "application/json", ...SECURITY_HEADERS } },
+        );
+      }
+
+      // Checa vínculo com rastreador
+      const { data: rastreadorVinculado } = await adminClient
+        .from("rastreadores")
+        .select("imei")
+        .eq("chip_id", chipId)
+        .maybeSingle();
+
+      if (rastreadorVinculado) {
+        return new Response(
+          JSON.stringify({
+            success: false,
+            message: `Não é possível excluir: chip vinculado ao rastreador IMEI ${rastreadorVinculado.imei}.`,
+          }),
+          { status: 400, headers: { "Content-Type": "application/json", ...SECURITY_HEADERS } },
+        );
+      }
+
+      const { error: errDel } = await adminClient.from("chips").delete().eq("id", chipId);
+      if (errDel) {
+        return new Response(
+          JSON.stringify({
+            success: false,
+            message: `Falha ao excluir chip: ${errDel.message}`,
+          }),
+          { status: 500, headers: { "Content-Type": "application/json", ...SECURITY_HEADERS } },
+        );
+      }
+
+      return new Response(
+        JSON.stringify({
+          success: true,
+          message: "Chip excluído do estoque com sucesso.",
+        }),
+        { status: 200, headers: { "Content-Type": "application/json", ...SECURITY_HEADERS } },
+      );
+    } catch (err: any) {
+      return new Response(
+        JSON.stringify({
+          success: false,
+          message: err?.message || "Erro interno ao excluir chip.",
+        }),
+        { status: 500, headers: { "Content-Type": "application/json", ...SECURITY_HEADERS } },
+      );
+    }
+  }
+
+  return new Response(JSON.stringify({ success: false, message: "Método não suportado." }), {
+    status: 405,
+    headers: { "Content-Type": "application/json", ...SECURITY_HEADERS },
+  });
+}
+
 async function handleApiAdminRedefinirSenhaParceiro(
   request: Request,
   env: unknown,
@@ -9011,6 +9223,12 @@ export default {
     const adminUsuariosResponse = await handleApiAdminUsuarios(request, env);
     if (adminUsuariosResponse) {
       return adminUsuariosResponse;
+    }
+
+    // Intercepta rotas de API seguras de estoque e chips (com Service Role, imune a recursão RLS)
+    const estoqueResponse = await handleApiEstoque(request, env);
+    if (estoqueResponse) {
+      return estoqueResponse;
     }
 
     // Intercepta rotas seguras de redefinição de senha de parceiros (revendedor e vendedor)

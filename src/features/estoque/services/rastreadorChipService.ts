@@ -301,21 +301,53 @@ export async function salvarRastreadorComChip(dados: {
           })
           .eq("id", chipId);
       } else {
-        const { data: novoChip, error: errChip } = await supabase
-          .from("chips")
-          .insert({
-            iccid: iccidLimpo,
-            operadora: dados.operadora || "Vivo",
-            linha: dados.linha?.trim() || null,
-            status: "ativo",
-          })
-          .select("id")
-          .single();
-
-        if (errChip) {
-          throw new Error(`Falha ao cadastrar chip M2M: ${errChip.message}`);
+        // Tenta cadastrar via API do backend com Service Role (imune a recursão RLS)
+        let chipCadastrado = false;
+        try {
+          const sess = await supabase.auth.getSession();
+          const token = sess.data.session?.access_token;
+          if (token) {
+            const res = await fetch("/api/estoque/chip", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`,
+              },
+              body: JSON.stringify({
+                iccid: iccidLimpo,
+                operadora: dados.operadora || "Vivo",
+                linha: dados.linha?.trim() || null,
+              }),
+            });
+            if (res.ok) {
+              const json = await res.json();
+              if (json.success && json.chip?.id) {
+                chipId = json.chip.id;
+                chipCadastrado = true;
+              }
+            }
+          }
+        } catch {
+          /* fallback */
         }
-        chipId = novoChip.id;
+
+        if (!chipCadastrado) {
+          const { data: novoChip, error: errChip } = await supabase
+            .from("chips")
+            .insert({
+              iccid: iccidLimpo,
+              operadora: dados.operadora || "Vivo",
+              linha: dados.linha?.trim() || null,
+              status: "ativo",
+            })
+            .select("id")
+            .single();
+
+          if (errChip) {
+            throw new Error(`Falha ao cadastrar chip M2M: ${errChip.message}`);
+          }
+          chipId = novoChip.id;
+        }
       }
     }
 
@@ -881,7 +913,68 @@ export async function cadastrarChipAvulsoEstoque(
       };
     }
 
-    // Inserir novo chip
+    // 1. Tenta inserir via rota segura de backend (/api/estoque/chip) com Service Role
+    // Isso evita completamente o erro de PostgreSQL "infinite recursion detected in policy for relation instalacoes"
+    try {
+      const sess = await supabase.auth.getSession();
+      const token = sess.data.session?.access_token;
+      if (token) {
+        const res = await fetch("/api/estoque/chip", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({
+            iccid: iccidLimpo,
+            operadora: dados.operadora?.trim() || "Vivo",
+            linha: dados.linha?.trim() || null,
+          }),
+        });
+        if (res.ok) {
+          const json = await res.json();
+          if (json.success && json.chip) {
+            return {
+              success: true,
+              message:
+                json.message || `Chip M2M (ICCID ${iccidLimpo}) cadastrado com sucesso no estoque!`,
+              chip: json.chip,
+            };
+          } else if (json.message) {
+            return {
+              success: false,
+              message: json.message,
+            };
+          }
+        }
+      }
+    } catch {
+      /* fallback */
+    }
+
+    // 2. Tenta inserir via RPC com SECURITY DEFINER se existir no banco
+    try {
+      const { data: rpcRes, error: rpcErr } = await (supabase.rpc as any)(
+        "cadastrar_chip_avulso_estoque",
+        {
+          p_iccid: iccidLimpo,
+          p_operadora: dados.operadora?.trim() || "Vivo",
+          p_linha: dados.linha?.trim() || null,
+        },
+      );
+      if (!rpcErr && rpcRes?.success && rpcRes?.chip) {
+        return {
+          success: true,
+          message:
+            rpcRes.message || `Chip M2M (ICCID ${iccidLimpo}) cadastrado com sucesso no estoque!`,
+          chip: rpcRes.chip,
+        };
+      }
+    } catch {
+      /* fallback */
+    }
+
+    // 3. Inserir direto na tabela como contingência final
     const { data: novoChip, error: errInsert } = await supabase
       .from("chips")
       .insert({
@@ -916,7 +1009,37 @@ export async function excluirChipAvulsoEstoque(
   iccid: string,
 ): Promise<{ success: boolean; message: string }> {
   try {
-    // Salvaguarda: checa se está vinculado a rastreador
+    // 1. Tenta exclusão via backend (/api/estoque/chip)
+    try {
+      const sess = await supabase.auth.getSession();
+      const token = sess.data.session?.access_token;
+      if (token) {
+        const res = await fetch(`/api/estoque/chip?id=${encodeURIComponent(chipId)}`, {
+          method: "DELETE",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        if (res.ok) {
+          const json = await res.json();
+          if (json.success) {
+            return {
+              success: true,
+              message: json.message || `Chip M2M (ICCID ${iccid}) excluído do estoque com sucesso.`,
+            };
+          } else if (json.message) {
+            return {
+              success: false,
+              message: json.message,
+            };
+          }
+        }
+      }
+    } catch {
+      /* fallback */
+    }
+
+    // Salvaguarda local: checa se está vinculado a rastreador
     const { data: rastreadorVinculado } = await supabase
       .from("rastreadores")
       .select("imei")
