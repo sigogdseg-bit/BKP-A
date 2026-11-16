@@ -3344,6 +3344,77 @@ export async function carregarVeiculosComInstalacaoDoCliente(
       }));
     }
 
+    // 0. Tenta primeiro via rota de API segura com Service Role (imune a recursão RLS do Postgres)
+    if (typeof window !== "undefined") {
+      try {
+        const { data: sessionData } = await supabase.auth.getSession();
+        const token = sessionData?.session?.access_token;
+        if (token) {
+          const resp = await fetch(`/api/veiculos?clienteId=${encodeURIComponent(clienteId)}`, {
+            headers: { Authorization: `Bearer ${token}` },
+          });
+          if (resp.ok) {
+            const json = (await resp.json()) as any;
+            if (json?.success && Array.isArray(json?.veiculos)) {
+              const vRows = json.veiculos;
+              const iRows = json.instalacoes || [];
+              return vRows.map((v: any) => {
+                const instsCandidatas = iRows.filter((i: any) => {
+                  if (i.tipo_servico === "retirada") return false;
+                  if (i.veiculo_id === v.id) return true;
+                  if (
+                    !i.veiculo_id &&
+                    v.placa &&
+                    v.placa !== "A DEFINIR" &&
+                    v.placa !== "SEM PLACA" &&
+                    v.placa !== "SEMPLACA" &&
+                    i.placa &&
+                    i.placa.trim().toUpperCase() === v.placa.trim().toUpperCase()
+                  ) {
+                    return true;
+                  }
+                  return false;
+                });
+                const inst =
+                  instsCandidatas.find(
+                    (i: any) => i.status === "concluida" || i.status === "concluida_com_pendencia",
+                  ) || instsCandidatas[0];
+
+                return {
+                  id: v.id,
+                  placa: v.placa || "A DEFINIR",
+                  marca_modelo: v.marca_modelo || "Veículo",
+                  ano: v.ano || null,
+                  cor: v.cor || null,
+                  tipo_veiculo: v.tipo_veiculo || "carro",
+                  ativo: Boolean(v.ativo),
+                  bloqueado: Boolean(v.bloqueado),
+                  pendente_aprovacao_operador: Boolean(v.pendente_aprovacao_operador),
+                  rastreador_id: v.rastreador_id || null,
+                  rastreador_imei: v.rastreador_imei || null,
+                  instalacao_id: inst?.id || null,
+                  instalador_id: inst?.instalador_id || null,
+                  instalador_nome: inst?.instalador?.nome || null,
+                  instalacao_status: inst?.status || null,
+                  kit_id: inst?.rastreador_id || v.rastreador_id || null,
+                  kit_imei: inst?.rastreador_imei || v.rastreador_imei || null,
+                  kit_modelo: "J16 4G",
+                  chip_iccid: null,
+                  chip_operadora: null,
+                  data_agendamento: inst?.data_agendamento || null,
+                  hora_agendamento: inst?.hora_agendamento || null,
+                  observacoes: inst?.observacoes || null,
+                  rele_chicote_do_estoque: false,
+                };
+              });
+            }
+          }
+        }
+      } catch {
+        // Fallback para query direta
+      }
+    }
+
     // 1. Busca todos os veículos do cliente
     const veiculosQuery = await supabase
       .from("veiculos")
@@ -3490,6 +3561,36 @@ export async function cadastrarVeiculoParaCliente(
   },
 ): Promise<{ success: boolean; message: string; veiculo?: any }> {
   try {
+    // 0. Tenta primeiro via rota de API segura com Service Role (imune a recursão RLS do Postgres)
+    if (typeof window !== "undefined") {
+      try {
+        const { data: sessionData } = await supabase.auth.getSession();
+        const token = sessionData?.session?.access_token;
+        if (token) {
+          const resp = await fetch("/api/veiculos/cadastrar", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+            body: JSON.stringify({ clienteId, dados }),
+          });
+          if (resp.ok) {
+            const json = (await resp.json()) as any;
+            if (json?.success) {
+              return {
+                success: true,
+                message: json.message || "Veículo cadastrado na frota com sucesso.",
+                veiculo: json.veiculo,
+              };
+            }
+          }
+        }
+      } catch {
+        // Fallback para inserção direta via Supabase Client
+      }
+    }
+
     const rawTipo = (dados.tipo_veiculo || "carro").trim().toLowerCase();
     const tipoMapeado = rawTipo === "quadriciclo" ? "quadriciculo" : rawTipo;
     const tiposPermitidos = new Set([
@@ -3586,6 +3687,35 @@ export async function salvarDistribuicaoInstalacoesCliente(
   try {
     if (!itens || itens.length === 0) {
       return { success: false, message: "Nenhum veículo selecionado para distribuição." };
+    }
+
+    // 0. Tenta primeiro via rota de API segura com Service Role (imune a recursão RLS do Postgres)
+    if (typeof window !== "undefined") {
+      try {
+        const { data: sessionData } = await supabase.auth.getSession();
+        const token = sessionData?.session?.access_token;
+        if (token) {
+          const resp = await fetch("/api/veiculos/distribuir", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+            body: JSON.stringify({ clienteId, itens }),
+          });
+          if (resp.ok) {
+            const json = (await resp.json()) as any;
+            if (json?.success) {
+              return {
+                success: true,
+                message: json.message || "Distribuição e ordens de serviço salvas com sucesso!",
+              };
+            }
+          }
+        }
+      } catch {
+        // Fallback para execução direta
+      }
     }
 
     // Busca dados do cliente para notificações e auditoria

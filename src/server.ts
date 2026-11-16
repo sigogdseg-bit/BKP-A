@@ -2564,6 +2564,428 @@ async function handleApiClientes(request: Request, env: unknown): Promise<Respon
   }
 }
 
+async function handleApiVeiculos(request: Request, env: unknown): Promise<Response | null> {
+  const url = new URL(request.url);
+  if (!url.pathname.startsWith("/api/veiculos")) {
+    return null;
+  }
+
+  if (request.method === "OPTIONS") {
+    return new Response(null, {
+      status: 204,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type, Authorization",
+        ...SECURITY_HEADERS,
+      },
+    });
+  }
+
+  const { supabaseUrl, supabaseAnonKey, serviceRoleKey } = getSupabaseServerParams(env);
+
+  const authHeader = request.headers.get("Authorization") || "";
+  const token = authHeader.replace(/^Bearer\s+/i, "").trim();
+  if (!token) {
+    return new Response(
+      JSON.stringify({ success: false, message: "Não autorizado: Token de sessão ausente." }),
+      {
+        status: 401,
+        headers: { "Content-Type": "application/json", ...SECURITY_HEADERS },
+      },
+    );
+  }
+
+  const userClient = createClient(supabaseUrl, supabaseAnonKey, {
+    auth: { persistSession: false },
+  });
+  const { data: userData, error: userError } = await userClient.auth.getUser(token);
+
+  if (userError || !userData?.user) {
+    return new Response(
+      JSON.stringify({ success: false, message: "Sessão inválida ou expirada." }),
+      {
+        status: 401,
+        headers: { "Content-Type": "application/json", ...SECURITY_HEADERS },
+      },
+    );
+  }
+
+  const adminClient = createClient(supabaseUrl, serviceRoleKey, {
+    auth: { persistSession: false },
+  });
+
+  const { data: profile } = await adminClient
+    .from("profiles")
+    .select("role")
+    .eq("id", userData.user.id)
+    .single();
+
+  const role = profile?.role;
+  const rolesPermitidas = [
+    "superadmin",
+    "adm",
+    "operador",
+    "financeiro",
+    "superadmin_auditor",
+    "revendedor",
+    "vendedor",
+    "instalador",
+    "cliente",
+  ];
+
+  if (!role || !rolesPermitidas.includes(role)) {
+    return new Response(
+      JSON.stringify({ success: false, message: "Acesso não autorizado aos veículos." }),
+      {
+        status: 403,
+        headers: { "Content-Type": "application/json", ...SECURITY_HEADERS },
+      },
+    );
+  }
+
+  // GET /api/veiculos?clienteId=xxx
+  if (request.method === "GET") {
+    try {
+      const clienteId = url.searchParams.get("clienteId");
+      if (!clienteId) {
+        return new Response(
+          JSON.stringify({ success: false, message: "Parâmetro clienteId é obrigatório." }),
+          { status: 400, headers: { "Content-Type": "application/json", ...SECURITY_HEADERS } },
+        );
+      }
+
+      const { data: veiculos, error: errVeics } = await adminClient
+        .from("veiculos")
+        .select(
+          "id, placa, marca_modelo, ano, cor, tipo_veiculo, ativo, bloqueado, rastreador_id, rastreador_imei, pendente_aprovacao_operador, created_at",
+        )
+        .eq("cliente_id", clienteId)
+        .order("created_at", { ascending: true });
+
+      if (errVeics) {
+        return new Response(JSON.stringify({ success: false, message: errVeics.message }), {
+          status: 500,
+          headers: { "Content-Type": "application/json", ...SECURITY_HEADERS },
+        });
+      }
+
+      const { data: instalacoes, error: errInst } = await adminClient
+        .from("instalacoes")
+        .select(
+          "id, veiculo_id, placa, data_agendamento, hora_agendamento, status, tipo_servico, instalador_id, fotos, fotos_instalacao, local_instalacao_tipo, solicitou_local_cliente, rele_chicote_fornecido_por, data_conclusao, rastreador_id, observacoes, instalador:instalador_id (id, nome, telefone)",
+        )
+        .eq("cliente_id", clienteId)
+        .order("created_at", { ascending: false });
+
+      return new Response(
+        JSON.stringify({
+          success: true,
+          veiculos: veiculos || [],
+          instalacoes: instalacoes || [],
+        }),
+        { status: 200, headers: { "Content-Type": "application/json", ...SECURITY_HEADERS } },
+      );
+    } catch (err: any) {
+      return new Response(
+        JSON.stringify({ success: false, message: err?.message || "Erro ao consultar veículos." }),
+        { status: 500, headers: { "Content-Type": "application/json", ...SECURITY_HEADERS } },
+      );
+    }
+  }
+
+  // POST /api/veiculos/cadastrar ou POST /api/veiculos
+  if (
+    request.method === "POST" &&
+    (url.pathname === "/api/veiculos/cadastrar" || url.pathname === "/api/veiculos")
+  ) {
+    try {
+      const body = (await request.json()) as any;
+      const { clienteId, dados } = body || {};
+
+      if (!clienteId || !dados) {
+        return new Response(
+          JSON.stringify({ success: false, message: "clienteId e dados são obrigatórios." }),
+          { status: 400, headers: { "Content-Type": "application/json", ...SECURITY_HEADERS } },
+        );
+      }
+
+      const rawTipo = (dados.tipo_veiculo || "carro").trim().toLowerCase();
+      const tipoMapeado = rawTipo === "quadriciclo" ? "quadriciculo" : rawTipo;
+      const tiposPermitidos = new Set([
+        "carro",
+        "moto",
+        "moto_eletrica",
+        "caminhao",
+        "van",
+        "ambulancia",
+        "onibus",
+        "suv",
+        "camionete",
+        "quadriciculo",
+        "triciclo",
+        "jetski",
+        "maquina",
+        "trator",
+        "equipamento",
+        "outro",
+      ]);
+      const tipoSanitizado = tiposPermitidos.has(tipoMapeado) ? tipoMapeado : "carro";
+      const isSemPlaca =
+        tipoSanitizado === "maquina" ||
+        tipoSanitizado === "trator" ||
+        tipoSanitizado === "equipamento" ||
+        tipoSanitizado === "moto_eletrica";
+
+      const rawPlaca = (dados.placa || "")
+        .trim()
+        .toUpperCase()
+        .replace(/[^A-Z0-9-]/g, "");
+
+      const rawChassi = (dados.chassi || "").trim().toUpperCase();
+      const chassiFinal = rawChassi ? rawChassi : null;
+      const chassiSufixo = chassiFinal && chassiFinal.length >= 6 ? chassiFinal.slice(-6) : null;
+
+      const placaFinal = rawPlaca
+        ? rawPlaca
+        : isSemPlaca
+          ? chassiSufixo || "SEMPLACA"
+          : "A DEFINIR";
+      const marcaModeloFinal = (dados.marca_modelo || "").trim() || "Veículo Padrão";
+
+      const payload: Record<string, any> = {
+        cliente_id: clienteId,
+        placa: placaFinal,
+        chassi: chassiFinal,
+        marca_modelo: marcaModeloFinal,
+        ano: dados.ano || null,
+        cor: dados.cor?.trim() || null,
+        tipo_veiculo: tipoSanitizado,
+        horimetro_horas: Number(dados.horimetro_horas) || 0,
+        ativo: false,
+        bloqueado: false,
+        pendente_aprovacao_operador: false,
+        created_at: new Date().toISOString(),
+        updated_at: new Date().toISOString(),
+      };
+
+      let { data: veiculoCriado, error: errInsert } = await adminClient
+        .from("veiculos")
+        .insert(payload)
+        .select()
+        .single();
+
+      if (
+        errInsert &&
+        (errInsert.message?.includes("column") || errInsert.message?.includes("schema cache"))
+      ) {
+        delete payload.pendente_aprovacao_operador;
+        const retry = await adminClient.from("veiculos").insert(payload).select().single();
+        veiculoCriado = retry.data;
+        errInsert = retry.error;
+      }
+
+      if (errInsert || !veiculoCriado) {
+        return new Response(
+          JSON.stringify({
+            success: false,
+            message: errInsert?.message || "Falha ao inserir veículo.",
+          }),
+          { status: 500, headers: { "Content-Type": "application/json", ...SECURITY_HEADERS } },
+        );
+      }
+
+      return new Response(
+        JSON.stringify({
+          success: true,
+          message: "Veículo cadastrado na frota com sucesso.",
+          veiculo: veiculoCriado,
+        }),
+        { status: 200, headers: { "Content-Type": "application/json", ...SECURITY_HEADERS } },
+      );
+    } catch (err: any) {
+      return new Response(
+        JSON.stringify({ success: false, message: err?.message || "Erro ao cadastrar veículo." }),
+        { status: 500, headers: { "Content-Type": "application/json", ...SECURITY_HEADERS } },
+      );
+    }
+  }
+
+  // POST /api/veiculos/distribuir
+  if (request.method === "POST" && url.pathname === "/api/veiculos/distribuir") {
+    try {
+      const body = (await request.json()) as any;
+      const { clienteId, itens } = body || {};
+
+      if (!clienteId || !itens || !Array.isArray(itens) || itens.length === 0) {
+        return new Response(
+          JSON.stringify({ success: false, message: "clienteId e itens são obrigatórios." }),
+          { status: 400, headers: { "Content-Type": "application/json", ...SECURITY_HEADERS } },
+        );
+      }
+
+      const veiculoIds = itens.map((i: any) => i.veiculoId);
+      const { data: veiculosRows } = await adminClient
+        .from("veiculos")
+        .select("id, placa, marca_modelo, ano, cor, tipo_veiculo, ativo, rastreador_id")
+        .in("id", veiculoIds);
+
+      const mapVeiculos = new Map<string, any>();
+      (veiculosRows || []).forEach((v: any) => mapVeiculos.set(v.id, v));
+
+      const { data: ordensClienteRows } = await adminClient
+        .from("instalacoes")
+        .select("id, veiculo_id, placa, status, tipo_servico")
+        .eq("cliente_id", clienteId)
+        .order("created_at", { ascending: false });
+
+      const ordensConcluidasIds = new Set<string>();
+      const veiculosComOrdemConcluida = new Set<string>();
+
+      (ordensClienteRows || []).forEach((ord: any) => {
+        const st = (ord.status || "").trim().toLowerCase();
+        if (
+          (st === "concluida" || st === "concluida_com_pendencia") &&
+          ord.tipo_servico !== "retirada"
+        ) {
+          ordensConcluidasIds.add(ord.id);
+          if (ord.veiculo_id) veiculosComOrdemConcluida.add(ord.veiculo_id);
+        }
+      });
+
+      const instaladorIds = Array.from(
+        new Set(itens.map((i: any) => i.instaladorId).filter(Boolean)),
+      );
+      const { data: profs } = await adminClient
+        .from("profiles")
+        .select(
+          "id, nome, telefone, endereco_instalacao, valor_instalacao_sem_bloqueador, valor_instalacao_com_bloqueador, valor_por_instalacao",
+        )
+        .in("id", instaladorIds);
+
+      const mapInstaladores = new Map<string, any>();
+      (profs || []).forEach((p: any) => mapInstaladores.set(p.id, p));
+
+      const ordensAdotadas = new Set<string>();
+
+      for (const item of itens) {
+        if (
+          (item.instalacaoId && ordensConcluidasIds.has(item.instalacaoId)) ||
+          veiculosComOrdemConcluida.has(item.veiculoId)
+        ) {
+          continue;
+        }
+
+        const vInfo = mapVeiculos.get(item.veiculoId);
+        const temKit = Boolean(item.kitId && item.imei);
+
+        // 1. Atualiza veiculo
+        const veiculoUpdate: Record<string, any> = {
+          pendente_aprovacao_operador: false,
+          updated_at: new Date().toISOString(),
+        };
+        if (temKit) {
+          veiculoUpdate.rastreador_id = item.kitId;
+          veiculoUpdate.rastreador_imei = item.imei;
+        } else {
+          veiculoUpdate.rastreador_id = null;
+          veiculoUpdate.rastreador_imei = null;
+        }
+        await adminClient.from("veiculos").update(veiculoUpdate).eq("id", item.veiculoId);
+
+        // 2. Atualiza rastreador no estoque
+        if (temKit && item.kitId) {
+          await adminClient
+            .from("rastreadores")
+            .update({ status: "estoque", updated_at: new Date().toISOString() } as any)
+            .eq("id", item.kitId);
+        }
+
+        // 3. Ordem de serviço
+        let instExistenteId: string | null =
+          item.instalacaoId && !ordensConcluidasIds.has(item.instalacaoId)
+            ? item.instalacaoId
+            : null;
+
+        if (!instExistenteId) {
+          const instPorVeiculo = (ordensClienteRows || []).find(
+            (ord: any) =>
+              ord.veiculo_id === item.veiculoId &&
+              ord.tipo_servico !== "retirada" &&
+              !ordensConcluidasIds.has(ord.id) &&
+              !ordensAdotadas.has(ord.id),
+          );
+          if (instPorVeiculo?.id) {
+            instExistenteId = instPorVeiculo.id;
+          }
+        }
+
+        const profInst = item.instaladorId ? mapInstaladores.get(item.instaladorId) : null;
+        const valorInstalador =
+          Number(profInst?.valor_instalacao_com_bloqueador) ||
+          Number(profInst?.valor_instalacao_sem_bloqueador) ||
+          Number(profInst?.valor_por_instalacao) ||
+          100;
+
+        const payloadInstalacao: Record<string, any> = {
+          cliente_id: clienteId,
+          veiculo_id: item.veiculoId,
+          placa: vInfo?.placa || "A DEFINIR",
+          instalador_id: item.instaladorId || null,
+          rastreador_id: item.kitId || null,
+          data_agendamento: item.dataAgendamento || null,
+          hora_agendamento: item.horaAgendamento || null,
+          observacoes: item.observacoes || null,
+          local_instalacao_tipo: item.localTipo || "oficina",
+          solicitou_local_cliente: item.solicitaEnderecoCliente ?? false,
+          rele_chicote_fornecido_por: item.releChicoteDoEstoque ? "estoque_hunter" : "instalador",
+          valor_instalacao: valorInstalador,
+          status: temKit && item.instaladorId ? "agendada" : "pendente",
+          tipo_servico: "instalacao",
+          updated_at: new Date().toISOString(),
+        };
+
+        if (instExistenteId) {
+          ordensAdotadas.add(instExistenteId);
+          await adminClient.from("instalacoes").update(payloadInstalacao).eq("id", instExistenteId);
+        } else {
+          payloadInstalacao.created_at = new Date().toISOString();
+          const { data: novaInst } = await adminClient
+            .from("instalacoes")
+            .insert(payloadInstalacao)
+            .select("id")
+            .single();
+          if (novaInst?.id) ordensAdotadas.add(novaInst.id);
+        }
+      }
+
+      return new Response(
+        JSON.stringify({
+          success: true,
+          message: "Distribuição e ordens de serviço salvas com sucesso!",
+        }),
+        { status: 200, headers: { "Content-Type": "application/json", ...SECURITY_HEADERS } },
+      );
+    } catch (err: any) {
+      return new Response(
+        JSON.stringify({
+          success: false,
+          message: err?.message || "Erro ao salvar distribuição.",
+        }),
+        { status: 500, headers: { "Content-Type": "application/json", ...SECURITY_HEADERS } },
+      );
+    }
+  }
+
+  return new Response(
+    JSON.stringify({ success: false, message: "Método ou rota não suportada." }),
+    {
+      status: 405,
+      headers: { "Content-Type": "application/json", ...SECURITY_HEADERS },
+    },
+  );
+}
+
 async function handleApiEstoque(request: Request, env: unknown): Promise<Response | null> {
   const url = new URL(request.url);
   if (!url.pathname.startsWith("/api/estoque")) {
@@ -9414,6 +9836,12 @@ export default {
     const clientesResponse = await handleApiClientes(request, env);
     if (clientesResponse) {
       return clientesResponse;
+    }
+
+    // Intercepta rotas de API seguras de veículos e distribuição de frota (com Service Role, imune a recursão RLS)
+    const veiculosResponse = await handleApiVeiculos(request, env);
+    if (veiculosResponse) {
+      return veiculosResponse;
     }
 
     // Intercepta rotas seguras de redefinição de senha de parceiros (revendedor e vendedor)
