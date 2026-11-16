@@ -1,9 +1,9 @@
 // ============================================================================
 // HUNTER GUARDIAN — CATÁLOGO DE PROTOCOLOS HOMOLOGADOS DE BANCADA USB
-// Suporte Canônico: WanWay / Concox (GT06), Modem Celular AT (Hayes) e Coban / TK (TK103)
+// Suporte Canônico: WanWay / Concox (GT06), Modem Celular AT (Hayes), Coban / TK (TK103) e G900L (Secumore / Cantrack 4G)
 // ============================================================================
 
-export type FamiliaProtocolo = "concox_wanway" | "modem_at" | "coban_tk";
+export type FamiliaProtocolo = "concox_wanway" | "modem_at" | "coban_tk" | "g900l";
 
 export interface ProtocoloHardwareDef {
   id: FamiliaProtocolo;
@@ -691,6 +691,277 @@ export const PROTOCOLOS_BANCADA: Record<FamiliaProtocolo, ProtocoloHardwareDef> 
       { nome: "5. Fuso Horário GMT Zero", cmd: "time zone123456 0", tipo: "CRLF" },
       { nome: "6. Auditoria Geral", cmd: "check123456", tipo: "CRLF" },
       { nome: "7. Reinicialização para Atualizar Lara", cmd: "reset123456", tipo: "CRLF" },
+    ],
+  },
+  g900l: {
+    id: "g900l",
+    nome: "G900L / A76XX (GT06 4G LTE)",
+    badge: "G900L 4G (Hayes AT / GT06)",
+    terminador: "CRLF",
+    gerarComandoServidor: (srv, porta) => ({
+      cmd: `adminip123456 ${srv} ${porta}`,
+      terminador: "CRLF",
+    }),
+    gerarComandoApn: (apn) => ({
+      cmd: `AT+CGDCONT=1,"IP","${apn}"`,
+      terminador: "CRLF",
+    }),
+    gerarComandoTimers: (mov) => ({
+      cmd: `fix${mov.padStart(3, "0")}s***n123456`,
+      terminador: "CRLF",
+    }),
+    tituloTimers: "3. Timers e Frequência de Transmissão (G900L)",
+    descTimers: "Intervalos canônicos de rastreamento do G900L (segundos)",
+    labelBotaoTimers: "Gravar Timers G900L",
+    suportaTimersMovimento: true,
+    suportaServidorViaSerial: true,
+    atalhos: [
+      {
+        label: "Testar (AT)",
+        cmd: "AT",
+        desc: "Teste de comunicação direta do modem",
+        cor: "text-orange-400",
+      },
+      {
+        label: "Identificar (ATI)",
+        cmd: "ATI",
+        desc: "Identificação do módulo e versão SIMCom",
+        cor: "text-orange-400",
+      },
+      {
+        label: "IMEI (AT+CGSN)",
+        cmd: "AT+CGSN",
+        desc: "Consultar IMEI gravado no módulo LTE",
+        cor: "text-purple-400",
+      },
+      {
+        label: "ICCID (AT+CCID)",
+        cmd: "AT+CCID",
+        desc: "Consultar ICCID do chip SIM M2M",
+        cor: "text-amber-400",
+      },
+      {
+        label: "Chip SIM (AT+CPIN?)",
+        cmd: "AT+CPIN?",
+        desc: "Checar se o chip está READY e inserido",
+        cor: "text-sky-400",
+      },
+      {
+        label: "Sinal 4G (AT+CSQ)",
+        cmd: "AT+CSQ",
+        desc: "Intensidade do sinal celular (0-31)",
+        cor: "text-lime-400",
+      },
+      {
+        label: "Operadora (AT+COPS?)",
+        cmd: "AT+COPS?",
+        desc: "Operadora de rede conectada (ex: Claro BR)",
+        cor: "text-sky-300",
+      },
+      {
+        label: "APN (AT+CGDCONT?)",
+        cmd: "AT+CGDCONT?",
+        desc: "Consultar APN configurada no modem",
+        cor: "text-indigo-400",
+      },
+      {
+        label: "Rede 4G (AT+CEREG?)",
+        cmd: "AT+CEREG?",
+        desc: "Status de registro na antena 4G LTE",
+        cor: "text-cyan-400",
+      },
+      {
+        label: "IP Dados (AT+CGPADDR=1)",
+        cmd: "AT+CGPADDR=1",
+        desc: "Consultar IP atribuído pela operadora",
+        cor: "text-emerald-400",
+      },
+      {
+        label: "Auditoria (check123456)",
+        cmd: "check123456",
+        desc: "Consultar parâmetros salvos na MCU",
+        cor: "text-amber-300",
+      },
+      {
+        label: "Status (status123456)",
+        cmd: "status123456",
+        desc: "Consultar status geral da placa G900L",
+        cor: "text-emerald-300",
+      },
+      {
+        label: "Servidor GT06 (SERVER#)",
+        cmd: "SERVER#",
+        desc: "Consultar servidor GT06 gravado",
+        cor: "text-orange-300",
+      },
+      {
+        label: "Parâmetros (PARAM#)",
+        cmd: "PARAM#",
+        desc: "Consultar IP, porta e timers GT06",
+        cor: "text-purple-300",
+      },
+      {
+        label: "Status GT06 (STATUS#)",
+        cmd: "STATUS#",
+        desc: "Consultar bateria, GPS e status GT06",
+        cor: "text-sky-200",
+      },
+      {
+        label: "Reiniciar (AT+CFUN=1,1)",
+        cmd: "AT+CFUN=1,1",
+        desc: "Reiniciar modem para aplicar dados",
+        cor: "text-rose-400",
+      },
+    ],
+    comandosUmToque: [
+      {
+        titulo: "Testar Comunicação",
+        cmd: "AT",
+        desc: "Verifica resposta direta do modem SIMCom A76XX",
+        categoria: "consulta",
+      },
+      {
+        titulo: "Identificação do Módulo",
+        cmd: "ATI",
+        desc: "Modelo do módulo celular e revisão de firmware",
+        categoria: "consulta",
+      },
+      {
+        titulo: "Ler IMEI",
+        cmd: "AT+CGSN",
+        desc: "Número de série IMEI do rastreador G900L",
+        categoria: "consulta",
+      },
+      {
+        titulo: "Ler ICCID do Chip",
+        cmd: "AT+CCID",
+        desc: "Número serial do chip SIM impresso no cartão",
+        categoria: "consulta",
+      },
+      {
+        titulo: "Status Chip SIM",
+        cmd: "AT+CPIN?",
+        desc: "Confirma se o chip M2M está desbloqueado (READY)",
+        categoria: "consulta",
+      },
+      {
+        titulo: "Nível de Sinal 4G",
+        cmd: "AT+CSQ",
+        desc: "Intensidade da recepção de sinal celular",
+        categoria: "consulta",
+      },
+      {
+        titulo: "Operadora Conectada",
+        cmd: "AT+COPS?",
+        desc: "Operadora de dados conectada no chip",
+        categoria: "consulta",
+      },
+      {
+        titulo: "Registro na Torre 4G",
+        cmd: "AT+CEREG?",
+        desc: "Confirma conexão na antena LTE da operadora",
+        categoria: "consulta",
+      },
+      {
+        titulo: "Consultar APN Gravada",
+        cmd: "AT+CGDCONT?",
+        desc: "Lista APNs e contextos de dados ativos",
+        categoria: "consulta",
+      },
+      {
+        titulo: "Consultar IP Celular",
+        cmd: "AT+CGPADDR=1",
+        desc: "Endereço IP atribuído à sessão de dados",
+        categoria: "consulta",
+      },
+      {
+        titulo: "Auditoria Geral MCU",
+        cmd: "check123456",
+        desc: "Consulta IP, porta e APN gravados na placa G900L",
+        categoria: "consulta",
+      },
+      {
+        titulo: "Status Operacional MCU",
+        cmd: "status123456",
+        desc: "Diagnóstico de bateria, GPS e rede da placa",
+        categoria: "consulta",
+      },
+      {
+        titulo: "Parâmetros GT06",
+        cmd: "PARAM#",
+        desc: "Consulta parâmetros gravados se placa em modo GT06",
+        categoria: "consulta",
+      },
+      {
+        titulo: "Status GT06",
+        cmd: "STATUS#",
+        desc: "Bateria, ACC, relé e GPS se placa em modo GT06",
+        categoria: "consulta",
+      },
+      {
+        titulo: "Ativar Conexão 4G (PDP)",
+        cmd: "AT+CGACT=1,1",
+        desc: "Ativa contexto de dados móveis 4G na operadora",
+        categoria: "acao",
+        estilo: "bg-emerald-500/10 text-emerald-500 border-emerald-500/30",
+      },
+      {
+        titulo: "Abrir Stack TCP/IP",
+        cmd: "AT+NETOPEN",
+        desc: "Inicia a pilha de conexão TCP/IP no módulo A76XX",
+        categoria: "acao",
+        estilo: "bg-cyan-500/10 text-cyan-500 border-cyan-500/30",
+      },
+      {
+        titulo: "Reiniciar Modem LTE",
+        cmd: "AT+CFUN=1,1",
+        desc: "Aplica parâmetros e reinicia o modem celular",
+        categoria: "acao",
+        estilo: "bg-amber-500/10 text-amber-500 border-amber-500/30",
+      },
+      {
+        titulo: "Reset da Placa G900L",
+        cmd: "reset123456",
+        desc: "Reinicia a controladora interna do G900L",
+        categoria: "acao",
+        estilo: "bg-rose-500/10 text-rose-500 border-rose-500/30",
+      },
+    ],
+    gerarFilaPadraoCanonico: ({ srv, porta, apn }) => [
+      { nome: "1. Sincronismo Inicial (AT)", cmd: "AT", tipo: "CRLF" },
+      { nome: "2. Desativação de Eco Local (ATE0)", cmd: "ATE0", tipo: "CRLF" },
+      { nome: "3. Identificação do Módulo G900L (ATI)", cmd: "ATI", tipo: "CRLF" },
+      { nome: "4. Leitura do IMEI (AT+CGSN)", cmd: "AT+CGSN", tipo: "CRLF" },
+      { nome: "5. Leitura do ICCID do Chip M2M (AT+CCID)", cmd: "AT+CCID", tipo: "CRLF" },
+      { nome: "6. Checagem do Chip SIM (AT+CPIN?)", cmd: "AT+CPIN?", tipo: "CRLF" },
+      { nome: "7. Nível de Sinal Celular (AT+CSQ)", cmd: "AT+CSQ", tipo: "CRLF" },
+      { nome: "8. Operadora Celular (AT+COPS?)", cmd: "AT+COPS?", tipo: "CRLF" },
+      {
+        nome: "9. Gravar APN M2M (AT+CGDCONT)",
+        cmd: `AT+CGDCONT=1,"IP","${apn}"`,
+        tipo: "CRLF",
+      },
+      { nome: "10. Auditoria de APN Gravada (AT+CGDCONT?)", cmd: "AT+CGDCONT?", tipo: "CRLF" },
+      {
+        nome: "11. Manter Conexão Online 24h sem Repouso (AT+CPSMS)",
+        cmd: "AT+CPSMS=0",
+        tipo: "CRLF",
+      },
+      { nome: "12. Registro na Rede 4G LTE (AT+CEREG?)", cmd: "AT+CEREG?", tipo: "CRLF" },
+      { nome: "13. Anexo aos Pacotes de Dados (AT+CGATT=1)", cmd: "AT+CGATT=1", tipo: "CRLF" },
+      { nome: "14. Ativação da Sessão de Dados (AT+CGACT=1,1)", cmd: "AT+CGACT=1,1", tipo: "CRLF" },
+      {
+        nome: "15. Consulta IP Celular da Sessão (AT+CGPADDR=1)",
+        cmd: "AT+CGPADDR=1",
+        tipo: "CRLF",
+      },
+      { nome: "16. Iniciar Stack TCP/IP (AT+NETOPEN)", cmd: "AT+NETOPEN", tipo: "CRLF" },
+      {
+        nome: "17. Conectar Socket TCP GD Segurança (AT+CIPOPEN)",
+        cmd: `AT+CIPOPEN=0,"TCP","${srv}",${porta}`,
+        tipo: "CRLF",
+      },
+      { nome: "18. Reinicialização para Aplicar (AT+CFUN=1,1)", cmd: "AT+CFUN=1,1", tipo: "CRLF" },
     ],
   },
 };

@@ -1193,7 +1193,7 @@ export const MANUAIS_MODULOS: ModuloManual[] = [
             ordem: 1,
             acao: "Primeiro Contato pelo WhatsApp",
             detalhe:
-              "O visitante recebe o menu do Guardião Virtual com explicação clara de que o serviço consiste na locação de rastreador homologado para auto-monitoramento pelo celular, sem vínculos de central terceirizada.",
+              "O visitante recebe o menu do Assistente GD com explicação clara de que o serviço consiste na locação de rastreador homologado para auto-monitoramento pelo celular, sem vínculos de central terceirizada.",
           },
           {
             ordem: 2,

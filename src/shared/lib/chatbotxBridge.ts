@@ -270,7 +270,7 @@ export async function enviarMensagemWhatsappOperador(
     recipient: foneNormalizado,
     message: textoMensagem,
     metadata: {
-      origem: "sigo_guardiao_painel_operador",
+      origem: "gd_seguranca_painel_operador",
       operador: parametros.operadorNome ?? "Operador GD Rastreamento",
       cliente_nome: parametros.clienteNome,
       cliente_id: parametros.clienteId,

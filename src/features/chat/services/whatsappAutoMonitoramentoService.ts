@@ -1142,13 +1142,13 @@ export async function notificarSuperAdmTransbordoHumano(
 }
 
 /**
- * Menu principal do Guardião Virtual para atendimento ao público em geral (dev-bot)
+ * Menu principal do Assistente GD para atendimento ao público em geral (dev-bot)
  */
 export function obterMenuPublicoDevBot(nome?: string): string {
   const saudacaoNome =
     nome && nome.trim().length >= 2 ? `Olá, *${nome.trim().split(" ")[0]}*! ` : "Olá! ";
   return (
-    `${saudacaoNome}Sou o *Guardião Virtual*, assistente do GD Rastreamento. 🛡️\n\n` +
+    `${saudacaoNome}Sou o *Assistente GD*, assistente virtual do GD Rastreamento. 🛡️\n\n` +
     "Somos especialistas em *Locação de Rastreadores para Auto-Monitoramento com Disponibilização do Sistema* completo pelo aplicativo.\n\n" +
     "Como posso te ajudar hoje?\n\n" +
     "• *1* - Conhecer Planos e Benefícios\n" +
@@ -1508,7 +1508,7 @@ function obterTextoAjudaMotorista(nome?: string): string {
     "🌐 *Acesso ao Sistema Web:*\n" +
     "• https://gd.oficial.tec.br\n\n" +
     "🤖 *Atendimento por este WhatsApp:*\n" +
-    "• Envie *MENU* para abrir o *Guardião Virtual* (informações gerais e suporte)\n" +
+    "• Envie *MENU* para abrir o *Assistente GD* (informações gerais e suporte)\n" +
     "• Comandos veiculares diretos (*LOCALIZACAO*, *BLOQUEIO*, *DESBLOQUEIO*) são exclusivos do cliente titular da frota e da administração."
   );
 }
@@ -3761,7 +3761,7 @@ export async function processarMensagemWhatsappRecebida(
       await excluirSessaoAtiva();
     }
 
-    // 0.0. Atendimento ao Público em Geral pelo Guardião Virtual (SKILL: dev-bot)
+    // 0.0. Atendimento ao Público em Geral pelo Assistente GD (SKILL: dev-bot)
     if (
       !isCadastrado &&
       !devePularDevBotParaMenuPerfil &&
@@ -3787,7 +3787,7 @@ export async function processarMensagemWhatsappRecebida(
           acaoExecutada: "atendimento_publico_cancelado",
           resposta:
             "Atendimento finalizado com sucesso. 😊\n\n" +
-            "Sempre que precisar, o Guardião Virtual está à sua disposição. Tenha um excelente dia!",
+            "Sempre que precisar, o Assistente GD está à sua disposição. Tenha um excelente dia!",
         };
       }
 
@@ -3822,7 +3822,7 @@ export async function processarMensagemWhatsappRecebida(
           acaoExecutada: "atendimento_humano_aguardando",
           resposta:
             "Sua solicitação de atendimento humano já foi repassada para nossa equipe. Um operador responderá você por aqui a qualquer momento. 👨‍💼\n\n" +
-            "_(Envie *MENU* a qualquer momento caso queira retornar ao menu do Guardião Virtual)_",
+            "_(Envie *MENU* a qualquer momento caso queira retornar ao menu do Assistente GD)_",
         };
       }
 
@@ -3955,7 +3955,7 @@ export async function processarMensagemWhatsappRecebida(
           acaoExecutada: "pesquisa_satisfacao_iniciada",
           resposta:
             "Foi um prazer te atender! 😊\n\n" +
-            "Antes de finalizar, como você avalia o atendimento do *Guardião Virtual* de 1 a 5?\n\n" +
+            "Antes de finalizar, como você avalia o atendimento do *Assistente GD* de 1 a 5?\n\n" +
             "• *1* - Muito insatisfeito\n" +
             "• *2* - Insatisfeito\n" +
             "• *3* - Regular\n" +
@@ -8032,7 +8032,7 @@ export async function processarMensagemWhatsappRecebida(
         "• https://gd.oficial.tec.br\n\n" +
         "📱 *Atendimento por este WhatsApp:*\n" +
         "• Comandos operacionais via WhatsApp (bloqueio, desbloqueio e localização) não ficam habilitados durante o período de degustação.\n" +
-        "• Para dúvidas comerciais ou solicitação de renovação (*REVALIDA*), fale com o consultor responsável ou utilize o *Guardião Virtual*.",
+        "• Para dúvidas comerciais ou solicitação de renovação (*REVALIDA*), fale com o consultor responsável ou utilize o *Assistente GD*.",
     };
   }
 
@@ -8100,7 +8100,7 @@ export async function processarMensagemWhatsappRecebida(
   }
 
   // ─────────────────────────────────────────────────────────────────────────────
-  // C) NÚMERO NÃO IDENTIFICADO / PESSOA NÃO CADASTRADA (Atendimento Guardião Virtual - dev-bot)
+  // C) NÚMERO NÃO IDENTIFICADO / PESSOA NÃO CADASTRADA (Atendimento Assistente GD - dev-bot)
   // ─────────────────────────────────────────────────────────────────────────────
   const pushNameVisitante = params.pushName || "";
 
@@ -8231,7 +8231,7 @@ export async function processarMensagemWhatsappRecebida(
     };
   }
 
-  // 5. Menu Principal Inicial do Guardião Virtual (dev-bot)
+  // 5. Menu Principal Inicial do Assistente GD (dev-bot)
   const payloadDevBot: any = {
     telefone: remetenteLimpo,
     fluxo: "atendimento_publico",

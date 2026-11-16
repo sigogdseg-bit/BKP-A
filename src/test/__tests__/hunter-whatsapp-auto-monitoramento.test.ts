@@ -538,7 +538,7 @@ describe("HUNTER-GUARDIAN — Auto-Monitoramento Interativo WhatsApp", () => {
     assert.ok(res2.resposta.includes("Comprovante excluído"));
   });
 
-  it("Número Desconhecido: deve responder com menu de atendimento ao público do Guardião Virtual (dev-bot)", async () => {
+  it("Número Desconhecido: deve responder com menu de atendimento ao público do Assistente GD (dev-bot)", async () => {
     const supabase = criarMockSupabase({
       clientes: [],
       profiles: [],
@@ -554,7 +554,7 @@ describe("HUNTER-GUARDIAN — Auto-Monitoramento Interativo WhatsApp", () => {
 
     assert.equal(res.sucesso, true);
     assert.equal(res.acaoExecutada, "atendimento_publico_menu_inicial");
-    assert.ok(res.resposta.includes("Guardião Virtual"));
+    assert.ok(res.resposta.includes("Assistente GD"));
     assert.ok(res.resposta.includes("Conhecer Planos e Benefícios"));
     assert.ok(res.resposta.includes("Falar com Atendente Humano"));
     assert.ok(!res.resposta.includes("&"), "Proibido caractere &");
@@ -932,7 +932,7 @@ describe("HUNTER-GUARDIAN — Auto-Monitoramento Interativo WhatsApp", () => {
     assert.ok(resVend.resposta.includes("INSTALADORES"));
   });
 
-  it("Número Desconhecido: 1º contato recebe menu do Guardião Virtual; comandos posteriores navegam no menu", async () => {
+  it("Número Desconhecido: 1º contato recebe menu do Assistente GD; comandos posteriores navegam no menu", async () => {
     const supabase = criarMockSupabase({
       clientes: [],
       profiles: [],
@@ -944,7 +944,7 @@ describe("HUNTER-GUARDIAN — Auto-Monitoramento Interativo WhatsApp", () => {
       supabase,
     );
     assert.equal(res1.acaoExecutada, "atendimento_publico_menu_inicial");
-    assert.ok(res1.resposta.includes("Guardião Virtual"));
+    assert.ok(res1.resposta.includes("Assistente GD"));
 
     // 2º contato com escolha de planos (Opção 1)
     const res2 = await processarMensagemWhatsappRecebida(
@@ -1382,7 +1382,7 @@ describe("HUNTER-GUARDIAN — Auto-Monitoramento Interativo WhatsApp", () => {
       supabase,
     );
     assert.equal(rPub.acaoExecutada, "atendimento_publico_menu_ajuda");
-    assert.ok(rPub.resposta.includes("Guardião Virtual"));
+    assert.ok(rPub.resposta.includes("Assistente GD"));
     assert.ok(!rPub.resposta.includes("&"));
 
     // 13. Desempate de telefone duplicado em profiles (ativo supera inativo; prioridade superior vence)

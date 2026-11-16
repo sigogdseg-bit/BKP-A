@@ -119,6 +119,14 @@ export function ModalEnvioRapidoWhatsapp({
         if (res.ok) {
           const json = await res.json();
           if (json.conectado) {
+            const numStr = String(json.numero || "");
+            // Blindagem: Linha do Guardião (5524992501512) é rejeitada no GD
+            if (numStr.includes("992501512") || numStr.includes("5524992501512")) {
+              setGatewayOnline(false);
+              setGatewayNumero(null);
+              setChecandoGateway(false);
+              return;
+            }
             setGatewayOnline(true);
             setGatewayNumero(json.numero || null);
             setChecandoGateway(false);
@@ -462,10 +470,10 @@ export function ModalEnvioRapidoWhatsapp({
                       }`}
                     />
                     {gatewayOnline
-                      ? `Gateway Online (${gatewayNumero ? "+" + formatarTelefoneVisual(gatewayNumero) : "Central Conectada"})`
+                      ? `Gateway GD Online (${gatewayNumero ? "+" + formatarTelefoneVisual(gatewayNumero) : "Central GD Conectada"})`
                       : checandoGateway
-                        ? "Checando Gateway..."
-                        : "Gateway Offline"}
+                        ? "Checando Gateway GD..."
+                        : "Gateway GD Desconectado"}
                     <RefreshCw
                       className={`h-2.5 w-2.5 ml-0.5 ${checandoGateway ? "animate-spin" : ""}`}
                     />
@@ -484,7 +492,7 @@ export function ModalEnvioRapidoWhatsapp({
                       }
                     >
                       <ExternalLink className="h-3 w-3" />{" "}
-                      {gatewayOnline ? "Trocar Linha GD" : "Conectar WhatsApp GD"}
+                      {gatewayOnline ? "Trocar Linha GD" : "Conectar Linha GD"}
                     </a>
                   )}
                 </div>

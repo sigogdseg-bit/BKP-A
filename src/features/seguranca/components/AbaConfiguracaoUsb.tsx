@@ -140,6 +140,7 @@ export function AbaConfiguracaoUsb() {
   const [verificandoImei, setVerificandoImei] = useState<boolean>(false);
   const [filtroUmToque, setFiltroUmToque] = useState<"todos" | "consulta" | "acao">("todos");
   const [gravandoViaGatewayTcp, setGravandoViaGatewayTcp] = useState<boolean>(false);
+  const abortGatewayTcpRef = useRef<boolean>(false);
 
   // Referências para Web Serial
   const portaSerialRef = useRef<any>(null);
@@ -1221,7 +1222,8 @@ export function AbaConfiguracaoUsb() {
 
         // Comuta automaticamente a família de comandos de acordo com o hardware identificado
         if (sonda.comando === "AT") {
-          alternarFamiliaProtocolo("modem_at", true);
+          const destinoFamilia = familiaProtocoloRef.current === "g900l" ? "g900l" : "modem_at";
+          alternarFamiliaProtocolo(destinoFamilia, true);
           setTimeout(() => {
             adicionarLog("SISTEMA", "Consultando IMEI direto do modem celular (AT+CGSN)...");
             enviarComandoSerial("AT+CGSN", "CRLF", true);
@@ -1306,15 +1308,22 @@ export function AbaConfiguracaoUsb() {
       }
 
       if (respondeuAt) {
-        alternarFamiliaProtocolo("modem_at", true);
+        const destinoFamilia = familiaProtocoloRef.current === "g900l" ? "g900l" : "modem_at";
+        alternarFamiliaProtocolo(destinoFamilia, true);
         setProtocoloDetectado(
-          `Modem Celular AT (115200 bps | Interface #${interfaceEscolhidaRef.current || 5})`,
+          destinoFamilia === "g900l"
+            ? `G900L 4G LTE (115200 bps | Interface #${interfaceEscolhidaRef.current || 5})`
+            : `Modem Celular AT (115200 bps | Interface #${interfaceEscolhidaRef.current || 5})`,
         );
         adicionarLog(
           "SISTEMA",
-          `✅ Modem Celular AT respondendo na Interface #${interfaceEscolhidaRef.current || 5}! Canal operacional.`,
+          `✅ Módulo Celular AT respondendo na Interface #${interfaceEscolhidaRef.current || 5}! Canal operacional.`,
         );
-        toast.success("Rastreador identificado via comandos AT!");
+        toast.success(
+          destinoFamilia === "g900l"
+            ? "Rastreador G900L identificado via comandos AT!"
+            : "Rastreador identificado via comandos AT!",
+        );
 
         setTimeout(() => {
           adicionarLog("SISTEMA", "Consultando IMEI direto do modem celular (AT+CGSN)...");
@@ -1448,21 +1457,34 @@ export function AbaConfiguracaoUsb() {
     const headers: Record<string, string> = { "Content-Type": "application/json" };
     if (token) headers.Authorization = `Bearer ${token}`;
 
-    const res = await fetch("/api/gateway/comando", {
-      method: "POST",
-      headers,
-      body: JSON.stringify({
-        imei: imeiAlvo,
-        comando: cmdSanitizado,
-        origem: "painel_j16_usb_bancada",
-      }),
-    });
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 4500);
 
-    if (!res.ok) {
-      const errData = await res.json().catch(() => null);
-      throw new Error(errData?.mensagem || `HTTP ${res.status}`);
+    try {
+      const res = await fetch("/api/gateway/comando", {
+        method: "POST",
+        headers,
+        body: JSON.stringify({
+          imei: imeiAlvo,
+          comando: cmdSanitizado,
+          origem: "painel_j16_usb_bancada",
+        }),
+        signal: controller.signal,
+      });
+      clearTimeout(timeoutId);
+
+      if (!res.ok) {
+        const errData = await res.json().catch(() => null);
+        throw new Error(errData?.mensagem || `HTTP ${res.status}`);
+      }
+      return await res.json();
+    } catch (err: any) {
+      clearTimeout(timeoutId);
+      if (err.name === "AbortError") {
+        throw new Error("Timeout ao contatar Gateway TCP (4.5s)");
+      }
+      throw err;
     }
-    return res.json();
   };
 
   // Gravar Servidor no Rastreador
@@ -1646,6 +1668,7 @@ export function AbaConfiguracaoUsb() {
       .filter((item) => item.cmd !== "PARAM#" && item.cmd !== "STATUS#");
 
     setGravandoViaGatewayTcp(true);
+    abortGatewayTcpRef.current = false;
     adicionarLog(
       "SISTEMA",
       `🚀 [GATEWAY TCP] Enviando lote canônico J16 (${filaConcox.length} comandos) para IMEI ${imeiAlvo}...`,
@@ -1654,36 +1677,58 @@ export function AbaConfiguracaoUsb() {
     let entregues = 0;
     let enfileirados = 0;
     let falhas = 0;
+    let falhasConsecutivas = 0;
 
     try {
       for (let i = 0; i < filaConcox.length; i++) {
+        if (abortGatewayTcpRef.current) {
+          adicionarLog("SISTEMA", "⏹️ [GATEWAY TCP] Envio cancelado pelo operador.");
+          break;
+        }
+
         const item = filaConcox[i];
         adicionarLog("TX", `[GATEWAY ${i + 1}/${filaConcox.length}] (${item.nome}) -> ${item.cmd}`);
         try {
           const gw = await despacharComandoGatewayTcp(imeiAlvo, item.cmd);
           if (gw?.resposta) {
             entregues++;
+            falhasConsecutivas = 0;
             adicionarLog("RX", `[GATEWAY] ${gw.resposta}`);
           } else if (gw?.enviado) {
             entregues++;
+            falhasConsecutivas = 0;
             adicionarLog("SISTEMA", `✅ [GATEWAY] Entregue ao socket TCP (${item.cmd})`);
           } else if (gw?.enfileirado) {
             enfileirados++;
+            falhasConsecutivas = 0;
             adicionarLog(
               "SISTEMA",
               `⏳ [SPOOLER] Rastreador offline no TCP; retido no spooler (${item.cmd})`,
             );
           } else {
             falhas++;
+            falhasConsecutivas++;
             adicionarLog("ERRO", `❌ [GATEWAY] Sem confirmação para "${item.cmd}"`);
           }
         } catch (errStep: any) {
           falhas++;
+          falhasConsecutivas++;
           adicionarLog(
             "ERRO",
             `❌ [GATEWAY] Erro em "${item.cmd}": ${errStep?.message || String(errStep)}`,
           );
         }
+
+        // Circuit-breaker: Se falhar 2 comandos consecutivos sem resposta/socket, interrompe para não floodar
+        if (falhasConsecutivas >= 2 && entregues === 0 && enfileirados === 0) {
+          adicionarLog(
+            "ERRO",
+            `⚠️ [GATEWAY TCP] O dispositivo IMEI ${imeiAlvo} está offline na nuvem. A gravação via Gateway TCP foi interrompida para evitar erros repetitivos. Grave a APN via USB direto e certifique-se de que o rastreador possui alimentação 12V e chip 4G com dados ativos.`,
+          );
+          toast.warning("Rastreador offline no Gateway TCP. Envio cancelado.");
+          break;
+        }
+
         if (i < filaConcox.length - 1) {
           await new Promise((r) => setTimeout(r, 350));
         }
@@ -1776,7 +1821,19 @@ export function AbaConfiguracaoUsb() {
         }
       }
 
-      if (familia === "modem_at") {
+      if (familia === "g900l") {
+        adicionarLog(
+          errosHardware > 0 ? "ERRO" : "SISTEMA",
+          errosHardware > 0
+            ? `⚠️ [G900L 4G] Rotina finalizada com ${errosHardware} alerta(s) do módulo. APN, rede 4G e socket TCP ${portaTcp} transmitidos via comandos AT.`
+            : `✅ [G900L 4G] Padrão Canônico gravado com sucesso no rastreador G900L via USB! APN voxter.br, rede 4G e socket TCP porta ${portaTcp} configurados.`,
+        );
+        toast.success(
+          errosHardware > 0
+            ? `G900L concluído com ${errosHardware} aviso(s). Verifique o terminal.`
+            : `G900L 4G configurado com sucesso no padrão GD (Porta ${portaTcp})!`,
+        );
+      } else if (familia === "modem_at") {
         adicionarLog(
           errosHardware > 0 ? "ERRO" : "SISTEMA",
           errosHardware > 0
@@ -2374,24 +2431,78 @@ export function AbaConfiguracaoUsb() {
             </div>
 
             {/* Seletor Manual e Governança da Família de Protocolo */}
-            <div className="flex items-center justify-between gap-2 p-2.5 rounded-2xl bg-white/80 dark:bg-slate-950/80 border border-orange-500/30 flex-wrap">
-              <div className="flex items-center gap-2">
-                <span className="text-[10px] font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400">
-                  Protocolo em Uso:
+            <div className="p-2.5 rounded-2xl bg-white/80 dark:bg-slate-950/80 border border-orange-500/30 space-y-2">
+              <div className="flex items-center justify-between gap-2 flex-wrap">
+                <div className="flex items-center gap-2">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400">
+                    Protocolo em Uso:
+                  </span>
+                  <select
+                    value={familiaProtocolo}
+                    onChange={(e) => alternarFamiliaProtocolo(e.target.value as FamiliaProtocolo)}
+                    className="bg-transparent text-xs font-bold text-orange-700 dark:text-orange-300 focus:outline-hidden cursor-pointer"
+                  >
+                    <option value="concox_wanway">WanWay / Concox (GT06 - Hash #)</option>
+                    <option value="g900l">G900L / A76XX (Secumore / Cantrack 4G LTE)</option>
+                    <option value="modem_at">Modem Celular AT (Hayes - CRLF)</option>
+                    <option value="coban_tk">Coban / TK (TK103 - CRLF)</option>
+                  </select>
+                </div>
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-orange-500/20 text-orange-700 dark:text-orange-300 font-bold border border-orange-500/30 shrink-0">
+                  {protocoloAtivoDef.badge}
                 </span>
-                <select
-                  value={familiaProtocolo}
-                  onChange={(e) => alternarFamiliaProtocolo(e.target.value as FamiliaProtocolo)}
-                  className="bg-transparent text-xs font-bold text-orange-700 dark:text-orange-300 focus:outline-hidden cursor-pointer"
-                >
-                  <option value="concox_wanway">WanWay / Concox (GT06 - Hash #)</option>
-                  <option value="modem_at">Modem Celular AT (Hayes - CRLF)</option>
-                  <option value="coban_tk">Coban / TK (TK103 - CRLF)</option>
-                </select>
               </div>
-              <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-orange-500/20 text-orange-700 dark:text-orange-300 font-bold border border-orange-500/30 shrink-0">
-                {protocoloAtivoDef.badge}
-              </span>
+
+              {/* Botões Rápidos de Troca de Modelo de Rastreador */}
+              <div className="flex items-center gap-1.5 flex-wrap pt-1 border-t border-slate-200/60 dark:border-slate-800">
+                <span className="text-[9px] font-bold uppercase text-slate-400 mr-0.5">
+                  Modelo:
+                </span>
+                <button
+                  type="button"
+                  onClick={() => alternarFamiliaProtocolo("concox_wanway")}
+                  className={`px-2 py-0.5 rounded-lg text-[10px] font-bold transition cursor-pointer ${
+                    familiaProtocolo === "concox_wanway"
+                      ? "bg-orange-500 text-slate-950 shadow-xs"
+                      : "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200"
+                  }`}
+                >
+                  J16 4G (GT06)
+                </button>
+                <button
+                  type="button"
+                  onClick={() => alternarFamiliaProtocolo("g900l")}
+                  className={`px-2 py-0.5 rounded-lg text-[10px] font-bold transition cursor-pointer ${
+                    familiaProtocolo === "g900l"
+                      ? "bg-orange-500 text-slate-950 shadow-xs"
+                      : "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200"
+                  }`}
+                >
+                  G900L 4G LTE
+                </button>
+                <button
+                  type="button"
+                  onClick={() => alternarFamiliaProtocolo("modem_at")}
+                  className={`px-2 py-0.5 rounded-lg text-[10px] font-bold transition cursor-pointer ${
+                    familiaProtocolo === "modem_at"
+                      ? "bg-orange-500 text-slate-950 shadow-xs"
+                      : "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200"
+                  }`}
+                >
+                  Modem AT
+                </button>
+                <button
+                  type="button"
+                  onClick={() => alternarFamiliaProtocolo("coban_tk")}
+                  className={`px-2 py-0.5 rounded-lg text-[10px] font-bold transition cursor-pointer ${
+                    familiaProtocolo === "coban_tk"
+                      ? "bg-orange-500 text-slate-950 shadow-xs"
+                      : "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200"
+                  }`}
+                >
+                  Coban / TK
+                </button>
+              </div>
             </div>
 
             {/* Barra de Progresso durante a gravação */}
@@ -2429,7 +2540,7 @@ export function AbaConfiguracaoUsb() {
                   ? `Gravando ${protocoloAtivoDef.nome}...`
                   : protocoloAtivoDef.suportaServidorViaSerial === false
                     ? "Configurar Modem LTE via USB AT (APN e Energia)"
-                    : "Gravar Padrão Canônico no Rastreador (1-Clique)"}
+                    : `Gravar Padrão ${protocoloAtivoDef.nome} via USB (1-Clique)`}
               </span>
             </button>
 
@@ -2443,21 +2554,35 @@ export function AbaConfiguracaoUsb() {
                   <strong>USB-TTL</strong>.
                 </p>
                 {dadosBancada.imei && (
-                  <button
-                    type="button"
-                    onClick={gravarPadraoCanonicoViaGatewayTcp}
-                    disabled={gravandoViaGatewayTcp}
-                    className="w-full py-2 px-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-[11px] uppercase tracking-wider transition flex items-center justify-center gap-1.5 cursor-pointer disabled:opacity-50 active:scale-95"
-                  >
-                    <Radio
-                      className={`h-3.5 w-3.5 ${gravandoViaGatewayTcp ? "animate-spin" : ""}`}
-                    />
-                    <span>
-                      {gravandoViaGatewayTcp
-                        ? `Enviando Lote GT06 para ${dadosBancada.imei}...`
-                        : `Gravar Padrão GT06 Completo via Gateway TCP (IMEI ${dadosBancada.imei})`}
-                    </span>
-                  </button>
+                  <div className="flex gap-2">
+                    <button
+                      type="button"
+                      onClick={gravarPadraoCanonicoViaGatewayTcp}
+                      disabled={gravandoViaGatewayTcp}
+                      className="flex-1 py-2 px-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-[11px] uppercase tracking-wider transition flex items-center justify-center gap-1.5 cursor-pointer disabled:opacity-50 active:scale-95"
+                    >
+                      <Radio
+                        className={`h-3.5 w-3.5 ${gravandoViaGatewayTcp ? "animate-spin" : ""}`}
+                      />
+                      <span>
+                        {gravandoViaGatewayTcp
+                          ? `Enviando Lote GT06 para ${dadosBancada.imei}...`
+                          : `Gravar Padrão GT06 Completo via Gateway TCP (IMEI ${dadosBancada.imei})`}
+                      </span>
+                    </button>
+                    {gravandoViaGatewayTcp && (
+                      <button
+                        type="button"
+                        onClick={() => {
+                          abortGatewayTcpRef.current = true;
+                          adicionarLog("SISTEMA", "Solicitado cancelamento do Gateway TCP...");
+                        }}
+                        className="py-2 px-3 rounded-xl bg-rose-500 hover:bg-rose-400 text-white font-bold text-[11px] uppercase transition cursor-pointer"
+                      >
+                        Cancelar
+                      </button>
+                    )}
+                  </div>
                 )}
               </div>
             )}

@@ -110,7 +110,7 @@ function criarMockSupabaseParaDevBot(dadosIniciais?: {
 }
 
 describe("SKILL dev-bot — Atendimento ao Público em Geral via WhatsApp", () => {
-  it("1. Primeiro contato de número não cadastrado recebe menu do Guardião Virtual com pushName", async () => {
+  it("1. Primeiro contato de número não cadastrado recebe menu do Assistente GD com pushName", async () => {
     const supabase = criarMockSupabaseParaDevBot();
     const res = await processarMensagemWhatsappRecebida(
       {
@@ -124,7 +124,7 @@ describe("SKILL dev-bot — Atendimento ao Público em Geral via WhatsApp", () =
     assert.equal(res.sucesso, true);
     assert.equal(res.acaoExecutada, "atendimento_publico_menu_inicial");
     assert.match(res.resposta, /Rodrigo/);
-    assert.match(res.resposta, /Guardião Virtual/);
+    assert.match(res.resposta, /Assistente GD/);
     assert.match(res.resposta, /1.*Conhecer Planos e Benefícios/);
     assert.match(res.resposta, /2.*Como Funciona o Auto-Monitoramento/);
     assert.match(res.resposta, /3.*Consultar Vendedor Credenciado/);
@@ -324,7 +324,7 @@ describe("SKILL dev-bot — Atendimento ao Público em Geral via WhatsApp", () =
       supabase,
     );
     assert.equal(resMenu.acaoExecutada, "atendimento_publico_menu_retomado");
-    assert.match(resMenu.resposta, /Guardião Virtual/);
+    assert.match(resMenu.resposta, /Assistente GD/);
   });
 
   it("7. Fallback progressivo: 1ª, 2ª incompreensão e transbordo na 3ª falha", async () => {
@@ -392,7 +392,7 @@ describe("SKILL dev-bot — Atendimento ao Público em Geral via WhatsApp", () =
 
     assert.equal(res.acaoExecutada, "pesquisa_satisfacao_iniciada");
     assert.match(res.resposta, /Foi um prazer te atender/);
-    assert.match(res.resposta, /como você avalia o atendimento do \*Guardião Virtual\* de 1 a 5/);
+    assert.match(res.resposta, /como você avalia o atendimento do \*Assistente GD\* de 1 a 5/);
 
     // Resposta com nota 5
     const resNota = await processarMensagemWhatsappRecebida(
@@ -444,7 +444,7 @@ describe("SKILL dev-bot — Atendimento ao Público em Geral via WhatsApp", () =
 
     const menu = obterMenuPublicoDevBot("Carlos Alberto");
     assert.match(menu, /Carlos/);
-    assert.match(menu, /Guardião Virtual/);
+    assert.match(menu, /Assistente GD/);
 
     const planos = obterRespostaPlanosDevBot();
     assert.match(planos, /Plano Básico/);

@@ -421,7 +421,7 @@ export const ALERTAS_CONTA_OPERACIONAL_CATALOGO: AlertaCatalogoItem[] = [
     categoria: "conta",
     titulo: "Auto-Cadastro e Reativação de Degustação (Bot WhatsApp)",
     desc: "Aviso imediato quando novo usuário de degustação 24h ou reativação é criado via WhatsApp",
-    origemMonitoramento: "Autoatendimento WhatsApp Guardião Virtual",
+    origemMonitoramento: "Autoatendimento WhatsApp Assistente GD",
     origemTecnica: "Fluxo de Degustação WhatsApp Automático",
     restritoEquipeTecnica: true,
     padraoAtivo: true,

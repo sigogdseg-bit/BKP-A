@@ -1024,7 +1024,7 @@ describe("GD Rastreamento — Emissão de Propostas Interativas via WhatsApp e R
     assert.ok(resPush.resposta.includes("Marcos Silva Representações"));
   });
 
-  it("SEGURANÇA E STEALTH: Usuário não autorizado/visitante é atendido pelo Guardião Virtual sem vazar propostas ou dados confidenciais", async () => {
+  it("SEGURANÇA E STEALTH: Usuário não autorizado/visitante é atendido pelo Assistente GD sem vazar propostas ou dados confidenciais", async () => {
     const supabase = criarMockSupabaseParaPropostas({
       profiles: [
         {
@@ -1036,7 +1036,7 @@ describe("GD Rastreamento — Emissão de Propostas Interativas via WhatsApp e R
       ],
     });
 
-    // 1. Primeiro contato de número não autorizado: recebe o menu do Guardião Virtual
+    // 1. Primeiro contato de número não autorizado: recebe o menu do Assistente GD
     const res1 = await processarMensagemWhatsappRecebida(
       {
         remetente: "5524999914313",
@@ -1047,7 +1047,7 @@ describe("GD Rastreamento — Emissão de Propostas Interativas via WhatsApp e R
 
     assert.equal(res1.sucesso, true);
     assert.equal(res1.acaoExecutada, "atendimento_publico_menu_inicial");
-    assert.ok(res1.resposta.includes("Guardião Virtual"));
+    assert.ok(res1.resposta.includes("Assistente GD"));
     assert.ok(
       !res1.resposta.includes("Acesso Não Autorizado"),
       "Proibido vazar enumeração de papel ou erro explícito",

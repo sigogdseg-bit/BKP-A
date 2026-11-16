@@ -613,10 +613,12 @@ async function despacharNotificacaoWhatsappSuperAdm(
 
     const envObj = (env || {}) as Record<string, string | undefined>;
     const gatewayUrl = (
-      (typeof process !== "undefined" && process.env?.WHATSAPP_GATEWAY_URL) ||
+      (typeof process !== "undefined" &&
+        (process.env?.GD_WHATSAPP_GATEWAY_URL || process.env?.WHATSAPP_GATEWAY_URL)) ||
+      envObj.GD_WHATSAPP_GATEWAY_URL ||
       envObj.WHATSAPP_GATEWAY_URL ||
-      "https://gps.oficial.tec.br"
-    ) // Gateway Oracle Always Free HTTPS com Caddy e Let's Encrypt
+      "http://167.234.233.82:8082"
+    ) // Gateway WhatsApp Exclusivo GD Segurança (Porta 8082 na Oracle Cloud Always Free, isolado do SIGO Guardião)
       .replace(/\/$/, "");
     const endpointsGateway = [
       gatewayUrl,
@@ -3480,9 +3482,10 @@ async function handleApiPropostas(request: Request, env: unknown): Promise<Respo
       const msgTexto = formatarMensagemWhatsAppProposta(prop);
 
       const gatewayUrl = (
-        (typeof process !== "undefined" && process.env?.WHATSAPP_GATEWAY_URL) ||
-        (env && (env as any).WHATSAPP_GATEWAY_URL) ||
-        "https://gps.oficial.tec.br"
+        (typeof process !== "undefined" &&
+          (process.env?.GD_WHATSAPP_GATEWAY_URL || process.env?.WHATSAPP_GATEWAY_URL)) ||
+        (env && ((env as any).GD_WHATSAPP_GATEWAY_URL || (env as any).WHATSAPP_GATEWAY_URL)) ||
+        "http://167.234.233.82:8082"
       ).replace(/\/$/, "");
 
       const tokenGw = "hunter-guardiao-whatsapp-secret-key-2026";
@@ -3505,7 +3508,8 @@ async function handleApiPropostas(request: Request, env: unknown): Promise<Respo
       const endpoints = [
         `${gatewayUrl}/api/send`,
         `${gatewayUrl}/api/v1/messages/send`,
-        "https://gps.oficial.tec.br/api/send",
+        "http://167.234.233.82:8082/api/send",
+        "https://gps.oficial.tec.br:8082/api/send",
       ];
 
       for (const ep of endpoints) {
@@ -6391,9 +6395,11 @@ async function despacharWhatsappAlertaServer(
   }
 
   const gatewayUrl = (
-    (typeof process !== "undefined" && process.env?.WHATSAPP_GATEWAY_URL) ||
-    "https://gps.oficial.tec.br"
-  ) // Gateway Oracle Always Free HTTPS com Caddy e Let's Encrypt
+    (typeof process !== "undefined" &&
+      (process.env?.GD_WHATSAPP_GATEWAY_URL || process.env?.WHATSAPP_GATEWAY_URL)) ||
+    (_env && ((_env as any).GD_WHATSAPP_GATEWAY_URL || (_env as any).WHATSAPP_GATEWAY_URL)) ||
+    "http://167.234.233.82:8082"
+  ) // Gateway WhatsApp Exclusivo GD Segurança (Porta 8082 na Oracle Cloud Always Free, isolado do SIGO Guardião)
     .replace(/\/$/, "");
 
   const headersSupabase = {
@@ -8358,12 +8364,7 @@ async function handleApiWhatsapp(
     url.pathname === "/api/whatsapp/status" &&
     (request.method === "GET" || request.method === "HEAD")
   ) {
-    const alvos = [
-      gatewayUrl,
-      "http://167.234.233.82:8082",
-      "https://gps.oficial.tec.br:8082",
-      "https://gps.oficial.tec.br",
-    ];
+    const alvos = [gatewayUrl, "http://167.234.233.82:8082", "https://gps.oficial.tec.br:8082"];
     let ultimoErro = "";
 
     for (const alvo of alvos) {
@@ -8377,6 +8378,23 @@ async function handleApiWhatsapp(
         clearTimeout(timeoutId);
         if (res.ok) {
           const data = await res.json();
+          // BLINDAGEM PÉTREA: Se a linha for o número do Guardião (5524992501512), rejeita terminantemente no GD!
+          const numStr = String(data?.numero || "");
+          if (numStr.includes("992501512") || numStr.includes("5524992501512")) {
+            return new Response(
+              JSON.stringify({
+                status: "aguardando_linha_gd",
+                conectado: false,
+                numero: null,
+                aviso:
+                  "Linha do SIGO Guardião detectada (5524992501512). Conecte a nova linha dedicada do GD Segurança via QR Code.",
+              }),
+              {
+                status: 200,
+                headers: { "Content-Type": "application/json", ...SECURITY_HEADERS },
+              },
+            );
+          }
           return new Response(JSON.stringify(data), {
             status: 200,
             headers: { "Content-Type": "application/json", ...SECURITY_HEADERS },
@@ -9293,9 +9311,10 @@ async function despacharWhatsappGatewayServer(fone: string, mensagem: string): P
 
   try {
     const gatewayUrl = (
-      (typeof process !== "undefined" && process.env?.WHATSAPP_GATEWAY_URL) ||
-      "https://gps.oficial.tec.br"
-    ) // Gateway Oracle Always Free HTTPS com Caddy e Let's Encrypt
+      (typeof process !== "undefined" &&
+        (process.env?.GD_WHATSAPP_GATEWAY_URL || process.env?.WHATSAPP_GATEWAY_URL)) ||
+      "http://167.234.233.82:8082"
+    ) // Gateway WhatsApp Exclusivo GD Segurança (Porta 8082 na Oracle Cloud Always Free, isolado do SIGO Guardião)
       .replace(/\/$/, "");
     const token = "hunter-guardiao-whatsapp-secret-key-2026";
 
