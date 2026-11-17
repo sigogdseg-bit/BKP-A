@@ -18,6 +18,7 @@ import {
   RotateCcw,
   UserPlus,
   ArrowUpRight,
+  Zap,
 } from "lucide-react";
 import { useNavigate } from "@tanstack/react-router";
 import { toast } from "sonner";
@@ -47,6 +48,7 @@ interface NovaInstalacaoModalProps {
   clientePreSelecionadoId?: string | null;
   onSalvo: () => void;
   onFechar: () => void;
+  onAbrirInstalacaoDireta?: () => void;
 }
 
 export function NovaInstalacaoModal({
@@ -54,6 +56,7 @@ export function NovaInstalacaoModal({
   clientePreSelecionadoId,
   onSalvo,
   onFechar,
+  onAbrirInstalacaoDireta,
 }: NovaInstalacaoModalProps) {
   const { session } = useAuth();
   const navigate = useNavigate();
@@ -829,6 +832,31 @@ export function NovaInstalacaoModal({
 
           <form onSubmit={handleSubmit} className="flex-1 flex flex-col min-h-0 overflow-hidden">
             <div className="flex-1 p-4 sm:p-6 overflow-y-auto space-y-4 custom-scrollbar">
+              {/* Banner de Alternância para Instalação Direta (SuperADM) */}
+              {onAbrirInstalacaoDireta &&
+                (session?.isSuperAdmin || session?.isAdmin) &&
+                !isEdicao && (
+                  <div className="p-3 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-between gap-3 text-xs text-emerald-950 dark:text-emerald-200 shadow-xs">
+                    <div className="flex items-center gap-2">
+                      <Zap className="h-4 w-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
+                      <span>
+                        O veículo já está instalado? Ative diretamente no Monitor GPS com isenção de
+                        repasse e sem tramitação de instalador técnico.
+                      </span>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        onFechar();
+                        onAbrirInstalacaoDireta();
+                      }}
+                      className="px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs shrink-0 transition shadow-xs cursor-pointer"
+                    >
+                      Instalação Direta
+                    </button>
+                  </div>
+                )}
+
               {/* 1. Seleção Inteligente do Cliente Previamente Cadastrado */}
               <div className="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 space-y-2.5">
                 <div className="flex items-center justify-between gap-2 flex-wrap">

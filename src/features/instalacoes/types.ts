@@ -176,3 +176,27 @@ export interface SolicitarRemanejamentoPayload {
   motivo?: string;
   observacoes?: string;
 }
+
+export interface RegistrarInstalacaoDiretaPayload {
+  clienteId: string;
+  placa: string;
+  marca: string;
+  modelo: string;
+  ano?: number | null;
+  cor?: string | null;
+  tipoVeiculo?: string;
+  chassi?: string | null;
+  kmInstalacao?: number;
+  horimetroInicial?: number;
+  rastreadorId?: string | null;
+  rastreadorImei: string;
+  rastreadorModelo?: string;
+  chipIccid?: string | null;
+  chipOperadora?: string | null;
+  chipLinha?: string | null;
+  bloqueadorInstalado?: boolean;
+  tipoBloqueador?: "rele_combustivel" | "outro" | "sem_bloqueador" | string;
+  bloqueadorDetalhes?: string | null;
+  posicaoInstalacao?: string | null;
+  observacoes?: string | null;
+}

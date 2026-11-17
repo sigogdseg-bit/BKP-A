@@ -19,6 +19,7 @@ import type {
   ResumoRepasseFinanceiro,
   SolicitarRetiradaPayload,
   SolicitarRemanejamentoPayload,
+  RegistrarInstalacaoDiretaPayload,
 } from "../types";
 
 export async function carregarInstalacoes(filtros?: {
@@ -348,6 +349,280 @@ export async function salvarAtendimentoInstalacao(
     return {
       success: false,
       message: err?.message || "Erro de conexão ao processar instalação.",
+    };
+  }
+}
+
+export async function registrarInstalacaoDireta(
+  payload: RegistrarInstalacaoDiretaPayload,
+): Promise<{
+  success: boolean;
+  message: string;
+  veiculo_id?: string;
+  instalacao_id?: string;
+  rastreador_id?: string;
+  imei?: string;
+}> {
+  if (isModoDemonstracaoAtivo()) {
+    return {
+      success: true,
+      message: "Instalação direta realizada com sucesso (Modo Demonstração)!",
+      veiculo_id: "demo-veiculo-direto-001",
+      instalacao_id: "demo-instalacao-direta-001",
+      imei: payload.rastreadorImei,
+    };
+  }
+
+  // 1. Tenta primeiro via RPC PostgreSQL canônica registrar_instalacao_direta
+  try {
+    const { data, error } = await supabase.rpc("registrar_instalacao_direta", {
+      p_cliente_id: payload.clienteId,
+      p_placa: payload.placa,
+      p_marca: payload.marca,
+      p_modelo: payload.modelo,
+      p_ano: payload.ano || null,
+      p_cor: payload.cor || null,
+      p_tipo_veiculo: payload.tipoVeiculo || "carro",
+      p_chassi: payload.chassi || null,
+      p_km_instalacao: payload.kmInstalacao || 0,
+      p_horimetro_inicial: payload.horimetroInicial || 0,
+      p_rastreador_id: payload.rastreadorId || null,
+      p_rastreador_imei: payload.rastreadorImei,
+      p_rastreador_modelo: payload.rastreadorModelo || "J16 4G",
+      p_chip_iccid: payload.chipIccid || null,
+      p_chip_operadora: payload.chipOperadora || null,
+      p_chip_linha: payload.chipLinha || null,
+      p_bloqueador_instalado: payload.bloqueadorInstalado !== false,
+      p_tipo_bloqueador: payload.tipoBloqueador || "rele_combustivel",
+      p_bloqueador_detalhes: payload.bloqueadorDetalhes || null,
+      p_posicao_instalacao: payload.posicaoInstalacao || "painel_interno",
+      p_observacoes:
+        payload.observacoes ||
+        "Instalação direta realizada pelo SuperADM (veículo previamente instalado).",
+    } as any);
+
+    if (!error && data) {
+      const res = data as any;
+      if (res.success || res.sucesso) {
+        if (payload.clienteId) {
+          try {
+            const { data: cRow } = await supabase
+              .from("clientes")
+              .select("user_id")
+              .eq("id", payload.clienteId)
+              .maybeSingle();
+
+            if (cRow?.user_id) {
+              enviarNotificacaoViaBd({
+                destinatarioUserId: cRow.user_id,
+                destinatarioClienteId: payload.clienteId,
+                titulo: `🎉 Veículo Ativado: ${payload.placa}`,
+                mensagem: `O veículo ${payload.placa} foi ativado na plataforma e já está disponível para monitoramento em tempo real.`,
+                tipo: "instalacao",
+                url: "/monitor-gps",
+                placa: payload.placa,
+              }).catch(() => {});
+            }
+          } catch {
+            // Silencioso
+          }
+        }
+
+        return {
+          success: true,
+          message: res.message || "Instalação direta realizada com sucesso!",
+          veiculo_id: res.veiculo_id,
+          instalacao_id: res.instalacao_id,
+          rastreador_id: res.rastreador_id,
+          imei: res.imei || payload.rastreadorImei,
+        };
+      }
+    }
+  } catch (errRpc) {
+    console.warn(
+      "RPC registrar_instalacao_direta falhou ou indisponível, usando fallback seguro:",
+      errRpc,
+    );
+  }
+
+  // 2. Fallback de alta disponibilidade via rota segura de servidor /api/instalacoes/direta
+  try {
+    const { data: sessionData } = await supabase.auth.getSession();
+    const token = sessionData?.session?.access_token;
+    const userId = sessionData?.session?.user?.id;
+
+    if (token && typeof window !== "undefined") {
+      try {
+        const resp = await fetch("/api/instalacoes/direta", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify(payload),
+        });
+        if (resp.ok) {
+          const json = await resp.json();
+          if (json?.success) {
+            return json;
+          }
+        }
+      } catch (errFetch) {
+        console.warn("Fallback /api/instalacoes/direta falhou, tentando cliente direto:", errFetch);
+      }
+    }
+
+    // 3. Fallback cliente direto autenticado
+    const placaLimpa = payload.placa.trim().toUpperCase();
+    const imeiLimpo = payload.rastreadorImei.trim();
+    const marcaModelo = `${payload.marca.trim()} ${payload.modelo.trim()}`.trim();
+
+    // Localiza rastreador
+    let rastreadorId = payload.rastreadorId;
+    if (!rastreadorId) {
+      const { data: rRow } = await supabase
+        .from("rastreadores")
+        .select("id")
+        .eq("imei", imeiLimpo)
+        .maybeSingle();
+      rastreadorId = rRow?.id;
+    }
+
+    // Insere ou atualiza veículo
+    let veiculoId: string | undefined;
+    const { data: veicExistente } = await supabase
+      .from("veiculos")
+      .select("id")
+      .eq("placa", placaLimpa)
+      .maybeSingle();
+
+    if (veicExistente?.id) {
+      veiculoId = veicExistente.id;
+      await supabase
+        .from("veiculos")
+        .update({
+          cliente_id: payload.clienteId,
+          marca_modelo: marcaModelo,
+          ano: payload.ano || null,
+          cor: payload.cor || null,
+          tipo_veiculo: payload.tipoVeiculo || "carro",
+          chassi: payload.chassi || null,
+          rastreador_id: rastreadorId || null,
+          rastreador_imei: imeiLimpo,
+          ativo: true,
+          status_operacional: "estacionado",
+          bloqueador_instalado: payload.bloqueadorInstalado !== false,
+          tipo_bloqueador: payload.tipoBloqueador || "rele_combustivel",
+          bloqueador_detalhes: payload.bloqueadorDetalhes || null,
+          pendente_aprovacao_operador: false,
+          updated_at: new Date().toISOString(),
+        })
+        .eq("id", veiculoId);
+    } else {
+      const { data: novoVeic, error: errNovoVeic } = await supabase
+        .from("veiculos")
+        .insert({
+          cliente_id: payload.clienteId,
+          placa: placaLimpa,
+          marca_modelo: marcaModelo,
+          ano: payload.ano || null,
+          cor: payload.cor || null,
+          tipo_veiculo: payload.tipoVeiculo || "carro",
+          chassi: payload.chassi || null,
+          odometro_km: payload.kmInstalacao || 0,
+          horimetro_horas: payload.horimetroInicial || 0,
+          rastreador_id: rastreadorId || null,
+          rastreador_imei: imeiLimpo,
+          ativo: true,
+          status_operacional: "estacionado",
+          bloqueado: false,
+          bloqueador_instalado: payload.bloqueadorInstalado !== false,
+          tipo_bloqueador: payload.tipoBloqueador || "rele_combustivel",
+          bloqueador_detalhes: payload.bloqueadorDetalhes || null,
+          pendente_aprovacao_operador: false,
+        })
+        .select("id")
+        .single();
+      if (errNovoVeic) throw errNovoVeic;
+      veiculoId = novoVeic?.id;
+    }
+
+    // Atualiza rastreador para instalado
+    if (rastreadorId && veiculoId) {
+      await supabase
+        .from("rastreadores")
+        .update({
+          veiculo_id: veiculoId,
+          status: "instalado" as any,
+          updated_at: new Date().toISOString(),
+        })
+        .eq("id", rastreadorId);
+    }
+
+    // Cria ordem concluída e isenta
+    const { data: instCriada, error: errInst } = await supabase
+      .from("instalacoes")
+      .insert({
+        instalador_id: userId || payload.clienteId,
+        cliente_id: payload.clienteId,
+        veiculo_id: veiculoId,
+        placa: placaLimpa,
+        marca: payload.marca,
+        modelo: payload.modelo,
+        ano: payload.ano || null,
+        cor: payload.cor || null,
+        tipo_veiculo: payload.tipoVeiculo || "carro",
+        km_instalacao: payload.kmInstalacao || 0,
+        horimetro_inicial: payload.horimetroInicial || 0,
+        rastreador_id: rastreadorId || null,
+        rastreador_imei: imeiLimpo,
+        rastreador_modelo: payload.rastreadorModelo || "J16 4G",
+        chip_iccid: payload.chipIccid || null,
+        chip_operadora: payload.chipOperadora || "Algar",
+        posicao_instalacao: payload.posicaoInstalacao || "painel_interno",
+        status: "concluida" as any,
+        concluida_at: new Date().toISOString(),
+        valor_instalacao: 0.0,
+        status_pagamento: "isento" as any,
+        kit_confirmado_instalador: true,
+        kit_confirmado_em: new Date().toISOString(),
+        imei_confirmado: imeiLimpo,
+        observacoes:
+          payload.observacoes ||
+          "Instalação direta realizada pelo SuperADM (veículo previamente instalado).",
+        tipo_servico: "instalacao" as any,
+        bloqueador_instalado: payload.bloqueadorInstalado !== false,
+        tipo_bloqueador: (payload.tipoBloqueador || "rele_combustivel") as any,
+        bloqueador_detalhes: payload.bloqueadorDetalhes || null,
+      })
+      .select("id")
+      .single();
+
+    if (errInst) throw errInst;
+
+    // Atualiza status do cliente
+    await supabase
+      .from("clientes")
+      .update({
+        status: "ativo",
+        status_agendamento: "concluido",
+        updated_at: new Date().toISOString(),
+      })
+      .eq("id", payload.clienteId);
+
+    return {
+      success: true,
+      message: "Instalação direta realizada com sucesso e veículo ativado no Monitor GPS!",
+      veiculo_id: veiculoId,
+      instalacao_id: instCriada?.id,
+      rastreador_id: rastreadorId || undefined,
+      imei: imeiLimpo,
+    };
+  } catch (errFinal: any) {
+    console.error("Erro no processamento da instalação direta:", errFinal);
+    return {
+      success: false,
+      message: errFinal?.message || "Erro ao processar instalação direta.",
     };
   }
 }

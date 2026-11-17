@@ -27,6 +27,7 @@ import {
   Send,
   LayoutGrid,
   List,
+  Zap,
 } from "lucide-react";
 import { toast } from "sonner";
 import { useAuth } from "@/features/auth/context/AuthContext";
@@ -44,6 +45,7 @@ import {
   formatarDataConclusaoCurta,
 } from "../services/instalacaoService";
 import { NovaInstalacaoModal } from "./NovaInstalacaoModal";
+import { ModalInstalacaoDireta } from "./ModalInstalacaoDireta";
 import { ModalSolicitarRemanejamento } from "./ModalSolicitarRemanejamento";
 import { DetalhesHistoricoInstalacaoModal } from "./DetalhesHistoricoInstalacaoModal";
 import { ModalPagamentoPixInstalacao } from "./ModalPagamentoPixInstalacao";
@@ -92,6 +94,7 @@ export function InstalacoesView() {
 
   // Modais
   const [modalNovaAberto, setModalNovaAberto] = useState(false);
+  const [modalInstalacaoDiretaAberto, setModalInstalacaoDiretaAberto] = useState(false);
   const [modalRemanejamentoAberto, setModalRemanejamentoAberto] = useState(false);
   const [instalacaoEdicao, setInstalacaoEdicao] = useState<Instalacao | null>(null);
   const [instalacaoDetalhes, setInstalacaoDetalhes] = useState<Instalacao | null>(null);
@@ -482,6 +485,22 @@ export function InstalacoesView() {
 
           {podeCriarDemandaInstalacao && (
             <>
+              {(session?.isSuperAdmin || session?.isAdmin) && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    setInstalacaoEdicao(null);
+                    setClientePreSelecionadoId(null);
+                    setModalInstalacaoDiretaAberto(true);
+                  }}
+                  className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none active:shadow-[inset_2px_2px_4px_#047857] transition cursor-pointer"
+                  title="Ativação imediata para veículos já instalados sem tramitação de instalador"
+                >
+                  <Zap className="h-4 w-4" />
+                  <span>Instalação Direta</span>
+                </button>
+              )}
+
               <button
                 onClick={() => setModalRemanejamentoAberto(true)}
                 className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#eaf0f8] dark:bg-slate-800 hover:bg-[#dfe7f2] dark:hover:bg-slate-700 text-amber-600 dark:text-amber-400 font-bold text-xs border border-slate-300/60 dark:border-slate-700 shadow-[2px_2px_5px_#c3cfe2] dark:shadow-none active:shadow-[inset_2px_2px_4px_#c8d4e4] transition cursor-pointer"
@@ -2139,18 +2158,35 @@ export function InstalacoesView() {
                         )}
 
                         {podeCriarDemandaInstalacao && !isInstalador ? (
-                          <button
-                            onClick={() => {
-                              setClientePreSelecionadoId(c.id);
-                              setInstalacaoEdicao(null);
-                              setModalNovaAberto(true);
-                            }}
-                            className="px-3 py-1.5 rounded-xl bg-orange-600 hover:bg-orange-500 text-white font-bold text-xs flex items-center gap-1.5 transition shadow-xs"
-                            title="Atendimento de almoxarifado e baixa de insumos"
-                          >
-                            <Boxes className="h-3.5 w-3.5" />
-                            <span>Ajustar Insumos / Estoque</span>
-                          </button>
+                          <>
+                            {(session?.isSuperAdmin || session?.isAdmin) && (
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  setClientePreSelecionadoId(c.id);
+                                  setModalInstalacaoDiretaAberto(true);
+                                }}
+                                className="px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center gap-1.5 transition shadow-xs cursor-pointer"
+                                title="Instalação direta imediata para veículo já instalado"
+                              >
+                                <Zap className="h-3.5 w-3.5" />
+                                <span>Instalação Direta</span>
+                              </button>
+                            )}
+
+                            <button
+                              onClick={() => {
+                                setClientePreSelecionadoId(c.id);
+                                setInstalacaoEdicao(null);
+                                setModalNovaAberto(true);
+                              }}
+                              className="px-3 py-1.5 rounded-xl bg-orange-600 hover:bg-orange-500 text-white font-bold text-xs flex items-center gap-1.5 transition shadow-xs"
+                              title="Atendimento de almoxarifado e baixa de insumos"
+                            >
+                              <Boxes className="h-3.5 w-3.5" />
+                              <span>Ajustar Insumos / Estoque</span>
+                            </button>
+                          </>
                         ) : (
                           <button
                             onClick={() => {
@@ -2428,10 +2464,27 @@ export function InstalacoesView() {
       )}
 
       {/* 7. Modais de Ação */}
+      {modalInstalacaoDiretaAberto && (
+        <ModalInstalacaoDireta
+          aberto={modalInstalacaoDiretaAberto}
+          clientePreSelecionadoId={clientePreSelecionadoId}
+          onSalvo={() => {
+            setModalInstalacaoDiretaAberto(false);
+            setClientePreSelecionadoId(null);
+            carregarDados();
+          }}
+          onFechar={() => {
+            setModalInstalacaoDiretaAberto(false);
+            setClientePreSelecionadoId(null);
+          }}
+        />
+      )}
+
       {modalNovaAberto && (
         <NovaInstalacaoModal
           instalacaoParaEdicao={instalacaoEdicao}
           clientePreSelecionadoId={clientePreSelecionadoId}
+          onAbrirInstalacaoDireta={() => setModalInstalacaoDiretaAberto(true)}
           onSalvo={() => {
             setModalNovaAberto(false);
             setInstalacaoEdicao(null);

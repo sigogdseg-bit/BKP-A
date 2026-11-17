@@ -2811,6 +2811,261 @@ async function handleApiVeiculos(request: Request, env: unknown): Promise<Respon
     }
   }
 
+  // POST /api/instalacoes/direta - Instalação Direta para SuperADM (veículos previamente instalados)
+  if (request.method === "POST" && url.pathname === "/api/instalacoes/direta") {
+    try {
+      const body = (await request.json()) as any;
+      const {
+        clienteId,
+        placa,
+        marca,
+        modelo,
+        ano,
+        cor,
+        tipoVeiculo,
+        chassi,
+        kmInstalacao,
+        horimetroInicial,
+        rastreadorId,
+        rastreadorImei,
+        rastreadorModelo,
+        chipIccid,
+        chipOperadora,
+        bloqueadorInstalado,
+        tipoBloqueador,
+        bloqueadorDetalhes,
+        posicaoInstalacao,
+        observacoes,
+      } = body || {};
+
+      if (!clienteId || !placa || !rastreadorImei) {
+        return new Response(
+          JSON.stringify({
+            success: false,
+            message: "clienteId, placa e rastreadorImei são obrigatórios.",
+          }),
+          { status: 400, headers: { "Content-Type": "application/json", ...SECURITY_HEADERS } },
+        );
+      }
+
+      const placaLimpa = (placa || "")
+        .trim()
+        .toUpperCase()
+        .replace(/[^A-Z0-9-]/g, "");
+      const imeiLimpo = (rastreadorImei || "").trim();
+      const marcaModeloFinal =
+        `${(marca || "Veículo").trim()} ${(modelo || "Padrão").trim()}`.trim();
+      const tipoSanitizado = (tipoVeiculo || "carro").trim().toLowerCase();
+      const bloqueadorBool = bloqueadorInstalado !== false;
+      const tipoBloqFinal = bloqueadorBool
+        ? tipoBloqueador || "rele_combustivel"
+        : "sem_bloqueador";
+
+      // 1. Busca ou valida rastreador
+      let rastreadorAlvoId = rastreadorId;
+      let rastreadorRow: any = null;
+      if (rastreadorAlvoId) {
+        const { data: r } = await adminClient
+          .from("rastreadores")
+          .select("id, imei, modelo, chip_id, chips (id, iccid, operadora, linha)")
+          .eq("id", rastreadorAlvoId)
+          .maybeSingle();
+        rastreadorRow = r;
+      }
+      if (!rastreadorRow && imeiLimpo) {
+        const { data: r } = await adminClient
+          .from("rastreadores")
+          .select("id, imei, modelo, chip_id, chips (id, iccid, operadora, linha)")
+          .eq("imei", imeiLimpo)
+          .maybeSingle();
+        rastreadorRow = r;
+        if (rastreadorRow) rastreadorAlvoId = rastreadorRow.id;
+      }
+
+      const chipIccidFinal = chipIccid || rastreadorRow?.chips?.iccid || null;
+      const chipOperadoraFinal = chipOperadora || rastreadorRow?.chips?.operadora || "Algar";
+
+      // 2. Criação ou Atualização do Veículo
+      let veiculoId: string | undefined;
+      const { data: veicExistente } = await adminClient
+        .from("veiculos")
+        .select("id")
+        .eq("placa", placaLimpa)
+        .maybeSingle();
+
+      if (veicExistente?.id) {
+        veiculoId = veicExistente.id;
+        await adminClient
+          .from("veiculos")
+          .update({
+            cliente_id: clienteId,
+            marca_modelo: marcaModeloFinal,
+            ano: ano ? Number(ano) : null,
+            cor: cor?.trim() || null,
+            tipo_veiculo: tipoSanitizado,
+            chassi: chassi?.trim() || null,
+            odometro_km: Number(kmInstalacao) || 0,
+            horimetro_horas: Number(horimetroInicial) || 0,
+            rastreador_id: rastreadorAlvoId || null,
+            rastreador_imei: imeiLimpo,
+            ativo: true,
+            status_operacional: "estacionado",
+            bloqueado: false,
+            bloqueador_instalado: bloqueadorBool,
+            tipo_bloqueador: tipoBloqFinal,
+            bloqueador_detalhes: bloqueadorDetalhes || null,
+            pendente_aprovacao_operador: false,
+            updated_at: new Date().toISOString(),
+          })
+          .eq("id", veiculoId);
+      } else {
+        const { data: novoVeic, error: errNovoVeic } = await adminClient
+          .from("veiculos")
+          .insert({
+            cliente_id: clienteId,
+            placa: placaLimpa,
+            marca_modelo: marcaModeloFinal,
+            ano: ano ? Number(ano) : null,
+            cor: cor?.trim() || null,
+            tipo_veiculo: tipoSanitizado,
+            chassi: chassi?.trim() || null,
+            odometro_km: Number(kmInstalacao) || 0,
+            horimetro_horas: Number(horimetroInicial) || 0,
+            rastreador_id: rastreadorAlvoId || null,
+            rastreador_imei: imeiLimpo,
+            ativo: true,
+            status_operacional: "estacionado",
+            bloqueado: false,
+            bloqueador_instalado: bloqueadorBool,
+            tipo_bloqueador: tipoBloqFinal,
+            bloqueador_detalhes: bloqueadorDetalhes || null,
+            pendente_aprovacao_operador: false,
+            created_at: new Date().toISOString(),
+            updated_at: new Date().toISOString(),
+          })
+          .select("id")
+          .single();
+
+        if (errNovoVeic) {
+          return new Response(
+            JSON.stringify({
+              success: false,
+              message: errNovoVeic.message || "Falha ao registrar veículo.",
+            }),
+            { status: 500, headers: { "Content-Type": "application/json", ...SECURITY_HEADERS } },
+          );
+        }
+        veiculoId = novoVeic?.id;
+      }
+
+      // 3. Atualiza Rastreador
+      if (rastreadorAlvoId && veiculoId) {
+        await adminClient
+          .from("rastreadores")
+          .update({
+            veiculo_id: veiculoId,
+            status: "instalado",
+            updated_at: new Date().toISOString(),
+          } as any)
+          .eq("id", rastreadorAlvoId);
+      }
+
+      // 4. Cria Ordem Concluída e Isenta de Repasse
+      const { data: instCriada, error: errInst } = await adminClient
+        .from("instalacoes")
+        .insert({
+          instalador_id: clienteId, // SuperADM direto
+          cliente_id: clienteId,
+          veiculo_id: veiculoId,
+          placa: placaLimpa,
+          marca: (marca || "Veículo").trim(),
+          modelo: (modelo || "Padrão").trim(),
+          ano: ano ? Number(ano) : null,
+          cor: cor?.trim() || null,
+          tipo_veiculo: tipoSanitizado,
+          km_instalacao: Number(kmInstalacao) || 0,
+          horimetro_inicial: Number(horimetroInicial) || 0,
+          rastreador_id: rastreadorAlvoId || null,
+          rastreador_imei: imeiLimpo,
+          rastreador_modelo: rastreadorModelo || rastreadorRow?.modelo || "J16 4G",
+          chip_iccid: chipIccidFinal,
+          chip_operadora: chipOperadoraFinal,
+          posicao_instalacao: posicaoInstalacao || "painel_interno",
+          status: "concluida",
+          concluida_at: new Date().toISOString(),
+          valor_instalacao: 0.0,
+          status_pagamento: "isento",
+          kit_confirmado_instalador: true,
+          kit_confirmado_em: new Date().toISOString(),
+          imei_confirmado: imeiLimpo,
+          observacoes:
+            observacoes ||
+            "Instalação direta realizada pelo SuperADM (veículo previamente instalado).",
+          tipo_servico: "instalacao",
+          bloqueador_instalado: bloqueadorBool,
+          tipo_bloqueador: tipoBloqFinal,
+          bloqueador_detalhes: bloqueadorDetalhes || null,
+          created_at: new Date().toISOString(),
+          updated_at: new Date().toISOString(),
+        } as any)
+        .select("id")
+        .single();
+
+      if (errInst) {
+        return new Response(
+          JSON.stringify({
+            success: false,
+            message: errInst.message || "Falha ao registrar ordem de instalação direta.",
+          }),
+          { status: 500, headers: { "Content-Type": "application/json", ...SECURITY_HEADERS } },
+        );
+      }
+
+      // 5. Histórico de Atendimentos
+      if (instCriada?.id) {
+        await adminClient.from("instalacoes_historico_atendimentos").insert({
+          instalacao_id: instCriada.id,
+          instalador_id: clienteId,
+          status_atendimento: "concluida",
+          motivo: "Instalação direta (já instalado)",
+          observacoes: "Ativação direta via SuperADM sem tramitação de instalador.",
+          km_no_atendimento: Number(kmInstalacao) || 0,
+        } as any);
+      }
+
+      // 6. Atualiza Status do Cliente
+      await adminClient
+        .from("clientes")
+        .update({
+          status: "ativo",
+          status_agendamento: "concluido",
+          updated_at: new Date().toISOString(),
+        })
+        .eq("id", clienteId);
+
+      return new Response(
+        JSON.stringify({
+          success: true,
+          message: "Instalação direta concluída com sucesso e veículo ativado no Monitor GPS!",
+          veiculo_id: veiculoId,
+          instalacao_id: instCriada?.id,
+          rastreador_id: rastreadorAlvoId || undefined,
+          imei: imeiLimpo,
+          placa: placaLimpa,
+        }),
+        { status: 200, headers: { "Content-Type": "application/json", ...SECURITY_HEADERS } },
+      );
+    } catch (err: any) {
+      return new Response(
+        JSON.stringify({
+          success: false,
+          message: err?.message || "Erro ao registrar instalação direta.",
+        }),
+        { status: 500, headers: { "Content-Type": "application/json", ...SECURITY_HEADERS } },
+      );
+    }
+  }
+
   // POST /api/veiculos/distribuir
   if (request.method === "POST" && url.pathname === "/api/veiculos/distribuir") {
     try {
