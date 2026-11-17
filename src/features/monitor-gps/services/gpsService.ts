@@ -103,74 +103,32 @@ export async function carregarVeiculosGps(): Promise<VeiculoGps[]> {
   try {
     let veiculosData: any[] | null = null;
 
-    // Tentativa 1: Seleciona colunas completas incluindo tipo_veiculo e privacidade_localizacao
-    const { data: comTipo, error: errTipo } = await supabase
-      .from("veiculos")
-      .select(
-        `
-        id,
-        cliente_id,
-        placa,
-        chassi,
-        marca_modelo,
-        cor,
-        ano,
-        tipo_veiculo,
-        ignicao_status,
-        bloqueado,
-        velocidade_atual,
-        odometro_km,
-        odometro_wgs84_km,
-        odometro_cinematico_km,
-        odometro_hardware_km,
-        odometro_hardware_atualizado_em,
-        odometro_motor_a_km,
-        odometro_motor_b_km,
-        odometro_motor_c_km,
-        odometro_motor_media_km,
-        odometro_motor_a_pesos,
-        odometro_motor_b_pesos,
-        odometro_motor_c_pesos,
-        odometro_motor_a_estado,
-        odometro_motor_b_estado,
-        odometro_motor_c_estado,
-        ultima_latitude,
-        ultima_longitude,
-        ultima_atualizacao,
-        voltagem,
-        bateria_veiculo_v,
-        bateria_rastreador_pct,
-        bateria_rastreador_status,
-        satelites,
-        rumo,
-        inclinacao_graus,
-        vibracao_g,
-        alerta_acidente,
-        alerta_tipo,
-        ativo,
-        privacidade_localizacao,
-        bloqueador_instalado,
-        tipo_bloqueador,
-        bloqueador_detalhes,
-        sinal_gsm,
-        rele_status,
-        rastreador_id,
-        rastreador_imei,
-        clientes (
-          user_id,
-          nome_razao_social,
-          plano,
-          privacidade_localizacao
-        )
-      `,
-      )
-      .eq("ativo", true)
-      .not("placa", "in", '("HTR4G16","HUN1T26")')
-      .order("placa", { ascending: true });
+    // 1. Prioridade máxima: Rota segura de backend (/api/veiculos/monitor) com Service Role
+    // Isso evita completamente qualquer erro de PostgreSQL / recursão de RLS no navegador
+    try {
+      const sess = await supabase.auth.getSession();
+      const token = sess.data.session?.access_token;
+      if (token && typeof window !== "undefined") {
+        const res = await fetch("/api/veiculos/monitor", {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        if (res.ok) {
+          const json = await res.json();
+          if (json.success && Array.isArray(json.veiculos)) {
+            veiculosData = json.veiculos;
+          }
+        }
+      }
+    } catch {
+      /* fallback */
+    }
 
-    if (errTipo || !comTipo) {
-      // Se a coluna ainda não foi migrada no Supabase remoto, aciona fallback resiliente instantâneo
-      const { data: semTipo, error: errSemTipo } = await supabase
+    if (!veiculosData) {
+      // Tentativa 1: Seleciona colunas completas incluindo tipo_veiculo e privacidade_localizacao
+      const { data: comTipo, error: errTipo } = await supabase
         .from("veiculos")
         .select(
           `
@@ -181,10 +139,25 @@ export async function carregarVeiculosGps(): Promise<VeiculoGps[]> {
           marca_modelo,
           cor,
           ano,
+          tipo_veiculo,
           ignicao_status,
           bloqueado,
           velocidade_atual,
           odometro_km,
+          odometro_wgs84_km,
+          odometro_cinematico_km,
+          odometro_hardware_km,
+          odometro_hardware_atualizado_em,
+          odometro_motor_a_km,
+          odometro_motor_b_km,
+          odometro_motor_c_km,
+          odometro_motor_media_km,
+          odometro_motor_a_pesos,
+          odometro_motor_b_pesos,
+          odometro_motor_c_pesos,
+          odometro_motor_a_estado,
+          odometro_motor_b_estado,
+          odometro_motor_c_estado,
           ultima_latitude,
           ultima_longitude,
           ultima_atualizacao,
@@ -199,6 +172,7 @@ export async function carregarVeiculosGps(): Promise<VeiculoGps[]> {
           alerta_acidente,
           alerta_tipo,
           ativo,
+          privacidade_localizacao,
           bloqueador_instalado,
           tipo_bloqueador,
           bloqueador_detalhes,
@@ -209,7 +183,8 @@ export async function carregarVeiculosGps(): Promise<VeiculoGps[]> {
           clientes (
             user_id,
             nome_razao_social,
-            plano
+            plano,
+            privacidade_localizacao
           )
         `,
         )
@@ -217,13 +192,71 @@ export async function carregarVeiculosGps(): Promise<VeiculoGps[]> {
         .not("placa", "in", '("HTR4G16","HUN1T26")')
         .order("placa", { ascending: true });
 
-      if (errSemTipo || !semTipo) {
-        console.warn("Erro ao buscar veículos em ambos os modos:", errSemTipo || errTipo);
-        return [];
+      if (errTipo || !comTipo) {
+        // Se a coluna ainda não foi migrada no Supabase remoto, aciona fallback resiliente instantâneo
+        const { data: semTipo, error: errSemTipo } = await supabase
+          .from("veiculos")
+          .select(
+            `
+            id,
+            cliente_id,
+            placa,
+            chassi,
+            marca_modelo,
+            cor,
+            ano,
+            ignicao_status,
+            bloqueado,
+            velocidade_atual,
+            odometro_km,
+            ultima_latitude,
+            ultima_longitude,
+            ultima_atualizacao,
+            voltagem,
+            bateria_veiculo_v,
+            bateria_rastreador_pct,
+            bateria_rastreador_status,
+            satelites,
+            rumo,
+            inclinacao_graus,
+            vibracao_g,
+            alerta_acidente,
+            alerta_tipo,
+            ativo,
+            bloqueador_instalado,
+            tipo_bloqueador,
+            bloqueador_detalhes,
+            sinal_gsm,
+            rele_status,
+            rastreador_id,
+            rastreador_imei,
+            clientes (
+              user_id,
+              nome_razao_social,
+              plano
+            )
+          `,
+          )
+          .eq("ativo", true)
+          .not("placa", "in", '("HTR4G16","HUN1T26")')
+          .order("placa", { ascending: true });
+
+        if (errSemTipo || !semTipo) {
+          // Tentativa 3: Seleção direta em veiculos sem join com clientes (100% imune a erros RLS de clientes)
+          const { data: semJoin } = await supabase
+            .from("veiculos")
+            .select("*")
+            .eq("ativo", true)
+            .not("placa", "in", '("HTR4G16","HUN1T26")')
+            .order("placa", { ascending: true });
+
+          veiculosData = semJoin || [];
+        } else {
+          veiculosData = semTipo;
+        }
+      } else {
+        veiculosData = comTipo;
       }
-      veiculosData = semTipo;
-    } else {
-      veiculosData = comTipo;
     }
 
     // Filtra estritamente veículos de clientes reais, descartando qualquer frota simulada de desenvolvimento
@@ -286,7 +319,7 @@ export async function carregarVeiculosGps(): Promise<VeiculoGps[]> {
             : v.clientes?.privacidade_localizacao !== undefined &&
                 v.clientes?.privacidade_localizacao !== null
               ? !!v.clientes.privacidade_localizacao
-              : true,
+              : false,
         placa: v.placa,
         chassi: v.chassi || null,
         marca_modelo: v.marca_modelo,

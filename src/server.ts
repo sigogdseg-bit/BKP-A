@@ -2647,6 +2647,111 @@ async function handleApiVeiculos(request: Request, env: unknown): Promise<Respon
     );
   }
 
+  // GET /api/veiculos/monitor ou GET /api/veiculos (sem clienteId para visualização geral da frota)
+  if (
+    request.method === "GET" &&
+    (url.pathname === "/api/veiculos/monitor" ||
+      (!url.searchParams.get("clienteId") && url.pathname === "/api/veiculos"))
+  ) {
+    try {
+      let query = adminClient
+        .from("veiculos")
+        .select(`
+          id,
+          cliente_id,
+          placa,
+          chassi,
+          marca_modelo,
+          cor,
+          ano,
+          tipo_veiculo,
+          ignicao_status,
+          bloqueado,
+          velocidade_atual,
+          odometro_km,
+          odometro_wgs84_km,
+          odometro_cinematico_km,
+          odometro_hardware_km,
+          odometro_hardware_atualizado_em,
+          odometro_motor_a_km,
+          odometro_motor_b_km,
+          odometro_motor_c_km,
+          odometro_motor_media_km,
+          odometro_motor_a_pesos,
+          odometro_motor_b_pesos,
+          odometro_motor_c_pesos,
+          odometro_motor_a_estado,
+          odometro_motor_b_estado,
+          odometro_motor_c_estado,
+          ultima_latitude,
+          ultima_longitude,
+          ultima_atualizacao,
+          voltagem,
+          bateria_veiculo_v,
+          bateria_rastreador_pct,
+          bateria_rastreador_status,
+          satelites,
+          rumo,
+          inclinacao_graus,
+          vibracao_g,
+          alerta_acidente,
+          alerta_tipo,
+          ativo,
+          privacidade_localizacao,
+          bloqueador_instalado,
+          tipo_bloqueador,
+          bloqueador_detalhes,
+          sinal_gsm,
+          rele_status,
+          rastreador_id,
+          rastreador_imei,
+          clientes (
+            user_id,
+            nome_razao_social,
+            plano,
+            privacidade_localizacao
+          )
+        `)
+        .eq("ativo", true)
+        .not("placa", "in", '("HTR4G16","HUN1T26")')
+        .order("placa", { ascending: true });
+
+      if (role === "cliente") {
+        const { data: cliRow } = await adminClient
+          .from("clientes")
+          .select("id")
+          .eq("user_id", userData.user.id)
+          .maybeSingle();
+        if (cliRow?.id) {
+          query = query.eq("cliente_id", cliRow.id);
+        } else {
+          query = query.eq("cliente_id", userData.user.id);
+        }
+      }
+
+      const { data: veiculosFrota, error: errFrota } = await query;
+      if (errFrota) {
+        return new Response(JSON.stringify({ success: false, message: errFrota.message }), {
+          status: 500,
+          headers: { "Content-Type": "application/json", ...SECURITY_HEADERS },
+        });
+      }
+
+      return new Response(
+        JSON.stringify({ success: true, veiculos: veiculosFrota || [] }),
+        { status: 200, headers: { "Content-Type": "application/json", ...SECURITY_HEADERS } },
+      );
+    } catch (err: any) {
+      return new Response(
+        JSON.stringify({
+          success: false,
+          message: err?.message || "Erro ao consultar veículos do monitor GPS.",
+        }),
+        { status: 500, headers: { "Content-Type": "application/json", ...SECURITY_HEADERS } },
+      );
+    }
+  }
+
   // GET /api/veiculos?clienteId=xxx
   if (request.method === "GET") {
     try {
