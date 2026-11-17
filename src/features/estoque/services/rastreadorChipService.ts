@@ -64,6 +64,7 @@ export async function listarEquipamentosHabilitadosInstalacao(
     }
 
     // Fallback resiliente com filtro defensivo contra ordens de instalação ativas
+    // Inclui qualquer equipamento com chip que não esteja vinculado a veículo ou em ordem ativa
     const [resRastreadores, resInstalacoes] = await Promise.all([
       supabase
         .from("rastreadores")
@@ -78,7 +79,6 @@ export async function listarEquipamentosHabilitadosInstalacao(
           created_at
         `,
         )
-        .eq("status", "estoque")
         .is("veiculo_id", null)
         .not("chip_id", "is", null),
       supabase
@@ -109,7 +109,7 @@ export async function listarEquipamentosHabilitadosInstalacao(
         iccid: r.chips?.iccid || "",
         operadora: r.chips?.operadora || "Vivo",
         linha: r.chips?.linha,
-        status: r.status,
+        status: "estoque",
         liberado_instalacao: true,
         created_at: r.created_at,
       }));

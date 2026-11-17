@@ -1988,14 +1988,17 @@ async function salvarPosicaoNoHunter(dados: {
       dados.velocidade,
     );
 
-    // 4. Atualiza última comunicação do rastreador
+    // 4. Atualiza última comunicação do rastreador (só altera para instalado se houver veículo vinculado)
     if (dados.rastreadorId) {
+      const payloadUpdateRastreador: Record<string, any> = {
+        ultima_comunicacao: new Date().toISOString(),
+      };
+      if (dados.veiculoId) {
+        payloadUpdateRastreador.status = "instalado";
+      }
       await supabase
         .from("rastreadores")
-        .update({
-          ultima_comunicacao: new Date().toISOString(),
-          status: "instalado",
-        })
+        .update(payloadUpdateRastreador)
         .eq("id", dados.rastreadorId);
     }
   } catch (err: any) {
