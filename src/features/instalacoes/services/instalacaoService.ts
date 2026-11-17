@@ -393,6 +393,20 @@ export async function registrarInstalacaoDireta(
           if (json?.success) {
             return json;
           }
+          if (json && json.message) {
+            return {
+              success: false,
+              message: json.message,
+            };
+          }
+        } else {
+          const jsonErr = await resp.json().catch(() => null);
+          if (jsonErr?.message) {
+            return {
+              success: false,
+              message: jsonErr.message,
+            };
+          }
         }
       } catch (errFetch) {
         console.warn("Rota /api/instalacoes/direta falhou, tentando fallback RPC:", errFetch);

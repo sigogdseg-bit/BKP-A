@@ -2566,7 +2566,10 @@ async function handleApiClientes(request: Request, env: unknown): Promise<Respon
 
 async function handleApiVeiculos(request: Request, env: unknown): Promise<Response | null> {
   const url = new URL(request.url);
-  if (!url.pathname.startsWith("/api/veiculos")) {
+  if (
+    !url.pathname.startsWith("/api/veiculos") &&
+    !url.pathname.startsWith("/api/instalacoes")
+  ) {
     return null;
   }
 
