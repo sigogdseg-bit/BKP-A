@@ -769,45 +769,76 @@ export function ModalInstalacaoDireta({
                         </button>
                       </div>
                     ) : (
-                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 max-h-48 overflow-y-auto p-1">
-                        {rastreadoresFiltrados.map((r) => {
-                          const selecionado =
-                            rastreadorSelecionado?.rastreador_id === r.rastreador_id;
-                          return (
-                            <button
-                              key={r.rastreador_id}
-                              type="button"
-                              onClick={() => setRastreadorSelecionado(r)}
-                              className={`p-3 rounded-xl border text-left transition relative flex flex-col justify-between gap-1.5 cursor-pointer ${
-                                selecionado
-                                  ? "bg-emerald-500/15 border-emerald-500 shadow-sm"
-                                  : "bg-slate-50 dark:bg-slate-900/70 border-slate-200 dark:border-slate-800 hover:border-emerald-500/40"
-                              }`}
-                            >
-                              <div className="flex items-center justify-between gap-1">
-                                <span className="font-mono font-black text-xs text-slate-900 dark:text-slate-100">
-                                  {r.imei}
-                                </span>
-                                {selecionado ? (
-                                  <CheckCircle2 className="h-4 w-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
-                                ) : (
-                                  <span className="text-[9px] font-bold text-emerald-600 dark:text-emerald-400 uppercase">
-                                    Livre
-                                  </span>
-                                )}
-                              </div>
+                      <div className="rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/60 overflow-hidden shadow-2xs">
+                        {/* Cabeçalho da Listagem */}
+                        <div className="grid grid-cols-12 gap-2 px-3 py-2 bg-slate-100/90 dark:bg-slate-800/80 text-[10px] font-black uppercase tracking-wider text-slate-500 dark:text-slate-400 border-b border-slate-200 dark:border-slate-800">
+                          <div className="col-span-1 text-center">Sel.</div>
+                          <div className="col-span-4 sm:col-span-3">IMEI</div>
+                          <div className="col-span-3 sm:col-span-2">Modelo</div>
+                          <div className="col-span-4 sm:col-span-4">Chip / Linha M2M</div>
+                          <div className="hidden sm:block sm:col-span-2 text-right">Status</div>
+                        </div>
 
-                              <div className="text-[10px] text-slate-500 dark:text-slate-400 font-mono space-y-0.5">
-                                <div>Modelo: {r.modelo || "J16 4G"}</div>
-                                {r.linha && (
-                                  <div>
-                                    Chip: {r.operadora} ({r.linha})
-                                  </div>
-                                )}
-                              </div>
-                            </button>
-                          );
-                        })}
+                        {/* Linhas da Listagem */}
+                        <div className="max-h-52 overflow-y-auto divide-y divide-slate-100 dark:divide-slate-800/70">
+                          {rastreadoresFiltrados.map((r) => {
+                            const selecionado =
+                              rastreadorSelecionado?.rastreador_id === r.rastreador_id ||
+                              rastreadorSelecionado?.imei === r.imei;
+                            return (
+                              <button
+                                key={r.rastreador_id || r.imei}
+                                type="button"
+                                onClick={() => setRastreadorSelecionado(r)}
+                                className={`w-full grid grid-cols-12 gap-2 px-3 py-2.5 items-center text-left transition cursor-pointer ${
+                                  selecionado
+                                    ? "bg-emerald-500/15 border-l-4 border-l-emerald-600 text-slate-900 dark:text-emerald-100"
+                                    : "hover:bg-slate-100/80 dark:hover:bg-slate-800/60 text-slate-700 dark:text-slate-300"
+                                }`}
+                              >
+                                <div className="col-span-1 flex justify-center">
+                                  {selecionado ? (
+                                    <div className="h-4 w-4 rounded-full bg-emerald-600 dark:bg-emerald-500 flex items-center justify-center text-white shrink-0">
+                                      <Check className="h-2.5 w-2.5" />
+                                    </div>
+                                  ) : (
+                                    <div className="h-4 w-4 rounded-full border border-slate-300 dark:border-slate-600 shrink-0" />
+                                  )}
+                                </div>
+
+                                <div className="col-span-4 sm:col-span-3 font-mono font-bold text-xs text-slate-900 dark:text-slate-100 truncate">
+                                  {r.imei}
+                                </div>
+
+                                <div className="col-span-3 sm:col-span-2 text-[11px] font-medium text-slate-600 dark:text-slate-400 truncate">
+                                  {r.modelo || "G900L"}
+                                </div>
+
+                                <div className="col-span-4 sm:col-span-4 text-[11px] font-mono text-slate-600 dark:text-slate-400 truncate">
+                                  {r.linha ? (
+                                    <span>
+                                      {r.operadora || "Algar"} · {r.linha}
+                                    </span>
+                                  ) : (
+                                    <span className="text-slate-400">Sem chip</span>
+                                  )}
+                                </div>
+
+                                <div className="hidden sm:block sm:col-span-2 text-right">
+                                  <span
+                                    className={`inline-flex items-center px-2 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-wider ${
+                                      selecionado
+                                        ? "bg-emerald-600 text-white"
+                                        : "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30"
+                                    }`}
+                                  >
+                                    {selecionado ? "Selecionado" : "Disponível"}
+                                  </span>
+                                </div>
+                              </button>
+                            );
+                          })}
+                        </div>
                       </div>
                     )}
                   </div>

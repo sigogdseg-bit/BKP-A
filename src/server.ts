@@ -2814,6 +2814,22 @@ async function handleApiVeiculos(request: Request, env: unknown): Promise<Respon
   // POST /api/instalacoes/direta - Instalação Direta para SuperADM (veículos previamente instalados)
   if (request.method === "POST" && url.pathname === "/api/instalacoes/direta") {
     try {
+      const { supabaseUrl, supabaseAnonKey, serviceRoleKey } = getSupabaseServerParams(env);
+      const authHeader = request.headers.get("Authorization") || "";
+      const token = authHeader.replace(/^Bearer\s+/i, "").trim();
+      let callerUserId = "20789b1e-2a8c-44a4-aca2-a0b67061b675"; // SuperADM padrão
+      if (token) {
+        try {
+          const userClient = createClient(supabaseUrl, supabaseAnonKey, {
+            auth: { persistSession: false },
+          });
+          const { data: uData } = await userClient.auth.getUser(token);
+          if (uData?.user?.id) callerUserId = uData.user.id;
+        } catch {
+          // fallback silencioso
+        }
+      }
+
       const body = (await request.json()) as any;
       const {
         clienteId,
@@ -2970,11 +2986,11 @@ async function handleApiVeiculos(request: Request, env: unknown): Promise<Respon
           .eq("id", rastreadorAlvoId);
       }
 
-      // 4. Cria Ordem Concluída e Isenta de Repasse
+      // 4. Cria Ordem Concluída e Isenta de Repasse (status_pagamento 'pago' com valor R$ 0,00)
       const { data: instCriada, error: errInst } = await adminClient
         .from("instalacoes")
         .insert({
-          instalador_id: clienteId, // SuperADM direto
+          instalador_id: callerUserId,
           cliente_id: clienteId,
           veiculo_id: veiculoId,
           placa: placaLimpa,
@@ -2994,7 +3010,7 @@ async function handleApiVeiculos(request: Request, env: unknown): Promise<Respon
           status: "concluida",
           concluida_at: new Date().toISOString(),
           valor_instalacao: 0.0,
-          status_pagamento: "isento",
+          status_pagamento: "pago",
           kit_confirmado_instalador: true,
           kit_confirmado_em: new Date().toISOString(),
           imei_confirmado: imeiLimpo,
@@ -3025,7 +3041,7 @@ async function handleApiVeiculos(request: Request, env: unknown): Promise<Respon
       if (instCriada?.id) {
         await adminClient.from("instalacoes_historico_atendimentos").insert({
           instalacao_id: instCriada.id,
-          instalador_id: clienteId,
+          instalador_id: callerUserId,
           status_atendimento: "concluida",
           motivo: "Instalação direta (já instalado)",
           observacoes: "Ativação direta via SuperADM sem tramitação de instalador.",

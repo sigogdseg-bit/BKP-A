@@ -373,7 +373,36 @@ export async function registrarInstalacaoDireta(
     };
   }
 
-  // 1. Tenta primeiro via RPC PostgreSQL canônica registrar_instalacao_direta
+  // 1. Prioriza a rota de servidor autenticada /api/instalacoes/direta (Service Role / Imunidade a RLS)
+  try {
+    const { data: sessionData } = await supabase.auth.getSession();
+    const token = sessionData?.session?.access_token;
+
+    if (token && typeof window !== "undefined") {
+      try {
+        const resp = await fetch("/api/instalacoes/direta", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify(payload),
+        });
+        if (resp.ok) {
+          const json = await resp.json();
+          if (json?.success) {
+            return json;
+          }
+        }
+      } catch (errFetch) {
+        console.warn("Rota /api/instalacoes/direta falhou, tentando fallback RPC:", errFetch);
+      }
+    }
+  } catch (errSession) {
+    console.warn("Erro ao obter sessão para /api/instalacoes/direta:", errSession);
+  }
+
+  // 2. Fallback via RPC PostgreSQL canônica registrar_instalacao_direta
   try {
     const { data, error } = await supabase.rpc("registrar_instalacao_direta", {
       p_cliente_id: payload.clienteId,
@@ -445,34 +474,8 @@ export async function registrarInstalacaoDireta(
     );
   }
 
-  // 2. Fallback de alta disponibilidade via rota segura de servidor /api/instalacoes/direta
+  // 3. Fallback cliente direto autenticado
   try {
-    const { data: sessionData } = await supabase.auth.getSession();
-    const token = sessionData?.session?.access_token;
-    const userId = sessionData?.session?.user?.id;
-
-    if (token && typeof window !== "undefined") {
-      try {
-        const resp = await fetch("/api/instalacoes/direta", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-          body: JSON.stringify(payload),
-        });
-        if (resp.ok) {
-          const json = await resp.json();
-          if (json?.success) {
-            return json;
-          }
-        }
-      } catch (errFetch) {
-        console.warn("Fallback /api/instalacoes/direta falhou, tentando cliente direto:", errFetch);
-      }
-    }
-
-    // 3. Fallback cliente direto autenticado
     const placaLimpa = payload.placa.trim().toUpperCase();
     const imeiLimpo = payload.rastreadorImei.trim();
     const marcaModelo = `${payload.marca.trim()} ${payload.modelo.trim()}`.trim();
@@ -559,11 +562,15 @@ export async function registrarInstalacaoDireta(
         .eq("id", rastreadorId);
     }
 
-    // Cria ordem concluída e isenta
+    // Obtém identificador válido do usuário autenticado para instalador_id
+    const { data: authSess } = await supabase.auth.getSession();
+    const callerUserId = authSess?.session?.user?.id || "20789b1e-2a8c-44a4-aca2-a0b67061b675";
+
+    // Cria ordem concluída e isenta (status_pagamento 'pago' com valor R$ 0,00)
     const { data: instCriada, error: errInst } = await supabase
       .from("instalacoes")
       .insert({
-        instalador_id: userId || payload.clienteId,
+        instalador_id: callerUserId,
         cliente_id: payload.clienteId,
         veiculo_id: veiculoId,
         placa: placaLimpa,
@@ -583,7 +590,7 @@ export async function registrarInstalacaoDireta(
         status: "concluida" as any,
         concluida_at: new Date().toISOString(),
         valor_instalacao: 0.0,
-        status_pagamento: "isento" as any,
+        status_pagamento: "pago" as any,
         kit_confirmado_instalador: true,
         kit_confirmado_em: new Date().toISOString(),
         imei_confirmado: imeiLimpo,
@@ -600,15 +607,19 @@ export async function registrarInstalacaoDireta(
 
     if (errInst) throw errInst;
 
-    // Atualiza status do cliente
-    await supabase
-      .from("clientes")
-      .update({
-        status: "ativo",
-        status_agendamento: "concluido",
-        updated_at: new Date().toISOString(),
-      })
-      .eq("id", payload.clienteId);
+    // Atualiza status do cliente de forma resiliente contra recursão RLS
+    try {
+      await supabase
+        .from("clientes")
+        .update({
+          status: "ativo",
+          status_agendamento: "concluido",
+          updated_at: new Date().toISOString(),
+        })
+        .eq("id", payload.clienteId);
+    } catch (errCli) {
+      console.warn("Aviso ao atualizar status do cliente no fallback:", errCli);
+    }
 
     return {
       success: true,

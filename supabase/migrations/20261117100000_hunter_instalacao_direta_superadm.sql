@@ -293,7 +293,7 @@ BEGIN
     'concluida',
     NOW(),
     0.00,
-    'isento',
+    'pago',
     TRUE,
     NOW(),
     v_imei_limpo,
