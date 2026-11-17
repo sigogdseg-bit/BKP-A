@@ -820,6 +820,75 @@ export async function carregarClientesParaInstalacao(instaladorId?: string): Pro
     status_agendamento?: string;
   }[]
 > {
+  // 1. Tenta carregar via rota segura de servidor /api/clientes (Service Role, imune a recursão de RLS)
+  try {
+    const sess = await supabase.auth.getSession();
+    const token = sess.data.session?.access_token;
+    if (token && typeof window !== "undefined") {
+      const res = await fetch("/api/clientes", {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      if (res.ok) {
+        const json = await res.json();
+        if (json?.success && Array.isArray(json.clientes) && json.clientes.length > 0) {
+          let lista = json.clientes;
+          if (instaladorId) {
+            lista = lista.filter((c: any) => c.instalador_id === instaladorId);
+          }
+          return lista
+            .map((c: any) => ({
+              id: c.id,
+              nome: c.nome_razao_social || c.nome || "Cliente sem Nome",
+              documento: c.documento || undefined,
+              telefone: c.telefone || undefined,
+              status: c.status || "ativo",
+              status_agendamento: c.status_agendamento,
+            }))
+            .sort((a: any, b: any) => {
+              const aAguardando = a.status === "aguardando_instalacao" ? 0 : 1;
+              const bAguardando = b.status === "aguardando_instalacao" ? 0 : 1;
+              if (aAguardando !== bAguardando) return aAguardando - bAguardando;
+              return (a.nome || "").localeCompare(b.nome || "", "pt-BR");
+            });
+        }
+      }
+    }
+  } catch (errApi) {
+    console.warn("Rota /api/clientes indisponível, usando fallback:", errApi);
+  }
+
+  // 2. Fallback via RPC PostgreSQL instalador_obter_minhas_demandas
+  try {
+    const rpcResult = await obterDemandasInstaladorCompleto(instaladorId);
+    if (
+      rpcResult?.success &&
+      Array.isArray(rpcResult.agendamentos) &&
+      rpcResult.agendamentos.length > 0
+    ) {
+      return rpcResult.agendamentos
+        .map((c: any) => ({
+          id: c.id,
+          nome: c.nome_razao_social || c.nome || "Cliente sem Nome",
+          documento: c.documento || undefined,
+          telefone: c.telefone || undefined,
+          status: c.status || "aguardando_instalacao",
+          status_agendamento: c.status_agendamento,
+        }))
+        .sort((a: any, b: any) => {
+          const aAguardando = a.status === "aguardando_instalacao" ? 0 : 1;
+          const bAguardando = b.status === "aguardando_instalacao" ? 0 : 1;
+          if (aAguardando !== bAguardando) return aAguardando - bAguardando;
+          return (a.nome || "").localeCompare(b.nome || "", "pt-BR");
+        });
+    }
+  } catch {
+    // continua para consulta direta via SDK
+  }
+
+  // 3. Fallback final via consulta direta Supabase SDK
   try {
     let query = supabase
       .from("clientes")
@@ -831,11 +900,11 @@ export async function carregarClientesParaInstalacao(instaladorId?: string): Pro
     }
 
     const { data, error } = await query;
-    if (error || !data) return [];
+    if (error || !data || !Array.isArray(data)) return [];
     return data
       .map((c) => ({
         id: c.id,
-        nome: c.nome_razao_social,
+        nome: c.nome_razao_social || "Cliente sem Nome",
         documento: c.documento || undefined,
         telefone: c.telefone || undefined,
         status: c.status,

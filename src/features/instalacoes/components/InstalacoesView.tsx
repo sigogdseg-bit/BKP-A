@@ -2468,6 +2468,7 @@ export function InstalacoesView() {
         <ModalInstalacaoDireta
           aberto={modalInstalacaoDiretaAberto}
           clientePreSelecionadoId={clientePreSelecionadoId}
+          clientesIniciais={clientesAgendamento}
           onSalvo={() => {
             setModalInstalacaoDiretaAberto(false);
             setClientePreSelecionadoId(null);

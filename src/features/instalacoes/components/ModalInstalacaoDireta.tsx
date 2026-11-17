@@ -16,6 +16,7 @@ import {
   ArrowUpRight,
   ShieldCheck,
   Check,
+  Loader2,
 } from "lucide-react";
 import { useNavigate } from "@tanstack/react-router";
 import { toast } from "sonner";
@@ -33,6 +34,7 @@ import {
 interface ModalInstalacaoDiretaProps {
   aberto: boolean;
   clientePreSelecionadoId?: string | null;
+  clientesIniciais?: any[];
   onSalvo: () => void;
   onFechar: () => void;
 }
@@ -55,17 +57,34 @@ const TIPOS_VEICULO = [
 export function ModalInstalacaoDireta({
   aberto,
   clientePreSelecionadoId,
+  clientesIniciais,
   onSalvo,
   onFechar,
 }: ModalInstalacaoDiretaProps) {
   const { session } = useAuth();
   const navigate = useNavigate();
 
+  // Função auxiliar de normalização de cliente
+  const normalizarCliente = (c: any) => ({
+    id: c.id,
+    nome: c.nome || c.nome_razao_social || "Cliente sem Nome",
+    documento: c.documento || undefined,
+    telefone: c.telefone || undefined,
+    status: c.status || "ativo",
+  });
+
   // Estados de Clientes
   const [clientes, setClientes] = useState<
     { id: string; nome: string; documento?: string; telefone?: string; status: string }[]
-  >([]);
-  const [carregandoClientes, setCarregandoClientes] = useState(true);
+  >(() => {
+    if (Array.isArray(clientesIniciais) && clientesIniciais.length > 0) {
+      return clientesIniciais.map(normalizarCliente);
+    }
+    return [];
+  });
+  const [carregandoClientes, setCarregandoClientes] = useState(
+    () => !Array.isArray(clientesIniciais) || clientesIniciais.length === 0,
+  );
   const [buscaCliente, setBuscaCliente] = useState("");
   const [clienteSelecionado, setClienteSelecionado] = useState<{
     id: string;
@@ -73,7 +92,13 @@ export function ModalInstalacaoDireta({
     documento?: string;
     telefone?: string;
     status: string;
-  } | null>(null);
+  } | null>(() => {
+    if (clientePreSelecionadoId && Array.isArray(clientesIniciais)) {
+      const achado = clientesIniciais.find((c) => c.id === clientePreSelecionadoId);
+      if (achado) return normalizarCliente(achado);
+    }
+    return null;
+  });
 
   // Estados do Veículo
   const [tipoVeiculo, setTipoVeiculo] = useState("carro");
@@ -104,22 +129,34 @@ export function ModalInstalacaoDireta({
   const [observacoes, setObservacoes] = useState("");
   const [salvando, setSalvando] = useState(false);
 
-  // Carrega clientes
+  // Carrega clientes com fallback nos clientesIniciais
   const carregarClientes = useCallback(async () => {
-    setCarregandoClientes(true);
+    setCarregandoClientes((prev) => (clientes.length === 0 ? true : prev));
     try {
       const lista = await carregarClientesParaInstalacao();
-      setClientes(lista);
-      if (clientePreSelecionadoId) {
-        const achado = lista.find((c) => c.id === clientePreSelecionadoId);
-        if (achado) setClienteSelecionado(achado);
+      if (lista && lista.length > 0) {
+        setClientes(lista);
+        if (clientePreSelecionadoId) {
+          const achado = lista.find((c) => c.id === clientePreSelecionadoId);
+          if (achado) setClienteSelecionado(achado);
+        }
+      } else if (Array.isArray(clientesIniciais) && clientesIniciais.length > 0) {
+        const mapeados = clientesIniciais.map(normalizarCliente);
+        setClientes(mapeados);
+        if (clientePreSelecionadoId) {
+          const achado = mapeados.find((c) => c.id === clientePreSelecionadoId);
+          if (achado) setClienteSelecionado(achado);
+        }
       }
     } catch (err) {
       console.error("Erro ao carregar clientes para instalação direta:", err);
+      if (Array.isArray(clientesIniciais) && clientesIniciais.length > 0) {
+        setClientes(clientesIniciais.map(normalizarCliente));
+      }
     } finally {
       setCarregandoClientes(false);
     }
-  }, [clientePreSelecionadoId]);
+  }, [clientePreSelecionadoId, clientesIniciais, clientes.length]);
 
   // Carrega rastreadores disponíveis no estoque
   const carregarRastreadores = useCallback(async () => {
@@ -148,12 +185,18 @@ export function ModalInstalacaoDireta({
   const clientesFiltrados = useMemo(() => {
     const q = buscaCliente.trim().toLowerCase();
     if (!q) return clientes;
-    return clientes.filter(
-      (c) =>
-        c.nome.toLowerCase().includes(q) ||
-        (c.documento && c.documento.toLowerCase().includes(q)) ||
-        (c.telefone && c.telefone.includes(q)),
-    );
+    const qApenasDigitos = q.replace(/\D/g, "");
+    return clientes.filter((c) => {
+      const nomeStr = (c.nome || (c as any).nome_razao_social || "").toLowerCase();
+      const docStr = (c.documento || "").toLowerCase();
+      const telStr = (c.telefone || "").replace(/\D/g, "");
+      return (
+        nomeStr.includes(q) ||
+        docStr.includes(q) ||
+        (qApenasDigitos && telStr.includes(qApenasDigitos)) ||
+        (c.telefone && c.telefone.toLowerCase().includes(q))
+      );
+    });
   }, [clientes, buscaCliente]);
 
   // Filtro de rastreadores disponíveis
@@ -397,10 +440,17 @@ export function ModalInstalacaoDireta({
                       />
                     </div>
 
-                    <div className="max-h-40 overflow-y-auto space-y-1 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/60 p-1 divide-y divide-slate-100 dark:divide-slate-800">
-                      {clientesFiltrados.length === 0 ? (
-                        <div className="p-3 text-center text-xs text-slate-400">
-                          Nenhum cliente localizado com os termos digitados.
+                    <div className="max-h-48 overflow-y-auto space-y-1 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/60 p-1 divide-y divide-slate-100 dark:divide-slate-800">
+                      {carregandoClientes && clientes.length === 0 ? (
+                        <div className="p-4 text-center text-xs text-slate-400 flex items-center justify-center gap-2">
+                          <Loader2 className="h-4 w-4 animate-spin text-emerald-500" />
+                          <span>Carregando clientes cadastrados...</span>
+                        </div>
+                      ) : clientesFiltrados.length === 0 ? (
+                        <div className="p-4 text-center text-xs text-slate-400">
+                          {buscaCliente.trim()
+                            ? "Nenhum cliente localizado com os termos digitados."
+                            : "Nenhum cliente cadastrado no sistema."}
                         </div>
                       ) : (
                         clientesFiltrados.map((c) => (
@@ -411,7 +461,7 @@ export function ModalInstalacaoDireta({
                               setClienteSelecionado(c);
                               setBuscaCliente("");
                             }}
-                            className="w-full text-left p-2 rounded-lg hover:bg-emerald-500/10 hover:border-emerald-500/30 transition flex items-center justify-between gap-2 group cursor-pointer"
+                            className="w-full text-left p-2.5 rounded-lg hover:bg-emerald-500/10 hover:border-emerald-500/30 transition flex items-center justify-between gap-2 group cursor-pointer"
                           >
                             <div className="min-w-0">
                               <div className="font-bold text-xs text-slate-800 dark:text-slate-200 group-hover:text-emerald-500 truncate">

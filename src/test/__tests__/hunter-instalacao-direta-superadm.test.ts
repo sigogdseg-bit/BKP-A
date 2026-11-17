@@ -132,4 +132,33 @@ describe("Hunter — Instalação Direta para SuperADM (Veículos Já Instalados
       "ModalInstalacaoDireta não pode conter o caractere comercial em textos ou labels",
     );
   });
+
+  it("7. carregarClientesParaInstalacao e ModalInstalacaoDireta devem suportar fallback seguro e clientesIniciais", () => {
+    const servicePath = path.join(
+      rootDir,
+      "src/features/instalacoes/services/instalacaoService.ts",
+    );
+    const serviceContent = fs.readFileSync(servicePath, "utf-8");
+    assert.ok(
+      serviceContent.includes("/api/clientes"),
+      "carregarClientesParaInstalacao deve consultar /api/clientes para imunidade contra RLS",
+    );
+
+    const modalPath = path.join(
+      rootDir,
+      "src/features/instalacoes/components/ModalInstalacaoDireta.tsx",
+    );
+    const modalContent = fs.readFileSync(modalPath, "utf-8");
+    assert.ok(
+      modalContent.includes("clientesIniciais"),
+      "ModalInstalacaoDireta deve suportar a prop clientesIniciais",
+    );
+
+    const viewPath = path.join(rootDir, "src/features/instalacoes/components/InstalacoesView.tsx");
+    const viewContent = fs.readFileSync(viewPath, "utf-8");
+    assert.ok(
+      viewContent.includes("clientesIniciais={clientesAgendamento}"),
+      "InstalacoesView deve repassar clientesAgendamento como clientesIniciais ao ModalInstalacaoDireta",
+    );
+  });
 });
